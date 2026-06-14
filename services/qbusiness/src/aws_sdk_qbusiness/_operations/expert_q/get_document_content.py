@@ -95,53 +95,48 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_qbusiness.types.get_document_content_request.GetDocumentContentRequest,
+    input_: aws_sdk_qbusiness.types.get_document_content_request.GetDocumentContentRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            Region=options.region,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
+            Region=options.region, UseFIPS=options.use_fips, Endpoint=options.endpoint
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/applications/{applicationId}/index/{indexId}/documents/{documentId}/content"
     )
-    url = url.replace("{applicationId}", quote(str(input["application_id"]), safe=""))
-    url = url.replace("{indexId}", quote(str(input["index_id"]), safe=""))
-    url = url.replace("{documentId}", quote(str(input["document_id"]), safe=""))
+    url = url.replace("{applicationId}", quote(str(input_["application_id"]), safe=""))
+    url = url.replace("{indexId}", quote(str(input_["index_id"]), safe=""))
+    url = url.replace("{documentId}", quote(str(input_["document_id"]), safe=""))
     params: dict[str, str] = {}
-    if "data_source_id" in input:
-        params["dataSourceId"] = str(input["data_source_id"])
-    if "output_format" in input:
-        params["outputFormat"] = str(input["output_format"])
+    if "data_source_id" in input_:
+        params["dataSourceId"] = str(input_["data_source_id"])
+    if "output_format" in input_:
+        params["outputFormat"] = str(input_["output_format"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_document_content(
     options: OperationOptions,
-    input: aws_sdk_qbusiness.types.get_document_content_request.GetDocumentContentRequest,
+    input_: aws_sdk_qbusiness.types.get_document_content_request.GetDocumentContentRequest,
 ) -> tuple[
     aws_sdk_qbusiness.types.get_document_content_response.GetDocumentContentResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -150,16 +145,17 @@ def get_document_content(
 
 async def async_get_document_content(
     options: AsyncOperationOptions,
-    input: aws_sdk_qbusiness.types.get_document_content_request.GetDocumentContentRequest,
+    input_: aws_sdk_qbusiness.types.get_document_content_request.GetDocumentContentRequest,
 ) -> tuple[
     aws_sdk_qbusiness.types.get_document_content_response.GetDocumentContentResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -116,37 +116,37 @@ class Environment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["instance_type"] = instance_type
+        input_: aws_sdk_m2.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["instance_type"] = instance_type
         if description is not None:
-            input["description"] = description
-        input["engine_type"] = engine_type
+            input_["description"] = description
+        input_["engine_type"] = engine_type
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if storage_configurations is not None:
-            input["storage_configurations"] = storage_configurations
+            input_["storage_configurations"] = storage_configurations
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if high_availability_config is not None:
-            input["high_availability_config"] = high_availability_config
+            input_["high_availability_config"] = high_availability_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,11 +179,11 @@ class Environment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_m2.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -234,23 +234,23 @@ class Environment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_m2.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if desired_capacity is not None:
-            input["desired_capacity"] = desired_capacity
+            input_["desired_capacity"] = desired_capacity
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if apply_during_maintenance_window is not None:
-            input["apply_during_maintenance_window"] = apply_during_maintenance_window
+            input_["apply_during_maintenance_window"] = apply_during_maintenance_window
         if force_update is not None:
-            input["force_update"] = force_update
+            input_["force_update"] = force_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,11 +283,11 @@ class Environment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_m2.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,18 +326,18 @@ class Environment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if engine_type is not None:
-            input["engine_type"] = engine_type
+            input_["engine_type"] = engine_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,37 +416,37 @@ class AsyncEnvironment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["instance_type"] = instance_type
+        input_: aws_sdk_m2.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["instance_type"] = instance_type
         if description is not None:
-            input["description"] = description
-        input["engine_type"] = engine_type
+            input_["description"] = description
+        input_["engine_type"] = engine_type
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if storage_configurations is not None:
-            input["storage_configurations"] = storage_configurations
+            input_["storage_configurations"] = storage_configurations
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if high_availability_config is not None:
-            input["high_availability_config"] = high_availability_config
+            input_["high_availability_config"] = high_availability_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,11 +480,11 @@ class AsyncEnvironment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_m2.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -536,23 +536,23 @@ class AsyncEnvironment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_m2.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if desired_capacity is not None:
-            input["desired_capacity"] = desired_capacity
+            input_["desired_capacity"] = desired_capacity
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if apply_during_maintenance_window is not None:
-            input["apply_during_maintenance_window"] = apply_during_maintenance_window
+            input_["apply_during_maintenance_window"] = apply_during_maintenance_window
         if force_update is not None:
-            input["force_update"] = force_update
+            input_["force_update"] = force_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,11 +586,11 @@ class AsyncEnvironment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_m2.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,18 +630,18 @@ class AsyncEnvironment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if engine_type is not None:
-            input["engine_type"] = engine_type
+            input_["engine_type"] = engine_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

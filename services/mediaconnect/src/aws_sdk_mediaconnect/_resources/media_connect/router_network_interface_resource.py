@@ -81,18 +81,18 @@ class RouterNetworkInterfaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.create_router_network_interface_request.CreateRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["configuration"] = configuration
+        input_: aws_sdk_mediaconnect.types.create_router_network_interface_request.CreateRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["configuration"] = configuration
         if region_name is not None:
-            input["region_name"] = region_name
+            input_["region_name"] = region_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -125,11 +125,11 @@ class RouterNetworkInterfaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.get_router_network_interface_request.GetRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconnect.types.get_router_network_interface_request.GetRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,15 +168,15 @@ class RouterNetworkInterfaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_router_network_interface_request.UpdateRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconnect.types.update_router_network_interface_request.UpdateRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -209,11 +209,11 @@ class RouterNetworkInterfaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.delete_router_network_interface_request.DeleteRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconnect.types.delete_router_network_interface_request.DeleteRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,16 +252,16 @@ class RouterNetworkInterfaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_router_network_interfaces_request.ListRouterNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_router_network_interfaces_request.ListRouterNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,11 +294,11 @@ class RouterNetworkInterfaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.batch_get_router_network_interface_request.BatchGetRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["arns"] = arns
+        input_: aws_sdk_mediaconnect.types.batch_get_router_network_interface_request.BatchGetRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["arns"] = arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,18 +347,18 @@ class AsyncRouterNetworkInterfaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.create_router_network_interface_request.CreateRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["configuration"] = configuration
+        input_: aws_sdk_mediaconnect.types.create_router_network_interface_request.CreateRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["configuration"] = configuration
         if region_name is not None:
-            input["region_name"] = region_name
+            input_["region_name"] = region_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,11 +392,11 @@ class AsyncRouterNetworkInterfaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.get_router_network_interface_request.GetRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconnect.types.get_router_network_interface_request.GetRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,15 +436,15 @@ class AsyncRouterNetworkInterfaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_router_network_interface_request.UpdateRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconnect.types.update_router_network_interface_request.UpdateRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,11 +478,11 @@ class AsyncRouterNetworkInterfaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.delete_router_network_interface_request.DeleteRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconnect.types.delete_router_network_interface_request.DeleteRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,16 +522,16 @@ class AsyncRouterNetworkInterfaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_router_network_interfaces_request.ListRouterNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_router_network_interfaces_request.ListRouterNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,11 +565,11 @@ class AsyncRouterNetworkInterfaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.batch_get_router_network_interface_request.BatchGetRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["arns"] = arns
+        input_: aws_sdk_mediaconnect.types.batch_get_router_network_interface_request.BatchGetRouterNetworkInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["arns"] = arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

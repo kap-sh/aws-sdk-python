@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_cost_and_usage_report_service._auth._signers
+import aws_sdk_cost_and_usage_report_service._auth._sigv4
 from aws_sdk_cost_and_usage_report_service._auth._identity import Credentials
 from aws_sdk_cost_and_usage_report_service._auth._providers import (
     CredentialsProvider,
@@ -177,11 +179,11 @@ class CostandUsageReportServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_and_usage_report_service.types.delete_report_definition_request.DeleteReportDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["report_name"] = report_name
+        input_: aws_sdk_cost_and_usage_report_service.types.delete_report_definition_request.DeleteReportDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["report_name"] = report_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,14 +224,14 @@ class CostandUsageReportServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_and_usage_report_service.types.describe_report_definitions_request.DescribeReportDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_and_usage_report_service.types.describe_report_definitions_request.DescribeReportDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,11 +264,11 @@ class CostandUsageReportServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_and_usage_report_service.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["report_name"] = report_name
+        input_: aws_sdk_cost_and_usage_report_service.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["report_name"] = report_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -296,12 +298,12 @@ class CostandUsageReportServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_and_usage_report_service.types.modify_report_definition_request.ModifyReportDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["report_name"] = report_name
-        input["report_definition"] = report_definition
+        input_: aws_sdk_cost_and_usage_report_service.types.modify_report_definition_request.ModifyReportDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["report_name"] = report_name
+        input_["report_definition"] = report_definition
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,13 +346,13 @@ class CostandUsageReportServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_and_usage_report_service.types.put_report_definition_request.PutReportDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["report_definition"] = report_definition
+        input_: aws_sdk_cost_and_usage_report_service.types.put_report_definition_request.PutReportDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["report_definition"] = report_definition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,12 +387,12 @@ class CostandUsageReportServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_and_usage_report_service.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["report_name"] = report_name
-        input["tags"] = tags
+        input_: aws_sdk_cost_and_usage_report_service.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["report_name"] = report_name
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -425,12 +427,12 @@ class CostandUsageReportServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_and_usage_report_service.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["report_name"] = report_name
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cost_and_usage_report_service.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["report_name"] = report_name
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

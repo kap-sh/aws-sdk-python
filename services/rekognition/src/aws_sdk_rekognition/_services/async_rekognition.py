@@ -431,17 +431,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.associate_faces_request.AssociateFacesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["user_id"] = user_id
-        input["face_ids"] = face_ids
+        input_: aws_sdk_rekognition.types.associate_faces_request.AssociateFacesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["user_id"] = user_id
+        input_["face_ids"] = face_ids
         if user_match_threshold is not None:
-            input["user_match_threshold"] = user_match_threshold
+            input_["user_match_threshold"] = user_match_threshold
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -491,16 +491,16 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.compare_faces_request.CompareFacesRequest = {}  # type: ignore[typeddict-item]
-        input["source_image"] = source_image
-        input["target_image"] = target_image
+        input_: aws_sdk_rekognition.types.compare_faces_request.CompareFacesRequest = {}  # type: ignore[typeddict-item]
+        input_["source_image"] = source_image
+        input_["target_image"] = target_image
         if similarity_threshold is not None:
-            input["similarity_threshold"] = similarity_threshold
+            input_["similarity_threshold"] = similarity_threshold
         if quality_filter is not None:
-            input["quality_filter"] = quality_filter
+            input_["quality_filter"] = quality_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,19 +552,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.copy_project_version_request.CopyProjectVersionRequest = {}  # type: ignore[typeddict-item]
-        input["source_project_arn"] = source_project_arn
-        input["source_project_version_arn"] = source_project_version_arn
-        input["destination_project_arn"] = destination_project_arn
-        input["version_name"] = version_name
-        input["output_config"] = output_config
+        input_: aws_sdk_rekognition.types.copy_project_version_request.CopyProjectVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["source_project_arn"] = source_project_arn
+        input_["source_project_version_arn"] = source_project_version_arn
+        input_["destination_project_arn"] = destination_project_arn
+        input_["version_name"] = version_name
+        input_["output_config"] = output_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -608,13 +608,13 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.create_collection_request.CreateCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
+        input_: aws_sdk_rekognition.types.create_collection_request.CreateCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,16 +662,16 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rekognition.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
         if dataset_source is not None:
-            input["dataset_source"] = dataset_source
-        input["dataset_type"] = dataset_type
-        input["project_arn"] = project_arn
+            input_["dataset_source"] = dataset_source
+        input_["dataset_type"] = dataset_type
+        input_["project_arn"] = project_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -713,16 +713,16 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.create_face_liveness_session_request.CreateFaceLivenessSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rekognition.types.create_face_liveness_session_request.CreateFaceLivenessSessionRequest = {}  # type: ignore[typeddict-item]
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,17 +772,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.create_project_request.CreateProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_rekognition.types.create_project_request.CreateProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if feature is not None:
-            input["feature"] = feature
+            input_["feature"] = feature
         if auto_update is not None:
-            input["auto_update"] = auto_update
+            input_["auto_update"] = auto_update
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,25 +846,25 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.create_project_version_request.CreateProjectVersionRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["version_name"] = version_name
-        input["output_config"] = output_config
+        input_: aws_sdk_rekognition.types.create_project_version_request.CreateProjectVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["version_name"] = version_name
+        input_["output_config"] = output_config
         if training_data is not None:
-            input["training_data"] = training_data
+            input_["training_data"] = training_data
         if testing_data is not None:
-            input["testing_data"] = testing_data
+            input_["testing_data"] = testing_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if feature_config is not None:
-            input["feature_config"] = feature_config
+            input_["feature_config"] = feature_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -921,25 +921,25 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.create_stream_processor_request.CreateStreamProcessorRequest = {}  # type: ignore[typeddict-item]
-        input["input"] = input
-        input["output"] = output
-        input["name"] = name
-        input["settings"] = settings
-        input["role_arn"] = role_arn
+        input_: aws_sdk_rekognition.types.create_stream_processor_request.CreateStreamProcessorRequest = {}  # type: ignore[typeddict-item]
+        input_["input"] = input
+        input_["output"] = output
+        input_["name"] = name
+        input_["settings"] = settings
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if regions_of_interest is not None:
-            input["regions_of_interest"] = regions_of_interest
+            input_["regions_of_interest"] = regions_of_interest
         if data_sharing_preference is not None:
-            input["data_sharing_preference"] = data_sharing_preference
+            input_["data_sharing_preference"] = data_sharing_preference
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -985,14 +985,14 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["user_id"] = user_id
+        input_: aws_sdk_rekognition.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["user_id"] = user_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1034,11 +1034,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.delete_collection_request.DeleteCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
+        input_: aws_sdk_rekognition.types.delete_collection_request.DeleteCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1078,11 +1078,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
+        input_: aws_sdk_rekognition.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1124,12 +1124,12 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.delete_faces_request.DeleteFacesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["face_ids"] = face_ids
+        input_: aws_sdk_rekognition.types.delete_faces_request.DeleteFacesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["face_ids"] = face_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1169,11 +1169,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.delete_project_request.DeleteProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_rekognition.types.delete_project_request.DeleteProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1219,14 +1219,14 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.delete_project_policy_request.DeleteProjectPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["policy_name"] = policy_name
+        input_: aws_sdk_rekognition.types.delete_project_policy_request.DeleteProjectPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["policy_name"] = policy_name
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1266,11 +1266,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.delete_project_version_request.DeleteProjectVersionRequest = {}  # type: ignore[typeddict-item]
-        input["project_version_arn"] = project_version_arn
+        input_: aws_sdk_rekognition.types.delete_project_version_request.DeleteProjectVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["project_version_arn"] = project_version_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1304,11 +1304,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.delete_stream_processor_request.DeleteStreamProcessorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rekognition.types.delete_stream_processor_request.DeleteStreamProcessorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1354,14 +1354,14 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["user_id"] = user_id
+        input_: aws_sdk_rekognition.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["user_id"] = user_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1395,11 +1395,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.describe_collection_request.DescribeCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
+        input_: aws_sdk_rekognition.types.describe_collection_request.DescribeCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1433,11 +1433,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
+        input_: aws_sdk_rekognition.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,18 +1487,18 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.describe_projects_request.DescribeProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rekognition.types.describe_projects_request.DescribeProjectsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if project_names is not None:
-            input["project_names"] = project_names
+            input_["project_names"] = project_names
         if features is not None:
-            input["features"] = features
+            input_["features"] = features
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1577,17 +1577,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.describe_project_versions_request.DescribeProjectVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_rekognition.types.describe_project_versions_request.DescribeProjectVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if version_names is not None:
-            input["version_names"] = version_names
+            input_["version_names"] = version_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1652,11 +1652,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.describe_stream_processor_request.DescribeStreamProcessorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rekognition.types.describe_stream_processor_request.DescribeStreamProcessorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1701,16 +1701,16 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.detect_custom_labels_request.DetectCustomLabelsRequest = {}  # type: ignore[typeddict-item]
-        input["project_version_arn"] = project_version_arn
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.detect_custom_labels_request.DetectCustomLabelsRequest = {}  # type: ignore[typeddict-item]
+        input_["project_version_arn"] = project_version_arn
+        input_["image"] = image
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if min_confidence is not None:
-            input["min_confidence"] = min_confidence
+            input_["min_confidence"] = min_confidence
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1752,13 +1752,13 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.detect_faces_request.DetectFacesRequest = {}  # type: ignore[typeddict-item]
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.detect_faces_request.DetectFacesRequest = {}  # type: ignore[typeddict-item]
+        input_["image"] = image
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1810,19 +1810,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.detect_labels_request.DetectLabelsRequest = {}  # type: ignore[typeddict-item]
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.detect_labels_request.DetectLabelsRequest = {}  # type: ignore[typeddict-item]
+        input_["image"] = image
         if max_labels is not None:
-            input["max_labels"] = max_labels
+            input_["max_labels"] = max_labels
         if min_confidence is not None:
-            input["min_confidence"] = min_confidence
+            input_["min_confidence"] = min_confidence
         if features is not None:
-            input["features"] = features
+            input_["features"] = features
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1866,17 +1866,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.detect_moderation_labels_request.DetectModerationLabelsRequest = {}  # type: ignore[typeddict-item]
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.detect_moderation_labels_request.DetectModerationLabelsRequest = {}  # type: ignore[typeddict-item]
+        input_["image"] = image
         if min_confidence is not None:
-            input["min_confidence"] = min_confidence
+            input_["min_confidence"] = min_confidence
         if human_loop_config is not None:
-            input["human_loop_config"] = human_loop_config
+            input_["human_loop_config"] = human_loop_config
         if project_version is not None:
-            input["project_version"] = project_version
+            input_["project_version"] = project_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1914,13 +1914,13 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.detect_protective_equipment_request.DetectProtectiveEquipmentRequest = {}  # type: ignore[typeddict-item]
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.detect_protective_equipment_request.DetectProtectiveEquipmentRequest = {}  # type: ignore[typeddict-item]
+        input_["image"] = image
         if summarization_attributes is not None:
-            input["summarization_attributes"] = summarization_attributes
+            input_["summarization_attributes"] = summarization_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1958,13 +1958,13 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.detect_text_request.DetectTextRequest = {}  # type: ignore[typeddict-item]
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.detect_text_request.DetectTextRequest = {}  # type: ignore[typeddict-item]
+        input_["image"] = image
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2012,15 +2012,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.disassociate_faces_request.DisassociateFacesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["user_id"] = user_id
+        input_: aws_sdk_rekognition.types.disassociate_faces_request.DisassociateFacesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["user_id"] = user_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["face_ids"] = face_ids
+            input_["client_request_token"] = client_request_token
+        input_["face_ids"] = face_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2060,11 +2060,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.distribute_dataset_entries_request.DistributeDatasetEntriesRequest = {}  # type: ignore[typeddict-item]
-        input["datasets"] = datasets
+        input_: aws_sdk_rekognition.types.distribute_dataset_entries_request.DistributeDatasetEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_["datasets"] = datasets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2100,11 +2100,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_celebrity_info_request.GetCelebrityInfoRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_rekognition.types.get_celebrity_info_request.GetCelebrityInfoRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2150,17 +2150,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_celebrity_recognition_request.GetCelebrityRecognitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_celebrity_recognition_request.GetCelebrityRecognitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2210,19 +2210,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_content_moderation_request.GetContentModerationRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_content_moderation_request.GetContentModerationRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if aggregate_by is not None:
-            input["aggregate_by"] = aggregate_by
+            input_["aggregate_by"] = aggregate_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2266,15 +2266,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_face_detection_request.GetFaceDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_face_detection_request.GetFaceDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2308,11 +2308,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_face_liveness_session_results_request.GetFaceLivenessSessionResultsRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_rekognition.types.get_face_liveness_session_results_request.GetFaceLivenessSessionResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2358,17 +2358,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_face_search_request.GetFaceSearchRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_face_search_request.GetFaceSearchRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2418,19 +2418,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_label_detection_request.GetLabelDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_label_detection_request.GetLabelDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if aggregate_by is not None:
-            input["aggregate_by"] = aggregate_by
+            input_["aggregate_by"] = aggregate_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2464,11 +2464,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_media_analysis_job_request.GetMediaAnalysisJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_media_analysis_job_request.GetMediaAnalysisJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2514,17 +2514,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_person_tracking_request.GetPersonTrackingRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_person_tracking_request.GetPersonTrackingRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2566,15 +2566,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_segment_detection_request.GetSegmentDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_segment_detection_request.GetSegmentDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2618,15 +2618,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.get_text_detection_request.GetTextDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_rekognition.types.get_text_detection_request.GetTextDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2684,20 +2684,20 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.index_faces_request.IndexFacesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.index_faces_request.IndexFacesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["image"] = image
         if external_image_id is not None:
-            input["external_image_id"] = external_image_id
+            input_["external_image_id"] = external_image_id
         if detection_attributes is not None:
-            input["detection_attributes"] = detection_attributes
+            input_["detection_attributes"] = detection_attributes
         if max_faces is not None:
-            input["max_faces"] = max_faces
+            input_["max_faces"] = max_faces
         if quality_filter is not None:
-            input["quality_filter"] = quality_filter
+            input_["quality_filter"] = quality_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2741,14 +2741,14 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_collections_request.ListCollectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rekognition.types.list_collections_request.ListCollectionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2831,23 +2831,23 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_dataset_entries_request.ListDatasetEntriesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
+        input_: aws_sdk_rekognition.types.list_dataset_entries_request.ListDatasetEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
         if contains_labels is not None:
-            input["contains_labels"] = contains_labels
+            input_["contains_labels"] = contains_labels
         if labeled is not None:
-            input["labeled"] = labeled
+            input_["labeled"] = labeled
         if source_ref_contains is not None:
-            input["source_ref_contains"] = source_ref_contains
+            input_["source_ref_contains"] = source_ref_contains
         if has_errors is not None:
-            input["has_errors"] = has_errors
+            input_["has_errors"] = has_errors
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2934,15 +2934,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_dataset_labels_request.ListDatasetLabelsRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
+        input_: aws_sdk_rekognition.types.list_dataset_labels_request.ListDatasetLabelsRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3019,19 +3019,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_faces_request.ListFacesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
+        input_: aws_sdk_rekognition.types.list_faces_request.ListFacesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if face_ids is not None:
-            input["face_ids"] = face_ids
+            input_["face_ids"] = face_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3100,14 +3100,14 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_media_analysis_jobs_request.ListMediaAnalysisJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rekognition.types.list_media_analysis_jobs_request.ListMediaAnalysisJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3149,15 +3149,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_project_policies_request.ListProjectPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_rekognition.types.list_project_policies_request.ListProjectPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3224,14 +3224,14 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_stream_processors_request.ListStreamProcessorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rekognition.types.list_stream_processors_request.ListStreamProcessorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3265,11 +3265,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_rekognition.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3317,15 +3317,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
+        input_: aws_sdk_rekognition.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3402,15 +3402,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.put_project_policy_request.PutProjectPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["policy_name"] = policy_name
+        input_: aws_sdk_rekognition.types.put_project_policy_request.PutProjectPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["policy_name"] = policy_name
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
-        input["policy_document"] = policy_document
+            input_["policy_revision_id"] = policy_revision_id
+        input_["policy_document"] = policy_document
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3444,11 +3444,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.recognize_celebrities_request.RecognizeCelebritiesRequest = {}  # type: ignore[typeddict-item]
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.recognize_celebrities_request.RecognizeCelebritiesRequest = {}  # type: ignore[typeddict-item]
+        input_["image"] = image
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3496,16 +3496,16 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.search_faces_request.SearchFacesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["face_id"] = face_id
+        input_: aws_sdk_rekognition.types.search_faces_request.SearchFacesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["face_id"] = face_id
         if max_faces is not None:
-            input["max_faces"] = max_faces
+            input_["max_faces"] = max_faces
         if face_match_threshold is not None:
-            input["face_match_threshold"] = face_match_threshold
+            input_["face_match_threshold"] = face_match_threshold
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3557,18 +3557,18 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.search_faces_by_image_request.SearchFacesByImageRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.search_faces_by_image_request.SearchFacesByImageRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["image"] = image
         if max_faces is not None:
-            input["max_faces"] = max_faces
+            input_["max_faces"] = max_faces
         if face_match_threshold is not None:
-            input["face_match_threshold"] = face_match_threshold
+            input_["face_match_threshold"] = face_match_threshold
         if quality_filter is not None:
-            input["quality_filter"] = quality_filter
+            input_["quality_filter"] = quality_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3620,19 +3620,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.search_users_request.SearchUsersRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
+        input_: aws_sdk_rekognition.types.search_users_request.SearchUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if face_id is not None:
-            input["face_id"] = face_id
+            input_["face_id"] = face_id
         if user_match_threshold is not None:
-            input["user_match_threshold"] = user_match_threshold
+            input_["user_match_threshold"] = user_match_threshold
         if max_users is not None:
-            input["max_users"] = max_users
+            input_["max_users"] = max_users
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3685,18 +3685,18 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.search_users_by_image_request.SearchUsersByImageRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
-        input["image"] = image
+        input_: aws_sdk_rekognition.types.search_users_by_image_request.SearchUsersByImageRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
+        input_["image"] = image
         if user_match_threshold is not None:
-            input["user_match_threshold"] = user_match_threshold
+            input_["user_match_threshold"] = user_match_threshold
         if max_users is not None:
-            input["max_users"] = max_users
+            input_["max_users"] = max_users
         if quality_filter is not None:
-            input["quality_filter"] = quality_filter
+            input_["quality_filter"] = quality_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3740,17 +3740,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_celebrity_recognition_request.StartCelebrityRecognitionRequest = {}  # type: ignore[typeddict-item]
-        input["video"] = video
+        input_: aws_sdk_rekognition.types.start_celebrity_recognition_request.StartCelebrityRecognitionRequest = {}  # type: ignore[typeddict-item]
+        input_["video"] = video
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3796,19 +3796,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_content_moderation_request.StartContentModerationRequest = {}  # type: ignore[typeddict-item]
-        input["video"] = video
+        input_: aws_sdk_rekognition.types.start_content_moderation_request.StartContentModerationRequest = {}  # type: ignore[typeddict-item]
+        input_["video"] = video
         if min_confidence is not None:
-            input["min_confidence"] = min_confidence
+            input_["min_confidence"] = min_confidence
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3856,19 +3856,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_face_detection_request.StartFaceDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["video"] = video
+        input_: aws_sdk_rekognition.types.start_face_detection_request.StartFaceDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["video"] = video
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if face_attributes is not None:
-            input["face_attributes"] = face_attributes
+            input_["face_attributes"] = face_attributes
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3918,20 +3918,20 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_face_search_request.StartFaceSearchRequest = {}  # type: ignore[typeddict-item]
-        input["video"] = video
+        input_: aws_sdk_rekognition.types.start_face_search_request.StartFaceSearchRequest = {}  # type: ignore[typeddict-item]
+        input_["video"] = video
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if face_match_threshold is not None:
-            input["face_match_threshold"] = face_match_threshold
-        input["collection_id"] = collection_id
+            input_["face_match_threshold"] = face_match_threshold
+        input_["collection_id"] = collection_id
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3985,23 +3985,23 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_label_detection_request.StartLabelDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["video"] = video
+        input_: aws_sdk_rekognition.types.start_label_detection_request.StartLabelDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["video"] = video
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if min_confidence is not None:
-            input["min_confidence"] = min_confidence
+            input_["min_confidence"] = min_confidence
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
         if features is not None:
-            input["features"] = features
+            input_["features"] = features
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4055,19 +4055,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_media_analysis_job_request.StartMediaAnalysisJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rekognition.types.start_media_analysis_job_request.StartMediaAnalysisJobRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if job_name is not None:
-            input["job_name"] = job_name
-        input["operations_config"] = operations_config
-        input["input"] = input
-        input["output_config"] = output_config
+            input_["job_name"] = job_name
+        input_["operations_config"] = operations_config
+        input_["input"] = input
+        input_["output_config"] = output_config
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4111,17 +4111,17 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_person_tracking_request.StartPersonTrackingRequest = {}  # type: ignore[typeddict-item]
-        input["video"] = video
+        input_: aws_sdk_rekognition.types.start_person_tracking_request.StartPersonTrackingRequest = {}  # type: ignore[typeddict-item]
+        input_["video"] = video
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4167,14 +4167,14 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_project_version_request.StartProjectVersionRequest = {}  # type: ignore[typeddict-item]
-        input["project_version_arn"] = project_version_arn
-        input["min_inference_units"] = min_inference_units
+        input_: aws_sdk_rekognition.types.start_project_version_request.StartProjectVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["project_version_arn"] = project_version_arn
+        input_["min_inference_units"] = min_inference_units
         if max_inference_units is not None:
-            input["max_inference_units"] = max_inference_units
+            input_["max_inference_units"] = max_inference_units
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4223,20 +4223,20 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_segment_detection_request.StartSegmentDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["video"] = video
+        input_: aws_sdk_rekognition.types.start_segment_detection_request.StartSegmentDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["video"] = video
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
         if filters is not None:
-            input["filters"] = filters
-        input["segment_types"] = segment_types
+            input_["filters"] = filters
+        input_["segment_types"] = segment_types
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4278,15 +4278,15 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_stream_processor_request.StartStreamProcessorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rekognition.types.start_stream_processor_request.StartStreamProcessorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if start_selector is not None:
-            input["start_selector"] = start_selector
+            input_["start_selector"] = start_selector
         if stop_selector is not None:
-            input["stop_selector"] = stop_selector
+            input_["stop_selector"] = stop_selector
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4332,19 +4332,19 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.start_text_detection_request.StartTextDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["video"] = video
+        input_: aws_sdk_rekognition.types.start_text_detection_request.StartTextDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["video"] = video
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4384,11 +4384,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.stop_project_version_request.StopProjectVersionRequest = {}  # type: ignore[typeddict-item]
-        input["project_version_arn"] = project_version_arn
+        input_: aws_sdk_rekognition.types.stop_project_version_request.StopProjectVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["project_version_arn"] = project_version_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4422,11 +4422,11 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.stop_stream_processor_request.StopStreamProcessorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rekognition.types.stop_stream_processor_request.StopStreamProcessorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4462,12 +4462,12 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_rekognition.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4503,12 +4503,12 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_rekognition.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4550,12 +4550,12 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.update_dataset_entries_request.UpdateDatasetEntriesRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
-        input["changes"] = changes
+        input_: aws_sdk_rekognition.types.update_dataset_entries_request.UpdateDatasetEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
+        input_["changes"] = changes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4605,21 +4605,21 @@ class AsyncRekognitionClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rekognition.types.update_stream_processor_request.UpdateStreamProcessorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rekognition.types.update_stream_processor_request.UpdateStreamProcessorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if settings_for_update is not None:
-            input["settings_for_update"] = settings_for_update
+            input_["settings_for_update"] = settings_for_update
         if regions_of_interest_for_update is not None:
-            input["regions_of_interest_for_update"] = regions_of_interest_for_update
+            input_["regions_of_interest_for_update"] = regions_of_interest_for_update
         if data_sharing_preference_for_update is not None:
-            input["data_sharing_preference_for_update"] = (
+            input_["data_sharing_preference_for_update"] = (
                 data_sharing_preference_for_update
             )
         if parameters_to_delete is not None:
-            input["parameters_to_delete"] = parameters_to_delete
+            input_["parameters_to_delete"] = parameters_to_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

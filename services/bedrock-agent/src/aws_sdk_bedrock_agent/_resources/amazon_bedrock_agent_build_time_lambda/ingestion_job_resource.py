@@ -75,13 +75,13 @@ class IngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_ingestion_job_request.GetIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
-        input["ingestion_job_id"] = ingestion_job_id
+        input_: aws_sdk_bedrock_agent.types.get_ingestion_job_request.GetIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
+        input_["ingestion_job_id"] = ingestion_job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -130,20 +130,20 @@ class IngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_ingestion_jobs_request.ListIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.list_ingestion_jobs_request.ListIngestionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -186,16 +186,16 @@ class IngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.start_ingestion_job_request.StartIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.start_ingestion_job_request.StartIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,13 +232,13 @@ class IngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.stop_ingestion_job_request.StopIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
-        input["ingestion_job_id"] = ingestion_job_id
+        input_: aws_sdk_bedrock_agent.types.stop_ingestion_job_request.StopIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
+        input_["ingestion_job_id"] = ingestion_job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,13 +283,13 @@ class AsyncIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_ingestion_job_request.GetIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
-        input["ingestion_job_id"] = ingestion_job_id
+        input_: aws_sdk_bedrock_agent.types.get_ingestion_job_request.GetIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
+        input_["ingestion_job_id"] = ingestion_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,20 +339,20 @@ class AsyncIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_ingestion_jobs_request.ListIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.list_ingestion_jobs_request.ListIngestionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,16 +396,16 @@ class AsyncIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.start_ingestion_job_request.StartIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.start_ingestion_job_request.StartIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,13 +443,13 @@ class AsyncIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.stop_ingestion_job_request.StopIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
-        input["ingestion_job_id"] = ingestion_job_id
+        input_: aws_sdk_bedrock_agent.types.stop_ingestion_job_request.StopIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
+        input_["ingestion_job_id"] = ingestion_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

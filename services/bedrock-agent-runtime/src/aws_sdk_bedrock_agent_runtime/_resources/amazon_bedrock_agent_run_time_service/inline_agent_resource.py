@@ -149,51 +149,51 @@ class InlineAgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest = {}  # type: ignore[typeddict-item]
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
-        input["foundation_model"] = foundation_model
-        input["instruction"] = instruction
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
+        input_["foundation_model"] = foundation_model
+        input_["instruction"] = instruction
         if idle_session_ttl_in_seconds is not None:
-            input["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
+            input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         if action_groups is not None:
-            input["action_groups"] = action_groups
+            input_["action_groups"] = action_groups
         if knowledge_bases is not None:
-            input["knowledge_bases"] = knowledge_bases
+            input_["knowledge_bases"] = knowledge_bases
         if guardrail_configuration is not None:
-            input["guardrail_configuration"] = guardrail_configuration
+            input_["guardrail_configuration"] = guardrail_configuration
         if prompt_override_configuration is not None:
-            input["prompt_override_configuration"] = prompt_override_configuration
+            input_["prompt_override_configuration"] = prompt_override_configuration
         if agent_collaboration is not None:
-            input["agent_collaboration"] = agent_collaboration
+            input_["agent_collaboration"] = agent_collaboration
         if collaborator_configurations is not None:
-            input["collaborator_configurations"] = collaborator_configurations
+            input_["collaborator_configurations"] = collaborator_configurations
         if agent_name is not None:
-            input["agent_name"] = agent_name
-        input["session_id"] = session_id
+            input_["agent_name"] = agent_name
+        input_["session_id"] = session_id
         if end_session is not None:
-            input["end_session"] = end_session
+            input_["end_session"] = end_session
         if enable_trace is not None:
-            input["enable_trace"] = enable_trace
+            input_["enable_trace"] = enable_trace
         if input_text is not None:
-            input["input_text"] = input_text
+            input_["input_text"] = input_text
         if streaming_configurations is not None:
-            input["streaming_configurations"] = streaming_configurations
+            input_["streaming_configurations"] = streaming_configurations
         if prompt_creation_configurations is not None:
-            input["prompt_creation_configurations"] = prompt_creation_configurations
+            input_["prompt_creation_configurations"] = prompt_creation_configurations
         if inline_session_state is not None:
-            input["inline_session_state"] = inline_session_state
+            input_["inline_session_state"] = inline_session_state
         if collaborators is not None:
-            input["collaborators"] = collaborators
+            input_["collaborators"] = collaborators
         if bedrock_model_configurations is not None:
-            input["bedrock_model_configurations"] = bedrock_model_configurations
+            input_["bedrock_model_configurations"] = bedrock_model_configurations
         if orchestration_type is not None:
-            input["orchestration_type"] = orchestration_type
+            input_["orchestration_type"] = orchestration_type
         if custom_orchestration is not None:
-            input["custom_orchestration"] = custom_orchestration
+            input_["custom_orchestration"] = custom_orchestration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,51 +306,51 @@ class AsyncInlineAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.invoke_inline_agent_request.InvokeInlineAgentRequest = {}  # type: ignore[typeddict-item]
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
-        input["foundation_model"] = foundation_model
-        input["instruction"] = instruction
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
+        input_["foundation_model"] = foundation_model
+        input_["instruction"] = instruction
         if idle_session_ttl_in_seconds is not None:
-            input["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
+            input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         if action_groups is not None:
-            input["action_groups"] = action_groups
+            input_["action_groups"] = action_groups
         if knowledge_bases is not None:
-            input["knowledge_bases"] = knowledge_bases
+            input_["knowledge_bases"] = knowledge_bases
         if guardrail_configuration is not None:
-            input["guardrail_configuration"] = guardrail_configuration
+            input_["guardrail_configuration"] = guardrail_configuration
         if prompt_override_configuration is not None:
-            input["prompt_override_configuration"] = prompt_override_configuration
+            input_["prompt_override_configuration"] = prompt_override_configuration
         if agent_collaboration is not None:
-            input["agent_collaboration"] = agent_collaboration
+            input_["agent_collaboration"] = agent_collaboration
         if collaborator_configurations is not None:
-            input["collaborator_configurations"] = collaborator_configurations
+            input_["collaborator_configurations"] = collaborator_configurations
         if agent_name is not None:
-            input["agent_name"] = agent_name
-        input["session_id"] = session_id
+            input_["agent_name"] = agent_name
+        input_["session_id"] = session_id
         if end_session is not None:
-            input["end_session"] = end_session
+            input_["end_session"] = end_session
         if enable_trace is not None:
-            input["enable_trace"] = enable_trace
+            input_["enable_trace"] = enable_trace
         if input_text is not None:
-            input["input_text"] = input_text
+            input_["input_text"] = input_text
         if streaming_configurations is not None:
-            input["streaming_configurations"] = streaming_configurations
+            input_["streaming_configurations"] = streaming_configurations
         if prompt_creation_configurations is not None:
-            input["prompt_creation_configurations"] = prompt_creation_configurations
+            input_["prompt_creation_configurations"] = prompt_creation_configurations
         if inline_session_state is not None:
-            input["inline_session_state"] = inline_session_state
+            input_["inline_session_state"] = inline_session_state
         if collaborators is not None:
-            input["collaborators"] = collaborators
+            input_["collaborators"] = collaborators
         if bedrock_model_configurations is not None:
-            input["bedrock_model_configurations"] = bedrock_model_configurations
+            input_["bedrock_model_configurations"] = bedrock_model_configurations
         if orchestration_type is not None:
-            input["orchestration_type"] = orchestration_type
+            input_["orchestration_type"] = orchestration_type
         if custom_orchestration is not None:
-            input["custom_orchestration"] = custom_orchestration
+            input_["custom_orchestration"] = custom_orchestration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

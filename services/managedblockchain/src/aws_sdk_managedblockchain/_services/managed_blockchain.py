@@ -249,16 +249,16 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.create_accessor_input.CreateAccessorInput = {}  # type: ignore[typeddict-item]
-        input["client_request_token"] = client_request_token
-        input["accessor_type"] = accessor_type
+        input_: aws_sdk_managedblockchain.types.create_accessor_input.CreateAccessorInput = {}  # type: ignore[typeddict-item]
+        input_["client_request_token"] = client_request_token
+        input_["accessor_type"] = accessor_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,14 +297,14 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.create_member_input.CreateMemberInput = {}  # type: ignore[typeddict-item]
-        input["client_request_token"] = client_request_token
-        input["invitation_id"] = invitation_id
-        input["network_id"] = network_id
-        input["member_configuration"] = member_configuration
+        input_: aws_sdk_managedblockchain.types.create_member_input.CreateMemberInput = {}  # type: ignore[typeddict-item]
+        input_["client_request_token"] = client_request_token
+        input_["invitation_id"] = invitation_id
+        input_["network_id"] = network_id
+        input_["member_configuration"] = member_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,22 +359,22 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.create_network_input.CreateNetworkInput = {}  # type: ignore[typeddict-item]
-        input["client_request_token"] = client_request_token
-        input["name"] = name
+        input_: aws_sdk_managedblockchain.types.create_network_input.CreateNetworkInput = {}  # type: ignore[typeddict-item]
+        input_["client_request_token"] = client_request_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["framework"] = framework
-        input["framework_version"] = framework_version
+            input_["description"] = description
+        input_["framework"] = framework
+        input_["framework_version"] = framework_version
         if framework_configuration is not None:
-            input["framework_configuration"] = framework_configuration
-        input["voting_policy"] = voting_policy
-        input["member_configuration"] = member_configuration
+            input_["framework_configuration"] = framework_configuration
+        input_["voting_policy"] = voting_policy
+        input_["member_configuration"] = member_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,17 +419,17 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.create_node_input.CreateNodeInput = {}  # type: ignore[typeddict-item]
-        input["client_request_token"] = client_request_token
-        input["network_id"] = network_id
+        input_: aws_sdk_managedblockchain.types.create_node_input.CreateNodeInput = {}  # type: ignore[typeddict-item]
+        input_["client_request_token"] = client_request_token
+        input_["network_id"] = network_id
         if member_id is not None:
-            input["member_id"] = member_id
-        input["node_configuration"] = node_configuration
+            input_["member_id"] = member_id
+        input_["node_configuration"] = node_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,18 +476,18 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.create_proposal_input.CreateProposalInput = {}  # type: ignore[typeddict-item]
-        input["client_request_token"] = client_request_token
-        input["network_id"] = network_id
-        input["member_id"] = member_id
-        input["actions"] = actions
+        input_: aws_sdk_managedblockchain.types.create_proposal_input.CreateProposalInput = {}  # type: ignore[typeddict-item]
+        input_["client_request_token"] = client_request_token
+        input_["network_id"] = network_id
+        input_["member_id"] = member_id
+        input_["actions"] = actions
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,11 +520,11 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.delete_accessor_input.DeleteAccessorInput = {}  # type: ignore[typeddict-item]
-        input["accessor_id"] = accessor_id
+        input_: aws_sdk_managedblockchain.types.delete_accessor_input.DeleteAccessorInput = {}  # type: ignore[typeddict-item]
+        input_["accessor_id"] = accessor_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,12 +559,12 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.delete_member_input.DeleteMemberInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
-        input["member_id"] = member_id
+        input_: aws_sdk_managedblockchain.types.delete_member_input.DeleteMemberInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
+        input_["member_id"] = member_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,14 +603,14 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.delete_node_input.DeleteNodeInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_managedblockchain.types.delete_node_input.DeleteNodeInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
         if member_id is not None:
-            input["member_id"] = member_id
-        input["node_id"] = node_id
+            input_["member_id"] = member_id
+        input_["node_id"] = node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -643,11 +643,11 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.get_accessor_input.GetAccessorInput = {}  # type: ignore[typeddict-item]
-        input["accessor_id"] = accessor_id
+        input_: aws_sdk_managedblockchain.types.get_accessor_input.GetAccessorInput = {}  # type: ignore[typeddict-item]
+        input_["accessor_id"] = accessor_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -682,12 +682,12 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.get_member_input.GetMemberInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
-        input["member_id"] = member_id
+        input_: aws_sdk_managedblockchain.types.get_member_input.GetMemberInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
+        input_["member_id"] = member_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -720,11 +720,11 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.get_network_input.GetNetworkInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_managedblockchain.types.get_network_input.GetNetworkInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,14 +763,14 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.get_node_input.GetNodeInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_managedblockchain.types.get_node_input.GetNodeInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
         if member_id is not None:
-            input["member_id"] = member_id
-        input["node_id"] = node_id
+            input_["member_id"] = member_id
+        input_["node_id"] = node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -805,12 +805,12 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.get_proposal_input.GetProposalInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
-        input["proposal_id"] = proposal_id
+        input_: aws_sdk_managedblockchain.types.get_proposal_input.GetProposalInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
+        input_["proposal_id"] = proposal_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -853,16 +853,16 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.list_accessors_input.ListAccessorsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_managedblockchain.types.list_accessors_input.ListAccessorsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -932,14 +932,14 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.list_invitations_input.ListInvitationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_managedblockchain.types.list_invitations_input.ListInvitationsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -988,21 +988,21 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.list_members_input.ListMembersInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_managedblockchain.types.list_members_input.ListMembersInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if is_owned is not None:
-            input["is_owned"] = is_owned
+            input_["is_owned"] = is_owned
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1051,20 +1051,20 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.list_networks_input.ListNetworksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_managedblockchain.types.list_networks_input.ListNetworksInput = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if framework is not None:
-            input["framework"] = framework
+            input_["framework"] = framework
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1113,19 +1113,19 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.list_nodes_input.ListNodesInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_managedblockchain.types.list_nodes_input.ListNodesInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
         if member_id is not None:
-            input["member_id"] = member_id
+            input_["member_id"] = member_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1166,15 +1166,15 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.list_proposals_input.ListProposalsInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_managedblockchain.types.list_proposals_input.ListProposalsInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1217,16 +1217,16 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.list_proposal_votes_input.ListProposalVotesInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
-        input["proposal_id"] = proposal_id
+        input_: aws_sdk_managedblockchain.types.list_proposal_votes_input.ListProposalVotesInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
+        input_["proposal_id"] = proposal_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1259,11 +1259,11 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_managedblockchain.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1296,11 +1296,11 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.reject_invitation_input.RejectInvitationInput = {}  # type: ignore[typeddict-item]
-        input["invitation_id"] = invitation_id
+        input_: aws_sdk_managedblockchain.types.reject_invitation_input.RejectInvitationInput = {}  # type: ignore[typeddict-item]
+        input_["invitation_id"] = invitation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1335,12 +1335,12 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_managedblockchain.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1377,12 +1377,12 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_managedblockchain.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1421,14 +1421,14 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.update_member_input.UpdateMemberInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
-        input["member_id"] = member_id
+        input_: aws_sdk_managedblockchain.types.update_member_input.UpdateMemberInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
+        input_["member_id"] = member_id
         if log_publishing_configuration is not None:
-            input["log_publishing_configuration"] = log_publishing_configuration
+            input_["log_publishing_configuration"] = log_publishing_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1471,16 +1471,16 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.update_node_input.UpdateNodeInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_managedblockchain.types.update_node_input.UpdateNodeInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
         if member_id is not None:
-            input["member_id"] = member_id
-        input["node_id"] = node_id
+            input_["member_id"] = member_id
+        input_["node_id"] = node_id
         if log_publishing_configuration is not None:
-            input["log_publishing_configuration"] = log_publishing_configuration
+            input_["log_publishing_configuration"] = log_publishing_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1519,14 +1519,14 @@ class ManagedBlockchainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain.types.vote_on_proposal_input.VoteOnProposalInput = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
-        input["proposal_id"] = proposal_id
-        input["voter_member_id"] = voter_member_id
-        input["vote"] = vote
+        input_: aws_sdk_managedblockchain.types.vote_on_proposal_input.VoteOnProposalInput = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
+        input_["proposal_id"] = proposal_id
+        input_["voter_member_id"] = voter_member_id
+        input_["vote"] = vote
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

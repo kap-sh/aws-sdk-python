@@ -110,11 +110,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.upload_part_request.UploadPartRequest,
+    input_: aws_sdk_s3.types.upload_part_request.UploadPartRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -123,7 +123,7 @@ def build_request(
             Accelerate=options.accelerate,
             UseGlobalEndpoint=options.use_global_endpoint,
             UseObjectLambdaEndpoint=options.use_object_lambda_endpoint,
-            Key=input.get("key"),
+            Key=input_.get("key"),
             Prefix=options.prefix,
             CopySource=options.copy_source,
             DisableAccessPoints=options.disable_access_points,
@@ -134,57 +134,57 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=UploadPart"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
-    url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
+    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
     params: dict[str, str] = {}
-    if "part_number" in input:
-        params["partNumber"] = str(input["part_number"])
-    if "upload_id" in input:
-        params["uploadId"] = str(input["upload_id"])
+    if "part_number" in input_:
+        params["partNumber"] = str(input_["part_number"])
+    if "upload_id" in input_:
+        params["uploadId"] = str(input_["upload_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "content_length" in input:
-        headers["Content-Length"] = str(input["content_length"])
-    if "content_md5" in input:
-        headers["Content-MD5"] = str(input["content_md5"])
-    if "checksum_algorithm" in input:
-        headers["x-amz-sdk-checksum-algorithm"] = str(input["checksum_algorithm"])
-    if "checksum_crc32" in input:
-        headers["x-amz-checksum-crc32"] = str(input["checksum_crc32"])
-    if "checksum_crc32_c" in input:
-        headers["x-amz-checksum-crc32c"] = str(input["checksum_crc32_c"])
-    if "checksum_crc64_nvme" in input:
-        headers["x-amz-checksum-crc64nvme"] = str(input["checksum_crc64_nvme"])
-    if "checksum_sha1" in input:
-        headers["x-amz-checksum-sha1"] = str(input["checksum_sha1"])
-    if "checksum_sha256" in input:
-        headers["x-amz-checksum-sha256"] = str(input["checksum_sha256"])
-    if "checksum_sha512" in input:
-        headers["x-amz-checksum-sha512"] = str(input["checksum_sha512"])
-    if "checksum_md5" in input:
-        headers["x-amz-checksum-md5"] = str(input["checksum_md5"])
-    if "checksum_xxhash64" in input:
-        headers["x-amz-checksum-xxhash64"] = str(input["checksum_xxhash64"])
-    if "checksum_xxhash3" in input:
-        headers["x-amz-checksum-xxhash3"] = str(input["checksum_xxhash3"])
-    if "checksum_xxhash128" in input:
-        headers["x-amz-checksum-xxhash128"] = str(input["checksum_xxhash128"])
-    if "sse_customer_algorithm" in input:
+    if "content_length" in input_:
+        headers["Content-Length"] = str(input_["content_length"])
+    if "content_md5" in input_:
+        headers["Content-MD5"] = str(input_["content_md5"])
+    if "checksum_algorithm" in input_:
+        headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
+    if "checksum_crc32" in input_:
+        headers["x-amz-checksum-crc32"] = str(input_["checksum_crc32"])
+    if "checksum_crc32_c" in input_:
+        headers["x-amz-checksum-crc32c"] = str(input_["checksum_crc32_c"])
+    if "checksum_crc64_nvme" in input_:
+        headers["x-amz-checksum-crc64nvme"] = str(input_["checksum_crc64_nvme"])
+    if "checksum_sha1" in input_:
+        headers["x-amz-checksum-sha1"] = str(input_["checksum_sha1"])
+    if "checksum_sha256" in input_:
+        headers["x-amz-checksum-sha256"] = str(input_["checksum_sha256"])
+    if "checksum_sha512" in input_:
+        headers["x-amz-checksum-sha512"] = str(input_["checksum_sha512"])
+    if "checksum_md5" in input_:
+        headers["x-amz-checksum-md5"] = str(input_["checksum_md5"])
+    if "checksum_xxhash64" in input_:
+        headers["x-amz-checksum-xxhash64"] = str(input_["checksum_xxhash64"])
+    if "checksum_xxhash3" in input_:
+        headers["x-amz-checksum-xxhash3"] = str(input_["checksum_xxhash3"])
+    if "checksum_xxhash128" in input_:
+        headers["x-amz-checksum-xxhash128"] = str(input_["checksum_xxhash128"])
+    if "sse_customer_algorithm" in input_:
         headers["x-amz-server-side-encryption-customer-algorithm"] = str(
-            input["sse_customer_algorithm"]
+            input_["sse_customer_algorithm"]
         )
-    if "sse_customer_key" in input:
+    if "sse_customer_key" in input_:
         headers["x-amz-server-side-encryption-customer-key"] = str(
-            input["sse_customer_key"]
+            input_["sse_customer_key"]
         )
-    if "sse_customer_key_md5" in input:
+    if "sse_customer_key_md5" in input_:
         headers["x-amz-server-side-encryption-customer-key-MD5"] = str(
-            input["sse_customer_key_md5"]
+            input_["sse_customer_key_md5"]
         )
-    if "request_payer" in input:
-        headers["x-amz-request-payer"] = str(input["request_payer"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    body = input["body"]
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = str(input_["request_payer"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    body = input_["body"]
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
@@ -195,9 +195,9 @@ def build_request(
 
 def upload_part(
     options: OperationOptions,
-    input: aws_sdk_s3.types.upload_part_request.UploadPartRequest,
+    input_: aws_sdk_s3.types.upload_part_request.UploadPartRequest,
 ) -> tuple[aws_sdk_s3.types.upload_part_output.UploadPartOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -211,9 +211,9 @@ def upload_part(
 
 async def async_upload_part(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.upload_part_request.UploadPartRequest,
+    input_: aws_sdk_s3.types.upload_part_request.UploadPartRequest,
 ) -> tuple[aws_sdk_s3.types.upload_part_output.UploadPartOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

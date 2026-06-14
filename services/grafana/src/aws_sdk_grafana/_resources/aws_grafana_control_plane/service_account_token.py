@@ -66,14 +66,14 @@ class ServiceAccountToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["seconds_to_live"] = seconds_to_live
-        input["service_account_id"] = service_account_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["seconds_to_live"] = seconds_to_live
+        input_["service_account_id"] = service_account_id
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -110,13 +110,13 @@ class ServiceAccountToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.delete_workspace_service_account_token_request.DeleteWorkspaceServiceAccountTokenRequest = {}  # type: ignore[typeddict-item]
-        input["token_id"] = token_id
-        input["service_account_id"] = service_account_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.delete_workspace_service_account_token_request.DeleteWorkspaceServiceAccountTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["token_id"] = token_id
+        input_["service_account_id"] = service_account_id
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,16 +157,16 @@ class ServiceAccountToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_workspace_service_account_tokens_request.ListWorkspaceServiceAccountTokensRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.list_workspace_service_account_tokens_request.ListWorkspaceServiceAccountTokensRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["service_account_id"] = service_account_id
-        input["workspace_id"] = workspace_id
+            input_["next_token"] = next_token
+        input_["service_account_id"] = service_account_id
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,14 +211,14 @@ class AsyncServiceAccountToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["seconds_to_live"] = seconds_to_live
-        input["service_account_id"] = service_account_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.create_workspace_service_account_token_request.CreateWorkspaceServiceAccountTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["seconds_to_live"] = seconds_to_live
+        input_["service_account_id"] = service_account_id
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -256,13 +256,13 @@ class AsyncServiceAccountToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.delete_workspace_service_account_token_request.DeleteWorkspaceServiceAccountTokenRequest = {}  # type: ignore[typeddict-item]
-        input["token_id"] = token_id
-        input["service_account_id"] = service_account_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.delete_workspace_service_account_token_request.DeleteWorkspaceServiceAccountTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["token_id"] = token_id
+        input_["service_account_id"] = service_account_id
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -304,16 +304,16 @@ class AsyncServiceAccountToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_workspace_service_account_tokens_request.ListWorkspaceServiceAccountTokensRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.list_workspace_service_account_tokens_request.ListWorkspaceServiceAccountTokensRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["service_account_id"] = service_account_id
-        input["workspace_id"] = workspace_id
+            input_["next_token"] = next_token
+        input_["service_account_id"] = service_account_id
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

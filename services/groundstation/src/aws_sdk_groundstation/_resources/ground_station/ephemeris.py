@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_groundstation._auth._signers
@@ -91,25 +92,25 @@ class Ephemeris:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.create_ephemeris_request.CreateEphemerisRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.create_ephemeris_request.CreateEphemerisRequest = {}  # type: ignore[typeddict-item]
         if satellite_id is not None:
-            input["satellite_id"] = satellite_id
+            input_["satellite_id"] = satellite_id
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if expiration_time is not None:
-            input["expiration_time"] = expiration_time
-        input["name"] = name
+            input_["expiration_time"] = expiration_time
+        input_["name"] = name
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if ephemeris is not None:
-            input["ephemeris"] = ephemeris
+            input_["ephemeris"] = ephemeris
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,11 +143,11 @@ class Ephemeris:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.describe_ephemeris_request.DescribeEphemerisRequest = {}  # type: ignore[typeddict-item]
-        input["ephemeris_id"] = ephemeris_id
+        input_: aws_sdk_groundstation.types.describe_ephemeris_request.DescribeEphemerisRequest = {}  # type: ignore[typeddict-item]
+        input_["ephemeris_id"] = ephemeris_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -187,16 +188,16 @@ class Ephemeris:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_ephemeris_request.UpdateEphemerisRequest = {}  # type: ignore[typeddict-item]
-        input["ephemeris_id"] = ephemeris_id
-        input["enabled"] = enabled
+        input_: aws_sdk_groundstation.types.update_ephemeris_request.UpdateEphemerisRequest = {}  # type: ignore[typeddict-item]
+        input_["ephemeris_id"] = ephemeris_id
+        input_["enabled"] = enabled
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -229,11 +230,11 @@ class Ephemeris:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.delete_ephemeris_request.DeleteEphemerisRequest = {}  # type: ignore[typeddict-item]
-        input["ephemeris_id"] = ephemeris_id
+        input_: aws_sdk_groundstation.types.delete_ephemeris_request.DeleteEphemerisRequest = {}  # type: ignore[typeddict-item]
+        input_["ephemeris_id"] = ephemeris_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,22 +289,22 @@ class Ephemeris:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_ephemerides_request.ListEphemeridesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_ephemerides_request.ListEphemeridesRequest = {}  # type: ignore[typeddict-item]
         if satellite_id is not None:
-            input["satellite_id"] = satellite_id
+            input_["satellite_id"] = satellite_id
         if ephemeris_type is not None:
-            input["ephemeris_type"] = ephemeris_type
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["ephemeris_type"] = ephemeris_type
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if status_list is not None:
-            input["status_list"] = status_list
+            input_["status_list"] = status_list
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,25 +361,25 @@ class AsyncEphemeris:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.create_ephemeris_request.CreateEphemerisRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.create_ephemeris_request.CreateEphemerisRequest = {}  # type: ignore[typeddict-item]
         if satellite_id is not None:
-            input["satellite_id"] = satellite_id
+            input_["satellite_id"] = satellite_id
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if expiration_time is not None:
-            input["expiration_time"] = expiration_time
-        input["name"] = name
+            input_["expiration_time"] = expiration_time
+        input_["name"] = name
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if ephemeris is not None:
-            input["ephemeris"] = ephemeris
+            input_["ephemeris"] = ephemeris
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,11 +413,11 @@ class AsyncEphemeris:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.describe_ephemeris_request.DescribeEphemerisRequest = {}  # type: ignore[typeddict-item]
-        input["ephemeris_id"] = ephemeris_id
+        input_: aws_sdk_groundstation.types.describe_ephemeris_request.DescribeEphemerisRequest = {}  # type: ignore[typeddict-item]
+        input_["ephemeris_id"] = ephemeris_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,16 +459,16 @@ class AsyncEphemeris:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_ephemeris_request.UpdateEphemerisRequest = {}  # type: ignore[typeddict-item]
-        input["ephemeris_id"] = ephemeris_id
-        input["enabled"] = enabled
+        input_: aws_sdk_groundstation.types.update_ephemeris_request.UpdateEphemerisRequest = {}  # type: ignore[typeddict-item]
+        input_["ephemeris_id"] = ephemeris_id
+        input_["enabled"] = enabled
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,11 +502,11 @@ class AsyncEphemeris:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.delete_ephemeris_request.DeleteEphemerisRequest = {}  # type: ignore[typeddict-item]
-        input["ephemeris_id"] = ephemeris_id
+        input_: aws_sdk_groundstation.types.delete_ephemeris_request.DeleteEphemerisRequest = {}  # type: ignore[typeddict-item]
+        input_["ephemeris_id"] = ephemeris_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,22 +562,22 @@ class AsyncEphemeris:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_ephemerides_request.ListEphemeridesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_ephemerides_request.ListEphemeridesRequest = {}  # type: ignore[typeddict-item]
         if satellite_id is not None:
-            input["satellite_id"] = satellite_id
+            input_["satellite_id"] = satellite_id
         if ephemeris_type is not None:
-            input["ephemeris_type"] = ephemeris_type
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["ephemeris_type"] = ephemeris_type
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if status_list is not None:
-            input["status_list"] = status_list
+            input_["status_list"] = status_list
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

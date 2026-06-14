@@ -83,16 +83,16 @@ class Engagement:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_engagement_request.CreateEngagementRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["title"] = title
-        input["description"] = description
+        input_: aws_sdk_partnercentral_selling.types.create_engagement_request.CreateEngagementRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["title"] = title
+        input_["description"] = description
         if contexts is not None:
-            input["contexts"] = contexts
+            input_["contexts"] = contexts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -127,12 +127,12 @@ class Engagement:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_engagement_request.GetEngagementRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.get_engagement_request.GetEngagementRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -194,27 +194,27 @@ class Engagement:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagements_request.ListEngagementsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_engagements_request.ListEngagementsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if created_by is not None:
-            input["created_by"] = created_by
+            input_["created_by"] = created_by
         if exclude_created_by is not None:
-            input["exclude_created_by"] = exclude_created_by
+            input_["exclude_created_by"] = exclude_created_by
         if context_types is not None:
-            input["context_types"] = context_types
+            input_["context_types"] = context_types
         if exclude_context_types is not None:
-            input["exclude_context_types"] = exclude_context_types
+            input_["exclude_context_types"] = exclude_context_types
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if engagement_identifier is not None:
-            input["engagement_identifier"] = engagement_identifier
+            input_["engagement_identifier"] = engagement_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -255,16 +255,16 @@ class Engagement:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagement_members_request.ListEngagementMembersRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.list_engagement_members_request.ListEngagementMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -313,16 +313,16 @@ class AsyncEngagement:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_engagement_request.CreateEngagementRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["title"] = title
-        input["description"] = description
+        input_: aws_sdk_partnercentral_selling.types.create_engagement_request.CreateEngagementRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["title"] = title
+        input_["description"] = description
         if contexts is not None:
-            input["contexts"] = contexts
+            input_["contexts"] = contexts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,12 +358,12 @@ class AsyncEngagement:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_engagement_request.GetEngagementRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.get_engagement_request.GetEngagementRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,27 +426,27 @@ class AsyncEngagement:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagements_request.ListEngagementsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_engagements_request.ListEngagementsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if created_by is not None:
-            input["created_by"] = created_by
+            input_["created_by"] = created_by
         if exclude_created_by is not None:
-            input["exclude_created_by"] = exclude_created_by
+            input_["exclude_created_by"] = exclude_created_by
         if context_types is not None:
-            input["context_types"] = context_types
+            input_["context_types"] = context_types
         if exclude_context_types is not None:
-            input["exclude_context_types"] = exclude_context_types
+            input_["exclude_context_types"] = exclude_context_types
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if engagement_identifier is not None:
-            input["engagement_identifier"] = engagement_identifier
+            input_["engagement_identifier"] = engagement_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,16 +488,16 @@ class AsyncEngagement:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagement_members_request.ListEngagementMembersRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.list_engagement_members_request.ListEngagementMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -56,11 +56,11 @@ class BaselineOperationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_baseline_operation_input.GetBaselineOperationInput = {}  # type: ignore[typeddict-item]
-        input["operation_identifier"] = operation_identifier
+        input_: aws_sdk_controltower.types.get_baseline_operation_input.GetBaselineOperationInput = {}  # type: ignore[typeddict-item]
+        input_["operation_identifier"] = operation_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -99,11 +99,11 @@ class AsyncBaselineOperationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_baseline_operation_input.GetBaselineOperationInput = {}  # type: ignore[typeddict-item]
-        input["operation_identifier"] = operation_identifier
+        input_: aws_sdk_controltower.types.get_baseline_operation_input.GetBaselineOperationInput = {}  # type: ignore[typeddict-item]
+        input_["operation_identifier"] = operation_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

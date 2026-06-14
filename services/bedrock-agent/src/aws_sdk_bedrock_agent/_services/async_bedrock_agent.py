@@ -15,6 +15,42 @@ from aws_sdk_bedrock_agent._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_bedrock_agent._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.action_group_resource import (
+    AsyncActionGroupResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.agent_collaborator_resource import (
+    AsyncAgentCollaboratorResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.agent_resource import (
+    AsyncAgentResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.alias_resource import (
+    AsyncAliasResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.data_source_resource import (
+    AsyncDataSourceResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.flow_resource import (
+    AsyncFlowResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.ingestion_job_resource import (
+    AsyncIngestionJobResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.knowledge_base_document_resource import (
+    AsyncKnowledgeBaseDocumentResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.knowledge_base_resource import (
+    AsyncKnowledgeBaseResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.prompt_resource import (
+    AsyncPromptResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.tagging_resource import (
+    AsyncTaggingResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.version_resource import (
+    AsyncVersionResource,
+)
 from aws_sdk_bedrock_agent._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -102,6 +138,19 @@ class AsyncBedrockAgentClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.action_group_resource = AsyncActionGroupResource(self)
+        self.agent_collaborator_resource = AsyncAgentCollaboratorResource(self)
+        self.agent_resource = AsyncAgentResource(self)
+        self.alias_resource = AsyncAliasResource(self)
+        self.data_source_resource = AsyncDataSourceResource(self)
+        self.flow_resource = AsyncFlowResource(self)
+        self.ingestion_job_resource = AsyncIngestionJobResource(self)
+        self.knowledge_base_document_resource = AsyncKnowledgeBaseDocumentResource(self)
+        self.knowledge_base_resource = AsyncKnowledgeBaseResource(self)
+        self.prompt_resource = AsyncPromptResource(self)
+        self.tagging_resource = AsyncTaggingResource(self)
+        self.version_resource = AsyncVersionResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncBedrockAgentClientConfig] = None
@@ -159,11 +208,11 @@ class AsyncBedrockAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.validate_flow_definition_request.ValidateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["definition"] = definition
+        input_: aws_sdk_bedrock_agent.types.validate_flow_definition_request.ValidateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["definition"] = definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

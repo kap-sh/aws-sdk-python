@@ -80,15 +80,15 @@ class SourceNetworkResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.create_source_network_request.CreateSourceNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["origin_account_id"] = origin_account_id
-        input["origin_region"] = origin_region
+        input_: aws_sdk_drs.types.create_source_network_request.CreateSourceNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["origin_account_id"] = origin_account_id
+        input_["origin_region"] = origin_region
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,11 +121,11 @@ class SourceNetworkResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
+        input_: aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,16 +168,16 @@ class SourceNetworkResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.describe_source_networks_request.DescribeSourceNetworksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.describe_source_networks_request.DescribeSourceNetworksRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -212,12 +212,12 @@ class SourceNetworkResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.associate_source_network_stack_request.AssociateSourceNetworkStackRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
-        input["cfn_stack_name"] = cfn_stack_name
+        input_: aws_sdk_drs.types.associate_source_network_stack_request.AssociateSourceNetworkStackRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
+        input_["cfn_stack_name"] = cfn_stack_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,11 +250,11 @@ class SourceNetworkResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
+        input_: aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,11 +287,11 @@ class SourceNetworkResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
+        input_: aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,11 +324,11 @@ class SourceNetworkResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
+        input_: aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,15 +365,15 @@ class SourceNetworkResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.start_source_network_recovery_request.StartSourceNetworkRecoveryRequest = {}  # type: ignore[typeddict-item]
-        input["source_networks"] = source_networks
+        input_: aws_sdk_drs.types.start_source_network_recovery_request.StartSourceNetworkRecoveryRequest = {}  # type: ignore[typeddict-item]
+        input_["source_networks"] = source_networks
         if deploy_as_new is not None:
-            input["deploy_as_new"] = deploy_as_new
+            input_["deploy_as_new"] = deploy_as_new
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,15 +418,15 @@ class AsyncSourceNetworkResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.create_source_network_request.CreateSourceNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["origin_account_id"] = origin_account_id
-        input["origin_region"] = origin_region
+        input_: aws_sdk_drs.types.create_source_network_request.CreateSourceNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["origin_account_id"] = origin_account_id
+        input_["origin_region"] = origin_region
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,11 +460,11 @@ class AsyncSourceNetworkResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
+        input_: aws_sdk_drs.types.delete_source_network_request.DeleteSourceNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -508,16 +508,16 @@ class AsyncSourceNetworkResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.describe_source_networks_request.DescribeSourceNetworksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.describe_source_networks_request.DescribeSourceNetworksRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,12 +553,12 @@ class AsyncSourceNetworkResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.associate_source_network_stack_request.AssociateSourceNetworkStackRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
-        input["cfn_stack_name"] = cfn_stack_name
+        input_: aws_sdk_drs.types.associate_source_network_stack_request.AssociateSourceNetworkStackRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
+        input_["cfn_stack_name"] = cfn_stack_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,11 +592,11 @@ class AsyncSourceNetworkResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
+        input_: aws_sdk_drs.types.export_source_network_cfn_template_request.ExportSourceNetworkCfnTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,11 +630,11 @@ class AsyncSourceNetworkResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
+        input_: aws_sdk_drs.types.start_source_network_replication_request.StartSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,11 +668,11 @@ class AsyncSourceNetworkResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_network_id"] = source_network_id
+        input_: aws_sdk_drs.types.stop_source_network_replication_request.StopSourceNetworkReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_network_id"] = source_network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -710,15 +710,15 @@ class AsyncSourceNetworkResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.start_source_network_recovery_request.StartSourceNetworkRecoveryRequest = {}  # type: ignore[typeddict-item]
-        input["source_networks"] = source_networks
+        input_: aws_sdk_drs.types.start_source_network_recovery_request.StartSourceNetworkRecoveryRequest = {}  # type: ignore[typeddict-item]
+        input_["source_networks"] = source_networks
         if deploy_as_new is not None:
-            input["deploy_as_new"] = deploy_as_new
+            input_["deploy_as_new"] = deploy_as_new
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -89,22 +89,22 @@ class SourceLocationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_source_location_request.CreateSourceLocationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.create_source_location_request.CreateSourceLocationRequest = {}  # type: ignore[typeddict-item]
         if access_configuration is not None:
-            input["access_configuration"] = access_configuration
+            input_["access_configuration"] = access_configuration
         if default_segment_delivery_configuration is not None:
-            input["default_segment_delivery_configuration"] = (
+            input_["default_segment_delivery_configuration"] = (
                 default_segment_delivery_configuration
             )
-        input["http_configuration"] = http_configuration
+        input_["http_configuration"] = http_configuration
         if segment_delivery_configurations is not None:
-            input["segment_delivery_configurations"] = segment_delivery_configurations
-        input["source_location_name"] = source_location_name
+            input_["segment_delivery_configurations"] = segment_delivery_configurations
+        input_["source_location_name"] = source_location_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -137,11 +137,11 @@ class SourceLocationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.describe_source_location_request.DescribeSourceLocationRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.describe_source_location_request.DescribeSourceLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_name"] = source_location_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,20 +188,20 @@ class SourceLocationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.update_source_location_request.UpdateSourceLocationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.update_source_location_request.UpdateSourceLocationRequest = {}  # type: ignore[typeddict-item]
         if access_configuration is not None:
-            input["access_configuration"] = access_configuration
+            input_["access_configuration"] = access_configuration
         if default_segment_delivery_configuration is not None:
-            input["default_segment_delivery_configuration"] = (
+            input_["default_segment_delivery_configuration"] = (
                 default_segment_delivery_configuration
             )
-        input["http_configuration"] = http_configuration
+        input_["http_configuration"] = http_configuration
         if segment_delivery_configurations is not None:
-            input["segment_delivery_configurations"] = segment_delivery_configurations
-        input["source_location_name"] = source_location_name
+            input_["segment_delivery_configurations"] = segment_delivery_configurations
+        input_["source_location_name"] = source_location_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -234,11 +234,11 @@ class SourceLocationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_source_location_request.DeleteSourceLocationRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.delete_source_location_request.DeleteSourceLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_name"] = source_location_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -275,14 +275,14 @@ class SourceLocationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_source_locations_request.ListSourceLocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_source_locations_request.ListSourceLocationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,22 +339,22 @@ class AsyncSourceLocationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_source_location_request.CreateSourceLocationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.create_source_location_request.CreateSourceLocationRequest = {}  # type: ignore[typeddict-item]
         if access_configuration is not None:
-            input["access_configuration"] = access_configuration
+            input_["access_configuration"] = access_configuration
         if default_segment_delivery_configuration is not None:
-            input["default_segment_delivery_configuration"] = (
+            input_["default_segment_delivery_configuration"] = (
                 default_segment_delivery_configuration
             )
-        input["http_configuration"] = http_configuration
+        input_["http_configuration"] = http_configuration
         if segment_delivery_configurations is not None:
-            input["segment_delivery_configurations"] = segment_delivery_configurations
-        input["source_location_name"] = source_location_name
+            input_["segment_delivery_configurations"] = segment_delivery_configurations
+        input_["source_location_name"] = source_location_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,11 +388,11 @@ class AsyncSourceLocationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.describe_source_location_request.DescribeSourceLocationRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.describe_source_location_request.DescribeSourceLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_name"] = source_location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,20 +440,20 @@ class AsyncSourceLocationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.update_source_location_request.UpdateSourceLocationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.update_source_location_request.UpdateSourceLocationRequest = {}  # type: ignore[typeddict-item]
         if access_configuration is not None:
-            input["access_configuration"] = access_configuration
+            input_["access_configuration"] = access_configuration
         if default_segment_delivery_configuration is not None:
-            input["default_segment_delivery_configuration"] = (
+            input_["default_segment_delivery_configuration"] = (
                 default_segment_delivery_configuration
             )
-        input["http_configuration"] = http_configuration
+        input_["http_configuration"] = http_configuration
         if segment_delivery_configurations is not None:
-            input["segment_delivery_configurations"] = segment_delivery_configurations
-        input["source_location_name"] = source_location_name
+            input_["segment_delivery_configurations"] = segment_delivery_configurations
+        input_["source_location_name"] = source_location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,11 +487,11 @@ class AsyncSourceLocationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_source_location_request.DeleteSourceLocationRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.delete_source_location_request.DeleteSourceLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_name"] = source_location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,14 +529,14 @@ class AsyncSourceLocationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_source_locations_request.ListSourceLocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_source_locations_request.ListSourceLocationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

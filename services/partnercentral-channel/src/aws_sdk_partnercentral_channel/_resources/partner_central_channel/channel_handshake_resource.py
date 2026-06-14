@@ -103,19 +103,19 @@ class ChannelHandshakeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.create_channel_handshake_request.CreateChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["handshake_type"] = handshake_type
-        input["catalog"] = catalog
-        input["associated_resource_identifier"] = associated_resource_identifier
+        input_: aws_sdk_partnercentral_channel.types.create_channel_handshake_request.CreateChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["handshake_type"] = handshake_type
+        input_["catalog"] = catalog
+        input_["associated_resource_identifier"] = associated_resource_identifier
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -185,25 +185,25 @@ class ChannelHandshakeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.list_channel_handshakes_request.ListChannelHandshakesRequest = {}  # type: ignore[typeddict-item]
-        input["handshake_type"] = handshake_type
-        input["catalog"] = catalog
-        input["participant_type"] = participant_type
+        input_: aws_sdk_partnercentral_channel.types.list_channel_handshakes_request.ListChannelHandshakesRequest = {}  # type: ignore[typeddict-item]
+        input_["handshake_type"] = handshake_type
+        input_["catalog"] = catalog
+        input_["participant_type"] = participant_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if associated_resource_identifiers is not None:
-            input["associated_resource_identifiers"] = associated_resource_identifiers
+            input_["associated_resource_identifiers"] = associated_resource_identifiers
         if handshake_type_filters is not None:
-            input["handshake_type_filters"] = handshake_type_filters
+            input_["handshake_type_filters"] = handshake_type_filters
         if handshake_type_sort is not None:
-            input["handshake_type_sort"] = handshake_type_sort
+            input_["handshake_type_sort"] = handshake_type_sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,12 +243,12 @@ class ChannelHandshakeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.accept_channel_handshake_request.AcceptChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.accept_channel_handshake_request.AcceptChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,12 +288,12 @@ class ChannelHandshakeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.cancel_channel_handshake_request.CancelChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.cancel_channel_handshake_request.CancelChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,12 +333,12 @@ class ChannelHandshakeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.reject_channel_handshake_request.RejectChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.reject_channel_handshake_request.RejectChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,19 +405,19 @@ class AsyncChannelHandshakeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.create_channel_handshake_request.CreateChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["handshake_type"] = handshake_type
-        input["catalog"] = catalog
-        input["associated_resource_identifier"] = associated_resource_identifier
+        input_: aws_sdk_partnercentral_channel.types.create_channel_handshake_request.CreateChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["handshake_type"] = handshake_type
+        input_["catalog"] = catalog
+        input_["associated_resource_identifier"] = associated_resource_identifier
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,25 +488,25 @@ class AsyncChannelHandshakeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.list_channel_handshakes_request.ListChannelHandshakesRequest = {}  # type: ignore[typeddict-item]
-        input["handshake_type"] = handshake_type
-        input["catalog"] = catalog
-        input["participant_type"] = participant_type
+        input_: aws_sdk_partnercentral_channel.types.list_channel_handshakes_request.ListChannelHandshakesRequest = {}  # type: ignore[typeddict-item]
+        input_["handshake_type"] = handshake_type
+        input_["catalog"] = catalog
+        input_["participant_type"] = participant_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if associated_resource_identifiers is not None:
-            input["associated_resource_identifiers"] = associated_resource_identifiers
+            input_["associated_resource_identifiers"] = associated_resource_identifiers
         if handshake_type_filters is not None:
-            input["handshake_type_filters"] = handshake_type_filters
+            input_["handshake_type_filters"] = handshake_type_filters
         if handshake_type_sort is not None:
-            input["handshake_type_sort"] = handshake_type_sort
+            input_["handshake_type_sort"] = handshake_type_sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -547,12 +547,12 @@ class AsyncChannelHandshakeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.accept_channel_handshake_request.AcceptChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.accept_channel_handshake_request.AcceptChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,12 +593,12 @@ class AsyncChannelHandshakeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.cancel_channel_handshake_request.CancelChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.cancel_channel_handshake_request.CancelChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -639,12 +639,12 @@ class AsyncChannelHandshakeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.reject_channel_handshake_request.RejectChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.reject_channel_handshake_request.RejectChannelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

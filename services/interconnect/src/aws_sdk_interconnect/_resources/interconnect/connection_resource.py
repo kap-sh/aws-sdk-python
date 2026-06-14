@@ -96,21 +96,21 @@ class ConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_interconnect.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["bandwidth"] = bandwidth
-        input["attach_point"] = attach_point
-        input["environment_id"] = environment_id
+            input_["description"] = description
+        input_["bandwidth"] = bandwidth
+        input_["attach_point"] = attach_point
+        input_["environment_id"] = environment_id
         if remote_account is not None:
-            input["remote_account"] = remote_account
+            input_["remote_account"] = remote_account
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -148,11 +148,11 @@ class ConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_interconnect.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,17 +205,17 @@ class ConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_interconnect.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if bandwidth is not None:
-            input["bandwidth"] = bandwidth
+            input_["bandwidth"] = bandwidth
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -257,13 +257,13 @@ class ConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_interconnect.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,22 +325,22 @@ class ConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_interconnect.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if attach_point is not None:
-            input["attach_point"] = attach_point
+            input_["attach_point"] = attach_point
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,21 +402,21 @@ class AsyncConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_interconnect.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["bandwidth"] = bandwidth
-        input["attach_point"] = attach_point
-        input["environment_id"] = environment_id
+            input_["description"] = description
+        input_["bandwidth"] = bandwidth
+        input_["attach_point"] = attach_point
+        input_["environment_id"] = environment_id
         if remote_account is not None:
-            input["remote_account"] = remote_account
+            input_["remote_account"] = remote_account
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,11 +455,11 @@ class AsyncConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_interconnect.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,17 +513,17 @@ class AsyncConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_interconnect.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if bandwidth is not None:
-            input["bandwidth"] = bandwidth
+            input_["bandwidth"] = bandwidth
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -566,13 +566,13 @@ class AsyncConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_interconnect.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -635,22 +635,22 @@ class AsyncConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_interconnect.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if attach_point is not None:
-            input["attach_point"] = attach_point
+            input_["attach_point"] = attach_point
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

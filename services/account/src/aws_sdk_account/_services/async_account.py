@@ -13,6 +13,24 @@ from aws_sdk_account._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_account._auth._zapros_handler import AuthMiddleware
+from aws_sdk_account._resources.account.account_name_resource import (
+    AsyncAccountNameResource,
+)
+from aws_sdk_account._resources.account.alternate_contact_resource import (
+    AsyncAlternateContactResource,
+)
+from aws_sdk_account._resources.account.commercial_to_gov_cloud_gateway_resource import (
+    AsyncCommercialToGovCloudGatewayResource,
+)
+from aws_sdk_account._resources.account.contact_information_resource import (
+    AsyncContactInformationResource,
+)
+from aws_sdk_account._resources.account.primary_email_resource import (
+    AsyncPrimaryEmailResource,
+)
+from aws_sdk_account._resources.account.region_opt_resource import (
+    AsyncRegionOptResource,
+)
 from aws_sdk_account._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -92,6 +110,15 @@ class AsyncAccountClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_name_resource = AsyncAccountNameResource(self)
+        self.alternate_contact_resource = AsyncAlternateContactResource(self)
+        self.commercial_to_gov_cloud_gateway_resource = (
+            AsyncCommercialToGovCloudGatewayResource(self)
+        )
+        self.contact_information_resource = AsyncContactInformationResource(self)
+        self.primary_email_resource = AsyncPrimaryEmailResource(self)
+        self.region_opt_resource = AsyncRegionOptResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncAccountClientConfig] = None

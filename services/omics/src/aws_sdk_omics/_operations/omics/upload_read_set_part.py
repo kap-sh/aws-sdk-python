@@ -112,55 +112,52 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest,
+    input_: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/sequencestore/{sequenceStoreId}/upload/{uploadId}/part"
     )
     url = url.replace(
-        "{sequenceStoreId}", quote(str(input["sequence_store_id"]), safe="")
+        "{sequenceStoreId}", quote(str(input_["sequence_store_id"]), safe="")
     )
-    url = url.replace("{uploadId}", quote(str(input["upload_id"]), safe=""))
+    url = url.replace("{uploadId}", quote(str(input_["upload_id"]), safe=""))
     params: dict[str, str] = {}
-    if "part_source" in input:
-        params["partSource"] = str(input["part_source"])
-    if "part_number" in input:
-        params["partNumber"] = str(input["part_number"])
+    if "part_source" in input_:
+        params["partSource"] = str(input_["part_source"])
+    if "part_number" in input_:
+        params["partNumber"] = str(input_["part_number"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    body = input["payload"]
+    body = input_["payload"]
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def upload_read_set_part(
     options: OperationOptions,
-    input: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest,
+    input_: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest,
 ) -> tuple[
     aws_sdk_omics.types.upload_read_set_part_response.UploadReadSetPartResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -169,16 +166,17 @@ def upload_read_set_part(
 
 async def async_upload_read_set_part(
     options: AsyncOperationOptions,
-    input: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest,
+    input_: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest,
 ) -> tuple[
     aws_sdk_omics.types.upload_read_set_part_response.UploadReadSetPartResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

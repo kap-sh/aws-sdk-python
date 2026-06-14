@@ -110,36 +110,36 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_medical_imaging.types.update_image_set_metadata_request.UpdateImageSetMetadataRequest,
+    input_: aws_sdk_medical_imaging.types.update_image_set_metadata_request.UpdateImageSetMetadataRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/datastore/{datastoreId}/imageSet/{imageSetId}/updateImageSetMetadata"
     )
-    url = url.replace("{datastoreId}", quote(str(input["datastore_id"]), safe=""))
-    url = url.replace("{imageSetId}", quote(str(input["image_set_id"]), safe=""))
+    url = url.replace("{datastoreId}", quote(str(input_["datastore_id"]), safe=""))
+    url = url.replace("{imageSetId}", quote(str(input_["image_set_id"]), safe=""))
     params: dict[str, str] = {}
-    if "latest_version_id" in input:
-        params["latestVersion"] = str(input["latest_version_id"])
-    if "force" in input:
-        params["force"] = str(input["force"])
-    if "include_study_image_sets" in input:
-        params["includeStudyImageSets"] = str(input["include_study_image_sets"])
+    if "latest_version_id" in input_:
+        params["latestVersion"] = str(input_["latest_version_id"])
+    if "force" in input_:
+        params["force"] = str(input_["force"])
+    if "include_study_image_sets" in input_:
+        params["includeStudyImageSets"] = str(input_["include_study_image_sets"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "update_image_set_metadata_updates" in input:
+    if "update_image_set_metadata_updates" in input_:
         import aws_sdk_medical_imaging.types.metadata_updates
 
         body: bytes | None = json.dumps(
             aws_sdk_medical_imaging.types.metadata_updates.serialize_json(
-                input["update_image_set_metadata_updates"]
+                input_["update_image_set_metadata_updates"]
             )
         ).encode()
         headers["content-type"] = "application/json"
@@ -149,26 +149,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_image_set_metadata(
     options: OperationOptions,
-    input: aws_sdk_medical_imaging.types.update_image_set_metadata_request.UpdateImageSetMetadataRequest,
+    input_: aws_sdk_medical_imaging.types.update_image_set_metadata_request.UpdateImageSetMetadataRequest,
 ) -> tuple[
     aws_sdk_medical_imaging.types.update_image_set_metadata_response.UpdateImageSetMetadataResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -177,16 +174,17 @@ def update_image_set_metadata(
 
 async def async_update_image_set_metadata(
     options: AsyncOperationOptions,
-    input: aws_sdk_medical_imaging.types.update_image_set_metadata_request.UpdateImageSetMetadataRequest,
+    input_: aws_sdk_medical_imaging.types.update_image_set_metadata_request.UpdateImageSetMetadataRequest,
 ) -> tuple[
     aws_sdk_medical_imaging.types.update_image_set_metadata_response.UpdateImageSetMetadataResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

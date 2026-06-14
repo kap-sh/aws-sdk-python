@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_partnercentral_benefits._auth._signers
+import aws_sdk_partnercentral_benefits._auth._sigv4
 from aws_sdk_partnercentral_benefits._auth._identity import Credentials
 from aws_sdk_partnercentral_benefits._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,15 @@ from aws_sdk_partnercentral_benefits._auth._providers import (
 )
 from aws_sdk_partnercentral_benefits._auth._zapros_handler import AuthMiddleware
 from aws_sdk_partnercentral_benefits._pagination import resolve_path as _resolve_path
+from aws_sdk_partnercentral_benefits._resources.partner_central_benefits_service.benefit import (
+    Benefit,
+)
+from aws_sdk_partnercentral_benefits._resources.partner_central_benefits_service.benefit_allocation import (
+    BenefitAllocation,
+)
+from aws_sdk_partnercentral_benefits._resources.partner_central_benefits_service.benefit_application import (
+    BenefitApplication,
+)
 from aws_sdk_partnercentral_benefits._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -151,6 +162,10 @@ class PartnerCentralBenefitsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.benefit = Benefit(self)
+        self.benefit_allocation = BenefitAllocation(self)
+        self.benefit_application = BenefitApplication(self)
 
     def operation_options(
         self, config_overrides: Optional[PartnerCentralBenefitsClientConfig] = None
@@ -214,16 +229,16 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.amend_benefit_application_input.AmendBenefitApplicationInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["revision"] = revision
-        input["identifier"] = identifier
-        input["amendment_reason"] = amendment_reason
-        input["amendments"] = amendments
+        input_: aws_sdk_partnercentral_benefits.types.amend_benefit_application_input.AmendBenefitApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["revision"] = revision
+        input_["identifier"] = identifier
+        input_["amendment_reason"] = amendment_reason
+        input_["amendments"] = amendments
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,13 +275,13 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.associate_benefit_application_resource_input.AssociateBenefitApplicationResourceInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["benefit_application_identifier"] = benefit_application_identifier
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_partnercentral_benefits.types.associate_benefit_application_resource_input.AssociateBenefitApplicationResourceInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["benefit_application_identifier"] = benefit_application_identifier
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,15 +320,15 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.cancel_benefit_application_input.CancelBenefitApplicationInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_benefits.types.cancel_benefit_application_input.CancelBenefitApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["identifier"] = identifier
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,29 +393,29 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.create_benefit_application_input.CreateBenefitApplicationInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_benefits.types.create_benefit_application_input.CreateBenefitApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["benefit_identifier"] = benefit_identifier
+            input_["description"] = description
+        input_["benefit_identifier"] = benefit_identifier
         if fulfillment_types is not None:
-            input["fulfillment_types"] = fulfillment_types
+            input_["fulfillment_types"] = fulfillment_types
         if benefit_application_details is not None:
-            input["benefit_application_details"] = benefit_application_details
+            input_["benefit_application_details"] = benefit_application_details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if associated_resources is not None:
-            input["associated_resources"] = associated_resources
+            input_["associated_resources"] = associated_resources
         if partner_contacts is not None:
-            input["partner_contacts"] = partner_contacts
+            input_["partner_contacts"] = partner_contacts
         if file_details is not None:
-            input["file_details"] = file_details
+            input_["file_details"] = file_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,13 +452,13 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.disassociate_benefit_application_resource_input.DisassociateBenefitApplicationResourceInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["benefit_application_identifier"] = benefit_application_identifier
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_partnercentral_benefits.types.disassociate_benefit_application_resource_input.DisassociateBenefitApplicationResourceInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["benefit_application_identifier"] = benefit_application_identifier
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,12 +493,12 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.get_benefit_input.GetBenefitInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_benefits.types.get_benefit_input.GetBenefitInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,12 +533,12 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.get_benefit_allocation_input.GetBenefitAllocationInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_benefits.types.get_benefit_allocation_input.GetBenefitAllocationInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -558,12 +573,12 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.get_benefit_application_input.GetBenefitApplicationInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_benefits.types.get_benefit_application_input.GetBenefitApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -616,23 +631,23 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.list_benefit_allocations_input.ListBenefitAllocationsInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_benefits.types.list_benefit_allocations_input.ListBenefitAllocationsInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if fulfillment_types is not None:
-            input["fulfillment_types"] = fulfillment_types
+            input_["fulfillment_types"] = fulfillment_types
         if benefit_identifiers is not None:
-            input["benefit_identifiers"] = benefit_identifiers
+            input_["benefit_identifiers"] = benefit_identifiers
         if benefit_application_identifiers is not None:
-            input["benefit_application_identifiers"] = benefit_application_identifiers
+            input_["benefit_application_identifiers"] = benefit_application_identifiers
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -734,29 +749,29 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.list_benefit_applications_input.ListBenefitApplicationsInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_benefits.types.list_benefit_applications_input.ListBenefitApplicationsInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if programs is not None:
-            input["programs"] = programs
+            input_["programs"] = programs
         if fulfillment_types is not None:
-            input["fulfillment_types"] = fulfillment_types
+            input_["fulfillment_types"] = fulfillment_types
         if benefit_identifiers is not None:
-            input["benefit_identifiers"] = benefit_identifiers
+            input_["benefit_identifiers"] = benefit_identifiers
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if stages is not None:
-            input["stages"] = stages
+            input_["stages"] = stages
         if associated_resources is not None:
-            input["associated_resources"] = associated_resources
+            input_["associated_resources"] = associated_resources
         if associated_resource_arns is not None:
-            input["associated_resource_arns"] = associated_resource_arns
+            input_["associated_resource_arns"] = associated_resource_arns
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -856,21 +871,21 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.list_benefits_input.ListBenefitsInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_benefits.types.list_benefits_input.ListBenefitsInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if programs is not None:
-            input["programs"] = programs
+            input_["programs"] = programs
         if fulfillment_types is not None:
-            input["fulfillment_types"] = fulfillment_types
+            input_["fulfillment_types"] = fulfillment_types
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -940,11 +955,11 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_partnercentral_benefits.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -983,15 +998,15 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.recall_benefit_application_input.RecallBenefitApplicationInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_benefits.types.recall_benefit_application_input.RecallBenefitApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if client_token is not None:
-            input["client_token"] = client_token
-        input["identifier"] = identifier
-        input["reason"] = reason
+            input_["client_token"] = client_token
+        input_["identifier"] = identifier
+        input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1026,12 +1041,12 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.submit_benefit_application_input.SubmitBenefitApplicationInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_benefits.types.submit_benefit_application_input.SubmitBenefitApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1066,12 +1081,12 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_partnercentral_benefits.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1106,12 +1121,12 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_partnercentral_benefits.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,24 +1183,24 @@ class PartnerCentralBenefitsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_benefits.types.update_benefit_application_input.UpdateBenefitApplicationInput = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_benefits.types.update_benefit_application_input.UpdateBenefitApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["identifier"] = identifier
-        input["revision"] = revision
+            input_["description"] = description
+        input_["identifier"] = identifier
+        input_["revision"] = revision
         if benefit_application_details is not None:
-            input["benefit_application_details"] = benefit_application_details
+            input_["benefit_application_details"] = benefit_application_details
         if partner_contacts is not None:
-            input["partner_contacts"] = partner_contacts
+            input_["partner_contacts"] = partner_contacts
         if file_details is not None:
-            input["file_details"] = file_details
+            input_["file_details"] = file_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

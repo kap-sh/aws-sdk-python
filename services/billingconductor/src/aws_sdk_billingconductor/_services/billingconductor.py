@@ -16,6 +16,18 @@ from aws_sdk_billingconductor._auth._providers import (
 )
 from aws_sdk_billingconductor._auth._zapros_handler import AuthMiddleware
 from aws_sdk_billingconductor._pagination import resolve_path as _resolve_path
+from aws_sdk_billingconductor._resources.aws_billing_conductor.billing_group import (
+    BillingGroup,
+)
+from aws_sdk_billingconductor._resources.aws_billing_conductor.custom_line_item import (
+    CustomLineItem,
+)
+from aws_sdk_billingconductor._resources.aws_billing_conductor.pricing_plan import (
+    PricingPlan,
+)
+from aws_sdk_billingconductor._resources.aws_billing_conductor.pricing_rule import (
+    PricingRule,
+)
 from aws_sdk_billingconductor._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -125,6 +137,11 @@ class billingconductorClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.billing_group = BillingGroup(self)
+        self.custom_line_item = CustomLineItem(self)
+        self.pricing_plan = PricingPlan(self)
+        self.pricing_rule = PricingRule(self)
 
     def operation_options(
         self, config_overrides: Optional[billingconductorClientConfig] = None
@@ -195,19 +212,19 @@ class billingconductorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.get_billing_group_cost_report_input.GetBillingGroupCostReportInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.get_billing_group_cost_report_input.GetBillingGroupCostReportInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,16 +298,16 @@ class billingconductorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_account_associations_input.ListAccountAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_account_associations_input.ListAccountAssociationsInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
+            input_["billing_period"] = billing_period
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -362,18 +379,18 @@ class billingconductorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_billing_group_cost_reports_input.ListBillingGroupCostReportsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_billing_group_cost_reports_input.ListBillingGroupCostReportsInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
+            input_["billing_period"] = billing_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,11 +454,11 @@ class billingconductorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_billingconductor.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,12 +493,12 @@ class billingconductorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_billingconductor.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,12 +533,12 @@ class billingconductorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_billingconductor.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

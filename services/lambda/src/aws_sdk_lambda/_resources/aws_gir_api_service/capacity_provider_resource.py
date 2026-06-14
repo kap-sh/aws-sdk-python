@@ -90,21 +90,23 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
-        input["vpc_config"] = vpc_config
-        input["permissions_config"] = permissions_config
+        input_: aws_sdk_lambda.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
+        input_["vpc_config"] = vpc_config
+        input_["permissions_config"] = permissions_config
         if instance_requirements is not None:
-            input["instance_requirements"] = instance_requirements
+            input_["instance_requirements"] = instance_requirements
         if capacity_provider_scaling_config is not None:
-            input["capacity_provider_scaling_config"] = capacity_provider_scaling_config
+            input_["capacity_provider_scaling_config"] = (
+                capacity_provider_scaling_config
+            )
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -137,11 +139,11 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_capacity_provider_request.GetCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
+        input_: aws_sdk_lambda.types.get_capacity_provider_request.GetCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -178,13 +180,15 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
+        input_: aws_sdk_lambda.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
         if capacity_provider_scaling_config is not None:
-            input["capacity_provider_scaling_config"] = capacity_provider_scaling_config
+            input_["capacity_provider_scaling_config"] = (
+                capacity_provider_scaling_config
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,11 +221,11 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
+        input_: aws_sdk_lambda.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,16 +266,16 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_capacity_providers_request.ListCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_capacity_providers_request.ListCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,15 +314,15 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_function_versions_by_capacity_provider_request.ListFunctionVersionsByCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
+        input_: aws_sdk_lambda.types.list_function_versions_by_capacity_provider_request.ListFunctionVersionsByCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,21 +379,23 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
-        input["vpc_config"] = vpc_config
-        input["permissions_config"] = permissions_config
+        input_: aws_sdk_lambda.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
+        input_["vpc_config"] = vpc_config
+        input_["permissions_config"] = permissions_config
         if instance_requirements is not None:
-            input["instance_requirements"] = instance_requirements
+            input_["instance_requirements"] = instance_requirements
         if capacity_provider_scaling_config is not None:
-            input["capacity_provider_scaling_config"] = capacity_provider_scaling_config
+            input_["capacity_provider_scaling_config"] = (
+                capacity_provider_scaling_config
+            )
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -423,11 +429,11 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_capacity_provider_request.GetCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
+        input_: aws_sdk_lambda.types.get_capacity_provider_request.GetCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,13 +471,15 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
+        input_: aws_sdk_lambda.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
         if capacity_provider_scaling_config is not None:
-            input["capacity_provider_scaling_config"] = capacity_provider_scaling_config
+            input_["capacity_provider_scaling_config"] = (
+                capacity_provider_scaling_config
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,11 +513,11 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
+        input_: aws_sdk_lambda.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -551,16 +559,16 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_capacity_providers_request.ListCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_capacity_providers_request.ListCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -600,15 +608,15 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_function_versions_by_capacity_provider_request.ListFunctionVersionsByCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider_name"] = capacity_provider_name
+        input_: aws_sdk_lambda.types.list_function_versions_by_capacity_provider_request.ListFunctionVersionsByCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider_name"] = capacity_provider_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

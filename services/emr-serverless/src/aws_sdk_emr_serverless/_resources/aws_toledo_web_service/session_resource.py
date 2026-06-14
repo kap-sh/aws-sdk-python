@@ -91,21 +91,21 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["client_token"] = client_token
-        input["execution_role_arn"] = execution_role_arn
+        input_: aws_sdk_emr_serverless.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["client_token"] = client_token
+        input_["execution_role_arn"] = execution_role_arn
         if configuration_overrides is not None:
-            input["configuration_overrides"] = configuration_overrides
+            input_["configuration_overrides"] = configuration_overrides
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if idle_timeout_minutes is not None:
-            input["idle_timeout_minutes"] = idle_timeout_minutes
+            input_["idle_timeout_minutes"] = idle_timeout_minutes
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -140,12 +140,12 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr_serverless.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -180,12 +180,12 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr_serverless.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,21 +232,21 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if created_at_after is not None:
-            input["created_at_after"] = created_at_after
+            input_["created_at_after"] = created_at_after
         if created_at_before is not None:
-            input["created_at_before"] = created_at_before
+            input_["created_at_before"] = created_at_before
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,12 +281,12 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_session_endpoint_request.GetSessionEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr_serverless.types.get_session_endpoint_request.GetSessionEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,21 +341,21 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["client_token"] = client_token
-        input["execution_role_arn"] = execution_role_arn
+        input_: aws_sdk_emr_serverless.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["client_token"] = client_token
+        input_["execution_role_arn"] = execution_role_arn
         if configuration_overrides is not None:
-            input["configuration_overrides"] = configuration_overrides
+            input_["configuration_overrides"] = configuration_overrides
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if idle_timeout_minutes is not None:
-            input["idle_timeout_minutes"] = idle_timeout_minutes
+            input_["idle_timeout_minutes"] = idle_timeout_minutes
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,12 +391,12 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr_serverless.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,12 +432,12 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr_serverless.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,21 +485,21 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if created_at_after is not None:
-            input["created_at_after"] = created_at_after
+            input_["created_at_after"] = created_at_after
         if created_at_before is not None:
-            input["created_at_before"] = created_at_before
+            input_["created_at_before"] = created_at_before
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,12 +535,12 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_session_endpoint_request.GetSessionEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr_serverless.types.get_session_endpoint_request.GetSessionEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

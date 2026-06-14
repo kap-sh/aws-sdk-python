@@ -90,20 +90,20 @@ class AliasResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_agent_alias_request.CreateAgentAliasRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_name"] = agent_alias_name
+        input_: aws_sdk_bedrock_agent.types.create_agent_alias_request.CreateAgentAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_name"] = agent_alias_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_configuration is not None:
-            input["routing_configuration"] = routing_configuration
+            input_["routing_configuration"] = routing_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -138,12 +138,12 @@ class AliasResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_agent_alias_request.DeleteAgentAliasRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
+        input_: aws_sdk_bedrock_agent.types.delete_agent_alias_request.DeleteAgentAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -178,12 +178,12 @@ class AliasResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_alias_request.GetAgentAliasRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_alias_request.GetAgentAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,15 +222,15 @@ class AliasResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_aliases_request.ListAgentAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.list_agent_aliases_request.ListAgentAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,19 +279,19 @@ class AliasResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_alias_request.UpdateAgentAliasRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
-        input["agent_alias_name"] = agent_alias_name
+        input_: aws_sdk_bedrock_agent.types.update_agent_alias_request.UpdateAgentAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
+        input_["agent_alias_name"] = agent_alias_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_configuration is not None:
-            input["routing_configuration"] = routing_configuration
+            input_["routing_configuration"] = routing_configuration
         if alias_invocation_state is not None:
-            input["alias_invocation_state"] = alias_invocation_state
+            input_["alias_invocation_state"] = alias_invocation_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,20 +346,20 @@ class AsyncAliasResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_agent_alias_request.CreateAgentAliasRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_name"] = agent_alias_name
+        input_: aws_sdk_bedrock_agent.types.create_agent_alias_request.CreateAgentAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_name"] = agent_alias_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_configuration is not None:
-            input["routing_configuration"] = routing_configuration
+            input_["routing_configuration"] = routing_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,12 +395,12 @@ class AsyncAliasResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_agent_alias_request.DeleteAgentAliasRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
+        input_: aws_sdk_bedrock_agent.types.delete_agent_alias_request.DeleteAgentAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,12 +436,12 @@ class AsyncAliasResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_alias_request.GetAgentAliasRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_alias_request.GetAgentAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,15 +481,15 @@ class AsyncAliasResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_aliases_request.ListAgentAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.list_agent_aliases_request.ListAgentAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,19 +539,19 @@ class AsyncAliasResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_alias_request.UpdateAgentAliasRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
-        input["agent_alias_name"] = agent_alias_name
+        input_: aws_sdk_bedrock_agent.types.update_agent_alias_request.UpdateAgentAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
+        input_["agent_alias_name"] = agent_alias_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_configuration is not None:
-            input["routing_configuration"] = routing_configuration
+            input_["routing_configuration"] = routing_configuration
         if alias_invocation_state is not None:
-            input["alias_invocation_state"] = alias_invocation_state
+            input_["alias_invocation_state"] = alias_invocation_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

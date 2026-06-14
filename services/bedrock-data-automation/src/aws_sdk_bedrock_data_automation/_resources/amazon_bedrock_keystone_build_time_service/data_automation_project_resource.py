@@ -104,32 +104,32 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if project_description is not None:
-            input["project_description"] = project_description
+            input_["project_description"] = project_description
         if project_stage is not None:
-            input["project_stage"] = project_stage
+            input_["project_stage"] = project_stage
         if project_type is not None:
-            input["project_type"] = project_type
-        input["standard_output_configuration"] = standard_output_configuration
+            input_["project_type"] = project_type
+        input_["standard_output_configuration"] = standard_output_configuration
         if custom_output_configuration is not None:
-            input["custom_output_configuration"] = custom_output_configuration
+            input_["custom_output_configuration"] = custom_output_configuration
         if override_configuration is not None:
-            input["override_configuration"] = override_configuration
+            input_["override_configuration"] = override_configuration
         if data_automation_library_configuration is not None:
-            input["data_automation_library_configuration"] = (
+            input_["data_automation_library_configuration"] = (
                 data_automation_library_configuration
             )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,13 +166,13 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_data_automation_project_request.GetDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_data_automation_project_request.GetDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if project_stage is not None:
-            input["project_stage"] = project_stage
+            input_["project_stage"] = project_stage
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,26 +224,26 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.update_data_automation_project_request.UpdateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_bedrock_data_automation.types.update_data_automation_project_request.UpdateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if project_stage is not None:
-            input["project_stage"] = project_stage
+            input_["project_stage"] = project_stage
         if project_description is not None:
-            input["project_description"] = project_description
-        input["standard_output_configuration"] = standard_output_configuration
+            input_["project_description"] = project_description
+        input_["standard_output_configuration"] = standard_output_configuration
         if custom_output_configuration is not None:
-            input["custom_output_configuration"] = custom_output_configuration
+            input_["custom_output_configuration"] = custom_output_configuration
         if override_configuration is not None:
-            input["override_configuration"] = override_configuration
+            input_["override_configuration"] = override_configuration
         if data_automation_library_configuration is not None:
-            input["data_automation_library_configuration"] = (
+            input_["data_automation_library_configuration"] = (
                 data_automation_library_configuration
             )
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,11 +276,11 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.delete_data_automation_project_request.DeleteDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_bedrock_data_automation.types.delete_data_automation_project_request.DeleteDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,22 +326,22 @@ class DataAutomationProjectResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if project_stage_filter is not None:
-            input["project_stage_filter"] = project_stage_filter
+            input_["project_stage_filter"] = project_stage_filter
         if blueprint_filter is not None:
-            input["blueprint_filter"] = blueprint_filter
+            input_["blueprint_filter"] = blueprint_filter
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
+            input_["resource_owner"] = resource_owner
         if library_filter is not None:
-            input["library_filter"] = library_filter
+            input_["library_filter"] = library_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,32 +402,32 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_bedrock_data_automation.types.create_data_automation_project_request.CreateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if project_description is not None:
-            input["project_description"] = project_description
+            input_["project_description"] = project_description
         if project_stage is not None:
-            input["project_stage"] = project_stage
+            input_["project_stage"] = project_stage
         if project_type is not None:
-            input["project_type"] = project_type
-        input["standard_output_configuration"] = standard_output_configuration
+            input_["project_type"] = project_type
+        input_["standard_output_configuration"] = standard_output_configuration
         if custom_output_configuration is not None:
-            input["custom_output_configuration"] = custom_output_configuration
+            input_["custom_output_configuration"] = custom_output_configuration
         if override_configuration is not None:
-            input["override_configuration"] = override_configuration
+            input_["override_configuration"] = override_configuration
         if data_automation_library_configuration is not None:
-            input["data_automation_library_configuration"] = (
+            input_["data_automation_library_configuration"] = (
                 data_automation_library_configuration
             )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,13 +465,13 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_data_automation_project_request.GetDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_data_automation_project_request.GetDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if project_stage is not None:
-            input["project_stage"] = project_stage
+            input_["project_stage"] = project_stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -524,26 +524,26 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.update_data_automation_project_request.UpdateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_bedrock_data_automation.types.update_data_automation_project_request.UpdateDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if project_stage is not None:
-            input["project_stage"] = project_stage
+            input_["project_stage"] = project_stage
         if project_description is not None:
-            input["project_description"] = project_description
-        input["standard_output_configuration"] = standard_output_configuration
+            input_["project_description"] = project_description
+        input_["standard_output_configuration"] = standard_output_configuration
         if custom_output_configuration is not None:
-            input["custom_output_configuration"] = custom_output_configuration
+            input_["custom_output_configuration"] = custom_output_configuration
         if override_configuration is not None:
-            input["override_configuration"] = override_configuration
+            input_["override_configuration"] = override_configuration
         if data_automation_library_configuration is not None:
-            input["data_automation_library_configuration"] = (
+            input_["data_automation_library_configuration"] = (
                 data_automation_library_configuration
             )
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -577,11 +577,11 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.delete_data_automation_project_request.DeleteDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_bedrock_data_automation.types.delete_data_automation_project_request.DeleteDataAutomationProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -628,22 +628,22 @@ class AsyncDataAutomationProjectResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_data_automation.types.list_data_automation_projects_request.ListDataAutomationProjectsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if project_stage_filter is not None:
-            input["project_stage_filter"] = project_stage_filter
+            input_["project_stage_filter"] = project_stage_filter
         if blueprint_filter is not None:
-            input["blueprint_filter"] = blueprint_filter
+            input_["blueprint_filter"] = blueprint_filter
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
+            input_["resource_owner"] = resource_owner
         if library_filter is not None:
-            input["library_filter"] = library_filter
+            input_["library_filter"] = library_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -66,11 +66,11 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_interconnect.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -118,18 +118,18 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_interconnect.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -173,11 +173,11 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_interconnect.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,18 +226,18 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_interconnect.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

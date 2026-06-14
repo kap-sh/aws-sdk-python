@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_payment_cryptography._auth._signers
+import aws_sdk_payment_cryptography._auth._sigv4
 from aws_sdk_payment_cryptography._auth._identity import Credentials
 from aws_sdk_payment_cryptography._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,12 @@ from aws_sdk_payment_cryptography._auth._providers import (
 )
 from aws_sdk_payment_cryptography._auth._zapros_handler import AuthMiddleware
 from aws_sdk_payment_cryptography._pagination import resolve_path as _resolve_path
+from aws_sdk_payment_cryptography._resources.payment_cryptography_control_plane.alias_resource import (
+    AsyncAliasResource,
+)
+from aws_sdk_payment_cryptography._resources.payment_cryptography_control_plane.key_resource import (
+    AsyncKeyResource,
+)
 from aws_sdk_payment_cryptography._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -154,6 +162,9 @@ class AsyncPaymentCryptographyClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.alias_resource = AsyncAliasResource(self)
+        self.key_resource = AsyncKeyResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncPaymentCryptographyClientConfig] = None
@@ -217,14 +228,14 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.associate_mpa_team_input.AssociateMpaTeamInput = {}  # type: ignore[typeddict-item]
-        input["action"] = action
-        input["mpa_team_arn"] = mpa_team_arn
+        input_: aws_sdk_payment_cryptography.types.associate_mpa_team_input.AssociateMpaTeamInput = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
+        input_["mpa_team_arn"] = mpa_team_arn
         if requester_comment is not None:
-            input["requester_comment"] = requester_comment
+            input_["requester_comment"] = requester_comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,11 +269,11 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_payment_cryptography.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -296,11 +307,11 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.disable_default_key_replication_regions_input.DisableDefaultKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
-        input["replication_regions"] = replication_regions
+        input_: aws_sdk_payment_cryptography.types.disable_default_key_replication_regions_input.DisableDefaultKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
+        input_["replication_regions"] = replication_regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,13 +349,13 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.disassociate_mpa_team_input.DisassociateMpaTeamInput = {}  # type: ignore[typeddict-item]
-        input["action"] = action
+        input_: aws_sdk_payment_cryptography.types.disassociate_mpa_team_input.DisassociateMpaTeamInput = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
         if requester_comment is not None:
-            input["requester_comment"] = requester_comment
+            input_["requester_comment"] = requester_comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,11 +389,11 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.enable_default_key_replication_regions_input.EnableDefaultKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
-        input["replication_regions"] = replication_regions
+        input_: aws_sdk_payment_cryptography.types.enable_default_key_replication_regions_input.EnableDefaultKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
+        input_["replication_regions"] = replication_regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,14 +433,14 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.export_key_input.ExportKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_material"] = key_material
-        input["export_key_identifier"] = export_key_identifier
+        input_: aws_sdk_payment_cryptography.types.export_key_input.ExportKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_material"] = key_material
+        input_["export_key_identifier"] = export_key_identifier
         if export_attributes is not None:
-            input["export_attributes"] = export_attributes
+            input_["export_attributes"] = export_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -467,13 +478,13 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_certificate_signing_request_input.GetCertificateSigningRequestInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["signing_algorithm"] = signing_algorithm
-        input["certificate_subject"] = certificate_subject
+        input_: aws_sdk_payment_cryptography.types.get_certificate_signing_request_input.GetCertificateSigningRequestInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["signing_algorithm"] = signing_algorithm
+        input_["certificate_subject"] = certificate_subject
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,10 +511,10 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_default_key_replication_regions_input.GetDefaultKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_payment_cryptography.types.get_default_key_replication_regions_input.GetDefaultKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -537,11 +548,11 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_mpa_team_association_input.GetMpaTeamAssociationInput = {}  # type: ignore[typeddict-item]
-        input["action"] = action
+        input_: aws_sdk_payment_cryptography.types.get_mpa_team_association_input.GetMpaTeamAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,14 +590,14 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_parameters_for_export_input.GetParametersForExportInput = {}  # type: ignore[typeddict-item]
-        input["key_material_type"] = key_material_type
-        input["signing_key_algorithm"] = signing_key_algorithm
+        input_: aws_sdk_payment_cryptography.types.get_parameters_for_export_input.GetParametersForExportInput = {}  # type: ignore[typeddict-item]
+        input_["key_material_type"] = key_material_type
+        input_["signing_key_algorithm"] = signing_key_algorithm
         if reuse_last_generated_token is not None:
-            input["reuse_last_generated_token"] = reuse_last_generated_token
+            input_["reuse_last_generated_token"] = reuse_last_generated_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,14 +635,14 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_parameters_for_import_input.GetParametersForImportInput = {}  # type: ignore[typeddict-item]
-        input["key_material_type"] = key_material_type
-        input["wrapping_key_algorithm"] = wrapping_key_algorithm
+        input_: aws_sdk_payment_cryptography.types.get_parameters_for_import_input.GetParametersForImportInput = {}  # type: ignore[typeddict-item]
+        input_["key_material_type"] = key_material_type
+        input_["wrapping_key_algorithm"] = wrapping_key_algorithm
         if reuse_last_generated_token is not None:
-            input["reuse_last_generated_token"] = reuse_last_generated_token
+            input_["reuse_last_generated_token"] = reuse_last_generated_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -665,11 +676,11 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_public_key_certificate_input.GetPublicKeyCertificateInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.get_public_key_certificate_input.GetPublicKeyCertificateInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -703,11 +714,11 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_payment_cryptography.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -756,21 +767,21 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.import_key_input.ImportKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_material"] = key_material
+        input_: aws_sdk_payment_cryptography.types.import_key_input.ImportKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_material"] = key_material
         if key_check_value_algorithm is not None:
-            input["key_check_value_algorithm"] = key_check_value_algorithm
+            input_["key_check_value_algorithm"] = key_check_value_algorithm
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if replication_regions is not None:
-            input["replication_regions"] = replication_regions
+            input_["replication_regions"] = replication_regions
         if requester_comment is not None:
-            input["requester_comment"] = requester_comment
+            input_["requester_comment"] = requester_comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -812,15 +823,15 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_payment_cryptography.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -883,12 +894,12 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_payment_cryptography.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -924,12 +935,12 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_payment_cryptography.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -965,12 +976,12 @@ class AsyncPaymentCryptographyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_payment_cryptography.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -106,58 +106,55 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_pinpoint.types.get_journey_date_range_kpi_request.GetJourneyDateRangeKpiRequest,
+    input_: aws_sdk_pinpoint.types.get_journey_date_range_kpi_request.GetJourneyDateRangeKpiRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/v1/apps/{ApplicationId}/journeys/{JourneyId}/kpis/daterange/{KpiName}"
     )
-    url = url.replace("{ApplicationId}", quote(str(input["application_id"]), safe=""))
-    url = url.replace("{JourneyId}", quote(str(input["journey_id"]), safe=""))
-    url = url.replace("{KpiName}", quote(str(input["kpi_name"]), safe=""))
+    url = url.replace("{ApplicationId}", quote(str(input_["application_id"]), safe=""))
+    url = url.replace("{JourneyId}", quote(str(input_["journey_id"]), safe=""))
+    url = url.replace("{KpiName}", quote(str(input_["kpi_name"]), safe=""))
     params: dict[str, str] = {}
-    if "end_time" in input:
-        params["end-time"] = str(input["end_time"])
-    if "next_token" in input:
-        params["next-token"] = str(input["next_token"])
-    if "page_size" in input:
-        params["page-size"] = str(input["page_size"])
-    if "start_time" in input:
-        params["start-time"] = str(input["start_time"])
+    if "end_time" in input_:
+        params["end-time"] = str(input_["end_time"])
+    if "next_token" in input_:
+        params["next-token"] = str(input_["next_token"])
+    if "page_size" in input_:
+        params["page-size"] = str(input_["page_size"])
+    if "start_time" in input_:
+        params["start-time"] = str(input_["start_time"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_journey_date_range_kpi(
     options: OperationOptions,
-    input: aws_sdk_pinpoint.types.get_journey_date_range_kpi_request.GetJourneyDateRangeKpiRequest,
+    input_: aws_sdk_pinpoint.types.get_journey_date_range_kpi_request.GetJourneyDateRangeKpiRequest,
 ) -> tuple[
     aws_sdk_pinpoint.types.get_journey_date_range_kpi_response.GetJourneyDateRangeKpiResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -166,16 +163,17 @@ def get_journey_date_range_kpi(
 
 async def async_get_journey_date_range_kpi(
     options: AsyncOperationOptions,
-    input: aws_sdk_pinpoint.types.get_journey_date_range_kpi_request.GetJourneyDateRangeKpiRequest,
+    input_: aws_sdk_pinpoint.types.get_journey_date_range_kpi_request.GetJourneyDateRangeKpiRequest,
 ) -> tuple[
     aws_sdk_pinpoint.types.get_journey_date_range_kpi_response.GetJourneyDateRangeKpiResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

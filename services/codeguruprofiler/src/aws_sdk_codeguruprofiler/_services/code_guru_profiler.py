@@ -15,6 +15,9 @@ from aws_sdk_codeguruprofiler._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_codeguruprofiler._auth._zapros_handler import AuthMiddleware
+from aws_sdk_codeguruprofiler._resources.code_guru_profiler.profiling_group import (
+    ProfilingGroup,
+)
 from aws_sdk_codeguruprofiler._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -110,6 +113,8 @@ class CodeGuruProfilerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.profiling_group = ProfilingGroup(self)
 
     def operation_options(
         self, config_overrides: Optional[CodeGuruProfilerClientConfig] = None
@@ -174,16 +179,16 @@ class CodeGuruProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_findings_report_account_summary_request.GetFindingsReportAccountSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguruprofiler.types.get_findings_report_account_summary_request.GetFindingsReportAccountSummaryRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if daily_reports_only is not None:
-            input["daily_reports_only"] = daily_reports_only
+            input_["daily_reports_only"] = daily_reports_only
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,11 +221,11 @@ class CodeGuruProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codeguruprofiler.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -255,12 +260,12 @@ class CodeGuruProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_codeguruprofiler.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,12 +300,12 @@ class CodeGuruProfilerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codeguruprofiler.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

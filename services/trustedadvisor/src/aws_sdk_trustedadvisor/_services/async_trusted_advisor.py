@@ -205,11 +205,13 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.batch_update_recommendation_resource_exclusion_request.BatchUpdateRecommendationResourceExclusionRequest = {}  # type: ignore[typeddict-item]
-        input["recommendation_resource_exclusions"] = recommendation_resource_exclusions
+        input_: aws_sdk_trustedadvisor.types.batch_update_recommendation_resource_exclusion_request.BatchUpdateRecommendationResourceExclusionRequest = {}  # type: ignore[typeddict-item]
+        input_["recommendation_resource_exclusions"] = (
+            recommendation_resource_exclusions
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,13 +250,13 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.get_organization_recommendation_request.GetOrganizationRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_recommendation_identifier"] = (
+        input_: aws_sdk_trustedadvisor.types.get_organization_recommendation_request.GetOrganizationRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_recommendation_identifier"] = (
             organization_recommendation_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,13 +299,13 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["recommendation_identifier"] = recommendation_identifier
+        input_: aws_sdk_trustedadvisor.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["recommendation_identifier"] = recommendation_identifier
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,22 +362,22 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.list_checks_request.ListChecksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_trustedadvisor.types.list_checks_request.ListChecksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if pillar is not None:
-            input["pillar"] = pillar
+            input_["pillar"] = pillar
         if aws_service is not None:
-            input["aws_service"] = aws_service
+            input_["aws_service"] = aws_service
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,19 +461,19 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.list_organization_recommendation_accounts_request.ListOrganizationRecommendationAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_trustedadvisor.types.list_organization_recommendation_accounts_request.ListOrganizationRecommendationAccountsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["organization_recommendation_identifier"] = (
+            input_["max_results"] = max_results
+        input_["organization_recommendation_identifier"] = (
             organization_recommendation_identifier
         )
         if affected_account_id is not None:
-            input["affected_account_id"] = affected_account_id
+            input_["affected_account_id"] = affected_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,25 +559,25 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.list_organization_recommendation_resources_request.ListOrganizationRecommendationResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_trustedadvisor.types.list_organization_recommendation_resources_request.ListOrganizationRecommendationResourcesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if exclusion_status is not None:
-            input["exclusion_status"] = exclusion_status
+            input_["exclusion_status"] = exclusion_status
         if region_code is not None:
-            input["region_code"] = region_code
-        input["organization_recommendation_identifier"] = (
+            input_["region_code"] = region_code
+        input_["organization_recommendation_identifier"] = (
             organization_recommendation_identifier
         )
         if affected_account_id is not None:
-            input["affected_account_id"] = affected_account_id
+            input_["affected_account_id"] = affected_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,30 +691,30 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.list_organization_recommendations_request.ListOrganizationRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_trustedadvisor.types.list_organization_recommendations_request.ListOrganizationRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if pillar is not None:
-            input["pillar"] = pillar
+            input_["pillar"] = pillar
         if aws_service is not None:
-            input["aws_service"] = aws_service
+            input_["aws_service"] = aws_service
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if check_identifier is not None:
-            input["check_identifier"] = check_identifier
+            input_["check_identifier"] = check_identifier
         if after_last_updated_at is not None:
-            input["after_last_updated_at"] = after_last_updated_at
+            input_["after_last_updated_at"] = after_last_updated_at
         if before_last_updated_at is not None:
-            input["before_last_updated_at"] = before_last_updated_at
+            input_["before_last_updated_at"] = before_last_updated_at
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -818,23 +820,23 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.list_recommendation_resources_request.ListRecommendationResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_trustedadvisor.types.list_recommendation_resources_request.ListRecommendationResourcesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if exclusion_status is not None:
-            input["exclusion_status"] = exclusion_status
+            input_["exclusion_status"] = exclusion_status
         if region_code is not None:
-            input["region_code"] = region_code
-        input["recommendation_identifier"] = recommendation_identifier
+            input_["region_code"] = region_code
+        input_["recommendation_identifier"] = recommendation_identifier
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -950,32 +952,32 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_trustedadvisor.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if pillar is not None:
-            input["pillar"] = pillar
+            input_["pillar"] = pillar
         if aws_service is not None:
-            input["aws_service"] = aws_service
+            input_["aws_service"] = aws_service
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if check_identifier is not None:
-            input["check_identifier"] = check_identifier
+            input_["check_identifier"] = check_identifier
         if after_last_updated_at is not None:
-            input["after_last_updated_at"] = after_last_updated_at
+            input_["after_last_updated_at"] = after_last_updated_at
         if before_last_updated_at is not None:
-            input["before_last_updated_at"] = before_last_updated_at
+            input_["before_last_updated_at"] = before_last_updated_at
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1075,18 +1077,18 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.update_organization_recommendation_lifecycle_request.UpdateOrganizationRecommendationLifecycleRequest = {}  # type: ignore[typeddict-item]
-        input["lifecycle_stage"] = lifecycle_stage
+        input_: aws_sdk_trustedadvisor.types.update_organization_recommendation_lifecycle_request.UpdateOrganizationRecommendationLifecycleRequest = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_stage"] = lifecycle_stage
         if update_reason is not None:
-            input["update_reason"] = update_reason
+            input_["update_reason"] = update_reason
         if update_reason_code is not None:
-            input["update_reason_code"] = update_reason_code
-        input["organization_recommendation_identifier"] = (
+            input_["update_reason_code"] = update_reason_code
+        input_["organization_recommendation_identifier"] = (
             organization_recommendation_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1133,16 +1135,16 @@ class AsyncTrustedAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_trustedadvisor.types.update_recommendation_lifecycle_request.UpdateRecommendationLifecycleRequest = {}  # type: ignore[typeddict-item]
-        input["lifecycle_stage"] = lifecycle_stage
+        input_: aws_sdk_trustedadvisor.types.update_recommendation_lifecycle_request.UpdateRecommendationLifecycleRequest = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_stage"] = lifecycle_stage
         if update_reason is not None:
-            input["update_reason"] = update_reason
+            input_["update_reason"] = update_reason
         if update_reason_code is not None:
-            input["update_reason_code"] = update_reason_code
-        input["recommendation_identifier"] = recommendation_identifier
+            input_["update_reason_code"] = update_reason_code
+        input_["recommendation_identifier"] = recommendation_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

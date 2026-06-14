@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_kms._auth._signers
+import aws_sdk_kms._auth._sigv4
 from aws_sdk_kms._auth._identity import Credentials
 from aws_sdk_kms._auth._providers import (
     CredentialsProvider,
@@ -318,11 +320,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.cancel_key_deletion_request.CancelKeyDeletionRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.cancel_key_deletion_request.CancelKeyDeletionRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -361,11 +363,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.connect_custom_key_store_request.ConnectCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input["custom_key_store_id"] = custom_key_store_id
+        input_: aws_sdk_kms.types.connect_custom_key_store_request.ConnectCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_key_store_id"] = custom_key_store_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,12 +406,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["alias_name"] = alias_name
-        input["target_key_id"] = target_key_id
+        input_: aws_sdk_kms.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["alias_name"] = alias_name
+        input_["target_key_id"] = target_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,37 +490,37 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.create_custom_key_store_request.CreateCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input["custom_key_store_name"] = custom_key_store_name
+        input_: aws_sdk_kms.types.create_custom_key_store_request.CreateCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_key_store_name"] = custom_key_store_name
         if cloud_hsm_cluster_id is not None:
-            input["cloud_hsm_cluster_id"] = cloud_hsm_cluster_id
+            input_["cloud_hsm_cluster_id"] = cloud_hsm_cluster_id
         if trust_anchor_certificate is not None:
-            input["trust_anchor_certificate"] = trust_anchor_certificate
+            input_["trust_anchor_certificate"] = trust_anchor_certificate
         if key_store_password is not None:
-            input["key_store_password"] = key_store_password
+            input_["key_store_password"] = key_store_password
         if custom_key_store_type is not None:
-            input["custom_key_store_type"] = custom_key_store_type
+            input_["custom_key_store_type"] = custom_key_store_type
         if xks_proxy_uri_endpoint is not None:
-            input["xks_proxy_uri_endpoint"] = xks_proxy_uri_endpoint
+            input_["xks_proxy_uri_endpoint"] = xks_proxy_uri_endpoint
         if xks_proxy_uri_path is not None:
-            input["xks_proxy_uri_path"] = xks_proxy_uri_path
+            input_["xks_proxy_uri_path"] = xks_proxy_uri_path
         if xks_proxy_vpc_endpoint_service_name is not None:
-            input["xks_proxy_vpc_endpoint_service_name"] = (
+            input_["xks_proxy_vpc_endpoint_service_name"] = (
                 xks_proxy_vpc_endpoint_service_name
             )
         if xks_proxy_vpc_endpoint_service_owner is not None:
-            input["xks_proxy_vpc_endpoint_service_owner"] = (
+            input_["xks_proxy_vpc_endpoint_service_owner"] = (
                 xks_proxy_vpc_endpoint_service_owner
             )
         if xks_proxy_authentication_credential is not None:
-            input["xks_proxy_authentication_credential"] = (
+            input_["xks_proxy_authentication_credential"] = (
                 xks_proxy_authentication_credential
             )
         if xks_proxy_connectivity is not None:
-            input["xks_proxy_connectivity"] = xks_proxy_connectivity
+            input_["xks_proxy_connectivity"] = xks_proxy_connectivity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,28 +595,28 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.create_grant_request.CreateGrantRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.create_grant_request.CreateGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if grantee_principal is not None:
-            input["grantee_principal"] = grantee_principal
+            input_["grantee_principal"] = grantee_principal
         if retiring_principal is not None:
-            input["retiring_principal"] = retiring_principal
-        input["operations"] = operations
+            input_["retiring_principal"] = retiring_principal
+        input_["operations"] = operations
         if constraints is not None:
-            input["constraints"] = constraints
+            input_["constraints"] = constraints
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if grantee_service_principal is not None:
-            input["grantee_service_principal"] = grantee_service_principal
+            input_["grantee_service_principal"] = grantee_service_principal
         if retiring_service_principal is not None:
-            input["retiring_service_principal"] = retiring_service_principal
+            input_["retiring_service_principal"] = retiring_service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -677,34 +679,34 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.create_key_request.CreateKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.create_key_request.CreateKeyRequest = {}  # type: ignore[typeddict-item]
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if key_usage is not None:
-            input["key_usage"] = key_usage
+            input_["key_usage"] = key_usage
         if customer_master_key_spec is not None:
-            input["customer_master_key_spec"] = customer_master_key_spec
+            input_["customer_master_key_spec"] = customer_master_key_spec
         if key_spec is not None:
-            input["key_spec"] = key_spec
+            input_["key_spec"] = key_spec
         if origin is not None:
-            input["origin"] = origin
+            input_["origin"] = origin
         if custom_key_store_id is not None:
-            input["custom_key_store_id"] = custom_key_store_id
+            input_["custom_key_store_id"] = custom_key_store_id
         if bypass_policy_lockout_safety_check is not None:
-            input["bypass_policy_lockout_safety_check"] = (
+            input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if multi_region is not None:
-            input["multi_region"] = multi_region
+            input_["multi_region"] = multi_region
         if xks_key_id is not None:
-            input["xks_key_id"] = xks_key_id
+            input_["xks_key_id"] = xks_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,26 +773,26 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.decrypt_request.DecryptRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.decrypt_request.DecryptRequest = {}  # type: ignore[typeddict-item]
         if ciphertext_blob is not None:
-            input["ciphertext_blob"] = ciphertext_blob
+            input_["ciphertext_blob"] = ciphertext_blob
         if encryption_context is not None:
-            input["encryption_context"] = encryption_context
+            input_["encryption_context"] = encryption_context
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if key_id is not None:
-            input["key_id"] = key_id
+            input_["key_id"] = key_id
         if encryption_algorithm is not None:
-            input["encryption_algorithm"] = encryption_algorithm
+            input_["encryption_algorithm"] = encryption_algorithm
         if recipient is not None:
-            input["recipient"] = recipient
+            input_["recipient"] = recipient
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if dry_run_modifiers is not None:
-            input["dry_run_modifiers"] = dry_run_modifiers
+            input_["dry_run_modifiers"] = dry_run_modifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -827,11 +829,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
-        input["alias_name"] = alias_name
+        input_: aws_sdk_kms.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["alias_name"] = alias_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -870,11 +872,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.delete_custom_key_store_request.DeleteCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input["custom_key_store_id"] = custom_key_store_id
+        input_: aws_sdk_kms.types.delete_custom_key_store_request.DeleteCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_key_store_id"] = custom_key_store_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -917,13 +919,13 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.delete_imported_key_material_request.DeleteImportedKeyMaterialRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.delete_imported_key_material_request.DeleteImportedKeyMaterialRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if key_material_id is not None:
-            input["key_material_id"] = key_material_id
+            input_["key_material_id"] = key_material_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -976,19 +978,19 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.derive_shared_secret_request.DeriveSharedSecretRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["key_agreement_algorithm"] = key_agreement_algorithm
-        input["public_key"] = public_key
+        input_: aws_sdk_kms.types.derive_shared_secret_request.DeriveSharedSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["key_agreement_algorithm"] = key_agreement_algorithm
+        input_["public_key"] = public_key
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if recipient is not None:
-            input["recipient"] = recipient
+            input_["recipient"] = recipient
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1037,18 +1039,18 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.describe_custom_key_stores_request.DescribeCustomKeyStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.describe_custom_key_stores_request.DescribeCustomKeyStoresRequest = {}  # type: ignore[typeddict-item]
         if custom_key_store_id is not None:
-            input["custom_key_store_id"] = custom_key_store_id
+            input_["custom_key_store_id"] = custom_key_store_id
         if custom_key_store_name is not None:
-            input["custom_key_store_name"] = custom_key_store_name
+            input_["custom_key_store_name"] = custom_key_store_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1136,13 +1138,13 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.describe_key_request.DescribeKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.describe_key_request.DescribeKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1179,11 +1181,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.disable_key_request.DisableKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.disable_key_request.DisableKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1220,11 +1222,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.disable_key_rotation_request.DisableKeyRotationRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.disable_key_rotation_request.DisableKeyRotationRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1263,11 +1265,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.disconnect_custom_key_store_request.DisconnectCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input["custom_key_store_id"] = custom_key_store_id
+        input_: aws_sdk_kms.types.disconnect_custom_key_store_request.DisconnectCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_key_store_id"] = custom_key_store_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1304,11 +1306,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.enable_key_request.EnableKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.enable_key_request.EnableKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1349,13 +1351,13 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.enable_key_rotation_request.EnableKeyRotationRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.enable_key_rotation_request.EnableKeyRotationRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if rotation_period_in_days is not None:
-            input["rotation_period_in_days"] = rotation_period_in_days
+            input_["rotation_period_in_days"] = rotation_period_in_days
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1414,20 +1416,20 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.encrypt_request.EncryptRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["plaintext"] = plaintext
+        input_: aws_sdk_kms.types.encrypt_request.EncryptRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["plaintext"] = plaintext
         if encryption_context is not None:
-            input["encryption_context"] = encryption_context
+            input_["encryption_context"] = encryption_context
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if encryption_algorithm is not None:
-            input["encryption_algorithm"] = encryption_algorithm
+            input_["encryption_algorithm"] = encryption_algorithm
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1486,23 +1488,23 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.generate_data_key_request.GenerateDataKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.generate_data_key_request.GenerateDataKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if encryption_context is not None:
-            input["encryption_context"] = encryption_context
+            input_["encryption_context"] = encryption_context
         if number_of_bytes is not None:
-            input["number_of_bytes"] = number_of_bytes
+            input_["number_of_bytes"] = number_of_bytes
         if key_spec is not None:
-            input["key_spec"] = key_spec
+            input_["key_spec"] = key_spec
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if recipient is not None:
-            input["recipient"] = recipient
+            input_["recipient"] = recipient
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1559,20 +1561,20 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.generate_data_key_pair_request.GenerateDataKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.generate_data_key_pair_request.GenerateDataKeyPairRequest = {}  # type: ignore[typeddict-item]
         if encryption_context is not None:
-            input["encryption_context"] = encryption_context
-        input["key_id"] = key_id
-        input["key_pair_spec"] = key_pair_spec
+            input_["encryption_context"] = encryption_context
+        input_["key_id"] = key_id
+        input_["key_pair_spec"] = key_pair_spec
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if recipient is not None:
-            input["recipient"] = recipient
+            input_["recipient"] = recipient
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1625,18 +1627,18 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.generate_data_key_pair_without_plaintext_request.GenerateDataKeyPairWithoutPlaintextRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.generate_data_key_pair_without_plaintext_request.GenerateDataKeyPairWithoutPlaintextRequest = {}  # type: ignore[typeddict-item]
         if encryption_context is not None:
-            input["encryption_context"] = encryption_context
-        input["key_id"] = key_id
-        input["key_pair_spec"] = key_pair_spec
+            input_["encryption_context"] = encryption_context
+        input_["key_id"] = key_id
+        input_["key_pair_spec"] = key_pair_spec
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1693,21 +1695,21 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.generate_data_key_without_plaintext_request.GenerateDataKeyWithoutPlaintextRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.generate_data_key_without_plaintext_request.GenerateDataKeyWithoutPlaintextRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if encryption_context is not None:
-            input["encryption_context"] = encryption_context
+            input_["encryption_context"] = encryption_context
         if key_spec is not None:
-            input["key_spec"] = key_spec
+            input_["key_spec"] = key_spec
         if number_of_bytes is not None:
-            input["number_of_bytes"] = number_of_bytes
+            input_["number_of_bytes"] = number_of_bytes
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1758,17 +1760,17 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.generate_mac_request.GenerateMacRequest = {}  # type: ignore[typeddict-item]
-        input["message"] = message
-        input["key_id"] = key_id
-        input["mac_algorithm"] = mac_algorithm
+        input_: aws_sdk_kms.types.generate_mac_request.GenerateMacRequest = {}  # type: ignore[typeddict-item]
+        input_["message"] = message
+        input_["key_id"] = key_id
+        input_["mac_algorithm"] = mac_algorithm
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1815,16 +1817,16 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.generate_random_request.GenerateRandomRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.generate_random_request.GenerateRandomRequest = {}  # type: ignore[typeddict-item]
         if number_of_bytes is not None:
-            input["number_of_bytes"] = number_of_bytes
+            input_["number_of_bytes"] = number_of_bytes
         if custom_key_store_id is not None:
-            input["custom_key_store_id"] = custom_key_store_id
+            input_["custom_key_store_id"] = custom_key_store_id
         if recipient is not None:
-            input["recipient"] = recipient
+            input_["recipient"] = recipient
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1863,11 +1865,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.get_key_last_usage_request.GetKeyLastUsageRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.get_key_last_usage_request.GetKeyLastUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1910,13 +1912,13 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.get_key_policy_request.GetKeyPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.get_key_policy_request.GetKeyPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if policy_name is not None:
-            input["policy_name"] = policy_name
+            input_["policy_name"] = policy_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1949,11 +1951,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.get_key_rotation_status_request.GetKeyRotationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.get_key_rotation_status_request.GetKeyRotationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1990,13 +1992,13 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.get_parameters_for_import_request.GetParametersForImportRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["wrapping_algorithm"] = wrapping_algorithm
-        input["wrapping_key_spec"] = wrapping_key_spec
+        input_: aws_sdk_kms.types.get_parameters_for_import_request.GetParametersForImportRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["wrapping_algorithm"] = wrapping_algorithm
+        input_["wrapping_key_spec"] = wrapping_key_spec
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2039,13 +2041,13 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2104,23 +2106,23 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.import_key_material_request.ImportKeyMaterialRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["import_token"] = import_token
-        input["encrypted_key_material"] = encrypted_key_material
+        input_: aws_sdk_kms.types.import_key_material_request.ImportKeyMaterialRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["import_token"] = import_token
+        input_["encrypted_key_material"] = encrypted_key_material
         if valid_to is not None:
-            input["valid_to"] = valid_to
+            input_["valid_to"] = valid_to
         if expiration_model is not None:
-            input["expiration_model"] = expiration_model
+            input_["expiration_model"] = expiration_model
         if import_type is not None:
-            input["import_type"] = import_type
+            input_["import_type"] = import_type
         if key_material_description is not None:
-            input["key_material_description"] = key_material_description
+            input_["key_material_description"] = key_material_description
         if key_material_id is not None:
-            input["key_material_id"] = key_material_id
+            input_["key_material_id"] = key_material_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2163,16 +2165,16 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
         if key_id is not None:
-            input["key_id"] = key_id
+            input_["key_id"] = key_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2242,21 +2244,21 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.list_grants_request.ListGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.list_grants_request.ListGrantsRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
-        input["key_id"] = key_id
+            input_["marker"] = marker
+        input_["key_id"] = key_id
         if grant_id is not None:
-            input["grant_id"] = grant_id
+            input_["grant_id"] = grant_id
         if grantee_principal is not None:
-            input["grantee_principal"] = grantee_principal
+            input_["grantee_principal"] = grantee_principal
         if grantee_service_principal is not None:
-            input["grantee_service_principal"] = grantee_service_principal
+            input_["grantee_service_principal"] = grantee_service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2332,15 +2334,15 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.list_key_policies_request.ListKeyPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.list_key_policies_request.ListKeyPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2404,17 +2406,17 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.list_key_rotations_request.ListKeyRotationsRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.list_key_rotations_request.ListKeyRotationsRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if include_key_material is not None:
-            input["include_key_material"] = include_key_material
+            input_["include_key_material"] = include_key_material
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2480,14 +2482,14 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2551,15 +2553,15 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.list_resource_tags_request.ListResourceTagsRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.list_resource_tags_request.ListResourceTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2625,18 +2627,18 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.list_retirable_grants_request.ListRetirableGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.list_retirable_grants_request.ListRetirableGrantsRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if retiring_principal is not None:
-            input["retiring_principal"] = retiring_principal
+            input_["retiring_principal"] = retiring_principal
         if retiring_service_principal is not None:
-            input["retiring_service_principal"] = retiring_service_principal
+            input_["retiring_service_principal"] = retiring_service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2712,18 +2714,18 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.put_key_policy_request.PutKeyPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.put_key_policy_request.PutKeyPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if policy_name is not None:
-            input["policy_name"] = policy_name
-        input["policy"] = policy
+            input_["policy_name"] = policy_name
+        input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
-            input["bypass_policy_lockout_safety_check"] = (
+            input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2796,29 +2798,31 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.re_encrypt_request.ReEncryptRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.re_encrypt_request.ReEncryptRequest = {}  # type: ignore[typeddict-item]
         if ciphertext_blob is not None:
-            input["ciphertext_blob"] = ciphertext_blob
+            input_["ciphertext_blob"] = ciphertext_blob
         if source_encryption_context is not None:
-            input["source_encryption_context"] = source_encryption_context
+            input_["source_encryption_context"] = source_encryption_context
         if source_key_id is not None:
-            input["source_key_id"] = source_key_id
-        input["destination_key_id"] = destination_key_id
+            input_["source_key_id"] = source_key_id
+        input_["destination_key_id"] = destination_key_id
         if destination_encryption_context is not None:
-            input["destination_encryption_context"] = destination_encryption_context
+            input_["destination_encryption_context"] = destination_encryption_context
         if source_encryption_algorithm is not None:
-            input["source_encryption_algorithm"] = source_encryption_algorithm
+            input_["source_encryption_algorithm"] = source_encryption_algorithm
         if destination_encryption_algorithm is not None:
-            input["destination_encryption_algorithm"] = destination_encryption_algorithm
+            input_["destination_encryption_algorithm"] = (
+                destination_encryption_algorithm
+            )
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if dry_run_modifiers is not None:
-            input["dry_run_modifiers"] = dry_run_modifiers
+            input_["dry_run_modifiers"] = dry_run_modifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2871,22 +2875,22 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.replicate_key_request.ReplicateKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["replica_region"] = replica_region
+        input_: aws_sdk_kms.types.replicate_key_request.ReplicateKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["replica_region"] = replica_region
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
-            input["bypass_policy_lockout_safety_check"] = (
+            input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
             )
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2933,18 +2937,18 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.retire_grant_request.RetireGrantRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kms.types.retire_grant_request.RetireGrantRequest = {}  # type: ignore[typeddict-item]
         if grant_token is not None:
-            input["grant_token"] = grant_token
+            input_["grant_token"] = grant_token
         if key_id is not None:
-            input["key_id"] = key_id
+            input_["key_id"] = key_id
         if grant_id is not None:
-            input["grant_id"] = grant_id
+            input_["grant_id"] = grant_id
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2987,14 +2991,14 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.revoke_grant_request.RevokeGrantRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["grant_id"] = grant_id
+        input_: aws_sdk_kms.types.revoke_grant_request.RevokeGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["grant_id"] = grant_id
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3033,11 +3037,11 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.rotate_key_on_demand_request.RotateKeyOnDemandRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.rotate_key_on_demand_request.RotateKeyOnDemandRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3074,13 +3078,13 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.schedule_key_deletion_request.ScheduleKeyDeletionRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
+        input_: aws_sdk_kms.types.schedule_key_deletion_request.ScheduleKeyDeletionRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
         if pending_window_in_days is not None:
-            input["pending_window_in_days"] = pending_window_in_days
+            input_["pending_window_in_days"] = pending_window_in_days
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3133,19 +3137,19 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.sign_request.SignRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["message"] = message
+        input_: aws_sdk_kms.types.sign_request.SignRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["message"] = message
         if message_type is not None:
-            input["message_type"] = message_type
+            input_["message_type"] = message_type
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
-        input["signing_algorithm"] = signing_algorithm
+            input_["grant_tokens"] = grant_tokens
+        input_["signing_algorithm"] = signing_algorithm
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3184,12 +3188,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["tags"] = tags
+        input_: aws_sdk_kms.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3228,12 +3232,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_kms.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3272,12 +3276,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["alias_name"] = alias_name
-        input["target_key_id"] = target_key_id
+        input_: aws_sdk_kms.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["alias_name"] = alias_name
+        input_["target_key_id"] = target_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3368,35 +3372,35 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.update_custom_key_store_request.UpdateCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
-        input["custom_key_store_id"] = custom_key_store_id
+        input_: aws_sdk_kms.types.update_custom_key_store_request.UpdateCustomKeyStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_key_store_id"] = custom_key_store_id
         if new_custom_key_store_name is not None:
-            input["new_custom_key_store_name"] = new_custom_key_store_name
+            input_["new_custom_key_store_name"] = new_custom_key_store_name
         if key_store_password is not None:
-            input["key_store_password"] = key_store_password
+            input_["key_store_password"] = key_store_password
         if cloud_hsm_cluster_id is not None:
-            input["cloud_hsm_cluster_id"] = cloud_hsm_cluster_id
+            input_["cloud_hsm_cluster_id"] = cloud_hsm_cluster_id
         if xks_proxy_uri_endpoint is not None:
-            input["xks_proxy_uri_endpoint"] = xks_proxy_uri_endpoint
+            input_["xks_proxy_uri_endpoint"] = xks_proxy_uri_endpoint
         if xks_proxy_uri_path is not None:
-            input["xks_proxy_uri_path"] = xks_proxy_uri_path
+            input_["xks_proxy_uri_path"] = xks_proxy_uri_path
         if xks_proxy_vpc_endpoint_service_name is not None:
-            input["xks_proxy_vpc_endpoint_service_name"] = (
+            input_["xks_proxy_vpc_endpoint_service_name"] = (
                 xks_proxy_vpc_endpoint_service_name
             )
         if xks_proxy_vpc_endpoint_service_owner is not None:
-            input["xks_proxy_vpc_endpoint_service_owner"] = (
+            input_["xks_proxy_vpc_endpoint_service_owner"] = (
                 xks_proxy_vpc_endpoint_service_owner
             )
         if xks_proxy_authentication_credential is not None:
-            input["xks_proxy_authentication_credential"] = (
+            input_["xks_proxy_authentication_credential"] = (
                 xks_proxy_authentication_credential
             )
         if xks_proxy_connectivity is not None:
-            input["xks_proxy_connectivity"] = xks_proxy_connectivity
+            input_["xks_proxy_connectivity"] = xks_proxy_connectivity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3435,12 +3439,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.update_key_description_request.UpdateKeyDescriptionRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["description"] = description
+        input_: aws_sdk_kms.types.update_key_description_request.UpdateKeyDescriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3483,12 +3487,12 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.update_primary_region_request.UpdatePrimaryRegionRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["primary_region"] = primary_region
+        input_: aws_sdk_kms.types.update_primary_region_request.UpdatePrimaryRegionRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["primary_region"] = primary_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3543,20 +3547,20 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.verify_request.VerifyRequest = {}  # type: ignore[typeddict-item]
-        input["key_id"] = key_id
-        input["message"] = message
+        input_: aws_sdk_kms.types.verify_request.VerifyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_id"] = key_id
+        input_["message"] = message
         if message_type is not None:
-            input["message_type"] = message_type
-        input["signature"] = signature
-        input["signing_algorithm"] = signing_algorithm
+            input_["message_type"] = message_type
+        input_["signature"] = signature
+        input_["signing_algorithm"] = signing_algorithm
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3609,18 +3613,18 @@ class KMSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kms.types.verify_mac_request.VerifyMacRequest = {}  # type: ignore[typeddict-item]
-        input["message"] = message
-        input["key_id"] = key_id
-        input["mac_algorithm"] = mac_algorithm
-        input["mac"] = mac
+        input_: aws_sdk_kms.types.verify_mac_request.VerifyMacRequest = {}  # type: ignore[typeddict-item]
+        input_["message"] = message
+        input_["key_id"] = key_id
+        input_["mac_algorithm"] = mac_algorithm
+        input_["mac"] = mac
         if grant_tokens is not None:
-            input["grant_tokens"] = grant_tokens
+            input_["grant_tokens"] = grant_tokens
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

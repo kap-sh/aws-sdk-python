@@ -434,11 +434,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.accept_attachment_request.AcceptAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.accept_attachment_request.AcceptAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,15 +478,15 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.associate_connect_peer_request.AssociateConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["connect_peer_id"] = connect_peer_id
-        input["device_id"] = device_id
+        input_: aws_sdk_networkmanager.types.associate_connect_peer_request.AssociateConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["connect_peer_id"] = connect_peer_id
+        input_["device_id"] = device_id
         if link_id is not None:
-            input["link_id"] = link_id
+            input_["link_id"] = link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,15 +526,15 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.associate_customer_gateway_request.AssociateCustomerGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["customer_gateway_arn"] = customer_gateway_arn
-        input["global_network_id"] = global_network_id
-        input["device_id"] = device_id
+        input_: aws_sdk_networkmanager.types.associate_customer_gateway_request.AssociateCustomerGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["customer_gateway_arn"] = customer_gateway_arn
+        input_["global_network_id"] = global_network_id
+        input_["device_id"] = device_id
         if link_id is not None:
-            input["link_id"] = link_id
+            input_["link_id"] = link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,13 +572,13 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.associate_link_request.AssociateLinkRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["device_id"] = device_id
-        input["link_id"] = link_id
+        input_: aws_sdk_networkmanager.types.associate_link_request.AssociateLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["device_id"] = device_id
+        input_["link_id"] = link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -618,15 +618,15 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.associate_transit_gateway_connect_peer_request.AssociateTransitGatewayConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["transit_gateway_connect_peer_arn"] = transit_gateway_connect_peer_arn
-        input["device_id"] = device_id
+        input_: aws_sdk_networkmanager.types.associate_transit_gateway_connect_peer_request.AssociateTransitGatewayConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["transit_gateway_connect_peer_arn"] = transit_gateway_connect_peer_arn
+        input_["device_id"] = device_id
         if link_id is not None:
-            input["link_id"] = link_id
+            input_["link_id"] = link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -676,20 +676,20 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_connect_attachment_request.CreateConnectAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["edge_location"] = edge_location
-        input["transport_attachment_id"] = transport_attachment_id
+        input_: aws_sdk_networkmanager.types.create_connect_attachment_request.CreateConnectAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["edge_location"] = edge_location
+        input_["transport_attachment_id"] = transport_attachment_id
         if routing_policy_label is not None:
-            input["routing_policy_label"] = routing_policy_label
-        input["options"] = options
+            input_["routing_policy_label"] = routing_policy_label
+        input_["options"] = options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -739,21 +739,21 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["device_id"] = device_id
-        input["connected_device_id"] = connected_device_id
+        input_: aws_sdk_networkmanager.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["device_id"] = device_id
+        input_["connected_device_id"] = connected_device_id
         if link_id is not None:
-            input["link_id"] = link_id
+            input_["link_id"] = link_id
         if connected_link_id is not None:
-            input["connected_link_id"] = connected_link_id
+            input_["connected_link_id"] = connected_link_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -811,24 +811,24 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_connect_peer_request.CreateConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input["connect_attachment_id"] = connect_attachment_id
+        input_: aws_sdk_networkmanager.types.create_connect_peer_request.CreateConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_attachment_id"] = connect_attachment_id
         if core_network_address is not None:
-            input["core_network_address"] = core_network_address
-        input["peer_address"] = peer_address
+            input_["core_network_address"] = core_network_address
+        input_["peer_address"] = peer_address
         if bgp_options is not None:
-            input["bgp_options"] = bgp_options
+            input_["bgp_options"] = bgp_options
         if inside_cidr_blocks is not None:
-            input["inside_cidr_blocks"] = inside_cidr_blocks
+            input_["inside_cidr_blocks"] = inside_cidr_blocks
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if subnet_arn is not None:
-            input["subnet_arn"] = subnet_arn
+            input_["subnet_arn"] = subnet_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,19 +876,19 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_core_network_request.CreateCoreNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.create_core_network_request.CreateCoreNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if policy_document is not None:
-            input["policy_document"] = policy_document
+            input_["policy_document"] = policy_document
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -930,15 +930,15 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_core_network_prefix_list_association_request.CreateCoreNetworkPrefixListAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["prefix_list_arn"] = prefix_list_arn
-        input["prefix_list_alias"] = prefix_list_alias
+        input_: aws_sdk_networkmanager.types.create_core_network_prefix_list_association_request.CreateCoreNetworkPrefixListAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["prefix_list_arn"] = prefix_list_arn
+        input_["prefix_list_alias"] = prefix_list_alias
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1002,29 +1002,29 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_device_request.CreateDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.create_device_request.CreateDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if aws_location is not None:
-            input["aws_location"] = aws_location
+            input_["aws_location"] = aws_location
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if vendor is not None:
-            input["vendor"] = vendor
+            input_["vendor"] = vendor
         if model is not None:
-            input["model"] = model
+            input_["model"] = model
         if serial_number is not None:
-            input["serial_number"] = serial_number
+            input_["serial_number"] = serial_number
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if site_id is not None:
-            input["site_id"] = site_id
+            input_["site_id"] = site_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1072,19 +1072,19 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_direct_connect_gateway_attachment_request.CreateDirectConnectGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["direct_connect_gateway_arn"] = direct_connect_gateway_arn
+        input_: aws_sdk_networkmanager.types.create_direct_connect_gateway_attachment_request.CreateDirectConnectGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["direct_connect_gateway_arn"] = direct_connect_gateway_arn
         if routing_policy_label is not None:
-            input["routing_policy_label"] = routing_policy_label
-        input["edge_locations"] = edge_locations
+            input_["routing_policy_label"] = routing_policy_label
+        input_["edge_locations"] = edge_locations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,14 +1122,14 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_global_network_request.CreateGlobalNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkmanager.types.create_global_network_request.CreateGlobalNetworkRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1181,21 +1181,21 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_link_request.CreateLinkRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.create_link_request.CreateLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
-        input["bandwidth"] = bandwidth
+            input_["type"] = type
+        input_["bandwidth"] = bandwidth
         if provider is not None:
-            input["provider"] = provider
-        input["site_id"] = site_id
+            input_["provider"] = provider
+        input_["site_id"] = site_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1237,17 +1237,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_site_request.CreateSiteRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.create_site_request.CreateSiteRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1293,18 +1293,18 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_site_to_site_vpn_attachment_request.CreateSiteToSiteVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["vpn_connection_arn"] = vpn_connection_arn
+        input_: aws_sdk_networkmanager.types.create_site_to_site_vpn_attachment_request.CreateSiteToSiteVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["vpn_connection_arn"] = vpn_connection_arn
         if routing_policy_label is not None:
-            input["routing_policy_label"] = routing_policy_label
+            input_["routing_policy_label"] = routing_policy_label
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1346,16 +1346,16 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_transit_gateway_peering_request.CreateTransitGatewayPeeringRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["transit_gateway_arn"] = transit_gateway_arn
+        input_: aws_sdk_networkmanager.types.create_transit_gateway_peering_request.CreateTransitGatewayPeeringRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["transit_gateway_arn"] = transit_gateway_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1401,18 +1401,18 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_transit_gateway_route_table_attachment_request.CreateTransitGatewayRouteTableAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["peering_id"] = peering_id
-        input["transit_gateway_route_table_arn"] = transit_gateway_route_table_arn
+        input_: aws_sdk_networkmanager.types.create_transit_gateway_route_table_attachment_request.CreateTransitGatewayRouteTableAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["peering_id"] = peering_id
+        input_["transit_gateway_route_table_arn"] = transit_gateway_route_table_arn
         if routing_policy_label is not None:
-            input["routing_policy_label"] = routing_policy_label
+            input_["routing_policy_label"] = routing_policy_label
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1462,21 +1462,21 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.create_vpc_attachment_request.CreateVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["vpc_arn"] = vpc_arn
-        input["subnet_arns"] = subnet_arns
+        input_: aws_sdk_networkmanager.types.create_vpc_attachment_request.CreateVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["vpc_arn"] = vpc_arn
+        input_["subnet_arns"] = subnet_arns
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
         if routing_policy_label is not None:
-            input["routing_policy_label"] = routing_policy_label
+            input_["routing_policy_label"] = routing_policy_label
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1510,11 +1510,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_attachment_request.DeleteAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.delete_attachment_request.DeleteAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1550,12 +1550,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["connection_id"] = connection_id
+        input_: aws_sdk_networkmanager.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["connection_id"] = connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1589,11 +1589,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_connect_peer_request.DeleteConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input["connect_peer_id"] = connect_peer_id
+        input_: aws_sdk_networkmanager.types.delete_connect_peer_request.DeleteConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_peer_id"] = connect_peer_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1627,11 +1627,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_core_network_request.DeleteCoreNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
+        input_: aws_sdk_networkmanager.types.delete_core_network_request.DeleteCoreNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1667,12 +1667,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_core_network_policy_version_request.DeleteCoreNetworkPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["policy_version_id"] = policy_version_id
+        input_: aws_sdk_networkmanager.types.delete_core_network_policy_version_request.DeleteCoreNetworkPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["policy_version_id"] = policy_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1708,12 +1708,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_core_network_prefix_list_association_request.DeleteCoreNetworkPrefixListAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["prefix_list_arn"] = prefix_list_arn
+        input_: aws_sdk_networkmanager.types.delete_core_network_prefix_list_association_request.DeleteCoreNetworkPrefixListAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["prefix_list_arn"] = prefix_list_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1749,12 +1749,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_device_request.DeleteDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["device_id"] = device_id
+        input_: aws_sdk_networkmanager.types.delete_device_request.DeleteDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["device_id"] = device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1788,11 +1788,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_global_network_request.DeleteGlobalNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.delete_global_network_request.DeleteGlobalNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1828,12 +1828,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_link_request.DeleteLinkRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["link_id"] = link_id
+        input_: aws_sdk_networkmanager.types.delete_link_request.DeleteLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["link_id"] = link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1867,11 +1867,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_peering_request.DeletePeeringRequest = {}  # type: ignore[typeddict-item]
-        input["peering_id"] = peering_id
+        input_: aws_sdk_networkmanager.types.delete_peering_request.DeletePeeringRequest = {}  # type: ignore[typeddict-item]
+        input_["peering_id"] = peering_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1905,11 +1905,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_networkmanager.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1945,12 +1945,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.delete_site_request.DeleteSiteRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["site_id"] = site_id
+        input_: aws_sdk_networkmanager.types.delete_site_request.DeleteSiteRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["site_id"] = site_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1986,12 +1986,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.deregister_transit_gateway_request.DeregisterTransitGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["transit_gateway_arn"] = transit_gateway_arn
+        input_: aws_sdk_networkmanager.types.deregister_transit_gateway_request.DeregisterTransitGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["transit_gateway_arn"] = transit_gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2035,16 +2035,16 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.describe_global_networks_request.DescribeGlobalNetworksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkmanager.types.describe_global_networks_request.DescribeGlobalNetworksRequest = {}  # type: ignore[typeddict-item]
         if global_network_ids is not None:
-            input["global_network_ids"] = global_network_ids
+            input_["global_network_ids"] = global_network_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2109,12 +2109,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.disassociate_connect_peer_request.DisassociateConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["connect_peer_id"] = connect_peer_id
+        input_: aws_sdk_networkmanager.types.disassociate_connect_peer_request.DisassociateConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["connect_peer_id"] = connect_peer_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2150,12 +2150,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.disassociate_customer_gateway_request.DisassociateCustomerGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["customer_gateway_arn"] = customer_gateway_arn
+        input_: aws_sdk_networkmanager.types.disassociate_customer_gateway_request.DisassociateCustomerGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["customer_gateway_arn"] = customer_gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2193,13 +2193,13 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.disassociate_link_request.DisassociateLinkRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["device_id"] = device_id
-        input["link_id"] = link_id
+        input_: aws_sdk_networkmanager.types.disassociate_link_request.DisassociateLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["device_id"] = device_id
+        input_["link_id"] = link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2235,12 +2235,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.disassociate_transit_gateway_connect_peer_request.DisassociateTransitGatewayConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["transit_gateway_connect_peer_arn"] = transit_gateway_connect_peer_arn
+        input_: aws_sdk_networkmanager.types.disassociate_transit_gateway_connect_peer_request.DisassociateTransitGatewayConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["transit_gateway_connect_peer_arn"] = transit_gateway_connect_peer_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2276,12 +2276,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.execute_core_network_change_set_request.ExecuteCoreNetworkChangeSetRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["policy_version_id"] = policy_version_id
+        input_: aws_sdk_networkmanager.types.execute_core_network_change_set_request.ExecuteCoreNetworkChangeSetRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["policy_version_id"] = policy_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2315,11 +2315,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_connect_attachment_request.GetConnectAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.get_connect_attachment_request.GetConnectAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2367,19 +2367,19 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_connections_request.GetConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_connections_request.GetConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if connection_ids is not None:
-            input["connection_ids"] = connection_ids
+            input_["connection_ids"] = connection_ids
         if device_id is not None:
-            input["device_id"] = device_id
+            input_["device_id"] = device_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2448,11 +2448,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_connect_peer_request.GetConnectPeerRequest = {}  # type: ignore[typeddict-item]
-        input["connect_peer_id"] = connect_peer_id
+        input_: aws_sdk_networkmanager.types.get_connect_peer_request.GetConnectPeerRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_peer_id"] = connect_peer_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2498,17 +2498,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_connect_peer_associations_request.GetConnectPeerAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_connect_peer_associations_request.GetConnectPeerAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if connect_peer_ids is not None:
-            input["connect_peer_ids"] = connect_peer_ids
+            input_["connect_peer_ids"] = connect_peer_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2575,11 +2575,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_core_network_request.GetCoreNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
+        input_: aws_sdk_networkmanager.types.get_core_network_request.GetCoreNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2623,16 +2623,16 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_core_network_change_events_request.GetCoreNetworkChangeEventsRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["policy_version_id"] = policy_version_id
+        input_: aws_sdk_networkmanager.types.get_core_network_change_events_request.GetCoreNetworkChangeEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["policy_version_id"] = policy_version_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2705,16 +2705,16 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_core_network_change_set_request.GetCoreNetworkChangeSetRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["policy_version_id"] = policy_version_id
+        input_: aws_sdk_networkmanager.types.get_core_network_change_set_request.GetCoreNetworkChangeSetRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["policy_version_id"] = policy_version_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2785,15 +2785,15 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_core_network_policy_request.GetCoreNetworkPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
+        input_: aws_sdk_networkmanager.types.get_core_network_policy_request.GetCoreNetworkPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
         if policy_version_id is not None:
-            input["policy_version_id"] = policy_version_id
+            input_["policy_version_id"] = policy_version_id
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2839,17 +2839,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_customer_gateway_associations_request.GetCustomerGatewayAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_customer_gateway_associations_request.GetCustomerGatewayAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if customer_gateway_arns is not None:
-            input["customer_gateway_arns"] = customer_gateway_arns
+            input_["customer_gateway_arns"] = customer_gateway_arns
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2928,19 +2928,19 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_devices_request.GetDevicesRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_devices_request.GetDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if device_ids is not None:
-            input["device_ids"] = device_ids
+            input_["device_ids"] = device_ids
         if site_id is not None:
-            input["site_id"] = site_id
+            input_["site_id"] = site_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3007,11 +3007,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_direct_connect_gateway_attachment_request.GetDirectConnectGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.get_direct_connect_gateway_attachment_request.GetDirectConnectGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3057,19 +3057,19 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_link_associations_request.GetLinkAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_link_associations_request.GetLinkAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if device_id is not None:
-            input["device_id"] = device_id
+            input_["device_id"] = device_id
         if link_id is not None:
-            input["link_id"] = link_id
+            input_["link_id"] = link_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3156,23 +3156,23 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_links_request.GetLinksRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_links_request.GetLinksRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if link_ids is not None:
-            input["link_ids"] = link_ids
+            input_["link_ids"] = link_ids
         if site_id is not None:
-            input["site_id"] = site_id
+            input_["site_id"] = site_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3259,17 +3259,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_network_resource_counts_request.GetNetworkResourceCountsRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_network_resource_counts_request.GetNetworkResourceCountsRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3366,27 +3366,27 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_network_resource_relationships_request.GetNetworkResourceRelationshipsRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_network_resource_relationships_request.GetNetworkResourceRelationshipsRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if core_network_id is not None:
-            input["core_network_id"] = core_network_id
+            input_["core_network_id"] = core_network_id
         if registered_gateway_arn is not None:
-            input["registered_gateway_arn"] = registered_gateway_arn
+            input_["registered_gateway_arn"] = registered_gateway_arn
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3503,27 +3503,27 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_network_resources_request.GetNetworkResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_network_resources_request.GetNetworkResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if core_network_id is not None:
-            input["core_network_id"] = core_network_id
+            input_["core_network_id"] = core_network_id
         if registered_gateway_arn is not None:
-            input["registered_gateway_arn"] = registered_gateway_arn
+            input_["registered_gateway_arn"] = registered_gateway_arn
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3642,28 +3642,28 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_network_routes_request.GetNetworkRoutesRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["route_table_identifier"] = route_table_identifier
+        input_: aws_sdk_networkmanager.types.get_network_routes_request.GetNetworkRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["route_table_identifier"] = route_table_identifier
         if exact_cidr_matches is not None:
-            input["exact_cidr_matches"] = exact_cidr_matches
+            input_["exact_cidr_matches"] = exact_cidr_matches
         if longest_prefix_matches is not None:
-            input["longest_prefix_matches"] = longest_prefix_matches
+            input_["longest_prefix_matches"] = longest_prefix_matches
         if subnet_of_matches is not None:
-            input["subnet_of_matches"] = subnet_of_matches
+            input_["subnet_of_matches"] = subnet_of_matches
         if supernet_of_matches is not None:
-            input["supernet_of_matches"] = supernet_of_matches
+            input_["supernet_of_matches"] = supernet_of_matches
         if prefix_list_ids is not None:
-            input["prefix_list_ids"] = prefix_list_ids
+            input_["prefix_list_ids"] = prefix_list_ids
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if types is not None:
-            input["types"] = types
+            input_["types"] = types
         if destination_filters is not None:
-            input["destination_filters"] = destination_filters
+            input_["destination_filters"] = destination_filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3729,27 +3729,27 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_network_telemetry_request.GetNetworkTelemetryRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_network_telemetry_request.GetNetworkTelemetryRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if core_network_id is not None:
-            input["core_network_id"] = core_network_id
+            input_["core_network_id"] = core_network_id
         if registered_gateway_arn is not None:
-            input["registered_gateway_arn"] = registered_gateway_arn
+            input_["registered_gateway_arn"] = registered_gateway_arn
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3836,11 +3836,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_networkmanager.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3876,12 +3876,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_route_analysis_request.GetRouteAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["route_analysis_id"] = route_analysis_id
+        input_: aws_sdk_networkmanager.types.get_route_analysis_request.GetRouteAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["route_analysis_id"] = route_analysis_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3927,17 +3927,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_sites_request.GetSitesRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_sites_request.GetSitesRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if site_ids is not None:
-            input["site_ids"] = site_ids
+            input_["site_ids"] = site_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4002,11 +4002,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_site_to_site_vpn_attachment_request.GetSiteToSiteVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.get_site_to_site_vpn_attachment_request.GetSiteToSiteVpnAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4052,19 +4052,19 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_transit_gateway_connect_peer_associations_request.GetTransitGatewayConnectPeerAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_transit_gateway_connect_peer_associations_request.GetTransitGatewayConnectPeerAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if transit_gateway_connect_peer_arns is not None:
-            input["transit_gateway_connect_peer_arns"] = (
+            input_["transit_gateway_connect_peer_arns"] = (
                 transit_gateway_connect_peer_arns
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4131,11 +4131,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_transit_gateway_peering_request.GetTransitGatewayPeeringRequest = {}  # type: ignore[typeddict-item]
-        input["peering_id"] = peering_id
+        input_: aws_sdk_networkmanager.types.get_transit_gateway_peering_request.GetTransitGatewayPeeringRequest = {}  # type: ignore[typeddict-item]
+        input_["peering_id"] = peering_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4181,17 +4181,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_transit_gateway_registrations_request.GetTransitGatewayRegistrationsRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.get_transit_gateway_registrations_request.GetTransitGatewayRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if transit_gateway_arns is not None:
-            input["transit_gateway_arns"] = transit_gateway_arns
+            input_["transit_gateway_arns"] = transit_gateway_arns
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4256,11 +4256,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_transit_gateway_route_table_attachment_request.GetTransitGatewayRouteTableAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.get_transit_gateway_route_table_attachment_request.GetTransitGatewayRouteTableAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4294,11 +4294,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.get_vpc_attachment_request.GetVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.get_vpc_attachment_request.GetVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4344,17 +4344,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_attachment_routing_policy_associations_request.ListAttachmentRoutingPolicyAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
+        input_: aws_sdk_networkmanager.types.list_attachment_routing_policy_associations_request.ListAttachmentRoutingPolicyAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
         if attachment_id is not None:
-            input["attachment_id"] = attachment_id
+            input_["attachment_id"] = attachment_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4445,22 +4445,22 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_attachments_request.ListAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkmanager.types.list_attachments_request.ListAttachmentsRequest = {}  # type: ignore[typeddict-item]
         if core_network_id is not None:
-            input["core_network_id"] = core_network_id
+            input_["core_network_id"] = core_network_id
         if attachment_type is not None:
-            input["attachment_type"] = attachment_type
+            input_["attachment_type"] = attachment_type
         if edge_location is not None:
-            input["edge_location"] = edge_location
+            input_["edge_location"] = edge_location
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4549,18 +4549,18 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_connect_peers_request.ListConnectPeersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkmanager.types.list_connect_peers_request.ListConnectPeersRequest = {}  # type: ignore[typeddict-item]
         if core_network_id is not None:
-            input["core_network_id"] = core_network_id
+            input_["core_network_id"] = core_network_id
         if connect_attachment_id is not None:
-            input["connect_attachment_id"] = connect_attachment_id
+            input_["connect_attachment_id"] = connect_attachment_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4635,15 +4635,15 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_core_network_policy_versions_request.ListCoreNetworkPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
+        input_: aws_sdk_networkmanager.types.list_core_network_policy_versions_request.ListCoreNetworkPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4716,17 +4716,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_core_network_prefix_list_associations_request.ListCoreNetworkPrefixListAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
+        input_: aws_sdk_networkmanager.types.list_core_network_prefix_list_associations_request.ListCoreNetworkPrefixListAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
         if prefix_list_arn is not None:
-            input["prefix_list_arn"] = prefix_list_arn
+            input_["prefix_list_arn"] = prefix_list_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4823,27 +4823,27 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_core_network_routing_information_request.ListCoreNetworkRoutingInformationRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["segment_name"] = segment_name
-        input["edge_location"] = edge_location
+        input_: aws_sdk_networkmanager.types.list_core_network_routing_information_request.ListCoreNetworkRoutingInformationRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["segment_name"] = segment_name
+        input_["edge_location"] = edge_location
         if next_hop_filters is not None:
-            input["next_hop_filters"] = next_hop_filters
+            input_["next_hop_filters"] = next_hop_filters
         if local_preference_matches is not None:
-            input["local_preference_matches"] = local_preference_matches
+            input_["local_preference_matches"] = local_preference_matches
         if exact_as_path_matches is not None:
-            input["exact_as_path_matches"] = exact_as_path_matches
+            input_["exact_as_path_matches"] = exact_as_path_matches
         if med_matches is not None:
-            input["med_matches"] = med_matches
+            input_["med_matches"] = med_matches
         if community_matches is not None:
-            input["community_matches"] = community_matches
+            input_["community_matches"] = community_matches
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4934,14 +4934,14 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_core_networks_request.ListCoreNetworksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkmanager.types.list_core_networks_request.ListCoreNetworksRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5006,14 +5006,14 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_organization_service_access_status_request.ListOrganizationServiceAccessStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkmanager.types.list_organization_service_access_status_request.ListOrganizationServiceAccessStatusRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5069,22 +5069,22 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_peerings_request.ListPeeringsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkmanager.types.list_peerings_request.ListPeeringsRequest = {}  # type: ignore[typeddict-item]
         if core_network_id is not None:
-            input["core_network_id"] = core_network_id
+            input_["core_network_id"] = core_network_id
         if peering_type is not None:
-            input["peering_type"] = peering_type
+            input_["peering_type"] = peering_type
         if edge_location is not None:
-            input["edge_location"] = edge_location
+            input_["edge_location"] = edge_location
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5159,11 +5159,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_networkmanager.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5205,15 +5205,15 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.put_attachment_routing_policy_label_request.PutAttachmentRoutingPolicyLabelRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["attachment_id"] = attachment_id
-        input["routing_policy_label"] = routing_policy_label
+        input_: aws_sdk_networkmanager.types.put_attachment_routing_policy_label_request.PutAttachmentRoutingPolicyLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["attachment_id"] = attachment_id
+        input_["routing_policy_label"] = routing_policy_label
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5261,18 +5261,18 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.put_core_network_policy_request.PutCoreNetworkPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["policy_document"] = policy_document
+        input_: aws_sdk_networkmanager.types.put_core_network_policy_request.PutCoreNetworkPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["policy_document"] = policy_document
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if latest_version_id is not None:
-            input["latest_version_id"] = latest_version_id
+            input_["latest_version_id"] = latest_version_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5308,12 +5308,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_document"] = policy_document
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_networkmanager.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_document"] = policy_document
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5349,12 +5349,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.register_transit_gateway_request.RegisterTransitGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["transit_gateway_arn"] = transit_gateway_arn
+        input_: aws_sdk_networkmanager.types.register_transit_gateway_request.RegisterTransitGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["transit_gateway_arn"] = transit_gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5388,11 +5388,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.reject_attachment_request.RejectAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.reject_attachment_request.RejectAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5428,12 +5428,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.remove_attachment_routing_policy_label_request.RemoveAttachmentRoutingPolicyLabelRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.remove_attachment_routing_policy_label_request.RemoveAttachmentRoutingPolicyLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5469,12 +5469,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.restore_core_network_policy_version_request.RestoreCoreNetworkPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
-        input["policy_version_id"] = policy_version_id
+        input_: aws_sdk_networkmanager.types.restore_core_network_policy_version_request.RestoreCoreNetworkPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
+        input_["policy_version_id"] = policy_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5508,11 +5508,11 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.start_organization_service_access_update_request.StartOrganizationServiceAccessUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["action"] = action
+        input_: aws_sdk_networkmanager.types.start_organization_service_access_update_request.StartOrganizationServiceAccessUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5558,17 +5558,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.start_route_analysis_request.StartRouteAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["source"] = source
-        input["destination"] = destination
+        input_: aws_sdk_networkmanager.types.start_route_analysis_request.StartRouteAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["source"] = source
+        input_["destination"] = destination
         if include_return_path is not None:
-            input["include_return_path"] = include_return_path
+            input_["include_return_path"] = include_return_path
         if use_middleboxes is not None:
-            input["use_middleboxes"] = use_middleboxes
+            input_["use_middleboxes"] = use_middleboxes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5604,12 +5604,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_networkmanager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5645,12 +5645,12 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_networkmanager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5696,18 +5696,18 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["connection_id"] = connection_id
+        input_: aws_sdk_networkmanager.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["connection_id"] = connection_id
         if link_id is not None:
-            input["link_id"] = link_id
+            input_["link_id"] = link_id
         if connected_link_id is not None:
-            input["connected_link_id"] = connected_link_id
+            input_["connected_link_id"] = connected_link_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5745,13 +5745,13 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_core_network_request.UpdateCoreNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["core_network_id"] = core_network_id
+        input_: aws_sdk_networkmanager.types.update_core_network_request.UpdateCoreNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["core_network_id"] = core_network_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5814,28 +5814,28 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_device_request.UpdateDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["device_id"] = device_id
+        input_: aws_sdk_networkmanager.types.update_device_request.UpdateDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["device_id"] = device_id
         if aws_location is not None:
-            input["aws_location"] = aws_location
+            input_["aws_location"] = aws_location
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if vendor is not None:
-            input["vendor"] = vendor
+            input_["vendor"] = vendor
         if model is not None:
-            input["model"] = model
+            input_["model"] = model
         if serial_number is not None:
-            input["serial_number"] = serial_number
+            input_["serial_number"] = serial_number
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if site_id is not None:
-            input["site_id"] = site_id
+            input_["site_id"] = site_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5873,13 +5873,13 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_direct_connect_gateway_attachment_request.UpdateDirectConnectGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.update_direct_connect_gateway_attachment_request.UpdateDirectConnectGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
         if edge_locations is not None:
-            input["edge_locations"] = edge_locations
+            input_["edge_locations"] = edge_locations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5917,13 +5917,13 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_global_network_request.UpdateGlobalNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
+        input_: aws_sdk_networkmanager.types.update_global_network_request.UpdateGlobalNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5973,20 +5973,20 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_link_request.UpdateLinkRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["link_id"] = link_id
+        input_: aws_sdk_networkmanager.types.update_link_request.UpdateLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["link_id"] = link_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if bandwidth is not None:
-            input["bandwidth"] = bandwidth
+            input_["bandwidth"] = bandwidth
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6024,13 +6024,13 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_network_resource_metadata_request.UpdateNetworkResourceMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["resource_arn"] = resource_arn
-        input["metadata"] = metadata
+        input_: aws_sdk_networkmanager.types.update_network_resource_metadata_request.UpdateNetworkResourceMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["resource_arn"] = resource_arn
+        input_["metadata"] = metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6072,16 +6072,16 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_site_request.UpdateSiteRequest = {}  # type: ignore[typeddict-item]
-        input["global_network_id"] = global_network_id
-        input["site_id"] = site_id
+        input_: aws_sdk_networkmanager.types.update_site_request.UpdateSiteRequest = {}  # type: ignore[typeddict-item]
+        input_["global_network_id"] = global_network_id
+        input_["site_id"] = site_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6125,17 +6125,17 @@ class AsyncNetworkManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmanager.types.update_vpc_attachment_request.UpdateVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_networkmanager.types.update_vpc_attachment_request.UpdateVpcAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
         if add_subnet_arns is not None:
-            input["add_subnet_arns"] = add_subnet_arns
+            input_["add_subnet_arns"] = add_subnet_arns
         if remove_subnet_arns is not None:
-            input["remove_subnet_arns"] = remove_subnet_arns
+            input_["remove_subnet_arns"] = remove_subnet_arns
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -255,20 +255,20 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["environment_identifier"] = environment_identifier
-        input["vpc_id"] = vpc_id
-        input["proxy_type"] = proxy_type
+        input_: aws_sdk_migration_hub_refactor_spaces.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["environment_identifier"] = environment_identifier
+        input_["vpc_id"] = vpc_id
+        input_["proxy_type"] = proxy_type
         if api_gateway_proxy is not None:
-            input["api_gateway_proxy"] = api_gateway_proxy
+            input_["api_gateway_proxy"] = api_gateway_proxy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,18 +315,18 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_migration_hub_refactor_spaces.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["network_fabric_type"] = network_fabric_type
+            input_["description"] = description
+        input_["network_fabric_type"] = network_fabric_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,22 +381,22 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.create_route_request.CreateRouteRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
-        input["service_identifier"] = service_identifier
-        input["route_type"] = route_type
+        input_: aws_sdk_migration_hub_refactor_spaces.types.create_route_request.CreateRouteRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
+        input_["service_identifier"] = service_identifier
+        input_["route_type"] = route_type
         if default_route is not None:
-            input["default_route"] = default_route
+            input_["default_route"] = default_route
         if uri_path_route is not None:
-            input["uri_path_route"] = uri_path_route
+            input_["uri_path_route"] = uri_path_route
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,26 +459,26 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_migration_hub_refactor_spaces.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
+            input_["description"] = description
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
-        input["endpoint_type"] = endpoint_type
+            input_["vpc_id"] = vpc_id
+        input_["endpoint_type"] = endpoint_type
         if url_endpoint is not None:
-            input["url_endpoint"] = url_endpoint
+            input_["url_endpoint"] = url_endpoint
         if lambda_endpoint is not None:
-            input["lambda_endpoint"] = lambda_endpoint
+            input_["lambda_endpoint"] = lambda_endpoint
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,12 +513,12 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -551,11 +551,11 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,11 +588,11 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -629,13 +629,13 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.delete_route_request.DeleteRouteRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
-        input["route_identifier"] = route_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.delete_route_request.DeleteRouteRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
+        input_["route_identifier"] = route_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -672,13 +672,13 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
+        input_["service_identifier"] = service_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -713,12 +713,12 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -751,11 +751,11 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,11 +788,11 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,13 +829,13 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.get_route_request.GetRouteRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
-        input["route_identifier"] = route_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.get_route_request.GetRouteRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
+        input_["route_identifier"] = route_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -872,13 +872,13 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
+        input_["service_identifier"] = service_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,15 +919,15 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -993,14 +993,14 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migration_hub_refactor_spaces.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1066,15 +1066,15 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.list_environment_vpcs_request.ListEnvironmentVpcsRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.list_environment_vpcs_request.ListEnvironmentVpcsRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1144,16 +1144,16 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.list_routes_request.ListRoutesRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.list_routes_request.ListRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1225,16 +1225,16 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
+        input_: aws_sdk_migration_hub_refactor_spaces.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1296,11 +1296,11 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_migration_hub_refactor_spaces.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1335,12 +1335,12 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_migration_hub_refactor_spaces.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1375,12 +1375,12 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_migration_hub_refactor_spaces.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1415,12 +1415,12 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_migration_hub_refactor_spaces.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1459,14 +1459,14 @@ class MigrationHubRefactorSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub_refactor_spaces.types.update_route_request.UpdateRouteRequest = {}  # type: ignore[typeddict-item]
-        input["environment_identifier"] = environment_identifier
-        input["application_identifier"] = application_identifier
-        input["route_identifier"] = route_identifier
-        input["activation_state"] = activation_state
+        input_: aws_sdk_migration_hub_refactor_spaces.types.update_route_request.UpdateRouteRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_identifier"] = environment_identifier
+        input_["application_identifier"] = application_identifier
+        input_["route_identifier"] = route_identifier
+        input_["activation_state"] = activation_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

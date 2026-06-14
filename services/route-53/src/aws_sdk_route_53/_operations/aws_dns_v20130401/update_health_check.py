@@ -78,76 +78,78 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_route_53.types.update_health_check_request.UpdateHealthCheckRequest,
+    input_: aws_sdk_route_53.types.update_health_check_request.UpdateHealthCheckRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/healthcheck/{HealthCheckId}"
-    url = url.replace("{HealthCheckId}", quote(str(input["health_check_id"]), safe=""))
+    url = url.replace("{HealthCheckId}", quote(str(input_["health_check_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("UpdateHealthCheckRequest")
-    if "health_check_version" in input:
-        SubElement(root, "HealthCheckVersion").text = str(input["health_check_version"])
-    if "ip_address" in input:
-        SubElement(root, "IPAddress").text = str(input["ip_address"])
-    if "port" in input:
-        SubElement(root, "Port").text = str(input["port"])
-    if "resource_path" in input:
-        SubElement(root, "ResourcePath").text = str(input["resource_path"])
-    if "fully_qualified_domain_name" in input:
-        SubElement(root, "FullyQualifiedDomainName").text = str(
-            input["fully_qualified_domain_name"]
+    if "health_check_version" in input_:
+        SubElement(root, "HealthCheckVersion").text = str(
+            input_["health_check_version"]
         )
-    if "search_string" in input:
-        SubElement(root, "SearchString").text = str(input["search_string"])
-    if "failure_threshold" in input:
-        SubElement(root, "FailureThreshold").text = str(input["failure_threshold"])
-    if "inverted" in input:
-        SubElement(root, "Inverted").text = str(input["inverted"])
-    if "disabled" in input:
-        SubElement(root, "Disabled").text = str(input["disabled"])
-    if "health_threshold" in input:
-        SubElement(root, "HealthThreshold").text = str(input["health_threshold"])
-    if "child_health_checks" in input:
+    if "ip_address" in input_:
+        SubElement(root, "IPAddress").text = str(input_["ip_address"])
+    if "port" in input_:
+        SubElement(root, "Port").text = str(input_["port"])
+    if "resource_path" in input_:
+        SubElement(root, "ResourcePath").text = str(input_["resource_path"])
+    if "fully_qualified_domain_name" in input_:
+        SubElement(root, "FullyQualifiedDomainName").text = str(
+            input_["fully_qualified_domain_name"]
+        )
+    if "search_string" in input_:
+        SubElement(root, "SearchString").text = str(input_["search_string"])
+    if "failure_threshold" in input_:
+        SubElement(root, "FailureThreshold").text = str(input_["failure_threshold"])
+    if "inverted" in input_:
+        SubElement(root, "Inverted").text = str(input_["inverted"])
+    if "disabled" in input_:
+        SubElement(root, "Disabled").text = str(input_["disabled"])
+    if "health_threshold" in input_:
+        SubElement(root, "HealthThreshold").text = str(input_["health_threshold"])
+    if "child_health_checks" in input_:
         import aws_sdk_route_53.types.child_health_check_list
 
         aws_sdk_route_53.types.child_health_check_list.serialize_xml(
-            input["child_health_checks"], root, "ChildHealthChecks"
+            input_["child_health_checks"], root, "ChildHealthChecks"
         )
-    if "enable_sni" in input:
-        SubElement(root, "EnableSNI").text = str(input["enable_sni"])
-    if "regions" in input:
+    if "enable_sni" in input_:
+        SubElement(root, "EnableSNI").text = str(input_["enable_sni"])
+    if "regions" in input_:
         import aws_sdk_route_53.types.health_check_region_list
 
         aws_sdk_route_53.types.health_check_region_list.serialize_xml(
-            input["regions"], root, "Regions"
+            input_["regions"], root, "Regions"
         )
-    if "alarm_identifier" in input:
+    if "alarm_identifier" in input_:
         import aws_sdk_route_53.types.alarm_identifier
 
         aws_sdk_route_53.types.alarm_identifier.serialize_xml(
-            input["alarm_identifier"], root, "AlarmIdentifier"
+            input_["alarm_identifier"], root, "AlarmIdentifier"
         )
-    if "insufficient_data_health_status" in input:
+    if "insufficient_data_health_status" in input_:
         import aws_sdk_route_53.types.insufficient_data_health_status
 
         aws_sdk_route_53.types.insufficient_data_health_status.serialize_xml(
-            input["insufficient_data_health_status"],
+            input_["insufficient_data_health_status"],
             root,
             "InsufficientDataHealthStatus",
         )
-    if "reset_elements" in input:
+    if "reset_elements" in input_:
         import aws_sdk_route_53.types.resettable_element_name_list
 
         aws_sdk_route_53.types.resettable_element_name_list.serialize_xml(
-            input["reset_elements"], root, "ResetElements"
+            input_["reset_elements"], root, "ResetElements"
         )
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
@@ -155,26 +157,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_health_check(
     options: OperationOptions,
-    input: aws_sdk_route_53.types.update_health_check_request.UpdateHealthCheckRequest,
+    input_: aws_sdk_route_53.types.update_health_check_request.UpdateHealthCheckRequest,
 ) -> tuple[
     aws_sdk_route_53.types.update_health_check_response.UpdateHealthCheckResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -183,16 +182,17 @@ def update_health_check(
 
 async def async_update_health_check(
     options: AsyncOperationOptions,
-    input: aws_sdk_route_53.types.update_health_check_request.UpdateHealthCheckRequest,
+    input_: aws_sdk_route_53.types.update_health_check_request.UpdateHealthCheckRequest,
 ) -> tuple[
     aws_sdk_route_53.types.update_health_check_response.UpdateHealthCheckResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

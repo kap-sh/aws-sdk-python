@@ -197,11 +197,11 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.batch_get_findings_request.BatchGetFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["finding_identifiers"] = finding_identifiers
+        input_: aws_sdk_codeguru_security.types.batch_get_findings_request.BatchGetFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_identifiers"] = finding_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,20 +250,20 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.create_scan_request.CreateScanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguru_security.types.create_scan_request.CreateScanRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["resource_id"] = resource_id
-        input["scan_name"] = scan_name
+            input_["client_token"] = client_token
+        input_["resource_id"] = resource_id
+        input_["scan_name"] = scan_name
         if scan_type is not None:
-            input["scan_type"] = scan_type
+            input_["scan_type"] = scan_type
         if analysis_type is not None:
-            input["analysis_type"] = analysis_type
+            input_["analysis_type"] = analysis_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -296,11 +296,11 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.create_upload_url_request.CreateUploadUrlRequest = {}  # type: ignore[typeddict-item]
-        input["scan_name"] = scan_name
+        input_: aws_sdk_codeguru_security.types.create_upload_url_request.CreateUploadUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_name"] = scan_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,10 +326,10 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.get_account_configuration_request.GetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguru_security.types.get_account_configuration_request.GetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,17 +370,17 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["scan_name"] = scan_name
+        input_: aws_sdk_codeguru_security.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_name"] = scan_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,11 +440,11 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.get_metrics_summary_request.GetMetricsSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["date"] = date
+        input_: aws_sdk_codeguru_security.types.get_metrics_summary_request.GetMetricsSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["date"] = date
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,13 +479,13 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.get_scan_request.GetScanRequest = {}  # type: ignore[typeddict-item]
-        input["scan_name"] = scan_name
+        input_: aws_sdk_codeguru_security.types.get_scan_request.GetScanRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_name"] = scan_name
         if run_id is not None:
-            input["run_id"] = run_id
+            input_["run_id"] = run_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,16 +526,16 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.list_findings_metrics_request.ListFindingsMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguru_security.types.list_findings_metrics_request.ListFindingsMetricsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["start_date"] = start_date
-        input["end_date"] = end_date
+            input_["max_results"] = max_results
+        input_["start_date"] = start_date
+        input_["end_date"] = end_date
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,14 +599,14 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.list_scans_request.ListScansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguru_security.types.list_scans_request.ListScansRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,11 +662,11 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codeguru_security.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -701,12 +701,12 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_codeguru_security.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,12 +743,12 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codeguru_security.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -781,11 +781,11 @@ class CodeGuruSecurityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_security.types.update_account_configuration_request.UpdateAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["encryption_config"] = encryption_config
+        input_: aws_sdk_codeguru_security.types.update_account_configuration_request.UpdateAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["encryption_config"] = encryption_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

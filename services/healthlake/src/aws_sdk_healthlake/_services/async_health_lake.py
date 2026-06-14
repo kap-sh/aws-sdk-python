@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_healthlake._auth._signers
+import aws_sdk_healthlake._auth._sigv4
 from aws_sdk_healthlake._auth._identity import Credentials
 from aws_sdk_healthlake._auth._providers import (
     CredentialsProvider,
@@ -228,23 +230,23 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.create_fhir_datastore_request.CreateFHIRDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_healthlake.types.create_fhir_datastore_request.CreateFHIRDatastoreRequest = {}  # type: ignore[typeddict-item]
         if datastore_name is not None:
-            input["datastore_name"] = datastore_name
-        input["datastore_type_version"] = datastore_type_version
+            input_["datastore_name"] = datastore_name
+        input_["datastore_type_version"] = datastore_type_version
         if sse_configuration is not None:
-            input["sse_configuration"] = sse_configuration
+            input_["sse_configuration"] = sse_configuration
         if preload_data_config is not None:
-            input["preload_data_config"] = preload_data_config
+            input_["preload_data_config"] = preload_data_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if identity_provider_configuration is not None:
-            input["identity_provider_configuration"] = identity_provider_configuration
+            input_["identity_provider_configuration"] = identity_provider_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,11 +280,11 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.delete_fhir_datastore_request.DeleteFHIRDatastoreRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_healthlake.types.delete_fhir_datastore_request.DeleteFHIRDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -316,11 +318,11 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.describe_fhir_datastore_request.DescribeFHIRDatastoreRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_healthlake.types.describe_fhir_datastore_request.DescribeFHIRDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,12 +358,12 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.describe_fhir_export_job_request.DescribeFHIRExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["job_id"] = job_id
+        input_: aws_sdk_healthlake.types.describe_fhir_export_job_request.DescribeFHIRExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,12 +399,12 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.describe_fhir_import_job_request.DescribeFHIRImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["job_id"] = job_id
+        input_: aws_sdk_healthlake.types.describe_fhir_import_job_request.DescribeFHIRImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,16 +446,16 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.list_fhir_datastores_request.ListFHIRDatastoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_healthlake.types.list_fhir_datastores_request.ListFHIRDatastoresRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,23 +507,23 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.list_fhir_export_jobs_request.ListFHIRExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_healthlake.types.list_fhir_export_jobs_request.ListFHIRExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if job_status is not None:
-            input["job_status"] = job_status
+            input_["job_status"] = job_status
         if submitted_before is not None:
-            input["submitted_before"] = submitted_before
+            input_["submitted_before"] = submitted_before
         if submitted_after is not None:
-            input["submitted_after"] = submitted_after
+            input_["submitted_after"] = submitted_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -573,23 +575,23 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.list_fhir_import_jobs_request.ListFHIRImportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_healthlake.types.list_fhir_import_jobs_request.ListFHIRImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if job_status is not None:
-            input["job_status"] = job_status
+            input_["job_status"] = job_status
         if submitted_before is not None:
-            input["submitted_before"] = submitted_before
+            input_["submitted_before"] = submitted_before
         if submitted_after is not None:
-            input["submitted_after"] = submitted_after
+            input_["submitted_after"] = submitted_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -623,11 +625,11 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_healthlake.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -671,17 +673,17 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.start_fhir_export_job_request.StartFHIRExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_healthlake.types.start_fhir_export_job_request.StartFHIRExportJobRequest = {}  # type: ignore[typeddict-item]
         if job_name is not None:
-            input["job_name"] = job_name
-        input["output_data_config"] = output_data_config
-        input["datastore_id"] = datastore_id
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["job_name"] = job_name
+        input_["output_data_config"] = output_data_config
+        input_["datastore_id"] = datastore_id
+        input_["data_access_role_arn"] = data_access_role_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -730,20 +732,20 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.start_fhir_import_job_request.StartFHIRImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_healthlake.types.start_fhir_import_job_request.StartFHIRImportJobRequest = {}  # type: ignore[typeddict-item]
         if job_name is not None:
-            input["job_name"] = job_name
-        input["input_data_config"] = input_data_config
-        input["job_output_data_config"] = job_output_data_config
-        input["datastore_id"] = datastore_id
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["job_name"] = job_name
+        input_["input_data_config"] = input_data_config
+        input_["job_output_data_config"] = job_output_data_config
+        input_["datastore_id"] = datastore_id
+        input_["data_access_role_arn"] = data_access_role_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if validation_level is not None:
-            input["validation_level"] = validation_level
+            input_["validation_level"] = validation_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -779,12 +781,12 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_healthlake.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -820,12 +822,12 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_healthlake.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -879,21 +881,21 @@ class AsyncHealthLakeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_healthlake.types.update_fhir_datastore_request.UpdateFHIRDatastoreRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_healthlake.types.update_fhir_datastore_request.UpdateFHIRDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
         if datastore_name is not None:
-            input["datastore_name"] = datastore_name
+            input_["datastore_name"] = datastore_name
         if analytics_configuration is not None:
-            input["analytics_configuration"] = analytics_configuration
+            input_["analytics_configuration"] = analytics_configuration
         if nlp_configuration is not None:
-            input["nlp_configuration"] = nlp_configuration
+            input_["nlp_configuration"] = nlp_configuration
         if profile_configuration is not None:
-            input["profile_configuration"] = profile_configuration
+            input_["profile_configuration"] = profile_configuration
         if identity_provider_configuration is not None:
-            input["identity_provider_configuration"] = identity_provider_configuration
+            input_["identity_provider_configuration"] = identity_provider_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

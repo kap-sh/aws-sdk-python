@@ -93,22 +93,22 @@ class SecurityConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_security_config_request.CreateSecurityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.create_security_config_request.CreateSecurityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if saml_options is not None:
-            input["saml_options"] = saml_options
+            input_["saml_options"] = saml_options
         if iam_identity_center_options is not None:
-            input["iam_identity_center_options"] = iam_identity_center_options
+            input_["iam_identity_center_options"] = iam_identity_center_options
         if iam_federation_options is not None:
-            input["iam_federation_options"] = iam_federation_options
+            input_["iam_federation_options"] = iam_federation_options
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,11 +141,11 @@ class SecurityConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.get_security_config_request.GetSecurityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.get_security_config_request.GetSecurityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -200,24 +200,24 @@ class SecurityConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_security_config_request.UpdateSecurityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["config_version"] = config_version
+        input_: aws_sdk_opensearchserverless.types.update_security_config_request.UpdateSecurityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["config_version"] = config_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if saml_options is not None:
-            input["saml_options"] = saml_options
+            input_["saml_options"] = saml_options
         if iam_identity_center_options_updates is not None:
-            input["iam_identity_center_options_updates"] = (
+            input_["iam_identity_center_options_updates"] = (
                 iam_identity_center_options_updates
             )
         if iam_federation_options is not None:
-            input["iam_federation_options"] = iam_federation_options
+            input_["iam_federation_options"] = iam_federation_options
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,13 +254,13 @@ class SecurityConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_security_config_request.DeleteSecurityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.delete_security_config_request.DeleteSecurityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,15 +297,15 @@ class SecurityConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_security_configs_request.ListSecurityConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_opensearchserverless.types.list_security_configs_request.ListSecurityConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,22 +366,22 @@ class AsyncSecurityConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_security_config_request.CreateSecurityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.create_security_config_request.CreateSecurityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if saml_options is not None:
-            input["saml_options"] = saml_options
+            input_["saml_options"] = saml_options
         if iam_identity_center_options is not None:
-            input["iam_identity_center_options"] = iam_identity_center_options
+            input_["iam_identity_center_options"] = iam_identity_center_options
         if iam_federation_options is not None:
-            input["iam_federation_options"] = iam_federation_options
+            input_["iam_federation_options"] = iam_federation_options
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,11 +415,11 @@ class AsyncSecurityConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.get_security_config_request.GetSecurityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.get_security_config_request.GetSecurityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -475,24 +475,24 @@ class AsyncSecurityConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_security_config_request.UpdateSecurityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["config_version"] = config_version
+        input_: aws_sdk_opensearchserverless.types.update_security_config_request.UpdateSecurityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["config_version"] = config_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if saml_options is not None:
-            input["saml_options"] = saml_options
+            input_["saml_options"] = saml_options
         if iam_identity_center_options_updates is not None:
-            input["iam_identity_center_options_updates"] = (
+            input_["iam_identity_center_options_updates"] = (
                 iam_identity_center_options_updates
             )
         if iam_federation_options is not None:
-            input["iam_federation_options"] = iam_federation_options
+            input_["iam_federation_options"] = iam_federation_options
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,13 +530,13 @@ class AsyncSecurityConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_security_config_request.DeleteSecurityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.delete_security_config_request.DeleteSecurityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,15 +574,15 @@ class AsyncSecurityConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_security_configs_request.ListSecurityConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_opensearchserverless.types.list_security_configs_request.ListSecurityConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

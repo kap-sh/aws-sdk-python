@@ -179,11 +179,11 @@ class AsyncSimpleDBv2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_simpledbv2.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
+        input_: aws_sdk_simpledbv2.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,16 +226,16 @@ class AsyncSimpleDBv2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_simpledbv2.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_simpledbv2.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,22 +319,22 @@ class AsyncSimpleDBv2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_simpledbv2.types.start_domain_export_request.StartDomainExportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_simpledbv2.types.start_domain_export_request.StartDomainExportRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["domain_name"] = domain_name
-        input["s3_bucket"] = s3_bucket
+            input_["client_token"] = client_token
+        input_["domain_name"] = domain_name
+        input_["s3_bucket"] = s3_bucket
         if s3_key_prefix is not None:
-            input["s3_key_prefix"] = s3_key_prefix
+            input_["s3_key_prefix"] = s3_key_prefix
         if s3_sse_algorithm is not None:
-            input["s3_sse_algorithm"] = s3_sse_algorithm
+            input_["s3_sse_algorithm"] = s3_sse_algorithm
         if s3_sse_kms_key_id is not None:
-            input["s3_sse_kms_key_id"] = s3_sse_kms_key_id
+            input_["s3_sse_kms_key_id"] = s3_sse_kms_key_id
         if s3_bucket_owner is not None:
-            input["s3_bucket_owner"] = s3_bucket_owner
+            input_["s3_bucket_owner"] = s3_bucket_owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

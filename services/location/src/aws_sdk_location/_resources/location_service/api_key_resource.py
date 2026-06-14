@@ -80,20 +80,20 @@ class ApiKeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_key_request.CreateKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
-        input["restrictions"] = restrictions
+        input_: aws_sdk_location.types.create_key_request.CreateKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
+        input_["restrictions"] = restrictions
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if expire_time is not None:
-            input["expire_time"] = expire_time
+            input_["expire_time"] = expire_time
         if no_expiry is not None:
-            input["no_expiry"] = no_expiry
+            input_["no_expiry"] = no_expiry
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -126,11 +126,11 @@ class ApiKeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_key_request.DescribeKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
+        input_: aws_sdk_location.types.describe_key_request.DescribeKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -177,21 +177,21 @@ class ApiKeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_key_request.UpdateKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
+        input_: aws_sdk_location.types.update_key_request.UpdateKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if expire_time is not None:
-            input["expire_time"] = expire_time
+            input_["expire_time"] = expire_time
         if no_expiry is not None:
-            input["no_expiry"] = no_expiry
+            input_["no_expiry"] = no_expiry
         if force_update is not None:
-            input["force_update"] = force_update
+            input_["force_update"] = force_update
         if restrictions is not None:
-            input["restrictions"] = restrictions
+            input_["restrictions"] = restrictions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,13 +226,13 @@ class ApiKeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_key_request.DeleteKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
+        input_: aws_sdk_location.types.delete_key_request.DeleteKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,16 +269,16 @@ class ApiKeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,20 +329,20 @@ class AsyncApiKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_key_request.CreateKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
-        input["restrictions"] = restrictions
+        input_: aws_sdk_location.types.create_key_request.CreateKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
+        input_["restrictions"] = restrictions
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if expire_time is not None:
-            input["expire_time"] = expire_time
+            input_["expire_time"] = expire_time
         if no_expiry is not None:
-            input["no_expiry"] = no_expiry
+            input_["no_expiry"] = no_expiry
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,11 +376,11 @@ class AsyncApiKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_key_request.DescribeKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
+        input_: aws_sdk_location.types.describe_key_request.DescribeKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,21 +428,21 @@ class AsyncApiKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_key_request.UpdateKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
+        input_: aws_sdk_location.types.update_key_request.UpdateKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if expire_time is not None:
-            input["expire_time"] = expire_time
+            input_["expire_time"] = expire_time
         if no_expiry is not None:
-            input["no_expiry"] = no_expiry
+            input_["no_expiry"] = no_expiry
         if force_update is not None:
-            input["force_update"] = force_update
+            input_["force_update"] = force_update
         if restrictions is not None:
-            input["restrictions"] = restrictions
+            input_["restrictions"] = restrictions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,13 +478,13 @@ class AsyncApiKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_key_request.DeleteKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
+        input_: aws_sdk_location.types.delete_key_request.DeleteKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,16 +522,16 @@ class AsyncApiKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

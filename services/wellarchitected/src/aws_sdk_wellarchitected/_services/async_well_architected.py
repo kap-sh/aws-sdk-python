@@ -366,12 +366,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.associate_lenses_input.AssociateLensesInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_aliases"] = lens_aliases
+        input_: aws_sdk_wellarchitected.types.associate_lenses_input.AssociateLensesInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_aliases"] = lens_aliases
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,12 +404,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.associate_profiles_input.AssociateProfilesInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["profile_arns"] = profile_arns
+        input_: aws_sdk_wellarchitected.types.associate_profiles_input.AssociateProfilesInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["profile_arns"] = profile_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,13 +441,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_lens_share_input.CreateLensShareInput = {}  # type: ignore[typeddict-item]
-        input["lens_alias"] = lens_alias
-        input["shared_with"] = shared_with
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.create_lens_share_input.CreateLensShareInput = {}  # type: ignore[typeddict-item]
+        input_["lens_alias"] = lens_alias
+        input_["shared_with"] = shared_with
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,15 +487,15 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_lens_version_input.CreateLensVersionInput = {}  # type: ignore[typeddict-item]
-        input["lens_alias"] = lens_alias
-        input["lens_version"] = lens_version
+        input_: aws_sdk_wellarchitected.types.create_lens_version_input.CreateLensVersionInput = {}  # type: ignore[typeddict-item]
+        input_["lens_alias"] = lens_alias
+        input_["lens_version"] = lens_version
         if is_major_version is not None:
-            input["is_major_version"] = is_major_version
-        input["client_request_token"] = client_request_token
+            input_["is_major_version"] = is_major_version
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,13 +527,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_milestone_input.CreateMilestoneInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["milestone_name"] = milestone_name
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.create_milestone_input.CreateMilestoneInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["milestone_name"] = milestone_name
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,16 +574,16 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_profile_input.CreateProfileInput = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
-        input["profile_description"] = profile_description
-        input["profile_questions"] = profile_questions
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.create_profile_input.CreateProfileInput = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
+        input_["profile_description"] = profile_description
+        input_["profile_questions"] = profile_questions
+        input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -619,13 +619,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_profile_share_input.CreateProfileShareInput = {}  # type: ignore[typeddict-item]
-        input["profile_arn"] = profile_arn
-        input["shared_with"] = shared_with
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.create_profile_share_input.CreateProfileShareInput = {}  # type: ignore[typeddict-item]
+        input_["profile_arn"] = profile_arn
+        input_["shared_with"] = shared_with
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -667,18 +667,18 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_review_template_input.CreateReviewTemplateInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["description"] = description
-        input["lenses"] = lenses
+        input_: aws_sdk_wellarchitected.types.create_review_template_input.CreateReviewTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["description"] = description
+        input_["lenses"] = lenses
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if tags is not None:
-            input["tags"] = tags
-        input["client_request_token"] = client_request_token
+            input_["tags"] = tags
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -714,13 +714,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_template_share_input.CreateTemplateShareInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["shared_with"] = shared_with
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.create_template_share_input.CreateTemplateShareInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["shared_with"] = shared_with
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -804,45 +804,45 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_workload_input.CreateWorkloadInput = {}  # type: ignore[typeddict-item]
-        input["workload_name"] = workload_name
-        input["description"] = description
-        input["environment"] = environment
+        input_: aws_sdk_wellarchitected.types.create_workload_input.CreateWorkloadInput = {}  # type: ignore[typeddict-item]
+        input_["workload_name"] = workload_name
+        input_["description"] = description
+        input_["environment"] = environment
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if aws_regions is not None:
-            input["aws_regions"] = aws_regions
+            input_["aws_regions"] = aws_regions
         if non_aws_regions is not None:
-            input["non_aws_regions"] = non_aws_regions
+            input_["non_aws_regions"] = non_aws_regions
         if pillar_priorities is not None:
-            input["pillar_priorities"] = pillar_priorities
+            input_["pillar_priorities"] = pillar_priorities
         if architectural_design is not None:
-            input["architectural_design"] = architectural_design
+            input_["architectural_design"] = architectural_design
         if review_owner is not None:
-            input["review_owner"] = review_owner
+            input_["review_owner"] = review_owner
         if industry_type is not None:
-            input["industry_type"] = industry_type
+            input_["industry_type"] = industry_type
         if industry is not None:
-            input["industry"] = industry
-        input["lenses"] = lenses
+            input_["industry"] = industry
+        input_["lenses"] = lenses
         if notes is not None:
-            input["notes"] = notes
-        input["client_request_token"] = client_request_token
+            input_["notes"] = notes
+        input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if discovery_config is not None:
-            input["discovery_config"] = discovery_config
+            input_["discovery_config"] = discovery_config
         if applications is not None:
-            input["applications"] = applications
+            input_["applications"] = applications
         if profile_arns is not None:
-            input["profile_arns"] = profile_arns
+            input_["profile_arns"] = profile_arns
         if review_template_arns is not None:
-            input["review_template_arns"] = review_template_arns
+            input_["review_template_arns"] = review_template_arns
         if jira_configuration is not None:
-            input["jira_configuration"] = jira_configuration
+            input_["jira_configuration"] = jira_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -875,14 +875,14 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.create_workload_share_input.CreateWorkloadShareInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["shared_with"] = shared_with
-        input["permission_type"] = permission_type
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.create_workload_share_input.CreateWorkloadShareInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["shared_with"] = shared_with
+        input_["permission_type"] = permission_type
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -916,13 +916,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.delete_lens_input.DeleteLensInput = {}  # type: ignore[typeddict-item]
-        input["lens_alias"] = lens_alias
-        input["client_request_token"] = client_request_token
-        input["lens_status"] = lens_status
+        input_: aws_sdk_wellarchitected.types.delete_lens_input.DeleteLensInput = {}  # type: ignore[typeddict-item]
+        input_["lens_alias"] = lens_alias
+        input_["client_request_token"] = client_request_token
+        input_["lens_status"] = lens_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,13 +952,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.delete_lens_share_input.DeleteLensShareInput = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
-        input["lens_alias"] = lens_alias
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.delete_lens_share_input.DeleteLensShareInput = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
+        input_["lens_alias"] = lens_alias
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -991,12 +991,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.delete_profile_input.DeleteProfileInput = {}  # type: ignore[typeddict-item]
-        input["profile_arn"] = profile_arn
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.delete_profile_input.DeleteProfileInput = {}  # type: ignore[typeddict-item]
+        input_["profile_arn"] = profile_arn
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1030,13 +1030,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.delete_profile_share_input.DeleteProfileShareInput = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
-        input["profile_arn"] = profile_arn
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.delete_profile_share_input.DeleteProfileShareInput = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
+        input_["profile_arn"] = profile_arn
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,12 +1069,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.delete_review_template_input.DeleteReviewTemplateInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.delete_review_template_input.DeleteReviewTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1108,13 +1108,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.delete_template_share_input.DeleteTemplateShareInput = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
-        input["template_arn"] = template_arn
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.delete_template_share_input.DeleteTemplateShareInput = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
+        input_["template_arn"] = template_arn
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1143,12 +1143,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.delete_workload_input.DeleteWorkloadInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.delete_workload_input.DeleteWorkloadInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1178,13 +1178,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.delete_workload_share_input.DeleteWorkloadShareInput = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
-        input["workload_id"] = workload_id
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_wellarchitected.types.delete_workload_share_input.DeleteWorkloadShareInput = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
+        input_["workload_id"] = workload_id
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1213,12 +1213,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.disassociate_lenses_input.DisassociateLensesInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_aliases"] = lens_aliases
+        input_: aws_sdk_wellarchitected.types.disassociate_lenses_input.DisassociateLensesInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_aliases"] = lens_aliases
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1251,12 +1251,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.disassociate_profiles_input.DisassociateProfilesInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["profile_arns"] = profile_arns
+        input_: aws_sdk_wellarchitected.types.disassociate_profiles_input.DisassociateProfilesInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["profile_arns"] = profile_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1293,13 +1293,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.export_lens_input.ExportLensInput = {}  # type: ignore[typeddict-item]
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.export_lens_input.ExportLensInput = {}  # type: ignore[typeddict-item]
+        input_["lens_alias"] = lens_alias
         if lens_version is not None:
-            input["lens_version"] = lens_version
+            input_["lens_version"] = lens_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1334,15 +1334,15 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_answer_input.GetAnswerInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_alias"] = lens_alias
-        input["question_id"] = question_id
+        input_: aws_sdk_wellarchitected.types.get_answer_input.GetAnswerInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_alias"] = lens_alias
+        input_["question_id"] = question_id
         if milestone_number is not None:
-            input["milestone_number"] = milestone_number
+            input_["milestone_number"] = milestone_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1387,17 +1387,17 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_consolidated_report_input.GetConsolidatedReportInput = {}  # type: ignore[typeddict-item]
-        input["format"] = format
+        input_: aws_sdk_wellarchitected.types.get_consolidated_report_input.GetConsolidatedReportInput = {}  # type: ignore[typeddict-item]
+        input_["format"] = format
         if include_shared_resources is not None:
-            input["include_shared_resources"] = include_shared_resources
+            input_["include_shared_resources"] = include_shared_resources
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1463,13 +1463,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_lens_input.GetLensInput = {}  # type: ignore[typeddict-item]
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.get_lens_input.GetLensInput = {}  # type: ignore[typeddict-item]
+        input_["lens_alias"] = lens_alias
         if lens_version is not None:
-            input["lens_version"] = lens_version
+            input_["lens_version"] = lens_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1503,14 +1503,14 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_lens_review_input.GetLensReviewInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.get_lens_review_input.GetLensReviewInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_alias"] = lens_alias
         if milestone_number is not None:
-            input["milestone_number"] = milestone_number
+            input_["milestone_number"] = milestone_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1544,14 +1544,14 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_lens_review_report_input.GetLensReviewReportInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.get_lens_review_report_input.GetLensReviewReportInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_alias"] = lens_alias
         if milestone_number is not None:
-            input["milestone_number"] = milestone_number
+            input_["milestone_number"] = milestone_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1592,15 +1592,15 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_lens_version_difference_input.GetLensVersionDifferenceInput = {}  # type: ignore[typeddict-item]
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.get_lens_version_difference_input.GetLensVersionDifferenceInput = {}  # type: ignore[typeddict-item]
+        input_["lens_alias"] = lens_alias
         if base_lens_version is not None:
-            input["base_lens_version"] = base_lens_version
+            input_["base_lens_version"] = base_lens_version
         if target_lens_version is not None:
-            input["target_lens_version"] = target_lens_version
+            input_["target_lens_version"] = target_lens_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1631,12 +1631,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_milestone_input.GetMilestoneInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["milestone_number"] = milestone_number
+        input_: aws_sdk_wellarchitected.types.get_milestone_input.GetMilestoneInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["milestone_number"] = milestone_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1674,13 +1674,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_profile_input.GetProfileInput = {}  # type: ignore[typeddict-item]
-        input["profile_arn"] = profile_arn
+        input_: aws_sdk_wellarchitected.types.get_profile_input.GetProfileInput = {}  # type: ignore[typeddict-item]
+        input_["profile_arn"] = profile_arn
         if profile_version is not None:
-            input["profile_version"] = profile_version
+            input_["profile_version"] = profile_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1707,10 +1707,10 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_profile_template_input.GetProfileTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.get_profile_template_input.GetProfileTemplateInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1744,11 +1744,11 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_review_template_input.GetReviewTemplateInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
+        input_: aws_sdk_wellarchitected.types.get_review_template_input.GetReviewTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1784,13 +1784,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_review_template_answer_input.GetReviewTemplateAnswerInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["lens_alias"] = lens_alias
-        input["question_id"] = question_id
+        input_: aws_sdk_wellarchitected.types.get_review_template_answer_input.GetReviewTemplateAnswerInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["lens_alias"] = lens_alias
+        input_["question_id"] = question_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1825,12 +1825,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_review_template_lens_review_input.GetReviewTemplateLensReviewInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.get_review_template_lens_review_input.GetReviewTemplateLensReviewInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["lens_alias"] = lens_alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1860,11 +1860,11 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.get_workload_input.GetWorkloadInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
+        input_: aws_sdk_wellarchitected.types.get_workload_input.GetWorkloadInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1904,16 +1904,16 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.import_lens_input.ImportLensInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.import_lens_input.ImportLensInput = {}  # type: ignore[typeddict-item]
         if lens_alias is not None:
-            input["lens_alias"] = lens_alias
-        input["json_string"] = json_string
-        input["client_request_token"] = client_request_token
+            input_["lens_alias"] = lens_alias
+        input_["json_string"] = json_string
+        input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1962,22 +1962,22 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_answers_input.ListAnswersInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.list_answers_input.ListAnswersInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_alias"] = lens_alias
         if pillar_id is not None:
-            input["pillar_id"] = pillar_id
+            input_["pillar_id"] = pillar_id
         if milestone_number is not None:
-            input["milestone_number"] = milestone_number
+            input_["milestone_number"] = milestone_number
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if question_priority is not None:
-            input["question_priority"] = question_priority
+            input_["question_priority"] = question_priority
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2023,19 +2023,19 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_check_details_input.ListCheckDetailsInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
+        input_: aws_sdk_wellarchitected.types.list_check_details_input.ListCheckDetailsInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["lens_arn"] = lens_arn
-        input["pillar_id"] = pillar_id
-        input["question_id"] = question_id
-        input["choice_id"] = choice_id
+            input_["max_results"] = max_results
+        input_["lens_arn"] = lens_arn
+        input_["pillar_id"] = pillar_id
+        input_["question_id"] = question_id
+        input_["choice_id"] = choice_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2079,19 +2079,19 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_check_summaries_input.ListCheckSummariesInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
+        input_: aws_sdk_wellarchitected.types.list_check_summaries_input.ListCheckSummariesInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["lens_arn"] = lens_arn
-        input["pillar_id"] = pillar_id
-        input["question_id"] = question_id
-        input["choice_id"] = choice_id
+            input_["max_results"] = max_results
+        input_["lens_arn"] = lens_arn
+        input_["pillar_id"] = pillar_id
+        input_["question_id"] = question_id
+        input_["choice_id"] = choice_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2136,20 +2136,20 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_lenses_input.ListLensesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.list_lenses_input.ListLensesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if lens_type is not None:
-            input["lens_type"] = lens_type
+            input_["lens_type"] = lens_type
         if lens_status is not None:
-            input["lens_status"] = lens_status
+            input_["lens_status"] = lens_status
         if lens_name is not None:
-            input["lens_name"] = lens_name
+            input_["lens_name"] = lens_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2198,22 +2198,22 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_lens_review_improvements_input.ListLensReviewImprovementsInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.list_lens_review_improvements_input.ListLensReviewImprovementsInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_alias"] = lens_alias
         if pillar_id is not None:
-            input["pillar_id"] = pillar_id
+            input_["pillar_id"] = pillar_id
         if milestone_number is not None:
-            input["milestone_number"] = milestone_number
+            input_["milestone_number"] = milestone_number
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if question_priority is not None:
-            input["question_priority"] = question_priority
+            input_["question_priority"] = question_priority
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2252,17 +2252,17 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_lens_reviews_input.ListLensReviewsInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
+        input_: aws_sdk_wellarchitected.types.list_lens_reviews_input.ListLensReviewsInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
         if milestone_number is not None:
-            input["milestone_number"] = milestone_number
+            input_["milestone_number"] = milestone_number
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2309,19 +2309,19 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_lens_shares_input.ListLensSharesInput = {}  # type: ignore[typeddict-item]
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.list_lens_shares_input.ListLensSharesInput = {}  # type: ignore[typeddict-item]
+        input_["lens_alias"] = lens_alias
         if shared_with_prefix is not None:
-            input["shared_with_prefix"] = shared_with_prefix
+            input_["shared_with_prefix"] = shared_with_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2357,15 +2357,15 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_milestones_input.ListMilestonesInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
+        input_: aws_sdk_wellarchitected.types.list_milestones_input.ListMilestonesInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2411,18 +2411,18 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_notifications_input.ListNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.list_notifications_input.ListNotificationsInput = {}  # type: ignore[typeddict-item]
         if workload_id is not None:
-            input["workload_id"] = workload_id
+            input_["workload_id"] = workload_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2460,16 +2460,16 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_profile_notifications_input.ListProfileNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.list_profile_notifications_input.ListProfileNotificationsInput = {}  # type: ignore[typeddict-item]
         if workload_id is not None:
-            input["workload_id"] = workload_id
+            input_["workload_id"] = workload_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2515,18 +2515,18 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_profiles_input.ListProfilesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.list_profiles_input.ListProfilesInput = {}  # type: ignore[typeddict-item]
         if profile_name_prefix is not None:
-            input["profile_name_prefix"] = profile_name_prefix
+            input_["profile_name_prefix"] = profile_name_prefix
         if profile_owner_type is not None:
-            input["profile_owner_type"] = profile_owner_type
+            input_["profile_owner_type"] = profile_owner_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2574,19 +2574,19 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_profile_shares_input.ListProfileSharesInput = {}  # type: ignore[typeddict-item]
-        input["profile_arn"] = profile_arn
+        input_: aws_sdk_wellarchitected.types.list_profile_shares_input.ListProfileSharesInput = {}  # type: ignore[typeddict-item]
+        input_["profile_arn"] = profile_arn
         if shared_with_prefix is not None:
-            input["shared_with_prefix"] = shared_with_prefix
+            input_["shared_with_prefix"] = shared_with_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2629,18 +2629,18 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_review_template_answers_input.ListReviewTemplateAnswersInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.list_review_template_answers_input.ListReviewTemplateAnswersInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["lens_alias"] = lens_alias
         if pillar_id is not None:
-            input["pillar_id"] = pillar_id
+            input_["pillar_id"] = pillar_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2675,14 +2675,14 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_review_templates_input.ListReviewTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.list_review_templates_input.ListReviewTemplatesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2740,24 +2740,24 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_share_invitations_input.ListShareInvitationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.list_share_invitations_input.ListShareInvitationsInput = {}  # type: ignore[typeddict-item]
         if workload_name_prefix is not None:
-            input["workload_name_prefix"] = workload_name_prefix
+            input_["workload_name_prefix"] = workload_name_prefix
         if lens_name_prefix is not None:
-            input["lens_name_prefix"] = lens_name_prefix
+            input_["lens_name_prefix"] = lens_name_prefix
         if share_resource_type is not None:
-            input["share_resource_type"] = share_resource_type
+            input_["share_resource_type"] = share_resource_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if profile_name_prefix is not None:
-            input["profile_name_prefix"] = profile_name_prefix
+            input_["profile_name_prefix"] = profile_name_prefix
         if template_name_prefix is not None:
-            input["template_name_prefix"] = template_name_prefix
+            input_["template_name_prefix"] = template_name_prefix
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2787,11 +2787,11 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["workload_arn"] = workload_arn
+        input_: aws_sdk_wellarchitected.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["workload_arn"] = workload_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2839,19 +2839,19 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_template_shares_input.ListTemplateSharesInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
+        input_: aws_sdk_wellarchitected.types.list_template_shares_input.ListTemplateSharesInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
         if shared_with_prefix is not None:
-            input["shared_with_prefix"] = shared_with_prefix
+            input_["shared_with_prefix"] = shared_with_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2893,16 +2893,16 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_workloads_input.ListWorkloadsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.list_workloads_input.ListWorkloadsInput = {}  # type: ignore[typeddict-item]
         if workload_name_prefix is not None:
-            input["workload_name_prefix"] = workload_name_prefix
+            input_["workload_name_prefix"] = workload_name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2949,19 +2949,19 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.list_workload_shares_input.ListWorkloadSharesInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
+        input_: aws_sdk_wellarchitected.types.list_workload_shares_input.ListWorkloadSharesInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
         if shared_with_prefix is not None:
-            input["shared_with_prefix"] = shared_with_prefix
+            input_["shared_with_prefix"] = shared_with_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2996,12 +2996,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["workload_arn"] = workload_arn
-        input["tags"] = tags
+        input_: aws_sdk_wellarchitected.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["workload_arn"] = workload_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3036,12 +3036,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["workload_arn"] = workload_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_wellarchitected.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["workload_arn"] = workload_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3091,23 +3091,23 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_answer_input.UpdateAnswerInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_alias"] = lens_alias
-        input["question_id"] = question_id
+        input_: aws_sdk_wellarchitected.types.update_answer_input.UpdateAnswerInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_alias"] = lens_alias
+        input_["question_id"] = question_id
         if selected_choices is not None:
-            input["selected_choices"] = selected_choices
+            input_["selected_choices"] = selected_choices
         if choice_updates is not None:
-            input["choice_updates"] = choice_updates
+            input_["choice_updates"] = choice_updates
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if is_applicable is not None:
-            input["is_applicable"] = is_applicable
+            input_["is_applicable"] = is_applicable
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3149,16 +3149,16 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_global_settings_input.UpdateGlobalSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wellarchitected.types.update_global_settings_input.UpdateGlobalSettingsInput = {}  # type: ignore[typeddict-item]
         if organization_sharing_status is not None:
-            input["organization_sharing_status"] = organization_sharing_status
+            input_["organization_sharing_status"] = organization_sharing_status
         if discovery_integration_status is not None:
-            input["discovery_integration_status"] = discovery_integration_status
+            input_["discovery_integration_status"] = discovery_integration_status
         if jira_configuration is not None:
-            input["jira_configuration"] = jira_configuration
+            input_["jira_configuration"] = jira_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3192,13 +3192,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_integration_input.UpdateIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["client_request_token"] = client_request_token
-        input["integrating_service"] = integrating_service
+        input_: aws_sdk_wellarchitected.types.update_integration_input.UpdateIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["client_request_token"] = client_request_token
+        input_["integrating_service"] = integrating_service
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3242,18 +3242,18 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_lens_review_input.UpdateLensReviewInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.update_lens_review_input.UpdateLensReviewInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_alias"] = lens_alias
         if lens_notes is not None:
-            input["lens_notes"] = lens_notes
+            input_["lens_notes"] = lens_notes
         if pillar_notes is not None:
-            input["pillar_notes"] = pillar_notes
+            input_["pillar_notes"] = pillar_notes
         if jira_configuration is not None:
-            input["jira_configuration"] = jira_configuration
+            input_["jira_configuration"] = jira_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3295,15 +3295,15 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_profile_input.UpdateProfileInput = {}  # type: ignore[typeddict-item]
-        input["profile_arn"] = profile_arn
+        input_: aws_sdk_wellarchitected.types.update_profile_input.UpdateProfileInput = {}  # type: ignore[typeddict-item]
+        input_["profile_arn"] = profile_arn
         if profile_description is not None:
-            input["profile_description"] = profile_description
+            input_["profile_description"] = profile_description
         if profile_questions is not None:
-            input["profile_questions"] = profile_questions
+            input_["profile_questions"] = profile_questions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3354,21 +3354,21 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_review_template_input.UpdateReviewTemplateInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
+        input_: aws_sdk_wellarchitected.types.update_review_template_input.UpdateReviewTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if lenses_to_associate is not None:
-            input["lenses_to_associate"] = lenses_to_associate
+            input_["lenses_to_associate"] = lenses_to_associate
         if lenses_to_disassociate is not None:
-            input["lenses_to_disassociate"] = lenses_to_disassociate
+            input_["lenses_to_disassociate"] = lenses_to_disassociate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3419,23 +3419,23 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_review_template_answer_input.UpdateReviewTemplateAnswerInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["lens_alias"] = lens_alias
-        input["question_id"] = question_id
+        input_: aws_sdk_wellarchitected.types.update_review_template_answer_input.UpdateReviewTemplateAnswerInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["lens_alias"] = lens_alias
+        input_["question_id"] = question_id
         if selected_choices is not None:
-            input["selected_choices"] = selected_choices
+            input_["selected_choices"] = selected_choices
         if choice_updates is not None:
-            input["choice_updates"] = choice_updates
+            input_["choice_updates"] = choice_updates
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if is_applicable is not None:
-            input["is_applicable"] = is_applicable
+            input_["is_applicable"] = is_applicable
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3474,16 +3474,16 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_review_template_lens_review_input.UpdateReviewTemplateLensReviewInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.update_review_template_lens_review_input.UpdateReviewTemplateLensReviewInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["lens_alias"] = lens_alias
         if lens_notes is not None:
-            input["lens_notes"] = lens_notes
+            input_["lens_notes"] = lens_notes
         if pillar_notes is not None:
-            input["pillar_notes"] = pillar_notes
+            input_["pillar_notes"] = pillar_notes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3518,12 +3518,12 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_share_invitation_input.UpdateShareInvitationInput = {}  # type: ignore[typeddict-item]
-        input["share_invitation_id"] = share_invitation_id
-        input["share_invitation_action"] = share_invitation_action
+        input_: aws_sdk_wellarchitected.types.update_share_invitation_input.UpdateShareInvitationInput = {}  # type: ignore[typeddict-item]
+        input_["share_invitation_id"] = share_invitation_id
+        input_["share_invitation_action"] = share_invitation_action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3609,47 +3609,47 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_workload_input.UpdateWorkloadInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
+        input_: aws_sdk_wellarchitected.types.update_workload_input.UpdateWorkloadInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
         if workload_name is not None:
-            input["workload_name"] = workload_name
+            input_["workload_name"] = workload_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if aws_regions is not None:
-            input["aws_regions"] = aws_regions
+            input_["aws_regions"] = aws_regions
         if non_aws_regions is not None:
-            input["non_aws_regions"] = non_aws_regions
+            input_["non_aws_regions"] = non_aws_regions
         if pillar_priorities is not None:
-            input["pillar_priorities"] = pillar_priorities
+            input_["pillar_priorities"] = pillar_priorities
         if architectural_design is not None:
-            input["architectural_design"] = architectural_design
+            input_["architectural_design"] = architectural_design
         if review_owner is not None:
-            input["review_owner"] = review_owner
+            input_["review_owner"] = review_owner
         if is_review_owner_update_acknowledged is not None:
-            input["is_review_owner_update_acknowledged"] = (
+            input_["is_review_owner_update_acknowledged"] = (
                 is_review_owner_update_acknowledged
             )
         if industry_type is not None:
-            input["industry_type"] = industry_type
+            input_["industry_type"] = industry_type
         if industry is not None:
-            input["industry"] = industry
+            input_["industry"] = industry
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if improvement_status is not None:
-            input["improvement_status"] = improvement_status
+            input_["improvement_status"] = improvement_status
         if discovery_config is not None:
-            input["discovery_config"] = discovery_config
+            input_["discovery_config"] = discovery_config
         if applications is not None:
-            input["applications"] = applications
+            input_["applications"] = applications
         if jira_configuration is not None:
-            input["jira_configuration"] = jira_configuration
+            input_["jira_configuration"] = jira_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3681,13 +3681,13 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.update_workload_share_input.UpdateWorkloadShareInput = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
-        input["workload_id"] = workload_id
-        input["permission_type"] = permission_type
+        input_: aws_sdk_wellarchitected.types.update_workload_share_input.UpdateWorkloadShareInput = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
+        input_["workload_id"] = workload_id
+        input_["permission_type"] = permission_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3720,15 +3720,15 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.upgrade_lens_review_input.UpgradeLensReviewInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["lens_alias"] = lens_alias
-        input["milestone_name"] = milestone_name
+        input_: aws_sdk_wellarchitected.types.upgrade_lens_review_input.UpgradeLensReviewInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["lens_alias"] = lens_alias
+        input_["milestone_name"] = milestone_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3767,16 +3767,16 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.upgrade_profile_version_input.UpgradeProfileVersionInput = {}  # type: ignore[typeddict-item]
-        input["workload_id"] = workload_id
-        input["profile_arn"] = profile_arn
+        input_: aws_sdk_wellarchitected.types.upgrade_profile_version_input.UpgradeProfileVersionInput = {}  # type: ignore[typeddict-item]
+        input_["workload_id"] = workload_id
+        input_["profile_arn"] = profile_arn
         if milestone_name is not None:
-            input["milestone_name"] = milestone_name
+            input_["milestone_name"] = milestone_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3812,14 +3812,14 @@ class AsyncWellArchitectedClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wellarchitected.types.upgrade_review_template_lens_review_input.UpgradeReviewTemplateLensReviewInput = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["lens_alias"] = lens_alias
+        input_: aws_sdk_wellarchitected.types.upgrade_review_template_lens_review_input.UpgradeReviewTemplateLensReviewInput = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["lens_alias"] = lens_alias
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

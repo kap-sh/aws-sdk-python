@@ -16,6 +16,42 @@ from aws_sdk_vpc_lattice._auth._providers import (
 )
 from aws_sdk_vpc_lattice._auth._zapros_handler import AuthMiddleware
 from aws_sdk_vpc_lattice._pagination import resolve_path as _resolve_path
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.access_log_subscription import (
+    AccessLogSubscription,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.domain_verification import (
+    DomainVerification,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.listener import Listener
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.resource_configuration import (
+    ResourceConfiguration,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.resource_endpoint_association import (
+    ResourceEndpointAssociation,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.resource_gateway import (
+    ResourceGateway,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.rule import Rule
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.service import Service
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.service_load_balancer_association import (
+    ServiceLoadBalancerAssociation,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.service_network import (
+    ServiceNetwork,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.service_network_resource_association import (
+    ServiceNetworkResourceAssociation,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.service_network_service_association import (
+    ServiceNetworkServiceAssociation,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.service_network_vpc_association import (
+    ServiceNetworkVpcAssociation,
+)
+from aws_sdk_vpc_lattice._resources.mercury_control_plane.target_group import (
+    TargetGroup,
+)
 from aws_sdk_vpc_lattice._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -134,6 +170,25 @@ class VPCLatticeClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.access_log_subscription = AccessLogSubscription(self)
+        self.domain_verification = DomainVerification(self)
+        self.listener = Listener(self)
+        self.resource_configuration = ResourceConfiguration(self)
+        self.resource_endpoint_association = ResourceEndpointAssociation(self)
+        self.resource_gateway = ResourceGateway(self)
+        self.rule = Rule(self)
+        self.service = Service(self)
+        self.service_load_balancer_association = ServiceLoadBalancerAssociation(self)
+        self.service_network = ServiceNetwork(self)
+        self.service_network_resource_association = ServiceNetworkResourceAssociation(
+            self
+        )
+        self.service_network_service_association = ServiceNetworkServiceAssociation(
+            self
+        )
+        self.service_network_vpc_association = ServiceNetworkVpcAssociation(self)
+        self.target_group = TargetGroup(self)
 
     def operation_options(
         self, config_overrides: Optional[VPCLatticeClientConfig] = None
@@ -194,13 +249,13 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.batch_update_rule_request.BatchUpdateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["rules"] = rules
+        input_: aws_sdk_vpc_lattice.types.batch_update_rule_request.BatchUpdateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["rules"] = rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,11 +290,11 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_auth_policy_request.DeleteAuthPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_auth_policy_request.DeleteAuthPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -272,11 +327,11 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_vpc_lattice.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,11 +364,11 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_auth_policy_request.GetAuthPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_vpc_lattice.types.get_auth_policy_request.GetAuthPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,11 +401,11 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_vpc_lattice.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -389,15 +444,15 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_service_network_vpc_endpoint_associations_request.ListServiceNetworkVpcEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_identifier"] = service_network_identifier
+        input_: aws_sdk_vpc_lattice.types.list_service_network_vpc_endpoint_associations_request.ListServiceNetworkVpcEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_identifier"] = service_network_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,11 +510,11 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_vpc_lattice.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -494,12 +549,12 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.put_auth_policy_request.PutAuthPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["policy"] = policy
+        input_: aws_sdk_vpc_lattice.types.put_auth_policy_request.PutAuthPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,12 +589,12 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_vpc_lattice.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,12 +629,12 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_vpc_lattice.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -614,12 +669,12 @@ class VPCLatticeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_vpc_lattice.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -140,36 +140,36 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_opportunity_request.CreateOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.create_opportunity_request.CreateOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if primary_needs_from_aws is not None:
-            input["primary_needs_from_aws"] = primary_needs_from_aws
+            input_["primary_needs_from_aws"] = primary_needs_from_aws
         if national_security is not None:
-            input["national_security"] = national_security
+            input_["national_security"] = national_security
         if partner_opportunity_identifier is not None:
-            input["partner_opportunity_identifier"] = partner_opportunity_identifier
+            input_["partner_opportunity_identifier"] = partner_opportunity_identifier
         if customer is not None:
-            input["customer"] = customer
+            input_["customer"] = customer
         if project is not None:
-            input["project"] = project
+            input_["project"] = project
         if opportunity_type is not None:
-            input["opportunity_type"] = opportunity_type
+            input_["opportunity_type"] = opportunity_type
         if marketing is not None:
-            input["marketing"] = marketing
+            input_["marketing"] = marketing
         if software_revenue is not None:
-            input["software_revenue"] = software_revenue
-        input["client_token"] = client_token
+            input_["software_revenue"] = software_revenue
+        input_["client_token"] = client_token
         if life_cycle is not None:
-            input["life_cycle"] = life_cycle
+            input_["life_cycle"] = life_cycle
         if origin is not None:
-            input["origin"] = origin
+            input_["origin"] = origin
         if opportunity_team is not None:
-            input["opportunity_team"] = opportunity_team
+            input_["opportunity_team"] = opportunity_team
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,12 +204,12 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_opportunity_request.GetOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.get_opportunity_request.GetOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,31 +280,31 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.update_opportunity_request.UpdateOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.update_opportunity_request.UpdateOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if primary_needs_from_aws is not None:
-            input["primary_needs_from_aws"] = primary_needs_from_aws
+            input_["primary_needs_from_aws"] = primary_needs_from_aws
         if national_security is not None:
-            input["national_security"] = national_security
+            input_["national_security"] = national_security
         if partner_opportunity_identifier is not None:
-            input["partner_opportunity_identifier"] = partner_opportunity_identifier
+            input_["partner_opportunity_identifier"] = partner_opportunity_identifier
         if customer is not None:
-            input["customer"] = customer
+            input_["customer"] = customer
         if project is not None:
-            input["project"] = project
+            input_["project"] = project
         if opportunity_type is not None:
-            input["opportunity_type"] = opportunity_type
+            input_["opportunity_type"] = opportunity_type
         if marketing is not None:
-            input["marketing"] = marketing
+            input_["marketing"] = marketing
         if software_revenue is not None:
-            input["software_revenue"] = software_revenue
-        input["last_modified_date"] = last_modified_date
-        input["identifier"] = identifier
+            input_["software_revenue"] = software_revenue
+        input_["last_modified_date"] = last_modified_date
+        input_["identifier"] = identifier
         if life_cycle is not None:
-            input["life_cycle"] = life_cycle
+            input_["life_cycle"] = life_cycle
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,31 +375,31 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_opportunities_request.ListOpportunitiesRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_opportunities_request.ListOpportunitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if last_modified_date is not None:
-            input["last_modified_date"] = last_modified_date
+            input_["last_modified_date"] = last_modified_date
         if identifier is not None:
-            input["identifier"] = identifier
+            input_["identifier"] = identifier
         if life_cycle_stage is not None:
-            input["life_cycle_stage"] = life_cycle_stage
+            input_["life_cycle_stage"] = life_cycle_stage
         if life_cycle_review_status is not None:
-            input["life_cycle_review_status"] = life_cycle_review_status
+            input_["life_cycle_review_status"] = life_cycle_review_status
         if customer_company_name is not None:
-            input["customer_company_name"] = customer_company_name
+            input_["customer_company_name"] = customer_company_name
         if created_date is not None:
-            input["created_date"] = created_date
+            input_["created_date"] = created_date
         if target_close_date is not None:
-            input["target_close_date"] = target_close_date
+            input_["target_close_date"] = target_close_date
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,13 +434,13 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.assign_opportunity_request.AssignOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["assignee"] = assignee
+        input_: aws_sdk_partnercentral_selling.types.assign_opportunity_request.AssignOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["assignee"] = assignee
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -477,14 +477,14 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.associate_opportunity_request.AssociateOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["opportunity_identifier"] = opportunity_identifier
-        input["related_entity_type"] = related_entity_type
-        input["related_entity_identifier"] = related_entity_identifier
+        input_: aws_sdk_partnercentral_selling.types.associate_opportunity_request.AssociateOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["opportunity_identifier"] = opportunity_identifier
+        input_["related_entity_type"] = related_entity_type
+        input_["related_entity_identifier"] = related_entity_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -521,14 +521,14 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.disassociate_opportunity_request.DisassociateOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["opportunity_identifier"] = opportunity_identifier
-        input["related_entity_type"] = related_entity_type
-        input["related_entity_identifier"] = related_entity_identifier
+        input_: aws_sdk_partnercentral_selling.types.disassociate_opportunity_request.DisassociateOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["opportunity_identifier"] = opportunity_identifier
+        input_["related_entity_type"] = related_entity_type
+        input_["related_entity_identifier"] = related_entity_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -563,12 +563,12 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_aws_opportunity_summary_request.GetAwsOpportunitySummaryRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["related_opportunity_identifier"] = related_opportunity_identifier
+        input_: aws_sdk_partnercentral_selling.types.get_aws_opportunity_summary_request.GetAwsOpportunitySummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["related_opportunity_identifier"] = related_opportunity_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -607,15 +607,15 @@ class Opportunity:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.submit_opportunity_request.SubmitOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["involvement_type"] = involvement_type
+        input_: aws_sdk_partnercentral_selling.types.submit_opportunity_request.SubmitOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["involvement_type"] = involvement_type
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -700,36 +700,36 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_opportunity_request.CreateOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.create_opportunity_request.CreateOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if primary_needs_from_aws is not None:
-            input["primary_needs_from_aws"] = primary_needs_from_aws
+            input_["primary_needs_from_aws"] = primary_needs_from_aws
         if national_security is not None:
-            input["national_security"] = national_security
+            input_["national_security"] = national_security
         if partner_opportunity_identifier is not None:
-            input["partner_opportunity_identifier"] = partner_opportunity_identifier
+            input_["partner_opportunity_identifier"] = partner_opportunity_identifier
         if customer is not None:
-            input["customer"] = customer
+            input_["customer"] = customer
         if project is not None:
-            input["project"] = project
+            input_["project"] = project
         if opportunity_type is not None:
-            input["opportunity_type"] = opportunity_type
+            input_["opportunity_type"] = opportunity_type
         if marketing is not None:
-            input["marketing"] = marketing
+            input_["marketing"] = marketing
         if software_revenue is not None:
-            input["software_revenue"] = software_revenue
-        input["client_token"] = client_token
+            input_["software_revenue"] = software_revenue
+        input_["client_token"] = client_token
         if life_cycle is not None:
-            input["life_cycle"] = life_cycle
+            input_["life_cycle"] = life_cycle
         if origin is not None:
-            input["origin"] = origin
+            input_["origin"] = origin
         if opportunity_team is not None:
-            input["opportunity_team"] = opportunity_team
+            input_["opportunity_team"] = opportunity_team
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -765,12 +765,12 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_opportunity_request.GetOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.get_opportunity_request.GetOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -842,31 +842,31 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.update_opportunity_request.UpdateOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.update_opportunity_request.UpdateOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if primary_needs_from_aws is not None:
-            input["primary_needs_from_aws"] = primary_needs_from_aws
+            input_["primary_needs_from_aws"] = primary_needs_from_aws
         if national_security is not None:
-            input["national_security"] = national_security
+            input_["national_security"] = national_security
         if partner_opportunity_identifier is not None:
-            input["partner_opportunity_identifier"] = partner_opportunity_identifier
+            input_["partner_opportunity_identifier"] = partner_opportunity_identifier
         if customer is not None:
-            input["customer"] = customer
+            input_["customer"] = customer
         if project is not None:
-            input["project"] = project
+            input_["project"] = project
         if opportunity_type is not None:
-            input["opportunity_type"] = opportunity_type
+            input_["opportunity_type"] = opportunity_type
         if marketing is not None:
-            input["marketing"] = marketing
+            input_["marketing"] = marketing
         if software_revenue is not None:
-            input["software_revenue"] = software_revenue
-        input["last_modified_date"] = last_modified_date
-        input["identifier"] = identifier
+            input_["software_revenue"] = software_revenue
+        input_["last_modified_date"] = last_modified_date
+        input_["identifier"] = identifier
         if life_cycle is not None:
-            input["life_cycle"] = life_cycle
+            input_["life_cycle"] = life_cycle
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -938,31 +938,31 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_opportunities_request.ListOpportunitiesRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_opportunities_request.ListOpportunitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if last_modified_date is not None:
-            input["last_modified_date"] = last_modified_date
+            input_["last_modified_date"] = last_modified_date
         if identifier is not None:
-            input["identifier"] = identifier
+            input_["identifier"] = identifier
         if life_cycle_stage is not None:
-            input["life_cycle_stage"] = life_cycle_stage
+            input_["life_cycle_stage"] = life_cycle_stage
         if life_cycle_review_status is not None:
-            input["life_cycle_review_status"] = life_cycle_review_status
+            input_["life_cycle_review_status"] = life_cycle_review_status
         if customer_company_name is not None:
-            input["customer_company_name"] = customer_company_name
+            input_["customer_company_name"] = customer_company_name
         if created_date is not None:
-            input["created_date"] = created_date
+            input_["created_date"] = created_date
         if target_close_date is not None:
-            input["target_close_date"] = target_close_date
+            input_["target_close_date"] = target_close_date
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -998,13 +998,13 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.assign_opportunity_request.AssignOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["assignee"] = assignee
+        input_: aws_sdk_partnercentral_selling.types.assign_opportunity_request.AssignOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["assignee"] = assignee
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1042,14 +1042,14 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.associate_opportunity_request.AssociateOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["opportunity_identifier"] = opportunity_identifier
-        input["related_entity_type"] = related_entity_type
-        input["related_entity_identifier"] = related_entity_identifier
+        input_: aws_sdk_partnercentral_selling.types.associate_opportunity_request.AssociateOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["opportunity_identifier"] = opportunity_identifier
+        input_["related_entity_type"] = related_entity_type
+        input_["related_entity_identifier"] = related_entity_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1087,14 +1087,14 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.disassociate_opportunity_request.DisassociateOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["opportunity_identifier"] = opportunity_identifier
-        input["related_entity_type"] = related_entity_type
-        input["related_entity_identifier"] = related_entity_identifier
+        input_: aws_sdk_partnercentral_selling.types.disassociate_opportunity_request.DisassociateOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["opportunity_identifier"] = opportunity_identifier
+        input_["related_entity_type"] = related_entity_type
+        input_["related_entity_identifier"] = related_entity_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1130,12 +1130,12 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_aws_opportunity_summary_request.GetAwsOpportunitySummaryRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["related_opportunity_identifier"] = related_opportunity_identifier
+        input_: aws_sdk_partnercentral_selling.types.get_aws_opportunity_summary_request.GetAwsOpportunitySummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["related_opportunity_identifier"] = related_opportunity_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1175,15 +1175,15 @@ class AsyncOpportunity:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.submit_opportunity_request.SubmitOpportunityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["involvement_type"] = involvement_type
+        input_: aws_sdk_partnercentral_selling.types.submit_opportunity_request.SubmitOpportunityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["involvement_type"] = involvement_type
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

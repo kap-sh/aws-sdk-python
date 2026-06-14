@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -108,33 +109,33 @@ class EnvironmentBlueprintConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.put_environment_blueprint_configuration_input.PutEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        input_: aws_sdk_datazone.types.put_environment_blueprint_configuration_input.PutEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_blueprint_identifier"] = environment_blueprint_identifier
         if provisioning_role_arn is not None:
-            input["provisioning_role_arn"] = provisioning_role_arn
+            input_["provisioning_role_arn"] = provisioning_role_arn
         if manage_access_role_arn is not None:
-            input["manage_access_role_arn"] = manage_access_role_arn
+            input_["manage_access_role_arn"] = manage_access_role_arn
         if environment_role_permission_boundary is not None:
-            input["environment_role_permission_boundary"] = (
+            input_["environment_role_permission_boundary"] = (
                 environment_role_permission_boundary
             )
-        input["enabled_regions"] = enabled_regions
+        input_["enabled_regions"] = enabled_regions
         if regional_parameters is not None:
-            input["regional_parameters"] = regional_parameters
+            input_["regional_parameters"] = regional_parameters
         if resource_configurations is not None:
-            input["resource_configurations"] = resource_configurations
+            input_["resource_configurations"] = resource_configurations
         if allow_user_provided_configurations is not None:
-            input["allow_user_provided_configurations"] = (
+            input_["allow_user_provided_configurations"] = (
                 allow_user_provided_configurations
             )
         if global_parameters is not None:
-            input["global_parameters"] = global_parameters
+            input_["global_parameters"] = global_parameters
         if provisioning_configurations is not None:
-            input["provisioning_configurations"] = provisioning_configurations
+            input_["provisioning_configurations"] = provisioning_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -169,12 +170,12 @@ class EnvironmentBlueprintConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_environment_blueprint_configuration_input.GetEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        input_: aws_sdk_datazone.types.get_environment_blueprint_configuration_input.GetEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_blueprint_identifier"] = environment_blueprint_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -209,12 +210,12 @@ class EnvironmentBlueprintConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_environment_blueprint_configuration_input.DeleteEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        input_: aws_sdk_datazone.types.delete_environment_blueprint_configuration_input.DeleteEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_blueprint_identifier"] = environment_blueprint_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,15 +254,15 @@ class EnvironmentBlueprintConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_environment_blueprint_configurations_input.ListEnvironmentBlueprintConfigurationsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_environment_blueprint_configurations_input.ListEnvironmentBlueprintConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,33 +335,33 @@ class AsyncEnvironmentBlueprintConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.put_environment_blueprint_configuration_input.PutEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        input_: aws_sdk_datazone.types.put_environment_blueprint_configuration_input.PutEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_blueprint_identifier"] = environment_blueprint_identifier
         if provisioning_role_arn is not None:
-            input["provisioning_role_arn"] = provisioning_role_arn
+            input_["provisioning_role_arn"] = provisioning_role_arn
         if manage_access_role_arn is not None:
-            input["manage_access_role_arn"] = manage_access_role_arn
+            input_["manage_access_role_arn"] = manage_access_role_arn
         if environment_role_permission_boundary is not None:
-            input["environment_role_permission_boundary"] = (
+            input_["environment_role_permission_boundary"] = (
                 environment_role_permission_boundary
             )
-        input["enabled_regions"] = enabled_regions
+        input_["enabled_regions"] = enabled_regions
         if regional_parameters is not None:
-            input["regional_parameters"] = regional_parameters
+            input_["regional_parameters"] = regional_parameters
         if resource_configurations is not None:
-            input["resource_configurations"] = resource_configurations
+            input_["resource_configurations"] = resource_configurations
         if allow_user_provided_configurations is not None:
-            input["allow_user_provided_configurations"] = (
+            input_["allow_user_provided_configurations"] = (
                 allow_user_provided_configurations
             )
         if global_parameters is not None:
-            input["global_parameters"] = global_parameters
+            input_["global_parameters"] = global_parameters
         if provisioning_configurations is not None:
-            input["provisioning_configurations"] = provisioning_configurations
+            input_["provisioning_configurations"] = provisioning_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,12 +397,12 @@ class AsyncEnvironmentBlueprintConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_environment_blueprint_configuration_input.GetEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        input_: aws_sdk_datazone.types.get_environment_blueprint_configuration_input.GetEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_blueprint_identifier"] = environment_blueprint_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,12 +438,12 @@ class AsyncEnvironmentBlueprintConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_environment_blueprint_configuration_input.DeleteEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_blueprint_identifier"] = environment_blueprint_identifier
+        input_: aws_sdk_datazone.types.delete_environment_blueprint_configuration_input.DeleteEnvironmentBlueprintConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_blueprint_identifier"] = environment_blueprint_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -482,15 +483,15 @@ class AsyncEnvironmentBlueprintConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_environment_blueprint_configurations_input.ListEnvironmentBlueprintConfigurationsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_environment_blueprint_configurations_input.ListEnvironmentBlueprintConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

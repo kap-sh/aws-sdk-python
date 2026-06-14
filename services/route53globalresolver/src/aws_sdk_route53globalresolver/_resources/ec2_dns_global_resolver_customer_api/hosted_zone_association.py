@@ -70,13 +70,13 @@ class HostedZoneAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.associate_hosted_zone_input.AssociateHostedZoneInput = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["resource_arn"] = resource_arn
-        input["name"] = name
+        input_: aws_sdk_route53globalresolver.types.associate_hosted_zone_input.AssociateHostedZoneInput = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["resource_arn"] = resource_arn
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -109,11 +109,11 @@ class HostedZoneAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_hosted_zone_association_input.GetHostedZoneAssociationInput = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_association_id"] = hosted_zone_association_id
+        input_: aws_sdk_route53globalresolver.types.get_hosted_zone_association_input.GetHostedZoneAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_association_id"] = hosted_zone_association_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -150,13 +150,13 @@ class HostedZoneAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_hosted_zone_association_input.UpdateHostedZoneAssociationInput = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_association_id"] = hosted_zone_association_id
+        input_: aws_sdk_route53globalresolver.types.update_hosted_zone_association_input.UpdateHostedZoneAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_association_id"] = hosted_zone_association_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -193,15 +193,15 @@ class HostedZoneAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_hosted_zone_associations_input.ListHostedZoneAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_hosted_zone_associations_input.ListHostedZoneAssociationsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_arn"] = resource_arn
+            input_["next_token"] = next_token
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,13 +244,13 @@ class AsyncHostedZoneAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.associate_hosted_zone_input.AssociateHostedZoneInput = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["resource_arn"] = resource_arn
-        input["name"] = name
+        input_: aws_sdk_route53globalresolver.types.associate_hosted_zone_input.AssociateHostedZoneInput = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["resource_arn"] = resource_arn
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,11 +284,11 @@ class AsyncHostedZoneAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_hosted_zone_association_input.GetHostedZoneAssociationInput = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_association_id"] = hosted_zone_association_id
+        input_: aws_sdk_route53globalresolver.types.get_hosted_zone_association_input.GetHostedZoneAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_association_id"] = hosted_zone_association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,13 +326,13 @@ class AsyncHostedZoneAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_hosted_zone_association_input.UpdateHostedZoneAssociationInput = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_association_id"] = hosted_zone_association_id
+        input_: aws_sdk_route53globalresolver.types.update_hosted_zone_association_input.UpdateHostedZoneAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_association_id"] = hosted_zone_association_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,15 +370,15 @@ class AsyncHostedZoneAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_hosted_zone_associations_input.ListHostedZoneAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_hosted_zone_associations_input.ListHostedZoneAssociationsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_arn"] = resource_arn
+            input_["next_token"] = next_token
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

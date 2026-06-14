@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_workspaces_web._services.async_work_spaces_web import ensure_async_iterator
 from aws_sdk_workspaces_web._services.work_spaces_web import ensure_sync_iterator
+import datetime
 from aws_sdk_workspaces_web._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
@@ -47,17 +48,17 @@ class IdentityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_identity_provider_request.CreateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["portal_arn"] = portal_arn
-        input["identity_provider_name"] = identity_provider_name
-        input["identity_provider_type"] = identity_provider_type
-        input["identity_provider_details"] = identity_provider_details
+        input_: aws_sdk_workspaces_web.types.create_identity_provider_request.CreateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_arn"] = portal_arn
+        input_["identity_provider_name"] = identity_provider_name
+        input_["identity_provider_type"] = identity_provider_type
+        input_["identity_provider_details"] = identity_provider_details
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def read(self, identity_provider_arn: "aws_sdk_workspaces_web.types.subresource_arn.SubresourceARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_identity_provider_response.GetIdentityProviderResponse":
         """<p>Gets the identity provider.</p>
@@ -71,10 +72,10 @@ class IdentityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_identity_provider_request.GetIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_arn"] = identity_provider_arn
+        input_: aws_sdk_workspaces_web.types.get_identity_provider_request.GetIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_arn"] = identity_provider_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update(self, identity_provider_arn: "aws_sdk_workspaces_web.types.subresource_arn.SubresourceARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, identity_provider_name: Optional["aws_sdk_workspaces_web.types.identity_provider_name.IdentityProviderName"] = None, identity_provider_type: Optional["aws_sdk_workspaces_web.types.identity_provider_type.IdentityProviderType"] = None, identity_provider_details: Optional["aws_sdk_workspaces_web.types.identity_provider_details.IdentityProviderDetails"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_identity_provider_response.UpdateIdentityProviderResponse":
         """<p>Updates the identity provider. </p>
@@ -92,18 +93,18 @@ class IdentityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_identity_provider_request.UpdateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_arn"] = identity_provider_arn
+        input_: aws_sdk_workspaces_web.types.update_identity_provider_request.UpdateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_arn"] = identity_provider_arn
         if identity_provider_name is not None:
-            input["identity_provider_name"] = identity_provider_name
+            input_["identity_provider_name"] = identity_provider_name
         if identity_provider_type is not None:
-            input["identity_provider_type"] = identity_provider_type
+            input_["identity_provider_type"] = identity_provider_type
         if identity_provider_details is not None:
-            input["identity_provider_details"] = identity_provider_details
+            input_["identity_provider_details"] = identity_provider_details
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete(self, identity_provider_arn: "aws_sdk_workspaces_web.types.subresource_arn.SubresourceARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_identity_provider_response.DeleteIdentityProviderResponse":
         """<p>Deletes the identity provider.</p>
@@ -117,10 +118,10 @@ class IdentityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_identity_provider_request.DeleteIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_arn"] = identity_provider_arn
+        input_: aws_sdk_workspaces_web.types.delete_identity_provider_request.DeleteIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_arn"] = identity_provider_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_identity_providers_response.ListIdentityProvidersResponse":
         """<p>Retrieves a list of identity providers for a specific web portal.</p>
@@ -136,14 +137,14 @@ class IdentityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_identity_providers_request.ListIdentityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_identity_providers_request.ListIdentityProvidersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["portal_arn"] = portal_arn
+            input_["max_results"] = max_results
+        input_["portal_arn"] = portal_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncIdentityProviderResource:
@@ -166,17 +167,17 @@ class AsyncIdentityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_identity_provider_request.CreateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["portal_arn"] = portal_arn
-        input["identity_provider_name"] = identity_provider_name
-        input["identity_provider_type"] = identity_provider_type
-        input["identity_provider_details"] = identity_provider_details
+        input_: aws_sdk_workspaces_web.types.create_identity_provider_request.CreateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_arn"] = portal_arn
+        input_["identity_provider_name"] = identity_provider_name
+        input_["identity_provider_type"] = identity_provider_type
+        input_["identity_provider_details"] = identity_provider_details
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def read(self, identity_provider_arn: "aws_sdk_workspaces_web.types.subresource_arn.SubresourceARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_identity_provider_response.GetIdentityProviderResponse":
         """<p>Gets the identity provider.</p>
@@ -190,10 +191,10 @@ class AsyncIdentityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_identity_provider_request.GetIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_arn"] = identity_provider_arn
+        input_: aws_sdk_workspaces_web.types.get_identity_provider_request.GetIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_arn"] = identity_provider_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def update(self, identity_provider_arn: "aws_sdk_workspaces_web.types.subresource_arn.SubresourceARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, identity_provider_name: Optional["aws_sdk_workspaces_web.types.identity_provider_name.IdentityProviderName"] = None, identity_provider_type: Optional["aws_sdk_workspaces_web.types.identity_provider_type.IdentityProviderType"] = None, identity_provider_details: Optional["aws_sdk_workspaces_web.types.identity_provider_details.IdentityProviderDetails"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_identity_provider_response.UpdateIdentityProviderResponse":
         """<p>Updates the identity provider. </p>
@@ -211,18 +212,18 @@ class AsyncIdentityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_identity_provider_request.UpdateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_arn"] = identity_provider_arn
+        input_: aws_sdk_workspaces_web.types.update_identity_provider_request.UpdateIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_arn"] = identity_provider_arn
         if identity_provider_name is not None:
-            input["identity_provider_name"] = identity_provider_name
+            input_["identity_provider_name"] = identity_provider_name
         if identity_provider_type is not None:
-            input["identity_provider_type"] = identity_provider_type
+            input_["identity_provider_type"] = identity_provider_type
         if identity_provider_details is not None:
-            input["identity_provider_details"] = identity_provider_details
+            input_["identity_provider_details"] = identity_provider_details
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def delete(self, identity_provider_arn: "aws_sdk_workspaces_web.types.subresource_arn.SubresourceARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_identity_provider_response.DeleteIdentityProviderResponse":
         """<p>Deletes the identity provider.</p>
@@ -236,10 +237,10 @@ class AsyncIdentityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_identity_provider_request.DeleteIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_arn"] = identity_provider_arn
+        input_: aws_sdk_workspaces_web.types.delete_identity_provider_request.DeleteIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_arn"] = identity_provider_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list(self, portal_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_identity_providers_response.ListIdentityProvidersResponse":
         """<p>Retrieves a list of identity providers for a specific web portal.</p>
@@ -255,12 +256,12 @@ class AsyncIdentityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_identity_providers_request.ListIdentityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_identity_providers_request.ListIdentityProvidersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["portal_arn"] = portal_arn
+            input_["max_results"] = max_results
+        input_["portal_arn"] = portal_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

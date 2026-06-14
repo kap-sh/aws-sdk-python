@@ -163,11 +163,11 @@ class AsyncSageMakerMetricsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_metrics.types.batch_get_metrics_request.BatchGetMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["metric_queries"] = metric_queries
+        input_: aws_sdk_sagemaker_metrics.types.batch_get_metrics_request.BatchGetMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_queries"] = metric_queries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -203,12 +203,12 @@ class AsyncSageMakerMetricsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_metrics.types.batch_put_metrics_request.BatchPutMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["trial_component_name"] = trial_component_name
-        input["metric_data"] = metric_data
+        input_: aws_sdk_sagemaker_metrics.types.batch_put_metrics_request.BatchPutMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_component_name"] = trial_component_name
+        input_["metric_data"] = metric_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

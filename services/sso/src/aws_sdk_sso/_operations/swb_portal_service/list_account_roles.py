@@ -87,52 +87,49 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_sso.types.list_account_roles_request.ListAccountRolesRequest,
+    input_: aws_sdk_sso.types.list_account_roles_request.ListAccountRolesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/assignment/roles"
     params: dict[str, str] = {}
-    if "next_token" in input:
-        params["next_token"] = str(input["next_token"])
-    if "max_results" in input:
-        params["max_result"] = str(input["max_results"])
-    if "account_id" in input:
-        params["account_id"] = str(input["account_id"])
+    if "next_token" in input_:
+        params["next_token"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["max_result"] = str(input_["max_results"])
+    if "account_id" in input_:
+        params["account_id"] = str(input_["account_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "access_token" in input:
-        headers["x-amz-sso_bearer_token"] = str(input["access_token"])
+    if "access_token" in input_:
+        headers["x-amz-sso_bearer_token"] = str(input_["access_token"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_account_roles(
     options: OperationOptions,
-    input: aws_sdk_sso.types.list_account_roles_request.ListAccountRolesRequest,
+    input_: aws_sdk_sso.types.list_account_roles_request.ListAccountRolesRequest,
 ) -> tuple[
     aws_sdk_sso.types.list_account_roles_response.ListAccountRolesResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -141,16 +138,17 @@ def list_account_roles(
 
 async def async_list_account_roles(
     options: AsyncOperationOptions,
-    input: aws_sdk_sso.types.list_account_roles_request.ListAccountRolesRequest,
+    input_: aws_sdk_sso.types.list_account_roles_request.ListAccountRolesRequest,
 ) -> tuple[
     aws_sdk_sso.types.list_account_roles_response.ListAccountRolesResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

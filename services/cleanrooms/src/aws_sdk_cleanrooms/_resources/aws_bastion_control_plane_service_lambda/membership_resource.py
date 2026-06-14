@@ -138,24 +138,26 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_membership_input.CreateMembershipInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["query_log_status"] = query_log_status
+        input_: aws_sdk_cleanrooms.types.create_membership_input.CreateMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["query_log_status"] = query_log_status
         if job_log_status is not None:
-            input["job_log_status"] = job_log_status
+            input_["job_log_status"] = job_log_status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if default_result_configuration is not None:
-            input["default_result_configuration"] = default_result_configuration
+            input_["default_result_configuration"] = default_result_configuration
         if default_job_result_configuration is not None:
-            input["default_job_result_configuration"] = default_job_result_configuration
+            input_["default_job_result_configuration"] = (
+                default_job_result_configuration
+            )
         if payment_configuration is not None:
-            input["payment_configuration"] = payment_configuration
+            input_["payment_configuration"] = payment_configuration
         if is_metrics_enabled is not None:
-            input["is_metrics_enabled"] = is_metrics_enabled
+            input_["is_metrics_enabled"] = is_metrics_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,11 +190,11 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_membership_input.GetMembershipInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.get_membership_input.GetMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,21 +247,25 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_membership_input.UpdateMembershipInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.update_membership_input.UpdateMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if query_log_status is not None:
-            input["query_log_status"] = query_log_status
+            input_["query_log_status"] = query_log_status
         if job_log_status is not None:
-            input["job_log_status"] = job_log_status
+            input_["job_log_status"] = job_log_status
         if default_result_configuration is not None:
-            input["default_result_configuration"] = default_result_configuration
+            input_["default_result_configuration"] = default_result_configuration
         if default_job_result_configuration is not None:
-            input["default_job_result_configuration"] = default_job_result_configuration
+            input_["default_job_result_configuration"] = (
+                default_job_result_configuration
+            )
         if membership_payment_configuration is not None:
-            input["membership_payment_configuration"] = membership_payment_configuration
+            input_["membership_payment_configuration"] = (
+                membership_payment_configuration
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,11 +298,11 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_membership_input.DeleteMembershipInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.delete_membership_input.DeleteMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,16 +343,16 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_memberships_input.ListMembershipsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanrooms.types.list_memberships_input.ListMembershipsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,12 +387,12 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_protected_job_input.GetProtectedJobInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["protected_job_identifier"] = protected_job_identifier
+        input_: aws_sdk_cleanrooms.types.get_protected_job_input.GetProtectedJobInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["protected_job_identifier"] = protected_job_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,12 +427,12 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_protected_query_input.GetProtectedQueryInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["protected_query_identifier"] = protected_query_identifier
+        input_: aws_sdk_cleanrooms.types.get_protected_query_input.GetProtectedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["protected_query_identifier"] = protected_query_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,18 +479,18 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_privacy_budgets_input.ListPrivacyBudgetsInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["privacy_budget_type"] = privacy_budget_type
+        input_: aws_sdk_cleanrooms.types.list_privacy_budgets_input.ListPrivacyBudgetsInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["privacy_budget_type"] = privacy_budget_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if access_budget_resource_arn is not None:
-            input["access_budget_resource_arn"] = access_budget_resource_arn
+            input_["access_budget_resource_arn"] = access_budget_resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,17 +533,17 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_protected_jobs_input.ListProtectedJobsInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_protected_jobs_input.ListProtectedJobsInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -580,17 +586,17 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_protected_queries_input.ListProtectedQueriesInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_protected_queries_input.ListProtectedQueriesInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,12 +631,12 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.preview_privacy_impact_input.PreviewPrivacyImpactInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["parameters"] = parameters
+        input_: aws_sdk_cleanrooms.types.preview_privacy_impact_input.PreviewPrivacyImpactInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -679,19 +685,19 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.start_protected_job_input.StartProtectedJobInput = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["membership_identifier"] = membership_identifier
-        input["job_parameters"] = job_parameters
+        input_: aws_sdk_cleanrooms.types.start_protected_job_input.StartProtectedJobInput = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["membership_identifier"] = membership_identifier
+        input_["job_parameters"] = job_parameters
         if result_configuration is not None:
-            input["result_configuration"] = result_configuration
+            input_["result_configuration"] = result_configuration
         if compute_configuration is not None:
-            input["compute_configuration"] = compute_configuration
+            input_["compute_configuration"] = compute_configuration
         if job_compute_payer_account_id is not None:
-            input["job_compute_payer_account_id"] = job_compute_payer_account_id
+            input_["job_compute_payer_account_id"] = job_compute_payer_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -740,19 +746,19 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.start_protected_query_input.StartProtectedQueryInput = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["membership_identifier"] = membership_identifier
-        input["sql_parameters"] = sql_parameters
+        input_: aws_sdk_cleanrooms.types.start_protected_query_input.StartProtectedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["membership_identifier"] = membership_identifier
+        input_["sql_parameters"] = sql_parameters
         if result_configuration is not None:
-            input["result_configuration"] = result_configuration
+            input_["result_configuration"] = result_configuration
         if compute_configuration is not None:
-            input["compute_configuration"] = compute_configuration
+            input_["compute_configuration"] = compute_configuration
         if query_compute_payer_account_id is not None:
-            input["query_compute_payer_account_id"] = query_compute_payer_account_id
+            input_["query_compute_payer_account_id"] = query_compute_payer_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -791,13 +797,13 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_protected_job_input.UpdateProtectedJobInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["protected_job_identifier"] = protected_job_identifier
-        input["target_status"] = target_status
+        input_: aws_sdk_cleanrooms.types.update_protected_job_input.UpdateProtectedJobInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["protected_job_identifier"] = protected_job_identifier
+        input_["target_status"] = target_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -834,13 +840,13 @@ class MembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_protected_query_input.UpdateProtectedQueryInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["protected_query_identifier"] = protected_query_identifier
-        input["target_status"] = target_status
+        input_: aws_sdk_cleanrooms.types.update_protected_query_input.UpdateProtectedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["protected_query_identifier"] = protected_query_identifier
+        input_["target_status"] = target_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -901,24 +907,26 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_membership_input.CreateMembershipInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["query_log_status"] = query_log_status
+        input_: aws_sdk_cleanrooms.types.create_membership_input.CreateMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["query_log_status"] = query_log_status
         if job_log_status is not None:
-            input["job_log_status"] = job_log_status
+            input_["job_log_status"] = job_log_status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if default_result_configuration is not None:
-            input["default_result_configuration"] = default_result_configuration
+            input_["default_result_configuration"] = default_result_configuration
         if default_job_result_configuration is not None:
-            input["default_job_result_configuration"] = default_job_result_configuration
+            input_["default_job_result_configuration"] = (
+                default_job_result_configuration
+            )
         if payment_configuration is not None:
-            input["payment_configuration"] = payment_configuration
+            input_["payment_configuration"] = payment_configuration
         if is_metrics_enabled is not None:
-            input["is_metrics_enabled"] = is_metrics_enabled
+            input_["is_metrics_enabled"] = is_metrics_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,11 +960,11 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_membership_input.GetMembershipInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.get_membership_input.GetMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1010,21 +1018,25 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_membership_input.UpdateMembershipInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.update_membership_input.UpdateMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if query_log_status is not None:
-            input["query_log_status"] = query_log_status
+            input_["query_log_status"] = query_log_status
         if job_log_status is not None:
-            input["job_log_status"] = job_log_status
+            input_["job_log_status"] = job_log_status
         if default_result_configuration is not None:
-            input["default_result_configuration"] = default_result_configuration
+            input_["default_result_configuration"] = default_result_configuration
         if default_job_result_configuration is not None:
-            input["default_job_result_configuration"] = default_job_result_configuration
+            input_["default_job_result_configuration"] = (
+                default_job_result_configuration
+            )
         if membership_payment_configuration is not None:
-            input["membership_payment_configuration"] = membership_payment_configuration
+            input_["membership_payment_configuration"] = (
+                membership_payment_configuration
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1058,11 +1070,11 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_membership_input.DeleteMembershipInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.delete_membership_input.DeleteMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1104,16 +1116,16 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_memberships_input.ListMembershipsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanrooms.types.list_memberships_input.ListMembershipsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1149,12 +1161,12 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_protected_job_input.GetProtectedJobInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["protected_job_identifier"] = protected_job_identifier
+        input_: aws_sdk_cleanrooms.types.get_protected_job_input.GetProtectedJobInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["protected_job_identifier"] = protected_job_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1190,12 +1202,12 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_protected_query_input.GetProtectedQueryInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["protected_query_identifier"] = protected_query_identifier
+        input_: aws_sdk_cleanrooms.types.get_protected_query_input.GetProtectedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["protected_query_identifier"] = protected_query_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1243,18 +1255,18 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_privacy_budgets_input.ListPrivacyBudgetsInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["privacy_budget_type"] = privacy_budget_type
+        input_: aws_sdk_cleanrooms.types.list_privacy_budgets_input.ListPrivacyBudgetsInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["privacy_budget_type"] = privacy_budget_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if access_budget_resource_arn is not None:
-            input["access_budget_resource_arn"] = access_budget_resource_arn
+            input_["access_budget_resource_arn"] = access_budget_resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1298,17 +1310,17 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_protected_jobs_input.ListProtectedJobsInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_protected_jobs_input.ListProtectedJobsInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1352,17 +1364,17 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_protected_queries_input.ListProtectedQueriesInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_protected_queries_input.ListProtectedQueriesInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1398,12 +1410,12 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.preview_privacy_impact_input.PreviewPrivacyImpactInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["parameters"] = parameters
+        input_: aws_sdk_cleanrooms.types.preview_privacy_impact_input.PreviewPrivacyImpactInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1453,19 +1465,19 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.start_protected_job_input.StartProtectedJobInput = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["membership_identifier"] = membership_identifier
-        input["job_parameters"] = job_parameters
+        input_: aws_sdk_cleanrooms.types.start_protected_job_input.StartProtectedJobInput = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["membership_identifier"] = membership_identifier
+        input_["job_parameters"] = job_parameters
         if result_configuration is not None:
-            input["result_configuration"] = result_configuration
+            input_["result_configuration"] = result_configuration
         if compute_configuration is not None:
-            input["compute_configuration"] = compute_configuration
+            input_["compute_configuration"] = compute_configuration
         if job_compute_payer_account_id is not None:
-            input["job_compute_payer_account_id"] = job_compute_payer_account_id
+            input_["job_compute_payer_account_id"] = job_compute_payer_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1515,19 +1527,19 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.start_protected_query_input.StartProtectedQueryInput = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["membership_identifier"] = membership_identifier
-        input["sql_parameters"] = sql_parameters
+        input_: aws_sdk_cleanrooms.types.start_protected_query_input.StartProtectedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["membership_identifier"] = membership_identifier
+        input_["sql_parameters"] = sql_parameters
         if result_configuration is not None:
-            input["result_configuration"] = result_configuration
+            input_["result_configuration"] = result_configuration
         if compute_configuration is not None:
-            input["compute_configuration"] = compute_configuration
+            input_["compute_configuration"] = compute_configuration
         if query_compute_payer_account_id is not None:
-            input["query_compute_payer_account_id"] = query_compute_payer_account_id
+            input_["query_compute_payer_account_id"] = query_compute_payer_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1567,13 +1579,13 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_protected_job_input.UpdateProtectedJobInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["protected_job_identifier"] = protected_job_identifier
-        input["target_status"] = target_status
+        input_: aws_sdk_cleanrooms.types.update_protected_job_input.UpdateProtectedJobInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["protected_job_identifier"] = protected_job_identifier
+        input_["target_status"] = target_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1611,13 +1623,13 @@ class AsyncMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_protected_query_input.UpdateProtectedQueryInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["protected_query_identifier"] = protected_query_identifier
-        input["target_status"] = target_status
+        input_: aws_sdk_cleanrooms.types.update_protected_query_input.UpdateProtectedQueryInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["protected_query_identifier"] = protected_query_identifier
+        input_["target_status"] = target_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

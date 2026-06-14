@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_sns._auth._signers
+import aws_sdk_sns._auth._sigv4
 from aws_sdk_sns._auth._identity import Credentials
 from aws_sdk_sns._auth._providers import (
     CredentialsProvider,
@@ -271,14 +273,14 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.add_permission_input.AddPermissionInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
-        input["label"] = label
-        input["aws_account_id"] = aws_account_id
-        input["action_name"] = action_name
+        input_: aws_sdk_sns.types.add_permission_input.AddPermissionInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
+        input_["label"] = label
+        input_["aws_account_id"] = aws_account_id
+        input_["action_name"] = action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,11 +314,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.check_if_phone_number_is_opted_out_input.CheckIfPhoneNumberIsOptedOutInput = {}  # type: ignore[typeddict-item]
-        input["phone_number"] = phone_number
+        input_: aws_sdk_sns.types.check_if_phone_number_is_opted_out_input.CheckIfPhoneNumberIsOptedOutInput = {}  # type: ignore[typeddict-item]
+        input_["phone_number"] = phone_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,14 +358,14 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.confirm_subscription_input.ConfirmSubscriptionInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
-        input["token"] = token
+        input_: aws_sdk_sns.types.confirm_subscription_input.ConfirmSubscriptionInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
+        input_["token"] = token
         if authenticate_on_unsubscribe is not None:
-            input["authenticate_on_unsubscribe"] = authenticate_on_unsubscribe
+            input_["authenticate_on_unsubscribe"] = authenticate_on_unsubscribe
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,13 +403,13 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.create_platform_application_input.CreatePlatformApplicationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["platform"] = platform
-        input["attributes"] = attributes
+        input_: aws_sdk_sns.types.create_platform_application_input.CreatePlatformApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["platform"] = platform
+        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,16 +451,16 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.create_platform_endpoint_input.CreatePlatformEndpointInput = {}  # type: ignore[typeddict-item]
-        input["platform_application_arn"] = platform_application_arn
-        input["token"] = token
+        input_: aws_sdk_sns.types.create_platform_endpoint_input.CreatePlatformEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["platform_application_arn"] = platform_application_arn
+        input_["token"] = token
         if custom_user_data is not None:
-            input["custom_user_data"] = custom_user_data
+            input_["custom_user_data"] = custom_user_data
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,13 +498,13 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.create_sms_sandbox_phone_number_input.CreateSMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input["phone_number"] = phone_number
+        input_: aws_sdk_sns.types.create_sms_sandbox_phone_number_input.CreateSMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
+        input_["phone_number"] = phone_number
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,17 +548,17 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.create_topic_input.CreateTopicInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sns.types.create_topic_input.CreateTopicInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if data_protection_policy is not None:
-            input["data_protection_policy"] = data_protection_policy
+            input_["data_protection_policy"] = data_protection_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,11 +590,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.delete_endpoint_input.DeleteEndpointInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_sns.types.delete_endpoint_input.DeleteEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,11 +626,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.delete_platform_application_input.DeletePlatformApplicationInput = {}  # type: ignore[typeddict-item]
-        input["platform_application_arn"] = platform_application_arn
+        input_: aws_sdk_sns.types.delete_platform_application_input.DeletePlatformApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["platform_application_arn"] = platform_application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,11 +664,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.delete_sms_sandbox_phone_number_input.DeleteSMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input["phone_number"] = phone_number
+        input_: aws_sdk_sns.types.delete_sms_sandbox_phone_number_input.DeleteSMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
+        input_["phone_number"] = phone_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,11 +700,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.delete_topic_input.DeleteTopicInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
+        input_: aws_sdk_sns.types.delete_topic_input.DeleteTopicInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -736,11 +738,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.get_data_protection_policy_input.GetDataProtectionPolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_sns.types.get_data_protection_policy_input.GetDataProtectionPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -774,11 +776,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.get_endpoint_attributes_input.GetEndpointAttributesInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_sns.types.get_endpoint_attributes_input.GetEndpointAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -812,11 +814,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.get_platform_application_attributes_input.GetPlatformApplicationAttributesInput = {}  # type: ignore[typeddict-item]
-        input["platform_application_arn"] = platform_application_arn
+        input_: aws_sdk_sns.types.get_platform_application_attributes_input.GetPlatformApplicationAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["platform_application_arn"] = platform_application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -850,12 +852,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.get_sms_attributes_input.GetSMSAttributesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.get_sms_attributes_input.GetSMSAttributesInput = {}  # type: ignore[typeddict-item]
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -882,10 +884,10 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.get_sms_sandbox_account_status_input.GetSMSSandboxAccountStatusInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.get_sms_sandbox_account_status_input.GetSMSSandboxAccountStatusInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,11 +921,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.get_subscription_attributes_input.GetSubscriptionAttributesInput = {}  # type: ignore[typeddict-item]
-        input["subscription_arn"] = subscription_arn
+        input_: aws_sdk_sns.types.get_subscription_attributes_input.GetSubscriptionAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["subscription_arn"] = subscription_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -957,11 +959,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.get_topic_attributes_input.GetTopicAttributesInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
+        input_: aws_sdk_sns.types.get_topic_attributes_input.GetTopicAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,13 +999,13 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_endpoints_by_platform_application_input.ListEndpointsByPlatformApplicationInput = {}  # type: ignore[typeddict-item]
-        input["platform_application_arn"] = platform_application_arn
+        input_: aws_sdk_sns.types.list_endpoints_by_platform_application_input.ListEndpointsByPlatformApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["platform_application_arn"] = platform_application_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1064,14 +1066,14 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_origination_numbers_request.ListOriginationNumbersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.list_origination_numbers_request.ListOriginationNumbersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1128,12 +1130,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_phone_numbers_opted_out_input.ListPhoneNumbersOptedOutInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.list_phone_numbers_opted_out_input.ListPhoneNumbersOptedOutInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1186,12 +1188,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_platform_applications_input.ListPlatformApplicationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.list_platform_applications_input.ListPlatformApplicationsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1246,14 +1248,14 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_sms_sandbox_phone_numbers_input.ListSMSSandboxPhoneNumbersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.list_sms_sandbox_phone_numbers_input.ListSMSSandboxPhoneNumbersInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1308,12 +1310,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_subscriptions_input.ListSubscriptionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.list_subscriptions_input.ListSubscriptionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1368,13 +1370,13 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_subscriptions_by_topic_input.ListSubscriptionsByTopicInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
+        input_: aws_sdk_sns.types.list_subscriptions_by_topic_input.ListSubscriptionsByTopicInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1431,11 +1433,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_sns.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1469,12 +1471,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.list_topics_input.ListTopicsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.list_topics_input.ListTopicsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1527,11 +1529,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.opt_in_phone_number_input.OptInPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input["phone_number"] = phone_number
+        input_: aws_sdk_sns.types.opt_in_phone_number_input.OptInPhoneNumberInput = {}  # type: ignore[typeddict-item]
+        input_["phone_number"] = phone_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1585,27 +1587,27 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.publish_input.PublishInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sns.types.publish_input.PublishInput = {}  # type: ignore[typeddict-item]
         if topic_arn is not None:
-            input["topic_arn"] = topic_arn
+            input_["topic_arn"] = topic_arn
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if phone_number is not None:
-            input["phone_number"] = phone_number
-        input["message"] = message
+            input_["phone_number"] = phone_number
+        input_["message"] = message
         if subject is not None:
-            input["subject"] = subject
+            input_["subject"] = subject
         if message_structure is not None:
-            input["message_structure"] = message_structure
+            input_["message_structure"] = message_structure
         if message_attributes is not None:
-            input["message_attributes"] = message_attributes
+            input_["message_attributes"] = message_attributes
         if message_deduplication_id is not None:
-            input["message_deduplication_id"] = message_deduplication_id
+            input_["message_deduplication_id"] = message_deduplication_id
         if message_group_id is not None:
-            input["message_group_id"] = message_group_id
+            input_["message_group_id"] = message_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1641,12 +1643,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.publish_batch_input.PublishBatchInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
-        input["publish_batch_request_entries"] = publish_batch_request_entries
+        input_: aws_sdk_sns.types.publish_batch_input.PublishBatchInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
+        input_["publish_batch_request_entries"] = publish_batch_request_entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1680,12 +1682,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.put_data_protection_policy_input.PutDataProtectionPolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["data_protection_policy"] = data_protection_policy
+        input_: aws_sdk_sns.types.put_data_protection_policy_input.PutDataProtectionPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["data_protection_policy"] = data_protection_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1719,12 +1721,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.remove_permission_input.RemovePermissionInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
-        input["label"] = label
+        input_: aws_sdk_sns.types.remove_permission_input.RemovePermissionInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
+        input_["label"] = label
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1758,12 +1760,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.set_endpoint_attributes_input.SetEndpointAttributesInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
-        input["attributes"] = attributes
+        input_: aws_sdk_sns.types.set_endpoint_attributes_input.SetEndpointAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
+        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1797,12 +1799,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.set_platform_application_attributes_input.SetPlatformApplicationAttributesInput = {}  # type: ignore[typeddict-item]
-        input["platform_application_arn"] = platform_application_arn
-        input["attributes"] = attributes
+        input_: aws_sdk_sns.types.set_platform_application_attributes_input.SetPlatformApplicationAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["platform_application_arn"] = platform_application_arn
+        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1836,11 +1838,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.set_sms_attributes_input.SetSMSAttributesInput = {}  # type: ignore[typeddict-item]
-        input["attributes"] = attributes
+        input_: aws_sdk_sns.types.set_sms_attributes_input.SetSMSAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1878,14 +1880,14 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.set_subscription_attributes_input.SetSubscriptionAttributesInput = {}  # type: ignore[typeddict-item]
-        input["subscription_arn"] = subscription_arn
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_sns.types.set_subscription_attributes_input.SetSubscriptionAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["subscription_arn"] = subscription_arn
+        input_["attribute_name"] = attribute_name
         if attribute_value is not None:
-            input["attribute_value"] = attribute_value
+            input_["attribute_value"] = attribute_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1923,14 +1925,14 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.set_topic_attributes_input.SetTopicAttributesInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_sns.types.set_topic_attributes_input.SetTopicAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
+        input_["attribute_name"] = attribute_name
         if attribute_value is not None:
-            input["attribute_value"] = attribute_value
+            input_["attribute_value"] = attribute_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1974,18 +1976,18 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.subscribe_input.SubscribeInput = {}  # type: ignore[typeddict-item]
-        input["topic_arn"] = topic_arn
-        input["protocol"] = protocol
+        input_: aws_sdk_sns.types.subscribe_input.SubscribeInput = {}  # type: ignore[typeddict-item]
+        input_["topic_arn"] = topic_arn
+        input_["protocol"] = protocol
         if endpoint is not None:
-            input["endpoint"] = endpoint
+            input_["endpoint"] = endpoint
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if return_subscription_arn is not None:
-            input["return_subscription_arn"] = return_subscription_arn
+            input_["return_subscription_arn"] = return_subscription_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2021,12 +2023,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_sns.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2058,11 +2060,11 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.unsubscribe_input.UnsubscribeInput = {}  # type: ignore[typeddict-item]
-        input["subscription_arn"] = subscription_arn
+        input_: aws_sdk_sns.types.unsubscribe_input.UnsubscribeInput = {}  # type: ignore[typeddict-item]
+        input_["subscription_arn"] = subscription_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2098,12 +2100,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_sns.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2139,12 +2141,12 @@ class AsyncSNSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sns.types.verify_sms_sandbox_phone_number_input.VerifySMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input["phone_number"] = phone_number
-        input["one_time_password"] = one_time_password
+        input_: aws_sdk_sns.types.verify_sms_sandbox_phone_number_input.VerifySMSSandboxPhoneNumberInput = {}  # type: ignore[typeddict-item]
+        input_["phone_number"] = phone_number
+        input_["one_time_password"] = one_time_password
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

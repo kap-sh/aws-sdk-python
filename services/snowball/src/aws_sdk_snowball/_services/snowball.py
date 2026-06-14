@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_snowball._auth._signers
+import aws_sdk_snowball._auth._sigv4
 from aws_sdk_snowball._auth._identity import Credentials
 from aws_sdk_snowball._auth._providers import (
     CredentialsProvider,
@@ -245,11 +247,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.cancel_cluster_request.CancelClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_snowball.types.cancel_cluster_request.CancelClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,11 +290,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_snowball.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -331,11 +333,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.create_address_request.CreateAddressRequest = {}  # type: ignore[typeddict-item]
-        input["address"] = address
+        input_: aws_sdk_snowball.types.create_address_request.CreateAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["address"] = address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,40 +424,40 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["job_type"] = job_type
+        input_: aws_sdk_snowball.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["job_type"] = job_type
         if resources is not None:
-            input["resources"] = resources
+            input_["resources"] = resources
         if on_device_service_configuration is not None:
-            input["on_device_service_configuration"] = on_device_service_configuration
+            input_["on_device_service_configuration"] = on_device_service_configuration
         if description is not None:
-            input["description"] = description
-        input["address_id"] = address_id
+            input_["description"] = description
+        input_["address_id"] = address_id
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if role_arn is not None:
-            input["role_arn"] = role_arn
-        input["snowball_type"] = snowball_type
-        input["shipping_option"] = shipping_option
+            input_["role_arn"] = role_arn
+        input_["snowball_type"] = snowball_type
+        input_["shipping_option"] = shipping_option
         if notification is not None:
-            input["notification"] = notification
+            input_["notification"] = notification
         if forwarding_address_id is not None:
-            input["forwarding_address_id"] = forwarding_address_id
+            input_["forwarding_address_id"] = forwarding_address_id
         if tax_documents is not None:
-            input["tax_documents"] = tax_documents
+            input_["tax_documents"] = tax_documents
         if remote_management is not None:
-            input["remote_management"] = remote_management
+            input_["remote_management"] = remote_management
         if initial_cluster_size is not None:
-            input["initial_cluster_size"] = initial_cluster_size
+            input_["initial_cluster_size"] = initial_cluster_size
         if force_create_jobs is not None:
-            input["force_create_jobs"] = force_create_jobs
+            input_["force_create_jobs"] = force_create_jobs
         if long_term_pricing_ids is not None:
-            input["long_term_pricing_ids"] = long_term_pricing_ids
+            input_["long_term_pricing_ids"] = long_term_pricing_ids
         if snowball_capacity_preference is not None:
-            input["snowball_capacity_preference"] = snowball_capacity_preference
+            input_["snowball_capacity_preference"] = snowball_capacity_preference
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,48 +556,48 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snowball.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
         if job_type is not None:
-            input["job_type"] = job_type
+            input_["job_type"] = job_type
         if resources is not None:
-            input["resources"] = resources
+            input_["resources"] = resources
         if on_device_service_configuration is not None:
-            input["on_device_service_configuration"] = on_device_service_configuration
+            input_["on_device_service_configuration"] = on_device_service_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if address_id is not None:
-            input["address_id"] = address_id
+            input_["address_id"] = address_id
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if snowball_capacity_preference is not None:
-            input["snowball_capacity_preference"] = snowball_capacity_preference
+            input_["snowball_capacity_preference"] = snowball_capacity_preference
         if shipping_option is not None:
-            input["shipping_option"] = shipping_option
+            input_["shipping_option"] = shipping_option
         if notification is not None:
-            input["notification"] = notification
+            input_["notification"] = notification
         if cluster_id is not None:
-            input["cluster_id"] = cluster_id
+            input_["cluster_id"] = cluster_id
         if snowball_type is not None:
-            input["snowball_type"] = snowball_type
+            input_["snowball_type"] = snowball_type
         if forwarding_address_id is not None:
-            input["forwarding_address_id"] = forwarding_address_id
+            input_["forwarding_address_id"] = forwarding_address_id
         if tax_documents is not None:
-            input["tax_documents"] = tax_documents
+            input_["tax_documents"] = tax_documents
         if device_configuration is not None:
-            input["device_configuration"] = device_configuration
+            input_["device_configuration"] = device_configuration
         if remote_management is not None:
-            input["remote_management"] = remote_management
+            input_["remote_management"] = remote_management
         if long_term_pricing_id is not None:
-            input["long_term_pricing_id"] = long_term_pricing_id
+            input_["long_term_pricing_id"] = long_term_pricing_id
         if impact_level is not None:
-            input["impact_level"] = impact_level
+            input_["impact_level"] = impact_level
         if pickup_details is not None:
-            input["pickup_details"] = pickup_details
+            input_["pickup_details"] = pickup_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -634,14 +636,14 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.create_long_term_pricing_request.CreateLongTermPricingRequest = {}  # type: ignore[typeddict-item]
-        input["long_term_pricing_type"] = long_term_pricing_type
+        input_: aws_sdk_snowball.types.create_long_term_pricing_request.CreateLongTermPricingRequest = {}  # type: ignore[typeddict-item]
+        input_["long_term_pricing_type"] = long_term_pricing_type
         if is_long_term_pricing_auto_renew is not None:
-            input["is_long_term_pricing_auto_renew"] = is_long_term_pricing_auto_renew
-        input["snowball_type"] = snowball_type
+            input_["is_long_term_pricing_auto_renew"] = is_long_term_pricing_auto_renew
+        input_["snowball_type"] = snowball_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,13 +680,13 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.create_return_shipping_label_request.CreateReturnShippingLabelRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_snowball.types.create_return_shipping_label_request.CreateReturnShippingLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if shipping_option is not None:
-            input["shipping_option"] = shipping_option
+            input_["shipping_option"] = shipping_option
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -723,11 +725,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.describe_address_request.DescribeAddressRequest = {}  # type: ignore[typeddict-item]
-        input["address_id"] = address_id
+        input_: aws_sdk_snowball.types.describe_address_request.DescribeAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["address_id"] = address_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -768,14 +770,14 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.describe_addresses_request.DescribeAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snowball.types.describe_addresses_request.DescribeAddressesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,11 +831,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_snowball.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -866,11 +868,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_snowball.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -903,11 +905,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.describe_return_shipping_label_request.DescribeReturnShippingLabelRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_snowball.types.describe_return_shipping_label_request.DescribeReturnShippingLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,11 +954,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.get_job_manifest_request.GetJobManifestRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_snowball.types.get_job_manifest_request.GetJobManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -999,11 +1001,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.get_job_unlock_code_request.GetJobUnlockCodeRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_snowball.types.get_job_unlock_code_request.GetJobUnlockCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1038,10 +1040,10 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.get_snowball_usage_request.GetSnowballUsageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snowball.types.get_snowball_usage_request.GetSnowballUsageRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1074,11 +1076,11 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.get_software_updates_request.GetSoftwareUpdatesRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_snowball.types.get_software_updates_request.GetSoftwareUpdatesRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1115,15 +1117,15 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.list_cluster_jobs_request.ListClusterJobsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_snowball.types.list_cluster_jobs_request.ListClusterJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1181,14 +1183,14 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snowball.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1244,14 +1246,14 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.list_compatible_images_request.ListCompatibleImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snowball.types.list_compatible_images_request.ListCompatibleImagesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1307,14 +1309,14 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snowball.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1372,14 +1374,14 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.list_long_term_pricing_request.ListLongTermPricingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snowball.types.list_long_term_pricing_request.ListLongTermPricingRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1443,14 +1445,14 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.list_pickup_locations_request.ListPickupLocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snowball.types.list_pickup_locations_request.ListPickupLocationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1493,17 +1495,17 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.list_service_versions_request.ListServiceVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_snowball.types.list_service_versions_request.ListServiceVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
         if dependent_services is not None:
-            input["dependent_services"] = dependent_services
+            input_["dependent_services"] = dependent_services
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1566,27 +1568,27 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_snowball.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if resources is not None:
-            input["resources"] = resources
+            input_["resources"] = resources
         if on_device_service_configuration is not None:
-            input["on_device_service_configuration"] = on_device_service_configuration
+            input_["on_device_service_configuration"] = on_device_service_configuration
         if address_id is not None:
-            input["address_id"] = address_id
+            input_["address_id"] = address_id
         if shipping_option is not None:
-            input["shipping_option"] = shipping_option
+            input_["shipping_option"] = shipping_option
         if notification is not None:
-            input["notification"] = notification
+            input_["notification"] = notification
         if forwarding_address_id is not None:
-            input["forwarding_address_id"] = forwarding_address_id
+            input_["forwarding_address_id"] = forwarding_address_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1656,31 +1658,31 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.update_job_request.UpdateJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_snowball.types.update_job_request.UpdateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if notification is not None:
-            input["notification"] = notification
+            input_["notification"] = notification
         if resources is not None:
-            input["resources"] = resources
+            input_["resources"] = resources
         if on_device_service_configuration is not None:
-            input["on_device_service_configuration"] = on_device_service_configuration
+            input_["on_device_service_configuration"] = on_device_service_configuration
         if address_id is not None:
-            input["address_id"] = address_id
+            input_["address_id"] = address_id
         if shipping_option is not None:
-            input["shipping_option"] = shipping_option
+            input_["shipping_option"] = shipping_option
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if snowball_capacity_preference is not None:
-            input["snowball_capacity_preference"] = snowball_capacity_preference
+            input_["snowball_capacity_preference"] = snowball_capacity_preference
         if forwarding_address_id is not None:
-            input["forwarding_address_id"] = forwarding_address_id
+            input_["forwarding_address_id"] = forwarding_address_id
         if pickup_details is not None:
-            input["pickup_details"] = pickup_details
+            input_["pickup_details"] = pickup_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1715,12 +1717,12 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.update_job_shipment_state_request.UpdateJobShipmentStateRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["shipment_state"] = shipment_state
+        input_: aws_sdk_snowball.types.update_job_shipment_state_request.UpdateJobShipmentStateRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["shipment_state"] = shipment_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1759,15 +1761,15 @@ class SnowballClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_snowball.types.update_long_term_pricing_request.UpdateLongTermPricingRequest = {}  # type: ignore[typeddict-item]
-        input["long_term_pricing_id"] = long_term_pricing_id
+        input_: aws_sdk_snowball.types.update_long_term_pricing_request.UpdateLongTermPricingRequest = {}  # type: ignore[typeddict-item]
+        input_["long_term_pricing_id"] = long_term_pricing_id
         if replacement_job is not None:
-            input["replacement_job"] = replacement_job
+            input_["replacement_job"] = replacement_job
         if is_long_term_pricing_auto_renew is not None:
-            input["is_long_term_pricing_auto_renew"] = is_long_term_pricing_auto_renew
+            input_["is_long_term_pricing_auto_renew"] = is_long_term_pricing_auto_renew
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

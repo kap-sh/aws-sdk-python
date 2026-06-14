@@ -251,11 +251,11 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.cancel_gremlin_query_input.CancelGremlinQueryInput = {}  # type: ignore[typeddict-item]
-        input["query_id"] = query_id
+        input_: aws_sdk_neptunedata.types.cancel_gremlin_query_input.CancelGremlinQueryInput = {}  # type: ignore[typeddict-item]
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,11 +288,11 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.cancel_loader_job_input.CancelLoaderJobInput = {}  # type: ignore[typeddict-item]
-        input["load_id"] = load_id
+        input_: aws_sdk_neptunedata.types.cancel_loader_job_input.CancelLoaderJobInput = {}  # type: ignore[typeddict-item]
+        input_["load_id"] = load_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,15 +329,15 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.cancel_ml_data_processing_job_input.CancelMLDataProcessingJobInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_neptunedata.types.cancel_ml_data_processing_job_input.CancelMLDataProcessingJobInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
         if clean is not None:
-            input["clean"] = clean
+            input_["clean"] = clean
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,15 +374,15 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.cancel_ml_model_training_job_input.CancelMLModelTrainingJobInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_neptunedata.types.cancel_ml_model_training_job_input.CancelMLModelTrainingJobInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
         if clean is not None:
-            input["clean"] = clean
+            input_["clean"] = clean
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,15 +419,15 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.cancel_ml_model_transform_job_input.CancelMLModelTransformJobInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_neptunedata.types.cancel_ml_model_transform_job_input.CancelMLModelTransformJobInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
         if clean is not None:
-            input["clean"] = clean
+            input_["clean"] = clean
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,13 +462,13 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.cancel_open_cypher_query_input.CancelOpenCypherQueryInput = {}  # type: ignore[typeddict-item]
-        input["query_id"] = query_id
+        input_: aws_sdk_neptunedata.types.cancel_open_cypher_query_input.CancelOpenCypherQueryInput = {}  # type: ignore[typeddict-item]
+        input_["query_id"] = query_id
         if silent is not None:
-            input["silent"] = silent
+            input_["silent"] = silent
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -517,28 +517,28 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.create_ml_endpoint_input.CreateMLEndpointInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.create_ml_endpoint_input.CreateMLEndpointInput = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if ml_model_training_job_id is not None:
-            input["ml_model_training_job_id"] = ml_model_training_job_id
+            input_["ml_model_training_job_id"] = ml_model_training_job_id
         if ml_model_transform_job_id is not None:
-            input["ml_model_transform_job_id"] = ml_model_transform_job_id
+            input_["ml_model_transform_job_id"] = ml_model_transform_job_id
         if update is not None:
-            input["update"] = update
+            input_["update"] = update
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
         if model_name is not None:
-            input["model_name"] = model_name
+            input_["model_name"] = model_name
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if instance_count is not None:
-            input["instance_count"] = instance_count
+            input_["instance_count"] = instance_count
         if volume_encryption_kms_key is not None:
-            input["volume_encryption_kms_key"] = volume_encryption_kms_key
+            input_["volume_encryption_kms_key"] = volume_encryption_kms_key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,15 +575,15 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.delete_ml_endpoint_input.DeleteMLEndpointInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_neptunedata.types.delete_ml_endpoint_input.DeleteMLEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
         if clean is not None:
-            input["clean"] = clean
+            input_["clean"] = clean
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,13 +674,13 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput = {}  # type: ignore[typeddict-item]
-        input["action"] = action
+        input_: aws_sdk_neptunedata.types.execute_fast_reset_input.ExecuteFastResetInput = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -713,11 +713,11 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.execute_gremlin_explain_query_input.ExecuteGremlinExplainQueryInput = {}  # type: ignore[typeddict-item]
-        input["gremlin_query"] = gremlin_query
+        input_: aws_sdk_neptunedata.types.execute_gremlin_explain_query_input.ExecuteGremlinExplainQueryInput = {}  # type: ignore[typeddict-item]
+        input_["gremlin_query"] = gremlin_query
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -758,19 +758,19 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.execute_gremlin_profile_query_input.ExecuteGremlinProfileQueryInput = {}  # type: ignore[typeddict-item]
-        input["gremlin_query"] = gremlin_query
+        input_: aws_sdk_neptunedata.types.execute_gremlin_profile_query_input.ExecuteGremlinProfileQueryInput = {}  # type: ignore[typeddict-item]
+        input_["gremlin_query"] = gremlin_query
         if results is not None:
-            input["results"] = results
+            input_["results"] = results
         if chop is not None:
-            input["chop"] = chop
+            input_["chop"] = chop
         if serializer is not None:
-            input["serializer"] = serializer
+            input_["serializer"] = serializer
         if index_ops is not None:
-            input["index_ops"] = index_ops
+            input_["index_ops"] = index_ops
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -805,13 +805,13 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.execute_gremlin_query_input.ExecuteGremlinQueryInput = {}  # type: ignore[typeddict-item]
-        input["gremlin_query"] = gremlin_query
+        input_: aws_sdk_neptunedata.types.execute_gremlin_query_input.ExecuteGremlinQueryInput = {}  # type: ignore[typeddict-item]
+        input_["gremlin_query"] = gremlin_query
         if serializer is not None:
-            input["serializer"] = serializer
+            input_["serializer"] = serializer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,14 +848,14 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.execute_open_cypher_explain_query_input.ExecuteOpenCypherExplainQueryInput = {}  # type: ignore[typeddict-item]
-        input["open_cypher_query"] = open_cypher_query
+        input_: aws_sdk_neptunedata.types.execute_open_cypher_explain_query_input.ExecuteOpenCypherExplainQueryInput = {}  # type: ignore[typeddict-item]
+        input_["open_cypher_query"] = open_cypher_query
         if parameters is not None:
-            input["parameters"] = parameters
-        input["explain_mode"] = explain_mode
+            input_["parameters"] = parameters
+        input_["explain_mode"] = explain_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -890,13 +890,13 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.execute_open_cypher_query_input.ExecuteOpenCypherQueryInput = {}  # type: ignore[typeddict-item]
-        input["open_cypher_query"] = open_cypher_query
+        input_: aws_sdk_neptunedata.types.execute_open_cypher_query_input.ExecuteOpenCypherQueryInput = {}  # type: ignore[typeddict-item]
+        input_["open_cypher_query"] = open_cypher_query
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -957,11 +957,11 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_gremlin_query_status_input.GetGremlinQueryStatusInput = {}  # type: ignore[typeddict-item]
-        input["query_id"] = query_id
+        input_: aws_sdk_neptunedata.types.get_gremlin_query_status_input.GetGremlinQueryStatusInput = {}  # type: ignore[typeddict-item]
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1006,19 +1006,19 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput = {}  # type: ignore[typeddict-item]
-        input["load_id"] = load_id
+        input_: aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput = {}  # type: ignore[typeddict-item]
+        input_["load_id"] = load_id
         if details is not None:
-            input["details"] = details
+            input_["details"] = details
         if errors is not None:
-            input["errors"] = errors
+            input_["errors"] = errors
         if page is not None:
-            input["page"] = page
+            input_["page"] = page
         if errors_per_page is not None:
-            input["errors_per_page"] = errors_per_page
+            input_["errors_per_page"] = errors_per_page
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1053,13 +1053,13 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_ml_data_processing_job_input.GetMLDataProcessingJobInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_neptunedata.types.get_ml_data_processing_job_input.GetMLDataProcessingJobInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1094,13 +1094,13 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_ml_endpoint_input.GetMLEndpointInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_neptunedata.types.get_ml_endpoint_input.GetMLEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1135,13 +1135,13 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_ml_model_training_job_input.GetMLModelTrainingJobInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_neptunedata.types.get_ml_model_training_job_input.GetMLModelTrainingJobInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1176,13 +1176,13 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_ml_model_transform_job_input.GetMLModelTransformJobInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_neptunedata.types.get_ml_model_transform_job_input.GetMLModelTransformJobInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1215,11 +1215,11 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_open_cypher_query_status_input.GetOpenCypherQueryStatusInput = {}  # type: ignore[typeddict-item]
-        input["query_id"] = query_id
+        input_: aws_sdk_neptunedata.types.get_open_cypher_query_status_input.GetOpenCypherQueryStatusInput = {}  # type: ignore[typeddict-item]
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1290,20 +1290,20 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_propertygraph_stream_input.GetPropertygraphStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.get_propertygraph_stream_input.GetPropertygraphStreamInput = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if iterator_type is not None:
-            input["iterator_type"] = iterator_type
+            input_["iterator_type"] = iterator_type
         if commit_num is not None:
-            input["commit_num"] = commit_num
+            input_["commit_num"] = commit_num
         if op_num is not None:
-            input["op_num"] = op_num
+            input_["op_num"] = op_num
         if encoding is not None:
-            input["encoding"] = encoding
+            input_["encoding"] = encoding
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1338,12 +1338,12 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_propertygraph_summary_input.GetPropertygraphSummaryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.get_propertygraph_summary_input.GetPropertygraphSummaryInput = {}  # type: ignore[typeddict-item]
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1378,12 +1378,12 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_rdf_graph_summary_input.GetRDFGraphSummaryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.get_rdf_graph_summary_input.GetRDFGraphSummaryInput = {}  # type: ignore[typeddict-item]
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1454,20 +1454,20 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if iterator_type is not None:
-            input["iterator_type"] = iterator_type
+            input_["iterator_type"] = iterator_type
         if commit_num is not None:
-            input["commit_num"] = commit_num
+            input_["commit_num"] = commit_num
         if op_num is not None:
-            input["op_num"] = op_num
+            input_["op_num"] = op_num
         if encoding is not None:
-            input["encoding"] = encoding
+            input_["encoding"] = encoding
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1502,12 +1502,12 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.list_gremlin_queries_input.ListGremlinQueriesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.list_gremlin_queries_input.ListGremlinQueriesInput = {}  # type: ignore[typeddict-item]
         if include_waiting is not None:
-            input["include_waiting"] = include_waiting
+            input_["include_waiting"] = include_waiting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1544,14 +1544,14 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.list_loader_jobs_input.ListLoaderJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.list_loader_jobs_input.ListLoaderJobsInput = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if include_queued_loads is not None:
-            input["include_queued_loads"] = include_queued_loads
+            input_["include_queued_loads"] = include_queued_loads
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1588,14 +1588,14 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.list_ml_data_processing_jobs_input.ListMLDataProcessingJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.list_ml_data_processing_jobs_input.ListMLDataProcessingJobsInput = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1632,14 +1632,14 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.list_ml_endpoints_input.ListMLEndpointsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.list_ml_endpoints_input.ListMLEndpointsInput = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1676,14 +1676,14 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.list_ml_model_training_jobs_input.ListMLModelTrainingJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.list_ml_model_training_jobs_input.ListMLModelTrainingJobsInput = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1720,14 +1720,14 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.list_ml_model_transform_jobs_input.ListMLModelTransformJobsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.list_ml_model_transform_jobs_input.ListMLModelTransformJobsInput = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1760,12 +1760,12 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.list_open_cypher_queries_input.ListOpenCypherQueriesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.list_open_cypher_queries_input.ListOpenCypherQueriesInput = {}  # type: ignore[typeddict-item]
         if include_waiting is not None:
-            input["include_waiting"] = include_waiting
+            input_["include_waiting"] = include_waiting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1800,12 +1800,12 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.manage_propertygraph_statistics_input.ManagePropertygraphStatisticsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.manage_propertygraph_statistics_input.ManagePropertygraphStatisticsInput = {}  # type: ignore[typeddict-item]
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1840,12 +1840,12 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.manage_sparql_statistics_input.ManageSparqlStatisticsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.manage_sparql_statistics_input.ManageSparqlStatisticsInput = {}  # type: ignore[typeddict-item]
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1908,34 +1908,34 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.start_loader_job_input.StartLoaderJobInput = {}  # type: ignore[typeddict-item]
-        input["source"] = source
-        input["format"] = format
-        input["s3_bucket_region"] = s3_bucket_region
-        input["iam_role_arn"] = iam_role_arn
+        input_: aws_sdk_neptunedata.types.start_loader_job_input.StartLoaderJobInput = {}  # type: ignore[typeddict-item]
+        input_["source"] = source
+        input_["format"] = format
+        input_["s3_bucket_region"] = s3_bucket_region
+        input_["iam_role_arn"] = iam_role_arn
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if fail_on_error is not None:
-            input["fail_on_error"] = fail_on_error
+            input_["fail_on_error"] = fail_on_error
         if parallelism is not None:
-            input["parallelism"] = parallelism
+            input_["parallelism"] = parallelism
         if parser_configuration is not None:
-            input["parser_configuration"] = parser_configuration
+            input_["parser_configuration"] = parser_configuration
         if update_single_cardinality_properties is not None:
-            input["update_single_cardinality_properties"] = (
+            input_["update_single_cardinality_properties"] = (
                 update_single_cardinality_properties
             )
         if queue_request is not None:
-            input["queue_request"] = queue_request
+            input_["queue_request"] = queue_request
         if dependencies is not None:
-            input["dependencies"] = dependencies
+            input_["dependencies"] = dependencies
         if user_provided_edge_ids is not None:
-            input["user_provided_edge_ids"] = user_provided_edge_ids
+            input_["user_provided_edge_ids"] = user_provided_edge_ids
         if edge_only_load is not None:
-            input["edge_only_load"] = edge_only_load
+            input_["edge_only_load"] = edge_only_load
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1998,40 +1998,40 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.start_ml_data_processing_job_input.StartMLDataProcessingJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.start_ml_data_processing_job_input.StartMLDataProcessingJobInput = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if previous_data_processing_job_id is not None:
-            input["previous_data_processing_job_id"] = previous_data_processing_job_id
-        input["input_data_s3_location"] = input_data_s3_location
-        input["processed_data_s3_location"] = processed_data_s3_location
+            input_["previous_data_processing_job_id"] = previous_data_processing_job_id
+        input_["input_data_s3_location"] = input_data_s3_location
+        input_["processed_data_s3_location"] = processed_data_s3_location
         if sagemaker_iam_role_arn is not None:
-            input["sagemaker_iam_role_arn"] = sagemaker_iam_role_arn
+            input_["sagemaker_iam_role_arn"] = sagemaker_iam_role_arn
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
         if processing_instance_type is not None:
-            input["processing_instance_type"] = processing_instance_type
+            input_["processing_instance_type"] = processing_instance_type
         if processing_instance_volume_size_in_gb is not None:
-            input["processing_instance_volume_size_in_gb"] = (
+            input_["processing_instance_volume_size_in_gb"] = (
                 processing_instance_volume_size_in_gb
             )
         if processing_time_out_in_seconds is not None:
-            input["processing_time_out_in_seconds"] = processing_time_out_in_seconds
+            input_["processing_time_out_in_seconds"] = processing_time_out_in_seconds
         if model_type is not None:
-            input["model_type"] = model_type
+            input_["model_type"] = model_type
         if config_file_name is not None:
-            input["config_file_name"] = config_file_name
+            input_["config_file_name"] = config_file_name
         if subnets is not None:
-            input["subnets"] = subnets
+            input_["subnets"] = subnets
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if volume_encryption_kms_key is not None:
-            input["volume_encryption_kms_key"] = volume_encryption_kms_key
+            input_["volume_encryption_kms_key"] = volume_encryption_kms_key
         if s3_output_encryption_kms_key is not None:
-            input["s3_output_encryption_kms_key"] = s3_output_encryption_kms_key
+            input_["s3_output_encryption_kms_key"] = s3_output_encryption_kms_key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2102,46 +2102,48 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.start_ml_model_training_job_input.StartMLModelTrainingJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.start_ml_model_training_job_input.StartMLModelTrainingJobInput = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if previous_model_training_job_id is not None:
-            input["previous_model_training_job_id"] = previous_model_training_job_id
-        input["data_processing_job_id"] = data_processing_job_id
-        input["train_model_s3_location"] = train_model_s3_location
+            input_["previous_model_training_job_id"] = previous_model_training_job_id
+        input_["data_processing_job_id"] = data_processing_job_id
+        input_["train_model_s3_location"] = train_model_s3_location
         if sagemaker_iam_role_arn is not None:
-            input["sagemaker_iam_role_arn"] = sagemaker_iam_role_arn
+            input_["sagemaker_iam_role_arn"] = sagemaker_iam_role_arn
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
         if base_processing_instance_type is not None:
-            input["base_processing_instance_type"] = base_processing_instance_type
+            input_["base_processing_instance_type"] = base_processing_instance_type
         if training_instance_type is not None:
-            input["training_instance_type"] = training_instance_type
+            input_["training_instance_type"] = training_instance_type
         if training_instance_volume_size_in_gb is not None:
-            input["training_instance_volume_size_in_gb"] = (
+            input_["training_instance_volume_size_in_gb"] = (
                 training_instance_volume_size_in_gb
             )
         if training_time_out_in_seconds is not None:
-            input["training_time_out_in_seconds"] = training_time_out_in_seconds
+            input_["training_time_out_in_seconds"] = training_time_out_in_seconds
         if max_hpo_number_of_training_jobs is not None:
-            input["max_hpo_number_of_training_jobs"] = max_hpo_number_of_training_jobs
+            input_["max_hpo_number_of_training_jobs"] = max_hpo_number_of_training_jobs
         if max_hpo_parallel_training_jobs is not None:
-            input["max_hpo_parallel_training_jobs"] = max_hpo_parallel_training_jobs
+            input_["max_hpo_parallel_training_jobs"] = max_hpo_parallel_training_jobs
         if subnets is not None:
-            input["subnets"] = subnets
+            input_["subnets"] = subnets
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if volume_encryption_kms_key is not None:
-            input["volume_encryption_kms_key"] = volume_encryption_kms_key
+            input_["volume_encryption_kms_key"] = volume_encryption_kms_key
         if s3_output_encryption_kms_key is not None:
-            input["s3_output_encryption_kms_key"] = s3_output_encryption_kms_key
+            input_["s3_output_encryption_kms_key"] = s3_output_encryption_kms_key
         if enable_managed_spot_training is not None:
-            input["enable_managed_spot_training"] = enable_managed_spot_training
+            input_["enable_managed_spot_training"] = enable_managed_spot_training
         if custom_model_training_parameters is not None:
-            input["custom_model_training_parameters"] = custom_model_training_parameters
+            input_["custom_model_training_parameters"] = (
+                custom_model_training_parameters
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2204,41 +2206,43 @@ class neptunedataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptunedata.types.start_ml_model_transform_job_input.StartMLModelTransformJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptunedata.types.start_ml_model_transform_job_input.StartMLModelTransformJobInput = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if data_processing_job_id is not None:
-            input["data_processing_job_id"] = data_processing_job_id
+            input_["data_processing_job_id"] = data_processing_job_id
         if ml_model_training_job_id is not None:
-            input["ml_model_training_job_id"] = ml_model_training_job_id
+            input_["ml_model_training_job_id"] = ml_model_training_job_id
         if training_job_name is not None:
-            input["training_job_name"] = training_job_name
-        input["model_transform_output_s3_location"] = model_transform_output_s3_location
+            input_["training_job_name"] = training_job_name
+        input_["model_transform_output_s3_location"] = (
+            model_transform_output_s3_location
+        )
         if sagemaker_iam_role_arn is not None:
-            input["sagemaker_iam_role_arn"] = sagemaker_iam_role_arn
+            input_["sagemaker_iam_role_arn"] = sagemaker_iam_role_arn
         if neptune_iam_role_arn is not None:
-            input["neptune_iam_role_arn"] = neptune_iam_role_arn
+            input_["neptune_iam_role_arn"] = neptune_iam_role_arn
         if custom_model_transform_parameters is not None:
-            input["custom_model_transform_parameters"] = (
+            input_["custom_model_transform_parameters"] = (
                 custom_model_transform_parameters
             )
         if base_processing_instance_type is not None:
-            input["base_processing_instance_type"] = base_processing_instance_type
+            input_["base_processing_instance_type"] = base_processing_instance_type
         if base_processing_instance_volume_size_in_gb is not None:
-            input["base_processing_instance_volume_size_in_gb"] = (
+            input_["base_processing_instance_volume_size_in_gb"] = (
                 base_processing_instance_volume_size_in_gb
             )
         if subnets is not None:
-            input["subnets"] = subnets
+            input_["subnets"] = subnets
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if volume_encryption_kms_key is not None:
-            input["volume_encryption_kms_key"] = volume_encryption_kms_key
+            input_["volume_encryption_kms_key"] = volume_encryption_kms_key
         if s3_output_encryption_kms_key is not None:
-            input["s3_output_encryption_kms_key"] = s3_output_encryption_kms_key
+            input_["s3_output_encryption_kms_key"] = s3_output_encryption_kms_key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

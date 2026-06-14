@@ -92,21 +92,21 @@ class Scraper:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.create_scraper_request.CreateScraperRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amp.types.create_scraper_request.CreateScraperRequest = {}  # type: ignore[typeddict-item]
         if alias is not None:
-            input["alias"] = alias
-        input["scrape_configuration"] = scrape_configuration
-        input["source"] = source
-        input["destination"] = destination
+            input_["alias"] = alias
+        input_["scrape_configuration"] = scrape_configuration
+        input_["source"] = source
+        input_["destination"] = destination
         if role_configuration is not None:
-            input["role_configuration"] = role_configuration
+            input_["role_configuration"] = role_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -144,11 +144,11 @@ class Scraper:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.describe_scraper_request.DescribeScraperRequest = {}  # type: ignore[typeddict-item]
-        input["scraper_id"] = scraper_id
+        input_: aws_sdk_amp.types.describe_scraper_request.DescribeScraperRequest = {}  # type: ignore[typeddict-item]
+        input_["scraper_id"] = scraper_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,21 +202,21 @@ class Scraper:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.update_scraper_request.UpdateScraperRequest = {}  # type: ignore[typeddict-item]
-        input["scraper_id"] = scraper_id
+        input_: aws_sdk_amp.types.update_scraper_request.UpdateScraperRequest = {}  # type: ignore[typeddict-item]
+        input_["scraper_id"] = scraper_id
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if scrape_configuration is not None:
-            input["scrape_configuration"] = scrape_configuration
+            input_["scrape_configuration"] = scrape_configuration
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if role_configuration is not None:
-            input["role_configuration"] = role_configuration
+            input_["role_configuration"] = role_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,13 +258,13 @@ class Scraper:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.delete_scraper_request.DeleteScraperRequest = {}  # type: ignore[typeddict-item]
-        input["scraper_id"] = scraper_id
+        input_: aws_sdk_amp.types.delete_scraper_request.DeleteScraperRequest = {}  # type: ignore[typeddict-item]
+        input_["scraper_id"] = scraper_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,16 +311,16 @@ class Scraper:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.list_scrapers_request.ListScrapersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amp.types.list_scrapers_request.ListScrapersRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,21 +383,21 @@ class AsyncScraper:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.create_scraper_request.CreateScraperRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amp.types.create_scraper_request.CreateScraperRequest = {}  # type: ignore[typeddict-item]
         if alias is not None:
-            input["alias"] = alias
-        input["scrape_configuration"] = scrape_configuration
-        input["source"] = source
-        input["destination"] = destination
+            input_["alias"] = alias
+        input_["scrape_configuration"] = scrape_configuration
+        input_["source"] = source
+        input_["destination"] = destination
         if role_configuration is not None:
-            input["role_configuration"] = role_configuration
+            input_["role_configuration"] = role_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,11 +436,11 @@ class AsyncScraper:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.describe_scraper_request.DescribeScraperRequest = {}  # type: ignore[typeddict-item]
-        input["scraper_id"] = scraper_id
+        input_: aws_sdk_amp.types.describe_scraper_request.DescribeScraperRequest = {}  # type: ignore[typeddict-item]
+        input_["scraper_id"] = scraper_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -495,21 +495,21 @@ class AsyncScraper:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.update_scraper_request.UpdateScraperRequest = {}  # type: ignore[typeddict-item]
-        input["scraper_id"] = scraper_id
+        input_: aws_sdk_amp.types.update_scraper_request.UpdateScraperRequest = {}  # type: ignore[typeddict-item]
+        input_["scraper_id"] = scraper_id
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if scrape_configuration is not None:
-            input["scrape_configuration"] = scrape_configuration
+            input_["scrape_configuration"] = scrape_configuration
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if role_configuration is not None:
-            input["role_configuration"] = role_configuration
+            input_["role_configuration"] = role_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,13 +552,13 @@ class AsyncScraper:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.delete_scraper_request.DeleteScraperRequest = {}  # type: ignore[typeddict-item]
-        input["scraper_id"] = scraper_id
+        input_: aws_sdk_amp.types.delete_scraper_request.DeleteScraperRequest = {}  # type: ignore[typeddict-item]
+        input_["scraper_id"] = scraper_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -606,16 +606,16 @@ class AsyncScraper:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.list_scrapers_request.ListScrapersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amp.types.list_scrapers_request.ListScrapersRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

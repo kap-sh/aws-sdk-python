@@ -109,24 +109,24 @@ class IngressPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_ingress_point_request.CreateIngressPointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_ingress_point_request.CreateIngressPointRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["ingress_point_name"] = ingress_point_name
-        input["type"] = type
-        input["rule_set_id"] = rule_set_id
-        input["traffic_policy_id"] = traffic_policy_id
+            input_["client_token"] = client_token
+        input_["ingress_point_name"] = ingress_point_name
+        input_["type"] = type
+        input_["rule_set_id"] = rule_set_id
+        input_["traffic_policy_id"] = traffic_policy_id
         if ingress_point_configuration is not None:
-            input["ingress_point_configuration"] = ingress_point_configuration
+            input_["ingress_point_configuration"] = ingress_point_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if tls_policy is not None:
-            input["tls_policy"] = tls_policy
+            input_["tls_policy"] = tls_policy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -171,13 +171,13 @@ class IngressPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_ingress_point_request.GetIngressPointRequest = {}  # type: ignore[typeddict-item]
-        input["ingress_point_id"] = ingress_point_id
+        input_: aws_sdk_mailmanager.types.get_ingress_point_request.GetIngressPointRequest = {}  # type: ignore[typeddict-item]
+        input_["ingress_point_id"] = ingress_point_id
         if include_trust_store_contents is not None:
-            input["include_trust_store_contents"] = include_trust_store_contents
+            input_["include_trust_store_contents"] = include_trust_store_contents
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,23 +244,23 @@ class IngressPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_ingress_point_request.UpdateIngressPointRequest = {}  # type: ignore[typeddict-item]
-        input["ingress_point_id"] = ingress_point_id
+        input_: aws_sdk_mailmanager.types.update_ingress_point_request.UpdateIngressPointRequest = {}  # type: ignore[typeddict-item]
+        input_["ingress_point_id"] = ingress_point_id
         if ingress_point_name is not None:
-            input["ingress_point_name"] = ingress_point_name
+            input_["ingress_point_name"] = ingress_point_name
         if status_to_update is not None:
-            input["status_to_update"] = status_to_update
+            input_["status_to_update"] = status_to_update
         if rule_set_id is not None:
-            input["rule_set_id"] = rule_set_id
+            input_["rule_set_id"] = rule_set_id
         if traffic_policy_id is not None:
-            input["traffic_policy_id"] = traffic_policy_id
+            input_["traffic_policy_id"] = traffic_policy_id
         if ingress_point_configuration is not None:
-            input["ingress_point_configuration"] = ingress_point_configuration
+            input_["ingress_point_configuration"] = ingress_point_configuration
         if tls_policy is not None:
-            input["tls_policy"] = tls_policy
+            input_["tls_policy"] = tls_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,11 +298,11 @@ class IngressPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_ingress_point_request.DeleteIngressPointRequest = {}  # type: ignore[typeddict-item]
-        input["ingress_point_id"] = ingress_point_id
+        input_: aws_sdk_mailmanager.types.delete_ingress_point_request.DeleteIngressPointRequest = {}  # type: ignore[typeddict-item]
+        input_["ingress_point_id"] = ingress_point_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,14 +350,14 @@ class IngressPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_ingress_points_request.ListIngressPointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_ingress_points_request.ListIngressPointsRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,24 +429,24 @@ class AsyncIngressPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_ingress_point_request.CreateIngressPointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_ingress_point_request.CreateIngressPointRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["ingress_point_name"] = ingress_point_name
-        input["type"] = type
-        input["rule_set_id"] = rule_set_id
-        input["traffic_policy_id"] = traffic_policy_id
+            input_["client_token"] = client_token
+        input_["ingress_point_name"] = ingress_point_name
+        input_["type"] = type
+        input_["rule_set_id"] = rule_set_id
+        input_["traffic_policy_id"] = traffic_policy_id
         if ingress_point_configuration is not None:
-            input["ingress_point_configuration"] = ingress_point_configuration
+            input_["ingress_point_configuration"] = ingress_point_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if tls_policy is not None:
-            input["tls_policy"] = tls_policy
+            input_["tls_policy"] = tls_policy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,13 +492,13 @@ class AsyncIngressPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_ingress_point_request.GetIngressPointRequest = {}  # type: ignore[typeddict-item]
-        input["ingress_point_id"] = ingress_point_id
+        input_: aws_sdk_mailmanager.types.get_ingress_point_request.GetIngressPointRequest = {}  # type: ignore[typeddict-item]
+        input_["ingress_point_id"] = ingress_point_id
         if include_trust_store_contents is not None:
-            input["include_trust_store_contents"] = include_trust_store_contents
+            input_["include_trust_store_contents"] = include_trust_store_contents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -566,23 +566,23 @@ class AsyncIngressPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_ingress_point_request.UpdateIngressPointRequest = {}  # type: ignore[typeddict-item]
-        input["ingress_point_id"] = ingress_point_id
+        input_: aws_sdk_mailmanager.types.update_ingress_point_request.UpdateIngressPointRequest = {}  # type: ignore[typeddict-item]
+        input_["ingress_point_id"] = ingress_point_id
         if ingress_point_name is not None:
-            input["ingress_point_name"] = ingress_point_name
+            input_["ingress_point_name"] = ingress_point_name
         if status_to_update is not None:
-            input["status_to_update"] = status_to_update
+            input_["status_to_update"] = status_to_update
         if rule_set_id is not None:
-            input["rule_set_id"] = rule_set_id
+            input_["rule_set_id"] = rule_set_id
         if traffic_policy_id is not None:
-            input["traffic_policy_id"] = traffic_policy_id
+            input_["traffic_policy_id"] = traffic_policy_id
         if ingress_point_configuration is not None:
-            input["ingress_point_configuration"] = ingress_point_configuration
+            input_["ingress_point_configuration"] = ingress_point_configuration
         if tls_policy is not None:
-            input["tls_policy"] = tls_policy
+            input_["tls_policy"] = tls_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -621,11 +621,11 @@ class AsyncIngressPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_ingress_point_request.DeleteIngressPointRequest = {}  # type: ignore[typeddict-item]
-        input["ingress_point_id"] = ingress_point_id
+        input_: aws_sdk_mailmanager.types.delete_ingress_point_request.DeleteIngressPointRequest = {}  # type: ignore[typeddict-item]
+        input_["ingress_point_id"] = ingress_point_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,14 +674,14 @@ class AsyncIngressPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_ingress_points_request.ListIngressPointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_ingress_points_request.ListIngressPointsRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

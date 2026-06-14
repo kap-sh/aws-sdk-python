@@ -121,32 +121,32 @@ class PipeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.create_pipe_request.CreatePipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.create_pipe_request.CreatePipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if desired_state is not None:
-            input["desired_state"] = desired_state
-        input["source"] = source
+            input_["desired_state"] = desired_state
+        input_["source"] = source
         if source_parameters is not None:
-            input["source_parameters"] = source_parameters
+            input_["source_parameters"] = source_parameters
         if enrichment is not None:
-            input["enrichment"] = enrichment
+            input_["enrichment"] = enrichment
         if enrichment_parameters is not None:
-            input["enrichment_parameters"] = enrichment_parameters
-        input["target"] = target
+            input_["enrichment_parameters"] = enrichment_parameters
+        input_["target"] = target
         if target_parameters is not None:
-            input["target_parameters"] = target_parameters
-        input["role_arn"] = role_arn
+            input_["target_parameters"] = target_parameters
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if log_configuration is not None:
-            input["log_configuration"] = log_configuration
+            input_["log_configuration"] = log_configuration
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,11 +179,11 @@ class PipeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.describe_pipe_request.DescribePipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.describe_pipe_request.DescribePipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,30 +250,30 @@ class PipeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.update_pipe_request.UpdatePipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.update_pipe_request.UpdatePipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if desired_state is not None:
-            input["desired_state"] = desired_state
+            input_["desired_state"] = desired_state
         if source_parameters is not None:
-            input["source_parameters"] = source_parameters
+            input_["source_parameters"] = source_parameters
         if enrichment is not None:
-            input["enrichment"] = enrichment
+            input_["enrichment"] = enrichment
         if enrichment_parameters is not None:
-            input["enrichment_parameters"] = enrichment_parameters
+            input_["enrichment_parameters"] = enrichment_parameters
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
         if target_parameters is not None:
-            input["target_parameters"] = target_parameters
-        input["role_arn"] = role_arn
+            input_["target_parameters"] = target_parameters
+        input_["role_arn"] = role_arn
         if log_configuration is not None:
-            input["log_configuration"] = log_configuration
+            input_["log_configuration"] = log_configuration
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,11 +306,11 @@ class PipeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.delete_pipe_request.DeletePipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.delete_pipe_request.DeletePipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -357,24 +357,24 @@ class PipeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.list_pipes_request.ListPipesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pipes.types.list_pipes_request.ListPipesRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if desired_state is not None:
-            input["desired_state"] = desired_state
+            input_["desired_state"] = desired_state
         if current_state is not None:
-            input["current_state"] = current_state
+            input_["current_state"] = current_state
         if source_prefix is not None:
-            input["source_prefix"] = source_prefix
+            input_["source_prefix"] = source_prefix
         if target_prefix is not None:
-            input["target_prefix"] = target_prefix
+            input_["target_prefix"] = target_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,11 +407,11 @@ class PipeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.start_pipe_request.StartPipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.start_pipe_request.StartPipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,11 +442,11 @@ class PipeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.stop_pipe_request.StopPipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.stop_pipe_request.StopPipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,32 +523,32 @@ class AsyncPipeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.create_pipe_request.CreatePipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.create_pipe_request.CreatePipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if desired_state is not None:
-            input["desired_state"] = desired_state
-        input["source"] = source
+            input_["desired_state"] = desired_state
+        input_["source"] = source
         if source_parameters is not None:
-            input["source_parameters"] = source_parameters
+            input_["source_parameters"] = source_parameters
         if enrichment is not None:
-            input["enrichment"] = enrichment
+            input_["enrichment"] = enrichment
         if enrichment_parameters is not None:
-            input["enrichment_parameters"] = enrichment_parameters
-        input["target"] = target
+            input_["enrichment_parameters"] = enrichment_parameters
+        input_["target"] = target
         if target_parameters is not None:
-            input["target_parameters"] = target_parameters
-        input["role_arn"] = role_arn
+            input_["target_parameters"] = target_parameters
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if log_configuration is not None:
-            input["log_configuration"] = log_configuration
+            input_["log_configuration"] = log_configuration
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,11 +582,11 @@ class AsyncPipeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.describe_pipe_request.DescribePipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.describe_pipe_request.DescribePipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,30 +654,30 @@ class AsyncPipeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.update_pipe_request.UpdatePipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.update_pipe_request.UpdatePipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if desired_state is not None:
-            input["desired_state"] = desired_state
+            input_["desired_state"] = desired_state
         if source_parameters is not None:
-            input["source_parameters"] = source_parameters
+            input_["source_parameters"] = source_parameters
         if enrichment is not None:
-            input["enrichment"] = enrichment
+            input_["enrichment"] = enrichment
         if enrichment_parameters is not None:
-            input["enrichment_parameters"] = enrichment_parameters
+            input_["enrichment_parameters"] = enrichment_parameters
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
         if target_parameters is not None:
-            input["target_parameters"] = target_parameters
-        input["role_arn"] = role_arn
+            input_["target_parameters"] = target_parameters
+        input_["role_arn"] = role_arn
         if log_configuration is not None:
-            input["log_configuration"] = log_configuration
+            input_["log_configuration"] = log_configuration
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -711,11 +711,11 @@ class AsyncPipeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.delete_pipe_request.DeletePipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.delete_pipe_request.DeletePipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,24 +763,24 @@ class AsyncPipeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.list_pipes_request.ListPipesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pipes.types.list_pipes_request.ListPipesRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if desired_state is not None:
-            input["desired_state"] = desired_state
+            input_["desired_state"] = desired_state
         if current_state is not None:
-            input["current_state"] = current_state
+            input_["current_state"] = current_state
         if source_prefix is not None:
-            input["source_prefix"] = source_prefix
+            input_["source_prefix"] = source_prefix
         if target_prefix is not None:
-            input["target_prefix"] = target_prefix
+            input_["target_prefix"] = target_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -814,11 +814,11 @@ class AsyncPipeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.start_pipe_request.StartPipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.start_pipe_request.StartPipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -852,11 +852,11 @@ class AsyncPipeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pipes.types.stop_pipe_request.StopPipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_pipes.types.stop_pipe_request.StopPipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

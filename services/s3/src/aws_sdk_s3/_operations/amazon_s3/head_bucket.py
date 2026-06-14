@@ -78,11 +78,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.head_bucket_request.HeadBucketRequest,
+    input_: aws_sdk_s3.types.head_bucket_request.HeadBucketRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -102,11 +102,11 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -118,9 +118,9 @@ def build_request(
 
 def head_bucket(
     options: OperationOptions,
-    input: aws_sdk_s3.types.head_bucket_request.HeadBucketRequest,
+    input_: aws_sdk_s3.types.head_bucket_request.HeadBucketRequest,
 ) -> tuple[aws_sdk_s3.types.head_bucket_output.HeadBucketOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -134,9 +134,9 @@ def head_bucket(
 
 async def async_head_bucket(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.head_bucket_request.HeadBucketRequest,
+    input_: aws_sdk_s3.types.head_bucket_request.HeadBucketRequest,
 ) -> tuple[aws_sdk_s3.types.head_bucket_output.HeadBucketOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

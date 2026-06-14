@@ -16,6 +16,45 @@ from aws_sdk_cleanroomsml._auth._providers import (
 )
 from aws_sdk_cleanroomsml._auth._zapros_handler import AuthMiddleware
 from aws_sdk_cleanroomsml._pagination import resolve_path as _resolve_path
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.audience_export_job import (
+    AsyncAudienceExportJob,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.audience_generation_job import (
+    AsyncAudienceGenerationJob,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.audience_model import (
+    AsyncAudienceModel,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.configured_audience_model import (
+    AsyncConfiguredAudienceModel,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.configured_audience_model_policy import (
+    AsyncConfiguredAudienceModelPolicy,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.configured_model_algorithm import (
+    AsyncConfiguredModelAlgorithm,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.configured_model_algorithm_association import (
+    AsyncConfiguredModelAlgorithmAssociation,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.ml_configuration import (
+    AsyncMLConfiguration,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.ml_input_channel import (
+    AsyncMLInputChannel,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.trained_model import (
+    AsyncTrainedModel,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.trained_model_export_job import (
+    AsyncTrainedModelExportJob,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.trained_model_inference_job import (
+    AsyncTrainedModelInferenceJob,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.training_dataset import (
+    AsyncTrainingDataset,
+)
 from aws_sdk_cleanroomsml._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -128,6 +167,22 @@ class AsyncCleanRoomsMLClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.audience_export_job = AsyncAudienceExportJob(self)
+        self.audience_generation_job = AsyncAudienceGenerationJob(self)
+        self.audience_model = AsyncAudienceModel(self)
+        self.configured_audience_model = AsyncConfiguredAudienceModel(self)
+        self.configured_audience_model_policy = AsyncConfiguredAudienceModelPolicy(self)
+        self.configured_model_algorithm = AsyncConfiguredModelAlgorithm(self)
+        self.configured_model_algorithm_association = (
+            AsyncConfiguredModelAlgorithmAssociation(self)
+        )
+        self.ml_configuration = AsyncMLConfiguration(self)
+        self.ml_input_channel = AsyncMLInputChannel(self)
+        self.trained_model = AsyncTrainedModel(self)
+        self.trained_model_export_job = AsyncTrainedModelExportJob(self)
+        self.trained_model_inference_job = AsyncTrainedModelInferenceJob(self)
+        self.training_dataset = AsyncTrainingDataset(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncCleanRoomsMLClientConfig] = None
@@ -191,15 +246,15 @@ class AsyncCleanRoomsMLClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_configured_model_algorithm_associations_request.ListCollaborationConfiguredModelAlgorithmAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_configured_model_algorithm_associations_request.ListCollaborationConfiguredModelAlgorithmAssociationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -268,15 +323,15 @@ class AsyncCleanRoomsMLClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_ml_input_channels_request.ListCollaborationMLInputChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_ml_input_channels_request.ListCollaborationMLInputChannelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,18 +402,20 @@ class AsyncCleanRoomsMLClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_trained_model_export_jobs_request.ListCollaborationTrainedModelExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_trained_model_export_jobs_request.ListCollaborationTrainedModelExportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
-        input["trained_model_arn"] = trained_model_arn
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -439,19 +496,21 @@ class AsyncCleanRoomsMLClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_trained_model_inference_jobs_request.ListCollaborationTrainedModelInferenceJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_trained_model_inference_jobs_request.ListCollaborationTrainedModelInferenceJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
         if trained_model_arn is not None:
-            input["trained_model_arn"] = trained_model_arn
+            input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,15 +585,15 @@ class AsyncCleanRoomsMLClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_trained_models_request.ListCollaborationTrainedModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_trained_models_request.ListCollaborationTrainedModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,11 +652,11 @@ class AsyncCleanRoomsMLClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cleanroomsml.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -633,12 +692,12 @@ class AsyncCleanRoomsMLClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_cleanroomsml.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,12 +733,12 @@ class AsyncCleanRoomsMLClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cleanroomsml.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -248,37 +248,37 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["author"] = author
-        input["description"] = description
+        input_: aws_sdk_serverlessapplicationrepository.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["author"] = author
+        input_["description"] = description
         if home_page_url is not None:
-            input["home_page_url"] = home_page_url
+            input_["home_page_url"] = home_page_url
         if labels is not None:
-            input["labels"] = labels
+            input_["labels"] = labels
         if license_body is not None:
-            input["license_body"] = license_body
+            input_["license_body"] = license_body
         if license_url is not None:
-            input["license_url"] = license_url
-        input["name"] = name
+            input_["license_url"] = license_url
+        input_["name"] = name
         if readme_body is not None:
-            input["readme_body"] = readme_body
+            input_["readme_body"] = readme_body
         if readme_url is not None:
-            input["readme_url"] = readme_url
+            input_["readme_url"] = readme_url
         if semantic_version is not None:
-            input["semantic_version"] = semantic_version
+            input_["semantic_version"] = semantic_version
         if source_code_archive_url is not None:
-            input["source_code_archive_url"] = source_code_archive_url
+            input_["source_code_archive_url"] = source_code_archive_url
         if source_code_url is not None:
-            input["source_code_url"] = source_code_url
+            input_["source_code_url"] = source_code_url
         if spdx_license_id is not None:
-            input["spdx_license_id"] = spdx_license_id
+            input_["spdx_license_id"] = spdx_license_id
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,20 +332,20 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.create_application_version_request.CreateApplicationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["semantic_version"] = semantic_version
+        input_: aws_sdk_serverlessapplicationrepository.types.create_application_version_request.CreateApplicationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["semantic_version"] = semantic_version
         if source_code_archive_url is not None:
-            input["source_code_archive_url"] = source_code_archive_url
+            input_["source_code_archive_url"] = source_code_archive_url
         if source_code_url is not None:
-            input["source_code_url"] = source_code_url
+            input_["source_code_url"] = source_code_url
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,34 +427,34 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_request.CreateCloudFormationChangeSetRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_change_set_request.CreateCloudFormationChangeSetRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if change_set_name is not None:
-            input["change_set_name"] = change_set_name
+            input_["change_set_name"] = change_set_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if notification_arns is not None:
-            input["notification_arns"] = notification_arns
+            input_["notification_arns"] = notification_arns
         if parameter_overrides is not None:
-            input["parameter_overrides"] = parameter_overrides
+            input_["parameter_overrides"] = parameter_overrides
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if rollback_configuration is not None:
-            input["rollback_configuration"] = rollback_configuration
+            input_["rollback_configuration"] = rollback_configuration
         if semantic_version is not None:
-            input["semantic_version"] = semantic_version
-        input["stack_name"] = stack_name
+            input_["semantic_version"] = semantic_version
+        input_["stack_name"] = stack_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if template_id is not None:
-            input["template_id"] = template_id
+            input_["template_id"] = template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -494,13 +494,13 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_request.CreateCloudFormationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_serverlessapplicationrepository.types.create_cloud_formation_template_request.CreateCloudFormationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if semantic_version is not None:
-            input["semantic_version"] = semantic_version
+            input_["semantic_version"] = semantic_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,11 +534,11 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_serverlessapplicationrepository.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -578,13 +578,13 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_serverlessapplicationrepository.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if semantic_version is not None:
-            input["semantic_version"] = semantic_version
+            input_["semantic_version"] = semantic_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,11 +620,11 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.get_application_policy_request.GetApplicationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_serverlessapplicationrepository.types.get_application_policy_request.GetApplicationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,12 +662,12 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_request.GetCloudFormationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["template_id"] = template_id
+        input_: aws_sdk_serverlessapplicationrepository.types.get_cloud_formation_template_request.GetCloudFormationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["template_id"] = template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,17 +715,17 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if semantic_version is not None:
-            input["semantic_version"] = semantic_version
+            input_["semantic_version"] = semantic_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -767,14 +767,14 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_serverlessapplicationrepository.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -818,15 +818,15 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_serverlessapplicationrepository.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -864,12 +864,12 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.put_application_policy_request.PutApplicationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["statements"] = statements
+        input_: aws_sdk_serverlessapplicationrepository.types.put_application_policy_request.PutApplicationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["statements"] = statements
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -905,12 +905,12 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.unshare_application_request.UnshareApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["organization_id"] = organization_id
+        input_: aws_sdk_serverlessapplicationrepository.types.unshare_application_request.UnshareApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -970,23 +970,23 @@ class AsyncServerlessApplicationRepositoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_serverlessapplicationrepository.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_serverlessapplicationrepository.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if author is not None:
-            input["author"] = author
+            input_["author"] = author
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if home_page_url is not None:
-            input["home_page_url"] = home_page_url
+            input_["home_page_url"] = home_page_url
         if labels is not None:
-            input["labels"] = labels
+            input_["labels"] = labels
         if readme_body is not None:
-            input["readme_body"] = readme_body
+            input_["readme_body"] = readme_body
         if readme_url is not None:
-            input["readme_url"] = readme_url
+            input_["readme_url"] = readme_url
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

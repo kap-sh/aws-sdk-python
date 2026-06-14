@@ -87,21 +87,21 @@ class WebAppResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_web_app_request.CreateWebAppRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_details"] = identity_provider_details
+        input_: aws_sdk_transfer.types.create_web_app_request.CreateWebAppRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_details"] = identity_provider_details
         if access_endpoint is not None:
-            input["access_endpoint"] = access_endpoint
+            input_["access_endpoint"] = access_endpoint
         if web_app_units is not None:
-            input["web_app_units"] = web_app_units
+            input_["web_app_units"] = web_app_units
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if web_app_endpoint_policy is not None:
-            input["web_app_endpoint_policy"] = web_app_endpoint_policy
+            input_["web_app_endpoint_policy"] = web_app_endpoint_policy
         if endpoint_details is not None:
-            input["endpoint_details"] = endpoint_details
+            input_["endpoint_details"] = endpoint_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,11 +134,11 @@ class WebAppResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_web_app_request.DescribeWebAppRequest = {}  # type: ignore[typeddict-item]
-        input["web_app_id"] = web_app_id
+        input_: aws_sdk_transfer.types.describe_web_app_request.DescribeWebAppRequest = {}  # type: ignore[typeddict-item]
+        input_["web_app_id"] = web_app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -187,19 +187,19 @@ class WebAppResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_web_app_request.UpdateWebAppRequest = {}  # type: ignore[typeddict-item]
-        input["web_app_id"] = web_app_id
+        input_: aws_sdk_transfer.types.update_web_app_request.UpdateWebAppRequest = {}  # type: ignore[typeddict-item]
+        input_["web_app_id"] = web_app_id
         if identity_provider_details is not None:
-            input["identity_provider_details"] = identity_provider_details
+            input_["identity_provider_details"] = identity_provider_details
         if access_endpoint is not None:
-            input["access_endpoint"] = access_endpoint
+            input_["access_endpoint"] = access_endpoint
         if web_app_units is not None:
-            input["web_app_units"] = web_app_units
+            input_["web_app_units"] = web_app_units
         if endpoint_details is not None:
-            input["endpoint_details"] = endpoint_details
+            input_["endpoint_details"] = endpoint_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,11 +230,11 @@ class WebAppResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_web_app_request.DeleteWebAppRequest = {}  # type: ignore[typeddict-item]
-        input["web_app_id"] = web_app_id
+        input_: aws_sdk_transfer.types.delete_web_app_request.DeleteWebAppRequest = {}  # type: ignore[typeddict-item]
+        input_["web_app_id"] = web_app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,14 +269,14 @@ class WebAppResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_web_apps_request.ListWebAppsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_web_apps_request.ListWebAppsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,21 +333,21 @@ class AsyncWebAppResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_web_app_request.CreateWebAppRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_details"] = identity_provider_details
+        input_: aws_sdk_transfer.types.create_web_app_request.CreateWebAppRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_details"] = identity_provider_details
         if access_endpoint is not None:
-            input["access_endpoint"] = access_endpoint
+            input_["access_endpoint"] = access_endpoint
         if web_app_units is not None:
-            input["web_app_units"] = web_app_units
+            input_["web_app_units"] = web_app_units
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if web_app_endpoint_policy is not None:
-            input["web_app_endpoint_policy"] = web_app_endpoint_policy
+            input_["web_app_endpoint_policy"] = web_app_endpoint_policy
         if endpoint_details is not None:
-            input["endpoint_details"] = endpoint_details
+            input_["endpoint_details"] = endpoint_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +381,11 @@ class AsyncWebAppResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_web_app_request.DescribeWebAppRequest = {}  # type: ignore[typeddict-item]
-        input["web_app_id"] = web_app_id
+        input_: aws_sdk_transfer.types.describe_web_app_request.DescribeWebAppRequest = {}  # type: ignore[typeddict-item]
+        input_["web_app_id"] = web_app_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,19 +435,19 @@ class AsyncWebAppResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_web_app_request.UpdateWebAppRequest = {}  # type: ignore[typeddict-item]
-        input["web_app_id"] = web_app_id
+        input_: aws_sdk_transfer.types.update_web_app_request.UpdateWebAppRequest = {}  # type: ignore[typeddict-item]
+        input_["web_app_id"] = web_app_id
         if identity_provider_details is not None:
-            input["identity_provider_details"] = identity_provider_details
+            input_["identity_provider_details"] = identity_provider_details
         if access_endpoint is not None:
-            input["access_endpoint"] = access_endpoint
+            input_["access_endpoint"] = access_endpoint
         if web_app_units is not None:
-            input["web_app_units"] = web_app_units
+            input_["web_app_units"] = web_app_units
         if endpoint_details is not None:
-            input["endpoint_details"] = endpoint_details
+            input_["endpoint_details"] = endpoint_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,11 +479,11 @@ class AsyncWebAppResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_web_app_request.DeleteWebAppRequest = {}  # type: ignore[typeddict-item]
-        input["web_app_id"] = web_app_id
+        input_: aws_sdk_transfer.types.delete_web_app_request.DeleteWebAppRequest = {}  # type: ignore[typeddict-item]
+        input_["web_app_id"] = web_app_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -519,14 +519,14 @@ class AsyncWebAppResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_web_apps_request.ListWebAppsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_web_apps_request.ListWebAppsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

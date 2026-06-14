@@ -65,13 +65,13 @@ class AccessToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codecatalyst.types.create_access_token_request.CreateAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codecatalyst.types.create_access_token_request.CreateAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if expires_time is not None:
-            input["expires_time"] = expires_time
+            input_["expires_time"] = expires_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -104,11 +104,11 @@ class AccessToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codecatalyst.types.delete_access_token_request.DeleteAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_codecatalyst.types.delete_access_token_request.DeleteAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -143,14 +143,14 @@ class AccessToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codecatalyst.types.list_access_tokens_request.ListAccessTokensRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codecatalyst.types.list_access_tokens_request.ListAccessTokensRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -191,13 +191,13 @@ class AsyncAccessToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codecatalyst.types.create_access_token_request.CreateAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codecatalyst.types.create_access_token_request.CreateAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if expires_time is not None:
-            input["expires_time"] = expires_time
+            input_["expires_time"] = expires_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,11 +231,11 @@ class AsyncAccessToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codecatalyst.types.delete_access_token_request.DeleteAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_codecatalyst.types.delete_access_token_request.DeleteAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,14 +271,14 @@ class AsyncAccessToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codecatalyst.types.list_access_tokens_request.ListAccessTokensRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codecatalyst.types.list_access_tokens_request.ListAccessTokensRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

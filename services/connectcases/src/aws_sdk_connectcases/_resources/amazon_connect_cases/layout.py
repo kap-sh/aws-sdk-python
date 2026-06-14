@@ -73,13 +73,13 @@ class Layout:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_layout_request.CreateLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
-        input["content"] = content
+        input_: aws_sdk_connectcases.types.create_layout_request.CreateLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
+        input_["content"] = content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -114,12 +114,12 @@ class Layout:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.get_layout_request.GetLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["layout_id"] = layout_id
+        input_: aws_sdk_connectcases.types.get_layout_request.GetLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["layout_id"] = layout_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -160,16 +160,16 @@ class Layout:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.update_layout_request.UpdateLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["layout_id"] = layout_id
+        input_: aws_sdk_connectcases.types.update_layout_request.UpdateLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["layout_id"] = layout_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,12 +204,12 @@ class Layout:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_layout_request.DeleteLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["layout_id"] = layout_id
+        input_: aws_sdk_connectcases.types.delete_layout_request.DeleteLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["layout_id"] = layout_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,15 +248,15 @@ class Layout:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_layouts_request.ListLayoutsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.list_layouts_request.ListLayoutsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -299,13 +299,13 @@ class AsyncLayout:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_layout_request.CreateLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
-        input["content"] = content
+        input_: aws_sdk_connectcases.types.create_layout_request.CreateLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
+        input_["content"] = content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,12 +341,12 @@ class AsyncLayout:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.get_layout_request.GetLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["layout_id"] = layout_id
+        input_: aws_sdk_connectcases.types.get_layout_request.GetLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["layout_id"] = layout_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,16 +388,16 @@ class AsyncLayout:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.update_layout_request.UpdateLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["layout_id"] = layout_id
+        input_: aws_sdk_connectcases.types.update_layout_request.UpdateLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["layout_id"] = layout_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -433,12 +433,12 @@ class AsyncLayout:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_layout_request.DeleteLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["layout_id"] = layout_id
+        input_: aws_sdk_connectcases.types.delete_layout_request.DeleteLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["layout_id"] = layout_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,15 +478,15 @@ class AsyncLayout:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_layouts_request.ListLayoutsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.list_layouts_request.ListLayoutsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

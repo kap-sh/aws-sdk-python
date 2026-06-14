@@ -102,24 +102,24 @@ class DNSView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_dns_view_input.CreateDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["global_resolver_id"] = global_resolver_id
+        input_: aws_sdk_route53globalresolver.types.create_dns_view_input.CreateDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["global_resolver_id"] = global_resolver_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if dnssec_validation is not None:
-            input["dnssec_validation"] = dnssec_validation
+            input_["dnssec_validation"] = dnssec_validation
         if edns_client_subnet is not None:
-            input["edns_client_subnet"] = edns_client_subnet
+            input_["edns_client_subnet"] = edns_client_subnet
         if firewall_rules_fail_open is not None:
-            input["firewall_rules_fail_open"] = firewall_rules_fail_open
+            input_["firewall_rules_fail_open"] = firewall_rules_fail_open
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,11 +152,11 @@ class DNSView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_dns_view_input.GetDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.get_dns_view_input.GetDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,21 +211,21 @@ class DNSView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_dns_view_input.UpdateDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.update_dns_view_input.UpdateDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dnssec_validation is not None:
-            input["dnssec_validation"] = dnssec_validation
+            input_["dnssec_validation"] = dnssec_validation
         if edns_client_subnet is not None:
-            input["edns_client_subnet"] = edns_client_subnet
+            input_["edns_client_subnet"] = edns_client_subnet
         if firewall_rules_fail_open is not None:
-            input["firewall_rules_fail_open"] = firewall_rules_fail_open
+            input_["firewall_rules_fail_open"] = firewall_rules_fail_open
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,11 +260,11 @@ class DNSView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_dns_view_input.DeleteDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.delete_dns_view_input.DeleteDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,15 +301,15 @@ class DNSView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_dns_views_input.ListDNSViewsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_dns_views_input.ListDNSViewsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["global_resolver_id"] = global_resolver_id
+            input_["next_token"] = next_token
+        input_["global_resolver_id"] = global_resolver_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,11 +342,11 @@ class DNSView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.disable_dns_view_input.DisableDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.disable_dns_view_input.DisableDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +381,11 @@ class DNSView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.enable_dns_view_input.EnableDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.enable_dns_view_input.EnableDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -450,24 +450,24 @@ class AsyncDNSView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_dns_view_input.CreateDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["global_resolver_id"] = global_resolver_id
+        input_: aws_sdk_route53globalresolver.types.create_dns_view_input.CreateDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["global_resolver_id"] = global_resolver_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if dnssec_validation is not None:
-            input["dnssec_validation"] = dnssec_validation
+            input_["dnssec_validation"] = dnssec_validation
         if edns_client_subnet is not None:
-            input["edns_client_subnet"] = edns_client_subnet
+            input_["edns_client_subnet"] = edns_client_subnet
         if firewall_rules_fail_open is not None:
-            input["firewall_rules_fail_open"] = firewall_rules_fail_open
+            input_["firewall_rules_fail_open"] = firewall_rules_fail_open
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,11 +501,11 @@ class AsyncDNSView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_dns_view_input.GetDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.get_dns_view_input.GetDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,21 +561,21 @@ class AsyncDNSView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_dns_view_input.UpdateDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.update_dns_view_input.UpdateDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dnssec_validation is not None:
-            input["dnssec_validation"] = dnssec_validation
+            input_["dnssec_validation"] = dnssec_validation
         if edns_client_subnet is not None:
-            input["edns_client_subnet"] = edns_client_subnet
+            input_["edns_client_subnet"] = edns_client_subnet
         if firewall_rules_fail_open is not None:
-            input["firewall_rules_fail_open"] = firewall_rules_fail_open
+            input_["firewall_rules_fail_open"] = firewall_rules_fail_open
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -611,11 +611,11 @@ class AsyncDNSView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_dns_view_input.DeleteDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.delete_dns_view_input.DeleteDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -653,15 +653,15 @@ class AsyncDNSView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_dns_views_input.ListDNSViewsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_dns_views_input.ListDNSViewsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["global_resolver_id"] = global_resolver_id
+            input_["next_token"] = next_token
+        input_["global_resolver_id"] = global_resolver_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -695,11 +695,11 @@ class AsyncDNSView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.disable_dns_view_input.DisableDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.disable_dns_view_input.DisableDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -735,11 +735,11 @@ class AsyncDNSView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.enable_dns_view_input.EnableDNSViewInput = {}  # type: ignore[typeddict-item]
-        input["dns_view_id"] = dns_view_id
+        input_: aws_sdk_route53globalresolver.types.enable_dns_view_input.EnableDNSViewInput = {}  # type: ignore[typeddict-item]
+        input_["dns_view_id"] = dns_view_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

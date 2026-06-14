@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_support._auth._signers
+import aws_sdk_support._auth._sigv4
 from aws_sdk_support._auth._identity import Credentials
 from aws_sdk_support._auth._providers import (
     CredentialsProvider,
@@ -216,13 +218,13 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.add_attachments_to_set_request.AddAttachmentsToSetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support.types.add_attachments_to_set_request.AddAttachmentsToSetRequest = {}  # type: ignore[typeddict-item]
         if attachment_set_id is not None:
-            input["attachment_set_id"] = attachment_set_id
-        input["attachments"] = attachments
+            input_["attachment_set_id"] = attachment_set_id
+        input_["attachments"] = attachments
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,17 +267,17 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.add_communication_to_case_request.AddCommunicationToCaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support.types.add_communication_to_case_request.AddCommunicationToCaseRequest = {}  # type: ignore[typeddict-item]
         if case_id is not None:
-            input["case_id"] = case_id
-        input["communication_body"] = communication_body
+            input_["case_id"] = case_id
+        input_["communication_body"] = communication_body
         if cc_email_addresses is not None:
-            input["cc_email_addresses"] = cc_email_addresses
+            input_["cc_email_addresses"] = cc_email_addresses
         if attachment_set_id is not None:
-            input["attachment_set_id"] = attachment_set_id
+            input_["attachment_set_id"] = attachment_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,26 +336,26 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.create_case_request.CreateCaseRequest = {}  # type: ignore[typeddict-item]
-        input["subject"] = subject
+        input_: aws_sdk_support.types.create_case_request.CreateCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["subject"] = subject
         if service_code is not None:
-            input["service_code"] = service_code
+            input_["service_code"] = service_code
         if severity_code is not None:
-            input["severity_code"] = severity_code
+            input_["severity_code"] = severity_code
         if category_code is not None:
-            input["category_code"] = category_code
-        input["communication_body"] = communication_body
+            input_["category_code"] = category_code
+        input_["communication_body"] = communication_body
         if cc_email_addresses is not None:
-            input["cc_email_addresses"] = cc_email_addresses
+            input_["cc_email_addresses"] = cc_email_addresses
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if issue_type is not None:
-            input["issue_type"] = issue_type
+            input_["issue_type"] = issue_type
         if attachment_set_id is not None:
-            input["attachment_set_id"] = attachment_set_id
+            input_["attachment_set_id"] = attachment_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,11 +390,11 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_attachment_request.DescribeAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_support.types.describe_attachment_request.DescribeAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,28 +447,28 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_cases_request.DescribeCasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support.types.describe_cases_request.DescribeCasesRequest = {}  # type: ignore[typeddict-item]
         if case_id_list is not None:
-            input["case_id_list"] = case_id_list
+            input_["case_id_list"] = case_id_list
         if display_id is not None:
-            input["display_id"] = display_id
+            input_["display_id"] = display_id
         if after_time is not None:
-            input["after_time"] = after_time
+            input_["after_time"] = after_time
         if before_time is not None:
-            input["before_time"] = before_time
+            input_["before_time"] = before_time
         if include_resolved_cases is not None:
-            input["include_resolved_cases"] = include_resolved_cases
+            input_["include_resolved_cases"] = include_resolved_cases
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if include_communications is not None:
-            input["include_communications"] = include_communications
+            input_["include_communications"] = include_communications
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,19 +548,19 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_communications_request.DescribeCommunicationsRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_support.types.describe_communications_request.DescribeCommunicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
         if before_time is not None:
-            input["before_time"] = before_time
+            input_["before_time"] = before_time
         if after_time is not None:
-            input["after_time"] = after_time
+            input_["after_time"] = after_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,14 +626,14 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_create_case_options_request.DescribeCreateCaseOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["issue_type"] = issue_type
-        input["service_code"] = service_code
-        input["language"] = language
-        input["category_code"] = category_code
+        input_: aws_sdk_support.types.describe_create_case_options_request.DescribeCreateCaseOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["issue_type"] = issue_type
+        input_["service_code"] = service_code
+        input_["language"] = language
+        input_["category_code"] = category_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,14 +670,14 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
         if service_code_list is not None:
-            input["service_code_list"] = service_code_list
+            input_["service_code_list"] = service_code_list
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -708,12 +710,12 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_severity_levels_request.DescribeSeverityLevelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support.types.describe_severity_levels_request.DescribeSeverityLevelsRequest = {}  # type: ignore[typeddict-item]
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -750,13 +752,13 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_supported_languages_request.DescribeSupportedLanguagesRequest = {}  # type: ignore[typeddict-item]
-        input["issue_type"] = issue_type
-        input["service_code"] = service_code
-        input["category_code"] = category_code
+        input_: aws_sdk_support.types.describe_supported_languages_request.DescribeSupportedLanguagesRequest = {}  # type: ignore[typeddict-item]
+        input_["issue_type"] = issue_type
+        input_["service_code"] = service_code
+        input_["category_code"] = category_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -789,11 +791,11 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_trusted_advisor_check_refresh_statuses_request.DescribeTrustedAdvisorCheckRefreshStatusesRequest = {}  # type: ignore[typeddict-item]
-        input["check_ids"] = check_ids
+        input_: aws_sdk_support.types.describe_trusted_advisor_check_refresh_statuses_request.DescribeTrustedAdvisorCheckRefreshStatusesRequest = {}  # type: ignore[typeddict-item]
+        input_["check_ids"] = check_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -828,13 +830,13 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_trusted_advisor_check_result_request.DescribeTrustedAdvisorCheckResultRequest = {}  # type: ignore[typeddict-item]
-        input["check_id"] = check_id
+        input_: aws_sdk_support.types.describe_trusted_advisor_check_result_request.DescribeTrustedAdvisorCheckResultRequest = {}  # type: ignore[typeddict-item]
+        input_["check_id"] = check_id
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -867,11 +869,11 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_trusted_advisor_checks_request.DescribeTrustedAdvisorChecksRequest = {}  # type: ignore[typeddict-item]
-        input["language"] = language
+        input_: aws_sdk_support.types.describe_trusted_advisor_checks_request.DescribeTrustedAdvisorChecksRequest = {}  # type: ignore[typeddict-item]
+        input_["language"] = language
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -904,11 +906,11 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.describe_trusted_advisor_check_summaries_request.DescribeTrustedAdvisorCheckSummariesRequest = {}  # type: ignore[typeddict-item]
-        input["check_ids"] = check_ids
+        input_: aws_sdk_support.types.describe_trusted_advisor_check_summaries_request.DescribeTrustedAdvisorCheckSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_["check_ids"] = check_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -941,11 +943,11 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.refresh_trusted_advisor_check_request.RefreshTrustedAdvisorCheckRequest = {}  # type: ignore[typeddict-item]
-        input["check_id"] = check_id
+        input_: aws_sdk_support.types.refresh_trusted_advisor_check_request.RefreshTrustedAdvisorCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["check_id"] = check_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -978,12 +980,12 @@ class SupportClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support.types.resolve_case_request.ResolveCaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support.types.resolve_case_request.ResolveCaseRequest = {}  # type: ignore[typeddict-item]
         if case_id is not None:
-            input["case_id"] = case_id
+            input_["case_id"] = case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

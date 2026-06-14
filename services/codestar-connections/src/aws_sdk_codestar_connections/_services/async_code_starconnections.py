@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_codestar_connections._auth._signers
+import aws_sdk_codestar_connections._auth._sigv4
 from aws_sdk_codestar_connections._auth._identity import Credentials
 from aws_sdk_codestar_connections._auth._providers import (
     CredentialsProvider,
@@ -244,17 +246,17 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.create_connection_input.CreateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_connections.types.create_connection_input.CreateConnectionInput = {}  # type: ignore[typeddict-item]
         if provider_type is not None:
-            input["provider_type"] = provider_type
-        input["connection_name"] = connection_name
+            input_["provider_type"] = provider_type
+        input_["connection_name"] = connection_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if host_arn is not None:
-            input["host_arn"] = host_arn
+            input_["host_arn"] = host_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,17 +300,17 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.create_host_input.CreateHostInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["provider_type"] = provider_type
-        input["provider_endpoint"] = provider_endpoint
+        input_: aws_sdk_codestar_connections.types.create_host_input.CreateHostInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["provider_type"] = provider_type
+        input_["provider_endpoint"] = provider_endpoint
         if vpc_configuration is not None:
-            input["vpc_configuration"] = vpc_configuration
+            input_["vpc_configuration"] = vpc_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,17 +354,17 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.create_repository_link_input.CreateRepositoryLinkInput = {}  # type: ignore[typeddict-item]
-        input["connection_arn"] = connection_arn
-        input["owner_id"] = owner_id
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codestar_connections.types.create_repository_link_input.CreateRepositoryLinkInput = {}  # type: ignore[typeddict-item]
+        input_["connection_arn"] = connection_arn
+        input_["owner_id"] = owner_id
+        input_["repository_name"] = repository_name
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,20 +416,20 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.create_sync_configuration_input.CreateSyncConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["branch"] = branch
-        input["config_file"] = config_file
-        input["repository_link_id"] = repository_link_id
-        input["resource_name"] = resource_name
-        input["role_arn"] = role_arn
-        input["sync_type"] = sync_type
+        input_: aws_sdk_codestar_connections.types.create_sync_configuration_input.CreateSyncConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["branch"] = branch
+        input_["config_file"] = config_file
+        input_["repository_link_id"] = repository_link_id
+        input_["resource_name"] = resource_name
+        input_["role_arn"] = role_arn
+        input_["sync_type"] = sync_type
         if publish_deployment_status is not None:
-            input["publish_deployment_status"] = publish_deployment_status
+            input_["publish_deployment_status"] = publish_deployment_status
         if trigger_resource_update_on is not None:
-            input["trigger_resource_update_on"] = trigger_resource_update_on
+            input_["trigger_resource_update_on"] = trigger_resource_update_on
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,11 +463,11 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.delete_connection_input.DeleteConnectionInput = {}  # type: ignore[typeddict-item]
-        input["connection_arn"] = connection_arn
+        input_: aws_sdk_codestar_connections.types.delete_connection_input.DeleteConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["connection_arn"] = connection_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,11 +501,11 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.delete_host_input.DeleteHostInput = {}  # type: ignore[typeddict-item]
-        input["host_arn"] = host_arn
+        input_: aws_sdk_codestar_connections.types.delete_host_input.DeleteHostInput = {}  # type: ignore[typeddict-item]
+        input_["host_arn"] = host_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -537,11 +539,11 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.delete_repository_link_input.DeleteRepositoryLinkInput = {}  # type: ignore[typeddict-item]
-        input["repository_link_id"] = repository_link_id
+        input_: aws_sdk_codestar_connections.types.delete_repository_link_input.DeleteRepositoryLinkInput = {}  # type: ignore[typeddict-item]
+        input_["repository_link_id"] = repository_link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -577,12 +579,12 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.delete_sync_configuration_input.DeleteSyncConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["sync_type"] = sync_type
-        input["resource_name"] = resource_name
+        input_: aws_sdk_codestar_connections.types.delete_sync_configuration_input.DeleteSyncConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["sync_type"] = sync_type
+        input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -616,11 +618,11 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.get_connection_input.GetConnectionInput = {}  # type: ignore[typeddict-item]
-        input["connection_arn"] = connection_arn
+        input_: aws_sdk_codestar_connections.types.get_connection_input.GetConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["connection_arn"] = connection_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,11 +656,11 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.get_host_input.GetHostInput = {}  # type: ignore[typeddict-item]
-        input["host_arn"] = host_arn
+        input_: aws_sdk_codestar_connections.types.get_host_input.GetHostInput = {}  # type: ignore[typeddict-item]
+        input_["host_arn"] = host_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -692,11 +694,11 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.get_repository_link_input.GetRepositoryLinkInput = {}  # type: ignore[typeddict-item]
-        input["repository_link_id"] = repository_link_id
+        input_: aws_sdk_codestar_connections.types.get_repository_link_input.GetRepositoryLinkInput = {}  # type: ignore[typeddict-item]
+        input_["repository_link_id"] = repository_link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -734,13 +736,13 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.get_repository_sync_status_input.GetRepositorySyncStatusInput = {}  # type: ignore[typeddict-item]
-        input["branch"] = branch
-        input["repository_link_id"] = repository_link_id
-        input["sync_type"] = sync_type
+        input_: aws_sdk_codestar_connections.types.get_repository_sync_status_input.GetRepositorySyncStatusInput = {}  # type: ignore[typeddict-item]
+        input_["branch"] = branch
+        input_["repository_link_id"] = repository_link_id
+        input_["sync_type"] = sync_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -776,12 +778,12 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.get_resource_sync_status_input.GetResourceSyncStatusInput = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["sync_type"] = sync_type
+        input_: aws_sdk_codestar_connections.types.get_resource_sync_status_input.GetResourceSyncStatusInput = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["sync_type"] = sync_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -817,12 +819,12 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.get_sync_blocker_summary_input.GetSyncBlockerSummaryInput = {}  # type: ignore[typeddict-item]
-        input["sync_type"] = sync_type
-        input["resource_name"] = resource_name
+        input_: aws_sdk_codestar_connections.types.get_sync_blocker_summary_input.GetSyncBlockerSummaryInput = {}  # type: ignore[typeddict-item]
+        input_["sync_type"] = sync_type
+        input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -858,12 +860,12 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.get_sync_configuration_input.GetSyncConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["sync_type"] = sync_type
-        input["resource_name"] = resource_name
+        input_: aws_sdk_codestar_connections.types.get_sync_configuration_input.GetSyncConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["sync_type"] = sync_type
+        input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -911,18 +913,18 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.list_connections_input.ListConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_connections.types.list_connections_input.ListConnectionsInput = {}  # type: ignore[typeddict-item]
         if provider_type_filter is not None:
-            input["provider_type_filter"] = provider_type_filter
+            input_["provider_type_filter"] = provider_type_filter
         if host_arn_filter is not None:
-            input["host_arn_filter"] = host_arn_filter
+            input_["host_arn_filter"] = host_arn_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -962,14 +964,14 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.list_hosts_input.ListHostsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_connections.types.list_hosts_input.ListHostsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1009,14 +1011,14 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.list_repository_links_input.ListRepositoryLinksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_connections.types.list_repository_links_input.ListRepositoryLinksInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1052,12 +1054,12 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.list_repository_sync_definitions_input.ListRepositorySyncDefinitionsInput = {}  # type: ignore[typeddict-item]
-        input["repository_link_id"] = repository_link_id
-        input["sync_type"] = sync_type
+        input_: aws_sdk_codestar_connections.types.list_repository_sync_definitions_input.ListRepositorySyncDefinitionsInput = {}  # type: ignore[typeddict-item]
+        input_["repository_link_id"] = repository_link_id
+        input_["sync_type"] = sync_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1101,16 +1103,16 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.list_sync_configurations_input.ListSyncConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_connections.types.list_sync_configurations_input.ListSyncConfigurationsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["repository_link_id"] = repository_link_id
-        input["sync_type"] = sync_type
+            input_["next_token"] = next_token
+        input_["repository_link_id"] = repository_link_id
+        input_["sync_type"] = sync_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1144,11 +1146,11 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codestar_connections.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1184,12 +1186,12 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_codestar_connections.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1225,12 +1227,12 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codestar_connections.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,15 +1274,15 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.update_host_input.UpdateHostInput = {}  # type: ignore[typeddict-item]
-        input["host_arn"] = host_arn
+        input_: aws_sdk_codestar_connections.types.update_host_input.UpdateHostInput = {}  # type: ignore[typeddict-item]
+        input_["host_arn"] = host_arn
         if provider_endpoint is not None:
-            input["provider_endpoint"] = provider_endpoint
+            input_["provider_endpoint"] = provider_endpoint
         if vpc_configuration is not None:
-            input["vpc_configuration"] = vpc_configuration
+            input_["vpc_configuration"] = vpc_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1322,15 +1324,15 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.update_repository_link_input.UpdateRepositoryLinkInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_connections.types.update_repository_link_input.UpdateRepositoryLinkInput = {}  # type: ignore[typeddict-item]
         if connection_arn is not None:
-            input["connection_arn"] = connection_arn
+            input_["connection_arn"] = connection_arn
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
-        input["repository_link_id"] = repository_link_id
+            input_["encryption_key_arn"] = encryption_key_arn
+        input_["repository_link_id"] = repository_link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1370,14 +1372,14 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.update_sync_blocker_input.UpdateSyncBlockerInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["sync_type"] = sync_type
-        input["resource_name"] = resource_name
-        input["resolved_reason"] = resolved_reason
+        input_: aws_sdk_codestar_connections.types.update_sync_blocker_input.UpdateSyncBlockerInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["sync_type"] = sync_type
+        input_["resource_name"] = resource_name
+        input_["resolved_reason"] = resolved_reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1437,24 +1439,24 @@ class AsyncCodeStarconnectionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_connections.types.update_sync_configuration_input.UpdateSyncConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_connections.types.update_sync_configuration_input.UpdateSyncConfigurationInput = {}  # type: ignore[typeddict-item]
         if branch is not None:
-            input["branch"] = branch
+            input_["branch"] = branch
         if config_file is not None:
-            input["config_file"] = config_file
+            input_["config_file"] = config_file
         if repository_link_id is not None:
-            input["repository_link_id"] = repository_link_id
-        input["resource_name"] = resource_name
+            input_["repository_link_id"] = repository_link_id
+        input_["resource_name"] = resource_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
-        input["sync_type"] = sync_type
+            input_["role_arn"] = role_arn
+        input_["sync_type"] = sync_type
         if publish_deployment_status is not None:
-            input["publish_deployment_status"] = publish_deployment_status
+            input_["publish_deployment_status"] = publish_deployment_status
         if trigger_resource_update_on is not None:
-            input["trigger_resource_update_on"] = trigger_resource_update_on
+            input_["trigger_resource_update_on"] = trigger_resource_update_on
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

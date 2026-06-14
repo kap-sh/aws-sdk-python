@@ -90,15 +90,15 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3_control.types.create_job_request.CreateJobRequest,
+    input_: aws_sdk_s3_control.types.create_job_request.CreateJobRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
             Endpoint=options.endpoint,
-            AccountId=input.get("account_id"),
+            AccountId=input_.get("account_id"),
             RequiresAccountId=True,
             OutpostId=options.outpost_id,
             Bucket=options.bucket,
@@ -107,52 +107,54 @@ def build_request(
             ResourceArn=options.resource_arn,
             UseS3ExpressControlEndpoint=options.use_s3_express_control_endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v20180820/jobs"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "account_id" in input:
-        headers["x-amz-account-id"] = str(input["account_id"])
+    if "account_id" in input_:
+        headers["x-amz-account-id"] = str(input_["account_id"])
     root = Element("CreateJobRequest")
-    if "confirmation_required" in input:
+    if "confirmation_required" in input_:
         SubElement(root, "ConfirmationRequired").text = str(
-            input["confirmation_required"]
+            input_["confirmation_required"]
         )
-    if "operation" in input:
+    if "operation" in input_:
         import aws_sdk_s3_control.types.job_operation
 
         aws_sdk_s3_control.types.job_operation.serialize_xml(
-            input["operation"], root, "Operation"
+            input_["operation"], root, "Operation"
         )
-    if "report" in input:
+    if "report" in input_:
         import aws_sdk_s3_control.types.job_report
 
         aws_sdk_s3_control.types.job_report.serialize_xml(
-            input["report"], root, "Report"
+            input_["report"], root, "Report"
         )
-    if "client_request_token" in input:
-        SubElement(root, "ClientRequestToken").text = str(input["client_request_token"])
-    if "manifest" in input:
+    if "client_request_token" in input_:
+        SubElement(root, "ClientRequestToken").text = str(
+            input_["client_request_token"]
+        )
+    if "manifest" in input_:
         import aws_sdk_s3_control.types.job_manifest
 
         aws_sdk_s3_control.types.job_manifest.serialize_xml(
-            input["manifest"], root, "Manifest"
+            input_["manifest"], root, "Manifest"
         )
-    if "description" in input:
-        SubElement(root, "Description").text = str(input["description"])
-    if "priority" in input:
-        SubElement(root, "Priority").text = str(input["priority"])
-    if "role_arn" in input:
-        SubElement(root, "RoleArn").text = str(input["role_arn"])
-    if "tags" in input:
+    if "description" in input_:
+        SubElement(root, "Description").text = str(input_["description"])
+    if "priority" in input_:
+        SubElement(root, "Priority").text = str(input_["priority"])
+    if "role_arn" in input_:
+        SubElement(root, "RoleArn").text = str(input_["role_arn"])
+    if "tags" in input_:
         import aws_sdk_s3_control.types.s3_tag_set
 
-        aws_sdk_s3_control.types.s3_tag_set.serialize_xml(input["tags"], root, "Tags")
-    if "manifest_generator" in input:
+        aws_sdk_s3_control.types.s3_tag_set.serialize_xml(input_["tags"], root, "Tags")
+    if "manifest_generator" in input_:
         import aws_sdk_s3_control.types.job_manifest_generator
 
         aws_sdk_s3_control.types.job_manifest_generator.serialize_xml(
-            input["manifest_generator"], root, "ManifestGenerator"
+            input_["manifest_generator"], root, "ManifestGenerator"
         )
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
@@ -160,23 +162,20 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def create_job(
     options: OperationOptions,
-    input: aws_sdk_s3_control.types.create_job_request.CreateJobRequest,
+    input_: aws_sdk_s3_control.types.create_job_request.CreateJobRequest,
 ) -> tuple[aws_sdk_s3_control.types.create_job_result.CreateJobResult, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -185,13 +184,14 @@ def create_job(
 
 async def async_create_job(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3_control.types.create_job_request.CreateJobRequest,
+    input_: aws_sdk_s3_control.types.create_job_request.CreateJobRequest,
 ) -> tuple[aws_sdk_s3_control.types.create_job_result.CreateJobResult, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_notifications._auth._signers
@@ -65,13 +66,13 @@ class NotificationEventResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_notification_event_request.GetNotificationEventRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.get_notification_event_request.GetNotificationEventRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,28 +125,30 @@ class NotificationEventResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_notification_events_request.ListNotificationEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.list_notification_events_request.ListNotificationEventsRequest = {}  # type: ignore[typeddict-item]
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if include_child_events is not None:
-            input["include_child_events"] = include_child_events
+            input_["include_child_events"] = include_child_events
         if aggregate_notification_event_arn is not None:
-            input["aggregate_notification_event_arn"] = aggregate_notification_event_arn
+            input_["aggregate_notification_event_arn"] = (
+                aggregate_notification_event_arn
+            )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if organizational_unit_id is not None:
-            input["organizational_unit_id"] = organizational_unit_id
+            input_["organizational_unit_id"] = organizational_unit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -186,13 +189,13 @@ class AsyncNotificationEventResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_notification_event_request.GetNotificationEventRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.get_notification_event_request.GetNotificationEventRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,28 +249,30 @@ class AsyncNotificationEventResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_notification_events_request.ListNotificationEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.list_notification_events_request.ListNotificationEventsRequest = {}  # type: ignore[typeddict-item]
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if include_child_events is not None:
-            input["include_child_events"] = include_child_events
+            input_["include_child_events"] = include_child_events
         if aggregate_notification_event_arn is not None:
-            input["aggregate_notification_event_arn"] = aggregate_notification_event_arn
+            input_["aggregate_notification_event_arn"] = (
+                aggregate_notification_event_arn
+            )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if organizational_unit_id is not None:
-            input["organizational_unit_id"] = organizational_unit_id
+            input_["organizational_unit_id"] = organizational_unit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

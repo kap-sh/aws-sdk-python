@@ -52,10 +52,10 @@ class KmsKeyAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_default_encryption_configuration_request.GetDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.get_default_encryption_configuration_request.GetDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -92,13 +92,13 @@ class KmsKeyAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.put_default_encryption_configuration_request.PutDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["encryption_type"] = encryption_type
+        input_: aws_sdk_iot_managed_integrations.types.put_default_encryption_configuration_request.PutDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["encryption_type"] = encryption_type
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,10 +132,10 @@ class AsyncKmsKeyAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_default_encryption_configuration_request.GetDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.get_default_encryption_configuration_request.GetDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -173,13 +173,13 @@ class AsyncKmsKeyAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.put_default_encryption_configuration_request.PutDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["encryption_type"] = encryption_type
+        input_: aws_sdk_iot_managed_integrations.types.put_default_encryption_configuration_request.PutDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["encryption_type"] = encryption_type
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

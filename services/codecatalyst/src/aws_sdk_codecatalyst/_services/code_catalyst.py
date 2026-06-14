@@ -14,6 +14,8 @@ from aws_sdk_codecatalyst._auth._providers import (
     StaticBearerTokenProvider,
 )
 from aws_sdk_codecatalyst._auth._zapros_handler import AuthMiddleware
+from aws_sdk_codecatalyst._resources.code_catalyst.access_token import AccessToken
+from aws_sdk_codecatalyst._resources.code_catalyst.space import Space
 from aws_sdk_codecatalyst._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -95,6 +97,9 @@ class CodeCatalystClient:
                 "bearer_provider": bearer_provider,
             }
         )
+        # resources
+        self.access_token = AccessToken(self)
+        self.space = Space(self)
 
     def operation_options(
         self, config_overrides: Optional[CodeCatalystClientConfig] = None
@@ -150,14 +155,14 @@ class CodeCatalystClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecatalyst.types.get_user_details_request.GetUserDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codecatalyst.types.get_user_details_request.GetUserDetailsRequest = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

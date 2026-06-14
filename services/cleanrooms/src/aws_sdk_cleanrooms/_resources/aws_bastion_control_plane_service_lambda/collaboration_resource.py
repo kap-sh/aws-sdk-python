@@ -189,36 +189,36 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_collaboration_input.CreateCollaborationInput = {}  # type: ignore[typeddict-item]
-        input["members"] = members
-        input["name"] = name
-        input["description"] = description
-        input["creator_member_abilities"] = creator_member_abilities
+        input_: aws_sdk_cleanrooms.types.create_collaboration_input.CreateCollaborationInput = {}  # type: ignore[typeddict-item]
+        input_["members"] = members
+        input_["name"] = name
+        input_["description"] = description
+        input_["creator_member_abilities"] = creator_member_abilities
         if creator_ml_member_abilities is not None:
-            input["creator_ml_member_abilities"] = creator_ml_member_abilities
-        input["creator_display_name"] = creator_display_name
+            input_["creator_ml_member_abilities"] = creator_ml_member_abilities
+        input_["creator_display_name"] = creator_display_name
         if data_encryption_metadata is not None:
-            input["data_encryption_metadata"] = data_encryption_metadata
-        input["query_log_status"] = query_log_status
+            input_["data_encryption_metadata"] = data_encryption_metadata
+        input_["query_log_status"] = query_log_status
         if job_log_status is not None:
-            input["job_log_status"] = job_log_status
+            input_["job_log_status"] = job_log_status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if creator_payment_configuration is not None:
-            input["creator_payment_configuration"] = creator_payment_configuration
+            input_["creator_payment_configuration"] = creator_payment_configuration
         if analytics_engine is not None:
-            input["analytics_engine"] = analytics_engine
+            input_["analytics_engine"] = analytics_engine
         if auto_approved_change_request_types is not None:
-            input["auto_approved_change_request_types"] = (
+            input_["auto_approved_change_request_types"] = (
                 auto_approved_change_request_types
             )
         if allowed_result_regions is not None:
-            input["allowed_result_regions"] = allowed_result_regions
+            input_["allowed_result_regions"] = allowed_result_regions
         if is_metrics_enabled is not None:
-            input["is_metrics_enabled"] = is_metrics_enabled
+            input_["is_metrics_enabled"] = is_metrics_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,11 +251,11 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_input.GetCollaborationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.get_collaboration_input.GetCollaborationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,17 +302,17 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_collaboration_input.UpdateCollaborationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.update_collaboration_input.UpdateCollaborationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if analytics_engine is not None:
-            input["analytics_engine"] = analytics_engine
+            input_["analytics_engine"] = analytics_engine
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,11 +347,11 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_collaboration_input.DeleteCollaborationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.delete_collaboration_input.DeleteCollaborationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,16 +392,16 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaborations_input.ListCollaborationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanrooms.types.list_collaborations_input.ListCollaborationsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if member_status is not None:
-            input["member_status"] = member_status
+            input_["member_status"] = member_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,12 +436,12 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.batch_get_collaboration_analysis_template_input.BatchGetCollaborationAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["analysis_template_arns"] = analysis_template_arns
+        input_: aws_sdk_cleanrooms.types.batch_get_collaboration_analysis_template_input.BatchGetCollaborationAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["analysis_template_arns"] = analysis_template_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,12 +476,12 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.batch_get_schema_input.BatchGetSchemaInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["names"] = names
+        input_: aws_sdk_cleanrooms.types.batch_get_schema_input.BatchGetSchemaInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["names"] = names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,12 +516,12 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.batch_get_schema_analysis_rule_input.BatchGetSchemaAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["schema_analysis_rule_requests"] = schema_analysis_rule_requests
+        input_: aws_sdk_cleanrooms.types.batch_get_schema_analysis_rule_input.BatchGetSchemaAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["schema_analysis_rule_requests"] = schema_analysis_rule_requests
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -556,12 +556,12 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_collaboration_change_request_input.CreateCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["changes"] = changes
+        input_: aws_sdk_cleanrooms.types.create_collaboration_change_request_input.CreateCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["changes"] = changes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -596,12 +596,12 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_member_input.DeleteMemberInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["account_id"] = account_id
+        input_: aws_sdk_cleanrooms.types.delete_member_input.DeleteMemberInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,12 +636,12 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_analysis_template_input.GetCollaborationAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["analysis_template_arn"] = analysis_template_arn
+        input_: aws_sdk_cleanrooms.types.get_collaboration_analysis_template_input.GetCollaborationAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["analysis_template_arn"] = analysis_template_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -676,12 +676,12 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_change_request_input.GetCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["change_request_identifier"] = change_request_identifier
+        input_: aws_sdk_cleanrooms.types.get_collaboration_change_request_input.GetCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["change_request_identifier"] = change_request_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -716,14 +716,14 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_configured_audience_model_association_input.GetCollaborationConfiguredAudienceModelAssociationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["configured_audience_model_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_collaboration_configured_audience_model_association_input.GetCollaborationConfiguredAudienceModelAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["configured_audience_model_association_identifier"] = (
             configured_audience_model_association_identifier
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -758,14 +758,14 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_id_namespace_association_input.GetCollaborationIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["id_namespace_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_collaboration_id_namespace_association_input.GetCollaborationIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["id_namespace_association_identifier"] = (
             id_namespace_association_identifier
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -800,12 +800,14 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_privacy_budget_template_input.GetCollaborationPrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["privacy_budget_template_identifier"] = privacy_budget_template_identifier
+        input_: aws_sdk_cleanrooms.types.get_collaboration_privacy_budget_template_input.GetCollaborationPrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["privacy_budget_template_identifier"] = (
+            privacy_budget_template_identifier
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,12 +842,12 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_schema_input.GetSchemaInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["name"] = name
+        input_: aws_sdk_cleanrooms.types.get_schema_input.GetSchemaInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -882,13 +884,13 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_schema_analysis_rule_input.GetSchemaAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_cleanrooms.types.get_schema_analysis_rule_input.GetSchemaAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["name"] = name
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -927,15 +929,15 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_analysis_templates_input.ListCollaborationAnalysisTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_analysis_templates_input.ListCollaborationAnalysisTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -978,17 +980,17 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_change_requests_input.ListCollaborationChangeRequestsInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_change_requests_input.ListCollaborationChangeRequestsInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1027,15 +1029,15 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_configured_audience_model_associations_input.ListCollaborationConfiguredAudienceModelAssociationsInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_configured_audience_model_associations_input.ListCollaborationConfiguredAudienceModelAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1074,15 +1076,15 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_id_namespace_associations_input.ListCollaborationIdNamespaceAssociationsInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_id_namespace_associations_input.ListCollaborationIdNamespaceAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1127,18 +1129,18 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_privacy_budgets_input.ListCollaborationPrivacyBudgetsInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["privacy_budget_type"] = privacy_budget_type
+        input_: aws_sdk_cleanrooms.types.list_collaboration_privacy_budgets_input.ListCollaborationPrivacyBudgetsInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["privacy_budget_type"] = privacy_budget_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if access_budget_resource_arn is not None:
-            input["access_budget_resource_arn"] = access_budget_resource_arn
+            input_["access_budget_resource_arn"] = access_budget_resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1177,15 +1179,15 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_privacy_budget_templates_input.ListCollaborationPrivacyBudgetTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_privacy_budget_templates_input.ListCollaborationPrivacyBudgetTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1224,15 +1226,15 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_members_input.ListMembersInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_members_input.ListMembersInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1273,17 +1275,17 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_schemas_input.ListSchemasInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_schemas_input.ListSchemasInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if schema_type is not None:
-            input["schema_type"] = schema_type
+            input_["schema_type"] = schema_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1320,13 +1322,13 @@ class CollaborationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_collaboration_change_request_input.UpdateCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["change_request_identifier"] = change_request_identifier
-        input["action"] = action
+        input_: aws_sdk_cleanrooms.types.update_collaboration_change_request_input.UpdateCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["change_request_identifier"] = change_request_identifier
+        input_["action"] = action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1409,36 +1411,36 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_collaboration_input.CreateCollaborationInput = {}  # type: ignore[typeddict-item]
-        input["members"] = members
-        input["name"] = name
-        input["description"] = description
-        input["creator_member_abilities"] = creator_member_abilities
+        input_: aws_sdk_cleanrooms.types.create_collaboration_input.CreateCollaborationInput = {}  # type: ignore[typeddict-item]
+        input_["members"] = members
+        input_["name"] = name
+        input_["description"] = description
+        input_["creator_member_abilities"] = creator_member_abilities
         if creator_ml_member_abilities is not None:
-            input["creator_ml_member_abilities"] = creator_ml_member_abilities
-        input["creator_display_name"] = creator_display_name
+            input_["creator_ml_member_abilities"] = creator_ml_member_abilities
+        input_["creator_display_name"] = creator_display_name
         if data_encryption_metadata is not None:
-            input["data_encryption_metadata"] = data_encryption_metadata
-        input["query_log_status"] = query_log_status
+            input_["data_encryption_metadata"] = data_encryption_metadata
+        input_["query_log_status"] = query_log_status
         if job_log_status is not None:
-            input["job_log_status"] = job_log_status
+            input_["job_log_status"] = job_log_status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if creator_payment_configuration is not None:
-            input["creator_payment_configuration"] = creator_payment_configuration
+            input_["creator_payment_configuration"] = creator_payment_configuration
         if analytics_engine is not None:
-            input["analytics_engine"] = analytics_engine
+            input_["analytics_engine"] = analytics_engine
         if auto_approved_change_request_types is not None:
-            input["auto_approved_change_request_types"] = (
+            input_["auto_approved_change_request_types"] = (
                 auto_approved_change_request_types
             )
         if allowed_result_regions is not None:
-            input["allowed_result_regions"] = allowed_result_regions
+            input_["allowed_result_regions"] = allowed_result_regions
         if is_metrics_enabled is not None:
-            input["is_metrics_enabled"] = is_metrics_enabled
+            input_["is_metrics_enabled"] = is_metrics_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1472,11 +1474,11 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_input.GetCollaborationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.get_collaboration_input.GetCollaborationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1524,17 +1526,17 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_collaboration_input.UpdateCollaborationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.update_collaboration_input.UpdateCollaborationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if analytics_engine is not None:
-            input["analytics_engine"] = analytics_engine
+            input_["analytics_engine"] = analytics_engine
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1570,11 +1572,11 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_collaboration_input.DeleteCollaborationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.delete_collaboration_input.DeleteCollaborationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1616,16 +1618,16 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaborations_input.ListCollaborationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanrooms.types.list_collaborations_input.ListCollaborationsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if member_status is not None:
-            input["member_status"] = member_status
+            input_["member_status"] = member_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1661,12 +1663,12 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.batch_get_collaboration_analysis_template_input.BatchGetCollaborationAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["analysis_template_arns"] = analysis_template_arns
+        input_: aws_sdk_cleanrooms.types.batch_get_collaboration_analysis_template_input.BatchGetCollaborationAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["analysis_template_arns"] = analysis_template_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1702,12 +1704,12 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.batch_get_schema_input.BatchGetSchemaInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["names"] = names
+        input_: aws_sdk_cleanrooms.types.batch_get_schema_input.BatchGetSchemaInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["names"] = names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,12 +1745,12 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.batch_get_schema_analysis_rule_input.BatchGetSchemaAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["schema_analysis_rule_requests"] = schema_analysis_rule_requests
+        input_: aws_sdk_cleanrooms.types.batch_get_schema_analysis_rule_input.BatchGetSchemaAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["schema_analysis_rule_requests"] = schema_analysis_rule_requests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1784,12 +1786,12 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_collaboration_change_request_input.CreateCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["changes"] = changes
+        input_: aws_sdk_cleanrooms.types.create_collaboration_change_request_input.CreateCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["changes"] = changes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1825,12 +1827,12 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_member_input.DeleteMemberInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["account_id"] = account_id
+        input_: aws_sdk_cleanrooms.types.delete_member_input.DeleteMemberInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1866,12 +1868,12 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_analysis_template_input.GetCollaborationAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["analysis_template_arn"] = analysis_template_arn
+        input_: aws_sdk_cleanrooms.types.get_collaboration_analysis_template_input.GetCollaborationAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["analysis_template_arn"] = analysis_template_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1907,12 +1909,12 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_change_request_input.GetCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["change_request_identifier"] = change_request_identifier
+        input_: aws_sdk_cleanrooms.types.get_collaboration_change_request_input.GetCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["change_request_identifier"] = change_request_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1948,14 +1950,14 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_configured_audience_model_association_input.GetCollaborationConfiguredAudienceModelAssociationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["configured_audience_model_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_collaboration_configured_audience_model_association_input.GetCollaborationConfiguredAudienceModelAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["configured_audience_model_association_identifier"] = (
             configured_audience_model_association_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1991,14 +1993,14 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_id_namespace_association_input.GetCollaborationIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["id_namespace_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_collaboration_id_namespace_association_input.GetCollaborationIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["id_namespace_association_identifier"] = (
             id_namespace_association_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2034,12 +2036,14 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_collaboration_privacy_budget_template_input.GetCollaborationPrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["privacy_budget_template_identifier"] = privacy_budget_template_identifier
+        input_: aws_sdk_cleanrooms.types.get_collaboration_privacy_budget_template_input.GetCollaborationPrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["privacy_budget_template_identifier"] = (
+            privacy_budget_template_identifier
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2075,12 +2079,12 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_schema_input.GetSchemaInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["name"] = name
+        input_: aws_sdk_cleanrooms.types.get_schema_input.GetSchemaInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2118,13 +2122,13 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_schema_analysis_rule_input.GetSchemaAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_cleanrooms.types.get_schema_analysis_rule_input.GetSchemaAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["name"] = name
+        input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2164,15 +2168,15 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_analysis_templates_input.ListCollaborationAnalysisTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_analysis_templates_input.ListCollaborationAnalysisTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2216,17 +2220,17 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_change_requests_input.ListCollaborationChangeRequestsInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_change_requests_input.ListCollaborationChangeRequestsInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2266,15 +2270,15 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_configured_audience_model_associations_input.ListCollaborationConfiguredAudienceModelAssociationsInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_configured_audience_model_associations_input.ListCollaborationConfiguredAudienceModelAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2314,15 +2318,15 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_id_namespace_associations_input.ListCollaborationIdNamespaceAssociationsInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_id_namespace_associations_input.ListCollaborationIdNamespaceAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2368,18 +2372,18 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_privacy_budgets_input.ListCollaborationPrivacyBudgetsInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["privacy_budget_type"] = privacy_budget_type
+        input_: aws_sdk_cleanrooms.types.list_collaboration_privacy_budgets_input.ListCollaborationPrivacyBudgetsInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["privacy_budget_type"] = privacy_budget_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if access_budget_resource_arn is not None:
-            input["access_budget_resource_arn"] = access_budget_resource_arn
+            input_["access_budget_resource_arn"] = access_budget_resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2419,15 +2423,15 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_collaboration_privacy_budget_templates_input.ListCollaborationPrivacyBudgetTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_collaboration_privacy_budget_templates_input.ListCollaborationPrivacyBudgetTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2467,15 +2471,15 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_members_input.ListMembersInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_members_input.ListMembersInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2517,17 +2521,17 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_schemas_input.ListSchemasInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanrooms.types.list_schemas_input.ListSchemasInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
         if schema_type is not None:
-            input["schema_type"] = schema_type
+            input_["schema_type"] = schema_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2565,13 +2569,13 @@ class AsyncCollaborationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_collaboration_change_request_input.UpdateCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
-        input["collaboration_identifier"] = collaboration_identifier
-        input["change_request_identifier"] = change_request_identifier
-        input["action"] = action
+        input_: aws_sdk_cleanrooms.types.update_collaboration_change_request_input.UpdateCollaborationChangeRequestInput = {}  # type: ignore[typeddict-item]
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["change_request_identifier"] = change_request_identifier
+        input_["action"] = action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

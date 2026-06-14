@@ -90,26 +90,26 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest,
+    input_: aws_sdk_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/hostedzone/{HostedZoneId}/rrset"
-    url = url.replace("{HostedZoneId}", quote(str(input["hosted_zone_id"]), safe=""))
+    url = url.replace("{HostedZoneId}", quote(str(input_["hosted_zone_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("ChangeResourceRecordSetsRequest")
-    if "change_batch" in input:
+    if "change_batch" in input_:
         import aws_sdk_route_53.types.change_batch
 
         aws_sdk_route_53.types.change_batch.serialize_xml(
-            input["change_batch"], root, "ChangeBatch"
+            input_["change_batch"], root, "ChangeBatch"
         )
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
@@ -117,26 +117,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def change_resource_record_sets(
     options: OperationOptions,
-    input: aws_sdk_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest,
+    input_: aws_sdk_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest,
 ) -> tuple[
     aws_sdk_route_53.types.change_resource_record_sets_response.ChangeResourceRecordSetsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -145,16 +142,17 @@ def change_resource_record_sets(
 
 async def async_change_resource_record_sets(
     options: AsyncOperationOptions,
-    input: aws_sdk_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest,
+    input_: aws_sdk_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest,
 ) -> tuple[
     aws_sdk_route_53.types.change_resource_record_sets_response.ChangeResourceRecordSetsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_forecast._auth._signers
+import aws_sdk_forecast._auth._sigv4
 from aws_sdk_forecast._auth._identity import Credentials
 from aws_sdk_forecast._auth._providers import (
     CredentialsProvider,
@@ -358,35 +360,35 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_auto_predictor_request.CreateAutoPredictorRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_name"] = predictor_name
+        input_: aws_sdk_forecast.types.create_auto_predictor_request.CreateAutoPredictorRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_name"] = predictor_name
         if forecast_horizon is not None:
-            input["forecast_horizon"] = forecast_horizon
+            input_["forecast_horizon"] = forecast_horizon
         if forecast_types is not None:
-            input["forecast_types"] = forecast_types
+            input_["forecast_types"] = forecast_types
         if forecast_dimensions is not None:
-            input["forecast_dimensions"] = forecast_dimensions
+            input_["forecast_dimensions"] = forecast_dimensions
         if forecast_frequency is not None:
-            input["forecast_frequency"] = forecast_frequency
+            input_["forecast_frequency"] = forecast_frequency
         if data_config is not None:
-            input["data_config"] = data_config
+            input_["data_config"] = data_config
         if encryption_config is not None:
-            input["encryption_config"] = encryption_config
+            input_["encryption_config"] = encryption_config
         if reference_predictor_arn is not None:
-            input["reference_predictor_arn"] = reference_predictor_arn
+            input_["reference_predictor_arn"] = reference_predictor_arn
         if optimization_metric is not None:
-            input["optimization_metric"] = optimization_metric
+            input_["optimization_metric"] = optimization_metric
         if explain_predictor is not None:
-            input["explain_predictor"] = explain_predictor
+            input_["explain_predictor"] = explain_predictor
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if monitor_config is not None:
-            input["monitor_config"] = monitor_config
+            input_["monitor_config"] = monitor_config
         if time_alignment_boundary is not None:
-            input["time_alignment_boundary"] = time_alignment_boundary
+            input_["time_alignment_boundary"] = time_alignment_boundary
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,20 +436,20 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_name"] = dataset_name
-        input["domain"] = domain
-        input["dataset_type"] = dataset_type
+        input_: aws_sdk_forecast.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_name"] = dataset_name
+        input_["domain"] = domain
+        input_["dataset_type"] = dataset_type
         if data_frequency is not None:
-            input["data_frequency"] = data_frequency
-        input["schema"] = schema
+            input_["data_frequency"] = data_frequency
+        input_["schema"] = schema
         if encryption_config is not None:
-            input["encryption_config"] = encryption_config
+            input_["encryption_config"] = encryption_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,16 +489,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_dataset_group_request.CreateDatasetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_group_name"] = dataset_group_name
-        input["domain"] = domain
+        input_: aws_sdk_forecast.types.create_dataset_group_request.CreateDatasetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_group_name"] = dataset_group_name
+        input_["domain"] = domain
         if dataset_arns is not None:
-            input["dataset_arns"] = dataset_arns
+            input_["dataset_arns"] = dataset_arns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,27 +556,27 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_dataset_import_job_request.CreateDatasetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_import_job_name"] = dataset_import_job_name
-        input["dataset_arn"] = dataset_arn
-        input["data_source"] = data_source
+        input_: aws_sdk_forecast.types.create_dataset_import_job_request.CreateDatasetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_import_job_name"] = dataset_import_job_name
+        input_["dataset_arn"] = dataset_arn
+        input_["data_source"] = data_source
         if timestamp_format is not None:
-            input["timestamp_format"] = timestamp_format
+            input_["timestamp_format"] = timestamp_format
         if time_zone is not None:
-            input["time_zone"] = time_zone
+            input_["time_zone"] = time_zone
         if use_geolocation_for_time_zone is not None:
-            input["use_geolocation_for_time_zone"] = use_geolocation_for_time_zone
+            input_["use_geolocation_for_time_zone"] = use_geolocation_for_time_zone
         if geolocation_format is not None:
-            input["geolocation_format"] = geolocation_format
+            input_["geolocation_format"] = geolocation_format
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if import_mode is not None:
-            input["import_mode"] = import_mode
+            input_["import_mode"] = import_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -626,25 +628,25 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_explainability_request.CreateExplainabilityRequest = {}  # type: ignore[typeddict-item]
-        input["explainability_name"] = explainability_name
-        input["resource_arn"] = resource_arn
-        input["explainability_config"] = explainability_config
+        input_: aws_sdk_forecast.types.create_explainability_request.CreateExplainabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["explainability_name"] = explainability_name
+        input_["resource_arn"] = resource_arn
+        input_["explainability_config"] = explainability_config
         if data_source is not None:
-            input["data_source"] = data_source
+            input_["data_source"] = data_source
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
         if enable_visualization is not None:
-            input["enable_visualization"] = enable_visualization
+            input_["enable_visualization"] = enable_visualization
         if start_date_time is not None:
-            input["start_date_time"] = start_date_time
+            input_["start_date_time"] = start_date_time
         if end_date_time is not None:
-            input["end_date_time"] = end_date_time
+            input_["end_date_time"] = end_date_time
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -685,17 +687,17 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_explainability_export_request.CreateExplainabilityExportRequest = {}  # type: ignore[typeddict-item]
-        input["explainability_export_name"] = explainability_export_name
-        input["explainability_arn"] = explainability_arn
-        input["destination"] = destination
+        input_: aws_sdk_forecast.types.create_explainability_export_request.CreateExplainabilityExportRequest = {}  # type: ignore[typeddict-item]
+        input_["explainability_export_name"] = explainability_export_name
+        input_["explainability_arn"] = explainability_arn
+        input_["destination"] = destination
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -741,18 +743,18 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_forecast_request.CreateForecastRequest = {}  # type: ignore[typeddict-item]
-        input["forecast_name"] = forecast_name
-        input["predictor_arn"] = predictor_arn
+        input_: aws_sdk_forecast.types.create_forecast_request.CreateForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["forecast_name"] = forecast_name
+        input_["predictor_arn"] = predictor_arn
         if forecast_types is not None:
-            input["forecast_types"] = forecast_types
+            input_["forecast_types"] = forecast_types
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if time_series_selector is not None:
-            input["time_series_selector"] = time_series_selector
+            input_["time_series_selector"] = time_series_selector
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,17 +796,17 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_forecast_export_job_request.CreateForecastExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["forecast_export_job_name"] = forecast_export_job_name
-        input["forecast_arn"] = forecast_arn
-        input["destination"] = destination
+        input_: aws_sdk_forecast.types.create_forecast_export_job_request.CreateForecastExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["forecast_export_job_name"] = forecast_export_job_name
+        input_["forecast_arn"] = forecast_arn
+        input_["destination"] = destination
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -842,14 +844,14 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_monitor_request.CreateMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_forecast.types.create_monitor_request.CreateMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["resource_arn"] = resource_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -925,36 +927,36 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_predictor_request.CreatePredictorRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_name"] = predictor_name
+        input_: aws_sdk_forecast.types.create_predictor_request.CreatePredictorRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_name"] = predictor_name
         if algorithm_arn is not None:
-            input["algorithm_arn"] = algorithm_arn
-        input["forecast_horizon"] = forecast_horizon
+            input_["algorithm_arn"] = algorithm_arn
+        input_["forecast_horizon"] = forecast_horizon
         if forecast_types is not None:
-            input["forecast_types"] = forecast_types
+            input_["forecast_types"] = forecast_types
         if perform_auto_ml is not None:
-            input["perform_auto_ml"] = perform_auto_ml
+            input_["perform_auto_ml"] = perform_auto_ml
         if auto_ml_override_strategy is not None:
-            input["auto_ml_override_strategy"] = auto_ml_override_strategy
+            input_["auto_ml_override_strategy"] = auto_ml_override_strategy
         if perform_hpo is not None:
-            input["perform_hpo"] = perform_hpo
+            input_["perform_hpo"] = perform_hpo
         if training_parameters is not None:
-            input["training_parameters"] = training_parameters
+            input_["training_parameters"] = training_parameters
         if evaluation_parameters is not None:
-            input["evaluation_parameters"] = evaluation_parameters
+            input_["evaluation_parameters"] = evaluation_parameters
         if hpo_config is not None:
-            input["hpo_config"] = hpo_config
-        input["input_data_config"] = input_data_config
-        input["featurization_config"] = featurization_config
+            input_["hpo_config"] = hpo_config
+        input_["input_data_config"] = input_data_config
+        input_["featurization_config"] = featurization_config
         if encryption_config is not None:
-            input["encryption_config"] = encryption_config
+            input_["encryption_config"] = encryption_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if optimization_metric is not None:
-            input["optimization_metric"] = optimization_metric
+            input_["optimization_metric"] = optimization_metric
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -995,17 +997,19 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_predictor_backtest_export_job_request.CreatePredictorBacktestExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_backtest_export_job_name"] = predictor_backtest_export_job_name
-        input["predictor_arn"] = predictor_arn
-        input["destination"] = destination
+        input_: aws_sdk_forecast.types.create_predictor_backtest_export_job_request.CreatePredictorBacktestExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_backtest_export_job_name"] = (
+            predictor_backtest_export_job_name
+        )
+        input_["predictor_arn"] = predictor_arn
+        input_["destination"] = destination
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1047,16 +1051,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_what_if_analysis_request.CreateWhatIfAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_analysis_name"] = what_if_analysis_name
-        input["forecast_arn"] = forecast_arn
+        input_: aws_sdk_forecast.types.create_what_if_analysis_request.CreateWhatIfAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_analysis_name"] = what_if_analysis_name
+        input_["forecast_arn"] = forecast_arn
         if time_series_selector is not None:
-            input["time_series_selector"] = time_series_selector
+            input_["time_series_selector"] = time_series_selector
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1102,20 +1106,20 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_what_if_forecast_request.CreateWhatIfForecastRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_forecast_name"] = what_if_forecast_name
-        input["what_if_analysis_arn"] = what_if_analysis_arn
+        input_: aws_sdk_forecast.types.create_what_if_forecast_request.CreateWhatIfForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_forecast_name"] = what_if_forecast_name
+        input_["what_if_analysis_arn"] = what_if_analysis_arn
         if time_series_transformations is not None:
-            input["time_series_transformations"] = time_series_transformations
+            input_["time_series_transformations"] = time_series_transformations
         if time_series_replacements_data_source is not None:
-            input["time_series_replacements_data_source"] = (
+            input_["time_series_replacements_data_source"] = (
                 time_series_replacements_data_source
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1157,17 +1161,17 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.create_what_if_forecast_export_request.CreateWhatIfForecastExportRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_forecast_export_name"] = what_if_forecast_export_name
-        input["what_if_forecast_arns"] = what_if_forecast_arns
-        input["destination"] = destination
+        input_: aws_sdk_forecast.types.create_what_if_forecast_export_request.CreateWhatIfForecastExportRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_forecast_export_name"] = what_if_forecast_export_name
+        input_["what_if_forecast_arns"] = what_if_forecast_arns
+        input_["destination"] = destination
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1199,11 +1203,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
+        input_: aws_sdk_forecast.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1235,11 +1239,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_dataset_group_request.DeleteDatasetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_group_arn"] = dataset_group_arn
+        input_: aws_sdk_forecast.types.delete_dataset_group_request.DeleteDatasetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_group_arn"] = dataset_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1271,11 +1275,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_dataset_import_job_request.DeleteDatasetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_import_job_arn"] = dataset_import_job_arn
+        input_: aws_sdk_forecast.types.delete_dataset_import_job_request.DeleteDatasetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_import_job_arn"] = dataset_import_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1307,11 +1311,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_explainability_request.DeleteExplainabilityRequest = {}  # type: ignore[typeddict-item]
-        input["explainability_arn"] = explainability_arn
+        input_: aws_sdk_forecast.types.delete_explainability_request.DeleteExplainabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["explainability_arn"] = explainability_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1343,11 +1347,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_explainability_export_request.DeleteExplainabilityExportRequest = {}  # type: ignore[typeddict-item]
-        input["explainability_export_arn"] = explainability_export_arn
+        input_: aws_sdk_forecast.types.delete_explainability_export_request.DeleteExplainabilityExportRequest = {}  # type: ignore[typeddict-item]
+        input_["explainability_export_arn"] = explainability_export_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1379,11 +1383,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_forecast_request.DeleteForecastRequest = {}  # type: ignore[typeddict-item]
-        input["forecast_arn"] = forecast_arn
+        input_: aws_sdk_forecast.types.delete_forecast_request.DeleteForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["forecast_arn"] = forecast_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1415,11 +1419,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_forecast_export_job_request.DeleteForecastExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["forecast_export_job_arn"] = forecast_export_job_arn
+        input_: aws_sdk_forecast.types.delete_forecast_export_job_request.DeleteForecastExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["forecast_export_job_arn"] = forecast_export_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1451,11 +1455,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_monitor_request.DeleteMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_arn"] = monitor_arn
+        input_: aws_sdk_forecast.types.delete_monitor_request.DeleteMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_arn"] = monitor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,11 +1491,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_predictor_request.DeletePredictorRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_arn"] = predictor_arn
+        input_: aws_sdk_forecast.types.delete_predictor_request.DeletePredictorRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_arn"] = predictor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1523,11 +1527,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_predictor_backtest_export_job_request.DeletePredictorBacktestExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_backtest_export_job_arn"] = predictor_backtest_export_job_arn
+        input_: aws_sdk_forecast.types.delete_predictor_backtest_export_job_request.DeletePredictorBacktestExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_backtest_export_job_arn"] = predictor_backtest_export_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1559,11 +1563,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_resource_tree_request.DeleteResourceTreeRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_forecast.types.delete_resource_tree_request.DeleteResourceTreeRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1595,11 +1599,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_what_if_analysis_request.DeleteWhatIfAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_analysis_arn"] = what_if_analysis_arn
+        input_: aws_sdk_forecast.types.delete_what_if_analysis_request.DeleteWhatIfAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_analysis_arn"] = what_if_analysis_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1631,11 +1635,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_what_if_forecast_request.DeleteWhatIfForecastRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_forecast_arn"] = what_if_forecast_arn
+        input_: aws_sdk_forecast.types.delete_what_if_forecast_request.DeleteWhatIfForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_forecast_arn"] = what_if_forecast_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1667,11 +1671,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.delete_what_if_forecast_export_request.DeleteWhatIfForecastExportRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_forecast_export_arn"] = what_if_forecast_export_arn
+        input_: aws_sdk_forecast.types.delete_what_if_forecast_export_request.DeleteWhatIfForecastExportRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_forecast_export_arn"] = what_if_forecast_export_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1705,11 +1709,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_auto_predictor_request.DescribeAutoPredictorRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_arn"] = predictor_arn
+        input_: aws_sdk_forecast.types.describe_auto_predictor_request.DescribeAutoPredictorRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_arn"] = predictor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,11 +1747,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
+        input_: aws_sdk_forecast.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1781,11 +1785,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_dataset_group_request.DescribeDatasetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_group_arn"] = dataset_group_arn
+        input_: aws_sdk_forecast.types.describe_dataset_group_request.DescribeDatasetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_group_arn"] = dataset_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1819,11 +1823,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_dataset_import_job_request.DescribeDatasetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_import_job_arn"] = dataset_import_job_arn
+        input_: aws_sdk_forecast.types.describe_dataset_import_job_request.DescribeDatasetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_import_job_arn"] = dataset_import_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1857,11 +1861,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_explainability_request.DescribeExplainabilityRequest = {}  # type: ignore[typeddict-item]
-        input["explainability_arn"] = explainability_arn
+        input_: aws_sdk_forecast.types.describe_explainability_request.DescribeExplainabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["explainability_arn"] = explainability_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1895,11 +1899,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_explainability_export_request.DescribeExplainabilityExportRequest = {}  # type: ignore[typeddict-item]
-        input["explainability_export_arn"] = explainability_export_arn
+        input_: aws_sdk_forecast.types.describe_explainability_export_request.DescribeExplainabilityExportRequest = {}  # type: ignore[typeddict-item]
+        input_["explainability_export_arn"] = explainability_export_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1933,11 +1937,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_forecast_request.DescribeForecastRequest = {}  # type: ignore[typeddict-item]
-        input["forecast_arn"] = forecast_arn
+        input_: aws_sdk_forecast.types.describe_forecast_request.DescribeForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["forecast_arn"] = forecast_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1971,11 +1975,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_forecast_export_job_request.DescribeForecastExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["forecast_export_job_arn"] = forecast_export_job_arn
+        input_: aws_sdk_forecast.types.describe_forecast_export_job_request.DescribeForecastExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["forecast_export_job_arn"] = forecast_export_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2009,11 +2013,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_monitor_request.DescribeMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_arn"] = monitor_arn
+        input_: aws_sdk_forecast.types.describe_monitor_request.DescribeMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_arn"] = monitor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2047,11 +2051,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_predictor_request.DescribePredictorRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_arn"] = predictor_arn
+        input_: aws_sdk_forecast.types.describe_predictor_request.DescribePredictorRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_arn"] = predictor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2085,11 +2089,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_predictor_backtest_export_job_request.DescribePredictorBacktestExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_backtest_export_job_arn"] = predictor_backtest_export_job_arn
+        input_: aws_sdk_forecast.types.describe_predictor_backtest_export_job_request.DescribePredictorBacktestExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_backtest_export_job_arn"] = predictor_backtest_export_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2123,11 +2127,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_what_if_analysis_request.DescribeWhatIfAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_analysis_arn"] = what_if_analysis_arn
+        input_: aws_sdk_forecast.types.describe_what_if_analysis_request.DescribeWhatIfAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_analysis_arn"] = what_if_analysis_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2161,11 +2165,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_what_if_forecast_request.DescribeWhatIfForecastRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_forecast_arn"] = what_if_forecast_arn
+        input_: aws_sdk_forecast.types.describe_what_if_forecast_request.DescribeWhatIfForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_forecast_arn"] = what_if_forecast_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2199,11 +2203,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.describe_what_if_forecast_export_request.DescribeWhatIfForecastExportRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_forecast_export_arn"] = what_if_forecast_export_arn
+        input_: aws_sdk_forecast.types.describe_what_if_forecast_export_request.DescribeWhatIfForecastExportRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_forecast_export_arn"] = what_if_forecast_export_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2237,11 +2241,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.get_accuracy_metrics_request.GetAccuracyMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["predictor_arn"] = predictor_arn
+        input_: aws_sdk_forecast.types.get_accuracy_metrics_request.GetAccuracyMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["predictor_arn"] = predictor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2279,14 +2283,14 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_dataset_groups_request.ListDatasetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_dataset_groups_request.ListDatasetGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2345,16 +2349,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_dataset_import_jobs_request.ListDatasetImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_dataset_import_jobs_request.ListDatasetImportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2413,14 +2417,14 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2479,16 +2483,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_explainabilities_request.ListExplainabilitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_explainabilities_request.ListExplainabilitiesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2549,16 +2553,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_explainability_exports_request.ListExplainabilityExportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_explainability_exports_request.ListExplainabilityExportsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2619,16 +2623,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_forecast_export_jobs_request.ListForecastExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_forecast_export_jobs_request.ListForecastExportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2689,16 +2693,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_forecasts_request.ListForecastsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_forecasts_request.ListForecastsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2761,17 +2765,17 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_monitor_evaluations_request.ListMonitorEvaluationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_monitor_evaluations_request.ListMonitorEvaluationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["monitor_arn"] = monitor_arn
+            input_["max_results"] = max_results
+        input_["monitor_arn"] = monitor_arn
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2834,16 +2838,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_monitors_request.ListMonitorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_monitors_request.ListMonitorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2904,16 +2908,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_predictor_backtest_export_jobs_request.ListPredictorBacktestExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_predictor_backtest_export_jobs_request.ListPredictorBacktestExportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2974,16 +2978,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_predictors_request.ListPredictorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_predictors_request.ListPredictorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3040,11 +3044,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_forecast.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3082,16 +3086,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_what_if_analyses_request.ListWhatIfAnalysesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_what_if_analyses_request.ListWhatIfAnalysesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3152,16 +3156,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_what_if_forecast_exports_request.ListWhatIfForecastExportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_what_if_forecast_exports_request.ListWhatIfForecastExportsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3222,16 +3226,16 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.list_what_if_forecasts_request.ListWhatIfForecastsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_forecast.types.list_what_if_forecasts_request.ListWhatIfForecastsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3286,11 +3290,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.resume_resource_request.ResumeResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_forecast.types.resume_resource_request.ResumeResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3322,11 +3326,11 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.stop_resource_request.StopResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_forecast.types.stop_resource_request.StopResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3362,12 +3366,12 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_forecast.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3403,12 +3407,12 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_forecast.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3444,12 +3448,12 @@ class AsyncforecastClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecast.types.update_dataset_group_request.UpdateDatasetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_group_arn"] = dataset_group_arn
-        input["dataset_arns"] = dataset_arns
+        input_: aws_sdk_forecast.types.update_dataset_group_request.UpdateDatasetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_group_arn"] = dataset_group_arn
+        input_["dataset_arns"] = dataset_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

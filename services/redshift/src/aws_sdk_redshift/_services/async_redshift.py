@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_redshift._auth._signers
+import aws_sdk_redshift._auth._sigv4
 from aws_sdk_redshift._auth._identity import Credentials
 from aws_sdk_redshift._auth._providers import (
     CredentialsProvider,
@@ -501,12 +503,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.accept_reserved_node_exchange_input_message.AcceptReservedNodeExchangeInputMessage = {}  # type: ignore[typeddict-item]
-        input["reserved_node_id"] = reserved_node_id
-        input["target_reserved_node_offering_id"] = target_reserved_node_offering_id
+        input_: aws_sdk_redshift.types.accept_reserved_node_exchange_input_message.AcceptReservedNodeExchangeInputMessage = {}  # type: ignore[typeddict-item]
+        input_["reserved_node_id"] = reserved_node_id
+        input_["target_reserved_node_offering_id"] = target_reserved_node_offering_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,14 +548,14 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.partner_integration_input_message.PartnerIntegrationInputMessage = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["cluster_identifier"] = cluster_identifier
-        input["database_name"] = database_name
-        input["partner_name"] = partner_name
+        input_: aws_sdk_redshift.types.partner_integration_input_message.PartnerIntegrationInputMessage = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["cluster_identifier"] = cluster_identifier
+        input_["database_name"] = database_name
+        input_["partner_name"] = partner_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,19 +599,19 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.associate_data_share_consumer_message.AssociateDataShareConsumerMessage = {}  # type: ignore[typeddict-item]
-        input["data_share_arn"] = data_share_arn
+        input_: aws_sdk_redshift.types.associate_data_share_consumer_message.AssociateDataShareConsumerMessage = {}  # type: ignore[typeddict-item]
+        input_["data_share_arn"] = data_share_arn
         if associate_entire_account is not None:
-            input["associate_entire_account"] = associate_entire_account
+            input_["associate_entire_account"] = associate_entire_account
         if consumer_arn is not None:
-            input["consumer_arn"] = consumer_arn
+            input_["consumer_arn"] = consumer_arn
         if consumer_region is not None:
-            input["consumer_region"] = consumer_region
+            input_["consumer_region"] = consumer_region
         if allow_writes is not None:
-            input["allow_writes"] = allow_writes
+            input_["allow_writes"] = allow_writes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -653,17 +655,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.authorize_cluster_security_group_ingress_message.AuthorizeClusterSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_security_group_name"] = cluster_security_group_name
+        input_: aws_sdk_redshift.types.authorize_cluster_security_group_ingress_message.AuthorizeClusterSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_security_group_name"] = cluster_security_group_name
         if cidrip is not None:
-            input["cidrip"] = cidrip
+            input_["cidrip"] = cidrip
         if ec2_security_group_name is not None:
-            input["ec2_security_group_name"] = ec2_security_group_name
+            input_["ec2_security_group_name"] = ec2_security_group_name
         if ec2_security_group_owner_id is not None:
-            input["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+            input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -701,14 +703,14 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.authorize_data_share_message.AuthorizeDataShareMessage = {}  # type: ignore[typeddict-item]
-        input["data_share_arn"] = data_share_arn
-        input["consumer_identifier"] = consumer_identifier
+        input_: aws_sdk_redshift.types.authorize_data_share_message.AuthorizeDataShareMessage = {}  # type: ignore[typeddict-item]
+        input_["data_share_arn"] = data_share_arn
+        input_["consumer_identifier"] = consumer_identifier
         if allow_writes is not None:
-            input["allow_writes"] = allow_writes
+            input_["allow_writes"] = allow_writes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -748,15 +750,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.authorize_endpoint_access_message.AuthorizeEndpointAccessMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.authorize_endpoint_access_message.AuthorizeEndpointAccessMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
-        input["account"] = account
+            input_["cluster_identifier"] = cluster_identifier
+        input_["account"] = account
         if vpc_ids is not None:
-            input["vpc_ids"] = vpc_ids
+            input_["vpc_ids"] = vpc_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -798,17 +800,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.authorize_snapshot_access_message.AuthorizeSnapshotAccessMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.authorize_snapshot_access_message.AuthorizeSnapshotAccessMessage = {}  # type: ignore[typeddict-item]
         if snapshot_identifier is not None:
-            input["snapshot_identifier"] = snapshot_identifier
+            input_["snapshot_identifier"] = snapshot_identifier
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
         if snapshot_cluster_identifier is not None:
-            input["snapshot_cluster_identifier"] = snapshot_cluster_identifier
-        input["account_with_restore_access"] = account_with_restore_access
+            input_["snapshot_cluster_identifier"] = snapshot_cluster_identifier
+        input_["account_with_restore_access"] = account_with_restore_access
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -842,11 +844,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.batch_delete_cluster_snapshots_request.BatchDeleteClusterSnapshotsRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_redshift.types.batch_delete_cluster_snapshots_request.BatchDeleteClusterSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -886,15 +888,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.batch_modify_cluster_snapshots_message.BatchModifyClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
-        input["snapshot_identifier_list"] = snapshot_identifier_list
+        input_: aws_sdk_redshift.types.batch_modify_cluster_snapshots_message.BatchModifyClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
+        input_["snapshot_identifier_list"] = snapshot_identifier_list
         if manual_snapshot_retention_period is not None:
-            input["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            input_["manual_snapshot_retention_period"] = (
+                manual_snapshot_retention_period
+            )
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -928,11 +932,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.cancel_resize_message.CancelResizeMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.cancel_resize_message.CancelResizeMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -978,18 +982,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.copy_cluster_snapshot_message.CopyClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["source_snapshot_identifier"] = source_snapshot_identifier
+        input_: aws_sdk_redshift.types.copy_cluster_snapshot_message.CopyClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["source_snapshot_identifier"] = source_snapshot_identifier
         if source_snapshot_cluster_identifier is not None:
-            input["source_snapshot_cluster_identifier"] = (
+            input_["source_snapshot_cluster_identifier"] = (
                 source_snapshot_cluster_identifier
             )
-        input["target_snapshot_identifier"] = target_snapshot_identifier
+        input_["target_snapshot_identifier"] = target_snapshot_identifier
         if manual_snapshot_retention_period is not None:
-            input["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            input_["manual_snapshot_retention_period"] = (
+                manual_snapshot_retention_period
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1025,12 +1031,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_authentication_profile_message.CreateAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
-        input["authentication_profile_name"] = authentication_profile_name
-        input["authentication_profile_content"] = authentication_profile_content
+        input_: aws_sdk_redshift.types.create_authentication_profile_message.CreateAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
+        input_["authentication_profile_name"] = authentication_profile_name
+        input_["authentication_profile_content"] = authentication_profile_content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1196,97 +1202,99 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_cluster_message.CreateClusterMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.create_cluster_message.CreateClusterMessage = {}  # type: ignore[typeddict-item]
         if db_name is not None:
-            input["db_name"] = db_name
-        input["cluster_identifier"] = cluster_identifier
+            input_["db_name"] = db_name
+        input_["cluster_identifier"] = cluster_identifier
         if cluster_type is not None:
-            input["cluster_type"] = cluster_type
-        input["node_type"] = node_type
-        input["master_username"] = master_username
+            input_["cluster_type"] = cluster_type
+        input_["node_type"] = node_type
+        input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if cluster_security_groups is not None:
-            input["cluster_security_groups"] = cluster_security_groups
+            input_["cluster_security_groups"] = cluster_security_groups
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if cluster_subnet_group_name is not None:
-            input["cluster_subnet_group_name"] = cluster_subnet_group_name
+            input_["cluster_subnet_group_name"] = cluster_subnet_group_name
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if cluster_parameter_group_name is not None:
-            input["cluster_parameter_group_name"] = cluster_parameter_group_name
+            input_["cluster_parameter_group_name"] = cluster_parameter_group_name
         if automated_snapshot_retention_period is not None:
-            input["automated_snapshot_retention_period"] = (
+            input_["automated_snapshot_retention_period"] = (
                 automated_snapshot_retention_period
             )
         if manual_snapshot_retention_period is not None:
-            input["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            input_["manual_snapshot_retention_period"] = (
+                manual_snapshot_retention_period
+            )
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if cluster_version is not None:
-            input["cluster_version"] = cluster_version
+            input_["cluster_version"] = cluster_version
         if allow_version_upgrade is not None:
-            input["allow_version_upgrade"] = allow_version_upgrade
+            input_["allow_version_upgrade"] = allow_version_upgrade
         if number_of_nodes is not None:
-            input["number_of_nodes"] = number_of_nodes
+            input_["number_of_nodes"] = number_of_nodes
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if encrypted is not None:
-            input["encrypted"] = encrypted
+            input_["encrypted"] = encrypted
         if hsm_client_certificate_identifier is not None:
-            input["hsm_client_certificate_identifier"] = (
+            input_["hsm_client_certificate_identifier"] = (
                 hsm_client_certificate_identifier
             )
         if hsm_configuration_identifier is not None:
-            input["hsm_configuration_identifier"] = hsm_configuration_identifier
+            input_["hsm_configuration_identifier"] = hsm_configuration_identifier
         if elastic_ip is not None:
-            input["elastic_ip"] = elastic_ip
+            input_["elastic_ip"] = elastic_ip
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if enhanced_vpc_routing is not None:
-            input["enhanced_vpc_routing"] = enhanced_vpc_routing
+            input_["enhanced_vpc_routing"] = enhanced_vpc_routing
         if additional_info is not None:
-            input["additional_info"] = additional_info
+            input_["additional_info"] = additional_info
         if iam_roles is not None:
-            input["iam_roles"] = iam_roles
+            input_["iam_roles"] = iam_roles
         if maintenance_track_name is not None:
-            input["maintenance_track_name"] = maintenance_track_name
+            input_["maintenance_track_name"] = maintenance_track_name
         if snapshot_schedule_identifier is not None:
-            input["snapshot_schedule_identifier"] = snapshot_schedule_identifier
+            input_["snapshot_schedule_identifier"] = snapshot_schedule_identifier
         if availability_zone_relocation is not None:
-            input["availability_zone_relocation"] = availability_zone_relocation
+            input_["availability_zone_relocation"] = availability_zone_relocation
         if aqua_configuration_status is not None:
-            input["aqua_configuration_status"] = aqua_configuration_status
+            input_["aqua_configuration_status"] = aqua_configuration_status
         if default_iam_role_arn is not None:
-            input["default_iam_role_arn"] = default_iam_role_arn
+            input_["default_iam_role_arn"] = default_iam_role_arn
         if load_sample_data is not None:
-            input["load_sample_data"] = load_sample_data
+            input_["load_sample_data"] = load_sample_data
         if manage_master_password is not None:
-            input["manage_master_password"] = manage_master_password
+            input_["manage_master_password"] = manage_master_password
         if master_password_secret_kms_key_id is not None:
-            input["master_password_secret_kms_key_id"] = (
+            input_["master_password_secret_kms_key_id"] = (
                 master_password_secret_kms_key_id
             )
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if redshift_idc_application_arn is not None:
-            input["redshift_idc_application_arn"] = redshift_idc_application_arn
+            input_["redshift_idc_application_arn"] = redshift_idc_application_arn
         if catalog_name is not None:
-            input["catalog_name"] = catalog_name
+            input_["catalog_name"] = catalog_name
         if extra_compute_for_automatic_optimization is not None:
-            input["extra_compute_for_automatic_optimization"] = (
+            input_["extra_compute_for_automatic_optimization"] = (
                 extra_compute_for_automatic_optimization
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1326,15 +1334,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_cluster_parameter_group_message.CreateClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
-        input["parameter_group_family"] = parameter_group_family
-        input["description"] = description
+        input_: aws_sdk_redshift.types.create_cluster_parameter_group_message.CreateClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
+        input_["parameter_group_family"] = parameter_group_family
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1372,14 +1380,14 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_cluster_security_group_message.CreateClusterSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_security_group_name"] = cluster_security_group_name
-        input["description"] = description
+        input_: aws_sdk_redshift.types.create_cluster_security_group_message.CreateClusterSecurityGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_security_group_name"] = cluster_security_group_name
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1421,16 +1429,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_cluster_snapshot_message.CreateClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["snapshot_identifier"] = snapshot_identifier
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.create_cluster_snapshot_message.CreateClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["snapshot_identifier"] = snapshot_identifier
+        input_["cluster_identifier"] = cluster_identifier
         if manual_snapshot_retention_period is not None:
-            input["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            input_["manual_snapshot_retention_period"] = (
+                manual_snapshot_retention_period
+            )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1470,15 +1480,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_cluster_subnet_group_message.CreateClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_subnet_group_name"] = cluster_subnet_group_name
-        input["description"] = description
-        input["subnet_ids"] = subnet_ids
+        input_: aws_sdk_redshift.types.create_cluster_subnet_group_message.CreateClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_subnet_group_name"] = cluster_subnet_group_name
+        input_["description"] = description
+        input_["subnet_ids"] = subnet_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1516,13 +1526,13 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_custom_domain_association_message.CreateCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
-        input["custom_domain_name"] = custom_domain_name
-        input["custom_domain_certificate_arn"] = custom_domain_certificate_arn
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.create_custom_domain_association_message.CreateCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
+        input_["custom_domain_name"] = custom_domain_name
+        input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1566,18 +1576,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_endpoint_access_message.CreateEndpointAccessMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.create_endpoint_access_message.CreateEndpointAccessMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
-        input["endpoint_name"] = endpoint_name
-        input["subnet_group_name"] = subnet_group_name
+            input_["resource_owner"] = resource_owner
+        input_["endpoint_name"] = endpoint_name
+        input_["subnet_group_name"] = subnet_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1631,24 +1641,24 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["sns_topic_arn"] = sns_topic_arn
+        input_: aws_sdk_redshift.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if source_ids is not None:
-            input["source_ids"] = source_ids
+            input_["source_ids"] = source_ids
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if severity is not None:
-            input["severity"] = severity
+            input_["severity"] = severity
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1684,13 +1694,13 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_hsm_client_certificate_message.CreateHsmClientCertificateMessage = {}  # type: ignore[typeddict-item]
-        input["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
+        input_: aws_sdk_redshift.types.create_hsm_client_certificate_message.CreateHsmClientCertificateMessage = {}  # type: ignore[typeddict-item]
+        input_["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1736,18 +1746,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_hsm_configuration_message.CreateHsmConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input["hsm_configuration_identifier"] = hsm_configuration_identifier
-        input["description"] = description
-        input["hsm_ip_address"] = hsm_ip_address
-        input["hsm_partition_name"] = hsm_partition_name
-        input["hsm_partition_password"] = hsm_partition_password
-        input["hsm_server_public_certificate"] = hsm_server_public_certificate
+        input_: aws_sdk_redshift.types.create_hsm_configuration_message.CreateHsmConfigurationMessage = {}  # type: ignore[typeddict-item]
+        input_["hsm_configuration_identifier"] = hsm_configuration_identifier
+        input_["description"] = description
+        input_["hsm_ip_address"] = hsm_ip_address
+        input_["hsm_partition_name"] = hsm_partition_name
+        input_["hsm_partition_password"] = hsm_partition_password
+        input_["hsm_server_public_certificate"] = hsm_server_public_certificate
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1795,21 +1805,21 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_integration_message.CreateIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input["source_arn"] = source_arn
-        input["target_arn"] = target_arn
-        input["integration_name"] = integration_name
+        input_: aws_sdk_redshift.types.create_integration_message.CreateIntegrationMessage = {}  # type: ignore[typeddict-item]
+        input_["source_arn"] = source_arn
+        input_["target_arn"] = target_arn
+        input_["integration_name"] = integration_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
         if additional_encryption_context is not None:
-            input["additional_encryption_context"] = additional_encryption_context
+            input_["additional_encryption_context"] = additional_encryption_context
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1869,26 +1879,26 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_redshift_idc_application_message.CreateRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
-        input["idc_instance_arn"] = idc_instance_arn
-        input["redshift_idc_application_name"] = redshift_idc_application_name
+        input_: aws_sdk_redshift.types.create_redshift_idc_application_message.CreateRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["idc_instance_arn"] = idc_instance_arn
+        input_["redshift_idc_application_name"] = redshift_idc_application_name
         if identity_namespace is not None:
-            input["identity_namespace"] = identity_namespace
-        input["idc_display_name"] = idc_display_name
-        input["iam_role_arn"] = iam_role_arn
+            input_["identity_namespace"] = identity_namespace
+        input_["idc_display_name"] = idc_display_name
+        input_["iam_role_arn"] = iam_role_arn
         if authorized_token_issuer_list is not None:
-            input["authorized_token_issuer_list"] = authorized_token_issuer_list
+            input_["authorized_token_issuer_list"] = authorized_token_issuer_list
         if service_integrations is not None:
-            input["service_integrations"] = service_integrations
+            input_["service_integrations"] = service_integrations
         if application_type is not None:
-            input["application_type"] = application_type
+            input_["application_type"] = application_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if sso_tag_keys is not None:
-            input["sso_tag_keys"] = sso_tag_keys
+            input_["sso_tag_keys"] = sso_tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1940,22 +1950,22 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_scheduled_action_message.CreateScheduledActionMessage = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
-        input["target_action"] = target_action
-        input["schedule"] = schedule
-        input["iam_role"] = iam_role
+        input_: aws_sdk_redshift.types.create_scheduled_action_message.CreateScheduledActionMessage = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
+        input_["target_action"] = target_action
+        input_["schedule"] = schedule
+        input_["iam_role"] = iam_role
         if scheduled_action_description is not None:
-            input["scheduled_action_description"] = scheduled_action_description
+            input_["scheduled_action_description"] = scheduled_action_description
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if enable is not None:
-            input["enable"] = enable
+            input_["enable"] = enable
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1993,15 +2003,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_snapshot_copy_grant_message.CreateSnapshotCopyGrantMessage = {}  # type: ignore[typeddict-item]
-        input["snapshot_copy_grant_name"] = snapshot_copy_grant_name
+        input_: aws_sdk_redshift.types.create_snapshot_copy_grant_message.CreateSnapshotCopyGrantMessage = {}  # type: ignore[typeddict-item]
+        input_["snapshot_copy_grant_name"] = snapshot_copy_grant_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2051,22 +2061,22 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_snapshot_schedule_message.CreateSnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.create_snapshot_schedule_message.CreateSnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
         if schedule_definitions is not None:
-            input["schedule_definitions"] = schedule_definitions
+            input_["schedule_definitions"] = schedule_definitions
         if schedule_identifier is not None:
-            input["schedule_identifier"] = schedule_identifier
+            input_["schedule_identifier"] = schedule_identifier
         if schedule_description is not None:
-            input["schedule_description"] = schedule_description
+            input_["schedule_description"] = schedule_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if next_invocations is not None:
-            input["next_invocations"] = next_invocations
+            input_["next_invocations"] = next_invocations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2100,12 +2110,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_tags_message.CreateTagsMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tags"] = tags
+        input_: aws_sdk_redshift.types.create_tags_message.CreateTagsMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2153,20 +2163,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.create_usage_limit_message.CreateUsageLimitMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["feature_type"] = feature_type
-        input["limit_type"] = limit_type
-        input["amount"] = amount
+        input_: aws_sdk_redshift.types.create_usage_limit_message.CreateUsageLimitMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["feature_type"] = feature_type
+        input_["limit_type"] = limit_type
+        input_["amount"] = amount
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if breach_action is not None:
-            input["breach_action"] = breach_action
+            input_["breach_action"] = breach_action
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2200,12 +2210,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.deauthorize_data_share_message.DeauthorizeDataShareMessage = {}  # type: ignore[typeddict-item]
-        input["data_share_arn"] = data_share_arn
-        input["consumer_identifier"] = consumer_identifier
+        input_: aws_sdk_redshift.types.deauthorize_data_share_message.DeauthorizeDataShareMessage = {}  # type: ignore[typeddict-item]
+        input_["data_share_arn"] = data_share_arn
+        input_["consumer_identifier"] = consumer_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2239,11 +2249,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_authentication_profile_message.DeleteAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
-        input["authentication_profile_name"] = authentication_profile_name
+        input_: aws_sdk_redshift.types.delete_authentication_profile_message.DeleteAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
+        input_["authentication_profile_name"] = authentication_profile_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2289,21 +2299,21 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_cluster_message.DeleteClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.delete_cluster_message.DeleteClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if skip_final_cluster_snapshot is not None:
-            input["skip_final_cluster_snapshot"] = skip_final_cluster_snapshot
+            input_["skip_final_cluster_snapshot"] = skip_final_cluster_snapshot
         if final_cluster_snapshot_identifier is not None:
-            input["final_cluster_snapshot_identifier"] = (
+            input_["final_cluster_snapshot_identifier"] = (
                 final_cluster_snapshot_identifier
             )
         if final_cluster_snapshot_retention_period is not None:
-            input["final_cluster_snapshot_retention_period"] = (
+            input_["final_cluster_snapshot_retention_period"] = (
                 final_cluster_snapshot_retention_period
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2335,11 +2345,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_cluster_parameter_group_message.DeleteClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_redshift.types.delete_cluster_parameter_group_message.DeleteClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2371,11 +2381,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_cluster_security_group_message.DeleteClusterSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_security_group_name"] = cluster_security_group_name
+        input_: aws_sdk_redshift.types.delete_cluster_security_group_message.DeleteClusterSecurityGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_security_group_name"] = cluster_security_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2413,13 +2423,13 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_cluster_snapshot_message.DeleteClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["snapshot_identifier"] = snapshot_identifier
+        input_: aws_sdk_redshift.types.delete_cluster_snapshot_message.DeleteClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["snapshot_identifier"] = snapshot_identifier
         if snapshot_cluster_identifier is not None:
-            input["snapshot_cluster_identifier"] = snapshot_cluster_identifier
+            input_["snapshot_cluster_identifier"] = snapshot_cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2451,11 +2461,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_cluster_subnet_group_message.DeleteClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_subnet_group_name"] = cluster_subnet_group_name
+        input_: aws_sdk_redshift.types.delete_cluster_subnet_group_message.DeleteClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_subnet_group_name"] = cluster_subnet_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2489,12 +2499,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_custom_domain_association_message.DeleteCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["custom_domain_name"] = custom_domain_name
+        input_: aws_sdk_redshift.types.delete_custom_domain_association_message.DeleteCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["custom_domain_name"] = custom_domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2528,11 +2538,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_endpoint_access_message.DeleteEndpointAccessMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_redshift.types.delete_endpoint_access_message.DeleteEndpointAccessMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2564,11 +2574,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_redshift.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2600,11 +2610,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_hsm_client_certificate_message.DeleteHsmClientCertificateMessage = {}  # type: ignore[typeddict-item]
-        input["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
+        input_: aws_sdk_redshift.types.delete_hsm_client_certificate_message.DeleteHsmClientCertificateMessage = {}  # type: ignore[typeddict-item]
+        input_["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2636,11 +2646,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_hsm_configuration_message.DeleteHsmConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input["hsm_configuration_identifier"] = hsm_configuration_identifier
+        input_: aws_sdk_redshift.types.delete_hsm_configuration_message.DeleteHsmConfigurationMessage = {}  # type: ignore[typeddict-item]
+        input_["hsm_configuration_identifier"] = hsm_configuration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2672,11 +2682,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_integration_message.DeleteIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input["integration_arn"] = integration_arn
+        input_: aws_sdk_redshift.types.delete_integration_message.DeleteIntegrationMessage = {}  # type: ignore[typeddict-item]
+        input_["integration_arn"] = integration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2716,14 +2726,14 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.partner_integration_input_message.PartnerIntegrationInputMessage = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["cluster_identifier"] = cluster_identifier
-        input["database_name"] = database_name
-        input["partner_name"] = partner_name
+        input_: aws_sdk_redshift.types.partner_integration_input_message.PartnerIntegrationInputMessage = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["cluster_identifier"] = cluster_identifier
+        input_["database_name"] = database_name
+        input_["partner_name"] = partner_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2755,11 +2765,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_redshift_idc_application_message.DeleteRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
-        input["redshift_idc_application_arn"] = redshift_idc_application_arn
+        input_: aws_sdk_redshift.types.delete_redshift_idc_application_message.DeleteRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["redshift_idc_application_arn"] = redshift_idc_application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2791,11 +2801,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_resource_policy_message.DeleteResourcePolicyMessage = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_redshift.types.delete_resource_policy_message.DeleteResourcePolicyMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2827,11 +2837,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_scheduled_action_message.DeleteScheduledActionMessage = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_redshift.types.delete_scheduled_action_message.DeleteScheduledActionMessage = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2863,11 +2873,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_snapshot_copy_grant_message.DeleteSnapshotCopyGrantMessage = {}  # type: ignore[typeddict-item]
-        input["snapshot_copy_grant_name"] = snapshot_copy_grant_name
+        input_: aws_sdk_redshift.types.delete_snapshot_copy_grant_message.DeleteSnapshotCopyGrantMessage = {}  # type: ignore[typeddict-item]
+        input_["snapshot_copy_grant_name"] = snapshot_copy_grant_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2899,11 +2909,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_snapshot_schedule_message.DeleteSnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
-        input["schedule_identifier"] = schedule_identifier
+        input_: aws_sdk_redshift.types.delete_snapshot_schedule_message.DeleteSnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
+        input_["schedule_identifier"] = schedule_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2937,12 +2947,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_tags_message.DeleteTagsMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_redshift.types.delete_tags_message.DeleteTagsMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2974,11 +2984,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.delete_usage_limit_message.DeleteUsageLimitMessage = {}  # type: ignore[typeddict-item]
-        input["usage_limit_id"] = usage_limit_id
+        input_: aws_sdk_redshift.types.delete_usage_limit_message.DeleteUsageLimitMessage = {}  # type: ignore[typeddict-item]
+        input_["usage_limit_id"] = usage_limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3014,12 +3024,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.deregister_namespace_input_message.DeregisterNamespaceInputMessage = {}  # type: ignore[typeddict-item]
-        input["namespace_identifier"] = namespace_identifier
-        input["consumer_identifiers"] = consumer_identifiers
+        input_: aws_sdk_redshift.types.deregister_namespace_input_message.DeregisterNamespaceInputMessage = {}  # type: ignore[typeddict-item]
+        input_["namespace_identifier"] = namespace_identifier
+        input_["consumer_identifiers"] = consumer_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3055,12 +3065,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_account_attributes_message.DescribeAccountAttributesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_account_attributes_message.DescribeAccountAttributesMessage = {}  # type: ignore[typeddict-item]
         if attribute_names is not None:
-            input["attribute_names"] = attribute_names
+            input_["attribute_names"] = attribute_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3096,12 +3106,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_authentication_profiles_message.DescribeAuthenticationProfilesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_authentication_profiles_message.DescribeAuthenticationProfilesMessage = {}  # type: ignore[typeddict-item]
         if authentication_profile_name is not None:
-            input["authentication_profile_name"] = authentication_profile_name
+            input_["authentication_profile_name"] = authentication_profile_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3143,16 +3153,16 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_cluster_db_revisions_message.DescribeClusterDbRevisionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_cluster_db_revisions_message.DescribeClusterDbRevisionsMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3223,20 +3233,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_cluster_parameter_groups_message.DescribeClusterParameterGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_cluster_parameter_groups_message.DescribeClusterParameterGroupsMessage = {}  # type: ignore[typeddict-item]
         if parameter_group_name is not None:
-            input["parameter_group_name"] = parameter_group_name
+            input_["parameter_group_name"] = parameter_group_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3309,17 +3319,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_cluster_parameters_message.DescribeClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_redshift.types.describe_cluster_parameters_message.DescribeClusterParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3392,20 +3402,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_clusters_message.DescribeClustersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_clusters_message.DescribeClustersMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3484,20 +3494,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_cluster_security_groups_message.DescribeClusterSecurityGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_cluster_security_groups_message.DescribeClusterSecurityGroupsMessage = {}  # type: ignore[typeddict-item]
         if cluster_security_group_name is not None:
-            input["cluster_security_group_name"] = cluster_security_group_name
+            input_["cluster_security_group_name"] = cluster_security_group_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3596,36 +3606,36 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_cluster_snapshots_message.DescribeClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_cluster_snapshots_message.DescribeClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if snapshot_identifier is not None:
-            input["snapshot_identifier"] = snapshot_identifier
+            input_["snapshot_identifier"] = snapshot_identifier
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
         if snapshot_type is not None:
-            input["snapshot_type"] = snapshot_type
+            input_["snapshot_type"] = snapshot_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
         if cluster_exists is not None:
-            input["cluster_exists"] = cluster_exists
+            input_["cluster_exists"] = cluster_exists
         if sorting_entities is not None:
-            input["sorting_entities"] = sorting_entities
+            input_["sorting_entities"] = sorting_entities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3726,20 +3736,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_cluster_subnet_groups_message.DescribeClusterSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_cluster_subnet_groups_message.DescribeClusterSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
         if cluster_subnet_group_name is not None:
-            input["cluster_subnet_group_name"] = cluster_subnet_group_name
+            input_["cluster_subnet_group_name"] = cluster_subnet_group_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3814,16 +3824,16 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_cluster_tracks_message.DescribeClusterTracksMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_cluster_tracks_message.DescribeClusterTracksMessage = {}  # type: ignore[typeddict-item]
         if maintenance_track_name is not None:
-            input["maintenance_track_name"] = maintenance_track_name
+            input_["maintenance_track_name"] = maintenance_track_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3892,18 +3902,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_cluster_versions_message.DescribeClusterVersionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_cluster_versions_message.DescribeClusterVersionsMessage = {}  # type: ignore[typeddict-item]
         if cluster_version is not None:
-            input["cluster_version"] = cluster_version
+            input_["cluster_version"] = cluster_version
         if cluster_parameter_group_family is not None:
-            input["cluster_parameter_group_family"] = cluster_parameter_group_family
+            input_["cluster_parameter_group_family"] = cluster_parameter_group_family
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3978,18 +3988,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_custom_domain_associations_message.DescribeCustomDomainAssociationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_custom_domain_associations_message.DescribeCustomDomainAssociationsMessage = {}  # type: ignore[typeddict-item]
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
         if custom_domain_certificate_arn is not None:
-            input["custom_domain_certificate_arn"] = custom_domain_certificate_arn
+            input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4060,16 +4070,16 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_data_shares_message.DescribeDataSharesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_data_shares_message.DescribeDataSharesMessage = {}  # type: ignore[typeddict-item]
         if data_share_arn is not None:
-            input["data_share_arn"] = data_share_arn
+            input_["data_share_arn"] = data_share_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4138,18 +4148,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_data_shares_for_consumer_message.DescribeDataSharesForConsumerMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_data_shares_for_consumer_message.DescribeDataSharesForConsumerMessage = {}  # type: ignore[typeddict-item]
         if consumer_arn is not None:
-            input["consumer_arn"] = consumer_arn
+            input_["consumer_arn"] = consumer_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4222,18 +4232,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_data_shares_for_producer_message.DescribeDataSharesForProducerMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_data_shares_for_producer_message.DescribeDataSharesForProducerMessage = {}  # type: ignore[typeddict-item]
         if producer_arn is not None:
-            input["producer_arn"] = producer_arn
+            input_["producer_arn"] = producer_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4302,15 +4312,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_default_cluster_parameters_message.DescribeDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input["parameter_group_family"] = parameter_group_family
+        input_: aws_sdk_redshift.types.describe_default_cluster_parameters_message.DescribeDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_family"] = parameter_group_family
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4383,22 +4393,22 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_endpoint_access_message.DescribeEndpointAccessMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_endpoint_access_message.DescribeEndpointAccessMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
+            input_["resource_owner"] = resource_owner
         if endpoint_name is not None:
-            input["endpoint_name"] = endpoint_name
+            input_["endpoint_name"] = endpoint_name
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4475,20 +4485,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_endpoint_authorization_message.DescribeEndpointAuthorizationMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_endpoint_authorization_message.DescribeEndpointAuthorizationMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if account is not None:
-            input["account"] = account
+            input_["account"] = account
         if grantee is not None:
-            input["grantee"] = grantee
+            input_["grantee"] = grantee
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4553,12 +4563,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4608,24 +4618,24 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
         if source_identifier is not None:
-            input["source_identifier"] = source_identifier
+            input_["source_identifier"] = source_identifier
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4706,20 +4716,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
         if subscription_name is not None:
-            input["subscription_name"] = subscription_name
+            input_["subscription_name"] = subscription_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4798,22 +4808,22 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_hsm_client_certificates_message.DescribeHsmClientCertificatesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_hsm_client_certificates_message.DescribeHsmClientCertificatesMessage = {}  # type: ignore[typeddict-item]
         if hsm_client_certificate_identifier is not None:
-            input["hsm_client_certificate_identifier"] = (
+            input_["hsm_client_certificate_identifier"] = (
                 hsm_client_certificate_identifier
             )
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4894,20 +4904,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_hsm_configurations_message.DescribeHsmConfigurationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_hsm_configurations_message.DescribeHsmConfigurationsMessage = {}  # type: ignore[typeddict-item]
         if hsm_configuration_identifier is not None:
-            input["hsm_configuration_identifier"] = hsm_configuration_identifier
+            input_["hsm_configuration_identifier"] = hsm_configuration_identifier
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4986,18 +4996,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_inbound_integrations_message.DescribeInboundIntegrationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_inbound_integrations_message.DescribeInboundIntegrationsMessage = {}  # type: ignore[typeddict-item]
         if integration_arn is not None:
-            input["integration_arn"] = integration_arn
+            input_["integration_arn"] = integration_arn
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5072,18 +5082,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_integrations_message.DescribeIntegrationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_integrations_message.DescribeIntegrationsMessage = {}  # type: ignore[typeddict-item]
         if integration_arn is not None:
-            input["integration_arn"] = integration_arn
+            input_["integration_arn"] = integration_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5148,11 +5158,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_logging_status_message.DescribeLoggingStatusMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.describe_logging_status_message.DescribeLoggingStatusMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5204,25 +5214,25 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_node_configuration_options_message.DescribeNodeConfigurationOptionsMessage = {}  # type: ignore[typeddict-item]
-        input["action_type"] = action_type
+        input_: aws_sdk_redshift.types.describe_node_configuration_options_message.DescribeNodeConfigurationOptionsMessage = {}  # type: ignore[typeddict-item]
+        input_["action_type"] = action_type
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if snapshot_identifier is not None:
-            input["snapshot_identifier"] = snapshot_identifier
+            input_["snapshot_identifier"] = snapshot_identifier
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5301,18 +5311,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_orderable_cluster_options_message.DescribeOrderableClusterOptionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_orderable_cluster_options_message.DescribeOrderableClusterOptionsMessage = {}  # type: ignore[typeddict-item]
         if cluster_version is not None:
-            input["cluster_version"] = cluster_version
+            input_["cluster_version"] = cluster_version
         if node_type is not None:
-            input["node_type"] = node_type
+            input_["node_type"] = node_type
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5383,16 +5393,16 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_partners_input_message.DescribePartnersInputMessage = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.describe_partners_input_message.DescribePartnersInputMessage = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["cluster_identifier"] = cluster_identifier
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if partner_name is not None:
-            input["partner_name"] = partner_name
+            input_["partner_name"] = partner_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5434,16 +5444,16 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_redshift_idc_applications_message.DescribeRedshiftIdcApplicationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_redshift_idc_applications_message.DescribeRedshiftIdcApplicationsMessage = {}  # type: ignore[typeddict-item]
         if redshift_idc_application_arn is not None:
-            input["redshift_idc_application_arn"] = redshift_idc_application_arn
+            input_["redshift_idc_application_arn"] = redshift_idc_application_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5514,20 +5524,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_reserved_node_exchange_status_input_message.DescribeReservedNodeExchangeStatusInputMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_reserved_node_exchange_status_input_message.DescribeReservedNodeExchangeStatusInputMessage = {}  # type: ignore[typeddict-item]
         if reserved_node_id is not None:
-            input["reserved_node_id"] = reserved_node_id
+            input_["reserved_node_id"] = reserved_node_id
         if reserved_node_exchange_request_id is not None:
-            input["reserved_node_exchange_request_id"] = (
+            input_["reserved_node_exchange_request_id"] = (
                 reserved_node_exchange_request_id
             )
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5598,16 +5608,16 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_reserved_node_offerings_message.DescribeReservedNodeOfferingsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_reserved_node_offerings_message.DescribeReservedNodeOfferingsMessage = {}  # type: ignore[typeddict-item]
         if reserved_node_offering_id is not None:
-            input["reserved_node_offering_id"] = reserved_node_offering_id
+            input_["reserved_node_offering_id"] = reserved_node_offering_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5674,16 +5684,16 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_reserved_nodes_message.DescribeReservedNodesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_reserved_nodes_message.DescribeReservedNodesMessage = {}  # type: ignore[typeddict-item]
         if reserved_node_id is not None:
-            input["reserved_node_id"] = reserved_node_id
+            input_["reserved_node_id"] = reserved_node_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5742,11 +5752,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_resize_message.DescribeResizeMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.describe_resize_message.DescribeResizeMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5802,26 +5812,26 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_scheduled_actions_message.DescribeScheduledActionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_scheduled_actions_message.DescribeScheduledActionsMessage = {}  # type: ignore[typeddict-item]
         if scheduled_action_name is not None:
-            input["scheduled_action_name"] = scheduled_action_name
+            input_["scheduled_action_name"] = scheduled_action_name
         if target_action_type is not None:
-            input["target_action_type"] = target_action_type
+            input_["target_action_type"] = target_action_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if active is not None:
-            input["active"] = active
+            input_["active"] = active
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5910,20 +5920,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_snapshot_copy_grants_message.DescribeSnapshotCopyGrantsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_snapshot_copy_grants_message.DescribeSnapshotCopyGrantsMessage = {}  # type: ignore[typeddict-item]
         if snapshot_copy_grant_name is not None:
-            input["snapshot_copy_grant_name"] = snapshot_copy_grant_name
+            input_["snapshot_copy_grant_name"] = snapshot_copy_grant_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6004,22 +6014,22 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_snapshot_schedules_message.DescribeSnapshotSchedulesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_snapshot_schedules_message.DescribeSnapshotSchedulesMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if schedule_identifier is not None:
-            input["schedule_identifier"] = schedule_identifier
+            input_["schedule_identifier"] = schedule_identifier
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6127,18 +6137,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_table_restore_status_message.DescribeTableRestoreStatusMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_table_restore_status_message.DescribeTableRestoreStatusMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if table_restore_request_id is not None:
-            input["table_restore_request_id"] = table_restore_request_id
+            input_["table_restore_request_id"] = table_restore_request_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6219,22 +6229,22 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_tags_message.DescribeTagsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_tags_message.DescribeTagsMessage = {}  # type: ignore[typeddict-item]
         if resource_name is not None:
-            input["resource_name"] = resource_name
+            input_["resource_name"] = resource_name
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6319,24 +6329,24 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.describe_usage_limits_message.DescribeUsageLimitsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.describe_usage_limits_message.DescribeUsageLimitsMessage = {}  # type: ignore[typeddict-item]
         if usage_limit_id is not None:
-            input["usage_limit_id"] = usage_limit_id
+            input_["usage_limit_id"] = usage_limit_id
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if feature_type is not None:
-            input["feature_type"] = feature_type
+            input_["feature_type"] = feature_type
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if tag_values is not None:
-            input["tag_values"] = tag_values
+            input_["tag_values"] = tag_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6407,11 +6417,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.disable_logging_message.DisableLoggingMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.disable_logging_message.DisableLoggingMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6447,11 +6457,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.disable_snapshot_copy_message.DisableSnapshotCopyMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.disable_snapshot_copy_message.DisableSnapshotCopyMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6491,17 +6501,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.disassociate_data_share_consumer_message.DisassociateDataShareConsumerMessage = {}  # type: ignore[typeddict-item]
-        input["data_share_arn"] = data_share_arn
+        input_: aws_sdk_redshift.types.disassociate_data_share_consumer_message.DisassociateDataShareConsumerMessage = {}  # type: ignore[typeddict-item]
+        input_["data_share_arn"] = data_share_arn
         if disassociate_entire_account is not None:
-            input["disassociate_entire_account"] = disassociate_entire_account
+            input_["disassociate_entire_account"] = disassociate_entire_account
         if consumer_arn is not None:
-            input["consumer_arn"] = consumer_arn
+            input_["consumer_arn"] = consumer_arn
         if consumer_region is not None:
-            input["consumer_region"] = consumer_region
+            input_["consumer_region"] = consumer_region
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6549,19 +6559,19 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.enable_logging_message.EnableLoggingMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.enable_logging_message.EnableLoggingMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if bucket_name is not None:
-            input["bucket_name"] = bucket_name
+            input_["bucket_name"] = bucket_name
         if s3_key_prefix is not None:
-            input["s3_key_prefix"] = s3_key_prefix
+            input_["s3_key_prefix"] = s3_key_prefix
         if log_destination_type is not None:
-            input["log_destination_type"] = log_destination_type
+            input_["log_destination_type"] = log_destination_type
         if log_exports is not None:
-            input["log_exports"] = log_exports
+            input_["log_exports"] = log_exports
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6609,18 +6619,20 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.enable_snapshot_copy_message.EnableSnapshotCopyMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["destination_region"] = destination_region
+        input_: aws_sdk_redshift.types.enable_snapshot_copy_message.EnableSnapshotCopyMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["destination_region"] = destination_region
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if snapshot_copy_grant_name is not None:
-            input["snapshot_copy_grant_name"] = snapshot_copy_grant_name
+            input_["snapshot_copy_grant_name"] = snapshot_copy_grant_name
         if manual_snapshot_retention_period is not None:
-            input["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            input_["manual_snapshot_retention_period"] = (
+                manual_snapshot_retention_period
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6654,11 +6666,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.failover_primary_compute_input_message.FailoverPrimaryComputeInputMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.failover_primary_compute_input_message.FailoverPrimaryComputeInputMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6708,23 +6720,23 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.get_cluster_credentials_message.GetClusterCredentialsMessage = {}  # type: ignore[typeddict-item]
-        input["db_user"] = db_user
+        input_: aws_sdk_redshift.types.get_cluster_credentials_message.GetClusterCredentialsMessage = {}  # type: ignore[typeddict-item]
+        input_["db_user"] = db_user
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if auto_create is not None:
-            input["auto_create"] = auto_create
+            input_["auto_create"] = auto_create
         if db_groups is not None:
-            input["db_groups"] = db_groups
+            input_["db_groups"] = db_groups
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6768,18 +6780,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.get_cluster_credentials_with_iam_message.GetClusterCredentialsWithIAMMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.get_cluster_credentials_with_iam_message.GetClusterCredentialsWithIAMMessage = {}  # type: ignore[typeddict-item]
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6813,11 +6825,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.get_identity_center_auth_token_request.GetIdentityCenterAuthTokenRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_ids"] = cluster_ids
+        input_: aws_sdk_redshift.types.get_identity_center_auth_token_request.GetIdentityCenterAuthTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_ids"] = cluster_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6861,19 +6873,19 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.get_reserved_node_exchange_configuration_options_input_message.GetReservedNodeExchangeConfigurationOptionsInputMessage = {}  # type: ignore[typeddict-item]
-        input["action_type"] = action_type
+        input_: aws_sdk_redshift.types.get_reserved_node_exchange_configuration_options_input_message.GetReservedNodeExchangeConfigurationOptionsInputMessage = {}  # type: ignore[typeddict-item]
+        input_["action_type"] = action_type
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if snapshot_identifier is not None:
-            input["snapshot_identifier"] = snapshot_identifier
+            input_["snapshot_identifier"] = snapshot_identifier
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6944,15 +6956,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.get_reserved_node_exchange_offerings_input_message.GetReservedNodeExchangeOfferingsInputMessage = {}  # type: ignore[typeddict-item]
-        input["reserved_node_id"] = reserved_node_id
+        input_: aws_sdk_redshift.types.get_reserved_node_exchange_offerings_input_message.GetReservedNodeExchangeOfferingsInputMessage = {}  # type: ignore[typeddict-item]
+        input_["reserved_node_id"] = reserved_node_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7011,11 +7023,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.get_resource_policy_message.GetResourcePolicyMessage = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_redshift.types.get_resource_policy_message.GetResourcePolicyMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7057,18 +7069,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.list_recommendations_message.ListRecommendationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.list_recommendations_message.ListRecommendationsMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if namespace_arn is not None:
-            input["namespace_arn"] = namespace_arn
+            input_["namespace_arn"] = namespace_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7133,13 +7145,13 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_aqua_input_message.ModifyAquaInputMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.modify_aqua_input_message.ModifyAquaInputMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if aqua_configuration_status is not None:
-            input["aqua_configuration_status"] = aqua_configuration_status
+            input_["aqua_configuration_status"] = aqua_configuration_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7175,12 +7187,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_authentication_profile_message.ModifyAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
-        input["authentication_profile_name"] = authentication_profile_name
-        input["authentication_profile_content"] = authentication_profile_content
+        input_: aws_sdk_redshift.types.modify_authentication_profile_message.ModifyAuthenticationProfileMessage = {}  # type: ignore[typeddict-item]
+        input_["authentication_profile_name"] = authentication_profile_name
+        input_["authentication_profile_content"] = authentication_profile_content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7312,77 +7324,79 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_cluster_message.ModifyClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.modify_cluster_message.ModifyClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if cluster_type is not None:
-            input["cluster_type"] = cluster_type
+            input_["cluster_type"] = cluster_type
         if node_type is not None:
-            input["node_type"] = node_type
+            input_["node_type"] = node_type
         if number_of_nodes is not None:
-            input["number_of_nodes"] = number_of_nodes
+            input_["number_of_nodes"] = number_of_nodes
         if cluster_security_groups is not None:
-            input["cluster_security_groups"] = cluster_security_groups
+            input_["cluster_security_groups"] = cluster_security_groups
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if cluster_parameter_group_name is not None:
-            input["cluster_parameter_group_name"] = cluster_parameter_group_name
+            input_["cluster_parameter_group_name"] = cluster_parameter_group_name
         if automated_snapshot_retention_period is not None:
-            input["automated_snapshot_retention_period"] = (
+            input_["automated_snapshot_retention_period"] = (
                 automated_snapshot_retention_period
             )
         if manual_snapshot_retention_period is not None:
-            input["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            input_["manual_snapshot_retention_period"] = (
+                manual_snapshot_retention_period
+            )
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if cluster_version is not None:
-            input["cluster_version"] = cluster_version
+            input_["cluster_version"] = cluster_version
         if allow_version_upgrade is not None:
-            input["allow_version_upgrade"] = allow_version_upgrade
+            input_["allow_version_upgrade"] = allow_version_upgrade
         if hsm_client_certificate_identifier is not None:
-            input["hsm_client_certificate_identifier"] = (
+            input_["hsm_client_certificate_identifier"] = (
                 hsm_client_certificate_identifier
             )
         if hsm_configuration_identifier is not None:
-            input["hsm_configuration_identifier"] = hsm_configuration_identifier
+            input_["hsm_configuration_identifier"] = hsm_configuration_identifier
         if new_cluster_identifier is not None:
-            input["new_cluster_identifier"] = new_cluster_identifier
+            input_["new_cluster_identifier"] = new_cluster_identifier
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if elastic_ip is not None:
-            input["elastic_ip"] = elastic_ip
+            input_["elastic_ip"] = elastic_ip
         if enhanced_vpc_routing is not None:
-            input["enhanced_vpc_routing"] = enhanced_vpc_routing
+            input_["enhanced_vpc_routing"] = enhanced_vpc_routing
         if maintenance_track_name is not None:
-            input["maintenance_track_name"] = maintenance_track_name
+            input_["maintenance_track_name"] = maintenance_track_name
         if encrypted is not None:
-            input["encrypted"] = encrypted
+            input_["encrypted"] = encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if availability_zone_relocation is not None:
-            input["availability_zone_relocation"] = availability_zone_relocation
+            input_["availability_zone_relocation"] = availability_zone_relocation
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if manage_master_password is not None:
-            input["manage_master_password"] = manage_master_password
+            input_["manage_master_password"] = manage_master_password
         if master_password_secret_kms_key_id is not None:
-            input["master_password_secret_kms_key_id"] = (
+            input_["master_password_secret_kms_key_id"] = (
                 master_password_secret_kms_key_id
             )
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if extra_compute_for_automatic_optimization is not None:
-            input["extra_compute_for_automatic_optimization"] = (
+            input_["extra_compute_for_automatic_optimization"] = (
                 extra_compute_for_automatic_optimization
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7418,12 +7432,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_cluster_db_revision_message.ModifyClusterDbRevisionMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["revision_target"] = revision_target
+        input_: aws_sdk_redshift.types.modify_cluster_db_revision_message.ModifyClusterDbRevisionMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["revision_target"] = revision_target
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7467,17 +7481,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_cluster_iam_roles_message.ModifyClusterIamRolesMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.modify_cluster_iam_roles_message.ModifyClusterIamRolesMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if add_iam_roles is not None:
-            input["add_iam_roles"] = add_iam_roles
+            input_["add_iam_roles"] = add_iam_roles
         if remove_iam_roles is not None:
-            input["remove_iam_roles"] = remove_iam_roles
+            input_["remove_iam_roles"] = remove_iam_roles
         if default_iam_role_arn is not None:
-            input["default_iam_role_arn"] = default_iam_role_arn
+            input_["default_iam_role_arn"] = default_iam_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7531,21 +7545,21 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_cluster_maintenance_message.ModifyClusterMaintenanceMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.modify_cluster_maintenance_message.ModifyClusterMaintenanceMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if defer_maintenance is not None:
-            input["defer_maintenance"] = defer_maintenance
+            input_["defer_maintenance"] = defer_maintenance
         if defer_maintenance_identifier is not None:
-            input["defer_maintenance_identifier"] = defer_maintenance_identifier
+            input_["defer_maintenance_identifier"] = defer_maintenance_identifier
         if defer_maintenance_start_time is not None:
-            input["defer_maintenance_start_time"] = defer_maintenance_start_time
+            input_["defer_maintenance_start_time"] = defer_maintenance_start_time
         if defer_maintenance_end_time is not None:
-            input["defer_maintenance_end_time"] = defer_maintenance_end_time
+            input_["defer_maintenance_end_time"] = defer_maintenance_end_time
         if defer_maintenance_duration is not None:
-            input["defer_maintenance_duration"] = defer_maintenance_duration
+            input_["defer_maintenance_duration"] = defer_maintenance_duration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7581,12 +7595,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_cluster_parameter_group_message.ModifyClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
-        input["parameters"] = parameters
+        input_: aws_sdk_redshift.types.modify_cluster_parameter_group_message.ModifyClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
+        input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7626,15 +7640,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_cluster_snapshot_message.ModifyClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["snapshot_identifier"] = snapshot_identifier
+        input_: aws_sdk_redshift.types.modify_cluster_snapshot_message.ModifyClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["snapshot_identifier"] = snapshot_identifier
         if manual_snapshot_retention_period is not None:
-            input["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            input_["manual_snapshot_retention_period"] = (
+                manual_snapshot_retention_period
+            )
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7672,15 +7688,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_cluster_snapshot_schedule_message.ModifyClusterSnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.modify_cluster_snapshot_schedule_message.ModifyClusterSnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if schedule_identifier is not None:
-            input["schedule_identifier"] = schedule_identifier
+            input_["schedule_identifier"] = schedule_identifier
         if disassociate_schedule is not None:
-            input["disassociate_schedule"] = disassociate_schedule
+            input_["disassociate_schedule"] = disassociate_schedule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7718,14 +7734,14 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_cluster_subnet_group_message.ModifyClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_subnet_group_name"] = cluster_subnet_group_name
+        input_: aws_sdk_redshift.types.modify_cluster_subnet_group_message.ModifyClusterSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_subnet_group_name"] = cluster_subnet_group_name
         if description is not None:
-            input["description"] = description
-        input["subnet_ids"] = subnet_ids
+            input_["description"] = description
+        input_["subnet_ids"] = subnet_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7763,13 +7779,13 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_custom_domain_association_message.ModifyCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
-        input["custom_domain_name"] = custom_domain_name
-        input["custom_domain_certificate_arn"] = custom_domain_certificate_arn
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.modify_custom_domain_association_message.ModifyCustomDomainAssociationMessage = {}  # type: ignore[typeddict-item]
+        input_["custom_domain_name"] = custom_domain_name
+        input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7807,13 +7823,13 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_endpoint_access_message.ModifyEndpointAccessMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_redshift.types.modify_endpoint_access_message.ModifyEndpointAccessMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7865,23 +7881,23 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_redshift.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if source_ids is not None:
-            input["source_ids"] = source_ids
+            input_["source_ids"] = source_ids
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if severity is not None:
-            input["severity"] = severity
+            input_["severity"] = severity
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7921,15 +7937,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_integration_message.ModifyIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input["integration_arn"] = integration_arn
+        input_: aws_sdk_redshift.types.modify_integration_message.ModifyIntegrationMessage = {}  # type: ignore[typeddict-item]
+        input_["integration_arn"] = integration_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if integration_name is not None:
-            input["integration_name"] = integration_name
+            input_["integration_name"] = integration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7983,21 +7999,21 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_lakehouse_configuration_message.ModifyLakehouseConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.modify_lakehouse_configuration_message.ModifyLakehouseConfigurationMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if lakehouse_registration is not None:
-            input["lakehouse_registration"] = lakehouse_registration
+            input_["lakehouse_registration"] = lakehouse_registration
         if catalog_name is not None:
-            input["catalog_name"] = catalog_name
+            input_["catalog_name"] = catalog_name
         if lakehouse_idc_registration is not None:
-            input["lakehouse_idc_registration"] = lakehouse_idc_registration
+            input_["lakehouse_idc_registration"] = lakehouse_idc_registration
         if lakehouse_idc_application_arn is not None:
-            input["lakehouse_idc_application_arn"] = lakehouse_idc_application_arn
+            input_["lakehouse_idc_application_arn"] = lakehouse_idc_application_arn
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8049,21 +8065,21 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_redshift_idc_application_message.ModifyRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
-        input["redshift_idc_application_arn"] = redshift_idc_application_arn
+        input_: aws_sdk_redshift.types.modify_redshift_idc_application_message.ModifyRedshiftIdcApplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["redshift_idc_application_arn"] = redshift_idc_application_arn
         if identity_namespace is not None:
-            input["identity_namespace"] = identity_namespace
+            input_["identity_namespace"] = identity_namespace
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if idc_display_name is not None:
-            input["idc_display_name"] = idc_display_name
+            input_["idc_display_name"] = idc_display_name
         if authorized_token_issuer_list is not None:
-            input["authorized_token_issuer_list"] = authorized_token_issuer_list
+            input_["authorized_token_issuer_list"] = authorized_token_issuer_list
         if service_integrations is not None:
-            input["service_integrations"] = service_integrations
+            input_["service_integrations"] = service_integrations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8117,25 +8133,25 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_scheduled_action_message.ModifyScheduledActionMessage = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_redshift.types.modify_scheduled_action_message.ModifyScheduledActionMessage = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
         if target_action is not None:
-            input["target_action"] = target_action
+            input_["target_action"] = target_action
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if iam_role is not None:
-            input["iam_role"] = iam_role
+            input_["iam_role"] = iam_role
         if scheduled_action_description is not None:
-            input["scheduled_action_description"] = scheduled_action_description
+            input_["scheduled_action_description"] = scheduled_action_description
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if enable is not None:
-            input["enable"] = enable
+            input_["enable"] = enable
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8173,14 +8189,14 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_snapshot_copy_retention_period_message.ModifySnapshotCopyRetentionPeriodMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["retention_period"] = retention_period
+        input_: aws_sdk_redshift.types.modify_snapshot_copy_retention_period_message.ModifySnapshotCopyRetentionPeriodMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["retention_period"] = retention_period
         if manual is not None:
-            input["manual"] = manual
+            input_["manual"] = manual
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8216,12 +8232,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_snapshot_schedule_message.ModifySnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
-        input["schedule_identifier"] = schedule_identifier
-        input["schedule_definitions"] = schedule_definitions
+        input_: aws_sdk_redshift.types.modify_snapshot_schedule_message.ModifySnapshotScheduleMessage = {}  # type: ignore[typeddict-item]
+        input_["schedule_identifier"] = schedule_identifier
+        input_["schedule_definitions"] = schedule_definitions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8259,15 +8275,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.modify_usage_limit_message.ModifyUsageLimitMessage = {}  # type: ignore[typeddict-item]
-        input["usage_limit_id"] = usage_limit_id
+        input_: aws_sdk_redshift.types.modify_usage_limit_message.ModifyUsageLimitMessage = {}  # type: ignore[typeddict-item]
+        input_["usage_limit_id"] = usage_limit_id
         if amount is not None:
-            input["amount"] = amount
+            input_["amount"] = amount
         if breach_action is not None:
-            input["breach_action"] = breach_action
+            input_["breach_action"] = breach_action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8301,11 +8317,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.pause_cluster_message.PauseClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.pause_cluster_message.PauseClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8343,13 +8359,13 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.purchase_reserved_node_offering_message.PurchaseReservedNodeOfferingMessage = {}  # type: ignore[typeddict-item]
-        input["reserved_node_offering_id"] = reserved_node_offering_id
+        input_: aws_sdk_redshift.types.purchase_reserved_node_offering_message.PurchaseReservedNodeOfferingMessage = {}  # type: ignore[typeddict-item]
+        input_["reserved_node_offering_id"] = reserved_node_offering_id
         if node_count is not None:
-            input["node_count"] = node_count
+            input_["node_count"] = node_count
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8385,12 +8401,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.put_resource_policy_message.PutResourcePolicyMessage = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_redshift.types.put_resource_policy_message.PutResourcePolicyMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8424,11 +8440,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.reboot_cluster_message.RebootClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.reboot_cluster_message.RebootClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8464,12 +8480,12 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.register_namespace_input_message.RegisterNamespaceInputMessage = {}  # type: ignore[typeddict-item]
-        input["namespace_identifier"] = namespace_identifier
-        input["consumer_identifiers"] = consumer_identifiers
+        input_: aws_sdk_redshift.types.register_namespace_input_message.RegisterNamespaceInputMessage = {}  # type: ignore[typeddict-item]
+        input_["namespace_identifier"] = namespace_identifier
+        input_["consumer_identifiers"] = consumer_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8501,11 +8517,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.reject_data_share_message.RejectDataShareMessage = {}  # type: ignore[typeddict-item]
-        input["data_share_arn"] = data_share_arn
+        input_: aws_sdk_redshift.types.reject_data_share_message.RejectDataShareMessage = {}  # type: ignore[typeddict-item]
+        input_["data_share_arn"] = data_share_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8545,15 +8561,15 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.reset_cluster_parameter_group_message.ResetClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_redshift.types.reset_cluster_parameter_group_message.ResetClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
         if reset_all_parameters is not None:
-            input["reset_all_parameters"] = reset_all_parameters
+            input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8605,23 +8621,25 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.resize_cluster_message.ResizeClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.resize_cluster_message.ResizeClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if cluster_type is not None:
-            input["cluster_type"] = cluster_type
+            input_["cluster_type"] = cluster_type
         if node_type is not None:
-            input["node_type"] = node_type
+            input_["node_type"] = node_type
         if number_of_nodes is not None:
-            input["number_of_nodes"] = number_of_nodes
+            input_["number_of_nodes"] = number_of_nodes
         if classic is not None:
-            input["classic"] = classic
+            input_["classic"] = classic
         if reserved_node_id is not None:
-            input["reserved_node_id"] = reserved_node_id
+            input_["reserved_node_id"] = reserved_node_id
         if target_reserved_node_offering_id is not None:
-            input["target_reserved_node_offering_id"] = target_reserved_node_offering_id
+            input_["target_reserved_node_offering_id"] = (
+                target_reserved_node_offering_id
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8783,93 +8801,97 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.restore_from_cluster_snapshot_message.RestoreFromClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.restore_from_cluster_snapshot_message.RestoreFromClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if snapshot_identifier is not None:
-            input["snapshot_identifier"] = snapshot_identifier
+            input_["snapshot_identifier"] = snapshot_identifier
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
         if snapshot_cluster_identifier is not None:
-            input["snapshot_cluster_identifier"] = snapshot_cluster_identifier
+            input_["snapshot_cluster_identifier"] = snapshot_cluster_identifier
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if allow_version_upgrade is not None:
-            input["allow_version_upgrade"] = allow_version_upgrade
+            input_["allow_version_upgrade"] = allow_version_upgrade
         if cluster_subnet_group_name is not None:
-            input["cluster_subnet_group_name"] = cluster_subnet_group_name
+            input_["cluster_subnet_group_name"] = cluster_subnet_group_name
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if hsm_client_certificate_identifier is not None:
-            input["hsm_client_certificate_identifier"] = (
+            input_["hsm_client_certificate_identifier"] = (
                 hsm_client_certificate_identifier
             )
         if hsm_configuration_identifier is not None:
-            input["hsm_configuration_identifier"] = hsm_configuration_identifier
+            input_["hsm_configuration_identifier"] = hsm_configuration_identifier
         if elastic_ip is not None:
-            input["elastic_ip"] = elastic_ip
+            input_["elastic_ip"] = elastic_ip
         if cluster_parameter_group_name is not None:
-            input["cluster_parameter_group_name"] = cluster_parameter_group_name
+            input_["cluster_parameter_group_name"] = cluster_parameter_group_name
         if cluster_security_groups is not None:
-            input["cluster_security_groups"] = cluster_security_groups
+            input_["cluster_security_groups"] = cluster_security_groups
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if automated_snapshot_retention_period is not None:
-            input["automated_snapshot_retention_period"] = (
+            input_["automated_snapshot_retention_period"] = (
                 automated_snapshot_retention_period
             )
         if manual_snapshot_retention_period is not None:
-            input["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            input_["manual_snapshot_retention_period"] = (
+                manual_snapshot_retention_period
+            )
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if node_type is not None:
-            input["node_type"] = node_type
+            input_["node_type"] = node_type
         if enhanced_vpc_routing is not None:
-            input["enhanced_vpc_routing"] = enhanced_vpc_routing
+            input_["enhanced_vpc_routing"] = enhanced_vpc_routing
         if additional_info is not None:
-            input["additional_info"] = additional_info
+            input_["additional_info"] = additional_info
         if iam_roles is not None:
-            input["iam_roles"] = iam_roles
+            input_["iam_roles"] = iam_roles
         if maintenance_track_name is not None:
-            input["maintenance_track_name"] = maintenance_track_name
+            input_["maintenance_track_name"] = maintenance_track_name
         if snapshot_schedule_identifier is not None:
-            input["snapshot_schedule_identifier"] = snapshot_schedule_identifier
+            input_["snapshot_schedule_identifier"] = snapshot_schedule_identifier
         if number_of_nodes is not None:
-            input["number_of_nodes"] = number_of_nodes
+            input_["number_of_nodes"] = number_of_nodes
         if availability_zone_relocation is not None:
-            input["availability_zone_relocation"] = availability_zone_relocation
+            input_["availability_zone_relocation"] = availability_zone_relocation
         if aqua_configuration_status is not None:
-            input["aqua_configuration_status"] = aqua_configuration_status
+            input_["aqua_configuration_status"] = aqua_configuration_status
         if default_iam_role_arn is not None:
-            input["default_iam_role_arn"] = default_iam_role_arn
+            input_["default_iam_role_arn"] = default_iam_role_arn
         if reserved_node_id is not None:
-            input["reserved_node_id"] = reserved_node_id
+            input_["reserved_node_id"] = reserved_node_id
         if target_reserved_node_offering_id is not None:
-            input["target_reserved_node_offering_id"] = target_reserved_node_offering_id
+            input_["target_reserved_node_offering_id"] = (
+                target_reserved_node_offering_id
+            )
         if encrypted is not None:
-            input["encrypted"] = encrypted
+            input_["encrypted"] = encrypted
         if manage_master_password is not None:
-            input["manage_master_password"] = manage_master_password
+            input_["manage_master_password"] = manage_master_password
         if master_password_secret_kms_key_id is not None:
-            input["master_password_secret_kms_key_id"] = (
+            input_["master_password_secret_kms_key_id"] = (
                 master_password_secret_kms_key_id
             )
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if catalog_name is not None:
-            input["catalog_name"] = catalog_name
+            input_["catalog_name"] = catalog_name
         if redshift_idc_application_arn is not None:
-            input["redshift_idc_application_arn"] = redshift_idc_application_arn
+            input_["redshift_idc_application_arn"] = redshift_idc_application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8921,23 +8943,25 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.restore_table_from_cluster_snapshot_message.RestoreTableFromClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["snapshot_identifier"] = snapshot_identifier
-        input["source_database_name"] = source_database_name
+        input_: aws_sdk_redshift.types.restore_table_from_cluster_snapshot_message.RestoreTableFromClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["snapshot_identifier"] = snapshot_identifier
+        input_["source_database_name"] = source_database_name
         if source_schema_name is not None:
-            input["source_schema_name"] = source_schema_name
-        input["source_table_name"] = source_table_name
+            input_["source_schema_name"] = source_schema_name
+        input_["source_table_name"] = source_table_name
         if target_database_name is not None:
-            input["target_database_name"] = target_database_name
+            input_["target_database_name"] = target_database_name
         if target_schema_name is not None:
-            input["target_schema_name"] = target_schema_name
-        input["new_table_name"] = new_table_name
+            input_["target_schema_name"] = target_schema_name
+        input_["new_table_name"] = new_table_name
         if enable_case_sensitive_identifier is not None:
-            input["enable_case_sensitive_identifier"] = enable_case_sensitive_identifier
+            input_["enable_case_sensitive_identifier"] = (
+                enable_case_sensitive_identifier
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8971,11 +8995,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.resume_cluster_message.ResumeClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.resume_cluster_message.ResumeClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9019,17 +9043,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.revoke_cluster_security_group_ingress_message.RevokeClusterSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_security_group_name"] = cluster_security_group_name
+        input_: aws_sdk_redshift.types.revoke_cluster_security_group_ingress_message.RevokeClusterSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_security_group_name"] = cluster_security_group_name
         if cidrip is not None:
-            input["cidrip"] = cidrip
+            input_["cidrip"] = cidrip
         if ec2_security_group_name is not None:
-            input["ec2_security_group_name"] = ec2_security_group_name
+            input_["ec2_security_group_name"] = ec2_security_group_name
         if ec2_security_group_owner_id is not None:
-            input["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+            input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9071,18 +9095,18 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.revoke_endpoint_access_message.RevokeEndpointAccessMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.revoke_endpoint_access_message.RevokeEndpointAccessMessage = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if account is not None:
-            input["account"] = account
+            input_["account"] = account
         if vpc_ids is not None:
-            input["vpc_ids"] = vpc_ids
+            input_["vpc_ids"] = vpc_ids
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9124,17 +9148,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.revoke_snapshot_access_message.RevokeSnapshotAccessMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift.types.revoke_snapshot_access_message.RevokeSnapshotAccessMessage = {}  # type: ignore[typeddict-item]
         if snapshot_identifier is not None:
-            input["snapshot_identifier"] = snapshot_identifier
+            input_["snapshot_identifier"] = snapshot_identifier
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
         if snapshot_cluster_identifier is not None:
-            input["snapshot_cluster_identifier"] = snapshot_cluster_identifier
-        input["account_with_restore_access"] = account_with_restore_access
+            input_["snapshot_cluster_identifier"] = snapshot_cluster_identifier
+        input_["account_with_restore_access"] = account_with_restore_access
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9170,11 +9194,11 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.rotate_encryption_key_message.RotateEncryptionKeyMessage = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_redshift.types.rotate_encryption_key_message.RotateEncryptionKeyMessage = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9220,17 +9244,17 @@ class AsyncRedshiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift.types.update_partner_status_input_message.UpdatePartnerStatusInputMessage = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["cluster_identifier"] = cluster_identifier
-        input["database_name"] = database_name
-        input["partner_name"] = partner_name
-        input["status"] = status
+        input_: aws_sdk_redshift.types.update_partner_status_input_message.UpdatePartnerStatusInputMessage = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["cluster_identifier"] = cluster_identifier
+        input_["database_name"] = database_name
+        input_["partner_name"] = partner_name
+        input_["status"] = status
         if status_message is not None:
-            input["status_message"] = status_message
+            input_["status_message"] = status_message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

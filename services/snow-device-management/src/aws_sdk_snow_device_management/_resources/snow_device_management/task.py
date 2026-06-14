@@ -83,18 +83,18 @@ class Task:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.create_task_input.CreateTaskInput = {}  # type: ignore[typeddict-item]
-        input["targets"] = targets
-        input["command"] = command
+        input_: aws_sdk_snow_device_management.types.create_task_input.CreateTaskInput = {}  # type: ignore[typeddict-item]
+        input_["targets"] = targets
+        input_["command"] = command
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -127,11 +127,11 @@ class Task:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.describe_task_input.DescribeTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_snow_device_management.types.describe_task_input.DescribeTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -174,16 +174,16 @@ class Task:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.list_tasks_input.ListTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snow_device_management.types.list_tasks_input.ListTasksInput = {}  # type: ignore[typeddict-item]
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,11 +216,11 @@ class Task:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.cancel_task_input.CancelTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_snow_device_management.types.cancel_task_input.CancelTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,18 +271,18 @@ class AsyncTask:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.create_task_input.CreateTaskInput = {}  # type: ignore[typeddict-item]
-        input["targets"] = targets
-        input["command"] = command
+        input_: aws_sdk_snow_device_management.types.create_task_input.CreateTaskInput = {}  # type: ignore[typeddict-item]
+        input_["targets"] = targets
+        input_["command"] = command
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -316,11 +316,11 @@ class AsyncTask:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.describe_task_input.DescribeTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_snow_device_management.types.describe_task_input.DescribeTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,16 +364,16 @@ class AsyncTask:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.list_tasks_input.ListTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snow_device_management.types.list_tasks_input.ListTasksInput = {}  # type: ignore[typeddict-item]
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,11 +407,11 @@ class AsyncTask:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.cancel_task_input.CancelTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_snow_device_management.types.cancel_task_input.CancelTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

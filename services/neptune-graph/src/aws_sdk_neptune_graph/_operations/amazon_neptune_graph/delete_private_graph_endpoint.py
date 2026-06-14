@@ -98,9 +98,9 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput,
+    input_: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseFIPS=options.use_fips,
@@ -108,12 +108,12 @@ def build_request(
             Endpoint=options.endpoint,
             ApiType="ControlPlane",
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/graphs/{graphIdentifier}/endpoints/{vpcId}"
     url = url.replace(
-        "{graphIdentifier}", quote(str(input["graph_identifier"]), safe="")
+        "{graphIdentifier}", quote(str(input_["graph_identifier"]), safe="")
     )
-    url = url.replace("{vpcId}", quote(str(input["vpc_id"]), safe=""))
+    url = url.replace("{vpcId}", quote(str(input_["vpc_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -121,26 +121,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_private_graph_endpoint(
     options: OperationOptions,
-    input: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput,
+    input_: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput,
 ) -> tuple[
     aws_sdk_neptune_graph.types.delete_private_graph_endpoint_output.DeletePrivateGraphEndpointOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -149,16 +146,17 @@ def delete_private_graph_endpoint(
 
 async def async_delete_private_graph_endpoint(
     options: AsyncOperationOptions,
-    input: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput,
+    input_: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput,
 ) -> tuple[
     aws_sdk_neptune_graph.types.delete_private_graph_endpoint_output.DeletePrivateGraphEndpointOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -190,11 +190,11 @@ class TranscribeStreamingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe_streaming.types.get_medical_scribe_stream_request.GetMedicalScribeStreamRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_transcribe_streaming.types.get_medical_scribe_stream_request.GetMedicalScribeStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,47 +295,47 @@ class TranscribeStreamingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe_streaming.types.start_call_analytics_stream_transcription_request.StartCallAnalyticsStreamTranscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe_streaming.types.start_call_analytics_stream_transcription_request.StartCallAnalyticsStreamTranscriptionRequest = {}  # type: ignore[typeddict-item]
         if language_code is not None:
-            input["language_code"] = language_code
-        input["media_sample_rate_hertz"] = media_sample_rate_hertz
-        input["media_encoding"] = media_encoding
+            input_["language_code"] = language_code
+        input_["media_sample_rate_hertz"] = media_sample_rate_hertz
+        input_["media_encoding"] = media_encoding
         if vocabulary_name is not None:
-            input["vocabulary_name"] = vocabulary_name
+            input_["vocabulary_name"] = vocabulary_name
         if session_id is not None:
-            input["session_id"] = session_id
-        input["audio_stream"] = ensure_sync_iterator(audio_stream)  # type: ignore
+            input_["session_id"] = session_id
+        input_["audio_stream"] = ensure_sync_iterator(audio_stream)  # type: ignore
         if vocabulary_filter_name is not None:
-            input["vocabulary_filter_name"] = vocabulary_filter_name
+            input_["vocabulary_filter_name"] = vocabulary_filter_name
         if vocabulary_filter_method is not None:
-            input["vocabulary_filter_method"] = vocabulary_filter_method
+            input_["vocabulary_filter_method"] = vocabulary_filter_method
         if language_model_name is not None:
-            input["language_model_name"] = language_model_name
+            input_["language_model_name"] = language_model_name
         if identify_language is not None:
-            input["identify_language"] = identify_language
+            input_["identify_language"] = identify_language
         if language_options is not None:
-            input["language_options"] = language_options
+            input_["language_options"] = language_options
         if preferred_language is not None:
-            input["preferred_language"] = preferred_language
+            input_["preferred_language"] = preferred_language
         if vocabulary_names is not None:
-            input["vocabulary_names"] = vocabulary_names
+            input_["vocabulary_names"] = vocabulary_names
         if vocabulary_filter_names is not None:
-            input["vocabulary_filter_names"] = vocabulary_filter_names
+            input_["vocabulary_filter_names"] = vocabulary_filter_names
         if enable_partial_results_stabilization is not None:
-            input["enable_partial_results_stabilization"] = (
+            input_["enable_partial_results_stabilization"] = (
                 enable_partial_results_stabilization
             )
         if partial_results_stability is not None:
-            input["partial_results_stability"] = partial_results_stability
+            input_["partial_results_stability"] = partial_results_stability
         if content_identification_type is not None:
-            input["content_identification_type"] = content_identification_type
+            input_["content_identification_type"] = content_identification_type
         if content_redaction_type is not None:
-            input["content_redaction_type"] = content_redaction_type
+            input_["content_redaction_type"] = content_redaction_type
         if pii_entity_types is not None:
-            input["pii_entity_types"] = pii_entity_types
+            input_["pii_entity_types"] = pii_entity_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,16 +378,16 @@ class TranscribeStreamingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe_streaming.types.start_medical_scribe_stream_request.StartMedicalScribeStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe_streaming.types.start_medical_scribe_stream_request.StartMedicalScribeStreamRequest = {}  # type: ignore[typeddict-item]
         if session_id is not None:
-            input["session_id"] = session_id
-        input["language_code"] = language_code
-        input["media_sample_rate_hertz"] = media_sample_rate_hertz
-        input["media_encoding"] = media_encoding
-        input["input_stream"] = ensure_sync_iterator(input_stream)  # type: ignore
+            input_["session_id"] = session_id
+        input_["language_code"] = language_code
+        input_["media_sample_rate_hertz"] = media_sample_rate_hertz
+        input_["media_encoding"] = media_encoding
+        input_["input_stream"] = ensure_sync_iterator(input_stream)  # type: ignore
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -453,28 +453,28 @@ class TranscribeStreamingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe_streaming.types.start_medical_stream_transcription_request.StartMedicalStreamTranscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["language_code"] = language_code
-        input["media_sample_rate_hertz"] = media_sample_rate_hertz
-        input["media_encoding"] = media_encoding
+        input_: aws_sdk_transcribe_streaming.types.start_medical_stream_transcription_request.StartMedicalStreamTranscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["language_code"] = language_code
+        input_["media_sample_rate_hertz"] = media_sample_rate_hertz
+        input_["media_encoding"] = media_encoding
         if vocabulary_name is not None:
-            input["vocabulary_name"] = vocabulary_name
-        input["specialty"] = specialty
-        input["type"] = type
+            input_["vocabulary_name"] = vocabulary_name
+        input_["specialty"] = specialty
+        input_["type"] = type
         if show_speaker_label is not None:
-            input["show_speaker_label"] = show_speaker_label
+            input_["show_speaker_label"] = show_speaker_label
         if session_id is not None:
-            input["session_id"] = session_id
-        input["audio_stream"] = ensure_sync_iterator(audio_stream)  # type: ignore
+            input_["session_id"] = session_id
+        input_["audio_stream"] = ensure_sync_iterator(audio_stream)  # type: ignore
         if enable_channel_identification is not None:
-            input["enable_channel_identification"] = enable_channel_identification
+            input_["enable_channel_identification"] = enable_channel_identification
         if number_of_channels is not None:
-            input["number_of_channels"] = number_of_channels
+            input_["number_of_channels"] = number_of_channels
         if content_identification_type is not None:
-            input["content_identification_type"] = content_identification_type
+            input_["content_identification_type"] = content_identification_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,57 +595,57 @@ class TranscribeStreamingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe_streaming.types.start_stream_transcription_request.StartStreamTranscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe_streaming.types.start_stream_transcription_request.StartStreamTranscriptionRequest = {}  # type: ignore[typeddict-item]
         if language_code is not None:
-            input["language_code"] = language_code
-        input["media_sample_rate_hertz"] = media_sample_rate_hertz
-        input["media_encoding"] = media_encoding
+            input_["language_code"] = language_code
+        input_["media_sample_rate_hertz"] = media_sample_rate_hertz
+        input_["media_encoding"] = media_encoding
         if vocabulary_name is not None:
-            input["vocabulary_name"] = vocabulary_name
+            input_["vocabulary_name"] = vocabulary_name
         if session_id is not None:
-            input["session_id"] = session_id
-        input["audio_stream"] = ensure_sync_iterator(audio_stream)  # type: ignore
+            input_["session_id"] = session_id
+        input_["audio_stream"] = ensure_sync_iterator(audio_stream)  # type: ignore
         if vocabulary_filter_name is not None:
-            input["vocabulary_filter_name"] = vocabulary_filter_name
+            input_["vocabulary_filter_name"] = vocabulary_filter_name
         if vocabulary_filter_method is not None:
-            input["vocabulary_filter_method"] = vocabulary_filter_method
+            input_["vocabulary_filter_method"] = vocabulary_filter_method
         if show_speaker_label is not None:
-            input["show_speaker_label"] = show_speaker_label
+            input_["show_speaker_label"] = show_speaker_label
         if enable_channel_identification is not None:
-            input["enable_channel_identification"] = enable_channel_identification
+            input_["enable_channel_identification"] = enable_channel_identification
         if number_of_channels is not None:
-            input["number_of_channels"] = number_of_channels
+            input_["number_of_channels"] = number_of_channels
         if enable_partial_results_stabilization is not None:
-            input["enable_partial_results_stabilization"] = (
+            input_["enable_partial_results_stabilization"] = (
                 enable_partial_results_stabilization
             )
         if partial_results_stability is not None:
-            input["partial_results_stability"] = partial_results_stability
+            input_["partial_results_stability"] = partial_results_stability
         if content_identification_type is not None:
-            input["content_identification_type"] = content_identification_type
+            input_["content_identification_type"] = content_identification_type
         if content_redaction_type is not None:
-            input["content_redaction_type"] = content_redaction_type
+            input_["content_redaction_type"] = content_redaction_type
         if pii_entity_types is not None:
-            input["pii_entity_types"] = pii_entity_types
+            input_["pii_entity_types"] = pii_entity_types
         if language_model_name is not None:
-            input["language_model_name"] = language_model_name
+            input_["language_model_name"] = language_model_name
         if identify_language is not None:
-            input["identify_language"] = identify_language
+            input_["identify_language"] = identify_language
         if language_options is not None:
-            input["language_options"] = language_options
+            input_["language_options"] = language_options
         if preferred_language is not None:
-            input["preferred_language"] = preferred_language
+            input_["preferred_language"] = preferred_language
         if identify_multiple_languages is not None:
-            input["identify_multiple_languages"] = identify_multiple_languages
+            input_["identify_multiple_languages"] = identify_multiple_languages
         if vocabulary_names is not None:
-            input["vocabulary_names"] = vocabulary_names
+            input_["vocabulary_names"] = vocabulary_names
         if vocabulary_filter_names is not None:
-            input["vocabulary_filter_names"] = vocabulary_filter_names
+            input_["vocabulary_filter_names"] = vocabulary_filter_names
         if session_resume_window is not None:
-            input["session_resume_window"] = session_resume_window
+            input_["session_resume_window"] = session_resume_window
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

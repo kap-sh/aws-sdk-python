@@ -112,40 +112,40 @@ class WorkgroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_workgroup_request.CreateWorkgroupRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.create_workgroup_request.CreateWorkgroupRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
+        input_["namespace_name"] = namespace_name
         if base_capacity is not None:
-            input["base_capacity"] = base_capacity
+            input_["base_capacity"] = base_capacity
         if enhanced_vpc_routing is not None:
-            input["enhanced_vpc_routing"] = enhanced_vpc_routing
+            input_["enhanced_vpc_routing"] = enhanced_vpc_routing
         if config_parameters is not None:
-            input["config_parameters"] = config_parameters
+            input_["config_parameters"] = config_parameters
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if price_performance_target is not None:
-            input["price_performance_target"] = price_performance_target
+            input_["price_performance_target"] = price_performance_target
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if track_name is not None:
-            input["track_name"] = track_name
+            input_["track_name"] = track_name
         if extra_compute_for_automatic_optimization is not None:
-            input["extra_compute_for_automatic_optimization"] = (
+            input_["extra_compute_for_automatic_optimization"] = (
                 extra_compute_for_automatic_optimization
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -180,11 +180,11 @@ class WorkgroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_workgroup_request.GetWorkgroupRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.get_workgroup_request.GetWorkgroupRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,37 +253,37 @@ class WorkgroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_workgroup_request.UpdateWorkgroupRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.update_workgroup_request.UpdateWorkgroupRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
         if base_capacity is not None:
-            input["base_capacity"] = base_capacity
+            input_["base_capacity"] = base_capacity
         if enhanced_vpc_routing is not None:
-            input["enhanced_vpc_routing"] = enhanced_vpc_routing
+            input_["enhanced_vpc_routing"] = enhanced_vpc_routing
         if config_parameters is not None:
-            input["config_parameters"] = config_parameters
+            input_["config_parameters"] = config_parameters
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if price_performance_target is not None:
-            input["price_performance_target"] = price_performance_target
+            input_["price_performance_target"] = price_performance_target
         if track_name is not None:
-            input["track_name"] = track_name
+            input_["track_name"] = track_name
         if extra_compute_for_automatic_optimization is not None:
-            input["extra_compute_for_automatic_optimization"] = (
+            input_["extra_compute_for_automatic_optimization"] = (
                 extra_compute_for_automatic_optimization
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -316,11 +316,11 @@ class WorkgroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_workgroup_request.DeleteWorkgroupRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.delete_workgroup_request.DeleteWorkgroupRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,16 +359,16 @@ class WorkgroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_workgroups_request.ListWorkgroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_workgroups_request.ListWorkgroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,40 +447,40 @@ class AsyncWorkgroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_workgroup_request.CreateWorkgroupRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.create_workgroup_request.CreateWorkgroupRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
+        input_["namespace_name"] = namespace_name
         if base_capacity is not None:
-            input["base_capacity"] = base_capacity
+            input_["base_capacity"] = base_capacity
         if enhanced_vpc_routing is not None:
-            input["enhanced_vpc_routing"] = enhanced_vpc_routing
+            input_["enhanced_vpc_routing"] = enhanced_vpc_routing
         if config_parameters is not None:
-            input["config_parameters"] = config_parameters
+            input_["config_parameters"] = config_parameters
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if price_performance_target is not None:
-            input["price_performance_target"] = price_performance_target
+            input_["price_performance_target"] = price_performance_target
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if track_name is not None:
-            input["track_name"] = track_name
+            input_["track_name"] = track_name
         if extra_compute_for_automatic_optimization is not None:
-            input["extra_compute_for_automatic_optimization"] = (
+            input_["extra_compute_for_automatic_optimization"] = (
                 extra_compute_for_automatic_optimization
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,11 +516,11 @@ class AsyncWorkgroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_workgroup_request.GetWorkgroupRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.get_workgroup_request.GetWorkgroupRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -590,37 +590,37 @@ class AsyncWorkgroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_workgroup_request.UpdateWorkgroupRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.update_workgroup_request.UpdateWorkgroupRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
         if base_capacity is not None:
-            input["base_capacity"] = base_capacity
+            input_["base_capacity"] = base_capacity
         if enhanced_vpc_routing is not None:
-            input["enhanced_vpc_routing"] = enhanced_vpc_routing
+            input_["enhanced_vpc_routing"] = enhanced_vpc_routing
         if config_parameters is not None:
-            input["config_parameters"] = config_parameters
+            input_["config_parameters"] = config_parameters
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if price_performance_target is not None:
-            input["price_performance_target"] = price_performance_target
+            input_["price_performance_target"] = price_performance_target
         if track_name is not None:
-            input["track_name"] = track_name
+            input_["track_name"] = track_name
         if extra_compute_for_automatic_optimization is not None:
-            input["extra_compute_for_automatic_optimization"] = (
+            input_["extra_compute_for_automatic_optimization"] = (
                 extra_compute_for_automatic_optimization
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,11 +654,11 @@ class AsyncWorkgroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_workgroup_request.DeleteWorkgroupRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.delete_workgroup_request.DeleteWorkgroupRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,16 +698,16 @@ class AsyncWorkgroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_workgroups_request.ListWorkgroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_workgroups_request.ListWorkgroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

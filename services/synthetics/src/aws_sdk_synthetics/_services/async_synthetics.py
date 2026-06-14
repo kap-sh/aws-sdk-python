@@ -235,12 +235,12 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.associate_resource_request.AssociateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["group_identifier"] = group_identifier
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_synthetics.types.associate_resource_request.AssociateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["group_identifier"] = group_identifier
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,34 +318,38 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.create_canary_request.CreateCanaryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["code"] = code
-        input["artifact_s3_location"] = artifact_s3_location
-        input["execution_role_arn"] = execution_role_arn
-        input["schedule"] = schedule
+        input_: aws_sdk_synthetics.types.create_canary_request.CreateCanaryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["code"] = code
+        input_["artifact_s3_location"] = artifact_s3_location
+        input_["execution_role_arn"] = execution_role_arn
+        input_["schedule"] = schedule
         if run_config is not None:
-            input["run_config"] = run_config
+            input_["run_config"] = run_config
         if success_retention_period_in_days is not None:
-            input["success_retention_period_in_days"] = success_retention_period_in_days
+            input_["success_retention_period_in_days"] = (
+                success_retention_period_in_days
+            )
         if failure_retention_period_in_days is not None:
-            input["failure_retention_period_in_days"] = failure_retention_period_in_days
-        input["runtime_version"] = runtime_version
+            input_["failure_retention_period_in_days"] = (
+                failure_retention_period_in_days
+            )
+        input_["runtime_version"] = runtime_version
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if resources_to_replicate_tags is not None:
-            input["resources_to_replicate_tags"] = resources_to_replicate_tags
+            input_["resources_to_replicate_tags"] = resources_to_replicate_tags
         if provisioned_resource_cleanup is not None:
-            input["provisioned_resource_cleanup"] = provisioned_resource_cleanup
+            input_["provisioned_resource_cleanup"] = provisioned_resource_cleanup
         if browser_configs is not None:
-            input["browser_configs"] = browser_configs
+            input_["browser_configs"] = browser_configs
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if artifact_config is not None:
-            input["artifact_config"] = artifact_config
+            input_["artifact_config"] = artifact_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,13 +385,13 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_synthetics.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -423,13 +427,13 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.delete_canary_request.DeleteCanaryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_synthetics.types.delete_canary_request.DeleteCanaryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if delete_lambda is not None:
-            input["delete_lambda"] = delete_lambda
+            input_["delete_lambda"] = delete_lambda
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,11 +467,11 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_identifier"] = group_identifier
+        input_: aws_sdk_synthetics.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_identifier"] = group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,16 +513,16 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.describe_canaries_request.DescribeCanariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_synthetics.types.describe_canaries_request.DescribeCanariesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -562,18 +566,18 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.describe_canaries_last_run_request.DescribeCanariesLastRunRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_synthetics.types.describe_canaries_last_run_request.DescribeCanariesLastRunRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if browser_type is not None:
-            input["browser_type"] = browser_type
+            input_["browser_type"] = browser_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,14 +613,14 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.describe_runtime_versions_request.DescribeRuntimeVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_synthetics.types.describe_runtime_versions_request.DescribeRuntimeVersionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -652,12 +656,12 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.disassociate_resource_request.DisassociateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["group_identifier"] = group_identifier
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_synthetics.types.disassociate_resource_request.DisassociateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["group_identifier"] = group_identifier
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -693,13 +697,13 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.get_canary_request.GetCanaryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_synthetics.types.get_canary_request.GetCanaryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if dry_run_id is not None:
-            input["dry_run_id"] = dry_run_id
+            input_["dry_run_id"] = dry_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -741,19 +745,19 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.get_canary_runs_request.GetCanaryRunsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_synthetics.types.get_canary_runs_request.GetCanaryRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if dry_run_id is not None:
-            input["dry_run_id"] = dry_run_id
+            input_["dry_run_id"] = dry_run_id
         if run_type is not None:
-            input["run_type"] = run_type
+            input_["run_type"] = run_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -787,11 +791,11 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_identifier"] = group_identifier
+        input_: aws_sdk_synthetics.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_identifier"] = group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -833,15 +837,15 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.list_associated_groups_request.ListAssociatedGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_synthetics.types.list_associated_groups_request.ListAssociatedGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["resource_arn"] = resource_arn
+            input_["max_results"] = max_results
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -883,15 +887,15 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.list_group_resources_request.ListGroupResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_synthetics.types.list_group_resources_request.ListGroupResourcesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["group_identifier"] = group_identifier
+            input_["max_results"] = max_results
+        input_["group_identifier"] = group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -931,14 +935,14 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_synthetics.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -972,11 +976,11 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_synthetics.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1010,11 +1014,11 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.start_canary_request.StartCanaryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_synthetics.types.start_canary_request.StartCanaryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1091,37 +1095,41 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.start_canary_dry_run_request.StartCanaryDryRunRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_synthetics.types.start_canary_dry_run_request.StartCanaryDryRunRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
         if runtime_version is not None:
-            input["runtime_version"] = runtime_version
+            input_["runtime_version"] = runtime_version
         if run_config is not None:
-            input["run_config"] = run_config
+            input_["run_config"] = run_config
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if success_retention_period_in_days is not None:
-            input["success_retention_period_in_days"] = success_retention_period_in_days
+            input_["success_retention_period_in_days"] = (
+                success_retention_period_in_days
+            )
         if failure_retention_period_in_days is not None:
-            input["failure_retention_period_in_days"] = failure_retention_period_in_days
+            input_["failure_retention_period_in_days"] = (
+                failure_retention_period_in_days
+            )
         if visual_reference is not None:
-            input["visual_reference"] = visual_reference
+            input_["visual_reference"] = visual_reference
         if artifact_s3_location is not None:
-            input["artifact_s3_location"] = artifact_s3_location
+            input_["artifact_s3_location"] = artifact_s3_location
         if artifact_config is not None:
-            input["artifact_config"] = artifact_config
+            input_["artifact_config"] = artifact_config
         if provisioned_resource_cleanup is not None:
-            input["provisioned_resource_cleanup"] = provisioned_resource_cleanup
+            input_["provisioned_resource_cleanup"] = provisioned_resource_cleanup
         if browser_configs is not None:
-            input["browser_configs"] = browser_configs
+            input_["browser_configs"] = browser_configs
         if visual_references is not None:
-            input["visual_references"] = visual_references
+            input_["visual_references"] = visual_references
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1155,11 +1163,11 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.stop_canary_request.StopCanaryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_synthetics.types.stop_canary_request.StopCanaryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1195,12 +1203,12 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_synthetics.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1236,12 +1244,12 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_synthetics.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1329,41 +1337,45 @@ class AsyncsyntheticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_synthetics.types.update_canary_request.UpdateCanaryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_synthetics.types.update_canary_request.UpdateCanaryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if runtime_version is not None:
-            input["runtime_version"] = runtime_version
+            input_["runtime_version"] = runtime_version
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if run_config is not None:
-            input["run_config"] = run_config
+            input_["run_config"] = run_config
         if success_retention_period_in_days is not None:
-            input["success_retention_period_in_days"] = success_retention_period_in_days
+            input_["success_retention_period_in_days"] = (
+                success_retention_period_in_days
+            )
         if failure_retention_period_in_days is not None:
-            input["failure_retention_period_in_days"] = failure_retention_period_in_days
+            input_["failure_retention_period_in_days"] = (
+                failure_retention_period_in_days
+            )
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if visual_reference is not None:
-            input["visual_reference"] = visual_reference
+            input_["visual_reference"] = visual_reference
         if artifact_s3_location is not None:
-            input["artifact_s3_location"] = artifact_s3_location
+            input_["artifact_s3_location"] = artifact_s3_location
         if artifact_config is not None:
-            input["artifact_config"] = artifact_config
+            input_["artifact_config"] = artifact_config
         if provisioned_resource_cleanup is not None:
-            input["provisioned_resource_cleanup"] = provisioned_resource_cleanup
+            input_["provisioned_resource_cleanup"] = provisioned_resource_cleanup
         if dry_run_id is not None:
-            input["dry_run_id"] = dry_run_id
+            input_["dry_run_id"] = dry_run_id
         if visual_references is not None:
-            input["visual_references"] = visual_references
+            input_["visual_references"] = visual_references
         if browser_configs is not None:
-            input["browser_configs"] = browser_configs
+            input_["browser_configs"] = browser_configs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

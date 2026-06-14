@@ -183,20 +183,20 @@ class AsyncPersonalizeRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_personalize_runtime.types.get_action_recommendations_request.GetActionRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_personalize_runtime.types.get_action_recommendations_request.GetActionRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if campaign_arn is not None:
-            input["campaign_arn"] = campaign_arn
+            input_["campaign_arn"] = campaign_arn
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if num_results is not None:
-            input["num_results"] = num_results
+            input_["num_results"] = num_results
         if filter_arn is not None:
-            input["filter_arn"] = filter_arn
+            input_["filter_arn"] = filter_arn
         if filter_values is not None:
-            input["filter_values"] = filter_values
+            input_["filter_values"] = filter_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,21 +246,21 @@ class AsyncPersonalizeRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_personalize_runtime.types.get_personalized_ranking_request.GetPersonalizedRankingRequest = {}  # type: ignore[typeddict-item]
-        input["campaign_arn"] = campaign_arn
-        input["input_list"] = input_list
-        input["user_id"] = user_id
+        input_: aws_sdk_personalize_runtime.types.get_personalized_ranking_request.GetPersonalizedRankingRequest = {}  # type: ignore[typeddict-item]
+        input_["campaign_arn"] = campaign_arn
+        input_["input_list"] = input_list
+        input_["user_id"] = user_id
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
         if filter_arn is not None:
-            input["filter_arn"] = filter_arn
+            input_["filter_arn"] = filter_arn
         if filter_values is not None:
-            input["filter_values"] = filter_values
+            input_["filter_values"] = filter_values
         if metadata_columns is not None:
-            input["metadata_columns"] = metadata_columns
+            input_["metadata_columns"] = metadata_columns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,30 +320,30 @@ class AsyncPersonalizeRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_personalize_runtime.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_personalize_runtime.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if campaign_arn is not None:
-            input["campaign_arn"] = campaign_arn
+            input_["campaign_arn"] = campaign_arn
         if item_id is not None:
-            input["item_id"] = item_id
+            input_["item_id"] = item_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if num_results is not None:
-            input["num_results"] = num_results
+            input_["num_results"] = num_results
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
         if filter_arn is not None:
-            input["filter_arn"] = filter_arn
+            input_["filter_arn"] = filter_arn
         if filter_values is not None:
-            input["filter_values"] = filter_values
+            input_["filter_values"] = filter_values
         if recommender_arn is not None:
-            input["recommender_arn"] = recommender_arn
+            input_["recommender_arn"] = recommender_arn
         if promotions is not None:
-            input["promotions"] = promotions
+            input_["promotions"] = promotions
         if metadata_columns is not None:
-            input["metadata_columns"] = metadata_columns
+            input_["metadata_columns"] = metadata_columns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

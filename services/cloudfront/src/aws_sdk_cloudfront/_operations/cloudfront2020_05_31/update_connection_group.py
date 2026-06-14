@@ -115,55 +115,52 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest,
+    input_: aws_sdk_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/connection-group/{Id}"
-    url = url.replace("{Id}", quote(str(input["id"]), safe=""))
+    url = url.replace("{Id}", quote(str(input_["id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "if_match" in input:
-        headers["If-Match"] = str(input["if_match"])
+    if "if_match" in input_:
+        headers["If-Match"] = str(input_["if_match"])
     root = Element("UpdateConnectionGroupRequest")
-    if "ipv6_enabled" in input:
-        SubElement(root, "Ipv6Enabled").text = str(input["ipv6_enabled"])
-    if "anycast_ip_list_id" in input:
-        SubElement(root, "AnycastIpListId").text = str(input["anycast_ip_list_id"])
-    if "enabled" in input:
-        SubElement(root, "Enabled").text = str(input["enabled"])
+    if "ipv6_enabled" in input_:
+        SubElement(root, "Ipv6Enabled").text = str(input_["ipv6_enabled"])
+    if "anycast_ip_list_id" in input_:
+        SubElement(root, "AnycastIpListId").text = str(input_["anycast_ip_list_id"])
+    if "enabled" in input_:
+        SubElement(root, "Enabled").text = str(input_["enabled"])
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_connection_group(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest,
+    input_: aws_sdk_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.update_connection_group_result.UpdateConnectionGroupResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -172,16 +169,17 @@ def update_connection_group(
 
 async def async_update_connection_group(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest,
+    input_: aws_sdk_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.update_connection_group_result.UpdateConnectionGroupResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

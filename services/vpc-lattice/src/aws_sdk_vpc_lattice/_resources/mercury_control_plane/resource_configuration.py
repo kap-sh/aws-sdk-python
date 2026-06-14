@@ -122,40 +122,40 @@ class ResourceConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_resource_configuration_request.CreateResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_vpc_lattice.types.create_resource_configuration_request.CreateResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
         if port_ranges is not None:
-            input["port_ranges"] = port_ranges
+            input_["port_ranges"] = port_ranges
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if resource_gateway_identifier is not None:
-            input["resource_gateway_identifier"] = resource_gateway_identifier
+            input_["resource_gateway_identifier"] = resource_gateway_identifier
         if resource_configuration_group_identifier is not None:
-            input["resource_configuration_group_identifier"] = (
+            input_["resource_configuration_group_identifier"] = (
                 resource_configuration_group_identifier
             )
         if resource_configuration_definition is not None:
-            input["resource_configuration_definition"] = (
+            input_["resource_configuration_definition"] = (
                 resource_configuration_definition
             )
         if allow_association_to_shareable_service_network is not None:
-            input["allow_association_to_shareable_service_network"] = (
+            input_["allow_association_to_shareable_service_network"] = (
                 allow_association_to_shareable_service_network
             )
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
         if group_domain is not None:
-            input["group_domain"] = group_domain
+            input_["group_domain"] = group_domain
         if domain_verification_identifier is not None:
-            input["domain_verification_identifier"] = domain_verification_identifier
+            input_["domain_verification_identifier"] = domain_verification_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,11 +188,11 @@ class ResourceConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_resource_configuration_request.GetResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_configuration_identifier"] = resource_configuration_identifier
+        input_: aws_sdk_vpc_lattice.types.get_resource_configuration_request.GetResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -237,21 +237,21 @@ class ResourceConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_resource_configuration_request.UpdateResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_configuration_identifier"] = resource_configuration_identifier
+        input_: aws_sdk_vpc_lattice.types.update_resource_configuration_request.UpdateResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
         if resource_configuration_definition is not None:
-            input["resource_configuration_definition"] = (
+            input_["resource_configuration_definition"] = (
                 resource_configuration_definition
             )
         if allow_association_to_shareable_service_network is not None:
-            input["allow_association_to_shareable_service_network"] = (
+            input_["allow_association_to_shareable_service_network"] = (
                 allow_association_to_shareable_service_network
             )
         if port_ranges is not None:
-            input["port_ranges"] = port_ranges
+            input_["port_ranges"] = port_ranges
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,11 +284,11 @@ class ResourceConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_resource_configuration_request.DeleteResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_configuration_identifier"] = resource_configuration_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_resource_configuration_request.DeleteResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,22 +337,22 @@ class ResourceConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_resource_configurations_request.ListResourceConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_resource_configurations_request.ListResourceConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if resource_gateway_identifier is not None:
-            input["resource_gateway_identifier"] = resource_gateway_identifier
+            input_["resource_gateway_identifier"] = resource_gateway_identifier
         if resource_configuration_group_identifier is not None:
-            input["resource_configuration_group_identifier"] = (
+            input_["resource_configuration_group_identifier"] = (
                 resource_configuration_group_identifier
             )
         if domain_verification_identifier is not None:
-            input["domain_verification_identifier"] = domain_verification_identifier
+            input_["domain_verification_identifier"] = domain_verification_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,40 +435,40 @@ class AsyncResourceConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_resource_configuration_request.CreateResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_vpc_lattice.types.create_resource_configuration_request.CreateResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
         if port_ranges is not None:
-            input["port_ranges"] = port_ranges
+            input_["port_ranges"] = port_ranges
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if resource_gateway_identifier is not None:
-            input["resource_gateway_identifier"] = resource_gateway_identifier
+            input_["resource_gateway_identifier"] = resource_gateway_identifier
         if resource_configuration_group_identifier is not None:
-            input["resource_configuration_group_identifier"] = (
+            input_["resource_configuration_group_identifier"] = (
                 resource_configuration_group_identifier
             )
         if resource_configuration_definition is not None:
-            input["resource_configuration_definition"] = (
+            input_["resource_configuration_definition"] = (
                 resource_configuration_definition
             )
         if allow_association_to_shareable_service_network is not None:
-            input["allow_association_to_shareable_service_network"] = (
+            input_["allow_association_to_shareable_service_network"] = (
                 allow_association_to_shareable_service_network
             )
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
         if group_domain is not None:
-            input["group_domain"] = group_domain
+            input_["group_domain"] = group_domain
         if domain_verification_identifier is not None:
-            input["domain_verification_identifier"] = domain_verification_identifier
+            input_["domain_verification_identifier"] = domain_verification_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,11 +502,11 @@ class AsyncResourceConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_resource_configuration_request.GetResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_configuration_identifier"] = resource_configuration_identifier
+        input_: aws_sdk_vpc_lattice.types.get_resource_configuration_request.GetResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,21 +552,21 @@ class AsyncResourceConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_resource_configuration_request.UpdateResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_configuration_identifier"] = resource_configuration_identifier
+        input_: aws_sdk_vpc_lattice.types.update_resource_configuration_request.UpdateResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
         if resource_configuration_definition is not None:
-            input["resource_configuration_definition"] = (
+            input_["resource_configuration_definition"] = (
                 resource_configuration_definition
             )
         if allow_association_to_shareable_service_network is not None:
-            input["allow_association_to_shareable_service_network"] = (
+            input_["allow_association_to_shareable_service_network"] = (
                 allow_association_to_shareable_service_network
             )
         if port_ranges is not None:
-            input["port_ranges"] = port_ranges
+            input_["port_ranges"] = port_ranges
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -600,11 +600,11 @@ class AsyncResourceConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_resource_configuration_request.DeleteResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_configuration_identifier"] = resource_configuration_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_resource_configuration_request.DeleteResourceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,22 +654,22 @@ class AsyncResourceConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_resource_configurations_request.ListResourceConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_resource_configurations_request.ListResourceConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if resource_gateway_identifier is not None:
-            input["resource_gateway_identifier"] = resource_gateway_identifier
+            input_["resource_gateway_identifier"] = resource_gateway_identifier
         if resource_configuration_group_identifier is not None:
-            input["resource_configuration_group_identifier"] = (
+            input_["resource_configuration_group_identifier"] = (
                 resource_configuration_group_identifier
             )
         if domain_verification_identifier is not None:
-            input["domain_verification_identifier"] = domain_verification_identifier
+            input_["domain_verification_identifier"] = domain_verification_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

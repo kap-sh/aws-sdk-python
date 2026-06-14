@@ -15,6 +15,31 @@ from aws_sdk_s3tables._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_s3tables._auth._zapros_handler import AuthMiddleware
+from aws_sdk_s3tables._resources.s3_table_buckets.namespace_resource import (
+    NamespaceResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_bucket_encryption_resource import (
+    TableBucketEncryptionResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_bucket_policy_resource import (
+    TableBucketPolicyResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_bucket_replication_resource import (
+    TableBucketReplicationResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_bucket_resource import (
+    TableBucketResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_encryption_resource import (
+    TableEncryptionResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_policy_resource import (
+    TablePolicyResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_replication_resource import (
+    TableReplicationResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_resource import TableResource
 from aws_sdk_s3tables._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -106,6 +131,16 @@ class S3TablesClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.namespace_resource = NamespaceResource(self)
+        self.table_bucket_encryption_resource = TableBucketEncryptionResource(self)
+        self.table_bucket_policy_resource = TableBucketPolicyResource(self)
+        self.table_bucket_replication_resource = TableBucketReplicationResource(self)
+        self.table_bucket_resource = TableBucketResource(self)
+        self.table_encryption_resource = TableEncryptionResource(self)
+        self.table_policy_resource = TablePolicyResource(self)
+        self.table_replication_resource = TableReplicationResource(self)
+        self.table_resource = TableResource(self)
 
     def operation_options(
         self, config_overrides: Optional[S3TablesClientConfig] = None
@@ -162,11 +197,11 @@ class S3TablesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_s3tables.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,12 +236,12 @@ class S3TablesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_s3tables.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,12 +276,12 @@ class S3TablesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_s3tables.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

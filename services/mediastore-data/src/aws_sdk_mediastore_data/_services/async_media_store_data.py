@@ -177,11 +177,11 @@ class AsyncMediaStoreDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore_data.types.delete_object_request.DeleteObjectRequest = {}  # type: ignore[typeddict-item]
-        input["path"] = path
+        input_: aws_sdk_mediastore_data.types.delete_object_request.DeleteObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["path"] = path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,11 +217,11 @@ class AsyncMediaStoreDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore_data.types.describe_object_request.DescribeObjectRequest = {}  # type: ignore[typeddict-item]
-        input["path"] = path
+        input_: aws_sdk_mediastore_data.types.describe_object_request.DescribeObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["path"] = path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,13 +260,13 @@ class AsyncMediaStoreDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore_data.types.get_object_request.GetObjectRequest = {}  # type: ignore[typeddict-item]
-        input["path"] = path
+        input_: aws_sdk_mediastore_data.types.get_object_request.GetObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["path"] = path
         if range is not None:
-            input["range"] = range
+            input_["range"] = range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,16 +310,16 @@ class AsyncMediaStoreDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore_data.types.list_items_request.ListItemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediastore_data.types.list_items_request.ListItemsRequest = {}  # type: ignore[typeddict-item]
         if path is not None:
-            input["path"] = path
+            input_["path"] = path
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,20 +371,20 @@ class AsyncMediaStoreDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore_data.types.put_object_request.PutObjectRequest = {}  # type: ignore[typeddict-item]
-        input["body"] = ensure_async_iterator(body)  # type: ignore
-        input["path"] = path
+        input_: aws_sdk_mediastore_data.types.put_object_request.PutObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["body"] = ensure_async_iterator(body)  # type: ignore
+        input_["path"] = path
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if cache_control is not None:
-            input["cache_control"] = cache_control
+            input_["cache_control"] = cache_control
         if storage_class is not None:
-            input["storage_class"] = storage_class
+            input_["storage_class"] = storage_class
         if upload_availability is not None:
-            input["upload_availability"] = upload_availability
+            input_["upload_availability"] = upload_availability
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

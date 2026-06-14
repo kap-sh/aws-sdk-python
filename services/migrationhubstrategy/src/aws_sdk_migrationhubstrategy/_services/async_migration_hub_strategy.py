@@ -234,11 +234,11 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_application_component_details_request.GetApplicationComponentDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["application_component_id"] = application_component_id
+        input_: aws_sdk_migrationhubstrategy.types.get_application_component_details_request.GetApplicationComponentDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_component_id"] = application_component_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -272,11 +272,11 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_application_component_strategies_request.GetApplicationComponentStrategiesRequest = {}  # type: ignore[typeddict-item]
-        input["application_component_id"] = application_component_id
+        input_: aws_sdk_migrationhubstrategy.types.get_application_component_strategies_request.GetApplicationComponentStrategiesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_component_id"] = application_component_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,11 +310,11 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_assessment_request.GetAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhubstrategy.types.get_assessment_request.GetAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,11 +348,11 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_import_file_task_request.GetImportFileTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhubstrategy.types.get_import_file_task_request.GetImportFileTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,10 +381,10 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_latest_assessment_id_request.GetLatestAssessmentIdRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.get_latest_assessment_id_request.GetLatestAssessmentIdRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -413,10 +413,10 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_portfolio_preferences_request.GetPortfolioPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.get_portfolio_preferences_request.GetPortfolioPreferencesRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,10 +445,10 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_portfolio_summary_request.GetPortfolioSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.get_portfolio_summary_request.GetPortfolioSummaryRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -482,11 +482,11 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_recommendation_report_details_request.GetRecommendationReportDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhubstrategy.types.get_recommendation_report_details_request.GetRecommendationReportDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,15 +528,15 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_server_details_request.GetServerDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_migrationhubstrategy.types.get_server_details_request.GetServerDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,11 +597,11 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.get_server_strategies_request.GetServerStrategiesRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_migrationhubstrategy.types.get_server_strategies_request.GetServerStrategiesRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -650,16 +650,16 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.list_analyzable_servers_request.ListAnalyzableServersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.list_analyzable_servers_request.ListAnalyzableServersRequest = {}  # type: ignore[typeddict-item]
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -744,22 +744,22 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.list_application_components_request.ListApplicationComponentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.list_application_components_request.ListApplicationComponentsRequest = {}  # type: ignore[typeddict-item]
         if application_component_criteria is not None:
-            input["application_component_criteria"] = application_component_criteria
+            input_["application_component_criteria"] = application_component_criteria
         if filter_value is not None:
-            input["filter_value"] = filter_value
+            input_["filter_value"] = filter_value
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if group_id_filter is not None:
-            input["group_id_filter"] = group_id_filter
+            input_["group_id_filter"] = group_id_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,14 +840,14 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.list_collectors_request.ListCollectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.list_collectors_request.ListCollectorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -910,14 +910,14 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.list_import_file_task_request.ListImportFileTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.list_import_file_task_request.ListImportFileTaskRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,22 +996,22 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.list_servers_request.ListServersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.list_servers_request.ListServersRequest = {}  # type: ignore[typeddict-item]
         if server_criteria is not None:
-            input["server_criteria"] = server_criteria
+            input_["server_criteria"] = server_criteria
         if filter_value is not None:
-            input["filter_value"] = filter_value
+            input_["filter_value"] = filter_value
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if group_id_filter is not None:
-            input["group_id_filter"] = group_id_filter
+            input_["group_id_filter"] = group_id_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1100,18 +1100,18 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.put_portfolio_preferences_request.PutPortfolioPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.put_portfolio_preferences_request.PutPortfolioPreferencesRequest = {}  # type: ignore[typeddict-item]
         if prioritize_business_goals is not None:
-            input["prioritize_business_goals"] = prioritize_business_goals
+            input_["prioritize_business_goals"] = prioritize_business_goals
         if application_preferences is not None:
-            input["application_preferences"] = application_preferences
+            input_["application_preferences"] = application_preferences
         if database_preferences is not None:
-            input["database_preferences"] = database_preferences
+            input_["database_preferences"] = database_preferences
         if application_mode is not None:
-            input["application_mode"] = application_mode
+            input_["application_mode"] = application_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1159,18 +1159,18 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.start_assessment_request.StartAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.start_assessment_request.StartAssessmentRequest = {}  # type: ignore[typeddict-item]
         if s3bucket_for_analysis_data is not None:
-            input["s3bucket_for_analysis_data"] = s3bucket_for_analysis_data
+            input_["s3bucket_for_analysis_data"] = s3bucket_for_analysis_data
         if s3bucket_for_report_data is not None:
-            input["s3bucket_for_report_data"] = s3bucket_for_report_data
+            input_["s3bucket_for_report_data"] = s3bucket_for_report_data
         if assessment_targets is not None:
-            input["assessment_targets"] = assessment_targets
+            input_["assessment_targets"] = assessment_targets
         if assessment_data_source_type is not None:
-            input["assessment_data_source_type"] = assessment_data_source_type
+            input_["assessment_data_source_type"] = assessment_data_source_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1220,19 +1220,19 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.start_import_file_task_request.StartImportFileTaskRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["s3_bucket"] = s3_bucket
-        input["s3key"] = s3key
+        input_: aws_sdk_migrationhubstrategy.types.start_import_file_task_request.StartImportFileTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["s3_bucket"] = s3_bucket
+        input_["s3key"] = s3key
         if data_source_type is not None:
-            input["data_source_type"] = data_source_type
+            input_["data_source_type"] = data_source_type
         if group_id is not None:
-            input["group_id"] = group_id
+            input_["group_id"] = group_id
         if s3bucket_for_report_data is not None:
-            input["s3bucket_for_report_data"] = s3bucket_for_report_data
+            input_["s3bucket_for_report_data"] = s3bucket_for_report_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,14 +1272,14 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.start_recommendation_report_generation_request.StartRecommendationReportGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhubstrategy.types.start_recommendation_report_generation_request.StartRecommendationReportGenerationRequest = {}  # type: ignore[typeddict-item]
         if output_format is not None:
-            input["output_format"] = output_format
+            input_["output_format"] = output_format
         if group_id_filter is not None:
-            input["group_id_filter"] = group_id_filter
+            input_["group_id_filter"] = group_id_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1313,11 +1313,11 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.stop_assessment_request.StopAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_migrationhubstrategy.types.stop_assessment_request.StopAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1375,23 +1375,23 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.update_application_component_config_request.UpdateApplicationComponentConfigRequest = {}  # type: ignore[typeddict-item]
-        input["application_component_id"] = application_component_id
+        input_: aws_sdk_migrationhubstrategy.types.update_application_component_config_request.UpdateApplicationComponentConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["application_component_id"] = application_component_id
         if inclusion_status is not None:
-            input["inclusion_status"] = inclusion_status
+            input_["inclusion_status"] = inclusion_status
         if strategy_option is not None:
-            input["strategy_option"] = strategy_option
+            input_["strategy_option"] = strategy_option
         if source_code_list is not None:
-            input["source_code_list"] = source_code_list
+            input_["source_code_list"] = source_code_list
         if secrets_manager_key is not None:
-            input["secrets_manager_key"] = secrets_manager_key
+            input_["secrets_manager_key"] = secrets_manager_key
         if configure_only is not None:
-            input["configure_only"] = configure_only
+            input_["configure_only"] = configure_only
         if app_type is not None:
-            input["app_type"] = app_type
+            input_["app_type"] = app_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1429,13 +1429,13 @@ class AsyncMigrationHubStrategyClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhubstrategy.types.update_server_config_request.UpdateServerConfigRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_migrationhubstrategy.types.update_server_config_request.UpdateServerConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
         if strategy_option is not None:
-            input["strategy_option"] = strategy_option
+            input_["strategy_option"] = strategy_option
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

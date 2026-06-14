@@ -366,14 +366,14 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.associate_access_policy_request.AssociateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["principal_arn"] = principal_arn
-        input["policy_arn"] = policy_arn
-        input["access_scope"] = access_scope
+        input_: aws_sdk_eks.types.associate_access_policy_request.AssociateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["principal_arn"] = principal_arn
+        input_["policy_arn"] = policy_arn
+        input_["access_scope"] = access_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,14 +410,14 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.associate_encryption_config_request.AssociateEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["encryption_config"] = encryption_config
+        input_: aws_sdk_eks.types.associate_encryption_config_request.AssociateEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["encryption_config"] = encryption_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,16 +456,16 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.associate_identity_provider_config_request.AssociateIdentityProviderConfigRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["oidc"] = oidc
+        input_: aws_sdk_eks.types.associate_identity_provider_config_request.AssociateIdentityProviderConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["oidc"] = oidc
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,22 +510,22 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.create_access_entry_request.CreateAccessEntryRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["principal_arn"] = principal_arn
+        input_: aws_sdk_eks.types.create_access_entry_request.CreateAccessEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["principal_arn"] = principal_arn
         if kubernetes_groups is not None:
-            input["kubernetes_groups"] = kubernetes_groups
+            input_["kubernetes_groups"] = kubernetes_groups
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,28 +582,28 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.create_addon_request.CreateAddonRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["addon_name"] = addon_name
+        input_: aws_sdk_eks.types.create_addon_request.CreateAddonRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["addon_name"] = addon_name
         if addon_version is not None:
-            input["addon_version"] = addon_version
+            input_["addon_version"] = addon_version
         if service_account_role_arn is not None:
-            input["service_account_role_arn"] = service_account_role_arn
+            input_["service_account_role_arn"] = service_account_role_arn
         if resolve_conflicts is not None:
-            input["resolve_conflicts"] = resolve_conflicts
+            input_["resolve_conflicts"] = resolve_conflicts
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if configuration_values is not None:
-            input["configuration_values"] = configuration_values
+            input_["configuration_values"] = configuration_values
         if pod_identity_associations is not None:
-            input["pod_identity_associations"] = pod_identity_associations
+            input_["pod_identity_associations"] = pod_identity_associations
         if namespace_config is not None:
-            input["namespace_config"] = namespace_config
+            input_["namespace_config"] = namespace_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,21 +651,21 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.create_capability_request.CreateCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["capability_name"] = capability_name
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.create_capability_request.CreateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["capability_name"] = capability_name
+        input_["cluster_name"] = cluster_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["type"] = type
-        input["role_arn"] = role_arn
+            input_["client_request_token"] = client_request_token
+        input_["type"] = type
+        input_["role_arn"] = role_arn
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if tags is not None:
-            input["tags"] = tags
-        input["delete_propagation_policy"] = delete_propagation_policy
+            input_["tags"] = tags
+        input_["delete_propagation_policy"] = delete_propagation_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -764,45 +764,45 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_eks.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if version is not None:
-            input["version"] = version
-        input["role_arn"] = role_arn
-        input["resources_vpc_config"] = resources_vpc_config
+            input_["version"] = version
+        input_["role_arn"] = role_arn
+        input_["resources_vpc_config"] = resources_vpc_config
         if kubernetes_network_config is not None:
-            input["kubernetes_network_config"] = kubernetes_network_config
+            input_["kubernetes_network_config"] = kubernetes_network_config
         if logging is not None:
-            input["logging"] = logging
+            input_["logging"] = logging
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if encryption_config is not None:
-            input["encryption_config"] = encryption_config
+            input_["encryption_config"] = encryption_config
         if outpost_config is not None:
-            input["outpost_config"] = outpost_config
+            input_["outpost_config"] = outpost_config
         if access_config is not None:
-            input["access_config"] = access_config
+            input_["access_config"] = access_config
         if bootstrap_self_managed_addons is not None:
-            input["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
+            input_["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
         if upgrade_policy is not None:
-            input["upgrade_policy"] = upgrade_policy
+            input_["upgrade_policy"] = upgrade_policy
         if zonal_shift_config is not None:
-            input["zonal_shift_config"] = zonal_shift_config
+            input_["zonal_shift_config"] = zonal_shift_config
         if remote_network_config is not None:
-            input["remote_network_config"] = remote_network_config
+            input_["remote_network_config"] = remote_network_config
         if compute_config is not None:
-            input["compute_config"] = compute_config
+            input_["compute_config"] = compute_config
         if storage_config is not None:
-            input["storage_config"] = storage_config
+            input_["storage_config"] = storage_config
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if control_plane_scaling_config is not None:
-            input["control_plane_scaling_config"] = control_plane_scaling_config
+            input_["control_plane_scaling_config"] = control_plane_scaling_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -849,22 +849,22 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.create_eks_anywhere_subscription_request.CreateEksAnywhereSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["term"] = term
+        input_: aws_sdk_eks.types.create_eks_anywhere_subscription_request.CreateEksAnywhereSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["term"] = term
         if license_quantity is not None:
-            input["license_quantity"] = license_quantity
+            input_["license_quantity"] = license_quantity
         if license_type is not None:
-            input["license_type"] = license_type
+            input_["license_type"] = license_type
         if auto_renew is not None:
-            input["auto_renew"] = auto_renew
+            input_["auto_renew"] = auto_renew
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -913,21 +913,21 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.create_fargate_profile_request.CreateFargateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["fargate_profile_name"] = fargate_profile_name
-        input["cluster_name"] = cluster_name
-        input["pod_execution_role_arn"] = pod_execution_role_arn
+        input_: aws_sdk_eks.types.create_fargate_profile_request.CreateFargateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["fargate_profile_name"] = fargate_profile_name
+        input_["cluster_name"] = cluster_name
+        input_["pod_execution_role_arn"] = pod_execution_role_arn
         if subnets is not None:
-            input["subnets"] = subnets
+            input_["subnets"] = subnets
         if selectors is not None:
-            input["selectors"] = selectors
+            input_["selectors"] = selectors
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1012,46 +1012,46 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.create_nodegroup_request.CreateNodegroupRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["nodegroup_name"] = nodegroup_name
+        input_: aws_sdk_eks.types.create_nodegroup_request.CreateNodegroupRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["nodegroup_name"] = nodegroup_name
         if scaling_config is not None:
-            input["scaling_config"] = scaling_config
+            input_["scaling_config"] = scaling_config
         if disk_size is not None:
-            input["disk_size"] = disk_size
-        input["subnets"] = subnets
+            input_["disk_size"] = disk_size
+        input_["subnets"] = subnets
         if instance_types is not None:
-            input["instance_types"] = instance_types
+            input_["instance_types"] = instance_types
         if ami_type is not None:
-            input["ami_type"] = ami_type
+            input_["ami_type"] = ami_type
         if remote_access is not None:
-            input["remote_access"] = remote_access
-        input["node_role"] = node_role
+            input_["remote_access"] = remote_access
+        input_["node_role"] = node_role
         if labels is not None:
-            input["labels"] = labels
+            input_["labels"] = labels
         if taints is not None:
-            input["taints"] = taints
+            input_["taints"] = taints
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if launch_template is not None:
-            input["launch_template"] = launch_template
+            input_["launch_template"] = launch_template
         if update_config is not None:
-            input["update_config"] = update_config
+            input_["update_config"] = update_config
         if node_repair_config is not None:
-            input["node_repair_config"] = node_repair_config
+            input_["node_repair_config"] = node_repair_config
         if capacity_type is not None:
-            input["capacity_type"] = capacity_type
+            input_["capacity_type"] = capacity_type
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if release_version is not None:
-            input["release_version"] = release_version
+            input_["release_version"] = release_version
         if warm_pool_config is not None:
-            input["warm_pool_config"] = warm_pool_config
+            input_["warm_pool_config"] = warm_pool_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1102,24 +1102,24 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.create_pod_identity_association_request.CreatePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["namespace"] = namespace
-        input["service_account"] = service_account
-        input["role_arn"] = role_arn
+        input_: aws_sdk_eks.types.create_pod_identity_association_request.CreatePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["namespace"] = namespace
+        input_["service_account"] = service_account
+        input_["role_arn"] = role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if disable_session_tags is not None:
-            input["disable_session_tags"] = disable_session_tags
+            input_["disable_session_tags"] = disable_session_tags
         if target_role_arn is not None:
-            input["target_role_arn"] = target_role_arn
+            input_["target_role_arn"] = target_role_arn
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1154,12 +1154,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.delete_access_entry_request.DeleteAccessEntryRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["principal_arn"] = principal_arn
+        input_: aws_sdk_eks.types.delete_access_entry_request.DeleteAccessEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["principal_arn"] = principal_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1196,14 +1196,14 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.delete_addon_request.DeleteAddonRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["addon_name"] = addon_name
+        input_: aws_sdk_eks.types.delete_addon_request.DeleteAddonRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["addon_name"] = addon_name
         if preserve is not None:
-            input["preserve"] = preserve
+            input_["preserve"] = preserve
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1238,12 +1238,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.delete_capability_request.DeleteCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["capability_name"] = capability_name
+        input_: aws_sdk_eks.types.delete_capability_request.DeleteCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["capability_name"] = capability_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1282,11 +1282,11 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_eks.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1319,11 +1319,11 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.delete_eks_anywhere_subscription_request.DeleteEksAnywhereSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_eks.types.delete_eks_anywhere_subscription_request.DeleteEksAnywhereSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1360,12 +1360,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.delete_fargate_profile_request.DeleteFargateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["fargate_profile_name"] = fargate_profile_name
+        input_: aws_sdk_eks.types.delete_fargate_profile_request.DeleteFargateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["fargate_profile_name"] = fargate_profile_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1400,12 +1400,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.delete_nodegroup_request.DeleteNodegroupRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["nodegroup_name"] = nodegroup_name
+        input_: aws_sdk_eks.types.delete_nodegroup_request.DeleteNodegroupRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["nodegroup_name"] = nodegroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1440,12 +1440,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.delete_pod_identity_association_request.DeletePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["association_id"] = association_id
+        input_: aws_sdk_eks.types.delete_pod_identity_association_request.DeletePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["association_id"] = association_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1478,11 +1478,11 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.deregister_cluster_request.DeregisterClusterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_eks.types.deregister_cluster_request.DeregisterClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1517,12 +1517,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_access_entry_request.DescribeAccessEntryRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["principal_arn"] = principal_arn
+        input_: aws_sdk_eks.types.describe_access_entry_request.DescribeAccessEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["principal_arn"] = principal_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1557,12 +1557,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_addon_request.DescribeAddonRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["addon_name"] = addon_name
+        input_: aws_sdk_eks.types.describe_addon_request.DescribeAddonRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["addon_name"] = addon_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1597,12 +1597,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_addon_configuration_request.DescribeAddonConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["addon_name"] = addon_name
-        input["addon_version"] = addon_version
+        input_: aws_sdk_eks.types.describe_addon_configuration_request.DescribeAddonConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["addon_name"] = addon_name
+        input_["addon_version"] = addon_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1649,24 +1649,24 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_addon_versions_request.DescribeAddonVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_eks.types.describe_addon_versions_request.DescribeAddonVersionsRequest = {}  # type: ignore[typeddict-item]
         if kubernetes_version is not None:
-            input["kubernetes_version"] = kubernetes_version
+            input_["kubernetes_version"] = kubernetes_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if addon_name is not None:
-            input["addon_name"] = addon_name
+            input_["addon_name"] = addon_name
         if types is not None:
-            input["types"] = types
+            input_["types"] = types
         if publishers is not None:
-            input["publishers"] = publishers
+            input_["publishers"] = publishers
         if owners is not None:
-            input["owners"] = owners
+            input_["owners"] = owners
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1734,12 +1734,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_capability_request.DescribeCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["capability_name"] = capability_name
+        input_: aws_sdk_eks.types.describe_capability_request.DescribeCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["capability_name"] = capability_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1778,11 +1778,11 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_eks.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1835,26 +1835,26 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_cluster_versions_request.DescribeClusterVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_eks.types.describe_cluster_versions_request.DescribeClusterVersionsRequest = {}  # type: ignore[typeddict-item]
         if cluster_type is not None:
-            input["cluster_type"] = cluster_type
+            input_["cluster_type"] = cluster_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if default_only is not None:
-            input["default_only"] = default_only
+            input_["default_only"] = default_only
         if include_all is not None:
-            input["include_all"] = include_all
+            input_["include_all"] = include_all
         if cluster_versions is not None:
-            input["cluster_versions"] = cluster_versions
+            input_["cluster_versions"] = cluster_versions
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if version_status is not None:
-            input["version_status"] = version_status
+            input_["version_status"] = version_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1926,11 +1926,11 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_eks_anywhere_subscription_request.DescribeEksAnywhereSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_eks.types.describe_eks_anywhere_subscription_request.DescribeEksAnywhereSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1965,12 +1965,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_fargate_profile_request.DescribeFargateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["fargate_profile_name"] = fargate_profile_name
+        input_: aws_sdk_eks.types.describe_fargate_profile_request.DescribeFargateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["fargate_profile_name"] = fargate_profile_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2005,12 +2005,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_identity_provider_config_request.DescribeIdentityProviderConfigRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["identity_provider_config"] = identity_provider_config
+        input_: aws_sdk_eks.types.describe_identity_provider_config_request.DescribeIdentityProviderConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["identity_provider_config"] = identity_provider_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2045,12 +2045,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_insight_request.DescribeInsightRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["id"] = id
+        input_: aws_sdk_eks.types.describe_insight_request.DescribeInsightRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2083,11 +2083,11 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_insights_refresh_request.DescribeInsightsRefreshRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.describe_insights_refresh_request.DescribeInsightsRefreshRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2122,12 +2122,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_nodegroup_request.DescribeNodegroupRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["nodegroup_name"] = nodegroup_name
+        input_: aws_sdk_eks.types.describe_nodegroup_request.DescribeNodegroupRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["nodegroup_name"] = nodegroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2162,12 +2162,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_pod_identity_association_request.DescribePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["association_id"] = association_id
+        input_: aws_sdk_eks.types.describe_pod_identity_association_request.DescribePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["association_id"] = association_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2208,18 +2208,18 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.describe_update_request.DescribeUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["update_id"] = update_id
+        input_: aws_sdk_eks.types.describe_update_request.DescribeUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["update_id"] = update_id
         if nodegroup_name is not None:
-            input["nodegroup_name"] = nodegroup_name
+            input_["nodegroup_name"] = nodegroup_name
         if addon_name is not None:
-            input["addon_name"] = addon_name
+            input_["addon_name"] = addon_name
         if capability_name is not None:
-            input["capability_name"] = capability_name
+            input_["capability_name"] = capability_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2256,13 +2256,13 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.disassociate_access_policy_request.DisassociateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["principal_arn"] = principal_arn
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_eks.types.disassociate_access_policy_request.DisassociateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["principal_arn"] = principal_arn
+        input_["policy_arn"] = policy_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2299,14 +2299,14 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.disassociate_identity_provider_config_request.DisassociateIdentityProviderConfigRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["identity_provider_config"] = identity_provider_config
+        input_: aws_sdk_eks.types.disassociate_identity_provider_config_request.DisassociateIdentityProviderConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["identity_provider_config"] = identity_provider_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2347,17 +2347,17 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_access_entries_request.ListAccessEntriesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.list_access_entries_request.ListAccessEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if associated_policy_arn is not None:
-            input["associated_policy_arn"] = associated_policy_arn
+            input_["associated_policy_arn"] = associated_policy_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2421,14 +2421,14 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_access_policies_request.ListAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_eks.types.list_access_policies_request.ListAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2490,15 +2490,15 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_addons_request.ListAddonsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.list_addons_request.ListAddonsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2564,16 +2564,16 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_associated_access_policies_request.ListAssociatedAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["principal_arn"] = principal_arn
+        input_: aws_sdk_eks.types.list_associated_access_policies_request.ListAssociatedAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["principal_arn"] = principal_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2639,15 +2639,15 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_capabilities_request.ListCapabilitiesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.list_capabilities_request.ListCapabilitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2719,16 +2719,16 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_eks.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2796,16 +2796,16 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_eks_anywhere_subscriptions_request.ListEksAnywhereSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_eks.types.list_eks_anywhere_subscriptions_request.ListEksAnywhereSubscriptionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_status is not None:
-            input["include_status"] = include_status
+            input_["include_status"] = include_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2873,15 +2873,15 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_fargate_profiles_request.ListFargateProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.list_fargate_profiles_request.ListFargateProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2945,15 +2945,15 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_identity_provider_configs_request.ListIdentityProviderConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.list_identity_provider_configs_request.ListIdentityProviderConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3019,17 +3019,17 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_insights_request.ListInsightsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.list_insights_request.ListInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3095,15 +3095,15 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_nodegroups_request.ListNodegroupsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.list_nodegroups_request.ListNodegroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3171,19 +3171,19 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_pod_identity_associations_request.ListPodIdentityAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.list_pod_identity_associations_request.ListPodIdentityAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if service_account is not None:
-            input["service_account"] = service_account
+            input_["service_account"] = service_account
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3253,11 +3253,11 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_eks.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3302,21 +3302,21 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.list_updates_request.ListUpdatesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_eks.types.list_updates_request.ListUpdatesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if nodegroup_name is not None:
-            input["nodegroup_name"] = nodegroup_name
+            input_["nodegroup_name"] = nodegroup_name
         if addon_name is not None:
-            input["addon_name"] = addon_name
+            input_["addon_name"] = addon_name
         if capability_name is not None:
-            input["capability_name"] = capability_name
+            input_["capability_name"] = capability_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3386,16 +3386,16 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.register_cluster_request.RegisterClusterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["connector_config"] = connector_config
+        input_: aws_sdk_eks.types.register_cluster_request.RegisterClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["connector_config"] = connector_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3430,11 +3430,11 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.start_insights_refresh_request.StartInsightsRefreshRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_eks.types.start_insights_refresh_request.StartInsightsRefreshRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3469,12 +3469,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_eks.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3509,12 +3509,12 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_eks.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3555,18 +3555,18 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_access_entry_request.UpdateAccessEntryRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["principal_arn"] = principal_arn
+        input_: aws_sdk_eks.types.update_access_entry_request.UpdateAccessEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["principal_arn"] = principal_arn
         if kubernetes_groups is not None:
-            input["kubernetes_groups"] = kubernetes_groups
+            input_["kubernetes_groups"] = kubernetes_groups
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3617,24 +3617,24 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_addon_request.UpdateAddonRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["addon_name"] = addon_name
+        input_: aws_sdk_eks.types.update_addon_request.UpdateAddonRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["addon_name"] = addon_name
         if addon_version is not None:
-            input["addon_version"] = addon_version
+            input_["addon_version"] = addon_version
         if service_account_role_arn is not None:
-            input["service_account_role_arn"] = service_account_role_arn
+            input_["service_account_role_arn"] = service_account_role_arn
         if resolve_conflicts is not None:
-            input["resolve_conflicts"] = resolve_conflicts
+            input_["resolve_conflicts"] = resolve_conflicts
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if configuration_values is not None:
-            input["configuration_values"] = configuration_values
+            input_["configuration_values"] = configuration_values
         if pod_identity_associations is not None:
-            input["pod_identity_associations"] = pod_identity_associations
+            input_["pod_identity_associations"] = pod_identity_associations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3681,20 +3681,20 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_capability_request.UpdateCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["capability_name"] = capability_name
+        input_: aws_sdk_eks.types.update_capability_request.UpdateCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["capability_name"] = capability_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if delete_propagation_policy is not None:
-            input["delete_propagation_policy"] = delete_propagation_policy
+            input_["delete_propagation_policy"] = delete_propagation_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3768,35 +3768,35 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_cluster_config_request.UpdateClusterConfigRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_eks.types.update_cluster_config_request.UpdateClusterConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if resources_vpc_config is not None:
-            input["resources_vpc_config"] = resources_vpc_config
+            input_["resources_vpc_config"] = resources_vpc_config
         if logging is not None:
-            input["logging"] = logging
+            input_["logging"] = logging
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if access_config is not None:
-            input["access_config"] = access_config
+            input_["access_config"] = access_config
         if upgrade_policy is not None:
-            input["upgrade_policy"] = upgrade_policy
+            input_["upgrade_policy"] = upgrade_policy
         if zonal_shift_config is not None:
-            input["zonal_shift_config"] = zonal_shift_config
+            input_["zonal_shift_config"] = zonal_shift_config
         if compute_config is not None:
-            input["compute_config"] = compute_config
+            input_["compute_config"] = compute_config
         if kubernetes_network_config is not None:
-            input["kubernetes_network_config"] = kubernetes_network_config
+            input_["kubernetes_network_config"] = kubernetes_network_config
         if storage_config is not None:
-            input["storage_config"] = storage_config
+            input_["storage_config"] = storage_config
         if remote_network_config is not None:
-            input["remote_network_config"] = remote_network_config
+            input_["remote_network_config"] = remote_network_config
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if control_plane_scaling_config is not None:
-            input["control_plane_scaling_config"] = control_plane_scaling_config
+            input_["control_plane_scaling_config"] = control_plane_scaling_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3837,16 +3837,16 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_cluster_version_request.UpdateClusterVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["version"] = version
+        input_: aws_sdk_eks.types.update_cluster_version_request.UpdateClusterVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["version"] = version
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3883,14 +3883,14 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_eks_anywhere_subscription_request.UpdateEksAnywhereSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["auto_renew"] = auto_renew
+        input_: aws_sdk_eks.types.update_eks_anywhere_subscription_request.UpdateEksAnywhereSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["auto_renew"] = auto_renew
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3951,26 +3951,26 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_nodegroup_config_request.UpdateNodegroupConfigRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["nodegroup_name"] = nodegroup_name
+        input_: aws_sdk_eks.types.update_nodegroup_config_request.UpdateNodegroupConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["nodegroup_name"] = nodegroup_name
         if labels is not None:
-            input["labels"] = labels
+            input_["labels"] = labels
         if taints is not None:
-            input["taints"] = taints
+            input_["taints"] = taints
         if scaling_config is not None:
-            input["scaling_config"] = scaling_config
+            input_["scaling_config"] = scaling_config
         if update_config is not None:
-            input["update_config"] = update_config
+            input_["update_config"] = update_config
         if node_repair_config is not None:
-            input["node_repair_config"] = node_repair_config
+            input_["node_repair_config"] = node_repair_config
         if warm_pool_config is not None:
-            input["warm_pool_config"] = warm_pool_config
+            input_["warm_pool_config"] = warm_pool_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4017,22 +4017,22 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_nodegroup_version_request.UpdateNodegroupVersionRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["nodegroup_name"] = nodegroup_name
+        input_: aws_sdk_eks.types.update_nodegroup_version_request.UpdateNodegroupVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["nodegroup_name"] = nodegroup_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if release_version is not None:
-            input["release_version"] = release_version
+            input_["release_version"] = release_version
         if launch_template is not None:
-            input["launch_template"] = launch_template
+            input_["launch_template"] = launch_template
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4079,22 +4079,22 @@ class EKSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks.types.update_pod_identity_association_request.UpdatePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["association_id"] = association_id
+        input_: aws_sdk_eks.types.update_pod_identity_association_request.UpdatePodIdentityAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["association_id"] = association_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if disable_session_tags is not None:
-            input["disable_session_tags"] = disable_session_tags
+            input_["disable_session_tags"] = disable_session_tags
         if target_role_arn is not None:
-            input["target_role_arn"] = target_role_arn
+            input_["target_role_arn"] = target_role_arn
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

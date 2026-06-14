@@ -83,18 +83,18 @@ class ServiceNetworkResourceAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_service_network_resource_association_request.CreateServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.create_service_network_resource_association_request.CreateServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["resource_configuration_identifier"] = resource_configuration_identifier
-        input["service_network_identifier"] = service_network_identifier
+            input_["client_token"] = client_token
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
+        input_["service_network_identifier"] = service_network_identifier
         if private_dns_enabled is not None:
-            input["private_dns_enabled"] = private_dns_enabled
+            input_["private_dns_enabled"] = private_dns_enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -127,13 +127,13 @@ class ServiceNetworkResourceAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_service_network_resource_association_request.GetServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_resource_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.get_service_network_resource_association_request.GetServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_resource_association_identifier"] = (
             service_network_resource_association_identifier
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,13 +166,13 @@ class ServiceNetworkResourceAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_service_network_resource_association_request.DeleteServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_resource_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.delete_service_network_resource_association_request.DeleteServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_resource_association_identifier"] = (
             service_network_resource_association_identifier
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,22 +219,22 @@ class ServiceNetworkResourceAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_service_network_resource_associations_request.ListServiceNetworkResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_service_network_resource_associations_request.ListServiceNetworkResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
         if service_network_identifier is not None:
-            input["service_network_identifier"] = service_network_identifier
+            input_["service_network_identifier"] = service_network_identifier
         if resource_configuration_identifier is not None:
-            input["resource_configuration_identifier"] = (
+            input_["resource_configuration_identifier"] = (
                 resource_configuration_identifier
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_children is not None:
-            input["include_children"] = include_children
+            input_["include_children"] = include_children
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,18 +285,18 @@ class AsyncServiceNetworkResourceAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_service_network_resource_association_request.CreateServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.create_service_network_resource_association_request.CreateServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["resource_configuration_identifier"] = resource_configuration_identifier
-        input["service_network_identifier"] = service_network_identifier
+            input_["client_token"] = client_token
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
+        input_["service_network_identifier"] = service_network_identifier
         if private_dns_enabled is not None:
-            input["private_dns_enabled"] = private_dns_enabled
+            input_["private_dns_enabled"] = private_dns_enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,13 +330,13 @@ class AsyncServiceNetworkResourceAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_service_network_resource_association_request.GetServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_resource_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.get_service_network_resource_association_request.GetServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_resource_association_identifier"] = (
             service_network_resource_association_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,13 +370,13 @@ class AsyncServiceNetworkResourceAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_service_network_resource_association_request.DeleteServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_resource_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.delete_service_network_resource_association_request.DeleteServiceNetworkResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_resource_association_identifier"] = (
             service_network_resource_association_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,22 +424,22 @@ class AsyncServiceNetworkResourceAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_service_network_resource_associations_request.ListServiceNetworkResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_service_network_resource_associations_request.ListServiceNetworkResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
         if service_network_identifier is not None:
-            input["service_network_identifier"] = service_network_identifier
+            input_["service_network_identifier"] = service_network_identifier
         if resource_configuration_identifier is not None:
-            input["resource_configuration_identifier"] = (
+            input_["resource_configuration_identifier"] = (
                 resource_configuration_identifier
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_children is not None:
-            input["include_children"] = include_children
+            input_["include_children"] = include_children
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

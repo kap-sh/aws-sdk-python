@@ -15,6 +15,15 @@ from aws_sdk_bcm_pricing_calculator._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_bcm_pricing_calculator._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bcm_pricing_calculator._resources.awsbcm_pricing_calculator.bill_estimate import (
+    BillEstimate,
+)
+from aws_sdk_bcm_pricing_calculator._resources.awsbcm_pricing_calculator.bill_scenario import (
+    BillScenario,
+)
+from aws_sdk_bcm_pricing_calculator._resources.awsbcm_pricing_calculator.workload_estimate import (
+    WorkloadEstimate,
+)
 from aws_sdk_bcm_pricing_calculator._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -107,6 +116,10 @@ class BCMPricingCalculatorClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.bill_estimate = BillEstimate(self)
+        self.bill_scenario = BillScenario(self)
+        self.workload_estimate = WorkloadEstimate(self)
 
     def operation_options(
         self, config_overrides: Optional[BCMPricingCalculatorClientConfig] = None

@@ -76,17 +76,17 @@ class ConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["run_configurations"] = run_configurations
+            input_["description"] = description
+        input_["run_configurations"] = run_configurations
         if tags is not None:
-            input["tags"] = tags
-        input["request_id"] = request_id
+            input_["tags"] = tags
+        input_["request_id"] = request_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -119,11 +119,11 @@ class ConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_configuration_request.GetConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.get_configuration_request.GetConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -154,11 +154,11 @@ class ConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_configuration_request.DeleteConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.delete_configuration_request.DeleteConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -195,14 +195,14 @@ class ConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,17 +253,17 @@ class AsyncConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["run_configurations"] = run_configurations
+            input_["description"] = description
+        input_["run_configurations"] = run_configurations
         if tags is not None:
-            input["tags"] = tags
-        input["request_id"] = request_id
+            input_["tags"] = tags
+        input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,11 +297,11 @@ class AsyncConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_configuration_request.GetConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.get_configuration_request.GetConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,11 +333,11 @@ class AsyncConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_configuration_request.DeleteConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.delete_configuration_request.DeleteConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,14 +375,14 @@ class AsyncConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

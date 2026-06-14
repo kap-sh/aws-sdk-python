@@ -79,16 +79,16 @@ class EventLogConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_event_log_configuration_request.CreateEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_managed_integrations.types.create_event_log_configuration_request.CreateEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
         if resource_id is not None:
-            input["resource_id"] = resource_id
-        input["event_log_level"] = event_log_level
+            input_["resource_id"] = resource_id
+        input_["event_log_level"] = event_log_level
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -119,11 +119,11 @@ class EventLogConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_event_log_configuration_request.DeleteEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_managed_integrations.types.delete_event_log_configuration_request.DeleteEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -156,11 +156,11 @@ class EventLogConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_event_log_configuration_request.GetEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_managed_integrations.types.get_event_log_configuration_request.GetEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -199,14 +199,14 @@ class EventLogConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_event_log_configurations_request.ListEventLogConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_event_log_configurations_request.ListEventLogConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,12 +239,12 @@ class EventLogConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_event_log_configuration_request.UpdateEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["event_log_level"] = event_log_level
+        input_: aws_sdk_iot_managed_integrations.types.update_event_log_configuration_request.UpdateEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["event_log_level"] = event_log_level
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,16 +293,16 @@ class AsyncEventLogConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_event_log_configuration_request.CreateEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_managed_integrations.types.create_event_log_configuration_request.CreateEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
         if resource_id is not None:
-            input["resource_id"] = resource_id
-        input["event_log_level"] = event_log_level
+            input_["resource_id"] = resource_id
+        input_["event_log_level"] = event_log_level
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,11 +334,11 @@ class AsyncEventLogConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_event_log_configuration_request.DeleteEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_managed_integrations.types.delete_event_log_configuration_request.DeleteEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,11 +372,11 @@ class AsyncEventLogConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_event_log_configuration_request.GetEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_managed_integrations.types.get_event_log_configuration_request.GetEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,14 +416,14 @@ class AsyncEventLogConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_event_log_configurations_request.ListEventLogConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_event_log_configurations_request.ListEventLogConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,12 +457,12 @@ class AsyncEventLogConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_event_log_configuration_request.UpdateEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["event_log_level"] = event_log_level
+        input_: aws_sdk_iot_managed_integrations.types.update_event_log_configuration_request.UpdateEventLogConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["event_log_level"] = event_log_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -24,6 +24,16 @@ from aws_sdk_bedrock_agentcore._auth._providers import CredentialsProvider, Stat
 from aws_sdk_bedrock_agentcore._auth._providers import BearerTokenProvider, StaticBearerTokenProvider
 from aws_sdk_bedrock_agentcore._auth._providers import BasicCredentialsProvider, StaticBasicCredentialsProvider
 from aws_sdk_bedrock_agentcore._auth._providers import ApiKeyProvider, StaticApiKeyProvider
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.agentic_resource import AsyncAgenticResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.browser_profile_resource import AsyncBrowserProfileResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.browser_session_resource import AsyncBrowserSessionResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.code_interpreter_session_resource import AsyncCodeInterpreterSessionResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.evaluation_resource import AsyncEvaluationResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.memory_resource import AsyncMemoryResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.payment_instrument_resource import AsyncPaymentInstrumentResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.payment_session_resource import AsyncPaymentSessionResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.process_payment_resource import AsyncProcessPaymentResource
+from aws_sdk_bedrock_agentcore._resources.amazon_bedrock_agent_core.registry_record_resource import AsyncRegistryRecordResource
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.audiences_list_type
     import aws_sdk_bedrock_agentcore.types.code_interpreter_session_id
@@ -109,6 +119,17 @@ class AsyncBedrockAgentCoreClient:
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
         self.config = AsyncBedrockAgentCoreClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
+        # resources
+        self.agentic_resource = AsyncAgenticResource(self)
+        self.browser_profile_resource = AsyncBrowserProfileResource(self)
+        self.browser_session_resource = AsyncBrowserSessionResource(self)
+        self.code_interpreter_session_resource = AsyncCodeInterpreterSessionResource(self)
+        self.evaluation_resource = AsyncEvaluationResource(self)
+        self.memory_resource = AsyncMemoryResource(self)
+        self.payment_instrument_resource = AsyncPaymentInstrumentResource(self)
+        self.payment_session_resource = AsyncPaymentSessionResource(self)
+        self.process_payment_resource = AsyncProcessPaymentResource(self)
+        self.registry_record_resource = AsyncRegistryRecordResource(self)
     def operation_options(self, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> tuple[Iterable[AsyncInterceptor[Any, Any]], AsyncOperationOptions]:
         overrides: AsyncBedrockAgentCoreClientConfig = config_overrides or {}
         interceptors_: list[AsyncInterceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), aretry()]
@@ -127,11 +148,11 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.complete_resource_token_auth_request.CompleteResourceTokenAuthRequest = {}  # type: ignore[typeddict-item]
-        input["user_identifier"] = user_identifier
-        input["session_uri"] = session_uri
+        input_: aws_sdk_bedrock_agentcore.types.complete_resource_token_auth_request.CompleteResourceTokenAuthRequest = {}  # type: ignore[typeddict-item]
+        input_["user_identifier"] = user_identifier
+        input_["session_uri"] = session_uri
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_resource_api_key(self, workload_identity_token: "aws_sdk_bedrock_agentcore.types.workload_identity_token_type.WorkloadIdentityTokenType", resource_credential_provider_name: "aws_sdk_bedrock_agentcore.types.credential_provider_name.CredentialProviderName", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_resource_api_key_response.GetResourceApiKeyResponse":
         """<p>Retrieves the API key associated with an API key credential provider.</p>
@@ -146,11 +167,11 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_resource_api_key_request.GetResourceApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["workload_identity_token"] = workload_identity_token
-        input["resource_credential_provider_name"] = resource_credential_provider_name
+        input_: aws_sdk_bedrock_agentcore.types.get_resource_api_key_request.GetResourceApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["workload_identity_token"] = workload_identity_token
+        input_["resource_credential_provider_name"] = resource_credential_provider_name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_resource_oauth2_token(self, workload_identity_token: "aws_sdk_bedrock_agentcore.types.workload_identity_token_type.WorkloadIdentityTokenType", resource_credential_provider_name: "aws_sdk_bedrock_agentcore.types.credential_provider_name.CredentialProviderName", scopes: "aws_sdk_bedrock_agentcore.types.scopes_list_type.ScopesListType", oauth2_flow: "aws_sdk_bedrock_agentcore.types.oauth2_flow_type.Oauth2FlowType", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, session_uri: Optional["aws_sdk_bedrock_agentcore.types.request_uri.RequestUri"] = None, resource_oauth2_return_url: Optional["aws_sdk_bedrock_agentcore.types.resource_oauth2_return_url_type.ResourceOauth2ReturnUrlType"] = None, force_authentication: Optional[bool] = None, custom_parameters: Optional["aws_sdk_bedrock_agentcore.types.custom_request_parameters_type.CustomRequestParametersType"] = None, custom_state: Optional["aws_sdk_bedrock_agentcore.types.state.State"] = None, resources: Optional["aws_sdk_bedrock_agentcore.types.resources_list_type.ResourcesListType"] = None, audiences: Optional["aws_sdk_bedrock_agentcore.types.audiences_list_type.AudiencesListType"] = None) -> "aws_sdk_bedrock_agentcore.types.get_resource_oauth2_token_response.GetResourceOauth2TokenResponse":
         """<p>Returns the OAuth 2.0 token of the provided resource.</p>
@@ -174,27 +195,27 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_resource_oauth2_token_request.GetResourceOauth2TokenRequest = {}  # type: ignore[typeddict-item]
-        input["workload_identity_token"] = workload_identity_token
-        input["resource_credential_provider_name"] = resource_credential_provider_name
-        input["scopes"] = scopes
-        input["oauth2_flow"] = oauth2_flow
+        input_: aws_sdk_bedrock_agentcore.types.get_resource_oauth2_token_request.GetResourceOauth2TokenRequest = {}  # type: ignore[typeddict-item]
+        input_["workload_identity_token"] = workload_identity_token
+        input_["resource_credential_provider_name"] = resource_credential_provider_name
+        input_["scopes"] = scopes
+        input_["oauth2_flow"] = oauth2_flow
         if session_uri is not None:
-            input["session_uri"] = session_uri
+            input_["session_uri"] = session_uri
         if resource_oauth2_return_url is not None:
-            input["resource_oauth2_return_url"] = resource_oauth2_return_url
+            input_["resource_oauth2_return_url"] = resource_oauth2_return_url
         if force_authentication is not None:
-            input["force_authentication"] = force_authentication
+            input_["force_authentication"] = force_authentication
         if custom_parameters is not None:
-            input["custom_parameters"] = custom_parameters
+            input_["custom_parameters"] = custom_parameters
         if custom_state is not None:
-            input["custom_state"] = custom_state
+            input_["custom_state"] = custom_state
         if resources is not None:
-            input["resources"] = resources
+            input_["resources"] = resources
         if audiences is not None:
-            input["audiences"] = audiences
+            input_["audiences"] = audiences
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_resource_payment_token(self, workload_identity_token: "aws_sdk_bedrock_agentcore.types.workload_identity_token_type.WorkloadIdentityTokenType", resource_credential_provider_name: "aws_sdk_bedrock_agentcore.types.credential_provider_name.CredentialProviderName", payment_token_request: "aws_sdk_bedrock_agentcore.types.payment_token_request_input.PaymentTokenRequestInput", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_resource_payment_token_response.GetResourcePaymentTokenResponse":
         """<p>Generates authentication tokens for payment providers that use vendor-specific authentication mechanisms.</p>
@@ -210,12 +231,12 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_resource_payment_token_request.GetResourcePaymentTokenRequest = {}  # type: ignore[typeddict-item]
-        input["workload_identity_token"] = workload_identity_token
-        input["resource_credential_provider_name"] = resource_credential_provider_name
-        input["payment_token_request"] = payment_token_request
+        input_: aws_sdk_bedrock_agentcore.types.get_resource_payment_token_request.GetResourcePaymentTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["workload_identity_token"] = workload_identity_token
+        input_["resource_credential_provider_name"] = resource_credential_provider_name
+        input_["payment_token_request"] = payment_token_request
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_workload_access_token(self, workload_name: "aws_sdk_bedrock_agentcore.types.workload_identity_name_type.WorkloadIdentityNameType", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_workload_access_token_response.GetWorkloadAccessTokenResponse":
         """<p>Obtains a workload access token for agentic workloads not acting on behalf of a user.</p>
@@ -229,10 +250,10 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_workload_access_token_request.GetWorkloadAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["workload_name"] = workload_name
+        input_: aws_sdk_bedrock_agentcore.types.get_workload_access_token_request.GetWorkloadAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["workload_name"] = workload_name
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_workload_access_token_for_jwt(self, workload_name: "aws_sdk_bedrock_agentcore.types.workload_identity_name_type.WorkloadIdentityNameType", user_token: "aws_sdk_bedrock_agentcore.types.user_token_type.UserTokenType", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_workload_access_token_for_jwt_response.GetWorkloadAccessTokenForJWTResponse":
         """<p>Obtains a workload access token for agentic workloads acting on behalf of a user, using a JWT token.</p>
@@ -247,11 +268,11 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_workload_access_token_for_jwt_request.GetWorkloadAccessTokenForJWTRequest = {}  # type: ignore[typeddict-item]
-        input["workload_name"] = workload_name
-        input["user_token"] = user_token
+        input_: aws_sdk_bedrock_agentcore.types.get_workload_access_token_for_jwt_request.GetWorkloadAccessTokenForJWTRequest = {}  # type: ignore[typeddict-item]
+        input_["workload_name"] = workload_name
+        input_["user_token"] = user_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_workload_access_token_for_user_id(self, workload_name: "aws_sdk_bedrock_agentcore.types.workload_identity_name_type.WorkloadIdentityNameType", user_id: "aws_sdk_bedrock_agentcore.types.user_id_type.UserIdType", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_workload_access_token_for_user_id_response.GetWorkloadAccessTokenForUserIdResponse":
         """<p>Obtains a workload access token for agentic workloads acting on behalf of a user, using the user's ID.</p>
@@ -266,11 +287,11 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_workload_access_token_for_user_id_request.GetWorkloadAccessTokenForUserIdRequest = {}  # type: ignore[typeddict-item]
-        input["workload_name"] = workload_name
-        input["user_id"] = user_id
+        input_: aws_sdk_bedrock_agentcore.types.get_workload_access_token_for_user_id_request.GetWorkloadAccessTokenForUserIdRequest = {}  # type: ignore[typeddict-item]
+        input_["workload_name"] = workload_name
+        input_["user_id"] = user_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def invoke_code_interpreter(self, code_interpreter_identifier: str, name: "aws_sdk_bedrock_agentcore.types.tool_name.ToolName", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, session_id: Optional["aws_sdk_bedrock_agentcore.types.code_interpreter_session_id.CodeInterpreterSessionId"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, arguments: Optional["aws_sdk_bedrock_agentcore.types.tool_arguments.ToolArguments"] = None) -> "aws_sdk_bedrock_agentcore.types.invoke_code_interpreter_response.InvokeCodeInterpreterResponse":
         """<p>Executes code within an active code interpreter session in Amazon Bedrock AgentCore. This operation processes the provided code, runs it in a secure environment, and returns the execution results including output, errors, and generated visualizations.</p> <p>To execute code, you must specify the code interpreter identifier, session ID, and the code to run in the arguments parameter. The operation returns a stream containing the execution results, which can include text output, error messages, and data visualizations.</p> <p>This operation is subject to request rate limiting based on your account's service quotas.</p> <p>The following operations are related to <code>InvokeCodeInterpreter</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html\">StartCodeInterpreterSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html\">GetCodeInterpreterSession</a> </p> </li> </ul>
@@ -289,19 +310,19 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.invoke_code_interpreter_request.InvokeCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
-        input["code_interpreter_identifier"] = code_interpreter_identifier
+        input_: aws_sdk_bedrock_agentcore.types.invoke_code_interpreter_request.InvokeCodeInterpreterRequest = {}  # type: ignore[typeddict-item]
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["name"] = name
+            input_["trace_parent"] = trace_parent
+        input_["name"] = name
         if arguments is not None:
-            input["arguments"] = arguments
+            input_["arguments"] = arguments
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def invoke_harness(self, harness_arn: "aws_sdk_bedrock_agentcore.types.harness_arn.HarnessArn", runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId", messages: "aws_sdk_bedrock_agentcore.types.harness_messages.HarnessMessages", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, runtime_user_id: Optional[str] = None, model: Optional["aws_sdk_bedrock_agentcore.types.harness_model_configuration.HarnessModelConfiguration"] = None, system_prompt: Optional["aws_sdk_bedrock_agentcore.types.harness_system_prompt.HarnessSystemPrompt"] = None, tools: Optional["aws_sdk_bedrock_agentcore.types.harness_tools.HarnessTools"] = None, skills: Optional["aws_sdk_bedrock_agentcore.types.harness_skills.HarnessSkills"] = None, allowed_tools: Optional["aws_sdk_bedrock_agentcore.types.harness_allowed_tools.HarnessAllowedTools"] = None, max_iterations: Optional[int] = None, max_tokens: Optional[int] = None, timeout_seconds: Optional[int] = None, actor_id: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.invoke_harness_response.InvokeHarnessResponse":
         """<p>Operation to invoke a Harness.</p>
@@ -327,32 +348,32 @@ class AsyncBedrockAgentCoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.invoke_harness_request.InvokeHarnessRequest = {}  # type: ignore[typeddict-item]
-        input["harness_arn"] = harness_arn
-        input["runtime_session_id"] = runtime_session_id
+        input_: aws_sdk_bedrock_agentcore.types.invoke_harness_request.InvokeHarnessRequest = {}  # type: ignore[typeddict-item]
+        input_["harness_arn"] = harness_arn
+        input_["runtime_session_id"] = runtime_session_id
         if runtime_user_id is not None:
-            input["runtime_user_id"] = runtime_user_id
-        input["messages"] = messages
+            input_["runtime_user_id"] = runtime_user_id
+        input_["messages"] = messages
         if model is not None:
-            input["model"] = model
+            input_["model"] = model
         if system_prompt is not None:
-            input["system_prompt"] = system_prompt
+            input_["system_prompt"] = system_prompt
         if tools is not None:
-            input["tools"] = tools
+            input_["tools"] = tools
         if skills is not None:
-            input["skills"] = skills
+            input_["skills"] = skills
         if allowed_tools is not None:
-            input["allowed_tools"] = allowed_tools
+            input_["allowed_tools"] = allowed_tools
         if max_iterations is not None:
-            input["max_iterations"] = max_iterations
+            input_["max_iterations"] = max_iterations
         if max_tokens is not None:
-            input["max_tokens"] = max_tokens
+            input_["max_tokens"] = max_tokens
         if timeout_seconds is not None:
-            input["timeout_seconds"] = timeout_seconds
+            input_["timeout_seconds"] = timeout_seconds
         if actor_id is not None:
-            input["actor_id"] = actor_id
+            input_["actor_id"] = actor_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def __aenter__(self) -> Self:
         return self

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_interconnect._auth._signers
+import aws_sdk_interconnect._auth._sigv4
 from aws_sdk_interconnect._auth._identity import Credentials
 from aws_sdk_interconnect._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,12 @@ from aws_sdk_interconnect._auth._providers import (
 )
 from aws_sdk_interconnect._auth._zapros_handler import AuthMiddleware
 from aws_sdk_interconnect._pagination import resolve_path as _resolve_path
+from aws_sdk_interconnect._resources.interconnect.connection_resource import (
+    ConnectionResource,
+)
+from aws_sdk_interconnect._resources.interconnect.environment_resource import (
+    EnvironmentResource,
+)
 from aws_sdk_interconnect._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -114,6 +122,9 @@ class InterconnectClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.connection_resource = ConnectionResource(self)
+        self.environment_resource = EnvironmentResource(self)
 
     def operation_options(
         self, config_overrides: Optional[InterconnectClientConfig] = None
@@ -182,18 +193,18 @@ class InterconnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.accept_connection_proposal_request.AcceptConnectionProposalRequest = {}  # type: ignore[typeddict-item]
-        input["attach_point"] = attach_point
-        input["activation_key"] = activation_key
+        input_: aws_sdk_interconnect.types.accept_connection_proposal_request.AcceptConnectionProposalRequest = {}  # type: ignore[typeddict-item]
+        input_["attach_point"] = attach_point
+        input_["activation_key"] = activation_key
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,11 +242,11 @@ class InterconnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.describe_connection_proposal_request.DescribeConnectionProposalRequest = {}  # type: ignore[typeddict-item]
-        input["activation_key"] = activation_key
+        input_: aws_sdk_interconnect.types.describe_connection_proposal_request.DescribeConnectionProposalRequest = {}  # type: ignore[typeddict-item]
+        input_["activation_key"] = activation_key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,15 +290,15 @@ class InterconnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.list_attach_points_request.ListAttachPointsRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_interconnect.types.list_attach_points_request.ListAttachPointsRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,11 +361,11 @@ class InterconnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_interconnect.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,12 +405,12 @@ class InterconnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_interconnect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -439,12 +450,12 @@ class InterconnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_interconnect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_interconnect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

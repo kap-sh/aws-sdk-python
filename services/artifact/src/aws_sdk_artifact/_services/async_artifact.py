@@ -13,6 +13,14 @@ from aws_sdk_artifact._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_artifact._auth._zapros_handler import AuthMiddleware
+from aws_sdk_artifact._resources.artifact.account_settings_resource import (
+    AsyncAccountSettingsResource,
+)
+from aws_sdk_artifact._resources.artifact.customer_agreement_resource import (
+    AsyncCustomerAgreementResource,
+)
+from aws_sdk_artifact._resources.artifact.report_resource import AsyncReportResource
+from aws_sdk_artifact._resources.artifact.term_resource import AsyncTermResource
 from aws_sdk_artifact._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -92,6 +100,11 @@ class AsyncArtifactClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_settings_resource = AsyncAccountSettingsResource(self)
+        self.customer_agreement_resource = AsyncCustomerAgreementResource(self)
+        self.report_resource = AsyncReportResource(self)
+        self.term_resource = AsyncTermResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncArtifactClientConfig] = None

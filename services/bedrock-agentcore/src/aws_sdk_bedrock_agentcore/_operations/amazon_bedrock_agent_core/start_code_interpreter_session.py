@@ -60,54 +60,43 @@ def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: 
             return aws_sdk_bedrock_agentcore._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
-        EndpointParams(
-            Region=options.region,
-            UseDualStack=options.use_dual_stack,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-        )
-    )
+def build_request(options: OperationOptions | AsyncOperationOptions, input_: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest) -> zapros.Request:
+    endpoint = resolve(EndpointParams(Region=options.region, UseDualStack=options.use_dual_stack, UseFIPS=options.use_fips, Endpoint=options.endpoint))  # noqa: F841
     url = endpoint.url.rstrip("/") + "/code-interpreters/{codeInterpreterIdentifier}/sessions/start"
-    url = url.replace("{codeInterpreterIdentifier}", quote(str(input["code_interpreter_identifier"]), safe=""))
+    url = url.replace("{codeInterpreterIdentifier}", quote(str(input_["code_interpreter_identifier"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "trace_id" in input:
-        headers["X-Amzn-Trace-Id"] = str(input["trace_id"])
-    if "trace_parent" in input:
-        headers["traceparent"] = str(input["trace_parent"])
+    if "trace_id" in input_:
+        headers["X-Amzn-Trace-Id"] = str(input_["trace_id"])
+    if "trace_parent" in input_:
+        headers["traceparent"] = str(input_["trace_parent"])
     import aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request
-    body: bytes | None = json.dumps(aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.serialize_json(input)).encode()
+    body: bytes | None = json.dumps(aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.serialize_json(input_)).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
-    return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
-    )
+    return zapros.Request(normalized_url, "PUT", headers=headers, body=body, context={"signer": signer})
 
-def start_code_interpreter_session(options: OperationOptions, input: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest) -> tuple[aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_response.StartCodeInterpreterSessionResponse, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+def start_code_interpreter_session(options: OperationOptions, input_: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest) -> tuple[aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_response.StartCodeInterpreterSessionResponse, zapros.Response]:
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
         raise
 
-async def async_start_code_interpreter_session(options: AsyncOperationOptions, input: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest) -> tuple[aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_response.StartCodeInterpreterSessionResponse, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+async def async_start_code_interpreter_session(options: AsyncOperationOptions, input_: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest) -> tuple[aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_response.StartCodeInterpreterSessionResponse, zapros.Response]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

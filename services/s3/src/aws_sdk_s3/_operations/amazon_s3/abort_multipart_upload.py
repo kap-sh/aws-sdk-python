@@ -67,11 +67,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest,
+    input_: aws_sdk_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -80,7 +80,7 @@ def build_request(
             Accelerate=options.accelerate,
             UseGlobalEndpoint=options.use_global_endpoint,
             UseObjectLambdaEndpoint=options.use_object_lambda_endpoint,
-            Key=input.get("key"),
+            Key=input_.get("key"),
             Prefix=options.prefix,
             CopySource=options.copy_source,
             DisableAccessPoints=options.disable_access_points,
@@ -91,18 +91,20 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=AbortMultipartUpload"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
-    url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
+    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
     params: dict[str, str] = {}
-    if "upload_id" in input:
-        params["uploadId"] = str(input["upload_id"])
+    if "upload_id" in input_:
+        params["uploadId"] = str(input_["upload_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "request_payer" in input:
-        headers["x-amz-request-payer"] = str(input["request_payer"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    if "if_match_initiated_time" in input:
-        headers["x-amz-if-match-initiated-time"] = str(input["if_match_initiated_time"])
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = str(input_["request_payer"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    if "if_match_initiated_time" in input_:
+        headers["x-amz-if-match-initiated-time"] = str(
+            input_["if_match_initiated_time"]
+        )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -114,12 +116,12 @@ def build_request(
 
 def abort_multipart_upload(
     options: OperationOptions,
-    input: aws_sdk_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest,
+    input_: aws_sdk_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest,
 ) -> tuple[
     aws_sdk_s3.types.abort_multipart_upload_output.AbortMultipartUploadOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -133,12 +135,12 @@ def abort_multipart_upload(
 
 async def async_abort_multipart_upload(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest,
+    input_: aws_sdk_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest,
 ) -> tuple[
     aws_sdk_s3.types.abort_multipart_upload_output.AbortMultipartUploadOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -15,6 +15,10 @@ from aws_sdk_security_ir._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_security_ir._auth._zapros_handler import AuthMiddleware
+from aws_sdk_security_ir._resources.security_incident_response.case import Case
+from aws_sdk_security_ir._resources.security_incident_response.membership import (
+    Membership,
+)
 from aws_sdk_security_ir._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -102,6 +106,9 @@ class SecurityIRClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.case = Case(self)
+        self.membership = Membership(self)
 
     def operation_options(
         self, config_overrides: Optional[SecurityIRClientConfig] = None
@@ -160,11 +167,11 @@ class SecurityIRClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_security_ir.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,12 +211,12 @@ class SecurityIRClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_security_ir.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,12 +256,12 @@ class SecurityIRClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_security_ir.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

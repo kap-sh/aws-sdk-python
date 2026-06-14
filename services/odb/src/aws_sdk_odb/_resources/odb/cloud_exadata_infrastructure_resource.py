@@ -103,30 +103,32 @@ class CloudExadataInfrastructureResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_cloud_exadata_infrastructure_input.CreateCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
-        input["display_name"] = display_name
-        input["shape"] = shape
+        input_: aws_sdk_odb.types.create_cloud_exadata_infrastructure_input.CreateCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
+        input_["display_name"] = display_name
+        input_["shape"] = shape
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if availability_zone_id is not None:
-            input["availability_zone_id"] = availability_zone_id
+            input_["availability_zone_id"] = availability_zone_id
         if tags is not None:
-            input["tags"] = tags
-        input["compute_count"] = compute_count
+            input_["tags"] = tags
+        input_["compute_count"] = compute_count
         if customer_contacts_to_send_to_oci is not None:
-            input["customer_contacts_to_send_to_oci"] = customer_contacts_to_send_to_oci
+            input_["customer_contacts_to_send_to_oci"] = (
+                customer_contacts_to_send_to_oci
+            )
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
-        input["storage_count"] = storage_count
+            input_["maintenance_window"] = maintenance_window
+        input_["storage_count"] = storage_count
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if database_server_type is not None:
-            input["database_server_type"] = database_server_type
+            input_["database_server_type"] = database_server_type
         if storage_server_type is not None:
-            input["storage_server_type"] = storage_server_type
+            input_["storage_server_type"] = storage_server_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,11 +161,11 @@ class CloudExadataInfrastructureResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_cloud_exadata_infrastructure_input.GetCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.get_cloud_exadata_infrastructure_input.GetCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -199,13 +201,13 @@ class CloudExadataInfrastructureResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.update_cloud_exadata_infrastructure_input.UpdateCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.update_cloud_exadata_infrastructure_input.UpdateCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
+            input_["maintenance_window"] = maintenance_window
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -238,11 +240,11 @@ class CloudExadataInfrastructureResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_cloud_exadata_infrastructure_input.DeleteCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.delete_cloud_exadata_infrastructure_input.DeleteCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,14 +279,14 @@ class CloudExadataInfrastructureResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_cloud_exadata_infrastructures_input.ListCloudExadataInfrastructuresInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_cloud_exadata_infrastructures_input.ListCloudExadataInfrastructuresInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,13 +321,13 @@ class CloudExadataInfrastructureResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_cloud_exadata_infrastructure_unallocated_resources_input.GetCloudExadataInfrastructureUnallocatedResourcesInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.get_cloud_exadata_infrastructure_unallocated_resources_input.GetCloudExadataInfrastructureUnallocatedResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
         if db_servers is not None:
-            input["db_servers"] = db_servers
+            input_["db_servers"] = db_servers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,12 +362,12 @@ class CloudExadataInfrastructureResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_db_server_input.GetDbServerInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
-        input["db_server_id"] = db_server_id
+        input_: aws_sdk_odb.types.get_db_server_input.GetDbServerInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_["db_server_id"] = db_server_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,15 +404,15 @@ class CloudExadataInfrastructureResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_db_servers_input.ListDbServersInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.list_db_servers_input.ListDbServersInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,30 +483,32 @@ class AsyncCloudExadataInfrastructureResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_cloud_exadata_infrastructure_input.CreateCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
-        input["display_name"] = display_name
-        input["shape"] = shape
+        input_: aws_sdk_odb.types.create_cloud_exadata_infrastructure_input.CreateCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
+        input_["display_name"] = display_name
+        input_["shape"] = shape
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if availability_zone_id is not None:
-            input["availability_zone_id"] = availability_zone_id
+            input_["availability_zone_id"] = availability_zone_id
         if tags is not None:
-            input["tags"] = tags
-        input["compute_count"] = compute_count
+            input_["tags"] = tags
+        input_["compute_count"] = compute_count
         if customer_contacts_to_send_to_oci is not None:
-            input["customer_contacts_to_send_to_oci"] = customer_contacts_to_send_to_oci
+            input_["customer_contacts_to_send_to_oci"] = (
+                customer_contacts_to_send_to_oci
+            )
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
-        input["storage_count"] = storage_count
+            input_["maintenance_window"] = maintenance_window
+        input_["storage_count"] = storage_count
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if database_server_type is not None:
-            input["database_server_type"] = database_server_type
+            input_["database_server_type"] = database_server_type
         if storage_server_type is not None:
-            input["storage_server_type"] = storage_server_type
+            input_["storage_server_type"] = storage_server_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,11 +542,11 @@ class AsyncCloudExadataInfrastructureResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_cloud_exadata_infrastructure_input.GetCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.get_cloud_exadata_infrastructure_input.GetCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,13 +583,13 @@ class AsyncCloudExadataInfrastructureResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.update_cloud_exadata_infrastructure_input.UpdateCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.update_cloud_exadata_infrastructure_input.UpdateCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
+            input_["maintenance_window"] = maintenance_window
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -619,11 +623,11 @@ class AsyncCloudExadataInfrastructureResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_cloud_exadata_infrastructure_input.DeleteCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.delete_cloud_exadata_infrastructure_input.DeleteCloudExadataInfrastructureInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -659,14 +663,14 @@ class AsyncCloudExadataInfrastructureResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_cloud_exadata_infrastructures_input.ListCloudExadataInfrastructuresInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_cloud_exadata_infrastructures_input.ListCloudExadataInfrastructuresInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -702,13 +706,13 @@ class AsyncCloudExadataInfrastructureResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_cloud_exadata_infrastructure_unallocated_resources_input.GetCloudExadataInfrastructureUnallocatedResourcesInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.get_cloud_exadata_infrastructure_unallocated_resources_input.GetCloudExadataInfrastructureUnallocatedResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
         if db_servers is not None:
-            input["db_servers"] = db_servers
+            input_["db_servers"] = db_servers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -744,12 +748,12 @@ class AsyncCloudExadataInfrastructureResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_db_server_input.GetDbServerInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
-        input["db_server_id"] = db_server_id
+        input_: aws_sdk_odb.types.get_db_server_input.GetDbServerInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_["db_server_id"] = db_server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -787,15 +791,15 @@ class AsyncCloudExadataInfrastructureResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_db_servers_input.ListDbServersInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_: aws_sdk_odb.types.list_db_servers_input.ListDbServersInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

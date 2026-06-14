@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_lightsail._auth._signers
+import aws_sdk_lightsail._auth._sigv4
 from aws_sdk_lightsail._auth._identity import Credentials
 from aws_sdk_lightsail._auth._providers import (
     CredentialsProvider,
@@ -557,11 +559,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.allocate_static_ip_request.AllocateStaticIpRequest = {}  # type: ignore[typeddict-item]
-        input["static_ip_name"] = static_ip_name
+        input_: aws_sdk_lightsail.types.allocate_static_ip_request.AllocateStaticIpRequest = {}  # type: ignore[typeddict-item]
+        input_["static_ip_name"] = static_ip_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -596,12 +598,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.attach_certificate_to_distribution_request.AttachCertificateToDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_name"] = distribution_name
-        input["certificate_name"] = certificate_name
+        input_: aws_sdk_lightsail.types.attach_certificate_to_distribution_request.AttachCertificateToDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_name"] = distribution_name
+        input_["certificate_name"] = certificate_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -640,15 +642,15 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.attach_disk_request.AttachDiskRequest = {}  # type: ignore[typeddict-item]
-        input["disk_name"] = disk_name
-        input["instance_name"] = instance_name
-        input["disk_path"] = disk_path
+        input_: aws_sdk_lightsail.types.attach_disk_request.AttachDiskRequest = {}  # type: ignore[typeddict-item]
+        input_["disk_name"] = disk_name
+        input_["instance_name"] = instance_name
+        input_["disk_path"] = disk_path
         if auto_mounting is not None:
-            input["auto_mounting"] = auto_mounting
+            input_["auto_mounting"] = auto_mounting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,12 +685,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.attach_instances_to_load_balancer_request.AttachInstancesToLoadBalancerRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["instance_names"] = instance_names
+        input_: aws_sdk_lightsail.types.attach_instances_to_load_balancer_request.AttachInstancesToLoadBalancerRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["instance_names"] = instance_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -723,12 +725,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.attach_load_balancer_tls_certificate_request.AttachLoadBalancerTlsCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["certificate_name"] = certificate_name
+        input_: aws_sdk_lightsail.types.attach_load_balancer_tls_certificate_request.AttachLoadBalancerTlsCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["certificate_name"] = certificate_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,12 +765,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.attach_static_ip_request.AttachStaticIpRequest = {}  # type: ignore[typeddict-item]
-        input["static_ip_name"] = static_ip_name
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.attach_static_ip_request.AttachStaticIpRequest = {}  # type: ignore[typeddict-item]
+        input_["static_ip_name"] = static_ip_name
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,12 +805,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.close_instance_public_ports_request.CloseInstancePublicPortsRequest = {}  # type: ignore[typeddict-item]
-        input["port_info"] = port_info
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.close_instance_public_ports_request.CloseInstancePublicPortsRequest = {}  # type: ignore[typeddict-item]
+        input_["port_info"] = port_info
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -855,22 +857,22 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.copy_snapshot_request.CopySnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.copy_snapshot_request.CopySnapshotRequest = {}  # type: ignore[typeddict-item]
         if source_snapshot_name is not None:
-            input["source_snapshot_name"] = source_snapshot_name
+            input_["source_snapshot_name"] = source_snapshot_name
         if source_resource_name is not None:
-            input["source_resource_name"] = source_resource_name
+            input_["source_resource_name"] = source_resource_name
         if restore_date is not None:
-            input["restore_date"] = restore_date
+            input_["restore_date"] = restore_date
         if use_latest_restorable_auto_snapshot is not None:
-            input["use_latest_restorable_auto_snapshot"] = (
+            input_["use_latest_restorable_auto_snapshot"] = (
                 use_latest_restorable_auto_snapshot
             )
-        input["target_snapshot_name"] = target_snapshot_name
-        input["source_region"] = source_region
+        input_["target_snapshot_name"] = target_snapshot_name
+        input_["source_region"] = source_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -911,16 +913,16 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_bucket_request.CreateBucketRequest = {}  # type: ignore[typeddict-item]
-        input["bucket_name"] = bucket_name
-        input["bundle_id"] = bundle_id
+        input_: aws_sdk_lightsail.types.create_bucket_request.CreateBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket_name"] = bucket_name
+        input_["bundle_id"] = bundle_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if enable_object_versioning is not None:
-            input["enable_object_versioning"] = enable_object_versioning
+            input_["enable_object_versioning"] = enable_object_versioning
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -953,11 +955,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_bucket_access_key_request.CreateBucketAccessKeyRequest = {}  # type: ignore[typeddict-item]
-        input["bucket_name"] = bucket_name
+        input_: aws_sdk_lightsail.types.create_bucket_access_key_request.CreateBucketAccessKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket_name"] = bucket_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -998,16 +1000,16 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_certificate_request.CreateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_name"] = certificate_name
-        input["domain_name"] = domain_name
+        input_: aws_sdk_lightsail.types.create_certificate_request.CreateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_name"] = certificate_name
+        input_["domain_name"] = domain_name
         if subject_alternative_names is not None:
-            input["subject_alternative_names"] = subject_alternative_names
+            input_["subject_alternative_names"] = subject_alternative_names
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1040,11 +1042,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_cloud_formation_stack_request.CreateCloudFormationStackRequest = {}  # type: ignore[typeddict-item]
-        input["instances"] = instances
+        input_: aws_sdk_lightsail.types.create_cloud_formation_stack_request.CreateCloudFormationStackRequest = {}  # type: ignore[typeddict-item]
+        input_["instances"] = instances
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1083,14 +1085,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_contact_method_request.CreateContactMethodRequest = {}  # type: ignore[typeddict-item]
-        input["protocol"] = protocol
-        input["contact_endpoint"] = contact_endpoint
+        input_: aws_sdk_lightsail.types.create_contact_method_request.CreateContactMethodRequest = {}  # type: ignore[typeddict-item]
+        input_["protocol"] = protocol
+        input_["contact_endpoint"] = contact_endpoint
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1141,21 +1143,21 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_container_service_request.CreateContainerServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["power"] = power
-        input["scale"] = scale
+        input_: aws_sdk_lightsail.types.create_container_service_request.CreateContainerServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["power"] = power
+        input_["scale"] = scale
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if public_domain_names is not None:
-            input["public_domain_names"] = public_domain_names
+            input_["public_domain_names"] = public_domain_names
         if deployment is not None:
-            input["deployment"] = deployment
+            input_["deployment"] = deployment
         if private_registry_access is not None:
-            input["private_registry_access"] = private_registry_access
+            input_["private_registry_access"] = private_registry_access
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1196,15 +1198,15 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_container_service_deployment_request.CreateContainerServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_lightsail.types.create_container_service_deployment_request.CreateContainerServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
         if containers is not None:
-            input["containers"] = containers
+            input_["containers"] = containers
         if public_endpoint is not None:
-            input["public_endpoint"] = public_endpoint
+            input_["public_endpoint"] = public_endpoint
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1230,10 +1232,10 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_container_service_registry_login_request.CreateContainerServiceRegistryLoginRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.create_container_service_registry_login_request.CreateContainerServiceRegistryLoginRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1276,17 +1278,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_disk_request.CreateDiskRequest = {}  # type: ignore[typeddict-item]
-        input["disk_name"] = disk_name
-        input["availability_zone"] = availability_zone
-        input["size_in_gb"] = size_in_gb
+        input_: aws_sdk_lightsail.types.create_disk_request.CreateDiskRequest = {}  # type: ignore[typeddict-item]
+        input_["disk_name"] = disk_name
+        input_["availability_zone"] = availability_zone
+        input_["size_in_gb"] = size_in_gb
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if add_ons is not None:
-            input["add_ons"] = add_ons
+            input_["add_ons"] = add_ons
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1341,27 +1343,27 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_disk_from_snapshot_request.CreateDiskFromSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["disk_name"] = disk_name
+        input_: aws_sdk_lightsail.types.create_disk_from_snapshot_request.CreateDiskFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["disk_name"] = disk_name
         if disk_snapshot_name is not None:
-            input["disk_snapshot_name"] = disk_snapshot_name
-        input["availability_zone"] = availability_zone
-        input["size_in_gb"] = size_in_gb
+            input_["disk_snapshot_name"] = disk_snapshot_name
+        input_["availability_zone"] = availability_zone
+        input_["size_in_gb"] = size_in_gb
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if add_ons is not None:
-            input["add_ons"] = add_ons
+            input_["add_ons"] = add_ons
         if source_disk_name is not None:
-            input["source_disk_name"] = source_disk_name
+            input_["source_disk_name"] = source_disk_name
         if restore_date is not None:
-            input["restore_date"] = restore_date
+            input_["restore_date"] = restore_date
         if use_latest_restorable_auto_snapshot is not None:
-            input["use_latest_restorable_auto_snapshot"] = (
+            input_["use_latest_restorable_auto_snapshot"] = (
                 use_latest_restorable_auto_snapshot
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1404,17 +1406,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_disk_snapshot_request.CreateDiskSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.create_disk_snapshot_request.CreateDiskSnapshotRequest = {}  # type: ignore[typeddict-item]
         if disk_name is not None:
-            input["disk_name"] = disk_name
-        input["disk_snapshot_name"] = disk_snapshot_name
+            input_["disk_name"] = disk_name
+        input_["disk_snapshot_name"] = disk_snapshot_name
         if instance_name is not None:
-            input["instance_name"] = instance_name
+            input_["instance_name"] = instance_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1475,28 +1477,28 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_distribution_request.CreateDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_name"] = distribution_name
-        input["origin"] = origin
-        input["default_cache_behavior"] = default_cache_behavior
+        input_: aws_sdk_lightsail.types.create_distribution_request.CreateDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_name"] = distribution_name
+        input_["origin"] = origin
+        input_["default_cache_behavior"] = default_cache_behavior
         if cache_behavior_settings is not None:
-            input["cache_behavior_settings"] = cache_behavior_settings
+            input_["cache_behavior_settings"] = cache_behavior_settings
         if cache_behaviors is not None:
-            input["cache_behaviors"] = cache_behaviors
-        input["bundle_id"] = bundle_id
+            input_["cache_behaviors"] = cache_behaviors
+        input_["bundle_id"] = bundle_id
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if certificate_name is not None:
-            input["certificate_name"] = certificate_name
+            input_["certificate_name"] = certificate_name
         if viewer_minimum_tls_protocol_version is not None:
-            input["viewer_minimum_tls_protocol_version"] = (
+            input_["viewer_minimum_tls_protocol_version"] = (
                 viewer_minimum_tls_protocol_version
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1531,13 +1533,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_lightsail.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1572,12 +1574,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_domain_entry_request.CreateDomainEntryRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["domain_entry"] = domain_entry
+        input_: aws_sdk_lightsail.types.create_domain_entry_request.CreateDomainEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["domain_entry"] = domain_entry
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1610,11 +1612,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_gui_session_access_details_request.CreateGUISessionAccessDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.create_gui_session_access_details_request.CreateGUISessionAccessDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1673,26 +1675,26 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_instances_request.CreateInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_names"] = instance_names
-        input["availability_zone"] = availability_zone
+        input_: aws_sdk_lightsail.types.create_instances_request.CreateInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_names"] = instance_names
+        input_["availability_zone"] = availability_zone
         if custom_image_name is not None:
-            input["custom_image_name"] = custom_image_name
-        input["blueprint_id"] = blueprint_id
-        input["bundle_id"] = bundle_id
+            input_["custom_image_name"] = custom_image_name
+        input_["blueprint_id"] = blueprint_id
+        input_["bundle_id"] = bundle_id
         if user_data is not None:
-            input["user_data"] = user_data
+            input_["user_data"] = user_data
         if key_pair_name is not None:
-            input["key_pair_name"] = key_pair_name
+            input_["key_pair_name"] = key_pair_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if add_ons is not None:
-            input["add_ons"] = add_ons
+            input_["add_ons"] = add_ons
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1761,35 +1763,35 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_instances_from_snapshot_request.CreateInstancesFromSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["instance_names"] = instance_names
+        input_: aws_sdk_lightsail.types.create_instances_from_snapshot_request.CreateInstancesFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_names"] = instance_names
         if attached_disk_mapping is not None:
-            input["attached_disk_mapping"] = attached_disk_mapping
-        input["availability_zone"] = availability_zone
+            input_["attached_disk_mapping"] = attached_disk_mapping
+        input_["availability_zone"] = availability_zone
         if instance_snapshot_name is not None:
-            input["instance_snapshot_name"] = instance_snapshot_name
-        input["bundle_id"] = bundle_id
+            input_["instance_snapshot_name"] = instance_snapshot_name
+        input_["bundle_id"] = bundle_id
         if user_data is not None:
-            input["user_data"] = user_data
+            input_["user_data"] = user_data
         if key_pair_name is not None:
-            input["key_pair_name"] = key_pair_name
+            input_["key_pair_name"] = key_pair_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if add_ons is not None:
-            input["add_ons"] = add_ons
+            input_["add_ons"] = add_ons
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if source_instance_name is not None:
-            input["source_instance_name"] = source_instance_name
+            input_["source_instance_name"] = source_instance_name
         if restore_date is not None:
-            input["restore_date"] = restore_date
+            input_["restore_date"] = restore_date
         if use_latest_restorable_auto_snapshot is not None:
-            input["use_latest_restorable_auto_snapshot"] = (
+            input_["use_latest_restorable_auto_snapshot"] = (
                 use_latest_restorable_auto_snapshot
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1826,14 +1828,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_instance_snapshot_request.CreateInstanceSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["instance_snapshot_name"] = instance_snapshot_name
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.create_instance_snapshot_request.CreateInstanceSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_snapshot_name"] = instance_snapshot_name
+        input_["instance_name"] = instance_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1868,13 +1870,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_key_pair_request.CreateKeyPairRequest = {}  # type: ignore[typeddict-item]
-        input["key_pair_name"] = key_pair_name
+        input_: aws_sdk_lightsail.types.create_key_pair_request.CreateKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_["key_pair_name"] = key_pair_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1931,26 +1933,26 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_load_balancer_request.CreateLoadBalancerRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["instance_port"] = instance_port
+        input_: aws_sdk_lightsail.types.create_load_balancer_request.CreateLoadBalancerRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["instance_port"] = instance_port
         if health_check_path is not None:
-            input["health_check_path"] = health_check_path
+            input_["health_check_path"] = health_check_path
         if certificate_name is not None:
-            input["certificate_name"] = certificate_name
+            input_["certificate_name"] = certificate_name
         if certificate_domain_name is not None:
-            input["certificate_domain_name"] = certificate_domain_name
+            input_["certificate_domain_name"] = certificate_domain_name
         if certificate_alternative_names is not None:
-            input["certificate_alternative_names"] = certificate_alternative_names
+            input_["certificate_alternative_names"] = certificate_alternative_names
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if tls_policy_name is not None:
-            input["tls_policy_name"] = tls_policy_name
+            input_["tls_policy_name"] = tls_policy_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1993,17 +1995,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_load_balancer_tls_certificate_request.CreateLoadBalancerTlsCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["certificate_name"] = certificate_name
-        input["certificate_domain_name"] = certificate_domain_name
+        input_: aws_sdk_lightsail.types.create_load_balancer_tls_certificate_request.CreateLoadBalancerTlsCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["certificate_name"] = certificate_name
+        input_["certificate_domain_name"] = certificate_domain_name
         if certificate_alternative_names is not None:
-            input["certificate_alternative_names"] = certificate_alternative_names
+            input_["certificate_alternative_names"] = certificate_alternative_names
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2062,27 +2064,27 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_relational_database_request.CreateRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.create_relational_database_request.CreateRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
-        input["relational_database_blueprint_id"] = relational_database_blueprint_id
-        input["relational_database_bundle_id"] = relational_database_bundle_id
-        input["master_database_name"] = master_database_name
-        input["master_username"] = master_username
+            input_["availability_zone"] = availability_zone
+        input_["relational_database_blueprint_id"] = relational_database_blueprint_id
+        input_["relational_database_bundle_id"] = relational_database_bundle_id
+        input_["master_database_name"] = master_database_name
+        input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2139,29 +2141,29 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_relational_database_from_snapshot_request.CreateRelationalDatabaseFromSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.create_relational_database_from_snapshot_request.CreateRelationalDatabaseFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if relational_database_snapshot_name is not None:
-            input["relational_database_snapshot_name"] = (
+            input_["relational_database_snapshot_name"] = (
                 relational_database_snapshot_name
             )
         if relational_database_bundle_id is not None:
-            input["relational_database_bundle_id"] = relational_database_bundle_id
+            input_["relational_database_bundle_id"] = relational_database_bundle_id
         if source_relational_database_name is not None:
-            input["source_relational_database_name"] = source_relational_database_name
+            input_["source_relational_database_name"] = source_relational_database_name
         if restore_time is not None:
-            input["restore_time"] = restore_time
+            input_["restore_time"] = restore_time
         if use_latest_restorable_time is not None:
-            input["use_latest_restorable_time"] = use_latest_restorable_time
+            input_["use_latest_restorable_time"] = use_latest_restorable_time
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2198,14 +2200,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.create_relational_database_snapshot_request.CreateRelationalDatabaseSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
-        input["relational_database_snapshot_name"] = relational_database_snapshot_name
+        input_: aws_sdk_lightsail.types.create_relational_database_snapshot_request.CreateRelationalDatabaseSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
+        input_["relational_database_snapshot_name"] = relational_database_snapshot_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2238,11 +2240,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_alarm_request.DeleteAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["alarm_name"] = alarm_name
+        input_: aws_sdk_lightsail.types.delete_alarm_request.DeleteAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["alarm_name"] = alarm_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2277,12 +2279,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_auto_snapshot_request.DeleteAutoSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["date"] = date
+        input_: aws_sdk_lightsail.types.delete_auto_snapshot_request.DeleteAutoSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["date"] = date
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2317,13 +2319,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_bucket_request.DeleteBucketRequest = {}  # type: ignore[typeddict-item]
-        input["bucket_name"] = bucket_name
+        input_: aws_sdk_lightsail.types.delete_bucket_request.DeleteBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket_name"] = bucket_name
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2358,12 +2360,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_bucket_access_key_request.DeleteBucketAccessKeyRequest = {}  # type: ignore[typeddict-item]
-        input["bucket_name"] = bucket_name
-        input["access_key_id"] = access_key_id
+        input_: aws_sdk_lightsail.types.delete_bucket_access_key_request.DeleteBucketAccessKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket_name"] = bucket_name
+        input_["access_key_id"] = access_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2396,11 +2398,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_name"] = certificate_name
+        input_: aws_sdk_lightsail.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_name"] = certificate_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2435,11 +2437,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_contact_method_request.DeleteContactMethodRequest = {}  # type: ignore[typeddict-item]
-        input["protocol"] = protocol
+        input_: aws_sdk_lightsail.types.delete_contact_method_request.DeleteContactMethodRequest = {}  # type: ignore[typeddict-item]
+        input_["protocol"] = protocol
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2474,12 +2476,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_container_image_request.DeleteContainerImageRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["image"] = image
+        input_: aws_sdk_lightsail.types.delete_container_image_request.DeleteContainerImageRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["image"] = image
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2512,11 +2514,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_container_service_request.DeleteContainerServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_lightsail.types.delete_container_service_request.DeleteContainerServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2553,13 +2555,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_disk_request.DeleteDiskRequest = {}  # type: ignore[typeddict-item]
-        input["disk_name"] = disk_name
+        input_: aws_sdk_lightsail.types.delete_disk_request.DeleteDiskRequest = {}  # type: ignore[typeddict-item]
+        input_["disk_name"] = disk_name
         if force_delete_add_ons is not None:
-            input["force_delete_add_ons"] = force_delete_add_ons
+            input_["force_delete_add_ons"] = force_delete_add_ons
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2592,11 +2594,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_disk_snapshot_request.DeleteDiskSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["disk_snapshot_name"] = disk_snapshot_name
+        input_: aws_sdk_lightsail.types.delete_disk_snapshot_request.DeleteDiskSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["disk_snapshot_name"] = disk_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2631,12 +2633,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_distribution_request.DeleteDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.delete_distribution_request.DeleteDistributionRequest = {}  # type: ignore[typeddict-item]
         if distribution_name is not None:
-            input["distribution_name"] = distribution_name
+            input_["distribution_name"] = distribution_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2669,11 +2671,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_lightsail.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2708,12 +2710,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_domain_entry_request.DeleteDomainEntryRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["domain_entry"] = domain_entry
+        input_: aws_sdk_lightsail.types.delete_domain_entry_request.DeleteDomainEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["domain_entry"] = domain_entry
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2750,13 +2752,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_instance_request.DeleteInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.delete_instance_request.DeleteInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
         if force_delete_add_ons is not None:
-            input["force_delete_add_ons"] = force_delete_add_ons
+            input_["force_delete_add_ons"] = force_delete_add_ons
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2789,11 +2791,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_instance_snapshot_request.DeleteInstanceSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["instance_snapshot_name"] = instance_snapshot_name
+        input_: aws_sdk_lightsail.types.delete_instance_snapshot_request.DeleteInstanceSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_snapshot_name"] = instance_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2828,13 +2830,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_key_pair_request.DeleteKeyPairRequest = {}  # type: ignore[typeddict-item]
-        input["key_pair_name"] = key_pair_name
+        input_: aws_sdk_lightsail.types.delete_key_pair_request.DeleteKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_["key_pair_name"] = key_pair_name
         if expected_fingerprint is not None:
-            input["expected_fingerprint"] = expected_fingerprint
+            input_["expected_fingerprint"] = expected_fingerprint
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2867,11 +2869,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_known_host_keys_request.DeleteKnownHostKeysRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.delete_known_host_keys_request.DeleteKnownHostKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2904,11 +2906,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_load_balancer_request.DeleteLoadBalancerRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
+        input_: aws_sdk_lightsail.types.delete_load_balancer_request.DeleteLoadBalancerRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2945,14 +2947,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_load_balancer_tls_certificate_request.DeleteLoadBalancerTlsCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["certificate_name"] = certificate_name
+        input_: aws_sdk_lightsail.types.delete_load_balancer_tls_certificate_request.DeleteLoadBalancerTlsCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["certificate_name"] = certificate_name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2991,17 +2993,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_relational_database_request.DeleteRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.delete_relational_database_request.DeleteRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
         if skip_final_snapshot is not None:
-            input["skip_final_snapshot"] = skip_final_snapshot
+            input_["skip_final_snapshot"] = skip_final_snapshot
         if final_relational_database_snapshot_name is not None:
-            input["final_relational_database_snapshot_name"] = (
+            input_["final_relational_database_snapshot_name"] = (
                 final_relational_database_snapshot_name
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3034,11 +3036,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.delete_relational_database_snapshot_request.DeleteRelationalDatabaseSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_snapshot_name"] = relational_database_snapshot_name
+        input_: aws_sdk_lightsail.types.delete_relational_database_snapshot_request.DeleteRelationalDatabaseSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_snapshot_name"] = relational_database_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3071,11 +3073,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.detach_certificate_from_distribution_request.DetachCertificateFromDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_name"] = distribution_name
+        input_: aws_sdk_lightsail.types.detach_certificate_from_distribution_request.DetachCertificateFromDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_name"] = distribution_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3108,11 +3110,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.detach_disk_request.DetachDiskRequest = {}  # type: ignore[typeddict-item]
-        input["disk_name"] = disk_name
+        input_: aws_sdk_lightsail.types.detach_disk_request.DetachDiskRequest = {}  # type: ignore[typeddict-item]
+        input_["disk_name"] = disk_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3147,12 +3149,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.detach_instances_from_load_balancer_request.DetachInstancesFromLoadBalancerRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["instance_names"] = instance_names
+        input_: aws_sdk_lightsail.types.detach_instances_from_load_balancer_request.DetachInstancesFromLoadBalancerRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["instance_names"] = instance_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3185,11 +3187,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.detach_static_ip_request.DetachStaticIpRequest = {}  # type: ignore[typeddict-item]
-        input["static_ip_name"] = static_ip_name
+        input_: aws_sdk_lightsail.types.detach_static_ip_request.DetachStaticIpRequest = {}  # type: ignore[typeddict-item]
+        input_["static_ip_name"] = static_ip_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3224,12 +3226,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.disable_add_on_request.DisableAddOnRequest = {}  # type: ignore[typeddict-item]
-        input["add_on_type"] = add_on_type
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.disable_add_on_request.DisableAddOnRequest = {}  # type: ignore[typeddict-item]
+        input_["add_on_type"] = add_on_type
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3255,10 +3257,10 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.download_default_key_pair_request.DownloadDefaultKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.download_default_key_pair_request.DownloadDefaultKeyPairRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3293,12 +3295,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.enable_add_on_request.EnableAddOnRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["add_on_request"] = add_on_request
+        input_: aws_sdk_lightsail.types.enable_add_on_request.EnableAddOnRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["add_on_request"] = add_on_request
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3331,11 +3333,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.export_snapshot_request.ExportSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["source_snapshot_name"] = source_snapshot_name
+        input_: aws_sdk_lightsail.types.export_snapshot_request.ExportSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["source_snapshot_name"] = source_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3368,12 +3370,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_active_names_request.GetActiveNamesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_active_names_request.GetActiveNamesRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3414,16 +3416,16 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_alarms_request.GetAlarmsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_alarms_request.GetAlarmsRequest = {}  # type: ignore[typeddict-item]
         if alarm_name is not None:
-            input["alarm_name"] = alarm_name
+            input_["alarm_name"] = alarm_name
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if monitored_resource_name is not None:
-            input["monitored_resource_name"] = monitored_resource_name
+            input_["monitored_resource_name"] = monitored_resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3456,11 +3458,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_auto_snapshots_request.GetAutoSnapshotsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.get_auto_snapshots_request.GetAutoSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3499,16 +3501,16 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_blueprints_request.GetBlueprintsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_blueprints_request.GetBlueprintsRequest = {}  # type: ignore[typeddict-item]
         if include_inactive is not None:
-            input["include_inactive"] = include_inactive
+            input_["include_inactive"] = include_inactive
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if app_category is not None:
-            input["app_category"] = app_category
+            input_["app_category"] = app_category
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3541,11 +3543,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_bucket_access_keys_request.GetBucketAccessKeysRequest = {}  # type: ignore[typeddict-item]
-        input["bucket_name"] = bucket_name
+        input_: aws_sdk_lightsail.types.get_bucket_access_keys_request.GetBucketAccessKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket_name"] = bucket_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3578,12 +3580,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_bucket_bundles_request.GetBucketBundlesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_bucket_bundles_request.GetBucketBundlesRequest = {}  # type: ignore[typeddict-item]
         if include_inactive is not None:
-            input["include_inactive"] = include_inactive
+            input_["include_inactive"] = include_inactive
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3628,17 +3630,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_bucket_metric_data_request.GetBucketMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["bucket_name"] = bucket_name
-        input["metric_name"] = metric_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["period"] = period
-        input["statistics"] = statistics
-        input["unit"] = unit
+        input_: aws_sdk_lightsail.types.get_bucket_metric_data_request.GetBucketMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket_name"] = bucket_name
+        input_["metric_name"] = metric_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["period"] = period
+        input_["statistics"] = statistics
+        input_["unit"] = unit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3679,18 +3681,18 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_buckets_request.GetBucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_buckets_request.GetBucketsRequest = {}  # type: ignore[typeddict-item]
         if bucket_name is not None:
-            input["bucket_name"] = bucket_name
+            input_["bucket_name"] = bucket_name
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if include_connected_resources is not None:
-            input["include_connected_resources"] = include_connected_resources
+            input_["include_connected_resources"] = include_connected_resources
         if include_cors is not None:
-            input["include_cors"] = include_cors
+            input_["include_cors"] = include_cors
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3729,16 +3731,16 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_bundles_request.GetBundlesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_bundles_request.GetBundlesRequest = {}  # type: ignore[typeddict-item]
         if include_inactive is not None:
-            input["include_inactive"] = include_inactive
+            input_["include_inactive"] = include_inactive
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if app_category is not None:
-            input["app_category"] = app_category
+            input_["app_category"] = app_category
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3783,18 +3785,18 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_certificates_request.GetCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_certificates_request.GetCertificatesRequest = {}  # type: ignore[typeddict-item]
         if certificate_statuses is not None:
-            input["certificate_statuses"] = certificate_statuses
+            input_["certificate_statuses"] = certificate_statuses
         if include_certificate_details is not None:
-            input["include_certificate_details"] = include_certificate_details
+            input_["include_certificate_details"] = include_certificate_details
         if certificate_name is not None:
-            input["certificate_name"] = certificate_name
+            input_["certificate_name"] = certificate_name
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3827,12 +3829,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_cloud_formation_stack_records_request.GetCloudFormationStackRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_cloud_formation_stack_records_request.GetCloudFormationStackRecordsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3867,12 +3869,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_contact_methods_request.GetContactMethodsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_contact_methods_request.GetContactMethodsRequest = {}  # type: ignore[typeddict-item]
         if protocols is not None:
-            input["protocols"] = protocols
+            input_["protocols"] = protocols
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3898,10 +3900,10 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_container_api_metadata_request.GetContainerAPIMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_container_api_metadata_request.GetContainerAPIMetadataRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3934,11 +3936,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_container_images_request.GetContainerImagesRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_lightsail.types.get_container_images_request.GetContainerImagesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3981,20 +3983,20 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_container_log_request.GetContainerLogRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["container_name"] = container_name
+        input_: aws_sdk_lightsail.types.get_container_log_request.GetContainerLogRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["container_name"] = container_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if filter_pattern is not None:
-            input["filter_pattern"] = filter_pattern
+            input_["filter_pattern"] = filter_pattern
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4027,11 +4029,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_container_service_deployments_request.GetContainerServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_lightsail.types.get_container_service_deployments_request.GetContainerServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4074,16 +4076,16 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_container_service_metric_data_request.GetContainerServiceMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["metric_name"] = metric_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["period"] = period
-        input["statistics"] = statistics
+        input_: aws_sdk_lightsail.types.get_container_service_metric_data_request.GetContainerServiceMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["metric_name"] = metric_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["period"] = period
+        input_["statistics"] = statistics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4109,10 +4111,10 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_container_service_powers_request.GetContainerServicePowersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_container_service_powers_request.GetContainerServicePowersRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4147,12 +4149,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_container_services_request.GetContainerServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_container_services_request.GetContainerServicesRequest = {}  # type: ignore[typeddict-item]
         if service_name is not None:
-            input["service_name"] = service_name
+            input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4189,13 +4191,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_cost_estimate_request.GetCostEstimateRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_lightsail.types.get_cost_estimate_request.GetCostEstimateRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4226,11 +4228,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_disk_request.GetDiskRequest = {}  # type: ignore[typeddict-item]
-        input["disk_name"] = disk_name
+        input_: aws_sdk_lightsail.types.get_disk_request.GetDiskRequest = {}  # type: ignore[typeddict-item]
+        input_["disk_name"] = disk_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4263,12 +4265,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_disks_request.GetDisksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_disks_request.GetDisksRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4301,11 +4303,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_disk_snapshot_request.GetDiskSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["disk_snapshot_name"] = disk_snapshot_name
+        input_: aws_sdk_lightsail.types.get_disk_snapshot_request.GetDiskSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["disk_snapshot_name"] = disk_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4338,12 +4340,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_disk_snapshots_request.GetDiskSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_disk_snapshots_request.GetDiskSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4369,10 +4371,10 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_distribution_bundles_request.GetDistributionBundlesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_distribution_bundles_request.GetDistributionBundlesRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4407,12 +4409,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_distribution_latest_cache_reset_request.GetDistributionLatestCacheResetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_distribution_latest_cache_reset_request.GetDistributionLatestCacheResetRequest = {}  # type: ignore[typeddict-item]
         if distribution_name is not None:
-            input["distribution_name"] = distribution_name
+            input_["distribution_name"] = distribution_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4457,17 +4459,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_distribution_metric_data_request.GetDistributionMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_name"] = distribution_name
-        input["metric_name"] = metric_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["period"] = period
-        input["unit"] = unit
-        input["statistics"] = statistics
+        input_: aws_sdk_lightsail.types.get_distribution_metric_data_request.GetDistributionMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_name"] = distribution_name
+        input_["metric_name"] = metric_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["period"] = period
+        input_["unit"] = unit
+        input_["statistics"] = statistics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4504,14 +4506,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_distributions_request.GetDistributionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_distributions_request.GetDistributionsRequest = {}  # type: ignore[typeddict-item]
         if distribution_name is not None:
-            input["distribution_name"] = distribution_name
+            input_["distribution_name"] = distribution_name
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4544,11 +4546,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_domain_request.GetDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_lightsail.types.get_domain_request.GetDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4581,12 +4583,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_domains_request.GetDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_domains_request.GetDomainsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4619,12 +4621,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_export_snapshot_records_request.GetExportSnapshotRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_export_snapshot_records_request.GetExportSnapshotRecordsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4657,11 +4659,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_instance_request.GetInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.get_instance_request.GetInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4698,13 +4700,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_instance_access_details_request.GetInstanceAccessDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.get_instance_access_details_request.GetInstanceAccessDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4749,17 +4751,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_instance_metric_data_request.GetInstanceMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
-        input["metric_name"] = metric_name
-        input["period"] = period
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["unit"] = unit
-        input["statistics"] = statistics
+        input_: aws_sdk_lightsail.types.get_instance_metric_data_request.GetInstanceMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
+        input_["metric_name"] = metric_name
+        input_["period"] = period
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["unit"] = unit
+        input_["statistics"] = statistics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4792,11 +4794,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_instance_port_states_request.GetInstancePortStatesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.get_instance_port_states_request.GetInstancePortStatesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4829,12 +4831,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_instances_request.GetInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_instances_request.GetInstancesRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4869,11 +4871,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_instance_snapshot_request.GetInstanceSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["instance_snapshot_name"] = instance_snapshot_name
+        input_: aws_sdk_lightsail.types.get_instance_snapshot_request.GetInstanceSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_snapshot_name"] = instance_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4906,12 +4908,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_instance_snapshots_request.GetInstanceSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_instance_snapshots_request.GetInstanceSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4944,11 +4946,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_instance_state_request.GetInstanceStateRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.get_instance_state_request.GetInstanceStateRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4981,11 +4983,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_key_pair_request.GetKeyPairRequest = {}  # type: ignore[typeddict-item]
-        input["key_pair_name"] = key_pair_name
+        input_: aws_sdk_lightsail.types.get_key_pair_request.GetKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_["key_pair_name"] = key_pair_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5022,14 +5024,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_key_pairs_request.GetKeyPairsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_key_pairs_request.GetKeyPairsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if include_default_key_pair is not None:
-            input["include_default_key_pair"] = include_default_key_pair
+            input_["include_default_key_pair"] = include_default_key_pair
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5062,11 +5064,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_load_balancer_request.GetLoadBalancerRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
+        input_: aws_sdk_lightsail.types.get_load_balancer_request.GetLoadBalancerRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5111,17 +5113,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_load_balancer_metric_data_request.GetLoadBalancerMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["metric_name"] = metric_name
-        input["period"] = period
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["unit"] = unit
-        input["statistics"] = statistics
+        input_: aws_sdk_lightsail.types.get_load_balancer_metric_data_request.GetLoadBalancerMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["metric_name"] = metric_name
+        input_["period"] = period
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["unit"] = unit
+        input_["statistics"] = statistics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5154,12 +5156,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_load_balancers_request.GetLoadBalancersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_load_balancers_request.GetLoadBalancersRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5192,11 +5194,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_load_balancer_tls_certificates_request.GetLoadBalancerTlsCertificatesRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
+        input_: aws_sdk_lightsail.types.get_load_balancer_tls_certificates_request.GetLoadBalancerTlsCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5229,12 +5231,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_load_balancer_tls_policies_request.GetLoadBalancerTlsPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_load_balancer_tls_policies_request.GetLoadBalancerTlsPoliciesRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5267,11 +5269,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_operation_request.GetOperationRequest = {}  # type: ignore[typeddict-item]
-        input["operation_id"] = operation_id
+        input_: aws_sdk_lightsail.types.get_operation_request.GetOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["operation_id"] = operation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5304,12 +5306,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_operations_request.GetOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_operations_request.GetOperationsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5344,13 +5346,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_operations_for_resource_request.GetOperationsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.get_operations_for_resource_request.GetOperationsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5389,16 +5391,16 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_regions_request.GetRegionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_regions_request.GetRegionsRequest = {}  # type: ignore[typeddict-item]
         if include_availability_zones is not None:
-            input["include_availability_zones"] = include_availability_zones
+            input_["include_availability_zones"] = include_availability_zones
         if include_relational_database_availability_zones is not None:
-            input["include_relational_database_availability_zones"] = (
+            input_["include_relational_database_availability_zones"] = (
                 include_relational_database_availability_zones
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5431,11 +5433,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_request.GetRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.get_relational_database_request.GetRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5468,12 +5470,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_blueprints_request.GetRelationalDatabaseBlueprintsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_relational_database_blueprints_request.GetRelationalDatabaseBlueprintsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5508,14 +5510,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_bundles_request.GetRelationalDatabaseBundlesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_relational_database_bundles_request.GetRelationalDatabaseBundlesRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if include_inactive is not None:
-            input["include_inactive"] = include_inactive
+            input_["include_inactive"] = include_inactive
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5552,15 +5554,15 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_events_request.GetRelationalDatabaseEventsRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.get_relational_database_events_request.GetRelationalDatabaseEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
         if duration_in_minutes is not None:
-            input["duration_in_minutes"] = duration_in_minutes
+            input_["duration_in_minutes"] = duration_in_minutes
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5603,20 +5605,20 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_log_events_request.GetRelationalDatabaseLogEventsRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
-        input["log_stream_name"] = log_stream_name
+        input_: aws_sdk_lightsail.types.get_relational_database_log_events_request.GetRelationalDatabaseLogEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
+        input_["log_stream_name"] = log_stream_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if start_from_head is not None:
-            input["start_from_head"] = start_from_head
+            input_["start_from_head"] = start_from_head
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5649,11 +5651,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_log_streams_request.GetRelationalDatabaseLogStreamsRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.get_relational_database_log_streams_request.GetRelationalDatabaseLogStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5690,13 +5692,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_master_user_password_request.GetRelationalDatabaseMasterUserPasswordRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.get_relational_database_master_user_password_request.GetRelationalDatabaseMasterUserPasswordRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
         if password_version is not None:
-            input["password_version"] = password_version
+            input_["password_version"] = password_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5741,17 +5743,17 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_metric_data_request.GetRelationalDatabaseMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
-        input["metric_name"] = metric_name
-        input["period"] = period
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["unit"] = unit
-        input["statistics"] = statistics
+        input_: aws_sdk_lightsail.types.get_relational_database_metric_data_request.GetRelationalDatabaseMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
+        input_["metric_name"] = metric_name
+        input_["period"] = period
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["unit"] = unit
+        input_["statistics"] = statistics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5786,13 +5788,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_parameters_request.GetRelationalDatabaseParametersRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.get_relational_database_parameters_request.GetRelationalDatabaseParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5825,12 +5827,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_databases_request.GetRelationalDatabasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_relational_databases_request.GetRelationalDatabasesRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5863,11 +5865,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_snapshot_request.GetRelationalDatabaseSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_snapshot_name"] = relational_database_snapshot_name
+        input_: aws_sdk_lightsail.types.get_relational_database_snapshot_request.GetRelationalDatabaseSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_snapshot_name"] = relational_database_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5900,12 +5902,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_relational_database_snapshots_request.GetRelationalDatabaseSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_relational_database_snapshots_request.GetRelationalDatabaseSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5942,13 +5944,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_setup_history_request.GetSetupHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.get_setup_history_request.GetSetupHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5981,11 +5983,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_static_ip_request.GetStaticIpRequest = {}  # type: ignore[typeddict-item]
-        input["static_ip_name"] = static_ip_name
+        input_: aws_sdk_lightsail.types.get_static_ip_request.GetStaticIpRequest = {}  # type: ignore[typeddict-item]
+        input_["static_ip_name"] = static_ip_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6018,12 +6020,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.get_static_ips_request.GetStaticIpsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.get_static_ips_request.GetStaticIpsRequest = {}  # type: ignore[typeddict-item]
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6058,12 +6060,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.import_key_pair_request.ImportKeyPairRequest = {}  # type: ignore[typeddict-item]
-        input["key_pair_name"] = key_pair_name
-        input["public_key_base64"] = public_key_base64
+        input_: aws_sdk_lightsail.types.import_key_pair_request.ImportKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_["key_pair_name"] = key_pair_name
+        input_["public_key_base64"] = public_key_base64
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6089,10 +6091,10 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.is_vpc_peered_request.IsVpcPeeredRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.is_vpc_peered_request.IsVpcPeeredRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6127,12 +6129,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.open_instance_public_ports_request.OpenInstancePublicPortsRequest = {}  # type: ignore[typeddict-item]
-        input["port_info"] = port_info
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.open_instance_public_ports_request.OpenInstancePublicPortsRequest = {}  # type: ignore[typeddict-item]
+        input_["port_info"] = port_info
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6156,10 +6158,10 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.peer_vpc_request.PeerVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.peer_vpc_request.PeerVpcRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6222,28 +6224,28 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.put_alarm_request.PutAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["alarm_name"] = alarm_name
-        input["metric_name"] = metric_name
-        input["monitored_resource_name"] = monitored_resource_name
-        input["comparison_operator"] = comparison_operator
-        input["threshold"] = threshold
-        input["evaluation_periods"] = evaluation_periods
+        input_: aws_sdk_lightsail.types.put_alarm_request.PutAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["alarm_name"] = alarm_name
+        input_["metric_name"] = metric_name
+        input_["monitored_resource_name"] = monitored_resource_name
+        input_["comparison_operator"] = comparison_operator
+        input_["threshold"] = threshold
+        input_["evaluation_periods"] = evaluation_periods
         if datapoints_to_alarm is not None:
-            input["datapoints_to_alarm"] = datapoints_to_alarm
+            input_["datapoints_to_alarm"] = datapoints_to_alarm
         if treat_missing_data is not None:
-            input["treat_missing_data"] = treat_missing_data
+            input_["treat_missing_data"] = treat_missing_data
         if contact_protocols is not None:
-            input["contact_protocols"] = contact_protocols
+            input_["contact_protocols"] = contact_protocols
         if notification_triggers is not None:
-            input["notification_triggers"] = notification_triggers
+            input_["notification_triggers"] = notification_triggers
         if notification_enabled is not None:
-            input["notification_enabled"] = notification_enabled
+            input_["notification_enabled"] = notification_enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6278,12 +6280,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.put_instance_public_ports_request.PutInstancePublicPortsRequest = {}  # type: ignore[typeddict-item]
-        input["port_infos"] = port_infos
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.put_instance_public_ports_request.PutInstancePublicPortsRequest = {}  # type: ignore[typeddict-item]
+        input_["port_infos"] = port_infos
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6316,11 +6318,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.reboot_instance_request.RebootInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.reboot_instance_request.RebootInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6353,11 +6355,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.reboot_relational_database_request.RebootRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.reboot_relational_database_request.RebootRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6394,13 +6396,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.register_container_image_request.RegisterContainerImageRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["label"] = label
-        input["digest"] = digest
+        input_: aws_sdk_lightsail.types.register_container_image_request.RegisterContainerImageRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["label"] = label
+        input_["digest"] = digest
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6433,11 +6435,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.release_static_ip_request.ReleaseStaticIpRequest = {}  # type: ignore[typeddict-item]
-        input["static_ip_name"] = static_ip_name
+        input_: aws_sdk_lightsail.types.release_static_ip_request.ReleaseStaticIpRequest = {}  # type: ignore[typeddict-item]
+        input_["static_ip_name"] = static_ip_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6472,12 +6474,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.reset_distribution_cache_request.ResetDistributionCacheRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.reset_distribution_cache_request.ResetDistributionCacheRequest = {}  # type: ignore[typeddict-item]
         if distribution_name is not None:
-            input["distribution_name"] = distribution_name
+            input_["distribution_name"] = distribution_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6510,11 +6512,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.send_contact_method_verification_request.SendContactMethodVerificationRequest = {}  # type: ignore[typeddict-item]
-        input["protocol"] = protocol
+        input_: aws_sdk_lightsail.types.send_contact_method_verification_request.SendContactMethodVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_["protocol"] = protocol
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6555,15 +6557,15 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.set_ip_address_type_request.SetIpAddressTypeRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_name"] = resource_name
-        input["ip_address_type"] = ip_address_type
+        input_: aws_sdk_lightsail.types.set_ip_address_type_request.SetIpAddressTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_name"] = resource_name
+        input_["ip_address_type"] = ip_address_type
         if accept_bundle_update is not None:
-            input["accept_bundle_update"] = accept_bundle_update
+            input_["accept_bundle_update"] = accept_bundle_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6600,13 +6602,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.set_resource_access_for_bucket_request.SetResourceAccessForBucketRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["bucket_name"] = bucket_name
-        input["access"] = access
+        input_: aws_sdk_lightsail.types.set_resource_access_for_bucket_request.SetResourceAccessForBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["bucket_name"] = bucket_name
+        input_["access"] = access
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6645,14 +6647,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.setup_instance_https_request.SetupInstanceHttpsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
-        input["email_address"] = email_address
-        input["domain_names"] = domain_names
-        input["certificate_provider"] = certificate_provider
+        input_: aws_sdk_lightsail.types.setup_instance_https_request.SetupInstanceHttpsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
+        input_["email_address"] = email_address
+        input_["domain_names"] = domain_names
+        input_["certificate_provider"] = certificate_provider
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6685,11 +6687,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.start_gui_session_request.StartGUISessionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.start_gui_session_request.StartGUISessionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6722,11 +6724,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.start_instance_request.StartInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.start_instance_request.StartInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6759,11 +6761,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.start_relational_database_request.StartRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.start_relational_database_request.StartRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6796,11 +6798,11 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.stop_gui_session_request.StopGUISessionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.stop_gui_session_request.StopGUISessionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6835,13 +6837,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.stop_instance_request.StopInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.stop_instance_request.StopInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6878,15 +6880,15 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.stop_relational_database_request.StopRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.stop_relational_database_request.StopRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
         if relational_database_snapshot_name is not None:
-            input["relational_database_snapshot_name"] = (
+            input_["relational_database_snapshot_name"] = (
                 relational_database_snapshot_name
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6925,14 +6927,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
-        input["tags"] = tags
+            input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6967,12 +6969,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.test_alarm_request.TestAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["alarm_name"] = alarm_name
-        input["state"] = state
+        input_: aws_sdk_lightsail.types.test_alarm_request.TestAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["alarm_name"] = alarm_name
+        input_["state"] = state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6998,10 +7000,10 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.unpeer_vpc_request.UnpeerVpcRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.unpeer_vpc_request.UnpeerVpcRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7040,14 +7042,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_lightsail.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+            input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7100,21 +7102,21 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_bucket_request.UpdateBucketRequest = {}  # type: ignore[typeddict-item]
-        input["bucket_name"] = bucket_name
+        input_: aws_sdk_lightsail.types.update_bucket_request.UpdateBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket_name"] = bucket_name
         if access_rules is not None:
-            input["access_rules"] = access_rules
+            input_["access_rules"] = access_rules
         if versioning is not None:
-            input["versioning"] = versioning
+            input_["versioning"] = versioning
         if readonly_access_accounts is not None:
-            input["readonly_access_accounts"] = readonly_access_accounts
+            input_["readonly_access_accounts"] = readonly_access_accounts
         if access_log_config is not None:
-            input["access_log_config"] = access_log_config
+            input_["access_log_config"] = access_log_config
         if cors is not None:
-            input["cors"] = cors
+            input_["cors"] = cors
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7149,12 +7151,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_bucket_bundle_request.UpdateBucketBundleRequest = {}  # type: ignore[typeddict-item]
-        input["bucket_name"] = bucket_name
-        input["bundle_id"] = bundle_id
+        input_: aws_sdk_lightsail.types.update_bucket_bundle_request.UpdateBucketBundleRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket_name"] = bucket_name
+        input_["bundle_id"] = bundle_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7205,21 +7207,21 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_container_service_request.UpdateContainerServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_lightsail.types.update_container_service_request.UpdateContainerServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
         if power is not None:
-            input["power"] = power
+            input_["power"] = power
         if scale is not None:
-            input["scale"] = scale
+            input_["scale"] = scale
         if is_disabled is not None:
-            input["is_disabled"] = is_disabled
+            input_["is_disabled"] = is_disabled
         if public_domain_names is not None:
-            input["public_domain_names"] = public_domain_names
+            input_["public_domain_names"] = public_domain_names
         if private_registry_access is not None:
-            input["private_registry_access"] = private_registry_access
+            input_["private_registry_access"] = private_registry_access
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7280,29 +7282,29 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_distribution_request.UpdateDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_name"] = distribution_name
+        input_: aws_sdk_lightsail.types.update_distribution_request.UpdateDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_name"] = distribution_name
         if origin is not None:
-            input["origin"] = origin
+            input_["origin"] = origin
         if default_cache_behavior is not None:
-            input["default_cache_behavior"] = default_cache_behavior
+            input_["default_cache_behavior"] = default_cache_behavior
         if cache_behavior_settings is not None:
-            input["cache_behavior_settings"] = cache_behavior_settings
+            input_["cache_behavior_settings"] = cache_behavior_settings
         if cache_behaviors is not None:
-            input["cache_behaviors"] = cache_behaviors
+            input_["cache_behaviors"] = cache_behaviors
         if is_enabled is not None:
-            input["is_enabled"] = is_enabled
+            input_["is_enabled"] = is_enabled
         if viewer_minimum_tls_protocol_version is not None:
-            input["viewer_minimum_tls_protocol_version"] = (
+            input_["viewer_minimum_tls_protocol_version"] = (
                 viewer_minimum_tls_protocol_version
             )
         if certificate_name is not None:
-            input["certificate_name"] = certificate_name
+            input_["certificate_name"] = certificate_name
         if use_default_certificate is not None:
-            input["use_default_certificate"] = use_default_certificate
+            input_["use_default_certificate"] = use_default_certificate
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7339,14 +7341,14 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_distribution_bundle_request.UpdateDistributionBundleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lightsail.types.update_distribution_bundle_request.UpdateDistributionBundleRequest = {}  # type: ignore[typeddict-item]
         if distribution_name is not None:
-            input["distribution_name"] = distribution_name
+            input_["distribution_name"] = distribution_name
         if bundle_id is not None:
-            input["bundle_id"] = bundle_id
+            input_["bundle_id"] = bundle_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7381,12 +7383,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_domain_entry_request.UpdateDomainEntryRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["domain_entry"] = domain_entry
+        input_: aws_sdk_lightsail.types.update_domain_entry_request.UpdateDomainEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["domain_entry"] = domain_entry
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7433,19 +7435,19 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_instance_metadata_options_request.UpdateInstanceMetadataOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_lightsail.types.update_instance_metadata_options_request.UpdateInstanceMetadataOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
         if http_tokens is not None:
-            input["http_tokens"] = http_tokens
+            input_["http_tokens"] = http_tokens
         if http_endpoint is not None:
-            input["http_endpoint"] = http_endpoint
+            input_["http_endpoint"] = http_endpoint
         if http_put_response_hop_limit is not None:
-            input["http_put_response_hop_limit"] = http_put_response_hop_limit
+            input_["http_put_response_hop_limit"] = http_put_response_hop_limit
         if http_protocol_ipv6 is not None:
-            input["http_protocol_ipv6"] = http_protocol_ipv6
+            input_["http_protocol_ipv6"] = http_protocol_ipv6
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7482,13 +7484,13 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_load_balancer_attribute_request.UpdateLoadBalancerAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["attribute_name"] = attribute_name
-        input["attribute_value"] = attribute_value
+        input_: aws_sdk_lightsail.types.update_load_balancer_attribute_request.UpdateLoadBalancerAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["attribute_name"] = attribute_name
+        input_["attribute_value"] = attribute_value
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7557,31 +7559,33 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_relational_database_request.UpdateRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
+        input_: aws_sdk_lightsail.types.update_relational_database_request.UpdateRelationalDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if rotate_master_user_password is not None:
-            input["rotate_master_user_password"] = rotate_master_user_password
+            input_["rotate_master_user_password"] = rotate_master_user_password
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if enable_backup_retention is not None:
-            input["enable_backup_retention"] = enable_backup_retention
+            input_["enable_backup_retention"] = enable_backup_retention
         if disable_backup_retention is not None:
-            input["disable_backup_retention"] = disable_backup_retention
+            input_["disable_backup_retention"] = disable_backup_retention
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if relational_database_blueprint_id is not None:
-            input["relational_database_blueprint_id"] = relational_database_blueprint_id
+            input_["relational_database_blueprint_id"] = (
+                relational_database_blueprint_id
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7616,12 +7620,12 @@ class LightsailClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lightsail.types.update_relational_database_parameters_request.UpdateRelationalDatabaseParametersRequest = {}  # type: ignore[typeddict-item]
-        input["relational_database_name"] = relational_database_name
-        input["parameters"] = parameters
+        input_: aws_sdk_lightsail.types.update_relational_database_parameters_request.UpdateRelationalDatabaseParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["relational_database_name"] = relational_database_name
+        input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

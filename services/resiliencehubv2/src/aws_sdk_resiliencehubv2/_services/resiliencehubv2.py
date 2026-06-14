@@ -17,6 +17,21 @@ from aws_sdk_resiliencehubv2._auth._providers import (
 )
 from aws_sdk_resiliencehubv2._auth._zapros_handler import AuthMiddleware
 from aws_sdk_resiliencehubv2._pagination import resolve_path as _resolve_path
+from aws_sdk_resiliencehubv2._resources.ngrh_service_core.iam_app_resource import (
+    IamAppResource,
+)
+from aws_sdk_resiliencehubv2._resources.ngrh_service_core.iam_policy_resource import (
+    IamPolicyResource,
+)
+from aws_sdk_resiliencehubv2._resources.ngrh_service_core.iam_resiliency_policy_resource import (
+    IamResiliencyPolicyResource,
+)
+from aws_sdk_resiliencehubv2._resources.ngrh_service_core.iam_service_resource import (
+    IamServiceResource,
+)
+from aws_sdk_resiliencehubv2._resources.ngrh_service_core.iam_system_resource import (
+    IamSystemResource,
+)
 from aws_sdk_resiliencehubv2._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -260,6 +275,12 @@ class resiliencehubv2Client:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.iam_app_resource = IamAppResource(self)
+        self.iam_policy_resource = IamPolicyResource(self)
+        self.iam_resiliency_policy_resource = IamResiliencyPolicyResource(self)
+        self.iam_service_resource = IamServiceResource(self)
+        self.iam_system_resource = IamSystemResource(self)
 
     def operation_options(
         self, config_overrides: Optional[resiliencehubv2ClientConfig] = None
@@ -320,14 +341,14 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_assertion_request.CreateAssertionRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["text"] = text
+        input_: aws_sdk_resiliencehubv2.types.create_assertion_request.CreateAssertionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["text"] = text
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,14 +381,14 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_input_source_request.CreateInputSourceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["resource_configuration"] = resource_configuration
+        input_: aws_sdk_resiliencehubv2.types.create_input_source_request.CreateInputSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["resource_configuration"] = resource_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -425,27 +446,27 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_resiliencehubv2.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if availability_slo is not None:
-            input["availability_slo"] = availability_slo
+            input_["availability_slo"] = availability_slo
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if multi_region is not None:
-            input["multi_region"] = multi_region
+            input_["multi_region"] = multi_region
         if data_recovery is not None:
-            input["data_recovery"] = data_recovery
+            input_["data_recovery"] = data_recovery
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -482,14 +503,14 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_report_request.CreateReportRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["report_type"] = report_type
+        input_: aws_sdk_resiliencehubv2.types.create_report_request.CreateReportRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["report_type"] = report_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,29 +567,29 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_resiliencehubv2.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if associated_systems is not None:
-            input["associated_systems"] = associated_systems
+            input_["associated_systems"] = associated_systems
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
-        input["regions"] = regions
-        input["permission_model"] = permission_model
+            input_["policy_arn"] = policy_arn
+        input_["regions"] = regions
+        input_["permission_model"] = permission_model
         if dependency_discovery is not None:
-            input["dependency_discovery"] = dependency_discovery
+            input_["dependency_discovery"] = dependency_discovery
         if report_configuration is not None:
-            input["report_configuration"] = report_configuration
+            input_["report_configuration"] = report_configuration
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,17 +630,17 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_service_function_request.CreateServiceFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.create_service_function_request.CreateServiceFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["service_arn"] = service_arn
         if description is not None:
-            input["description"] = description
-        input["criticality"] = criticality
+            input_["description"] = description
+        input_["criticality"] = criticality
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -655,13 +676,13 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_service_function_resources_request.CreateServiceFunctionResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["service_function_id"] = service_function_id
-        input["resources"] = resources
+        input_: aws_sdk_resiliencehubv2.types.create_service_function_resources_request.CreateServiceFunctionResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["service_function_id"] = service_function_id
+        input_["resources"] = resources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -705,21 +726,21 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_system_request.CreateSystemRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_resiliencehubv2.types.create_system_request.CreateSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sharing_enabled is not None:
-            input["sharing_enabled"] = sharing_enabled
+            input_["sharing_enabled"] = sharing_enabled
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -756,18 +777,18 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.create_user_journey_request.CreateUserJourneyRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
-        input["name"] = name
+        input_: aws_sdk_resiliencehubv2.types.create_user_journey_request.CreateUserJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -801,12 +822,12 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.delete_assertion_request.DeleteAssertionRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["assertion_id"] = assertion_id
+        input_: aws_sdk_resiliencehubv2.types.delete_assertion_request.DeleteAssertionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["assertion_id"] = assertion_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,12 +861,12 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.delete_input_source_request.DeleteInputSourceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["input_source_id"] = input_source_id
+        input_: aws_sdk_resiliencehubv2.types.delete_input_source_request.DeleteInputSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["input_source_id"] = input_source_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -874,11 +895,11 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_resiliencehubv2.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -907,11 +928,11 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -945,12 +966,12 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.delete_service_function_request.DeleteServiceFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["service_function_id"] = service_function_id
+        input_: aws_sdk_resiliencehubv2.types.delete_service_function_request.DeleteServiceFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["service_function_id"] = service_function_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -986,13 +1007,13 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.delete_service_function_resources_request.DeleteServiceFunctionResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["service_function_id"] = service_function_id
-        input["resources"] = resources
+        input_: aws_sdk_resiliencehubv2.types.delete_service_function_resources_request.DeleteServiceFunctionResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["service_function_id"] = service_function_id
+        input_["resources"] = resources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1021,11 +1042,11 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.delete_system_request.DeleteSystemRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
+        input_: aws_sdk_resiliencehubv2.types.delete_system_request.DeleteSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1059,12 +1080,12 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.delete_user_journey_request.DeleteUserJourneyRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
-        input["user_journey_id"] = user_journey_id
+        input_: aws_sdk_resiliencehubv2.types.delete_user_journey_request.DeleteUserJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        input_["user_journey_id"] = user_journey_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1098,12 +1119,12 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.get_failure_mode_finding_request.GetFailureModeFindingRequest = {}  # type: ignore[typeddict-item]
-        input["finding_id"] = finding_id
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.get_failure_mode_finding_request.GetFailureModeFindingRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
+        input_["service_arn"] = service_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1132,11 +1153,11 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_resiliencehubv2.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1165,11 +1186,11 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1198,11 +1219,11 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.get_system_request.GetSystemRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
+        input_: aws_sdk_resiliencehubv2.types.get_system_request.GetSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1238,12 +1259,12 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.get_user_journey_request.GetUserJourneyRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
-        input["user_journey_id"] = user_journey_id
+        input_: aws_sdk_resiliencehubv2.types.get_user_journey_request.GetUserJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        input_["user_journey_id"] = user_journey_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1289,23 +1310,23 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.import_app_request.ImportAppRequest = {}  # type: ignore[typeddict-item]
-        input["v1_app_arn"] = v1_app_arn
+        input_: aws_sdk_resiliencehubv2.types.import_app_request.ImportAppRequest = {}  # type: ignore[typeddict-item]
+        input_["v1_app_arn"] = v1_app_arn
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if skip_manually_added_resources is not None:
-            input["skip_manually_added_resources"] = skip_manually_added_resources
+            input_["skip_manually_added_resources"] = skip_manually_added_resources
         if associated_systems is not None:
-            input["associated_systems"] = associated_systems
+            input_["associated_systems"] = associated_systems
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1356,27 +1377,27 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.import_policy_request.ImportPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["v1_policy_arn"] = v1_policy_arn
+        input_: aws_sdk_resiliencehubv2.types.import_policy_request.ImportPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["v1_policy_arn"] = v1_policy_arn
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if availability_slo is not None:
-            input["availability_slo"] = availability_slo
+            input_["availability_slo"] = availability_slo
         if multi_az_disaster_recovery_approach is not None:
-            input["multi_az_disaster_recovery_approach"] = (
+            input_["multi_az_disaster_recovery_approach"] = (
                 multi_az_disaster_recovery_approach
             )
         if multi_region_disaster_recovery_approach is not None:
-            input["multi_region_disaster_recovery_approach"] = (
+            input_["multi_region_disaster_recovery_approach"] = (
                 multi_region_disaster_recovery_approach
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1420,17 +1441,17 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_assertions_request.ListAssertionsRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.list_assertions_request.ListAssertionsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1507,22 +1528,22 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_dependencies_request.ListDependenciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehubv2.types.list_dependencies_request.ListDependenciesRequest = {}  # type: ignore[typeddict-item]
         if service_arn is not None:
-            input["service_arn"] = service_arn
+            input_["service_arn"] = service_arn
         if query_range_start_time is not None:
-            input["query_range_start_time"] = query_range_start_time
+            input_["query_range_start_time"] = query_range_start_time
         if query_range_end_time is not None:
-            input["query_range_end_time"] = query_range_end_time
+            input_["query_range_end_time"] = query_range_end_time
         if query_range_granularity is not None:
-            input["query_range_granularity"] = query_range_granularity
+            input_["query_range_granularity"] = query_range_granularity
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1592,15 +1613,15 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_failure_mode_assessments_request.ListFailureModeAssessmentsRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.list_failure_mode_assessments_request.ListFailureModeAssessmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1677,21 +1698,21 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_failure_mode_findings_request.ListFailureModeFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.list_failure_mode_findings_request.ListFailureModeFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if severity is not None:
-            input["severity"] = severity
+            input_["severity"] = severity
         if failure_category is not None:
-            input["failure_category"] = failure_category
+            input_["failure_category"] = failure_category
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1772,17 +1793,17 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_input_sources_request.ListInputSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.list_input_sources_request.ListInputSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1847,14 +1868,14 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehubv2.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1922,18 +1943,18 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_reports_request.ListReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehubv2.types.list_reports_request.ListReportsRequest = {}  # type: ignore[typeddict-item]
         if service_arn is not None:
-            input["service_arn"] = service_arn
+            input_["service_arn"] = service_arn
         if report_type is not None:
-            input["report_type"] = report_type
+            input_["report_type"] = report_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2010,19 +2031,19 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_resources_request.ListResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.list_resources_request.ListResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if service_function_id is not None:
-            input["service_function_id"] = service_function_id
+            input_["service_function_id"] = service_function_id
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2103,21 +2124,21 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_service_events_request.ListServiceEventsRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.list_service_events_request.ListServiceEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if event_types is not None:
-            input["event_types"] = event_types
+            input_["event_types"] = event_types
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2187,15 +2208,15 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_service_functions_request.ListServiceFunctionsRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.list_service_functions_request.ListServiceFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2275,26 +2296,26 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehubv2.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
         if system_arn is not None:
-            input["system_arn"] = system_arn
+            input_["system_arn"] = system_arn
         if user_journey_id is not None:
-            input["user_journey_id"] = user_journey_id
+            input_["user_journey_id"] = user_journey_id
         if ou_id is not None:
-            input["ou_id"] = ou_id
+            input_["ou_id"] = ou_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if assessment_status is not None:
-            input["assessment_status"] = assessment_status
+            input_["assessment_status"] = assessment_status
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2372,15 +2393,15 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_service_topology_edges_request.ListServiceTopologyEdgesRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.list_service_topology_edges_request.ListServiceTopologyEdgesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2453,21 +2474,21 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_system_events_request.ListSystemEventsRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
+        input_: aws_sdk_resiliencehubv2.types.list_system_events_request.ListSystemEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
         if event_types is not None:
-            input["event_types"] = event_types
+            input_["event_types"] = event_types
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2541,16 +2562,16 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_systems_request.ListSystemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehubv2.types.list_systems_request.ListSystemsRequest = {}  # type: ignore[typeddict-item]
         if ou_id is not None:
-            input["ou_id"] = ou_id
+            input_["ou_id"] = ou_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2606,11 +2627,11 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_resiliencehubv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2645,15 +2666,15 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.list_user_journeys_request.ListUserJourneysRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
+        input_: aws_sdk_resiliencehubv2.types.list_user_journeys_request.ListUserJourneysRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2712,13 +2733,13 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.start_failure_mode_assessment_request.StartFailureModeAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.start_failure_mode_assessment_request.StartFailureModeAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2748,12 +2769,12 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_resiliencehubv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2787,12 +2808,12 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_resiliencehubv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2830,14 +2851,14 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.update_assertion_request.UpdateAssertionRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["assertion_id"] = assertion_id
+        input_: aws_sdk_resiliencehubv2.types.update_assertion_request.UpdateAssertionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["assertion_id"] = assertion_id
         if text is not None:
-            input["text"] = text
+            input_["text"] = text
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2877,16 +2898,16 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.update_dependency_request.UpdateDependencyRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["dependency_id"] = dependency_id
+        input_: aws_sdk_resiliencehubv2.types.update_dependency_request.UpdateDependencyRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["dependency_id"] = dependency_id
         if criticality is not None:
-            input["criticality"] = criticality
+            input_["criticality"] = criticality
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2924,15 +2945,15 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.update_failure_mode_finding_request.UpdateFailureModeFindingRequest = {}  # type: ignore[typeddict-item]
-        input["finding_id"] = finding_id
-        input["status"] = status
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.update_failure_mode_finding_request.UpdateFailureModeFindingRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
+        input_["status"] = status
+        input_["service_arn"] = service_arn
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2983,21 +3004,21 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.update_policy_request.UpdatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_resiliencehubv2.types.update_policy_request.UpdatePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if availability_slo is not None:
-            input["availability_slo"] = availability_slo
+            input_["availability_slo"] = availability_slo
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if multi_region is not None:
-            input["multi_region"] = multi_region
+            input_["multi_region"] = multi_region
         if data_recovery is not None:
-            input["data_recovery"] = data_recovery
+            input_["data_recovery"] = data_recovery
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3051,25 +3072,25 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_resiliencehubv2.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if associated_systems is not None:
-            input["associated_systems"] = associated_systems
+            input_["associated_systems"] = associated_systems
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if permission_model is not None:
-            input["permission_model"] = permission_model
+            input_["permission_model"] = permission_model
         if dependency_discovery is not None:
-            input["dependency_discovery"] = dependency_discovery
+            input_["dependency_discovery"] = dependency_discovery
         if report_configuration is not None:
-            input["report_configuration"] = report_configuration
+            input_["report_configuration"] = report_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3111,18 +3132,18 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.update_service_function_request.UpdateServiceFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["service_function_id"] = service_function_id
+        input_: aws_sdk_resiliencehubv2.types.update_service_function_request.UpdateServiceFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["service_function_id"] = service_function_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if criticality is not None:
-            input["criticality"] = criticality
+            input_["criticality"] = criticality
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3159,15 +3180,15 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.update_system_request.UpdateSystemRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
+        input_: aws_sdk_resiliencehubv2.types.update_system_request.UpdateSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sharing_enabled is not None:
-            input["sharing_enabled"] = sharing_enabled
+            input_["sharing_enabled"] = sharing_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3206,18 +3227,18 @@ class resiliencehubv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehubv2.types.update_user_journey_request.UpdateUserJourneyRequest = {}  # type: ignore[typeddict-item]
-        input["system_arn"] = system_arn
-        input["user_journey_id"] = user_journey_id
+        input_: aws_sdk_resiliencehubv2.types.update_user_journey_request.UpdateUserJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["system_arn"] = system_arn
+        input_["user_journey_id"] = user_journey_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import ensure_async_iterator
 from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import ensure_sync_iterator
+import datetime
 from aws_sdk_bedrock_agentcore._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_bedrock_agentcore._auth._signers
 import aws_sdk_bedrock_agentcore._auth._sigv4
@@ -81,13 +82,13 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.batch_create_memory_records_input.BatchCreateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["records"] = records
+        input_: aws_sdk_bedrock_agentcore.types.batch_create_memory_records_input.BatchCreateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["records"] = records
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def batch_delete_memory_records(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", records: "aws_sdk_bedrock_agentcore.types.memory_records_delete_input_list.MemoryRecordsDeleteInputList", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.batch_delete_memory_records_output.BatchDeleteMemoryRecordsOutput":
         """<p>Deletes multiple memory records in a single batch operation from the specified memory.</p>
@@ -102,11 +103,11 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.batch_delete_memory_records_input.BatchDeleteMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["records"] = records
+        input_: aws_sdk_bedrock_agentcore.types.batch_delete_memory_records_input.BatchDeleteMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["records"] = records
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def batch_update_memory_records(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", records: "aws_sdk_bedrock_agentcore.types.memory_records_update_input_list.MemoryRecordsUpdateInputList", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.batch_update_memory_records_output.BatchUpdateMemoryRecordsOutput":
         """<p>Updates multiple memory records with custom content in a single batch operation within the specified memory.</p>
@@ -121,11 +122,11 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.batch_update_memory_records_input.BatchUpdateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["records"] = records
+        input_: aws_sdk_bedrock_agentcore.types.batch_update_memory_records_input.BatchUpdateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["records"] = records
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_event(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", event_timestamp: datetime.datetime, payload: "aws_sdk_bedrock_agentcore.types.payload_type_list.PayloadTypeList", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, session_id: Optional["aws_sdk_bedrock_agentcore.types.session_id.SessionId"] = None, branch: Optional["aws_sdk_bedrock_agentcore.types.branch.Branch"] = None, client_token: Optional[str] = None, metadata: Optional["aws_sdk_bedrock_agentcore.types.metadata_map.MetadataMap"] = None) -> "aws_sdk_bedrock_agentcore.types.create_event_output.CreateEventOutput":
         """<p>Creates an event in an AgentCore Memory resource. Events represent interactions or activities that occur within a session and are associated with specific actors.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:CreateEvent</code> permission.</p> <p>This operation is subject to request rate limiting.</p>
@@ -146,21 +147,21 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.create_event_input.CreateEventInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["actor_id"] = actor_id
+        input_: aws_sdk_bedrock_agentcore.types.create_event_input.CreateEventInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["actor_id"] = actor_id
         if session_id is not None:
-            input["session_id"] = session_id
-        input["event_timestamp"] = event_timestamp
-        input["payload"] = payload
+            input_["session_id"] = session_id
+        input_["event_timestamp"] = event_timestamp
+        input_["payload"] = payload
         if branch is not None:
-            input["branch"] = branch
+            input_["branch"] = branch
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_event(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId", event_id: "aws_sdk_bedrock_agentcore.types.event_id.EventId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput":
         """<p>Deletes an event from an AgentCore Memory resource. When you delete an event, it is permanently removed.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:DeleteEvent</code> permission.</p>
@@ -177,13 +178,13 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["session_id"] = session_id
-        input["event_id"] = event_id
-        input["actor_id"] = actor_id
+        input_: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["session_id"] = session_id
+        input_["event_id"] = event_id
+        input_["actor_id"] = actor_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_memory_record(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", memory_record_id: "aws_sdk_bedrock_agentcore.types.memory_record_id.MemoryRecordId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_memory_record_output.DeleteMemoryRecordOutput":
         """<p>Deletes a memory record from an AgentCore Memory resource. When you delete a memory record, it is permanently removed.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:DeleteMemoryRecord</code> permission.</p>
@@ -198,11 +199,11 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.delete_memory_record_input.DeleteMemoryRecordInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["memory_record_id"] = memory_record_id
+        input_: aws_sdk_bedrock_agentcore.types.delete_memory_record_input.DeleteMemoryRecordInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["memory_record_id"] = memory_record_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def get_event(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", event_id: "aws_sdk_bedrock_agentcore.types.event_id.EventId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_event_output.GetEventOutput":
         """<p>Retrieves information about a specific event in an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetEvent</code> permission.</p>
@@ -219,13 +220,13 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_event_input.GetEventInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["session_id"] = session_id
-        input["actor_id"] = actor_id
-        input["event_id"] = event_id
+        input_: aws_sdk_bedrock_agentcore.types.get_event_input.GetEventInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["session_id"] = session_id
+        input_["actor_id"] = actor_id
+        input_["event_id"] = event_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def get_memory_record(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", memory_record_id: "aws_sdk_bedrock_agentcore.types.memory_record_id.MemoryRecordId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_memory_record_output.GetMemoryRecordOutput":
         """<p>Retrieves a specific memory record from an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetMemoryRecord</code> permission.</p>
@@ -240,11 +241,11 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_memory_record_input.GetMemoryRecordInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["memory_record_id"] = memory_record_id
+        input_: aws_sdk_bedrock_agentcore.types.get_memory_record_input.GetMemoryRecordInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["memory_record_id"] = memory_record_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_actors(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_bedrock_agentcore.types.list_actors_output.ListActorsOutput":
         """<p>Lists all actors in an AgentCore Memory resource. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListActors</code> permission.</p>
@@ -260,14 +261,14 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_actors_input.ListActorsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
+        input_: aws_sdk_bedrock_agentcore.types.list_actors_input.ListActorsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_events(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, include_payloads: Optional[bool] = None, filter: Optional["aws_sdk_bedrock_agentcore.types.filter_input.FilterInput"] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_bedrock_agentcore.types.list_events_output.ListEventsOutput":
         """<p>Lists events in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListEvents</code> permission.</p>
@@ -287,20 +288,20 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_events_input.ListEventsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["session_id"] = session_id
-        input["actor_id"] = actor_id
+        input_: aws_sdk_bedrock_agentcore.types.list_events_input.ListEventsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["session_id"] = session_id
+        input_["actor_id"] = actor_id
         if include_payloads is not None:
-            input["include_payloads"] = include_payloads
+            input_["include_payloads"] = include_payloads
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_memory_extraction_jobs(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, max_results: Optional[int] = None, filter: Optional["aws_sdk_bedrock_agentcore.types.extraction_job_filter_input.ExtractionJobFilterInput"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_bedrock_agentcore.types.list_memory_extraction_jobs_output.ListMemoryExtractionJobsOutput":
         """<p>Lists all long-term memory extraction jobs that are eligible to be started with optional filtering.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListMemoryExtractionJobs</code> permission.</p>
@@ -317,16 +318,16 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_memory_extraction_jobs_input.ListMemoryExtractionJobsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
+        input_: aws_sdk_bedrock_agentcore.types.list_memory_extraction_jobs_input.ListMemoryExtractionJobsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_memory_records(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, namespace: Optional["aws_sdk_bedrock_agentcore.types.namespace.Namespace"] = None, namespace_path: Optional["aws_sdk_bedrock_agentcore.types.namespace.Namespace"] = None, memory_strategy_id: Optional["aws_sdk_bedrock_agentcore.types.memory_strategy_id.MemoryStrategyId"] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None, metadata_filters: Optional["aws_sdk_bedrock_agentcore.types.memory_metadata_filter_list.MemoryMetadataFilterList"] = None) -> "aws_sdk_bedrock_agentcore.types.list_memory_records_output.ListMemoryRecordsOutput":
         """<p>Lists memory records in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListMemoryRecords</code> permission.</p>
@@ -346,22 +347,22 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_memory_records_input.ListMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
+        input_: aws_sdk_bedrock_agentcore.types.list_memory_records_input.ListMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if namespace_path is not None:
-            input["namespace_path"] = namespace_path
+            input_["namespace_path"] = namespace_path
         if memory_strategy_id is not None:
-            input["memory_strategy_id"] = memory_strategy_id
+            input_["memory_strategy_id"] = memory_strategy_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if metadata_filters is not None:
-            input["metadata_filters"] = metadata_filters
+            input_["metadata_filters"] = metadata_filters
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_sessions(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None, filter: Optional["aws_sdk_bedrock_agentcore.types.session_filter.SessionFilter"] = None) -> "aws_sdk_bedrock_agentcore.types.list_sessions_output.ListSessionsOutput":
         """<p>Lists sessions in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>Empty sessions are automatically deleted after one day.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListSessions</code> permission.</p>
@@ -379,17 +380,17 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["actor_id"] = actor_id
+        input_: aws_sdk_bedrock_agentcore.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["actor_id"] = actor_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def retrieve_memory_records(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", search_criteria: "aws_sdk_bedrock_agentcore.types.search_criteria.SearchCriteria", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, namespace: Optional["aws_sdk_bedrock_agentcore.types.namespace.Namespace"] = None, namespace_path: Optional["aws_sdk_bedrock_agentcore.types.namespace.Namespace"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None) -> "aws_sdk_bedrock_agentcore.types.retrieve_memory_records_output.RetrieveMemoryRecordsOutput":
         """<p>Searches for and retrieves memory records from an AgentCore Memory resource based on specified search criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:RetrieveMemoryRecords</code> permission.</p>
@@ -408,19 +409,19 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.retrieve_memory_records_input.RetrieveMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
+        input_: aws_sdk_bedrock_agentcore.types.retrieve_memory_records_input.RetrieveMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if namespace_path is not None:
-            input["namespace_path"] = namespace_path
-        input["search_criteria"] = search_criteria
+            input_["namespace_path"] = namespace_path
+        input_["search_criteria"] = search_criteria
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def start_memory_extraction_job(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", extraction_job: "aws_sdk_bedrock_agentcore.types.extraction_job.ExtractionJob", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, client_token: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.start_memory_extraction_job_output.StartMemoryExtractionJobOutput":
         """<p> Starts a memory extraction job that processes events that failed extraction previously in an AgentCore Memory resource and produces structured memory records. When earlier extraction attempts have left events unprocessed, this job will pick up and extract those as well. </p> <p>To use this operation, you must have the <code>bedrock-agentcore:StartMemoryExtractionJob</code> permission.</p>
@@ -436,13 +437,13 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.start_memory_extraction_job_input.StartMemoryExtractionJobInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["extraction_job"] = extraction_job
+        input_: aws_sdk_bedrock_agentcore.types.start_memory_extraction_job_input.StartMemoryExtractionJobInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["extraction_job"] = extraction_job
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncMemoryResource:
@@ -462,13 +463,13 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.batch_create_memory_records_input.BatchCreateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["records"] = records
+        input_: aws_sdk_bedrock_agentcore.types.batch_create_memory_records_input.BatchCreateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["records"] = records
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def batch_delete_memory_records(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", records: "aws_sdk_bedrock_agentcore.types.memory_records_delete_input_list.MemoryRecordsDeleteInputList", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.batch_delete_memory_records_output.BatchDeleteMemoryRecordsOutput":
         """<p>Deletes multiple memory records in a single batch operation from the specified memory.</p>
@@ -483,11 +484,11 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.batch_delete_memory_records_input.BatchDeleteMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["records"] = records
+        input_: aws_sdk_bedrock_agentcore.types.batch_delete_memory_records_input.BatchDeleteMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["records"] = records
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def batch_update_memory_records(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", records: "aws_sdk_bedrock_agentcore.types.memory_records_update_input_list.MemoryRecordsUpdateInputList", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.batch_update_memory_records_output.BatchUpdateMemoryRecordsOutput":
         """<p>Updates multiple memory records with custom content in a single batch operation within the specified memory.</p>
@@ -502,11 +503,11 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.batch_update_memory_records_input.BatchUpdateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["records"] = records
+        input_: aws_sdk_bedrock_agentcore.types.batch_update_memory_records_input.BatchUpdateMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["records"] = records
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def create_event(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", event_timestamp: datetime.datetime, payload: "aws_sdk_bedrock_agentcore.types.payload_type_list.PayloadTypeList", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, session_id: Optional["aws_sdk_bedrock_agentcore.types.session_id.SessionId"] = None, branch: Optional["aws_sdk_bedrock_agentcore.types.branch.Branch"] = None, client_token: Optional[str] = None, metadata: Optional["aws_sdk_bedrock_agentcore.types.metadata_map.MetadataMap"] = None) -> "aws_sdk_bedrock_agentcore.types.create_event_output.CreateEventOutput":
         """<p>Creates an event in an AgentCore Memory resource. Events represent interactions or activities that occur within a session and are associated with specific actors.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:CreateEvent</code> permission.</p> <p>This operation is subject to request rate limiting.</p>
@@ -527,21 +528,21 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.create_event_input.CreateEventInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["actor_id"] = actor_id
+        input_: aws_sdk_bedrock_agentcore.types.create_event_input.CreateEventInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["actor_id"] = actor_id
         if session_id is not None:
-            input["session_id"] = session_id
-        input["event_timestamp"] = event_timestamp
-        input["payload"] = payload
+            input_["session_id"] = session_id
+        input_["event_timestamp"] = event_timestamp
+        input_["payload"] = payload
         if branch is not None:
-            input["branch"] = branch
+            input_["branch"] = branch
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def delete_event(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId", event_id: "aws_sdk_bedrock_agentcore.types.event_id.EventId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_event_output.DeleteEventOutput":
         """<p>Deletes an event from an AgentCore Memory resource. When you delete an event, it is permanently removed.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:DeleteEvent</code> permission.</p>
@@ -558,13 +559,13 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["session_id"] = session_id
-        input["event_id"] = event_id
-        input["actor_id"] = actor_id
+        input_: aws_sdk_bedrock_agentcore.types.delete_event_input.DeleteEventInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["session_id"] = session_id
+        input_["event_id"] = event_id
+        input_["actor_id"] = actor_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def delete_memory_record(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", memory_record_id: "aws_sdk_bedrock_agentcore.types.memory_record_id.MemoryRecordId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.delete_memory_record_output.DeleteMemoryRecordOutput":
         """<p>Deletes a memory record from an AgentCore Memory resource. When you delete a memory record, it is permanently removed.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:DeleteMemoryRecord</code> permission.</p>
@@ -579,11 +580,11 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.delete_memory_record_input.DeleteMemoryRecordInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["memory_record_id"] = memory_record_id
+        input_: aws_sdk_bedrock_agentcore.types.delete_memory_record_input.DeleteMemoryRecordInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["memory_record_id"] = memory_record_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_event(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", event_id: "aws_sdk_bedrock_agentcore.types.event_id.EventId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_event_output.GetEventOutput":
         """<p>Retrieves information about a specific event in an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetEvent</code> permission.</p>
@@ -600,13 +601,13 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_event_input.GetEventInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["session_id"] = session_id
-        input["actor_id"] = actor_id
-        input["event_id"] = event_id
+        input_: aws_sdk_bedrock_agentcore.types.get_event_input.GetEventInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["session_id"] = session_id
+        input_["actor_id"] = actor_id
+        input_["event_id"] = event_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_memory_record(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", memory_record_id: "aws_sdk_bedrock_agentcore.types.memory_record_id.MemoryRecordId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.get_memory_record_output.GetMemoryRecordOutput":
         """<p>Retrieves a specific memory record from an AgentCore Memory resource.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:GetMemoryRecord</code> permission.</p>
@@ -621,11 +622,11 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_memory_record_input.GetMemoryRecordInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["memory_record_id"] = memory_record_id
+        input_: aws_sdk_bedrock_agentcore.types.get_memory_record_input.GetMemoryRecordInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["memory_record_id"] = memory_record_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list_actors(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_bedrock_agentcore.types.list_actors_output.ListActorsOutput":
         """<p>Lists all actors in an AgentCore Memory resource. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListActors</code> permission.</p>
@@ -641,14 +642,14 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_actors_input.ListActorsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
+        input_: aws_sdk_bedrock_agentcore.types.list_actors_input.ListActorsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list_events(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, include_payloads: Optional[bool] = None, filter: Optional["aws_sdk_bedrock_agentcore.types.filter_input.FilterInput"] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_bedrock_agentcore.types.list_events_output.ListEventsOutput":
         """<p>Lists events in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListEvents</code> permission.</p>
@@ -668,20 +669,20 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_events_input.ListEventsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["session_id"] = session_id
-        input["actor_id"] = actor_id
+        input_: aws_sdk_bedrock_agentcore.types.list_events_input.ListEventsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["session_id"] = session_id
+        input_["actor_id"] = actor_id
         if include_payloads is not None:
-            input["include_payloads"] = include_payloads
+            input_["include_payloads"] = include_payloads
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list_memory_extraction_jobs(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, max_results: Optional[int] = None, filter: Optional["aws_sdk_bedrock_agentcore.types.extraction_job_filter_input.ExtractionJobFilterInput"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_bedrock_agentcore.types.list_memory_extraction_jobs_output.ListMemoryExtractionJobsOutput":
         """<p>Lists all long-term memory extraction jobs that are eligible to be started with optional filtering.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListMemoryExtractionJobs</code> permission.</p>
@@ -698,16 +699,16 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_memory_extraction_jobs_input.ListMemoryExtractionJobsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
+        input_: aws_sdk_bedrock_agentcore.types.list_memory_extraction_jobs_input.ListMemoryExtractionJobsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list_memory_records(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, namespace: Optional["aws_sdk_bedrock_agentcore.types.namespace.Namespace"] = None, namespace_path: Optional["aws_sdk_bedrock_agentcore.types.namespace.Namespace"] = None, memory_strategy_id: Optional["aws_sdk_bedrock_agentcore.types.memory_strategy_id.MemoryStrategyId"] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None, metadata_filters: Optional["aws_sdk_bedrock_agentcore.types.memory_metadata_filter_list.MemoryMetadataFilterList"] = None) -> "aws_sdk_bedrock_agentcore.types.list_memory_records_output.ListMemoryRecordsOutput":
         """<p>Lists memory records in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListMemoryRecords</code> permission.</p>
@@ -727,22 +728,22 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_memory_records_input.ListMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
+        input_: aws_sdk_bedrock_agentcore.types.list_memory_records_input.ListMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if namespace_path is not None:
-            input["namespace_path"] = namespace_path
+            input_["namespace_path"] = namespace_path
         if memory_strategy_id is not None:
-            input["memory_strategy_id"] = memory_strategy_id
+            input_["memory_strategy_id"] = memory_strategy_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if metadata_filters is not None:
-            input["metadata_filters"] = metadata_filters
+            input_["metadata_filters"] = metadata_filters
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list_sessions(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None, filter: Optional["aws_sdk_bedrock_agentcore.types.session_filter.SessionFilter"] = None) -> "aws_sdk_bedrock_agentcore.types.list_sessions_output.ListSessionsOutput":
         """<p>Lists sessions in an AgentCore Memory resource based on specified criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>Empty sessions are automatically deleted after one day.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:ListSessions</code> permission.</p>
@@ -760,17 +761,17 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["actor_id"] = actor_id
+        input_: aws_sdk_bedrock_agentcore.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["actor_id"] = actor_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def retrieve_memory_records(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", search_criteria: "aws_sdk_bedrock_agentcore.types.search_criteria.SearchCriteria", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, namespace: Optional["aws_sdk_bedrock_agentcore.types.namespace.Namespace"] = None, namespace_path: Optional["aws_sdk_bedrock_agentcore.types.namespace.Namespace"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None) -> "aws_sdk_bedrock_agentcore.types.retrieve_memory_records_output.RetrieveMemoryRecordsOutput":
         """<p>Searches for and retrieves memory records from an AgentCore Memory resource based on specified search criteria. We recommend using pagination to ensure that the operation returns quickly and successfully.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:RetrieveMemoryRecords</code> permission.</p>
@@ -789,19 +790,19 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.retrieve_memory_records_input.RetrieveMemoryRecordsInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
+        input_: aws_sdk_bedrock_agentcore.types.retrieve_memory_records_input.RetrieveMemoryRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if namespace_path is not None:
-            input["namespace_path"] = namespace_path
-        input["search_criteria"] = search_criteria
+            input_["namespace_path"] = namespace_path
+        input_["search_criteria"] = search_criteria
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def start_memory_extraction_job(self, memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId", extraction_job: "aws_sdk_bedrock_agentcore.types.extraction_job.ExtractionJob", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, client_token: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.start_memory_extraction_job_output.StartMemoryExtractionJobOutput":
         """<p> Starts a memory extraction job that processes events that failed extraction previously in an AgentCore Memory resource and produces structured memory records. When earlier extraction attempts have left events unprocessed, this job will pick up and extract those as well. </p> <p>To use this operation, you must have the <code>bedrock-agentcore:StartMemoryExtractionJob</code> permission.</p>
@@ -817,11 +818,11 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.start_memory_extraction_job_input.StartMemoryExtractionJobInput = {}  # type: ignore[typeddict-item]
-        input["memory_id"] = memory_id
-        input["extraction_job"] = extraction_job
+        input_: aws_sdk_bedrock_agentcore.types.start_memory_extraction_job_input.StartMemoryExtractionJobInput = {}  # type: ignore[typeddict-item]
+        input_["memory_id"] = memory_id
+        input_["extraction_job"] = extraction_job
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

@@ -63,11 +63,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.rename_object_request.RenameObjectRequest,
+    input_: aws_sdk_s3.types.rename_object_request.RenameObjectRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -76,7 +76,7 @@ def build_request(
             Accelerate=options.accelerate,
             UseGlobalEndpoint=options.use_global_endpoint,
             UseObjectLambdaEndpoint=options.use_object_lambda_endpoint,
-            Key=input.get("key"),
+            Key=input_.get("key"),
             Prefix=options.prefix,
             CopySource=options.copy_source,
             DisableAccessPoints=options.disable_access_points,
@@ -87,36 +87,36 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?renameObject"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
-    url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
+    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "rename_source" in input:
-        headers["x-amz-rename-source"] = str(input["rename_source"])
-    if "destination_if_match" in input:
-        headers["If-Match"] = str(input["destination_if_match"])
-    if "destination_if_none_match" in input:
-        headers["If-None-Match"] = str(input["destination_if_none_match"])
-    if "destination_if_modified_since" in input:
-        headers["If-Modified-Since"] = str(input["destination_if_modified_since"])
-    if "destination_if_unmodified_since" in input:
-        headers["If-Unmodified-Since"] = str(input["destination_if_unmodified_since"])
-    if "source_if_match" in input:
-        headers["x-amz-rename-source-if-match"] = str(input["source_if_match"])
-    if "source_if_none_match" in input:
+    if "rename_source" in input_:
+        headers["x-amz-rename-source"] = str(input_["rename_source"])
+    if "destination_if_match" in input_:
+        headers["If-Match"] = str(input_["destination_if_match"])
+    if "destination_if_none_match" in input_:
+        headers["If-None-Match"] = str(input_["destination_if_none_match"])
+    if "destination_if_modified_since" in input_:
+        headers["If-Modified-Since"] = str(input_["destination_if_modified_since"])
+    if "destination_if_unmodified_since" in input_:
+        headers["If-Unmodified-Since"] = str(input_["destination_if_unmodified_since"])
+    if "source_if_match" in input_:
+        headers["x-amz-rename-source-if-match"] = str(input_["source_if_match"])
+    if "source_if_none_match" in input_:
         headers["x-amz-rename-source-if-none-match"] = str(
-            input["source_if_none_match"]
+            input_["source_if_none_match"]
         )
-    if "source_if_modified_since" in input:
+    if "source_if_modified_since" in input_:
         headers["x-amz-rename-source-if-modified-since"] = str(
-            input["source_if_modified_since"]
+            input_["source_if_modified_since"]
         )
-    if "source_if_unmodified_since" in input:
+    if "source_if_unmodified_since" in input_:
         headers["x-amz-rename-source-if-unmodified-since"] = str(
-            input["source_if_unmodified_since"]
+            input_["source_if_unmodified_since"]
         )
-    if "client_token" in input:
-        headers["x-amz-client-token"] = str(input["client_token"])
+    if "client_token" in input_:
+        headers["x-amz-client-token"] = str(input_["client_token"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -128,9 +128,9 @@ def build_request(
 
 def rename_object(
     options: OperationOptions,
-    input: aws_sdk_s3.types.rename_object_request.RenameObjectRequest,
+    input_: aws_sdk_s3.types.rename_object_request.RenameObjectRequest,
 ) -> tuple[aws_sdk_s3.types.rename_object_output.RenameObjectOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -144,9 +144,9 @@ def rename_object(
 
 async def async_rename_object(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.rename_object_request.RenameObjectRequest,
+    input_: aws_sdk_s3.types.rename_object_request.RenameObjectRequest,
 ) -> tuple[aws_sdk_s3.types.rename_object_output.RenameObjectOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

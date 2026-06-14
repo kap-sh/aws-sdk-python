@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_cloudhsm_v2._auth._signers
+import aws_sdk_cloudhsm_v2._auth._sigv4
 from aws_sdk_cloudhsm_v2._auth._identity import Credentials
 from aws_sdk_cloudhsm_v2._auth._providers import (
     CredentialsProvider,
@@ -216,14 +218,14 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.copy_backup_to_region_request.CopyBackupToRegionRequest = {}  # type: ignore[typeddict-item]
-        input["destination_region"] = destination_region
-        input["backup_id"] = backup_id
+        input_: aws_sdk_cloudhsm_v2.types.copy_backup_to_region_request.CopyBackupToRegionRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_region"] = destination_region
+        input_["backup_id"] = backup_id
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,22 +276,22 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm_v2.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
         if backup_retention_policy is not None:
-            input["backup_retention_policy"] = backup_retention_policy
-        input["hsm_type"] = hsm_type
+            input_["backup_retention_policy"] = backup_retention_policy
+        input_["hsm_type"] = hsm_type
         if source_backup_id is not None:
-            input["source_backup_id"] = source_backup_id
-        input["subnet_ids"] = subnet_ids
+            input_["source_backup_id"] = source_backup_id
+        input_["subnet_ids"] = subnet_ids
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,14 +328,14 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.create_hsm_request.CreateHsmRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["availability_zone"] = availability_zone
+        input_: aws_sdk_cloudhsm_v2.types.create_hsm_request.CreateHsmRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["availability_zone"] = availability_zone
         if ip_address is not None:
-            input["ip_address"] = ip_address
+            input_["ip_address"] = ip_address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,11 +368,11 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.delete_backup_request.DeleteBackupRequest = {}  # type: ignore[typeddict-item]
-        input["backup_id"] = backup_id
+        input_: aws_sdk_cloudhsm_v2.types.delete_backup_request.DeleteBackupRequest = {}  # type: ignore[typeddict-item]
+        input_["backup_id"] = backup_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,11 +405,11 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_cloudhsm_v2.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,17 +448,17 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.delete_hsm_request.DeleteHsmRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_cloudhsm_v2.types.delete_hsm_request.DeleteHsmRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if hsm_id is not None:
-            input["hsm_id"] = hsm_id
+            input_["hsm_id"] = hsm_id
         if eni_id is not None:
-            input["eni_id"] = eni_id
+            input_["eni_id"] = eni_id
         if eni_ip is not None:
-            input["eni_ip"] = eni_ip
+            input_["eni_ip"] = eni_ip
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -491,12 +493,12 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm_v2.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,20 +541,20 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.describe_backups_request.DescribeBackupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm_v2.types.describe_backups_request.DescribeBackupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if shared is not None:
-            input["shared"] = shared
+            input_["shared"] = shared
         if sort_ascending is not None:
-            input["sort_ascending"] = sort_ascending
+            input_["sort_ascending"] = sort_ascending
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,16 +595,16 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.describe_clusters_request.DescribeClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm_v2.types.describe_clusters_request.DescribeClustersRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -637,12 +639,12 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm_v2.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -679,13 +681,13 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.initialize_cluster_request.InitializeClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["signed_cert"] = signed_cert
-        input["trust_anchor"] = trust_anchor
+        input_: aws_sdk_cloudhsm_v2.types.initialize_cluster_request.InitializeClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["signed_cert"] = signed_cert
+        input_["trust_anchor"] = trust_anchor
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,15 +724,15 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_cloudhsm_v2.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -765,12 +767,12 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.modify_backup_attributes_request.ModifyBackupAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["backup_id"] = backup_id
-        input["never_expires"] = never_expires
+        input_: aws_sdk_cloudhsm_v2.types.modify_backup_attributes_request.ModifyBackupAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["backup_id"] = backup_id
+        input_["never_expires"] = never_expires
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -809,15 +811,15 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.modify_cluster_request.ModifyClusterRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm_v2.types.modify_cluster_request.ModifyClusterRequest = {}  # type: ignore[typeddict-item]
         if hsm_type is not None:
-            input["hsm_type"] = hsm_type
+            input_["hsm_type"] = hsm_type
         if backup_retention_policy is not None:
-            input["backup_retention_policy"] = backup_retention_policy
-        input["cluster_id"] = cluster_id
+            input_["backup_retention_policy"] = backup_retention_policy
+        input_["cluster_id"] = cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -856,14 +858,14 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm_v2.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -896,11 +898,11 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.restore_backup_request.RestoreBackupRequest = {}  # type: ignore[typeddict-item]
-        input["backup_id"] = backup_id
+        input_: aws_sdk_cloudhsm_v2.types.restore_backup_request.RestoreBackupRequest = {}  # type: ignore[typeddict-item]
+        input_["backup_id"] = backup_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -935,12 +937,12 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_list"] = tag_list
+        input_: aws_sdk_cloudhsm_v2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_list"] = tag_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -975,12 +977,12 @@ class CloudHSMV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm_v2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_key_list"] = tag_key_list
+        input_: aws_sdk_cloudhsm_v2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_key_list"] = tag_key_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

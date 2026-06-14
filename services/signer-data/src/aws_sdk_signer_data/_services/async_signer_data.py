@@ -97,14 +97,14 @@ class AsyncSignerDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer_data.types.get_revocation_status_request.GetRevocationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["signature_timestamp"] = signature_timestamp
-        input["platform_id"] = platform_id
-        input["profile_version_arn"] = profile_version_arn
-        input["job_arn"] = job_arn
-        input["certificate_hashes"] = certificate_hashes
+        input_: aws_sdk_signer_data.types.get_revocation_status_request.GetRevocationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["signature_timestamp"] = signature_timestamp
+        input_["platform_id"] = platform_id
+        input_["profile_version_arn"] = profile_version_arn
+        input_["job_arn"] = job_arn
+        input_["certificate_hashes"] = certificate_hashes
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def __aenter__(self) -> Self:
         return self

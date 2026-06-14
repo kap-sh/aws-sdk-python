@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_marketplace_deployment._auth._signers
@@ -84,20 +85,20 @@ class DeploymentParameter:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.PutDeploymentParameterRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["product_id"] = product_id
-        input["agreement_id"] = agreement_id
-        input["deployment_parameter"] = deployment_parameter
+        input_: aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.PutDeploymentParameterRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["product_id"] = product_id
+        input_["agreement_id"] = agreement_id
+        input_["deployment_parameter"] = deployment_parameter
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if expiration_date is not None:
-            input["expiration_date"] = expiration_date
+            input_["expiration_date"] = expiration_date
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -160,20 +161,20 @@ class AsyncDeploymentParameter:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.PutDeploymentParameterRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["product_id"] = product_id
-        input["agreement_id"] = agreement_id
-        input["deployment_parameter"] = deployment_parameter
+        input_: aws_sdk_marketplace_deployment.types.put_deployment_parameter_request.PutDeploymentParameterRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["product_id"] = product_id
+        input_["agreement_id"] = agreement_id
+        input_["deployment_parameter"] = deployment_parameter
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if expiration_date is not None:
-            input["expiration_date"] = expiration_date
+            input_["expiration_date"] = expiration_date
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

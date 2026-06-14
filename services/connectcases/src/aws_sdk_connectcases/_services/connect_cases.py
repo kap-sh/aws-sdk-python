@@ -15,6 +15,12 @@ from aws_sdk_connectcases._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_connectcases._auth._zapros_handler import AuthMiddleware
+from aws_sdk_connectcases._resources.amazon_connect_cases.case import Case
+from aws_sdk_connectcases._resources.amazon_connect_cases.case_rule import CaseRule
+from aws_sdk_connectcases._resources.amazon_connect_cases.domain import Domain
+from aws_sdk_connectcases._resources.amazon_connect_cases.field import Field
+from aws_sdk_connectcases._resources.amazon_connect_cases.layout import Layout
+from aws_sdk_connectcases._resources.amazon_connect_cases.template import Template
 from aws_sdk_connectcases._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -104,6 +110,13 @@ class ConnectCasesClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.case = Case(self)
+        self.case_rule = CaseRule(self)
+        self.domain = Domain(self)
+        self.field = Field(self)
+        self.layout = Layout(self)
+        self.template = Template(self)
 
     def operation_options(
         self, config_overrides: Optional[ConnectCasesClientConfig] = None
@@ -160,11 +173,11 @@ class ConnectCasesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_connectcases.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,12 +210,12 @@ class ConnectCasesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_connectcases.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,12 +248,12 @@ class ConnectCasesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_connectcases.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

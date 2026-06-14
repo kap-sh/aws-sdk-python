@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_device_farm._auth._signers
+import aws_sdk_device_farm._auth._sigv4
 from aws_sdk_device_farm._auth._identity import Credentials
 from aws_sdk_device_farm._auth._providers import (
     CredentialsProvider,
@@ -383,17 +385,17 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_device_pool_request.CreateDevicePoolRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["name"] = name
+        input_: aws_sdk_device_farm.types.create_device_pool_request.CreateDevicePoolRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["rules"] = rules
+            input_["description"] = description
+        input_["rules"] = rules
         if max_devices is not None:
-            input["max_devices"] = max_devices
+            input_["max_devices"] = max_devices
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,21 +439,21 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_instance_profile_request.CreateInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_device_farm.types.create_instance_profile_request.CreateInstanceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if package_cleanup is not None:
-            input["package_cleanup"] = package_cleanup
+            input_["package_cleanup"] = package_cleanup
         if exclude_app_packages_from_cleanup is not None:
-            input["exclude_app_packages_from_cleanup"] = (
+            input_["exclude_app_packages_from_cleanup"] = (
                 exclude_app_packages_from_cleanup
             )
         if reboot_after_use is not None:
-            input["reboot_after_use"] = reboot_after_use
+            input_["reboot_after_use"] = reboot_after_use
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,32 +515,32 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_network_profile_request.CreateNetworkProfileRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["name"] = name
+        input_: aws_sdk_device_farm.types.create_network_profile_request.CreateNetworkProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if uplink_bandwidth_bits is not None:
-            input["uplink_bandwidth_bits"] = uplink_bandwidth_bits
+            input_["uplink_bandwidth_bits"] = uplink_bandwidth_bits
         if downlink_bandwidth_bits is not None:
-            input["downlink_bandwidth_bits"] = downlink_bandwidth_bits
+            input_["downlink_bandwidth_bits"] = downlink_bandwidth_bits
         if uplink_delay_ms is not None:
-            input["uplink_delay_ms"] = uplink_delay_ms
+            input_["uplink_delay_ms"] = uplink_delay_ms
         if downlink_delay_ms is not None:
-            input["downlink_delay_ms"] = downlink_delay_ms
+            input_["downlink_delay_ms"] = downlink_delay_ms
         if uplink_jitter_ms is not None:
-            input["uplink_jitter_ms"] = uplink_jitter_ms
+            input_["uplink_jitter_ms"] = uplink_jitter_ms
         if downlink_jitter_ms is not None:
-            input["downlink_jitter_ms"] = downlink_jitter_ms
+            input_["downlink_jitter_ms"] = downlink_jitter_ms
         if uplink_loss_percent is not None:
-            input["uplink_loss_percent"] = uplink_loss_percent
+            input_["uplink_loss_percent"] = uplink_loss_percent
         if downlink_loss_percent is not None:
-            input["downlink_loss_percent"] = downlink_loss_percent
+            input_["downlink_loss_percent"] = downlink_loss_percent
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,19 +588,19 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_project_request.CreateProjectRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_device_farm.types.create_project_request.CreateProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if default_job_timeout_minutes is not None:
-            input["default_job_timeout_minutes"] = default_job_timeout_minutes
+            input_["default_job_timeout_minutes"] = default_job_timeout_minutes
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -660,24 +662,24 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_remote_access_session_request.CreateRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["device_arn"] = device_arn
+        input_: aws_sdk_device_farm.types.create_remote_access_session_request.CreateRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["device_arn"] = device_arn
         if app_arn is not None:
-            input["app_arn"] = app_arn
+            input_["app_arn"] = app_arn
         if instance_arn is not None:
-            input["instance_arn"] = instance_arn
+            input_["instance_arn"] = instance_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if interaction_mode is not None:
-            input["interaction_mode"] = interaction_mode
+            input_["interaction_mode"] = interaction_mode
         if skip_app_resign is not None:
-            input["skip_app_resign"] = skip_app_resign
+            input_["skip_app_resign"] = skip_app_resign
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -719,15 +721,15 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_test_grid_project_request.CreateTestGridProjectRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_device_farm.types.create_test_grid_project_request.CreateTestGridProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -765,12 +767,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_test_grid_url_request.CreateTestGridUrlRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["expires_in_seconds"] = expires_in_seconds
+        input_: aws_sdk_device_farm.types.create_test_grid_url_request.CreateTestGridUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["expires_in_seconds"] = expires_in_seconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -812,15 +814,15 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_upload_request.CreateUploadRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_device_farm.types.create_upload_request.CreateUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["name"] = name
+        input_["type"] = type
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -862,15 +864,15 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.create_vpce_configuration_request.CreateVPCEConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["vpce_configuration_name"] = vpce_configuration_name
-        input["vpce_service_name"] = vpce_service_name
-        input["service_dns_name"] = service_dns_name
+        input_: aws_sdk_device_farm.types.create_vpce_configuration_request.CreateVPCEConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["vpce_configuration_name"] = vpce_configuration_name
+        input_["vpce_service_name"] = vpce_service_name
+        input_["service_dns_name"] = service_dns_name
         if vpce_configuration_description is not None:
-            input["vpce_configuration_description"] = vpce_configuration_description
+            input_["vpce_configuration_description"] = vpce_configuration_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -910,11 +912,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_device_pool_request.DeleteDevicePoolRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.delete_device_pool_request.DeleteDevicePoolRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -948,11 +950,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_instance_profile_request.DeleteInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.delete_instance_profile_request.DeleteInstanceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -986,11 +988,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_network_profile_request.DeleteNetworkProfileRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.delete_network_profile_request.DeleteNetworkProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1030,11 +1032,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_project_request.DeleteProjectRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.delete_project_request.DeleteProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1074,11 +1076,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_remote_access_session_request.DeleteRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.delete_remote_access_session_request.DeleteRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1118,11 +1120,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_run_request.DeleteRunRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.delete_run_request.DeleteRunRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1156,11 +1158,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_test_grid_project_request.DeleteTestGridProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_device_farm.types.delete_test_grid_project_request.DeleteTestGridProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1200,11 +1202,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_upload_request.DeleteUploadRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.delete_upload_request.DeleteUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1238,11 +1240,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.delete_vpce_configuration_request.DeleteVPCEConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.delete_vpce_configuration_request.DeleteVPCEConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1278,10 +1280,10 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1321,11 +1323,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_device_request.GetDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_device_request.GetDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1359,11 +1361,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_device_instance_request.GetDeviceInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_device_instance_request.GetDeviceInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1403,11 +1405,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_device_pool_request.GetDevicePoolRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_device_pool_request.GetDevicePoolRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1465,21 +1467,21 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_device_pool_compatibility_request.GetDevicePoolCompatibilityRequest = {}  # type: ignore[typeddict-item]
-        input["device_pool_arn"] = device_pool_arn
+        input_: aws_sdk_device_farm.types.get_device_pool_compatibility_request.GetDevicePoolCompatibilityRequest = {}  # type: ignore[typeddict-item]
+        input_["device_pool_arn"] = device_pool_arn
         if app_arn is not None:
-            input["app_arn"] = app_arn
+            input_["app_arn"] = app_arn
         if test_type is not None:
-            input["test_type"] = test_type
+            input_["test_type"] = test_type
         if test is not None:
-            input["test"] = test
+            input_["test"] = test
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if project_arn is not None:
-            input["project_arn"] = project_arn
+            input_["project_arn"] = project_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1515,11 +1517,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_instance_profile_request.GetInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_instance_profile_request.GetInstanceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1559,11 +1561,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1597,11 +1599,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_network_profile_request.GetNetworkProfileRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_network_profile_request.GetNetworkProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1637,12 +1639,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_offering_status_request.GetOfferingStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.get_offering_status_request.GetOfferingStatusRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1676,11 +1678,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_project_request.GetProjectRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_project_request.GetProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1720,11 +1722,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_remote_access_session_request.GetRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_remote_access_session_request.GetRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1758,11 +1760,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_run_request.GetRunRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_run_request.GetRunRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1802,11 +1804,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_suite_request.GetSuiteRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_suite_request.GetSuiteRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1846,11 +1848,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_test_request.GetTestRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_test_request.GetTestRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1884,11 +1886,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_test_grid_project_request.GetTestGridProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_device_farm.types.get_test_grid_project_request.GetTestGridProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1930,16 +1932,16 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_test_grid_session_request.GetTestGridSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.get_test_grid_session_request.GetTestGridSessionRequest = {}  # type: ignore[typeddict-item]
         if project_arn is not None:
-            input["project_arn"] = project_arn
+            input_["project_arn"] = project_arn
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
         if session_arn is not None:
-            input["session_arn"] = session_arn
+            input_["session_arn"] = session_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,11 +1981,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_upload_request.GetUploadRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_upload_request.GetUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2017,11 +2019,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.get_vpce_configuration_request.GetVPCEConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.get_vpce_configuration_request.GetVPCEConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2063,12 +2065,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.install_to_remote_access_session_request.InstallToRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
-        input["remote_access_session_arn"] = remote_access_session_arn
-        input["app_arn"] = app_arn
+        input_: aws_sdk_device_farm.types.install_to_remote_access_session_request.InstallToRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["remote_access_session_arn"] = remote_access_session_arn
+        input_["app_arn"] = app_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2114,14 +2116,14 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_artifacts_request.ListArtifactsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["type"] = type
+        input_: aws_sdk_device_farm.types.list_artifacts_request.ListArtifactsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2184,14 +2186,14 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_device_instances_request.ListDeviceInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_device_instances_request.ListDeviceInstancesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2239,15 +2241,15 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_device_pools_request.ListDevicePoolsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_device_pools_request.ListDevicePoolsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2324,16 +2326,16 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2400,14 +2402,14 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_instance_profiles_request.ListInstanceProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_instance_profiles_request.ListInstanceProfilesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2451,13 +2453,13 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2522,15 +2524,15 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_network_profiles_request.ListNetworkProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_network_profiles_request.ListNetworkProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2566,12 +2568,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_offering_promotions_request.ListOfferingPromotionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_offering_promotions_request.ListOfferingPromotionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2613,12 +2615,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_offerings_request.ListOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_offerings_request.ListOfferingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2675,12 +2677,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_offering_transactions_request.ListOfferingTransactionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_offering_transactions_request.ListOfferingTransactionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2741,14 +2743,14 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_projects_request.ListProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_projects_request.ListProjectsRequest = {}  # type: ignore[typeddict-item]
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2817,13 +2819,13 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_remote_access_sessions_request.ListRemoteAccessSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_remote_access_sessions_request.ListRemoteAccessSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2861,13 +2863,13 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_runs_request.ListRunsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_runs_request.ListRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2934,13 +2936,13 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_samples_request.ListSamplesRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_samples_request.ListSamplesRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3007,13 +3009,13 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_suites_request.ListSuitesRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_suites_request.ListSuitesRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3070,11 +3072,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_device_farm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3114,14 +3116,14 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_test_grid_projects_request.ListTestGridProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_test_grid_projects_request.ListTestGridProjectsRequest = {}  # type: ignore[typeddict-item]
         if max_result is not None:
-            input["max_result"] = max_result
+            input_["max_result"] = max_result
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3163,15 +3165,15 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_test_grid_session_actions_request.ListTestGridSessionActionsRequest = {}  # type: ignore[typeddict-item]
-        input["session_arn"] = session_arn
+        input_: aws_sdk_device_farm.types.list_test_grid_session_actions_request.ListTestGridSessionActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["session_arn"] = session_arn
         if max_result is not None:
-            input["max_result"] = max_result
+            input_["max_result"] = max_result
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3217,17 +3219,17 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_test_grid_session_artifacts_request.ListTestGridSessionArtifactsRequest = {}  # type: ignore[typeddict-item]
-        input["session_arn"] = session_arn
+        input_: aws_sdk_device_farm.types.list_test_grid_session_artifacts_request.ListTestGridSessionArtifactsRequest = {}  # type: ignore[typeddict-item]
+        input_["session_arn"] = session_arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if max_result is not None:
-            input["max_result"] = max_result
+            input_["max_result"] = max_result
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3287,25 +3289,25 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_test_grid_sessions_request.ListTestGridSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_device_farm.types.list_test_grid_sessions_request.ListTestGridSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if end_time_after is not None:
-            input["end_time_after"] = end_time_after
+            input_["end_time_after"] = end_time_after
         if end_time_before is not None:
-            input["end_time_before"] = end_time_before
+            input_["end_time_before"] = end_time_before
         if max_result is not None:
-            input["max_result"] = max_result
+            input_["max_result"] = max_result
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3349,13 +3351,13 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_tests_request.ListTestsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_tests_request.ListTestsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3424,13 +3426,13 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_unique_problems_request.ListUniqueProblemsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_unique_problems_request.ListUniqueProblemsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3499,15 +3501,15 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_uploads_request.ListUploadsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.list_uploads_request.ListUploadsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3570,14 +3572,14 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.list_vpce_configurations_request.ListVPCEConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_device_farm.types.list_vpce_configurations_request.ListVPCEConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3617,14 +3619,14 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.purchase_offering_request.PurchaseOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["offering_id"] = offering_id
-        input["quantity"] = quantity
+        input_: aws_sdk_device_farm.types.purchase_offering_request.PurchaseOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["offering_id"] = offering_id
+        input_["quantity"] = quantity
         if offering_promotion_id is not None:
-            input["offering_promotion_id"] = offering_promotion_id
+            input_["offering_promotion_id"] = offering_promotion_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3660,12 +3662,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.renew_offering_request.RenewOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["offering_id"] = offering_id
-        input["quantity"] = quantity
+        input_: aws_sdk_device_farm.types.renew_offering_request.RenewOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["offering_id"] = offering_id
+        input_["quantity"] = quantity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3729,24 +3731,24 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.schedule_run_request.ScheduleRunRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_device_farm.types.schedule_run_request.ScheduleRunRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if app_arn is not None:
-            input["app_arn"] = app_arn
+            input_["app_arn"] = app_arn
         if device_pool_arn is not None:
-            input["device_pool_arn"] = device_pool_arn
+            input_["device_pool_arn"] = device_pool_arn
         if device_selection_configuration is not None:
-            input["device_selection_configuration"] = device_selection_configuration
+            input_["device_selection_configuration"] = device_selection_configuration
         if name is not None:
-            input["name"] = name
-        input["test"] = test
+            input_["name"] = name
+        input_["test"] = test
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if execution_configuration is not None:
-            input["execution_configuration"] = execution_configuration
+            input_["execution_configuration"] = execution_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3780,11 +3782,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.stop_job_request.StopJobRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.stop_job_request.StopJobRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3818,11 +3820,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.stop_remote_access_session_request.StopRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.stop_remote_access_session_request.StopRemoteAccessSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3862,11 +3864,11 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.stop_run_request.StopRunRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.stop_run_request.StopRunRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3902,12 +3904,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_device_farm.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3943,12 +3945,12 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_device_farm.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3990,15 +3992,15 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.update_device_instance_request.UpdateDeviceInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.update_device_instance_request.UpdateDeviceInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if profile_arn is not None:
-            input["profile_arn"] = profile_arn
+            input_["profile_arn"] = profile_arn
         if labels is not None:
-            input["labels"] = labels
+            input_["labels"] = labels
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4048,21 +4050,21 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.update_device_pool_request.UpdateDevicePoolRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.update_device_pool_request.UpdateDevicePoolRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
         if max_devices is not None:
-            input["max_devices"] = max_devices
+            input_["max_devices"] = max_devices
         if clear_max_devices is not None:
-            input["clear_max_devices"] = clear_max_devices
+            input_["clear_max_devices"] = clear_max_devices
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4108,23 +4110,23 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.update_instance_profile_request.UpdateInstanceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.update_instance_profile_request.UpdateInstanceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if package_cleanup is not None:
-            input["package_cleanup"] = package_cleanup
+            input_["package_cleanup"] = package_cleanup
         if exclude_app_packages_from_cleanup is not None:
-            input["exclude_app_packages_from_cleanup"] = (
+            input_["exclude_app_packages_from_cleanup"] = (
                 exclude_app_packages_from_cleanup
             )
         if reboot_after_use is not None:
-            input["reboot_after_use"] = reboot_after_use
+            input_["reboot_after_use"] = reboot_after_use
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4186,33 +4188,33 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.update_network_profile_request.UpdateNetworkProfileRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.update_network_profile_request.UpdateNetworkProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if uplink_bandwidth_bits is not None:
-            input["uplink_bandwidth_bits"] = uplink_bandwidth_bits
+            input_["uplink_bandwidth_bits"] = uplink_bandwidth_bits
         if downlink_bandwidth_bits is not None:
-            input["downlink_bandwidth_bits"] = downlink_bandwidth_bits
+            input_["downlink_bandwidth_bits"] = downlink_bandwidth_bits
         if uplink_delay_ms is not None:
-            input["uplink_delay_ms"] = uplink_delay_ms
+            input_["uplink_delay_ms"] = uplink_delay_ms
         if downlink_delay_ms is not None:
-            input["downlink_delay_ms"] = downlink_delay_ms
+            input_["downlink_delay_ms"] = downlink_delay_ms
         if uplink_jitter_ms is not None:
-            input["uplink_jitter_ms"] = uplink_jitter_ms
+            input_["uplink_jitter_ms"] = uplink_jitter_ms
         if downlink_jitter_ms is not None:
-            input["downlink_jitter_ms"] = downlink_jitter_ms
+            input_["downlink_jitter_ms"] = downlink_jitter_ms
         if uplink_loss_percent is not None:
-            input["uplink_loss_percent"] = uplink_loss_percent
+            input_["uplink_loss_percent"] = uplink_loss_percent
         if downlink_loss_percent is not None:
-            input["downlink_loss_percent"] = downlink_loss_percent
+            input_["downlink_loss_percent"] = downlink_loss_percent
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4262,21 +4264,21 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.update_project_request.UpdateProjectRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.update_project_request.UpdateProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if default_job_timeout_minutes is not None:
-            input["default_job_timeout_minutes"] = default_job_timeout_minutes
+            input_["default_job_timeout_minutes"] = default_job_timeout_minutes
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4320,17 +4322,17 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.update_test_grid_project_request.UpdateTestGridProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
+        input_: aws_sdk_device_farm.types.update_test_grid_project_request.UpdateTestGridProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4372,17 +4374,17 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.update_upload_request.UpdateUploadRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.update_upload_request.UpdateUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if edit_content is not None:
-            input["edit_content"] = edit_content
+            input_["edit_content"] = edit_content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4432,19 +4434,19 @@ class AsyncDeviceFarmClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_device_farm.types.update_vpce_configuration_request.UpdateVPCEConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_device_farm.types.update_vpce_configuration_request.UpdateVPCEConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if vpce_configuration_name is not None:
-            input["vpce_configuration_name"] = vpce_configuration_name
+            input_["vpce_configuration_name"] = vpce_configuration_name
         if vpce_service_name is not None:
-            input["vpce_service_name"] = vpce_service_name
+            input_["vpce_service_name"] = vpce_service_name
         if service_dns_name is not None:
-            input["service_dns_name"] = service_dns_name
+            input_["service_dns_name"] = service_dns_name
         if vpce_configuration_description is not None:
-            input["vpce_configuration_description"] = vpce_configuration_description
+            input_["vpce_configuration_description"] = vpce_configuration_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -200,11 +200,11 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.delete_lexicon_input.DeleteLexiconInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_polly.types.delete_lexicon_input.DeleteLexiconInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,20 +253,20 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.describe_voices_input.DescribeVoicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_polly.types.describe_voices_input.DescribeVoicesInput = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if include_additional_language_codes is not None:
-            input["include_additional_language_codes"] = (
+            input_["include_additional_language_codes"] = (
                 include_additional_language_codes
             )
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -299,11 +299,11 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.get_lexicon_input.GetLexiconInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_polly.types.get_lexicon_input.GetLexiconInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -336,11 +336,11 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.get_speech_synthesis_task_input.GetSpeechSynthesisTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_polly.types.get_speech_synthesis_task_input.GetSpeechSynthesisTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,12 +379,12 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.list_lexicons_input.ListLexiconsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_polly.types.list_lexicons_input.ListLexiconsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,16 +421,16 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.list_speech_synthesis_tasks_input.ListSpeechSynthesisTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_polly.types.list_speech_synthesis_tasks_input.ListSpeechSynthesisTasksInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -471,12 +471,12 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.put_lexicon_input.PutLexiconInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["content"] = content
+        input_: aws_sdk_polly.types.put_lexicon_input.PutLexiconInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["content"] = content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -525,21 +525,21 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.start_speech_synthesis_stream_input.StartSpeechSynthesisStreamInput = {}  # type: ignore[typeddict-item]
-        input["engine"] = engine
+        input_: aws_sdk_polly.types.start_speech_synthesis_stream_input.StartSpeechSynthesisStreamInput = {}  # type: ignore[typeddict-item]
+        input_["engine"] = engine
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if lexicon_names is not None:
-            input["lexicon_names"] = lexicon_names
-        input["output_format"] = output_format
+            input_["lexicon_names"] = lexicon_names
+        input_["output_format"] = output_format
         if sample_rate is not None:
-            input["sample_rate"] = sample_rate
-        input["voice_id"] = voice_id
+            input_["sample_rate"] = sample_rate
+        input_["voice_id"] = voice_id
         if action_stream is not None:
-            input["action_stream"] = ensure_sync_iterator(action_stream)  # type: ignore
+            input_["action_stream"] = ensure_sync_iterator(action_stream)  # type: ignore
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -602,30 +602,30 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.start_speech_synthesis_task_input.StartSpeechSynthesisTaskInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_polly.types.start_speech_synthesis_task_input.StartSpeechSynthesisTaskInput = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if lexicon_names is not None:
-            input["lexicon_names"] = lexicon_names
-        input["output_format"] = output_format
-        input["output_s3_bucket_name"] = output_s3_bucket_name
+            input_["lexicon_names"] = lexicon_names
+        input_["output_format"] = output_format
+        input_["output_s3_bucket_name"] = output_s3_bucket_name
         if output_s3_key_prefix is not None:
-            input["output_s3_key_prefix"] = output_s3_key_prefix
+            input_["output_s3_key_prefix"] = output_s3_key_prefix
         if sample_rate is not None:
-            input["sample_rate"] = sample_rate
+            input_["sample_rate"] = sample_rate
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if speech_mark_types is not None:
-            input["speech_mark_types"] = speech_mark_types
-        input["text"] = text
+            input_["speech_mark_types"] = speech_mark_types
+        input_["text"] = text
         if text_type is not None:
-            input["text_type"] = text_type
-        input["voice_id"] = voice_id
+            input_["text_type"] = text_type
+        input_["voice_id"] = voice_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,25 +689,25 @@ class PollyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_polly.types.synthesize_speech_input.SynthesizeSpeechInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_polly.types.synthesize_speech_input.SynthesizeSpeechInput = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if lexicon_names is not None:
-            input["lexicon_names"] = lexicon_names
-        input["output_format"] = output_format
+            input_["lexicon_names"] = lexicon_names
+        input_["output_format"] = output_format
         if sample_rate is not None:
-            input["sample_rate"] = sample_rate
+            input_["sample_rate"] = sample_rate
         if speech_mark_types is not None:
-            input["speech_mark_types"] = speech_mark_types
-        input["text"] = text
+            input_["speech_mark_types"] = speech_mark_types
+        input_["text"] = text
         if text_type is not None:
-            input["text_type"] = text_type
-        input["voice_id"] = voice_id
+            input_["text_type"] = text_type
+        input_["voice_id"] = voice_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

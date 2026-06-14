@@ -201,15 +201,15 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.create_suite_definition_request.CreateSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["suite_definition_configuration"] = suite_definition_configuration
+        input_: aws_sdk_iotdeviceadvisor.types.create_suite_definition_request.CreateSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["suite_definition_configuration"] = suite_definition_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,11 +243,11 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.delete_suite_definition_request.DeleteSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["suite_definition_id"] = suite_definition_id
+        input_: aws_sdk_iotdeviceadvisor.types.delete_suite_definition_request.DeleteSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["suite_definition_id"] = suite_definition_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,18 +295,18 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.get_endpoint_request.GetEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotdeviceadvisor.types.get_endpoint_request.GetEndpointRequest = {}  # type: ignore[typeddict-item]
         if thing_arn is not None:
-            input["thing_arn"] = thing_arn
+            input_["thing_arn"] = thing_arn
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if device_role_arn is not None:
-            input["device_role_arn"] = device_role_arn
+            input_["device_role_arn"] = device_role_arn
         if authentication_method is not None:
-            input["authentication_method"] = authentication_method
+            input_["authentication_method"] = authentication_method
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,13 +344,13 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.get_suite_definition_request.GetSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["suite_definition_id"] = suite_definition_id
+        input_: aws_sdk_iotdeviceadvisor.types.get_suite_definition_request.GetSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["suite_definition_id"] = suite_definition_id
         if suite_definition_version is not None:
-            input["suite_definition_version"] = suite_definition_version
+            input_["suite_definition_version"] = suite_definition_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,12 +386,12 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.get_suite_run_request.GetSuiteRunRequest = {}  # type: ignore[typeddict-item]
-        input["suite_definition_id"] = suite_definition_id
-        input["suite_run_id"] = suite_run_id
+        input_: aws_sdk_iotdeviceadvisor.types.get_suite_run_request.GetSuiteRunRequest = {}  # type: ignore[typeddict-item]
+        input_["suite_definition_id"] = suite_definition_id
+        input_["suite_run_id"] = suite_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,12 +427,12 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.get_suite_run_report_request.GetSuiteRunReportRequest = {}  # type: ignore[typeddict-item]
-        input["suite_definition_id"] = suite_definition_id
-        input["suite_run_id"] = suite_run_id
+        input_: aws_sdk_iotdeviceadvisor.types.get_suite_run_report_request.GetSuiteRunReportRequest = {}  # type: ignore[typeddict-item]
+        input_["suite_definition_id"] = suite_definition_id
+        input_["suite_run_id"] = suite_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,14 +470,14 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.list_suite_definitions_request.ListSuiteDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotdeviceadvisor.types.list_suite_definitions_request.ListSuiteDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -525,18 +525,18 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.list_suite_runs_request.ListSuiteRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotdeviceadvisor.types.list_suite_runs_request.ListSuiteRunsRequest = {}  # type: ignore[typeddict-item]
         if suite_definition_id is not None:
-            input["suite_definition_id"] = suite_definition_id
+            input_["suite_definition_id"] = suite_definition_id
         if suite_definition_version is not None:
-            input["suite_definition_version"] = suite_definition_version
+            input_["suite_definition_version"] = suite_definition_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -570,11 +570,11 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iotdeviceadvisor.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -618,16 +618,16 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.start_suite_run_request.StartSuiteRunRequest = {}  # type: ignore[typeddict-item]
-        input["suite_definition_id"] = suite_definition_id
+        input_: aws_sdk_iotdeviceadvisor.types.start_suite_run_request.StartSuiteRunRequest = {}  # type: ignore[typeddict-item]
+        input_["suite_definition_id"] = suite_definition_id
         if suite_definition_version is not None:
-            input["suite_definition_version"] = suite_definition_version
-        input["suite_run_configuration"] = suite_run_configuration
+            input_["suite_definition_version"] = suite_definition_version
+        input_["suite_run_configuration"] = suite_run_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -663,12 +663,12 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.stop_suite_run_request.StopSuiteRunRequest = {}  # type: ignore[typeddict-item]
-        input["suite_definition_id"] = suite_definition_id
-        input["suite_run_id"] = suite_run_id
+        input_: aws_sdk_iotdeviceadvisor.types.stop_suite_run_request.StopSuiteRunRequest = {}  # type: ignore[typeddict-item]
+        input_["suite_definition_id"] = suite_definition_id
+        input_["suite_run_id"] = suite_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -704,12 +704,12 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iotdeviceadvisor.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,12 +745,12 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iotdeviceadvisor.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -786,12 +786,12 @@ class AsyncIotDeviceAdvisorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotdeviceadvisor.types.update_suite_definition_request.UpdateSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["suite_definition_id"] = suite_definition_id
-        input["suite_definition_configuration"] = suite_definition_configuration
+        input_: aws_sdk_iotdeviceadvisor.types.update_suite_definition_request.UpdateSuiteDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["suite_definition_id"] = suite_definition_id
+        input_["suite_definition_configuration"] = suite_definition_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

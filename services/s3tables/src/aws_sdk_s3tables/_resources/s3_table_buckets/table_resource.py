@@ -114,22 +114,22 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
-        input["format"] = format
+        input_: aws_sdk_s3tables.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
+        input_["format"] = format
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if storage_class_configuration is not None:
-            input["storage_class_configuration"] = storage_class_configuration
+            input_["storage_class_configuration"] = storage_class_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,15 +168,15 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
         if version_token is not None:
-            input["version_token"] = version_token
+            input_["version_token"] = version_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,18 +219,18 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3tables.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
         if table_bucket_arn is not None:
-            input["table_bucket_arn"] = table_bucket_arn
+            input_["table_bucket_arn"] = table_bucket_arn
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if table_arn is not None:
-            input["table_arn"] = table_arn
+            input_["table_arn"] = table_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,13 +267,13 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_maintenance_configuration_request.GetTableMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.get_table_maintenance_configuration_request.GetTableMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,13 +310,13 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_maintenance_job_status_request.GetTableMaintenanceJobStatusRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.get_table_maintenance_job_status_request.GetTableMaintenanceJobStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -353,13 +353,13 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_metadata_location_request.GetTableMetadataLocationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.get_table_metadata_location_request.GetTableMetadataLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,11 +392,11 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_record_expiration_configuration_request.GetTableRecordExpirationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.get_table_record_expiration_configuration_request.GetTableRecordExpirationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,11 +429,11 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_record_expiration_job_status_request.GetTableRecordExpirationJobStatusRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.get_table_record_expiration_job_status_request.GetTableRecordExpirationJobStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,13 +470,13 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_storage_class_request.GetTableStorageClassRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.get_table_storage_class_request.GetTableStorageClassRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,19 +523,19 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if max_tables is not None:
-            input["max_tables"] = max_tables
+            input_["max_tables"] = max_tables
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,15 +574,15 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_maintenance_configuration_request.PutTableMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
-        input["type"] = type
-        input["value"] = value
+        input_: aws_sdk_s3tables.types.put_table_maintenance_configuration_request.PutTableMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
+        input_["type"] = type
+        input_["value"] = value
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -615,12 +615,12 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_record_expiration_configuration_request.PutTableRecordExpirationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
-        input["value"] = value
+        input_: aws_sdk_s3tables.types.put_table_record_expiration_configuration_request.PutTableRecordExpirationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
+        input_["value"] = value
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -665,19 +665,19 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.rename_table_request.RenameTableRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.rename_table_request.RenameTableRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
         if new_namespace_name is not None:
-            input["new_namespace_name"] = new_namespace_name
+            input_["new_namespace_name"] = new_namespace_name
         if new_name is not None:
-            input["new_name"] = new_name
+            input_["new_name"] = new_name
         if version_token is not None:
-            input["version_token"] = version_token
+            input_["version_token"] = version_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -718,15 +718,15 @@ class TableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.update_table_metadata_location_request.UpdateTableMetadataLocationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
-        input["version_token"] = version_token
-        input["metadata_location"] = metadata_location
+        input_: aws_sdk_s3tables.types.update_table_metadata_location_request.UpdateTableMetadataLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
+        input_["version_token"] = version_token
+        input_["metadata_location"] = metadata_location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -785,22 +785,22 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
-        input["format"] = format
+        input_: aws_sdk_s3tables.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
+        input_["format"] = format
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if storage_class_configuration is not None:
-            input["storage_class_configuration"] = storage_class_configuration
+            input_["storage_class_configuration"] = storage_class_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,15 +840,15 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
         if version_token is not None:
-            input["version_token"] = version_token
+            input_["version_token"] = version_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -892,18 +892,18 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3tables.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
         if table_bucket_arn is not None:
-            input["table_bucket_arn"] = table_bucket_arn
+            input_["table_bucket_arn"] = table_bucket_arn
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if table_arn is not None:
-            input["table_arn"] = table_arn
+            input_["table_arn"] = table_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -941,13 +941,13 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_maintenance_configuration_request.GetTableMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.get_table_maintenance_configuration_request.GetTableMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -985,13 +985,13 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_maintenance_job_status_request.GetTableMaintenanceJobStatusRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.get_table_maintenance_job_status_request.GetTableMaintenanceJobStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,13 +1029,13 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_metadata_location_request.GetTableMetadataLocationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.get_table_metadata_location_request.GetTableMetadataLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,11 +1069,11 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_record_expiration_configuration_request.GetTableRecordExpirationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.get_table_record_expiration_configuration_request.GetTableRecordExpirationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1107,11 +1107,11 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_record_expiration_job_status_request.GetTableRecordExpirationJobStatusRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.get_table_record_expiration_job_status_request.GetTableRecordExpirationJobStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1149,13 +1149,13 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_storage_class_request.GetTableStorageClassRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.get_table_storage_class_request.GetTableStorageClassRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1203,19 +1203,19 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if max_tables is not None:
-            input["max_tables"] = max_tables
+            input_["max_tables"] = max_tables
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1255,15 +1255,15 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_maintenance_configuration_request.PutTableMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
-        input["type"] = type
-        input["value"] = value
+        input_: aws_sdk_s3tables.types.put_table_maintenance_configuration_request.PutTableMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
+        input_["type"] = type
+        input_["value"] = value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1297,12 +1297,12 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_record_expiration_configuration_request.PutTableRecordExpirationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
-        input["value"] = value
+        input_: aws_sdk_s3tables.types.put_table_record_expiration_configuration_request.PutTableRecordExpirationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
+        input_["value"] = value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1348,19 +1348,19 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.rename_table_request.RenameTableRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.rename_table_request.RenameTableRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
         if new_namespace_name is not None:
-            input["new_namespace_name"] = new_namespace_name
+            input_["new_namespace_name"] = new_namespace_name
         if new_name is not None:
-            input["new_name"] = new_name
+            input_["new_name"] = new_name
         if version_token is not None:
-            input["version_token"] = version_token
+            input_["version_token"] = version_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1402,15 +1402,15 @@ class AsyncTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.update_table_metadata_location_request.UpdateTableMetadataLocationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
-        input["name"] = name
-        input["version_token"] = version_token
-        input["metadata_location"] = metadata_location
+        input_: aws_sdk_s3tables.types.update_table_metadata_location_request.UpdateTableMetadataLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
+        input_["name"] = name
+        input_["version_token"] = version_token
+        input_["metadata_location"] = metadata_location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

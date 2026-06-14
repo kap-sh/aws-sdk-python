@@ -214,15 +214,15 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.configure_logs_request.ConfigureLogsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage.types.configure_logs_request.ConfigureLogsRequest = {}  # type: ignore[typeddict-item]
         if egress_access_logs is not None:
-            input["egress_access_logs"] = egress_access_logs
-        input["id"] = id
+            input_["egress_access_logs"] = egress_access_logs
+        input_["id"] = id
         if ingress_access_logs is not None:
-            input["ingress_access_logs"] = ingress_access_logs
+            input_["ingress_access_logs"] = ingress_access_logs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,15 +258,15 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["id"] = id
+            input_["description"] = description
+        input_["id"] = id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,15 +306,15 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.create_harvest_job_request.CreateHarvestJobRequest = {}  # type: ignore[typeddict-item]
-        input["end_time"] = end_time
-        input["id"] = id
-        input["origin_endpoint_id"] = origin_endpoint_id
-        input["s3_destination"] = s3_destination
-        input["start_time"] = start_time
+        input_: aws_sdk_mediapackage.types.create_harvest_job_request.CreateHarvestJobRequest = {}  # type: ignore[typeddict-item]
+        input_["end_time"] = end_time
+        input_["id"] = id
+        input_["origin_endpoint_id"] = origin_endpoint_id
+        input_["s3_destination"] = s3_destination
+        input_["start_time"] = start_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,36 +385,36 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.create_origin_endpoint_request.CreateOriginEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage.types.create_origin_endpoint_request.CreateOriginEndpointRequest = {}  # type: ignore[typeddict-item]
         if authorization is not None:
-            input["authorization"] = authorization
-        input["channel_id"] = channel_id
+            input_["authorization"] = authorization
+        input_["channel_id"] = channel_id
         if cmaf_package is not None:
-            input["cmaf_package"] = cmaf_package
+            input_["cmaf_package"] = cmaf_package
         if dash_package is not None:
-            input["dash_package"] = dash_package
+            input_["dash_package"] = dash_package
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if hls_package is not None:
-            input["hls_package"] = hls_package
-        input["id"] = id
+            input_["hls_package"] = hls_package
+        input_["id"] = id
         if manifest_name is not None:
-            input["manifest_name"] = manifest_name
+            input_["manifest_name"] = manifest_name
         if mss_package is not None:
-            input["mss_package"] = mss_package
+            input_["mss_package"] = mss_package
         if origination is not None:
-            input["origination"] = origination
+            input_["origination"] = origination
         if startover_window_seconds is not None:
-            input["startover_window_seconds"] = startover_window_seconds
+            input_["startover_window_seconds"] = startover_window_seconds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if time_delay_seconds is not None:
-            input["time_delay_seconds"] = time_delay_seconds
+            input_["time_delay_seconds"] = time_delay_seconds
         if whitelist is not None:
-            input["whitelist"] = whitelist
+            input_["whitelist"] = whitelist
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,11 +447,11 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,11 +484,11 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.delete_origin_endpoint_request.DeleteOriginEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage.types.delete_origin_endpoint_request.DeleteOriginEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -521,11 +521,11 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -558,11 +558,11 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.describe_harvest_job_request.DescribeHarvestJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage.types.describe_harvest_job_request.DescribeHarvestJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,11 +595,11 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.describe_origin_endpoint_request.DescribeOriginEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage.types.describe_origin_endpoint_request.DescribeOriginEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,14 +636,14 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -711,18 +711,18 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.list_harvest_jobs_request.ListHarvestJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage.types.list_harvest_jobs_request.ListHarvestJobsRequest = {}  # type: ignore[typeddict-item]
         if include_channel_id is not None:
-            input["include_channel_id"] = include_channel_id
+            input_["include_channel_id"] = include_channel_id
         if include_status is not None:
-            input["include_status"] = include_status
+            input_["include_status"] = include_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -790,16 +790,16 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.list_origin_endpoints_request.ListOriginEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage.types.list_origin_endpoints_request.ListOriginEndpointsRequest = {}  # type: ignore[typeddict-item]
         if channel_id is not None:
-            input["channel_id"] = channel_id
+            input_["channel_id"] = channel_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,11 +851,11 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mediapackage.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -888,11 +888,11 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.rotate_channel_credentials_request.RotateChannelCredentialsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage.types.rotate_channel_credentials_request.RotateChannelCredentialsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -927,12 +927,12 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.rotate_ingest_endpoint_credentials_request.RotateIngestEndpointCredentialsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["ingest_endpoint_id"] = ingest_endpoint_id
+        input_: aws_sdk_mediapackage.types.rotate_ingest_endpoint_credentials_request.RotateIngestEndpointCredentialsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["ingest_endpoint_id"] = ingest_endpoint_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -958,12 +958,12 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mediapackage.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -995,12 +995,12 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mediapackage.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1035,13 +1035,13 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["id"] = id
+            input_["description"] = description
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1109,33 +1109,33 @@ class MediaPackageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage.types.update_origin_endpoint_request.UpdateOriginEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage.types.update_origin_endpoint_request.UpdateOriginEndpointRequest = {}  # type: ignore[typeddict-item]
         if authorization is not None:
-            input["authorization"] = authorization
+            input_["authorization"] = authorization
         if cmaf_package is not None:
-            input["cmaf_package"] = cmaf_package
+            input_["cmaf_package"] = cmaf_package
         if dash_package is not None:
-            input["dash_package"] = dash_package
+            input_["dash_package"] = dash_package
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if hls_package is not None:
-            input["hls_package"] = hls_package
-        input["id"] = id
+            input_["hls_package"] = hls_package
+        input_["id"] = id
         if manifest_name is not None:
-            input["manifest_name"] = manifest_name
+            input_["manifest_name"] = manifest_name
         if mss_package is not None:
-            input["mss_package"] = mss_package
+            input_["mss_package"] = mss_package
         if origination is not None:
-            input["origination"] = origination
+            input_["origination"] = origination
         if startover_window_seconds is not None:
-            input["startover_window_seconds"] = startover_window_seconds
+            input_["startover_window_seconds"] = startover_window_seconds
         if time_delay_seconds is not None:
-            input["time_delay_seconds"] = time_delay_seconds
+            input_["time_delay_seconds"] = time_delay_seconds
         if whitelist is not None:
-            input["whitelist"] = whitelist
+            input_["whitelist"] = whitelist
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -90,17 +90,17 @@ class Field:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_field_request.CreateFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_connectcases.types.create_field_request.CreateFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -145,18 +145,18 @@ class Field:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.update_field_request.UpdateFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["field_id"] = field_id
+        input_: aws_sdk_connectcases.types.update_field_request.UpdateFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["field_id"] = field_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -191,12 +191,12 @@ class Field:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_field_request.DeleteFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["field_id"] = field_id
+        input_: aws_sdk_connectcases.types.delete_field_request.DeleteFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["field_id"] = field_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,15 +235,15 @@ class Field:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_fields_request.ListFieldsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.list_fields_request.ListFieldsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,13 +280,13 @@ class Field:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.batch_put_field_options_request.BatchPutFieldOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["field_id"] = field_id
-        input["options"] = options
+        input_: aws_sdk_connectcases.types.batch_put_field_options_request.BatchPutFieldOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["field_id"] = field_id
+        input_["options"] = options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,18 +329,18 @@ class Field:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_field_options_request.ListFieldOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["field_id"] = field_id
+        input_: aws_sdk_connectcases.types.list_field_options_request.ListFieldOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["field_id"] = field_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if values is not None:
-            input["values"] = values
+            input_["values"] = values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,12 +375,12 @@ class Field:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.batch_get_field_request.BatchGetFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["fields"] = fields
+        input_: aws_sdk_connectcases.types.batch_get_field_request.BatchGetFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["fields"] = fields
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -431,17 +431,17 @@ class AsyncField:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_field_request.CreateFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_connectcases.types.create_field_request.CreateFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,18 +487,18 @@ class AsyncField:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.update_field_request.UpdateFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["field_id"] = field_id
+        input_: aws_sdk_connectcases.types.update_field_request.UpdateFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["field_id"] = field_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,12 +534,12 @@ class AsyncField:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_field_request.DeleteFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["field_id"] = field_id
+        input_: aws_sdk_connectcases.types.delete_field_request.DeleteFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["field_id"] = field_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,15 +579,15 @@ class AsyncField:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_fields_request.ListFieldsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.list_fields_request.ListFieldsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,13 +625,13 @@ class AsyncField:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.batch_put_field_options_request.BatchPutFieldOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["field_id"] = field_id
-        input["options"] = options
+        input_: aws_sdk_connectcases.types.batch_put_field_options_request.BatchPutFieldOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["field_id"] = field_id
+        input_["options"] = options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -675,18 +675,18 @@ class AsyncField:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_field_options_request.ListFieldOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["field_id"] = field_id
+        input_: aws_sdk_connectcases.types.list_field_options_request.ListFieldOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["field_id"] = field_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if values is not None:
-            input["values"] = values
+            input_["values"] = values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,12 +722,12 @@ class AsyncField:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.batch_get_field_request.BatchGetFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["fields"] = fields
+        input_: aws_sdk_connectcases.types.batch_get_field_request.BatchGetFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["fields"] = fields
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

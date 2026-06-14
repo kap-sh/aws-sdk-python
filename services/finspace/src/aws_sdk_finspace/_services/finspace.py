@@ -336,25 +336,25 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_finspace.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if federation_mode is not None:
-            input["federation_mode"] = federation_mode
+            input_["federation_mode"] = federation_mode
         if federation_parameters is not None:
-            input["federation_parameters"] = federation_parameters
+            input_["federation_parameters"] = federation_parameters
         if superuser_parameters is not None:
-            input["superuser_parameters"] = superuser_parameters
+            input_["superuser_parameters"] = superuser_parameters
         if data_bundles is not None:
-            input["data_bundles"] = data_bundles
+            input_["data_bundles"] = data_bundles
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,14 +395,14 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_kx_changeset_request.CreateKxChangesetRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
-        input["change_requests"] = change_requests
-        input["client_token"] = client_token
+        input_: aws_sdk_finspace.types.create_kx_changeset_request.CreateKxChangesetRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
+        input_["change_requests"] = change_requests
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,46 +503,46 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_kx_cluster_request.CreateKxClusterRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace.types.create_kx_cluster_request.CreateKxClusterRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["cluster_name"] = cluster_name
-        input["cluster_type"] = cluster_type
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["cluster_name"] = cluster_name
+        input_["cluster_type"] = cluster_type
         if tickerplant_log_configuration is not None:
-            input["tickerplant_log_configuration"] = tickerplant_log_configuration
+            input_["tickerplant_log_configuration"] = tickerplant_log_configuration
         if databases is not None:
-            input["databases"] = databases
+            input_["databases"] = databases
         if cache_storage_configurations is not None:
-            input["cache_storage_configurations"] = cache_storage_configurations
+            input_["cache_storage_configurations"] = cache_storage_configurations
         if auto_scaling_configuration is not None:
-            input["auto_scaling_configuration"] = auto_scaling_configuration
+            input_["auto_scaling_configuration"] = auto_scaling_configuration
         if cluster_description is not None:
-            input["cluster_description"] = cluster_description
+            input_["cluster_description"] = cluster_description
         if capacity_configuration is not None:
-            input["capacity_configuration"] = capacity_configuration
-        input["release_label"] = release_label
-        input["vpc_configuration"] = vpc_configuration
+            input_["capacity_configuration"] = capacity_configuration
+        input_["release_label"] = release_label
+        input_["vpc_configuration"] = vpc_configuration
         if initialization_script is not None:
-            input["initialization_script"] = initialization_script
+            input_["initialization_script"] = initialization_script
         if command_line_arguments is not None:
-            input["command_line_arguments"] = command_line_arguments
+            input_["command_line_arguments"] = command_line_arguments
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
         if execution_role is not None:
-            input["execution_role"] = execution_role
+            input_["execution_role"] = execution_role
         if savedown_storage_configuration is not None:
-            input["savedown_storage_configuration"] = savedown_storage_configuration
-        input["az_mode"] = az_mode
+            input_["savedown_storage_configuration"] = savedown_storage_configuration
+        input_["az_mode"] = az_mode
         if availability_zone_id is not None:
-            input["availability_zone_id"] = availability_zone_id
+            input_["availability_zone_id"] = availability_zone_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if scaling_group_configuration is not None:
-            input["scaling_group_configuration"] = scaling_group_configuration
+            input_["scaling_group_configuration"] = scaling_group_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -583,17 +583,17 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_kx_database_request.CreateKxDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
+        input_: aws_sdk_finspace.types.create_kx_database_request.CreateKxDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,29 +658,29 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_kx_dataview_request.CreateKxDataviewRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
-        input["dataview_name"] = dataview_name
-        input["az_mode"] = az_mode
+        input_: aws_sdk_finspace.types.create_kx_dataview_request.CreateKxDataviewRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
+        input_["dataview_name"] = dataview_name
+        input_["az_mode"] = az_mode
         if availability_zone_id is not None:
-            input["availability_zone_id"] = availability_zone_id
+            input_["availability_zone_id"] = availability_zone_id
         if changeset_id is not None:
-            input["changeset_id"] = changeset_id
+            input_["changeset_id"] = changeset_id
         if segment_configurations is not None:
-            input["segment_configurations"] = segment_configurations
+            input_["segment_configurations"] = segment_configurations
         if auto_update is not None:
-            input["auto_update"] = auto_update
+            input_["auto_update"] = auto_update
         if read_write is not None:
-            input["read_write"] = read_write
+            input_["read_write"] = read_write
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -723,18 +723,18 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_kx_environment_request.CreateKxEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_finspace.types.create_kx_environment_request.CreateKxEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["kms_key_id"] = kms_key_id
+            input_["description"] = description
+        input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -777,17 +777,17 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_kx_scaling_group_request.CreateKxScalingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["scaling_group_name"] = scaling_group_name
-        input["host_type"] = host_type
-        input["availability_zone_id"] = availability_zone_id
+        input_: aws_sdk_finspace.types.create_kx_scaling_group_request.CreateKxScalingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["scaling_group_name"] = scaling_group_name
+        input_["host_type"] = host_type
+        input_["availability_zone_id"] = availability_zone_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,17 +830,17 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_kx_user_request.CreateKxUserRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["user_name"] = user_name
-        input["iam_role"] = iam_role
+        input_: aws_sdk_finspace.types.create_kx_user_request.CreateKxUserRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["user_name"] = user_name
+        input_["iam_role"] = iam_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -893,23 +893,23 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.create_kx_volume_request.CreateKxVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace.types.create_kx_volume_request.CreateKxVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["volume_type"] = volume_type
-        input["volume_name"] = volume_name
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["volume_type"] = volume_type
+        input_["volume_name"] = volume_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if nas1_configuration is not None:
-            input["nas1_configuration"] = nas1_configuration
-        input["az_mode"] = az_mode
-        input["availability_zone_ids"] = availability_zone_ids
+            input_["nas1_configuration"] = nas1_configuration
+        input_["az_mode"] = az_mode
+        input_["availability_zone_ids"] = availability_zone_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -942,11 +942,11 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -985,14 +985,14 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_kx_cluster_request.DeleteKxClusterRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_finspace.types.delete_kx_cluster_request.DeleteKxClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["cluster_name"] = cluster_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,13 +1029,13 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_kx_cluster_node_request.DeleteKxClusterNodeRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["cluster_name"] = cluster_name
-        input["node_id"] = node_id
+        input_: aws_sdk_finspace.types.delete_kx_cluster_node_request.DeleteKxClusterNodeRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["cluster_name"] = cluster_name
+        input_["node_id"] = node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1072,13 +1072,13 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_kx_database_request.DeleteKxDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
-        input["client_token"] = client_token
+        input_: aws_sdk_finspace.types.delete_kx_database_request.DeleteKxDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1117,14 +1117,14 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_kx_dataview_request.DeleteKxDataviewRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
-        input["dataview_name"] = dataview_name
-        input["client_token"] = client_token
+        input_: aws_sdk_finspace.types.delete_kx_dataview_request.DeleteKxDataviewRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
+        input_["dataview_name"] = dataview_name
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1161,13 +1161,13 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_kx_environment_request.DeleteKxEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.delete_kx_environment_request.DeleteKxEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1206,14 +1206,14 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_kx_scaling_group_request.DeleteKxScalingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["scaling_group_name"] = scaling_group_name
+        input_: aws_sdk_finspace.types.delete_kx_scaling_group_request.DeleteKxScalingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["scaling_group_name"] = scaling_group_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1252,14 +1252,14 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_kx_user_request.DeleteKxUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.delete_kx_user_request.DeleteKxUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["environment_id"] = environment_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1298,14 +1298,14 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.delete_kx_volume_request.DeleteKxVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["volume_name"] = volume_name
+        input_: aws_sdk_finspace.types.delete_kx_volume_request.DeleteKxVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["volume_name"] = volume_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1338,11 +1338,11 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1379,13 +1379,13 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_changeset_request.GetKxChangesetRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
-        input["changeset_id"] = changeset_id
+        input_: aws_sdk_finspace.types.get_kx_changeset_request.GetKxChangesetRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
+        input_["changeset_id"] = changeset_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1420,12 +1420,12 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_cluster_request.GetKxClusterRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_finspace.types.get_kx_cluster_request.GetKxClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1462,13 +1462,13 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_connection_string_request.GetKxConnectionStringRequest = {}  # type: ignore[typeddict-item]
-        input["user_arn"] = user_arn
-        input["environment_id"] = environment_id
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_finspace.types.get_kx_connection_string_request.GetKxConnectionStringRequest = {}  # type: ignore[typeddict-item]
+        input_["user_arn"] = user_arn
+        input_["environment_id"] = environment_id
+        input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1503,12 +1503,12 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_database_request.GetKxDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
+        input_: aws_sdk_finspace.types.get_kx_database_request.GetKxDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1545,13 +1545,13 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_dataview_request.GetKxDataviewRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
-        input["dataview_name"] = dataview_name
+        input_: aws_sdk_finspace.types.get_kx_dataview_request.GetKxDataviewRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
+        input_["dataview_name"] = dataview_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1584,11 +1584,11 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_environment_request.GetKxEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.get_kx_environment_request.GetKxEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1625,12 +1625,12 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_scaling_group_request.GetKxScalingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["scaling_group_name"] = scaling_group_name
+        input_: aws_sdk_finspace.types.get_kx_scaling_group_request.GetKxScalingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["scaling_group_name"] = scaling_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1665,12 +1665,12 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_user_request.GetKxUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.get_kx_user_request.GetKxUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1705,12 +1705,12 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.get_kx_volume_request.GetKxVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["volume_name"] = volume_name
+        input_: aws_sdk_finspace.types.get_kx_volume_request.GetKxVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["volume_name"] = volume_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1747,14 +1747,14 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1795,16 +1795,16 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_changesets_request.ListKxChangesetsRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
+        input_: aws_sdk_finspace.types.list_kx_changesets_request.ListKxChangesetsRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1845,16 +1845,16 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_cluster_nodes_request.ListKxClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_finspace.types.list_kx_cluster_nodes_request.ListKxClusterNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["cluster_name"] = cluster_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1897,17 +1897,17 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_clusters_request.ListKxClustersRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.list_kx_clusters_request.ListKxClustersRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if cluster_type is not None:
-            input["cluster_type"] = cluster_type
+            input_["cluster_type"] = cluster_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1946,15 +1946,15 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_databases_request.ListKxDatabasesRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.list_kx_databases_request.ListKxDatabasesRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1995,16 +1995,16 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_dataviews_request.ListKxDataviewsRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
+        input_: aws_sdk_finspace.types.list_kx_dataviews_request.ListKxDataviewsRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2043,14 +2043,14 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_environments_request.ListKxEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace.types.list_kx_environments_request.ListKxEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2114,15 +2114,15 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_scaling_groups_request.ListKxScalingGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.list_kx_scaling_groups_request.ListKxScalingGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2161,15 +2161,15 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_users_request.ListKxUsersRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.list_kx_users_request.ListKxUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2212,17 +2212,17 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_kx_volumes_request.ListKxVolumesRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.list_kx_volumes_request.ListKxVolumesRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if volume_type is not None:
-            input["volume_type"] = volume_type
+            input_["volume_type"] = volume_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2255,11 +2255,11 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_finspace.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2294,12 +2294,12 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_finspace.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2334,12 +2334,12 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_finspace.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2385,19 +2385,19 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if federation_mode is not None:
-            input["federation_mode"] = federation_mode
+            input_["federation_mode"] = federation_mode
         if federation_parameters is not None:
-            input["federation_parameters"] = federation_parameters
+            input_["federation_parameters"] = federation_parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2449,21 +2449,21 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_kx_cluster_code_configuration_request.UpdateKxClusterCodeConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_finspace.types.update_kx_cluster_code_configuration_request.UpdateKxClusterCodeConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["cluster_name"] = cluster_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["code"] = code
+            input_["client_token"] = client_token
+        input_["code"] = code
         if initialization_script is not None:
-            input["initialization_script"] = initialization_script
+            input_["initialization_script"] = initialization_script
         if command_line_arguments is not None:
-            input["command_line_arguments"] = command_line_arguments
+            input_["command_line_arguments"] = command_line_arguments
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2508,17 +2508,17 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_kx_cluster_databases_request.UpdateKxClusterDatabasesRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_finspace.types.update_kx_cluster_databases_request.UpdateKxClusterDatabasesRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["cluster_name"] = cluster_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["databases"] = databases
+            input_["client_token"] = client_token
+        input_["databases"] = databases
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2557,15 +2557,15 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_kx_database_request.UpdateKxDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
+        input_: aws_sdk_finspace.types.update_kx_database_request.UpdateKxDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
         if description is not None:
-            input["description"] = description
-        input["client_token"] = client_token
+            input_["description"] = description
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2614,20 +2614,20 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_kx_dataview_request.UpdateKxDataviewRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["database_name"] = database_name
-        input["dataview_name"] = dataview_name
+        input_: aws_sdk_finspace.types.update_kx_dataview_request.UpdateKxDataviewRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["database_name"] = database_name
+        input_["dataview_name"] = dataview_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if changeset_id is not None:
-            input["changeset_id"] = changeset_id
+            input_["changeset_id"] = changeset_id
         if segment_configurations is not None:
-            input["segment_configurations"] = segment_configurations
-        input["client_token"] = client_token
+            input_["segment_configurations"] = segment_configurations
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2670,17 +2670,17 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_kx_environment_request.UpdateKxEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.update_kx_environment_request.UpdateKxEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2725,17 +2725,17 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_kx_environment_network_request.UpdateKxEnvironmentNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_finspace.types.update_kx_environment_network_request.UpdateKxEnvironmentNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if transit_gateway_configuration is not None:
-            input["transit_gateway_configuration"] = transit_gateway_configuration
+            input_["transit_gateway_configuration"] = transit_gateway_configuration
         if custom_dns_configuration is not None:
-            input["custom_dns_configuration"] = custom_dns_configuration
+            input_["custom_dns_configuration"] = custom_dns_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2776,15 +2776,15 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_kx_user_request.UpdateKxUserRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["user_name"] = user_name
-        input["iam_role"] = iam_role
+        input_: aws_sdk_finspace.types.update_kx_user_request.UpdateKxUserRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["user_name"] = user_name
+        input_["iam_role"] = iam_role
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2829,18 +2829,18 @@ class finspaceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace.types.update_kx_volume_request.UpdateKxVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["volume_name"] = volume_name
+        input_: aws_sdk_finspace.types.update_kx_volume_request.UpdateKxVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["volume_name"] = volume_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if nas1_configuration is not None:
-            input["nas1_configuration"] = nas1_configuration
+            input_["nas1_configuration"] = nas1_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

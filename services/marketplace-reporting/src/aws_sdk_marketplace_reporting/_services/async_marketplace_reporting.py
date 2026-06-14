@@ -13,6 +13,9 @@ from aws_sdk_marketplace_reporting._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_marketplace_reporting._auth._zapros_handler import AuthMiddleware
+from aws_sdk_marketplace_reporting._resources.aws_marketplace_reporting.dashboard import (
+    AsyncDashboard,
+)
 from aws_sdk_marketplace_reporting._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -92,6 +95,8 @@ class AsyncMarketplaceReportingClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.dashboard = AsyncDashboard(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncMarketplaceReportingClientConfig] = None

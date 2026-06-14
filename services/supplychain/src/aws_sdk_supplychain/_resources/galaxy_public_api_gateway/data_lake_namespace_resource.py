@@ -83,16 +83,16 @@ class DataLakeNamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_data_lake_namespace_request.CreateDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.create_data_lake_namespace_request.CreateDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -135,12 +135,12 @@ class DataLakeNamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_data_lake_namespace_request.GetDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.get_data_lake_namespace_request.GetDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -184,14 +184,14 @@ class DataLakeNamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.update_data_lake_namespace_request.UpdateDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.update_data_lake_namespace_request.UpdateDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,12 +231,12 @@ class DataLakeNamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.delete_data_lake_namespace_request.DeleteDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.delete_data_lake_namespace_request.DeleteDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,15 +285,15 @@ class DataLakeNamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_data_lake_namespaces_request.ListDataLakeNamespacesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.list_data_lake_namespaces_request.ListDataLakeNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,16 +345,16 @@ class AsyncDataLakeNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_data_lake_namespace_request.CreateDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.create_data_lake_namespace_request.CreateDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,12 +398,12 @@ class AsyncDataLakeNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_data_lake_namespace_request.GetDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.get_data_lake_namespace_request.GetDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -448,14 +448,14 @@ class AsyncDataLakeNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.update_data_lake_namespace_request.UpdateDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.update_data_lake_namespace_request.UpdateDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,12 +496,12 @@ class AsyncDataLakeNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.delete_data_lake_namespace_request.DeleteDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.delete_data_lake_namespace_request.DeleteDataLakeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -551,15 +551,15 @@ class AsyncDataLakeNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_data_lake_namespaces_request.ListDataLakeNamespacesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.list_data_lake_namespaces_request.ListDataLakeNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

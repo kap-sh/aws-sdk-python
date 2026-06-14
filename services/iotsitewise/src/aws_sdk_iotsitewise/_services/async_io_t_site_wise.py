@@ -508,15 +508,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.associate_assets_request.AssociateAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["hierarchy_id"] = hierarchy_id
-        input["child_asset_id"] = child_asset_id
+        input_: aws_sdk_iotsitewise.types.associate_assets_request.AssociateAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["hierarchy_id"] = hierarchy_id
+        input_["child_asset_id"] = child_asset_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -556,15 +556,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.AssociateTimeSeriesToAssetPropertyRequest = {}  # type: ignore[typeddict-item]
-        input["alias"] = alias
-        input["asset_id"] = asset_id
-        input["property_id"] = property_id
+        input_: aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.AssociateTimeSeriesToAssetPropertyRequest = {}  # type: ignore[typeddict-item]
+        input_["alias"] = alias
+        input_["asset_id"] = asset_id
+        input_["property_id"] = property_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,14 +604,14 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.batch_associate_project_assets_request.BatchAssociateProjectAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["project_id"] = project_id
-        input["asset_ids"] = asset_ids
+        input_: aws_sdk_iotsitewise.types.batch_associate_project_assets_request.BatchAssociateProjectAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["project_id"] = project_id
+        input_["asset_ids"] = asset_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,14 +651,14 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.batch_disassociate_project_assets_request.BatchDisassociateProjectAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["project_id"] = project_id
-        input["asset_ids"] = asset_ids
+        input_: aws_sdk_iotsitewise.types.batch_disassociate_project_assets_request.BatchDisassociateProjectAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["project_id"] = project_id
+        input_["asset_ids"] = asset_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,15 +698,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.batch_get_asset_property_aggregates_request.BatchGetAssetPropertyAggregatesRequest = {}  # type: ignore[typeddict-item]
-        input["entries"] = entries
+        input_: aws_sdk_iotsitewise.types.batch_get_asset_property_aggregates_request.BatchGetAssetPropertyAggregatesRequest = {}  # type: ignore[typeddict-item]
+        input_["entries"] = entries
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -742,13 +742,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.batch_get_asset_property_value_request.BatchGetAssetPropertyValueRequest = {}  # type: ignore[typeddict-item]
-        input["entries"] = entries
+        input_: aws_sdk_iotsitewise.types.batch_get_asset_property_value_request.BatchGetAssetPropertyValueRequest = {}  # type: ignore[typeddict-item]
+        input_["entries"] = entries
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,15 +788,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.batch_get_asset_property_value_history_request.BatchGetAssetPropertyValueHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["entries"] = entries
+        input_: aws_sdk_iotsitewise.types.batch_get_asset_property_value_history_request.BatchGetAssetPropertyValueHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["entries"] = entries
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -834,13 +834,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.batch_put_asset_property_value_request.BatchPutAssetPropertyValueRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.batch_put_asset_property_value_request.BatchPutAssetPropertyValueRequest = {}  # type: ignore[typeddict-item]
         if enable_partial_entry_processing is not None:
-            input["enable_partial_entry_processing"] = enable_partial_entry_processing
-        input["entries"] = entries
+            input_["enable_partial_entry_processing"] = enable_partial_entry_processing
+        input_["entries"] = entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -884,17 +884,17 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_access_policy_request.CreateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["access_policy_identity"] = access_policy_identity
-        input["access_policy_resource"] = access_policy_resource
-        input["access_policy_permission"] = access_policy_permission
+        input_: aws_sdk_iotsitewise.types.create_access_policy_request.CreateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["access_policy_identity"] = access_policy_identity
+        input_["access_policy_resource"] = access_policy_resource
+        input_["access_policy_permission"] = access_policy_permission
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -946,22 +946,22 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_asset_request.CreateAssetRequest = {}  # type: ignore[typeddict-item]
-        input["asset_name"] = asset_name
-        input["asset_model_id"] = asset_model_id
+        input_: aws_sdk_iotsitewise.types.create_asset_request.CreateAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_name"] = asset_name
+        input_["asset_model_id"] = asset_model_id
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if asset_external_id is not None:
-            input["asset_external_id"] = asset_external_id
+            input_["asset_external_id"] = asset_external_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if asset_description is not None:
-            input["asset_description"] = asset_description
+            input_["asset_description"] = asset_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,29 +1029,29 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_asset_model_request.CreateAssetModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_name"] = asset_model_name
+        input_: aws_sdk_iotsitewise.types.create_asset_model_request.CreateAssetModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_name"] = asset_model_name
         if asset_model_type is not None:
-            input["asset_model_type"] = asset_model_type
+            input_["asset_model_type"] = asset_model_type
         if asset_model_id is not None:
-            input["asset_model_id"] = asset_model_id
+            input_["asset_model_id"] = asset_model_id
         if asset_model_external_id is not None:
-            input["asset_model_external_id"] = asset_model_external_id
+            input_["asset_model_external_id"] = asset_model_external_id
         if asset_model_description is not None:
-            input["asset_model_description"] = asset_model_description
+            input_["asset_model_description"] = asset_model_description
         if asset_model_properties is not None:
-            input["asset_model_properties"] = asset_model_properties
+            input_["asset_model_properties"] = asset_model_properties
         if asset_model_hierarchies is not None:
-            input["asset_model_hierarchies"] = asset_model_hierarchies
+            input_["asset_model_hierarchies"] = asset_model_hierarchies
         if asset_model_composite_models is not None:
-            input["asset_model_composite_models"] = asset_model_composite_models
+            input_["asset_model_composite_models"] = asset_model_composite_models
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1127,41 +1127,41 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_asset_model_composite_model_request.CreateAssetModelCompositeModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
+        input_: aws_sdk_iotsitewise.types.create_asset_model_composite_model_request.CreateAssetModelCompositeModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
         if asset_model_composite_model_external_id is not None:
-            input["asset_model_composite_model_external_id"] = (
+            input_["asset_model_composite_model_external_id"] = (
                 asset_model_composite_model_external_id
             )
         if parent_asset_model_composite_model_id is not None:
-            input["parent_asset_model_composite_model_id"] = (
+            input_["parent_asset_model_composite_model_id"] = (
                 parent_asset_model_composite_model_id
             )
         if asset_model_composite_model_id is not None:
-            input["asset_model_composite_model_id"] = asset_model_composite_model_id
+            input_["asset_model_composite_model_id"] = asset_model_composite_model_id
         if asset_model_composite_model_description is not None:
-            input["asset_model_composite_model_description"] = (
+            input_["asset_model_composite_model_description"] = (
                 asset_model_composite_model_description
             )
-        input["asset_model_composite_model_name"] = asset_model_composite_model_name
-        input["asset_model_composite_model_type"] = asset_model_composite_model_type
+        input_["asset_model_composite_model_name"] = asset_model_composite_model_name
+        input_["asset_model_composite_model_type"] = asset_model_composite_model_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if composed_asset_model_id is not None:
-            input["composed_asset_model_id"] = composed_asset_model_id
+            input_["composed_asset_model_id"] = composed_asset_model_id
         if asset_model_composite_model_properties is not None:
-            input["asset_model_composite_model_properties"] = (
+            input_["asset_model_composite_model_properties"] = (
                 asset_model_composite_model_properties
             )
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if match_for_version_type is not None:
-            input["match_for_version_type"] = match_for_version_type
+            input_["match_for_version_type"] = match_for_version_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1211,19 +1211,19 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_bulk_import_job_request.CreateBulkImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_role_arn"] = job_role_arn
-        input["files"] = files
-        input["error_report_location"] = error_report_location
-        input["job_configuration"] = job_configuration
+        input_: aws_sdk_iotsitewise.types.create_bulk_import_job_request.CreateBulkImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_role_arn"] = job_role_arn
+        input_["files"] = files
+        input_["error_report_location"] = error_report_location
+        input_["job_configuration"] = job_configuration
         if adaptive_ingestion is not None:
-            input["adaptive_ingestion"] = adaptive_ingestion
+            input_["adaptive_ingestion"] = adaptive_ingestion
         if delete_files_after_import is not None:
-            input["delete_files_after_import"] = delete_files_after_import
+            input_["delete_files_after_import"] = delete_files_after_import
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1271,19 +1271,19 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_computation_model_request.CreateComputationModelRequest = {}  # type: ignore[typeddict-item]
-        input["computation_model_name"] = computation_model_name
+        input_: aws_sdk_iotsitewise.types.create_computation_model_request.CreateComputationModelRequest = {}  # type: ignore[typeddict-item]
+        input_["computation_model_name"] = computation_model_name
         if computation_model_description is not None:
-            input["computation_model_description"] = computation_model_description
-        input["computation_model_configuration"] = computation_model_configuration
-        input["computation_model_data_binding"] = computation_model_data_binding
+            input_["computation_model_description"] = computation_model_description
+        input_["computation_model_configuration"] = computation_model_configuration
+        input_["computation_model_data_binding"] = computation_model_data_binding
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1331,19 +1331,19 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_dashboard_request.CreateDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["project_id"] = project_id
-        input["dashboard_name"] = dashboard_name
+        input_: aws_sdk_iotsitewise.types.create_dashboard_request.CreateDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["project_id"] = project_id
+        input_["dashboard_name"] = dashboard_name
         if dashboard_description is not None:
-            input["dashboard_description"] = dashboard_description
-        input["dashboard_definition"] = dashboard_definition
+            input_["dashboard_description"] = dashboard_description
+        input_["dashboard_definition"] = dashboard_definition
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1391,20 +1391,20 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
         if dataset_id is not None:
-            input["dataset_id"] = dataset_id
-        input["dataset_name"] = dataset_name
+            input_["dataset_id"] = dataset_id
+        input_["dataset_name"] = dataset_name
         if dataset_description is not None:
-            input["dataset_description"] = dataset_description
-        input["dataset_source"] = dataset_source
+            input_["dataset_description"] = dataset_description
+        input_["dataset_source"] = dataset_source
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1446,16 +1446,16 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_name"] = gateway_name
-        input["gateway_platform"] = gateway_platform
+        input_: aws_sdk_iotsitewise.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_name"] = gateway_name
+        input_["gateway_platform"] = gateway_platform
         if gateway_version is not None:
-            input["gateway_version"] = gateway_version
+            input_["gateway_version"] = gateway_version
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1525,31 +1525,31 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_portal_request.CreatePortalRequest = {}  # type: ignore[typeddict-item]
-        input["portal_name"] = portal_name
+        input_: aws_sdk_iotsitewise.types.create_portal_request.CreatePortalRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_name"] = portal_name
         if portal_description is not None:
-            input["portal_description"] = portal_description
-        input["portal_contact_email"] = portal_contact_email
+            input_["portal_description"] = portal_description
+        input_["portal_contact_email"] = portal_contact_email
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if portal_logo_image_file is not None:
-            input["portal_logo_image_file"] = portal_logo_image_file
-        input["role_arn"] = role_arn
+            input_["portal_logo_image_file"] = portal_logo_image_file
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if portal_auth_mode is not None:
-            input["portal_auth_mode"] = portal_auth_mode
+            input_["portal_auth_mode"] = portal_auth_mode
         if notification_sender_email is not None:
-            input["notification_sender_email"] = notification_sender_email
+            input_["notification_sender_email"] = notification_sender_email
         if alarms is not None:
-            input["alarms"] = alarms
+            input_["alarms"] = alarms
         if portal_type is not None:
-            input["portal_type"] = portal_type
+            input_["portal_type"] = portal_type
         if portal_type_configuration is not None:
-            input["portal_type_configuration"] = portal_type_configuration
+            input_["portal_type_configuration"] = portal_type_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1595,18 +1595,18 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.create_project_request.CreateProjectRequest = {}  # type: ignore[typeddict-item]
-        input["portal_id"] = portal_id
-        input["project_name"] = project_name
+        input_: aws_sdk_iotsitewise.types.create_project_request.CreateProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_id"] = portal_id
+        input_["project_name"] = project_name
         if project_description is not None:
-            input["project_description"] = project_description
+            input_["project_description"] = project_description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1644,13 +1644,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_access_policy_request.DeleteAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["access_policy_id"] = access_policy_id
+        input_: aws_sdk_iotsitewise.types.delete_access_policy_request.DeleteAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["access_policy_id"] = access_policy_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1688,13 +1688,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
+        input_: aws_sdk_iotsitewise.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1744,19 +1744,19 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_asset_model_request.DeleteAssetModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
+        input_: aws_sdk_iotsitewise.types.delete_asset_model_request.DeleteAssetModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if match_for_version_type is not None:
-            input["match_for_version_type"] = match_for_version_type
+            input_["match_for_version_type"] = match_for_version_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1806,20 +1806,20 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_asset_model_composite_model_request.DeleteAssetModelCompositeModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
-        input["asset_model_composite_model_id"] = asset_model_composite_model_id
+        input_: aws_sdk_iotsitewise.types.delete_asset_model_composite_model_request.DeleteAssetModelCompositeModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
+        input_["asset_model_composite_model_id"] = asset_model_composite_model_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if match_for_version_type is not None:
-            input["match_for_version_type"] = match_for_version_type
+            input_["match_for_version_type"] = match_for_version_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1859,14 +1859,14 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_asset_model_interface_relationship_request.DeleteAssetModelInterfaceRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
-        input["interface_asset_model_id"] = interface_asset_model_id
+        input_: aws_sdk_iotsitewise.types.delete_asset_model_interface_relationship_request.DeleteAssetModelInterfaceRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
+        input_["interface_asset_model_id"] = interface_asset_model_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1904,13 +1904,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_computation_model_request.DeleteComputationModelRequest = {}  # type: ignore[typeddict-item]
-        input["computation_model_id"] = computation_model_id
+        input_: aws_sdk_iotsitewise.types.delete_computation_model_request.DeleteComputationModelRequest = {}  # type: ignore[typeddict-item]
+        input_["computation_model_id"] = computation_model_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1948,13 +1948,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_dashboard_request.DeleteDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_iotsitewise.types.delete_dashboard_request.DeleteDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_id"] = dashboard_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1992,13 +1992,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_iotsitewise.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2030,11 +2030,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_gateway_request.DeleteGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_iotsitewise.types.delete_gateway_request.DeleteGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2072,13 +2072,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_portal_request.DeletePortalRequest = {}  # type: ignore[typeddict-item]
-        input["portal_id"] = portal_id
+        input_: aws_sdk_iotsitewise.types.delete_portal_request.DeletePortalRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_id"] = portal_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2116,13 +2116,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_project_request.DeleteProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_id"] = project_id
+        input_: aws_sdk_iotsitewise.types.delete_project_request.DeleteProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_id"] = project_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2164,18 +2164,18 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.delete_time_series_request.DeleteTimeSeriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.delete_time_series_request.DeleteTimeSeriesRequest = {}  # type: ignore[typeddict-item]
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if property_id is not None:
-            input["property_id"] = property_id
+            input_["property_id"] = property_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2209,11 +2209,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_access_policy_request.DescribeAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["access_policy_id"] = access_policy_id
+        input_: aws_sdk_iotsitewise.types.describe_access_policy_request.DescribeAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["access_policy_id"] = access_policy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2247,11 +2247,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_action_request.DescribeActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_id"] = action_id
+        input_: aws_sdk_iotsitewise.types.describe_action_request.DescribeActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_id"] = action_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2289,13 +2289,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_asset_request.DescribeAssetRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
+        input_: aws_sdk_iotsitewise.types.describe_asset_request.DescribeAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
         if exclude_properties is not None:
-            input["exclude_properties"] = exclude_properties
+            input_["exclude_properties"] = exclude_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2377,12 +2377,12 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_asset_composite_model_request.DescribeAssetCompositeModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["asset_composite_model_id"] = asset_composite_model_id
+        input_: aws_sdk_iotsitewise.types.describe_asset_composite_model_request.DescribeAssetCompositeModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["asset_composite_model_id"] = asset_composite_model_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2424,15 +2424,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_asset_model_request.DescribeAssetModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
+        input_: aws_sdk_iotsitewise.types.describe_asset_model_request.DescribeAssetModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
         if exclude_properties is not None:
-            input["exclude_properties"] = exclude_properties
+            input_["exclude_properties"] = exclude_properties
         if asset_model_version is not None:
-            input["asset_model_version"] = asset_model_version
+            input_["asset_model_version"] = asset_model_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2523,14 +2523,14 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_asset_model_composite_model_request.DescribeAssetModelCompositeModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
-        input["asset_model_composite_model_id"] = asset_model_composite_model_id
+        input_: aws_sdk_iotsitewise.types.describe_asset_model_composite_model_request.DescribeAssetModelCompositeModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
+        input_["asset_model_composite_model_id"] = asset_model_composite_model_id
         if asset_model_version is not None:
-            input["asset_model_version"] = asset_model_version
+            input_["asset_model_version"] = asset_model_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2566,12 +2566,12 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_asset_model_interface_relationship_request.DescribeAssetModelInterfaceRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
-        input["interface_asset_model_id"] = interface_asset_model_id
+        input_: aws_sdk_iotsitewise.types.describe_asset_model_interface_relationship_request.DescribeAssetModelInterfaceRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
+        input_["interface_asset_model_id"] = interface_asset_model_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2607,12 +2607,12 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_asset_property_request.DescribeAssetPropertyRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["property_id"] = property_id
+        input_: aws_sdk_iotsitewise.types.describe_asset_property_request.DescribeAssetPropertyRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["property_id"] = property_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2646,11 +2646,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_bulk_import_job_request.DescribeBulkImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_iotsitewise.types.describe_bulk_import_job_request.DescribeBulkImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2688,13 +2688,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_computation_model_request.DescribeComputationModelRequest = {}  # type: ignore[typeddict-item]
-        input["computation_model_id"] = computation_model_id
+        input_: aws_sdk_iotsitewise.types.describe_computation_model_request.DescribeComputationModelRequest = {}  # type: ignore[typeddict-item]
+        input_["computation_model_id"] = computation_model_id
         if computation_model_version is not None:
-            input["computation_model_version"] = computation_model_version
+            input_["computation_model_version"] = computation_model_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2734,15 +2734,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_computation_model_execution_summary_request.DescribeComputationModelExecutionSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["computation_model_id"] = computation_model_id
+        input_: aws_sdk_iotsitewise.types.describe_computation_model_execution_summary_request.DescribeComputationModelExecutionSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["computation_model_id"] = computation_model_id
         if resolve_to_resource_type is not None:
-            input["resolve_to_resource_type"] = resolve_to_resource_type
+            input_["resolve_to_resource_type"] = resolve_to_resource_type
         if resolve_to_resource_id is not None:
-            input["resolve_to_resource_id"] = resolve_to_resource_id
+            input_["resolve_to_resource_id"] = resolve_to_resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2776,11 +2776,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_dashboard_request.DescribeDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_iotsitewise.types.describe_dashboard_request.DescribeDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_id"] = dashboard_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2814,11 +2814,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_iotsitewise.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2845,10 +2845,10 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_default_encryption_configuration_request.DescribeDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.describe_default_encryption_configuration_request.DescribeDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2882,11 +2882,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_execution_request.DescribeExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["execution_id"] = execution_id
+        input_: aws_sdk_iotsitewise.types.describe_execution_request.DescribeExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["execution_id"] = execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2920,11 +2920,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_gateway_request.DescribeGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_iotsitewise.types.describe_gateway_request.DescribeGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2960,12 +2960,12 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_gateway_capability_configuration_request.DescribeGatewayCapabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["capability_namespace"] = capability_namespace
+        input_: aws_sdk_iotsitewise.types.describe_gateway_capability_configuration_request.DescribeGatewayCapabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["capability_namespace"] = capability_namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2992,10 +2992,10 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_logging_options_request.DescribeLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.describe_logging_options_request.DescribeLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3029,11 +3029,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_portal_request.DescribePortalRequest = {}  # type: ignore[typeddict-item]
-        input["portal_id"] = portal_id
+        input_: aws_sdk_iotsitewise.types.describe_portal_request.DescribePortalRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_id"] = portal_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3107,11 +3107,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_project_request.DescribeProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_id"] = project_id
+        input_: aws_sdk_iotsitewise.types.describe_project_request.DescribeProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_id"] = project_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3138,10 +3138,10 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_storage_configuration_request.DescribeStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.describe_storage_configuration_request.DescribeStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3181,16 +3181,16 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.describe_time_series_request.DescribeTimeSeriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.describe_time_series_request.DescribeTimeSeriesRequest = {}  # type: ignore[typeddict-item]
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if property_id is not None:
-            input["property_id"] = property_id
+            input_["property_id"] = property_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3230,15 +3230,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.disassociate_assets_request.DisassociateAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["hierarchy_id"] = hierarchy_id
-        input["child_asset_id"] = child_asset_id
+        input_: aws_sdk_iotsitewise.types.disassociate_assets_request.DisassociateAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["hierarchy_id"] = hierarchy_id
+        input_["child_asset_id"] = child_asset_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3278,15 +3278,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.disassociate_time_series_from_asset_property_request.DisassociateTimeSeriesFromAssetPropertyRequest = {}  # type: ignore[typeddict-item]
-        input["alias"] = alias
-        input["asset_id"] = asset_id
-        input["property_id"] = property_id
+        input_: aws_sdk_iotsitewise.types.disassociate_time_series_from_asset_property_request.DisassociateTimeSeriesFromAssetPropertyRequest = {}  # type: ignore[typeddict-item]
+        input_["alias"] = alias
+        input_["asset_id"] = asset_id
+        input_["property_id"] = property_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3330,17 +3330,17 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.execute_action_request.ExecuteActionRequest = {}  # type: ignore[typeddict-item]
-        input["target_resource"] = target_resource
-        input["action_definition_id"] = action_definition_id
-        input["action_payload"] = action_payload
+        input_: aws_sdk_iotsitewise.types.execute_action_request.ExecuteActionRequest = {}  # type: ignore[typeddict-item]
+        input_["target_resource"] = target_resource
+        input_["action_definition_id"] = action_definition_id
+        input_["action_payload"] = action_payload
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if resolve_to is not None:
-            input["resolve_to"] = resolve_to
+            input_["resolve_to"] = resolve_to
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3386,17 +3386,17 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.execute_query_request.ExecuteQueryRequest = {}  # type: ignore[typeddict-item]
-        input["query_statement"] = query_statement
+        input_: aws_sdk_iotsitewise.types.execute_query_request.ExecuteQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["query_statement"] = query_statement
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3487,28 +3487,28 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.get_asset_property_aggregates_request.GetAssetPropertyAggregatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.get_asset_property_aggregates_request.GetAssetPropertyAggregatesRequest = {}  # type: ignore[typeddict-item]
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if property_id is not None:
-            input["property_id"] = property_id
+            input_["property_id"] = property_id
         if property_alias is not None:
-            input["property_alias"] = property_alias
-        input["aggregate_types"] = aggregate_types
-        input["resolution"] = resolution
+            input_["property_alias"] = property_alias
+        input_["aggregate_types"] = aggregate_types
+        input_["resolution"] = resolution
         if qualities is not None:
-            input["qualities"] = qualities
-        input["start_date"] = start_date
-        input["end_date"] = end_date
+            input_["qualities"] = qualities
+        input_["start_date"] = start_date
+        input_["end_date"] = end_date
         if time_ordering is not None:
-            input["time_ordering"] = time_ordering
+            input_["time_ordering"] = time_ordering
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3593,16 +3593,16 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.get_asset_property_value_request.GetAssetPropertyValueRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.get_asset_property_value_request.GetAssetPropertyValueRequest = {}  # type: ignore[typeddict-item]
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if property_id is not None:
-            input["property_id"] = property_id
+            input_["property_id"] = property_id
         if property_alias is not None:
-            input["property_alias"] = property_alias
+            input_["property_alias"] = property_alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3658,28 +3658,28 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.get_asset_property_value_history_request.GetAssetPropertyValueHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.get_asset_property_value_history_request.GetAssetPropertyValueHistoryRequest = {}  # type: ignore[typeddict-item]
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if property_id is not None:
-            input["property_id"] = property_id
+            input_["property_id"] = property_id
         if property_alias is not None:
-            input["property_alias"] = property_alias
+            input_["property_alias"] = property_alias
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
+            input_["end_date"] = end_date
         if qualities is not None:
-            input["qualities"] = qualities
+            input_["qualities"] = qualities
         if time_ordering is not None:
-            input["time_ordering"] = time_ordering
+            input_["time_ordering"] = time_ordering
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3788,31 +3788,31 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.get_interpolated_asset_property_values_request.GetInterpolatedAssetPropertyValuesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.get_interpolated_asset_property_values_request.GetInterpolatedAssetPropertyValuesRequest = {}  # type: ignore[typeddict-item]
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if property_id is not None:
-            input["property_id"] = property_id
+            input_["property_id"] = property_id
         if property_alias is not None:
-            input["property_alias"] = property_alias
-        input["start_time_in_seconds"] = start_time_in_seconds
+            input_["property_alias"] = property_alias
+        input_["start_time_in_seconds"] = start_time_in_seconds
         if start_time_offset_in_nanos is not None:
-            input["start_time_offset_in_nanos"] = start_time_offset_in_nanos
-        input["end_time_in_seconds"] = end_time_in_seconds
+            input_["start_time_offset_in_nanos"] = start_time_offset_in_nanos
+        input_["end_time_in_seconds"] = end_time_in_seconds
         if end_time_offset_in_nanos is not None:
-            input["end_time_offset_in_nanos"] = end_time_offset_in_nanos
-        input["quality"] = quality
-        input["interval_in_seconds"] = interval_in_seconds
+            input_["end_time_offset_in_nanos"] = end_time_offset_in_nanos
+        input_["quality"] = quality
+        input_["interval_in_seconds"] = interval_in_seconds
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["type"] = type
+            input_["max_results"] = max_results
+        input_["type"] = type
         if interval_window_in_seconds is not None:
-            input["interval_window_in_seconds"] = interval_window_in_seconds
+            input_["interval_window_in_seconds"] = interval_window_in_seconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3905,15 +3905,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.invoke_assistant_request.InvokeAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.invoke_assistant_request.InvokeAssistantRequest = {}  # type: ignore[typeddict-item]
         if conversation_id is not None:
-            input["conversation_id"] = conversation_id
-        input["message"] = message
+            input_["conversation_id"] = conversation_id
+        input_["message"] = message
         if enable_trace is not None:
-            input["enable_trace"] = enable_trace
+            input_["enable_trace"] = enable_trace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3967,24 +3967,24 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_access_policies_request.ListAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.list_access_policies_request.ListAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
         if identity_type is not None:
-            input["identity_type"] = identity_type
+            input_["identity_type"] = identity_type
         if identity_id is not None:
-            input["identity_id"] = identity_id
+            input_["identity_id"] = identity_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if iam_arn is not None:
-            input["iam_arn"] = iam_arn
+            input_["iam_arn"] = iam_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4071,20 +4071,20 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_actions_request.ListActionsRequest = {}  # type: ignore[typeddict-item]
-        input["target_resource_type"] = target_resource_type
-        input["target_resource_id"] = target_resource_id
+        input_: aws_sdk_iotsitewise.types.list_actions_request.ListActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["target_resource_type"] = target_resource_type
+        input_["target_resource_id"] = target_resource_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resolve_to_resource_type is not None:
-            input["resolve_to_resource_type"] = resolve_to_resource_type
+            input_["resolve_to_resource_type"] = resolve_to_resource_type
         if resolve_to_resource_id is not None:
-            input["resolve_to_resource_id"] = resolve_to_resource_id
+            input_["resolve_to_resource_id"] = resolve_to_resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4161,17 +4161,17 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_asset_model_composite_models_request.ListAssetModelCompositeModelsRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
+        input_: aws_sdk_iotsitewise.types.list_asset_model_composite_models_request.ListAssetModelCompositeModelsRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if asset_model_version is not None:
-            input["asset_model_version"] = asset_model_version
+            input_["asset_model_version"] = asset_model_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4248,19 +4248,19 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_asset_model_properties_request.ListAssetModelPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
+        input_: aws_sdk_iotsitewise.types.list_asset_model_properties_request.ListAssetModelPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if asset_model_version is not None:
-            input["asset_model_version"] = asset_model_version
+            input_["asset_model_version"] = asset_model_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4339,18 +4339,18 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_asset_models_request.ListAssetModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.list_asset_models_request.ListAssetModelsRequest = {}  # type: ignore[typeddict-item]
         if asset_model_types is not None:
-            input["asset_model_types"] = asset_model_types
+            input_["asset_model_types"] = asset_model_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if asset_model_version is not None:
-            input["asset_model_version"] = asset_model_version
+            input_["asset_model_version"] = asset_model_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4427,17 +4427,17 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_asset_properties_request.ListAssetPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
+        input_: aws_sdk_iotsitewise.types.list_asset_properties_request.ListAssetPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4508,16 +4508,16 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_asset_relationships_request.ListAssetRelationshipsRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["traversal_type"] = traversal_type
+        input_: aws_sdk_iotsitewise.types.list_asset_relationships_request.ListAssetRelationshipsRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["traversal_type"] = traversal_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4588,18 +4588,18 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_assets_request.ListAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.list_assets_request.ListAssetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if asset_model_id is not None:
-            input["asset_model_id"] = asset_model_id
+            input_["asset_model_id"] = asset_model_id
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4674,19 +4674,19 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_associated_assets_request.ListAssociatedAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
+        input_: aws_sdk_iotsitewise.types.list_associated_assets_request.ListAssociatedAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
         if hierarchy_id is not None:
-            input["hierarchy_id"] = hierarchy_id
+            input_["hierarchy_id"] = hierarchy_id
         if traversal_direction is not None:
-            input["traversal_direction"] = traversal_direction
+            input_["traversal_direction"] = traversal_direction
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4759,16 +4759,16 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_bulk_import_jobs_request.ListBulkImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.list_bulk_import_jobs_request.ListBulkImportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4835,15 +4835,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_composition_relationships_request.ListCompositionRelationshipsRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
+        input_: aws_sdk_iotsitewise.types.list_composition_relationships_request.ListCompositionRelationshipsRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4908,15 +4908,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_computation_model_data_binding_usages_request.ListComputationModelDataBindingUsagesRequest = {}  # type: ignore[typeddict-item]
-        input["data_binding_value_filter"] = data_binding_value_filter
+        input_: aws_sdk_iotsitewise.types.list_computation_model_data_binding_usages_request.ListComputationModelDataBindingUsagesRequest = {}  # type: ignore[typeddict-item]
+        input_["data_binding_value_filter"] = data_binding_value_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4981,15 +4981,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_computation_model_resolve_to_resources_request.ListComputationModelResolveToResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["computation_model_id"] = computation_model_id
+        input_: aws_sdk_iotsitewise.types.list_computation_model_resolve_to_resources_request.ListComputationModelResolveToResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["computation_model_id"] = computation_model_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5058,16 +5058,16 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_computation_models_request.ListComputationModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.list_computation_models_request.ListComputationModelsRequest = {}  # type: ignore[typeddict-item]
         if computation_model_type is not None:
-            input["computation_model_type"] = computation_model_type
+            input_["computation_model_type"] = computation_model_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5134,15 +5134,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_dashboards_request.ListDashboardsRequest = {}  # type: ignore[typeddict-item]
-        input["project_id"] = project_id
+        input_: aws_sdk_iotsitewise.types.list_dashboards_request.ListDashboardsRequest = {}  # type: ignore[typeddict-item]
+        input_["project_id"] = project_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5207,15 +5207,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
-        input["source_type"] = source_type
+        input_: aws_sdk_iotsitewise.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_["source_type"] = source_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5290,22 +5290,22 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_executions_request.ListExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["target_resource_type"] = target_resource_type
-        input["target_resource_id"] = target_resource_id
+        input_: aws_sdk_iotsitewise.types.list_executions_request.ListExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["target_resource_type"] = target_resource_type
+        input_["target_resource_id"] = target_resource_id
         if resolve_to_resource_type is not None:
-            input["resolve_to_resource_type"] = resolve_to_resource_type
+            input_["resolve_to_resource_type"] = resolve_to_resource_type
         if resolve_to_resource_id is not None:
-            input["resolve_to_resource_id"] = resolve_to_resource_id
+            input_["resolve_to_resource_id"] = resolve_to_resource_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if action_type is not None:
-            input["action_type"] = action_type
+            input_["action_type"] = action_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5378,14 +5378,14 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_gateways_request.ListGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.list_gateways_request.ListGatewaysRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5448,15 +5448,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_interface_relationships_request.ListInterfaceRelationshipsRequest = {}  # type: ignore[typeddict-item]
-        input["interface_asset_model_id"] = interface_asset_model_id
+        input_: aws_sdk_iotsitewise.types.list_interface_relationships_request.ListInterfaceRelationshipsRequest = {}  # type: ignore[typeddict-item]
+        input_["interface_asset_model_id"] = interface_asset_model_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5519,14 +5519,14 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_portals_request.ListPortalsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.list_portals_request.ListPortalsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5589,15 +5589,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_project_assets_request.ListProjectAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["project_id"] = project_id
+        input_: aws_sdk_iotsitewise.types.list_project_assets_request.ListProjectAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["project_id"] = project_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5662,15 +5662,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_projects_request.ListProjectsRequest = {}  # type: ignore[typeddict-item]
-        input["portal_id"] = portal_id
+        input_: aws_sdk_iotsitewise.types.list_projects_request.ListProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_id"] = portal_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5729,11 +5729,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iotsitewise.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5781,20 +5781,20 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.list_time_series_request.ListTimeSeriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsitewise.types.list_time_series_request.ListTimeSeriesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if alias_prefix is not None:
-            input["alias_prefix"] = alias_prefix
+            input_["alias_prefix"] = alias_prefix
         if time_series_type is not None:
-            input["time_series_type"] = time_series_type
+            input_["time_series_type"] = time_series_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5871,15 +5871,15 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.put_asset_model_interface_relationship_request.PutAssetModelInterfaceRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
-        input["interface_asset_model_id"] = interface_asset_model_id
-        input["property_mapping_configuration"] = property_mapping_configuration
+        input_: aws_sdk_iotsitewise.types.put_asset_model_interface_relationship_request.PutAssetModelInterfaceRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
+        input_["interface_asset_model_id"] = interface_asset_model_id
+        input_["property_mapping_configuration"] = property_mapping_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5915,13 +5915,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.put_default_encryption_configuration_request.PutDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["encryption_type"] = encryption_type
+        input_: aws_sdk_iotsitewise.types.put_default_encryption_configuration_request.PutDefaultEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["encryption_type"] = encryption_type
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5955,11 +5955,11 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.put_logging_options_request.PutLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["logging_options"] = logging_options
+        input_: aws_sdk_iotsitewise.types.put_logging_options_request.PutLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["logging_options"] = logging_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6016,23 +6016,23 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.put_storage_configuration_request.PutStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["storage_type"] = storage_type
+        input_: aws_sdk_iotsitewise.types.put_storage_configuration_request.PutStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["storage_type"] = storage_type
         if multi_layer_storage is not None:
-            input["multi_layer_storage"] = multi_layer_storage
+            input_["multi_layer_storage"] = multi_layer_storage
         if disassociated_data_storage is not None:
-            input["disassociated_data_storage"] = disassociated_data_storage
+            input_["disassociated_data_storage"] = disassociated_data_storage
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if warm_tier is not None:
-            input["warm_tier"] = warm_tier
+            input_["warm_tier"] = warm_tier
         if warm_tier_retention_period is not None:
-            input["warm_tier_retention_period"] = warm_tier_retention_period
+            input_["warm_tier_retention_period"] = warm_tier_retention_period
         if disallow_ingest_null_na_n is not None:
-            input["disallow_ingest_null_na_n"] = disallow_ingest_null_na_n
+            input_["disallow_ingest_null_na_n"] = disallow_ingest_null_na_n
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6068,12 +6068,12 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iotsitewise.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6109,12 +6109,12 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iotsitewise.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6158,16 +6158,16 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_access_policy_request.UpdateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["access_policy_id"] = access_policy_id
-        input["access_policy_identity"] = access_policy_identity
-        input["access_policy_resource"] = access_policy_resource
-        input["access_policy_permission"] = access_policy_permission
+        input_: aws_sdk_iotsitewise.types.update_access_policy_request.UpdateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["access_policy_id"] = access_policy_id
+        input_["access_policy_identity"] = access_policy_identity
+        input_["access_policy_resource"] = access_policy_resource
+        input_["access_policy_permission"] = access_policy_permission
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6215,18 +6215,18 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_asset_request.UpdateAssetRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
+        input_: aws_sdk_iotsitewise.types.update_asset_request.UpdateAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
         if asset_external_id is not None:
-            input["asset_external_id"] = asset_external_id
-        input["asset_name"] = asset_name
+            input_["asset_external_id"] = asset_external_id
+        input_["asset_name"] = asset_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if asset_description is not None:
-            input["asset_description"] = asset_description
+            input_["asset_description"] = asset_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6298,30 +6298,30 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_asset_model_request.UpdateAssetModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
+        input_: aws_sdk_iotsitewise.types.update_asset_model_request.UpdateAssetModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
         if asset_model_external_id is not None:
-            input["asset_model_external_id"] = asset_model_external_id
-        input["asset_model_name"] = asset_model_name
+            input_["asset_model_external_id"] = asset_model_external_id
+        input_["asset_model_name"] = asset_model_name
         if asset_model_description is not None:
-            input["asset_model_description"] = asset_model_description
+            input_["asset_model_description"] = asset_model_description
         if asset_model_properties is not None:
-            input["asset_model_properties"] = asset_model_properties
+            input_["asset_model_properties"] = asset_model_properties
         if asset_model_hierarchies is not None:
-            input["asset_model_hierarchies"] = asset_model_hierarchies
+            input_["asset_model_hierarchies"] = asset_model_hierarchies
         if asset_model_composite_models is not None:
-            input["asset_model_composite_models"] = asset_model_composite_models
+            input_["asset_model_composite_models"] = asset_model_composite_models
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if match_for_version_type is not None:
-            input["match_for_version_type"] = match_for_version_type
+            input_["match_for_version_type"] = match_for_version_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6385,33 +6385,33 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_asset_model_composite_model_request.UpdateAssetModelCompositeModelRequest = {}  # type: ignore[typeddict-item]
-        input["asset_model_id"] = asset_model_id
-        input["asset_model_composite_model_id"] = asset_model_composite_model_id
+        input_: aws_sdk_iotsitewise.types.update_asset_model_composite_model_request.UpdateAssetModelCompositeModelRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_model_id"] = asset_model_id
+        input_["asset_model_composite_model_id"] = asset_model_composite_model_id
         if asset_model_composite_model_external_id is not None:
-            input["asset_model_composite_model_external_id"] = (
+            input_["asset_model_composite_model_external_id"] = (
                 asset_model_composite_model_external_id
             )
         if asset_model_composite_model_description is not None:
-            input["asset_model_composite_model_description"] = (
+            input_["asset_model_composite_model_description"] = (
                 asset_model_composite_model_description
             )
-        input["asset_model_composite_model_name"] = asset_model_composite_model_name
+        input_["asset_model_composite_model_name"] = asset_model_composite_model_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if asset_model_composite_model_properties is not None:
-            input["asset_model_composite_model_properties"] = (
+            input_["asset_model_composite_model_properties"] = (
                 asset_model_composite_model_properties
             )
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if match_for_version_type is not None:
-            input["match_for_version_type"] = match_for_version_type
+            input_["match_for_version_type"] = match_for_version_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6461,20 +6461,20 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_asset_property_request.UpdateAssetPropertyRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["property_id"] = property_id
+        input_: aws_sdk_iotsitewise.types.update_asset_property_request.UpdateAssetPropertyRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["property_id"] = property_id
         if property_alias is not None:
-            input["property_alias"] = property_alias
+            input_["property_alias"] = property_alias
         if property_notification_state is not None:
-            input["property_notification_state"] = property_notification_state
+            input_["property_notification_state"] = property_notification_state
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if property_unit is not None:
-            input["property_unit"] = property_unit
+            input_["property_unit"] = property_unit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6522,18 +6522,18 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_computation_model_request.UpdateComputationModelRequest = {}  # type: ignore[typeddict-item]
-        input["computation_model_id"] = computation_model_id
-        input["computation_model_name"] = computation_model_name
+        input_: aws_sdk_iotsitewise.types.update_computation_model_request.UpdateComputationModelRequest = {}  # type: ignore[typeddict-item]
+        input_["computation_model_id"] = computation_model_id
+        input_["computation_model_name"] = computation_model_name
         if computation_model_description is not None:
-            input["computation_model_description"] = computation_model_description
-        input["computation_model_configuration"] = computation_model_configuration
-        input["computation_model_data_binding"] = computation_model_data_binding
+            input_["computation_model_description"] = computation_model_description
+        input_["computation_model_configuration"] = computation_model_configuration
+        input_["computation_model_data_binding"] = computation_model_data_binding
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6579,17 +6579,17 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_dashboard_request.UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_id"] = dashboard_id
-        input["dashboard_name"] = dashboard_name
+        input_: aws_sdk_iotsitewise.types.update_dashboard_request.UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_id"] = dashboard_id
+        input_["dashboard_name"] = dashboard_name
         if dashboard_description is not None:
-            input["dashboard_description"] = dashboard_description
-        input["dashboard_definition"] = dashboard_definition
+            input_["dashboard_description"] = dashboard_description
+        input_["dashboard_definition"] = dashboard_definition
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6635,17 +6635,17 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_iotsitewise.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
+        input_["dataset_name"] = dataset_name
         if dataset_description is not None:
-            input["dataset_description"] = dataset_description
-        input["dataset_source"] = dataset_source
+            input_["dataset_description"] = dataset_description
+        input_["dataset_source"] = dataset_source
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6679,12 +6679,12 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_gateway_request.UpdateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["gateway_name"] = gateway_name
+        input_: aws_sdk_iotsitewise.types.update_gateway_request.UpdateGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["gateway_name"] = gateway_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6722,13 +6722,13 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_gateway_capability_configuration_request.UpdateGatewayCapabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["capability_namespace"] = capability_namespace
-        input["capability_configuration"] = capability_configuration
+        input_: aws_sdk_iotsitewise.types.update_gateway_capability_configuration_request.UpdateGatewayCapabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["capability_namespace"] = capability_namespace
+        input_["capability_configuration"] = capability_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6791,28 +6791,28 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_portal_request.UpdatePortalRequest = {}  # type: ignore[typeddict-item]
-        input["portal_id"] = portal_id
-        input["portal_name"] = portal_name
+        input_: aws_sdk_iotsitewise.types.update_portal_request.UpdatePortalRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_id"] = portal_id
+        input_["portal_name"] = portal_name
         if portal_description is not None:
-            input["portal_description"] = portal_description
-        input["portal_contact_email"] = portal_contact_email
+            input_["portal_description"] = portal_description
+        input_["portal_contact_email"] = portal_contact_email
         if portal_logo_image is not None:
-            input["portal_logo_image"] = portal_logo_image
-        input["role_arn"] = role_arn
+            input_["portal_logo_image"] = portal_logo_image
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if notification_sender_email is not None:
-            input["notification_sender_email"] = notification_sender_email
+            input_["notification_sender_email"] = notification_sender_email
         if alarms is not None:
-            input["alarms"] = alarms
+            input_["alarms"] = alarms
         if portal_type is not None:
-            input["portal_type"] = portal_type
+            input_["portal_type"] = portal_type
         if portal_type_configuration is not None:
-            input["portal_type_configuration"] = portal_type_configuration
+            input_["portal_type_configuration"] = portal_type_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6856,16 +6856,16 @@ class AsyncIoTSiteWiseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsitewise.types.update_project_request.UpdateProjectRequest = {}  # type: ignore[typeddict-item]
-        input["project_id"] = project_id
-        input["project_name"] = project_name
+        input_: aws_sdk_iotsitewise.types.update_project_request.UpdateProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["project_id"] = project_id
+        input_["project_name"] = project_name
         if project_description is not None:
-            input["project_description"] = project_description
+            input_["project_description"] = project_description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

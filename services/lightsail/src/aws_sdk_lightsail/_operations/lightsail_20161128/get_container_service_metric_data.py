@@ -101,32 +101,32 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_lightsail.types.get_container_service_metric_data_request.GetContainerServiceMetricDataRequest,
+    input_: aws_sdk_lightsail.types.get_container_service_metric_data_request.GetContainerServiceMetricDataRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/ls/api/2016-11-28/container-services/{serviceName}/metrics"
     )
-    url = url.replace("{serviceName}", quote(str(input["service_name"]), safe=""))
+    url = url.replace("{serviceName}", quote(str(input_["service_name"]), safe=""))
     params: dict[str, str] = {}
-    if "metric_name" in input:
-        params["metricName"] = str(input["metric_name"])
-    if "start_time" in input:
-        params["startTime"] = str(input["start_time"])
-    if "end_time" in input:
-        params["endTime"] = str(input["end_time"])
-    if "period" in input:
-        params["period"] = str(input["period"])
-    if "statistics" in input:
-        params["statistics"] = str(input["statistics"])
+    if "metric_name" in input_:
+        params["metricName"] = str(input_["metric_name"])
+    if "start_time" in input_:
+        params["startTime"] = str(input_["start_time"])
+    if "end_time" in input_:
+        params["endTime"] = str(input_["end_time"])
+    if "period" in input_:
+        params["period"] = str(input_["period"])
+    if "statistics" in input_:
+        params["statistics"] = str(input_["statistics"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Lightsail_20161128.GetContainerServiceMetricData"
     body: bytes | None = b""
@@ -134,26 +134,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_container_service_metric_data(
     options: OperationOptions,
-    input: aws_sdk_lightsail.types.get_container_service_metric_data_request.GetContainerServiceMetricDataRequest,
+    input_: aws_sdk_lightsail.types.get_container_service_metric_data_request.GetContainerServiceMetricDataRequest,
 ) -> tuple[
     aws_sdk_lightsail.types.get_container_service_metric_data_result.GetContainerServiceMetricDataResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -162,16 +159,17 @@ def get_container_service_metric_data(
 
 async def async_get_container_service_metric_data(
     options: AsyncOperationOptions,
-    input: aws_sdk_lightsail.types.get_container_service_metric_data_request.GetContainerServiceMetricDataRequest,
+    input_: aws_sdk_lightsail.types.get_container_service_metric_data_request.GetContainerServiceMetricDataRequest,
 ) -> tuple[
     aws_sdk_lightsail.types.get_container_service_metric_data_result.GetContainerServiceMetricDataResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

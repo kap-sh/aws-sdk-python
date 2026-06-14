@@ -99,32 +99,32 @@ class MissionProfile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.create_mission_profile_request.CreateMissionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_groundstation.types.create_mission_profile_request.CreateMissionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if contact_pre_pass_duration_seconds is not None:
-            input["contact_pre_pass_duration_seconds"] = (
+            input_["contact_pre_pass_duration_seconds"] = (
                 contact_pre_pass_duration_seconds
             )
         if contact_post_pass_duration_seconds is not None:
-            input["contact_post_pass_duration_seconds"] = (
+            input_["contact_post_pass_duration_seconds"] = (
                 contact_post_pass_duration_seconds
             )
-        input["minimum_viable_contact_duration_seconds"] = (
+        input_["minimum_viable_contact_duration_seconds"] = (
             minimum_viable_contact_duration_seconds
         )
-        input["dataflow_edges"] = dataflow_edges
-        input["tracking_config_arn"] = tracking_config_arn
+        input_["dataflow_edges"] = dataflow_edges
+        input_["tracking_config_arn"] = tracking_config_arn
         if telemetry_sink_config_arn is not None:
-            input["telemetry_sink_config_arn"] = telemetry_sink_config_arn
+            input_["telemetry_sink_config_arn"] = telemetry_sink_config_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if streams_kms_key is not None:
-            input["streams_kms_key"] = streams_kms_key
+            input_["streams_kms_key"] = streams_kms_key
         if streams_kms_role is not None:
-            input["streams_kms_role"] = streams_kms_role
+            input_["streams_kms_role"] = streams_kms_role
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,11 +157,11 @@ class MissionProfile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_mission_profile_request.GetMissionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["mission_profile_id"] = mission_profile_id
+        input_: aws_sdk_groundstation.types.get_mission_profile_request.GetMissionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["mission_profile_id"] = mission_profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,35 +226,35 @@ class MissionProfile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_mission_profile_request.UpdateMissionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["mission_profile_id"] = mission_profile_id
+        input_: aws_sdk_groundstation.types.update_mission_profile_request.UpdateMissionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["mission_profile_id"] = mission_profile_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if contact_pre_pass_duration_seconds is not None:
-            input["contact_pre_pass_duration_seconds"] = (
+            input_["contact_pre_pass_duration_seconds"] = (
                 contact_pre_pass_duration_seconds
             )
         if contact_post_pass_duration_seconds is not None:
-            input["contact_post_pass_duration_seconds"] = (
+            input_["contact_post_pass_duration_seconds"] = (
                 contact_post_pass_duration_seconds
             )
         if minimum_viable_contact_duration_seconds is not None:
-            input["minimum_viable_contact_duration_seconds"] = (
+            input_["minimum_viable_contact_duration_seconds"] = (
                 minimum_viable_contact_duration_seconds
             )
         if dataflow_edges is not None:
-            input["dataflow_edges"] = dataflow_edges
+            input_["dataflow_edges"] = dataflow_edges
         if tracking_config_arn is not None:
-            input["tracking_config_arn"] = tracking_config_arn
+            input_["tracking_config_arn"] = tracking_config_arn
         if telemetry_sink_config_arn is not None:
-            input["telemetry_sink_config_arn"] = telemetry_sink_config_arn
+            input_["telemetry_sink_config_arn"] = telemetry_sink_config_arn
         if streams_kms_key is not None:
-            input["streams_kms_key"] = streams_kms_key
+            input_["streams_kms_key"] = streams_kms_key
         if streams_kms_role is not None:
-            input["streams_kms_role"] = streams_kms_role
+            input_["streams_kms_role"] = streams_kms_role
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,11 +287,11 @@ class MissionProfile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.delete_mission_profile_request.DeleteMissionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["mission_profile_id"] = mission_profile_id
+        input_: aws_sdk_groundstation.types.delete_mission_profile_request.DeleteMissionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["mission_profile_id"] = mission_profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,14 +330,14 @@ class MissionProfile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_mission_profiles_request.ListMissionProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_mission_profiles_request.ListMissionProfilesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,32 +402,32 @@ class AsyncMissionProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.create_mission_profile_request.CreateMissionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_groundstation.types.create_mission_profile_request.CreateMissionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if contact_pre_pass_duration_seconds is not None:
-            input["contact_pre_pass_duration_seconds"] = (
+            input_["contact_pre_pass_duration_seconds"] = (
                 contact_pre_pass_duration_seconds
             )
         if contact_post_pass_duration_seconds is not None:
-            input["contact_post_pass_duration_seconds"] = (
+            input_["contact_post_pass_duration_seconds"] = (
                 contact_post_pass_duration_seconds
             )
-        input["minimum_viable_contact_duration_seconds"] = (
+        input_["minimum_viable_contact_duration_seconds"] = (
             minimum_viable_contact_duration_seconds
         )
-        input["dataflow_edges"] = dataflow_edges
-        input["tracking_config_arn"] = tracking_config_arn
+        input_["dataflow_edges"] = dataflow_edges
+        input_["tracking_config_arn"] = tracking_config_arn
         if telemetry_sink_config_arn is not None:
-            input["telemetry_sink_config_arn"] = telemetry_sink_config_arn
+            input_["telemetry_sink_config_arn"] = telemetry_sink_config_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if streams_kms_key is not None:
-            input["streams_kms_key"] = streams_kms_key
+            input_["streams_kms_key"] = streams_kms_key
         if streams_kms_role is not None:
-            input["streams_kms_role"] = streams_kms_role
+            input_["streams_kms_role"] = streams_kms_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,11 +461,11 @@ class AsyncMissionProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_mission_profile_request.GetMissionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["mission_profile_id"] = mission_profile_id
+        input_: aws_sdk_groundstation.types.get_mission_profile_request.GetMissionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["mission_profile_id"] = mission_profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,35 +531,35 @@ class AsyncMissionProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_mission_profile_request.UpdateMissionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["mission_profile_id"] = mission_profile_id
+        input_: aws_sdk_groundstation.types.update_mission_profile_request.UpdateMissionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["mission_profile_id"] = mission_profile_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if contact_pre_pass_duration_seconds is not None:
-            input["contact_pre_pass_duration_seconds"] = (
+            input_["contact_pre_pass_duration_seconds"] = (
                 contact_pre_pass_duration_seconds
             )
         if contact_post_pass_duration_seconds is not None:
-            input["contact_post_pass_duration_seconds"] = (
+            input_["contact_post_pass_duration_seconds"] = (
                 contact_post_pass_duration_seconds
             )
         if minimum_viable_contact_duration_seconds is not None:
-            input["minimum_viable_contact_duration_seconds"] = (
+            input_["minimum_viable_contact_duration_seconds"] = (
                 minimum_viable_contact_duration_seconds
             )
         if dataflow_edges is not None:
-            input["dataflow_edges"] = dataflow_edges
+            input_["dataflow_edges"] = dataflow_edges
         if tracking_config_arn is not None:
-            input["tracking_config_arn"] = tracking_config_arn
+            input_["tracking_config_arn"] = tracking_config_arn
         if telemetry_sink_config_arn is not None:
-            input["telemetry_sink_config_arn"] = telemetry_sink_config_arn
+            input_["telemetry_sink_config_arn"] = telemetry_sink_config_arn
         if streams_kms_key is not None:
-            input["streams_kms_key"] = streams_kms_key
+            input_["streams_kms_key"] = streams_kms_key
         if streams_kms_role is not None:
-            input["streams_kms_role"] = streams_kms_role
+            input_["streams_kms_role"] = streams_kms_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,11 +593,11 @@ class AsyncMissionProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.delete_mission_profile_request.DeleteMissionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["mission_profile_id"] = mission_profile_id
+        input_: aws_sdk_groundstation.types.delete_mission_profile_request.DeleteMissionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["mission_profile_id"] = mission_profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -637,14 +637,14 @@ class AsyncMissionProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_mission_profiles_request.ListMissionProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_mission_profiles_request.ListMissionProfilesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

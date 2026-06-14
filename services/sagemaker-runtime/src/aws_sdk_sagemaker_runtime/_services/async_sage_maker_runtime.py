@@ -217,32 +217,32 @@ class AsyncSageMakerRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["body"] = body
+        input_: aws_sdk_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["body"] = body
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
         if custom_attributes is not None:
-            input["custom_attributes"] = custom_attributes
+            input_["custom_attributes"] = custom_attributes
         if target_model is not None:
-            input["target_model"] = target_model
+            input_["target_model"] = target_model
         if target_variant is not None:
-            input["target_variant"] = target_variant
+            input_["target_variant"] = target_variant
         if target_container_hostname is not None:
-            input["target_container_hostname"] = target_container_hostname
+            input_["target_container_hostname"] = target_container_hostname
         if inference_id is not None:
-            input["inference_id"] = inference_id
+            input_["inference_id"] = inference_id
         if enable_explanations is not None:
-            input["enable_explanations"] = enable_explanations
+            input_["enable_explanations"] = enable_explanations
         if inference_component_name is not None:
-            input["inference_component_name"] = inference_component_name
+            input_["inference_component_name"] = inference_component_name
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,28 +306,28 @@ class AsyncSageMakerRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_input.InvokeEndpointAsyncInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_sagemaker_runtime.types.invoke_endpoint_async_input.InvokeEndpointAsyncInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
         if custom_attributes is not None:
-            input["custom_attributes"] = custom_attributes
+            input_["custom_attributes"] = custom_attributes
         if inference_id is not None:
-            input["inference_id"] = inference_id
-        input["input_location"] = input_location
+            input_["inference_id"] = inference_id
+        input_["input_location"] = input_location
         if s3_output_path_extension is not None:
-            input["s3_output_path_extension"] = s3_output_path_extension
+            input_["s3_output_path_extension"] = s3_output_path_extension
         if filename is not None:
-            input["filename"] = filename
+            input_["filename"] = filename
         if request_ttl_seconds is not None:
-            input["request_ttl_seconds"] = request_ttl_seconds
+            input_["request_ttl_seconds"] = request_ttl_seconds
         if invocation_timeout_seconds is not None:
-            input["invocation_timeout_seconds"] = invocation_timeout_seconds
+            input_["invocation_timeout_seconds"] = invocation_timeout_seconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,28 +391,28 @@ class AsyncSageMakerRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_runtime.types.invoke_endpoint_with_response_stream_input.InvokeEndpointWithResponseStreamInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["body"] = body
+        input_: aws_sdk_sagemaker_runtime.types.invoke_endpoint_with_response_stream_input.InvokeEndpointWithResponseStreamInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["body"] = body
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
         if custom_attributes is not None:
-            input["custom_attributes"] = custom_attributes
+            input_["custom_attributes"] = custom_attributes
         if target_variant is not None:
-            input["target_variant"] = target_variant
+            input_["target_variant"] = target_variant
         if target_container_hostname is not None:
-            input["target_container_hostname"] = target_container_hostname
+            input_["target_container_hostname"] = target_container_hostname
         if inference_id is not None:
-            input["inference_id"] = inference_id
+            input_["inference_id"] = inference_id
         if inference_component_name is not None:
-            input["inference_component_name"] = inference_component_name
+            input_["inference_component_name"] = inference_component_name
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

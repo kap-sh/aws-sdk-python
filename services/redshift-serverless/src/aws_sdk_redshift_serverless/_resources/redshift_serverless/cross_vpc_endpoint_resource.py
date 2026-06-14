@@ -77,17 +77,17 @@ class CrossVpcEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_endpoint_access_request.CreateEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["subnet_ids"] = subnet_ids
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.create_endpoint_access_request.CreateEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["subnet_ids"] = subnet_ids
+        input_["workgroup_name"] = workgroup_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,11 +120,11 @@ class CrossVpcEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_endpoint_access_request.DeleteEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_redshift_serverless.types.delete_endpoint_access_request.DeleteEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,11 +157,11 @@ class CrossVpcEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_endpoint_access_request.GetEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_redshift_serverless.types.get_endpoint_access_request.GetEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,20 +204,20 @@ class CrossVpcEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_endpoint_access_request.ListEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_endpoint_access_request.ListEndpointAccessRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,13 +254,13 @@ class CrossVpcEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_endpoint_access_request.UpdateEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_redshift_serverless.types.update_endpoint_access_request.UpdateEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,17 +311,17 @@ class AsyncCrossVpcEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_endpoint_access_request.CreateEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["subnet_ids"] = subnet_ids
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.create_endpoint_access_request.CreateEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["subnet_ids"] = subnet_ids
+        input_["workgroup_name"] = workgroup_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -355,11 +355,11 @@ class AsyncCrossVpcEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_endpoint_access_request.DeleteEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_redshift_serverless.types.delete_endpoint_access_request.DeleteEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,11 +393,11 @@ class AsyncCrossVpcEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_endpoint_access_request.GetEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_redshift_serverless.types.get_endpoint_access_request.GetEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,20 +441,20 @@ class AsyncCrossVpcEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_endpoint_access_request.ListEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_endpoint_access_request.ListEndpointAccessRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,13 +492,13 @@ class AsyncCrossVpcEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_endpoint_access_request.UpdateEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_redshift_serverless.types.update_endpoint_access_request.UpdateEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

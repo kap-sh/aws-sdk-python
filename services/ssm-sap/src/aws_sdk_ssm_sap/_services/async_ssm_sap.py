@@ -250,15 +250,15 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.delete_resource_permission_input.DeleteResourcePermissionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_sap.types.delete_resource_permission_input.DeleteResourcePermissionInput = {}  # type: ignore[typeddict-item]
         if action_type is not None:
-            input["action_type"] = action_type
+            input_["action_type"] = action_type
         if source_resource_arn is not None:
-            input["source_resource_arn"] = source_resource_arn
-        input["resource_arn"] = resource_arn
+            input_["source_resource_arn"] = source_resource_arn
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,11 +292,11 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.deregister_application_input.DeregisterApplicationInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_ssm_sap.types.deregister_application_input.DeregisterApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,16 +338,16 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.get_application_input.GetApplicationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_sap.types.get_application_input.GetApplicationInput = {}  # type: ignore[typeddict-item]
         if application_id is not None:
-            input["application_id"] = application_id
+            input_["application_id"] = application_id
         if application_arn is not None:
-            input["application_arn"] = application_arn
+            input_["application_arn"] = application_arn
         if app_registry_arn is not None:
-            input["app_registry_arn"] = app_registry_arn
+            input_["app_registry_arn"] = app_registry_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,12 +383,12 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.get_component_input.GetComponentInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["component_id"] = component_id
+        input_: aws_sdk_ssm_sap.types.get_component_input.GetComponentInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["component_id"] = component_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,11 +422,11 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.get_configuration_check_operation_input.GetConfigurationCheckOperationInput = {}  # type: ignore[typeddict-item]
-        input["operation_id"] = operation_id
+        input_: aws_sdk_ssm_sap.types.get_configuration_check_operation_input.GetConfigurationCheckOperationInput = {}  # type: ignore[typeddict-item]
+        input_["operation_id"] = operation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,18 +468,18 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.get_database_input.GetDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_sap.types.get_database_input.GetDatabaseInput = {}  # type: ignore[typeddict-item]
         if application_id is not None:
-            input["application_id"] = application_id
+            input_["application_id"] = application_id
         if component_id is not None:
-            input["component_id"] = component_id
+            input_["component_id"] = component_id
         if database_id is not None:
-            input["database_id"] = database_id
+            input_["database_id"] = database_id
         if database_arn is not None:
-            input["database_arn"] = database_arn
+            input_["database_arn"] = database_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,11 +513,11 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.get_operation_input.GetOperationInput = {}  # type: ignore[typeddict-item]
-        input["operation_id"] = operation_id
+        input_: aws_sdk_ssm_sap.types.get_operation_input.GetOperationInput = {}  # type: ignore[typeddict-item]
+        input_["operation_id"] = operation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -555,13 +555,13 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.get_resource_permission_input.GetResourcePermissionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_sap.types.get_resource_permission_input.GetResourcePermissionInput = {}  # type: ignore[typeddict-item]
         if action_type is not None:
-            input["action_type"] = action_type
-        input["resource_arn"] = resource_arn
+            input_["action_type"] = action_type
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,16 +599,16 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_applications_input.ListApplicationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_sap.types.list_applications_input.ListApplicationsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -671,16 +671,16 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_components_input.ListComponentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_sap.types.list_components_input.ListComponentsInput = {}  # type: ignore[typeddict-item]
         if application_id is not None:
-            input["application_id"] = application_id
+            input_["application_id"] = application_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -741,14 +741,14 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_configuration_check_definitions_input.ListConfigurationCheckDefinitionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_sap.types.list_configuration_check_definitions_input.ListConfigurationCheckDefinitionsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -813,19 +813,19 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_configuration_check_operations_input.ListConfigurationCheckOperationsInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_ssm_sap.types.list_configuration_check_operations_input.ListConfigurationCheckOperationsInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if list_mode is not None:
-            input["list_mode"] = list_mode
+            input_["list_mode"] = list_mode
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -896,18 +896,18 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_databases_input.ListDatabasesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_sap.types.list_databases_input.ListDatabasesInput = {}  # type: ignore[typeddict-item]
         if application_id is not None:
-            input["application_id"] = application_id
+            input_["application_id"] = application_id
         if component_id is not None:
-            input["component_id"] = component_id
+            input_["component_id"] = component_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -974,17 +974,17 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_operation_events_input.ListOperationEventsInput = {}  # type: ignore[typeddict-item]
-        input["operation_id"] = operation_id
+        input_: aws_sdk_ssm_sap.types.list_operation_events_input.ListOperationEventsInput = {}  # type: ignore[typeddict-item]
+        input_["operation_id"] = operation_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1049,17 +1049,17 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_operations_input.ListOperationsInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_ssm_sap.types.list_operations_input.ListOperationsInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1124,15 +1124,15 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_sub_check_results_input.ListSubCheckResultsInput = {}  # type: ignore[typeddict-item]
-        input["operation_id"] = operation_id
+        input_: aws_sdk_ssm_sap.types.list_sub_check_results_input.ListSubCheckResultsInput = {}  # type: ignore[typeddict-item]
+        input_["operation_id"] = operation_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1193,15 +1193,15 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_sub_check_rule_results_input.ListSubCheckRuleResultsInput = {}  # type: ignore[typeddict-item]
-        input["sub_check_result_id"] = sub_check_result_id
+        input_: aws_sdk_ssm_sap.types.list_sub_check_rule_results_input.ListSubCheckRuleResultsInput = {}  # type: ignore[typeddict-item]
+        input_["sub_check_result_id"] = sub_check_result_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1258,11 +1258,11 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ssm_sap.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1300,13 +1300,13 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.put_resource_permission_input.PutResourcePermissionInput = {}  # type: ignore[typeddict-item]
-        input["action_type"] = action_type
-        input["source_resource_arn"] = source_resource_arn
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ssm_sap.types.put_resource_permission_input.PutResourcePermissionInput = {}  # type: ignore[typeddict-item]
+        input_["action_type"] = action_type
+        input_["source_resource_arn"] = source_resource_arn
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1362,25 +1362,25 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.register_application_input.RegisterApplicationInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["application_type"] = application_type
-        input["instances"] = instances
+        input_: aws_sdk_ssm_sap.types.register_application_input.RegisterApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["application_type"] = application_type
+        input_["instances"] = instances
         if sap_instance_number is not None:
-            input["sap_instance_number"] = sap_instance_number
+            input_["sap_instance_number"] = sap_instance_number
         if sid is not None:
-            input["sid"] = sid
+            input_["sid"] = sid
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if credentials is not None:
-            input["credentials"] = credentials
+            input_["credentials"] = credentials
         if database_arn is not None:
-            input["database_arn"] = database_arn
+            input_["database_arn"] = database_arn
         if components_info is not None:
-            input["components_info"] = components_info
+            input_["components_info"] = components_info
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1414,11 +1414,11 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.start_application_input.StartApplicationInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_ssm_sap.types.start_application_input.StartApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1452,11 +1452,11 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.start_application_refresh_input.StartApplicationRefreshInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_ssm_sap.types.start_application_refresh_input.StartApplicationRefreshInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1494,13 +1494,13 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.start_configuration_checks_input.StartConfigurationChecksInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_ssm_sap.types.start_configuration_checks_input.StartConfigurationChecksInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if configuration_check_ids is not None:
-            input["configuration_check_ids"] = configuration_check_ids
+            input_["configuration_check_ids"] = configuration_check_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1540,15 +1540,15 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.stop_application_input.StopApplicationInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_ssm_sap.types.stop_application_input.StopApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if stop_connected_entity is not None:
-            input["stop_connected_entity"] = stop_connected_entity
+            input_["stop_connected_entity"] = stop_connected_entity
         if include_ec2_instance_shutdown is not None:
-            input["include_ec2_instance_shutdown"] = include_ec2_instance_shutdown
+            input_["include_ec2_instance_shutdown"] = include_ec2_instance_shutdown
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1584,12 +1584,12 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_ssm_sap.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1625,12 +1625,12 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ssm_sap.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1676,19 +1676,19 @@ class AsyncSsmSapClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_sap.types.update_application_settings_input.UpdateApplicationSettingsInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_ssm_sap.types.update_application_settings_input.UpdateApplicationSettingsInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if credentials_to_add_or_update is not None:
-            input["credentials_to_add_or_update"] = credentials_to_add_or_update
+            input_["credentials_to_add_or_update"] = credentials_to_add_or_update
         if credentials_to_remove is not None:
-            input["credentials_to_remove"] = credentials_to_remove
+            input_["credentials_to_remove"] = credentials_to_remove
         if backint is not None:
-            input["backint"] = backint
+            input_["backint"] = backint
         if database_arn is not None:
-            input["database_arn"] = database_arn
+            input_["database_arn"] = database_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -101,62 +101,57 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput,
+    input_: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            Region=options.region,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
+            Region=options.region, UseFIPS=options.use_fips, Endpoint=options.endpoint
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/v2/domains/{domainIdentifier}/lineage/nodes/{identifier}/history"
     )
     url = url.replace(
-        "{domainIdentifier}", quote(str(input["domain_identifier"]), safe="")
+        "{domainIdentifier}", quote(str(input_["domain_identifier"]), safe="")
     )
-    url = url.replace("{identifier}", quote(str(input["identifier"]), safe=""))
+    url = url.replace("{identifier}", quote(str(input_["identifier"]), safe=""))
     params: dict[str, str] = {}
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "direction" in input:
-        params["direction"] = str(input["direction"])
-    if "event_timestamp_gte" in input:
-        params["timestampGTE"] = str(input["event_timestamp_gte"])
-    if "event_timestamp_lte" in input:
-        params["timestampLTE"] = str(input["event_timestamp_lte"])
-    if "sort_order" in input:
-        params["sortOrder"] = str(input["sort_order"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "direction" in input_:
+        params["direction"] = str(input_["direction"])
+    if "event_timestamp_gte" in input_:
+        params["timestampGTE"] = str(input_["event_timestamp_gte"])
+    if "event_timestamp_lte" in input_:
+        params["timestampLTE"] = str(input_["event_timestamp_lte"])
+    if "sort_order" in input_:
+        params["sortOrder"] = str(input_["sort_order"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_lineage_node_history(
     options: OperationOptions,
-    input: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput,
+    input_: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput,
 ) -> tuple[
     aws_sdk_datazone.types.list_lineage_node_history_output.ListLineageNodeHistoryOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -165,16 +160,17 @@ def list_lineage_node_history(
 
 async def async_list_lineage_node_history(
     options: AsyncOperationOptions,
-    input: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput,
+    input_: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput,
 ) -> tuple[
     aws_sdk_datazone.types.list_lineage_node_history_output.ListLineageNodeHistoryOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

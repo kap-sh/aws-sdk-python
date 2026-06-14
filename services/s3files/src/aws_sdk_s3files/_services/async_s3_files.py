@@ -220,19 +220,19 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.create_access_point_request.CreateAccessPointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3files.types.create_access_point_request.CreateAccessPointRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
-        input["file_system_id"] = file_system_id
+            input_["tags"] = tags
+        input_["file_system_id"] = file_system_id
         if posix_user is not None:
-            input["posix_user"] = posix_user
+            input_["posix_user"] = posix_user
         if root_directory is not None:
-            input["root_directory"] = root_directory
+            input_["root_directory"] = root_directory
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,22 +280,22 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.create_file_system_request.CreateFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3files.types.create_file_system_request.CreateFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["role_arn"] = role_arn
+            input_["kms_key_id"] = kms_key_id
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if accept_bucket_warning is not None:
-            input["accept_bucket_warning"] = accept_bucket_warning
+            input_["accept_bucket_warning"] = accept_bucket_warning
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -343,20 +343,20 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.create_mount_target_request.CreateMountTargetRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
-        input["subnet_id"] = subnet_id
+        input_: aws_sdk_s3files.types.create_mount_target_request.CreateMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
+        input_["subnet_id"] = subnet_id
         if ipv4_address is not None:
-            input["ipv4_address"] = ipv4_address
+            input_["ipv4_address"] = ipv4_address
         if ipv6_address is not None:
-            input["ipv6_address"] = ipv6_address
+            input_["ipv6_address"] = ipv6_address
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,11 +388,11 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.delete_access_point_request.DeleteAccessPointRequest = {}  # type: ignore[typeddict-item]
-        input["access_point_id"] = access_point_id
+        input_: aws_sdk_s3files.types.delete_access_point_request.DeleteAccessPointRequest = {}  # type: ignore[typeddict-item]
+        input_["access_point_id"] = access_point_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,13 +426,13 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.delete_file_system_request.DeleteFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_s3files.types.delete_file_system_request.DeleteFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,11 +464,11 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.delete_file_system_policy_request.DeleteFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_s3files.types.delete_file_system_policy_request.DeleteFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,11 +500,11 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.delete_mount_target_request.DeleteMountTargetRequest = {}  # type: ignore[typeddict-item]
-        input["mount_target_id"] = mount_target_id
+        input_: aws_sdk_s3files.types.delete_mount_target_request.DeleteMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["mount_target_id"] = mount_target_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,11 +538,11 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.get_access_point_request.GetAccessPointRequest = {}  # type: ignore[typeddict-item]
-        input["access_point_id"] = access_point_id
+        input_: aws_sdk_s3files.types.get_access_point_request.GetAccessPointRequest = {}  # type: ignore[typeddict-item]
+        input_["access_point_id"] = access_point_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -576,11 +576,11 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.get_file_system_request.GetFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_s3files.types.get_file_system_request.GetFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -614,11 +614,11 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.get_file_system_policy_request.GetFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_s3files.types.get_file_system_policy_request.GetFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -652,11 +652,11 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.get_mount_target_request.GetMountTargetRequest = {}  # type: ignore[typeddict-item]
-        input["mount_target_id"] = mount_target_id
+        input_: aws_sdk_s3files.types.get_mount_target_request.GetMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["mount_target_id"] = mount_target_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,11 +690,11 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.get_synchronization_configuration_request.GetSynchronizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_s3files.types.get_synchronization_configuration_request.GetSynchronizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -732,15 +732,15 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.list_access_points_request.ListAccessPointsRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_s3files.types.list_access_points_request.ListAccessPointsRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -801,16 +801,16 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.list_file_systems_request.ListFileSystemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3files.types.list_file_systems_request.ListFileSystemsRequest = {}  # type: ignore[typeddict-item]
         if bucket is not None:
-            input["bucket"] = bucket
+            input_["bucket"] = bucket
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -877,18 +877,18 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.list_mount_targets_request.ListMountTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3files.types.list_mount_targets_request.ListMountTargetsRequest = {}  # type: ignore[typeddict-item]
         if file_system_id is not None:
-            input["file_system_id"] = file_system_id
+            input_["file_system_id"] = file_system_id
         if access_point_id is not None:
-            input["access_point_id"] = access_point_id
+            input_["access_point_id"] = access_point_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -955,15 +955,15 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_s3files.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1022,12 +1022,12 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.put_file_system_policy_request.PutFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
-        input["policy"] = policy
+        input_: aws_sdk_s3files.types.put_file_system_policy_request.PutFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1067,15 +1067,15 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.put_synchronization_configuration_request.PutSynchronizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_s3files.types.put_synchronization_configuration_request.PutSynchronizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if latest_version_number is not None:
-            input["latest_version_number"] = latest_version_number
-        input["import_data_rules"] = import_data_rules
-        input["expiration_data_rules"] = expiration_data_rules
+            input_["latest_version_number"] = latest_version_number
+        input_["import_data_rules"] = import_data_rules
+        input_["expiration_data_rules"] = expiration_data_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1109,12 +1109,12 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tags"] = tags
+        input_: aws_sdk_s3files.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1148,12 +1148,12 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_s3files.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1189,12 +1189,12 @@ class AsyncS3FilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3files.types.update_mount_target_request.UpdateMountTargetRequest = {}  # type: ignore[typeddict-item]
-        input["mount_target_id"] = mount_target_id
-        input["security_groups"] = security_groups
+        input_: aws_sdk_s3files.types.update_mount_target_request.UpdateMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["mount_target_id"] = mount_target_id
+        input_["security_groups"] = security_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

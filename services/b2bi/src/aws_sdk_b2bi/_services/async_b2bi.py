@@ -7,12 +7,18 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_b2bi._auth._signers
+import aws_sdk_b2bi._auth._sigv4
 from aws_sdk_b2bi._auth._identity import Credentials
 from aws_sdk_b2bi._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_b2bi._auth._zapros_handler import AuthMiddleware
+from aws_sdk_b2bi._resources.b2_bi.capability import AsyncCapability
+from aws_sdk_b2bi._resources.b2_bi.partnership import AsyncPartnership
+from aws_sdk_b2bi._resources.b2_bi.profile import AsyncProfile
+from aws_sdk_b2bi._resources.b2_bi.transformer import AsyncTransformer
 from aws_sdk_b2bi._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -132,6 +138,11 @@ class Asyncb2biClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.capability = AsyncCapability(self)
+        self.partnership = AsyncPartnership(self)
+        self.profile = AsyncProfile(self)
+        self.transformer = AsyncTransformer(self)
 
     def operation_options(
         self, config_overrides: Optional[Asyncb2biClientConfig] = None

@@ -202,11 +202,11 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.batch_describe_entities_request.BatchDescribeEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["entity_request_list"] = entity_request_list
+        input_: aws_sdk_marketplace_catalog.types.batch_describe_entities_request.BatchDescribeEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["entity_request_list"] = entity_request_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,12 +241,12 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.cancel_change_set_request.CancelChangeSetRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["change_set_id"] = change_set_id
+        input_: aws_sdk_marketplace_catalog.types.cancel_change_set_request.CancelChangeSetRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["change_set_id"] = change_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,11 +279,11 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_marketplace_catalog.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,12 +318,12 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.describe_change_set_request.DescribeChangeSetRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["change_set_id"] = change_set_id
+        input_: aws_sdk_marketplace_catalog.types.describe_change_set_request.DescribeChangeSetRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["change_set_id"] = change_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,12 +358,12 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.describe_entity_request.DescribeEntityRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["entity_id"] = entity_id
+        input_: aws_sdk_marketplace_catalog.types.describe_entity_request.DescribeEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["entity_id"] = entity_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,11 +396,11 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_marketplace_catalog.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,19 +447,19 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.list_change_sets_request.ListChangeSetsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_marketplace_catalog.types.list_change_sets_request.ListChangeSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if filter_list is not None:
-            input["filter_list"] = filter_list
+            input_["filter_list"] = filter_list
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -555,26 +555,26 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.list_entities_request.ListEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["entity_type"] = entity_type
+        input_: aws_sdk_marketplace_catalog.types.list_entities_request.ListEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["entity_type"] = entity_type
         if filter_list is not None:
-            input["filter_list"] = filter_list
+            input_["filter_list"] = filter_list
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if ownership_type is not None:
-            input["ownership_type"] = ownership_type
+            input_["ownership_type"] = ownership_type
         if entity_type_filters is not None:
-            input["entity_type_filters"] = entity_type_filters
+            input_["entity_type_filters"] = entity_type_filters
         if entity_type_sort is not None:
-            input["entity_type_sort"] = entity_type_sort
+            input_["entity_type_sort"] = entity_type_sort
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,11 +654,11 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_marketplace_catalog.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -693,12 +693,12 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_marketplace_catalog.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -747,20 +747,20 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.start_change_set_request.StartChangeSetRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["change_set"] = change_set
+        input_: aws_sdk_marketplace_catalog.types.start_change_set_request.StartChangeSetRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["change_set"] = change_set
         if change_set_name is not None:
-            input["change_set_name"] = change_set_name
+            input_["change_set_name"] = change_set_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if change_set_tags is not None:
-            input["change_set_tags"] = change_set_tags
+            input_["change_set_tags"] = change_set_tags
         if intent is not None:
-            input["intent"] = intent
+            input_["intent"] = intent
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -795,12 +795,12 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_marketplace_catalog.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -835,12 +835,12 @@ class MarketplaceCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_catalog.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_marketplace_catalog.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

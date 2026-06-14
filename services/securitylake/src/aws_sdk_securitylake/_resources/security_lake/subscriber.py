@@ -96,19 +96,19 @@ class Subscriber:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_subscriber_request.CreateSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_identity"] = subscriber_identity
-        input["subscriber_name"] = subscriber_name
+        input_: aws_sdk_securitylake.types.create_subscriber_request.CreateSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_identity"] = subscriber_identity
+        input_["subscriber_name"] = subscriber_name
         if subscriber_description is not None:
-            input["subscriber_description"] = subscriber_description
-        input["sources"] = sources
+            input_["subscriber_description"] = subscriber_description
+        input_["sources"] = sources
         if access_types is not None:
-            input["access_types"] = access_types
+            input_["access_types"] = access_types
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,11 +141,11 @@ class Subscriber:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.get_subscriber_request.GetSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
+        input_: aws_sdk_securitylake.types.get_subscriber_request.GetSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,19 +196,19 @@ class Subscriber:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.update_subscriber_request.UpdateSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
+        input_: aws_sdk_securitylake.types.update_subscriber_request.UpdateSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
         if subscriber_identity is not None:
-            input["subscriber_identity"] = subscriber_identity
+            input_["subscriber_identity"] = subscriber_identity
         if subscriber_name is not None:
-            input["subscriber_name"] = subscriber_name
+            input_["subscriber_name"] = subscriber_name
         if subscriber_description is not None:
-            input["subscriber_description"] = subscriber_description
+            input_["subscriber_description"] = subscriber_description
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,11 +243,11 @@ class Subscriber:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_subscriber_request.DeleteSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
+        input_: aws_sdk_securitylake.types.delete_subscriber_request.DeleteSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,14 +284,14 @@ class Subscriber:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.list_subscribers_request.ListSubscribersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.list_subscribers_request.ListSubscribersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,12 +326,12 @@ class Subscriber:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_subscriber_notification_request.CreateSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
-        input["configuration"] = configuration
+        input_: aws_sdk_securitylake.types.create_subscriber_notification_request.CreateSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,11 +364,11 @@ class Subscriber:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_subscriber_notification_request.DeleteSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
+        input_: aws_sdk_securitylake.types.delete_subscriber_notification_request.DeleteSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,12 +403,12 @@ class Subscriber:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.update_subscriber_notification_request.UpdateSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
-        input["configuration"] = configuration
+        input_: aws_sdk_securitylake.types.update_subscriber_notification_request.UpdateSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,19 +463,19 @@ class AsyncSubscriber:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_subscriber_request.CreateSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_identity"] = subscriber_identity
-        input["subscriber_name"] = subscriber_name
+        input_: aws_sdk_securitylake.types.create_subscriber_request.CreateSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_identity"] = subscriber_identity
+        input_["subscriber_name"] = subscriber_name
         if subscriber_description is not None:
-            input["subscriber_description"] = subscriber_description
-        input["sources"] = sources
+            input_["subscriber_description"] = subscriber_description
+        input_["sources"] = sources
         if access_types is not None:
-            input["access_types"] = access_types
+            input_["access_types"] = access_types
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,11 +509,11 @@ class AsyncSubscriber:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.get_subscriber_request.GetSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
+        input_: aws_sdk_securitylake.types.get_subscriber_request.GetSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,19 +565,19 @@ class AsyncSubscriber:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.update_subscriber_request.UpdateSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
+        input_: aws_sdk_securitylake.types.update_subscriber_request.UpdateSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
         if subscriber_identity is not None:
-            input["subscriber_identity"] = subscriber_identity
+            input_["subscriber_identity"] = subscriber_identity
         if subscriber_name is not None:
-            input["subscriber_name"] = subscriber_name
+            input_["subscriber_name"] = subscriber_name
         if subscriber_description is not None:
-            input["subscriber_description"] = subscriber_description
+            input_["subscriber_description"] = subscriber_description
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -613,11 +613,11 @@ class AsyncSubscriber:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_subscriber_request.DeleteSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
+        input_: aws_sdk_securitylake.types.delete_subscriber_request.DeleteSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -655,14 +655,14 @@ class AsyncSubscriber:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.list_subscribers_request.ListSubscribersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.list_subscribers_request.ListSubscribersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,12 +698,12 @@ class AsyncSubscriber:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_subscriber_notification_request.CreateSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
-        input["configuration"] = configuration
+        input_: aws_sdk_securitylake.types.create_subscriber_notification_request.CreateSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
+        input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -737,11 +737,11 @@ class AsyncSubscriber:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_subscriber_notification_request.DeleteSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
+        input_: aws_sdk_securitylake.types.delete_subscriber_notification_request.DeleteSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -777,12 +777,12 @@ class AsyncSubscriber:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.update_subscriber_notification_request.UpdateSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["subscriber_id"] = subscriber_id
-        input["configuration"] = configuration
+        input_: aws_sdk_securitylake.types.update_subscriber_notification_request.UpdateSubscriberNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["subscriber_id"] = subscriber_id
+        input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

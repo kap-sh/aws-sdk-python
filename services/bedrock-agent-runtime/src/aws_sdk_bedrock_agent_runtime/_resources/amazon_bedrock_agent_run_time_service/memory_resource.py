@@ -75,16 +75,16 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.delete_agent_memory_request.DeleteAgentMemoryRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
+        input_: aws_sdk_bedrock_agent_runtime.types.delete_agent_memory_request.DeleteAgentMemoryRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
         if memory_id is not None:
-            input["memory_id"] = memory_id
+            input_["memory_id"] = memory_id
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,18 +131,18 @@ class MemoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.get_agent_memory_request.GetAgentMemoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.get_agent_memory_request.GetAgentMemoryRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_items is not None:
-            input["max_items"] = max_items
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
-        input["memory_type"] = memory_type
-        input["memory_id"] = memory_id
+            input_["max_items"] = max_items
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
+        input_["memory_type"] = memory_type
+        input_["memory_id"] = memory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -191,16 +191,16 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.delete_agent_memory_request.DeleteAgentMemoryRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
+        input_: aws_sdk_bedrock_agent_runtime.types.delete_agent_memory_request.DeleteAgentMemoryRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
         if memory_id is not None:
-            input["memory_id"] = memory_id
+            input_["memory_id"] = memory_id
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,18 +248,18 @@ class AsyncMemoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.get_agent_memory_request.GetAgentMemoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.get_agent_memory_request.GetAgentMemoryRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_items is not None:
-            input["max_items"] = max_items
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
-        input["memory_type"] = memory_type
-        input["memory_id"] = memory_id
+            input_["max_items"] = max_items
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
+        input_["memory_type"] = memory_type
+        input_["memory_id"] = memory_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

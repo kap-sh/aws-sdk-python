@@ -64,15 +64,15 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3_control.types.get_access_grants_instance_resource_policy_request.GetAccessGrantsInstanceResourcePolicyRequest,
+    input_: aws_sdk_s3_control.types.get_access_grants_instance_resource_policy_request.GetAccessGrantsInstanceResourcePolicyRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
             Endpoint=options.endpoint,
-            AccountId=input.get("account_id"),
+            AccountId=input_.get("account_id"),
             RequiresAccountId=True,
             OutpostId=options.outpost_id,
             Bucket=options.bucket,
@@ -81,37 +81,34 @@ def build_request(
             ResourceArn=options.resource_arn,
             UseS3ExpressControlEndpoint=options.use_s3_express_control_endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v20180820/accessgrantsinstance/resourcepolicy"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "account_id" in input:
-        headers["x-amz-account-id"] = str(input["account_id"])
+    if "account_id" in input_:
+        headers["x-amz-account-id"] = str(input_["account_id"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_access_grants_instance_resource_policy(
     options: OperationOptions,
-    input: aws_sdk_s3_control.types.get_access_grants_instance_resource_policy_request.GetAccessGrantsInstanceResourcePolicyRequest,
+    input_: aws_sdk_s3_control.types.get_access_grants_instance_resource_policy_request.GetAccessGrantsInstanceResourcePolicyRequest,
 ) -> tuple[
     aws_sdk_s3_control.types.get_access_grants_instance_resource_policy_result.GetAccessGrantsInstanceResourcePolicyResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -120,16 +117,17 @@ def get_access_grants_instance_resource_policy(
 
 async def async_get_access_grants_instance_resource_policy(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3_control.types.get_access_grants_instance_resource_policy_request.GetAccessGrantsInstanceResourcePolicyRequest,
+    input_: aws_sdk_s3_control.types.get_access_grants_instance_resource_policy_request.GetAccessGrantsInstanceResourcePolicyRequest,
 ) -> tuple[
     aws_sdk_s3_control.types.get_access_grants_instance_resource_policy_result.GetAccessGrantsInstanceResourcePolicyResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

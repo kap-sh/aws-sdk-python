@@ -255,13 +255,13 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.accept_resource_share_invitation_request.AcceptResourceShareInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_invitation_arn"] = resource_share_invitation_arn
+        input_: aws_sdk_ram.types.accept_resource_share_invitation_request.AcceptResourceShareInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_invitation_arn"] = resource_share_invitation_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,19 +309,19 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.associate_resource_share_request.AssociateResourceShareRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_arn"] = resource_share_arn
+        input_: aws_sdk_ram.types.associate_resource_share_request.AssociateResourceShareRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_arn"] = resource_share_arn
         if resource_arns is not None:
-            input["resource_arns"] = resource_arns
+            input_["resource_arns"] = resource_arns
         if principals is not None:
-            input["principals"] = principals
+            input_["principals"] = principals
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -363,18 +363,18 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.associate_resource_share_permission_request.AssociateResourceSharePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_arn"] = resource_share_arn
-        input["permission_arn"] = permission_arn
+        input_: aws_sdk_ram.types.associate_resource_share_permission_request.AssociateResourceSharePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_arn"] = resource_share_arn
+        input_["permission_arn"] = permission_arn
         if replace is not None:
-            input["replace"] = replace
+            input_["replace"] = replace
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if permission_version is not None:
-            input["permission_version"] = permission_version
+            input_["permission_version"] = permission_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,17 +416,17 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.create_permission_request.CreatePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["resource_type"] = resource_type
-        input["policy_template"] = policy_template
+        input_: aws_sdk_ram.types.create_permission_request.CreatePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["resource_type"] = resource_type
+        input_["policy_template"] = policy_template
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,14 +464,14 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.create_permission_version_request.CreatePermissionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["permission_arn"] = permission_arn
-        input["policy_template"] = policy_template
+        input_: aws_sdk_ram.types.create_permission_version_request.CreatePermissionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_arn"] = permission_arn
+        input_["policy_template"] = policy_template
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,27 +531,27 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.create_resource_share_request.CreateResourceShareRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ram.types.create_resource_share_request.CreateResourceShareRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if resource_arns is not None:
-            input["resource_arns"] = resource_arns
+            input_["resource_arns"] = resource_arns
         if principals is not None:
-            input["principals"] = principals
+            input_["principals"] = principals
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if allow_external_principals is not None:
-            input["allow_external_principals"] = allow_external_principals
+            input_["allow_external_principals"] = allow_external_principals
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if permission_arns is not None:
-            input["permission_arns"] = permission_arns
+            input_["permission_arns"] = permission_arns
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if resource_share_configuration is not None:
-            input["resource_share_configuration"] = resource_share_configuration
+            input_["resource_share_configuration"] = resource_share_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -587,13 +587,13 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.delete_permission_request.DeletePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["permission_arn"] = permission_arn
+        input_: aws_sdk_ram.types.delete_permission_request.DeletePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_arn"] = permission_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -631,14 +631,14 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.delete_permission_version_request.DeletePermissionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["permission_arn"] = permission_arn
-        input["permission_version"] = permission_version
+        input_: aws_sdk_ram.types.delete_permission_version_request.DeletePermissionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_arn"] = permission_arn
+        input_["permission_version"] = permission_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,13 +674,13 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.delete_resource_share_request.DeleteResourceShareRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_arn"] = resource_share_arn
+        input_: aws_sdk_ram.types.delete_resource_share_request.DeleteResourceShareRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_arn"] = resource_share_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -728,19 +728,19 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.disassociate_resource_share_request.DisassociateResourceShareRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_arn"] = resource_share_arn
+        input_: aws_sdk_ram.types.disassociate_resource_share_request.DisassociateResourceShareRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_arn"] = resource_share_arn
         if resource_arns is not None:
-            input["resource_arns"] = resource_arns
+            input_["resource_arns"] = resource_arns
         if principals is not None:
-            input["principals"] = principals
+            input_["principals"] = principals
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -778,14 +778,14 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.disassociate_resource_share_permission_request.DisassociateResourceSharePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_arn"] = resource_share_arn
-        input["permission_arn"] = permission_arn
+        input_: aws_sdk_ram.types.disassociate_resource_share_permission_request.DisassociateResourceSharePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_arn"] = resource_share_arn
+        input_["permission_arn"] = permission_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -812,10 +812,10 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.enable_sharing_with_aws_organization_request.EnableSharingWithAwsOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.enable_sharing_with_aws_organization_request.EnableSharingWithAwsOrganizationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,13 +851,13 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.get_permission_request.GetPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["permission_arn"] = permission_arn
+        input_: aws_sdk_ram.types.get_permission_request.GetPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_arn"] = permission_arn
         if permission_version is not None:
-            input["permission_version"] = permission_version
+            input_["permission_version"] = permission_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -897,17 +897,17 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.get_resource_policies_request.GetResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_ram.types.get_resource_policies_request.GetResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arns"] = resource_arns
         if principal is not None:
-            input["principal"] = principal
+            input_["principal"] = principal
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -957,23 +957,23 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.get_resource_share_associations_request.GetResourceShareAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["association_type"] = association_type
+        input_: aws_sdk_ram.types.get_resource_share_associations_request.GetResourceShareAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["association_type"] = association_type
         if resource_share_arns is not None:
-            input["resource_share_arns"] = resource_share_arns
+            input_["resource_share_arns"] = resource_share_arns
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if principal is not None:
-            input["principal"] = principal
+            input_["principal"] = principal
         if association_status is not None:
-            input["association_status"] = association_status
+            input_["association_status"] = association_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1017,18 +1017,18 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.get_resource_share_invitations_request.GetResourceShareInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.get_resource_share_invitations_request.GetResourceShareInvitationsRequest = {}  # type: ignore[typeddict-item]
         if resource_share_invitation_arns is not None:
-            input["resource_share_invitation_arns"] = resource_share_invitation_arns
+            input_["resource_share_invitation_arns"] = resource_share_invitation_arns
         if resource_share_arns is not None:
-            input["resource_share_arns"] = resource_share_arns
+            input_["resource_share_arns"] = resource_share_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1082,27 +1082,27 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.get_resource_shares_request.GetResourceSharesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.get_resource_shares_request.GetResourceSharesRequest = {}  # type: ignore[typeddict-item]
         if resource_share_arns is not None:
-            input["resource_share_arns"] = resource_share_arns
+            input_["resource_share_arns"] = resource_share_arns
         if resource_share_status is not None:
-            input["resource_share_status"] = resource_share_status
-        input["resource_owner"] = resource_owner
+            input_["resource_share_status"] = resource_share_status
+        input_["resource_owner"] = resource_owner
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tag_filters is not None:
-            input["tag_filters"] = tag_filters
+            input_["tag_filters"] = tag_filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if permission_arn is not None:
-            input["permission_arn"] = permission_arn
+            input_["permission_arn"] = permission_arn
         if permission_version is not None:
-            input["permission_version"] = permission_version
+            input_["permission_version"] = permission_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1144,17 +1144,17 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_pending_invitation_resources_request.ListPendingInvitationResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_invitation_arn"] = resource_share_invitation_arn
+        input_: aws_sdk_ram.types.list_pending_invitation_resources_request.ListPendingInvitationResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_invitation_arn"] = resource_share_invitation_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_region_scope is not None:
-            input["resource_region_scope"] = resource_region_scope
+            input_["resource_region_scope"] = resource_region_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1206,26 +1206,26 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_permission_associations_request.ListPermissionAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.list_permission_associations_request.ListPermissionAssociationsRequest = {}  # type: ignore[typeddict-item]
         if permission_arn is not None:
-            input["permission_arn"] = permission_arn
+            input_["permission_arn"] = permission_arn
         if permission_version is not None:
-            input["permission_version"] = permission_version
+            input_["permission_version"] = permission_version
         if association_status is not None:
-            input["association_status"] = association_status
+            input_["association_status"] = association_status
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if feature_set is not None:
-            input["feature_set"] = feature_set
+            input_["feature_set"] = feature_set
         if default_version is not None:
-            input["default_version"] = default_version
+            input_["default_version"] = default_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1267,18 +1267,18 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_permissions_request.ListPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.list_permissions_request.ListPermissionsRequest = {}  # type: ignore[typeddict-item]
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if permission_type is not None:
-            input["permission_type"] = permission_type
+            input_["permission_type"] = permission_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1316,15 +1316,15 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_permission_versions_request.ListPermissionVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["permission_arn"] = permission_arn
+        input_: aws_sdk_ram.types.list_permission_versions_request.ListPermissionVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_arn"] = permission_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1374,23 +1374,23 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_principals_request.ListPrincipalsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_owner"] = resource_owner
+        input_: aws_sdk_ram.types.list_principals_request.ListPrincipalsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_owner"] = resource_owner
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if principals is not None:
-            input["principals"] = principals
+            input_["principals"] = principals
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_share_arns is not None:
-            input["resource_share_arns"] = resource_share_arns
+            input_["resource_share_arns"] = resource_share_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1434,18 +1434,18 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_replace_permission_associations_work_request.ListReplacePermissionAssociationsWorkRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.list_replace_permission_associations_work_request.ListReplacePermissionAssociationsWorkRequest = {}  # type: ignore[typeddict-item]
         if work_ids is not None:
-            input["work_ids"] = work_ids
+            input_["work_ids"] = work_ids
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1499,25 +1499,25 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_resources_request.ListResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_owner"] = resource_owner
+        input_: aws_sdk_ram.types.list_resources_request.ListResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_owner"] = resource_owner
         if principal is not None:
-            input["principal"] = principal
+            input_["principal"] = principal
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_arns is not None:
-            input["resource_arns"] = resource_arns
+            input_["resource_arns"] = resource_arns
         if resource_share_arns is not None:
-            input["resource_share_arns"] = resource_share_arns
+            input_["resource_share_arns"] = resource_share_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_region_scope is not None:
-            input["resource_region_scope"] = resource_region_scope
+            input_["resource_region_scope"] = resource_region_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1555,15 +1555,15 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_resource_share_permissions_request.ListResourceSharePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_arn"] = resource_share_arn
+        input_: aws_sdk_ram.types.list_resource_share_permissions_request.ListResourceSharePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_arn"] = resource_share_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1603,16 +1603,16 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_resource_types_request.ListResourceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.list_resource_types_request.ListResourceTypesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_region_scope is not None:
-            input["resource_region_scope"] = resource_region_scope
+            input_["resource_region_scope"] = resource_region_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1660,22 +1660,22 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.list_source_associations_request.ListSourceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.list_source_associations_request.ListSourceAssociationsRequest = {}  # type: ignore[typeddict-item]
         if resource_share_arns is not None:
-            input["resource_share_arns"] = resource_share_arns
+            input_["resource_share_arns"] = resource_share_arns
         if source_id is not None:
-            input["source_id"] = source_id
+            input_["source_id"] = source_id
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if association_status is not None:
-            input["association_status"] = association_status
+            input_["association_status"] = association_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1746,14 +1746,14 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.promote_permission_created_from_policy_request.PromotePermissionCreatedFromPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["permission_arn"] = permission_arn
-        input["name"] = name
+        input_: aws_sdk_ram.types.promote_permission_created_from_policy_request.PromotePermissionCreatedFromPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_arn"] = permission_arn
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1787,11 +1787,11 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.promote_resource_share_created_from_policy_request.PromoteResourceShareCreatedFromPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_arn"] = resource_share_arn
+        input_: aws_sdk_ram.types.promote_resource_share_created_from_policy_request.PromoteResourceShareCreatedFromPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_arn"] = resource_share_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1827,13 +1827,13 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.reject_resource_share_invitation_request.RejectResourceShareInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_invitation_arn"] = resource_share_invitation_arn
+        input_: aws_sdk_ram.types.reject_resource_share_invitation_request.RejectResourceShareInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_invitation_arn"] = resource_share_invitation_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1873,16 +1873,16 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.replace_permission_associations_request.ReplacePermissionAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["from_permission_arn"] = from_permission_arn
+        input_: aws_sdk_ram.types.replace_permission_associations_request.ReplacePermissionAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["from_permission_arn"] = from_permission_arn
         if from_permission_version is not None:
-            input["from_permission_version"] = from_permission_version
-        input["to_permission_arn"] = to_permission_arn
+            input_["from_permission_version"] = from_permission_version
+        input_["to_permission_arn"] = to_permission_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1920,14 +1920,14 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.set_default_permission_version_request.SetDefaultPermissionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["permission_arn"] = permission_arn
-        input["permission_version"] = permission_version
+        input_: aws_sdk_ram.types.set_default_permission_version_request.SetDefaultPermissionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_arn"] = permission_arn
+        input_["permission_version"] = permission_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1965,15 +1965,15 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
         if resource_share_arn is not None:
-            input["resource_share_arn"] = resource_share_arn
-        input["tags"] = tags
+            input_["resource_share_arn"] = resource_share_arn
+        input_["tags"] = tags
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2011,15 +2011,15 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ram.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
         if resource_share_arn is not None:
-            input["resource_share_arn"] = resource_share_arn
-        input["tag_keys"] = tag_keys
+            input_["resource_share_arn"] = resource_share_arn
+        input_["tag_keys"] = tag_keys
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2059,17 +2059,17 @@ class AsyncRAMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ram.types.update_resource_share_request.UpdateResourceShareRequest = {}  # type: ignore[typeddict-item]
-        input["resource_share_arn"] = resource_share_arn
+        input_: aws_sdk_ram.types.update_resource_share_request.UpdateResourceShareRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_share_arn"] = resource_share_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if allow_external_principals is not None:
-            input["allow_external_principals"] = allow_external_principals
+            input_["allow_external_principals"] = allow_external_principals
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

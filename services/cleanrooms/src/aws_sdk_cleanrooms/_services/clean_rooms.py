@@ -15,6 +15,33 @@ from aws_sdk_cleanrooms._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_cleanrooms._auth._zapros_handler import AuthMiddleware
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.analysis_template_resource import (
+    AnalysisTemplateResource,
+)
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.collaboration_resource import (
+    CollaborationResource,
+)
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.configured_audience_model_association_resource import (
+    ConfiguredAudienceModelAssociationResource,
+)
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.configured_table_association_resource import (
+    ConfiguredTableAssociationResource,
+)
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.configured_table_resource import (
+    ConfiguredTableResource,
+)
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.id_mapping_table_resource import (
+    IdMappingTableResource,
+)
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.id_namespace_association_resource import (
+    IdNamespaceAssociationResource,
+)
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.membership_resource import (
+    MembershipResource,
+)
+from aws_sdk_cleanrooms._resources.aws_bastion_control_plane_service_lambda.privacy_budget_template_resource import (
+    PrivacyBudgetTemplateResource,
+)
 from aws_sdk_cleanrooms._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -106,6 +133,20 @@ class CleanRoomsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.analysis_template_resource = AnalysisTemplateResource(self)
+        self.collaboration_resource = CollaborationResource(self)
+        self.configured_audience_model_association_resource = (
+            ConfiguredAudienceModelAssociationResource(self)
+        )
+        self.configured_table_association_resource = ConfiguredTableAssociationResource(
+            self
+        )
+        self.configured_table_resource = ConfiguredTableResource(self)
+        self.id_mapping_table_resource = IdMappingTableResource(self)
+        self.id_namespace_association_resource = IdNamespaceAssociationResource(self)
+        self.membership_resource = MembershipResource(self)
+        self.privacy_budget_template_resource = PrivacyBudgetTemplateResource(self)
 
     def operation_options(
         self, config_overrides: Optional[CleanRoomsClientConfig] = None
@@ -162,11 +203,11 @@ class CleanRoomsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cleanrooms.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,12 +242,12 @@ class CleanRoomsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_cleanrooms.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,12 +282,12 @@ class CleanRoomsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cleanrooms.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

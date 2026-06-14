@@ -80,18 +80,18 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
         if idc_instance_arn is not None:
-            input["idc_instance_arn"] = idc_instance_arn
+            input_["idc_instance_arn"] = idc_instance_arn
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if default_kms_key_id is not None:
-            input["default_kms_key_id"] = default_kms_key_id
+            input_["default_kms_key_id"] = default_kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,11 +124,11 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_securityagent.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -167,15 +167,15 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_securityagent.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if default_kms_key_id is not None:
-            input["default_kms_key_id"] = default_kms_key_id
+            input_["default_kms_key_id"] = default_kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,11 +206,11 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_securityagent.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -247,14 +247,14 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,18 +303,18 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
         if idc_instance_arn is not None:
-            input["idc_instance_arn"] = idc_instance_arn
+            input_["idc_instance_arn"] = idc_instance_arn
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if default_kms_key_id is not None:
-            input["default_kms_key_id"] = default_kms_key_id
+            input_["default_kms_key_id"] = default_kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,11 +348,11 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_securityagent.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,15 +392,15 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_securityagent.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if default_kms_key_id is not None:
-            input["default_kms_key_id"] = default_kms_key_id
+            input_["default_kms_key_id"] = default_kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,11 +432,11 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_securityagent.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,14 +474,14 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

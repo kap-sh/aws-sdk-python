@@ -296,14 +296,14 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.abort_document_version_upload_request.AbortDocumentVersionUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.abort_document_version_upload_request.AbortDocumentVersionUploadRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
-        input["version_id"] = version_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
+        input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,13 +341,13 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.activate_user_request.ActivateUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_workdocs.types.activate_user_request.ActivateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,16 +391,16 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.add_resource_permissions_request.AddResourcePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.add_resource_permissions_request.AddResourcePermissionsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["resource_id"] = resource_id
-        input["principals"] = principals
+            input_["authentication_token"] = authentication_token
+        input_["resource_id"] = resource_id
+        input_["principals"] = principals
         if notification_options is not None:
-            input["notification_options"] = notification_options
+            input_["notification_options"] = notification_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,23 +458,23 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.create_comment_request.CreateCommentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.create_comment_request.CreateCommentRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
-        input["version_id"] = version_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
+        input_["version_id"] = version_id
         if parent_id is not None:
-            input["parent_id"] = parent_id
+            input_["parent_id"] = parent_id
         if thread_id is not None:
-            input["thread_id"] = thread_id
-        input["text"] = text
+            input_["thread_id"] = thread_id
+        input_["text"] = text
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
         if notify_collaborators is not None:
-            input["notify_collaborators"] = notify_collaborators
+            input_["notify_collaborators"] = notify_collaborators
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,16 +518,16 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.create_custom_metadata_request.CreateCustomMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.create_custom_metadata_request.CreateCustomMetadataRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["resource_id"] = resource_id
+            input_["authentication_token"] = authentication_token
+        input_["resource_id"] = resource_id
         if version_id is not None:
-            input["version_id"] = version_id
-        input["custom_metadata"] = custom_metadata
+            input_["version_id"] = version_id
+        input_["custom_metadata"] = custom_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -569,15 +569,15 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.create_folder_request.CreateFolderRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.create_folder_request.CreateFolderRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
         if name is not None:
-            input["name"] = name
-        input["parent_folder_id"] = parent_folder_id
+            input_["name"] = name
+        input_["parent_folder_id"] = parent_folder_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,14 +617,14 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.create_labels_request.CreateLabelsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["labels"] = labels
+        input_: aws_sdk_workdocs.types.create_labels_request.CreateLabelsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["labels"] = labels
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -664,14 +664,14 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.create_notification_subscription_request.CreateNotificationSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["endpoint"] = endpoint
-        input["protocol"] = protocol
-        input["subscription_type"] = subscription_type
+        input_: aws_sdk_workdocs.types.create_notification_subscription_request.CreateNotificationSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["endpoint"] = endpoint
+        input_["protocol"] = protocol
+        input_["subscription_type"] = subscription_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -729,24 +729,24 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
         if organization_id is not None:
-            input["organization_id"] = organization_id
-        input["username"] = username
+            input_["organization_id"] = organization_id
+        input_["username"] = username
         if email_address is not None:
-            input["email_address"] = email_address
-        input["given_name"] = given_name
-        input["surname"] = surname
-        input["password"] = password
+            input_["email_address"] = email_address
+        input_["given_name"] = given_name
+        input_["surname"] = surname
+        input_["password"] = password
         if time_zone_id is not None:
-            input["time_zone_id"] = time_zone_id
+            input_["time_zone_id"] = time_zone_id
         if storage_rule is not None:
-            input["storage_rule"] = storage_rule
+            input_["storage_rule"] = storage_rule
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -782,13 +782,13 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.deactivate_user_request.DeactivateUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_workdocs.types.deactivate_user_request.DeactivateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -828,15 +828,15 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_comment_request.DeleteCommentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.delete_comment_request.DeleteCommentRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
-        input["version_id"] = version_id
-        input["comment_id"] = comment_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
+        input_["version_id"] = version_id
+        input_["comment_id"] = comment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -884,19 +884,19 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_custom_metadata_request.DeleteCustomMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.delete_custom_metadata_request.DeleteCustomMetadataRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["resource_id"] = resource_id
+            input_["authentication_token"] = authentication_token
+        input_["resource_id"] = resource_id
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if keys is not None:
-            input["keys"] = keys
+            input_["keys"] = keys
         if delete_all is not None:
-            input["delete_all"] = delete_all
+            input_["delete_all"] = delete_all
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -932,13 +932,13 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_document_request.DeleteDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.delete_document_request.DeleteDocumentRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -978,15 +978,15 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_document_version_request.DeleteDocumentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.delete_document_version_request.DeleteDocumentVersionRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
-        input["version_id"] = version_id
-        input["delete_prior_versions"] = delete_prior_versions
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
+        input_["version_id"] = version_id
+        input_["delete_prior_versions"] = delete_prior_versions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1022,13 +1022,13 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_folder_request.DeleteFolderRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.delete_folder_request.DeleteFolderRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["folder_id"] = folder_id
+            input_["authentication_token"] = authentication_token
+        input_["folder_id"] = folder_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1064,13 +1064,13 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_folder_contents_request.DeleteFolderContentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.delete_folder_contents_request.DeleteFolderContentsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["folder_id"] = folder_id
+            input_["authentication_token"] = authentication_token
+        input_["folder_id"] = folder_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1112,17 +1112,17 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_labels_request.DeleteLabelsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workdocs.types.delete_labels_request.DeleteLabelsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
         if labels is not None:
-            input["labels"] = labels
+            input_["labels"] = labels
         if delete_all is not None:
-            input["delete_all"] = delete_all
+            input_["delete_all"] = delete_all
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1156,12 +1156,12 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_notification_subscription_request.DeleteNotificationSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_id"] = subscription_id
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workdocs.types.delete_notification_subscription_request.DeleteNotificationSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_id"] = subscription_id
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1197,13 +1197,13 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["user_id"] = user_id
+            input_["authentication_token"] = authentication_token
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1269,30 +1269,30 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_activities_request.DescribeActivitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.describe_activities_request.DescribeActivitiesRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if organization_id is not None:
-            input["organization_id"] = organization_id
+            input_["organization_id"] = organization_id
         if activity_types is not None:
-            input["activity_types"] = activity_types
+            input_["activity_types"] = activity_types
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if include_indirect_activities is not None:
-            input["include_indirect_activities"] = include_indirect_activities
+            input_["include_indirect_activities"] = include_indirect_activities
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1385,18 +1385,18 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_comments_request.DescribeCommentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.describe_comments_request.DescribeCommentsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
-        input["version_id"] = version_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
+        input_["version_id"] = version_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1477,21 +1477,21 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_document_versions_request.DescribeDocumentVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.describe_document_versions_request.DescribeDocumentVersionsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1586,25 +1586,25 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_folder_contents_request.DescribeFolderContentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.describe_folder_contents_request.DescribeFolderContentsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["folder_id"] = folder_id
+            input_["authentication_token"] = authentication_token
+        input_["folder_id"] = folder_id
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1650,19 +1650,19 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_groups_request.DescribeGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.describe_groups_request.DescribeGroupsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["search_query"] = search_query
+            input_["authentication_token"] = authentication_token
+        input_["search_query"] = search_query
         if organization_id is not None:
-            input["organization_id"] = organization_id
+            input_["organization_id"] = organization_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1733,15 +1733,15 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_notification_subscriptions_request.DescribeNotificationSubscriptionsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workdocs.types.describe_notification_subscriptions_request.DescribeNotificationSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1812,19 +1812,19 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_resource_permissions_request.DescribeResourcePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.describe_resource_permissions_request.DescribeResourcePermissionsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["resource_id"] = resource_id
+            input_["authentication_token"] = authentication_token
+        input_["resource_id"] = resource_id
         if principal_id is not None:
-            input["principal_id"] = principal_id
+            input_["principal_id"] = principal_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1895,15 +1895,15 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_root_folders_request.DescribeRootFoldersRequest = {}  # type: ignore[typeddict-item]
-        input["authentication_token"] = authentication_token
+        input_: aws_sdk_workdocs.types.describe_root_folders_request.DescribeRootFoldersRequest = {}  # type: ignore[typeddict-item]
+        input_["authentication_token"] = authentication_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1990,30 +1990,30 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.describe_users_request.DescribeUsersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.describe_users_request.DescribeUsersRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
         if organization_id is not None:
-            input["organization_id"] = organization_id
+            input_["organization_id"] = organization_id
         if user_ids is not None:
-            input["user_ids"] = user_ids
+            input_["user_ids"] = user_ids
         if query is not None:
-            input["query"] = query
+            input_["query"] = query
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2094,11 +2094,11 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.get_current_user_request.GetCurrentUserRequest = {}  # type: ignore[typeddict-item]
-        input["authentication_token"] = authentication_token
+        input_: aws_sdk_workdocs.types.get_current_user_request.GetCurrentUserRequest = {}  # type: ignore[typeddict-item]
+        input_["authentication_token"] = authentication_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2140,15 +2140,15 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.get_document_request.GetDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.get_document_request.GetDocumentRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
         if include_custom_metadata is not None:
-            input["include_custom_metadata"] = include_custom_metadata
+            input_["include_custom_metadata"] = include_custom_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2196,19 +2196,19 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.get_document_path_request.GetDocumentPathRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.get_document_path_request.GetDocumentPathRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2256,18 +2256,18 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.get_document_version_request.GetDocumentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.get_document_version_request.GetDocumentVersionRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
-        input["version_id"] = version_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
+        input_["version_id"] = version_id
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
         if include_custom_metadata is not None:
-            input["include_custom_metadata"] = include_custom_metadata
+            input_["include_custom_metadata"] = include_custom_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2309,15 +2309,15 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.get_folder_request.GetFolderRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.get_folder_request.GetFolderRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["folder_id"] = folder_id
+            input_["authentication_token"] = authentication_token
+        input_["folder_id"] = folder_id
         if include_custom_metadata is not None:
-            input["include_custom_metadata"] = include_custom_metadata
+            input_["include_custom_metadata"] = include_custom_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2365,19 +2365,19 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.get_folder_path_request.GetFolderPathRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.get_folder_path_request.GetFolderPathRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["folder_id"] = folder_id
+            input_["authentication_token"] = authentication_token
+        input_["folder_id"] = folder_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2425,20 +2425,20 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.get_resources_request.GetResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.get_resources_request.GetResourcesRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if collection_type is not None:
-            input["collection_type"] = collection_type
+            input_["collection_type"] = collection_type
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2500,26 +2500,26 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.initiate_document_version_upload_request.InitiateDocumentVersionUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.initiate_document_version_upload_request.InitiateDocumentVersionUploadRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if content_created_timestamp is not None:
-            input["content_created_timestamp"] = content_created_timestamp
+            input_["content_created_timestamp"] = content_created_timestamp
         if content_modified_timestamp is not None:
-            input["content_modified_timestamp"] = content_modified_timestamp
+            input_["content_modified_timestamp"] = content_modified_timestamp
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if document_size_in_bytes is not None:
-            input["document_size_in_bytes"] = document_size_in_bytes
+            input_["document_size_in_bytes"] = document_size_in_bytes
         if parent_folder_id is not None:
-            input["parent_folder_id"] = parent_folder_id
+            input_["parent_folder_id"] = parent_folder_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2555,13 +2555,13 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.remove_all_resource_permissions_request.RemoveAllResourcePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.remove_all_resource_permissions_request.RemoveAllResourcePermissionsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["resource_id"] = resource_id
+            input_["authentication_token"] = authentication_token
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2603,16 +2603,16 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.remove_resource_permission_request.RemoveResourcePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.remove_resource_permission_request.RemoveResourcePermissionRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["resource_id"] = resource_id
-        input["principal_id"] = principal_id
+            input_["authentication_token"] = authentication_token
+        input_["resource_id"] = resource_id
+        input_["principal_id"] = principal_id
         if principal_type is not None:
-            input["principal_type"] = principal_type
+            input_["principal_type"] = principal_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2648,13 +2648,13 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.restore_document_versions_request.RestoreDocumentVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.restore_document_versions_request.RestoreDocumentVersionsRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2718,28 +2718,28 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.search_resources_request.SearchResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.search_resources_request.SearchResourcesRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
+            input_["authentication_token"] = authentication_token
         if query_text is not None:
-            input["query_text"] = query_text
+            input_["query_text"] = query_text
         if query_scopes is not None:
-            input["query_scopes"] = query_scopes
+            input_["query_scopes"] = query_scopes
         if organization_id is not None:
-            input["organization_id"] = organization_id
+            input_["organization_id"] = organization_id
         if additional_response_fields is not None:
-            input["additional_response_fields"] = additional_response_fields
+            input_["additional_response_fields"] = additional_response_fields
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2836,19 +2836,19 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.update_document_request.UpdateDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.update_document_request.UpdateDocumentRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if parent_folder_id is not None:
-            input["parent_folder_id"] = parent_folder_id
+            input_["parent_folder_id"] = parent_folder_id
         if resource_state is not None:
-            input["resource_state"] = resource_state
+            input_["resource_state"] = resource_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2890,16 +2890,16 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.update_document_version_request.UpdateDocumentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.update_document_version_request.UpdateDocumentVersionRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["document_id"] = document_id
-        input["version_id"] = version_id
+            input_["authentication_token"] = authentication_token
+        input_["document_id"] = document_id
+        input_["version_id"] = version_id
         if version_status is not None:
-            input["version_status"] = version_status
+            input_["version_status"] = version_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2947,19 +2947,19 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.update_folder_request.UpdateFolderRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.update_folder_request.UpdateFolderRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["folder_id"] = folder_id
+            input_["authentication_token"] = authentication_token
+        input_["folder_id"] = folder_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if parent_folder_id is not None:
-            input["parent_folder_id"] = parent_folder_id
+            input_["parent_folder_id"] = parent_folder_id
         if resource_state is not None:
-            input["resource_state"] = resource_state
+            input_["resource_state"] = resource_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3021,27 +3021,27 @@ class AsyncWorkDocsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workdocs.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workdocs.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
         if authentication_token is not None:
-            input["authentication_token"] = authentication_token
-        input["user_id"] = user_id
+            input_["authentication_token"] = authentication_token
+        input_["user_id"] = user_id
         if given_name is not None:
-            input["given_name"] = given_name
+            input_["given_name"] = given_name
         if surname is not None:
-            input["surname"] = surname
+            input_["surname"] = surname
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if storage_rule is not None:
-            input["storage_rule"] = storage_rule
+            input_["storage_rule"] = storage_rule
         if time_zone_id is not None:
-            input["time_zone_id"] = time_zone_id
+            input_["time_zone_id"] = time_zone_id
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if grant_poweruser_privileges is not None:
-            input["grant_poweruser_privileges"] = grant_poweruser_privileges
+            input_["grant_poweruser_privileges"] = grant_poweruser_privileges
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -71,14 +71,14 @@ class BillOfMaterialsImportJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_bill_of_materials_import_job_request.CreateBillOfMaterialsImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["s3uri"] = s3uri
+        input_: aws_sdk_supplychain.types.create_bill_of_materials_import_job_request.CreateBillOfMaterialsImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["s3uri"] = s3uri
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,12 +121,12 @@ class BillOfMaterialsImportJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_bill_of_materials_import_job_request.GetBillOfMaterialsImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["job_id"] = job_id
+        input_: aws_sdk_supplychain.types.get_bill_of_materials_import_job_request.GetBillOfMaterialsImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,14 +176,14 @@ class AsyncBillOfMaterialsImportJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_bill_of_materials_import_job_request.CreateBillOfMaterialsImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["s3uri"] = s3uri
+        input_: aws_sdk_supplychain.types.create_bill_of_materials_import_job_request.CreateBillOfMaterialsImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["s3uri"] = s3uri
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -227,12 +227,12 @@ class AsyncBillOfMaterialsImportJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_bill_of_materials_import_job_request.GetBillOfMaterialsImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["job_id"] = job_id
+        input_: aws_sdk_supplychain.types.get_bill_of_materials_import_job_request.GetBillOfMaterialsImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

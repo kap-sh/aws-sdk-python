@@ -85,7 +85,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.split_shard_input.SplitShardInput,
+    input_: aws_sdk_kinesis.types.split_shard_input.SplitShardInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -93,8 +93,8 @@ def build_request(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
-            StreamId=input.get("stream_id"),
-            StreamARN=input.get("stream_arn"),
+            StreamId=input_.get("stream_id"),
+            StreamARN=input_.get("stream_arn"),
             OperationType="control",
             ConsumerARN=options.consumer_arn,
             ResourceARN=options.resource_arn,
@@ -107,7 +107,7 @@ def build_request(
     import aws_sdk_kinesis.types.split_shard_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_kinesis.types.split_shard_input.serialize_aws_json_1_1(input)
+        aws_sdk_kinesis.types.split_shard_input.serialize_aws_json_1_1(input_)
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -120,9 +120,9 @@ def build_request(
 
 def split_shard(
     options: OperationOptions,
-    input: aws_sdk_kinesis.types.split_shard_input.SplitShardInput,
+    input_: aws_sdk_kinesis.types.split_shard_input.SplitShardInput,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -136,9 +136,9 @@ def split_shard(
 
 async def async_split_shard(
     options: AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.split_shard_input.SplitShardInput,
+    input_: aws_sdk_kinesis.types.split_shard_input.SplitShardInput,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -89,26 +89,26 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest,
+    input_: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/memberships/{membershipIdentifier}/configured-model-algorithm-associations/{configuredModelAlgorithmAssociationArn}"
     )
     url = url.replace(
         "{configuredModelAlgorithmAssociationArn}",
-        quote(str(input["configured_model_algorithm_association_arn"]), safe=""),
+        quote(str(input_["configured_model_algorithm_association_arn"]), safe=""),
     )
     url = url.replace(
-        "{membershipIdentifier}", quote(str(input["membership_identifier"]), safe="")
+        "{membershipIdentifier}", quote(str(input_["membership_identifier"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -117,26 +117,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_configured_model_algorithm_association(
     options: OperationOptions,
-    input: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest,
+    input_: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest,
 ) -> tuple[
     aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_response.GetConfiguredModelAlgorithmAssociationResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -145,16 +142,17 @@ def get_configured_model_algorithm_association(
 
 async def async_get_configured_model_algorithm_association(
     options: AsyncOperationOptions,
-    input: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest,
+    input_: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest,
 ) -> tuple[
     aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_response.GetConfiguredModelAlgorithmAssociationResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

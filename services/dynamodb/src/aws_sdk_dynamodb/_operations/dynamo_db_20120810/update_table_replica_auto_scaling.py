@@ -85,7 +85,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput,
+    input_: aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -95,7 +95,7 @@ def build_request(
             Endpoint=options.endpoint,
             AccountId=options.account_id,
             AccountIdEndpointMode=options.account_id_endpoint_mode,
-            ResourceArn=input.get("table_name"),
+            ResourceArn=input_.get("table_name"),
             ResourceArnList=options.resource_arn_list,
         )
     )  # noqa: F841
@@ -107,7 +107,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.serialize_aws_json_1_0(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
@@ -121,12 +121,12 @@ def build_request(
 
 def update_table_replica_auto_scaling(
     options: OperationOptions,
-    input: aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput,
+    input_: aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.update_table_replica_auto_scaling_output.UpdateTableReplicaAutoScalingOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -140,12 +140,12 @@ def update_table_replica_auto_scaling(
 
 async def async_update_table_replica_auto_scaling(
     options: AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput,
+    input_: aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.update_table_replica_auto_scaling_output.UpdateTableReplicaAutoScalingOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -124,26 +124,26 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
-        input["knowledge_base_type"] = knowledge_base_type
+            input_["client_token"] = client_token
+        input_["name"] = name
+        input_["knowledge_base_type"] = knowledge_base_type
         if source_configuration is not None:
-            input["source_configuration"] = source_configuration
+            input_["source_configuration"] = source_configuration
         if rendering_configuration is not None:
-            input["rendering_configuration"] = rendering_configuration
+            input_["rendering_configuration"] = rendering_configuration
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,11 +176,11 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_wisdom.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,11 +213,11 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_wisdom.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -256,14 +256,14 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,12 +298,12 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.delete_import_job_request.DeleteImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["import_job_id"] = import_job_id
+        input_: aws_sdk_wisdom.types.delete_import_job_request.DeleteImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["import_job_id"] = import_job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,12 +338,12 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.get_import_job_request.GetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["import_job_id"] = import_job_id
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_wisdom.types.get_import_job_request.GetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["import_job_id"] = import_job_id
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -382,15 +382,15 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.list_import_jobs_request.ListImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.list_import_jobs_request.ListImportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["knowledge_base_id"] = knowledge_base_id
+            input_["max_results"] = max_results
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -423,11 +423,11 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.remove_knowledge_base_template_uri_request.RemoveKnowledgeBaseTemplateUriRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_wisdom.types.remove_knowledge_base_template_uri_request.RemoveKnowledgeBaseTemplateUriRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,16 +466,16 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.search_content_request.SearchContentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.search_content_request.SearchContentRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["knowledge_base_id"] = knowledge_base_id
-        input["search_expression"] = search_expression
+            input_["max_results"] = max_results
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["search_expression"] = search_expression
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,18 +520,18 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.search_quick_responses_request.SearchQuickResponsesRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["search_expression"] = search_expression
+        input_: aws_sdk_wisdom.types.search_quick_responses_request.SearchQuickResponsesRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["search_expression"] = search_expression
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,14 +572,14 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.start_content_upload_request.StartContentUploadRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["content_type"] = content_type
+        input_: aws_sdk_wisdom.types.start_content_upload_request.StartContentUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["content_type"] = content_type
         if presigned_url_time_to_live is not None:
-            input["presigned_url_time_to_live"] = presigned_url_time_to_live
+            input_["presigned_url_time_to_live"] = presigned_url_time_to_live
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -628,19 +628,19 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.start_import_job_request.StartImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["import_job_type"] = import_job_type
-        input["upload_id"] = upload_id
+        input_: aws_sdk_wisdom.types.start_import_job_request.StartImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["import_job_type"] = import_job_type
+        input_["upload_id"] = upload_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if external_source_configuration is not None:
-            input["external_source_configuration"] = external_source_configuration
+            input_["external_source_configuration"] = external_source_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -675,12 +675,12 @@ class KnowledgeBase:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.update_knowledge_base_template_uri_request.UpdateKnowledgeBaseTemplateUriRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["template_uri"] = template_uri
+        input_: aws_sdk_wisdom.types.update_knowledge_base_template_uri_request.UpdateKnowledgeBaseTemplateUriRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["template_uri"] = template_uri
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -741,26 +741,26 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
-        input["knowledge_base_type"] = knowledge_base_type
+            input_["client_token"] = client_token
+        input_["name"] = name
+        input_["knowledge_base_type"] = knowledge_base_type
         if source_configuration is not None:
-            input["source_configuration"] = source_configuration
+            input_["source_configuration"] = source_configuration
         if rendering_configuration is not None:
-            input["rendering_configuration"] = rendering_configuration
+            input_["rendering_configuration"] = rendering_configuration
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,11 +794,11 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_wisdom.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -832,11 +832,11 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_wisdom.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,14 +876,14 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,12 +919,12 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.delete_import_job_request.DeleteImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["import_job_id"] = import_job_id
+        input_: aws_sdk_wisdom.types.delete_import_job_request.DeleteImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["import_job_id"] = import_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -960,12 +960,12 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.get_import_job_request.GetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["import_job_id"] = import_job_id
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_wisdom.types.get_import_job_request.GetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["import_job_id"] = import_job_id
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1005,15 +1005,15 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.list_import_jobs_request.ListImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.list_import_jobs_request.ListImportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["knowledge_base_id"] = knowledge_base_id
+            input_["max_results"] = max_results
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1047,11 +1047,11 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.remove_knowledge_base_template_uri_request.RemoveKnowledgeBaseTemplateUriRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_wisdom.types.remove_knowledge_base_template_uri_request.RemoveKnowledgeBaseTemplateUriRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1091,16 +1091,16 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.search_content_request.SearchContentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.search_content_request.SearchContentRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["knowledge_base_id"] = knowledge_base_id
-        input["search_expression"] = search_expression
+            input_["max_results"] = max_results
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["search_expression"] = search_expression
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1146,18 +1146,18 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.search_quick_responses_request.SearchQuickResponsesRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["search_expression"] = search_expression
+        input_: aws_sdk_wisdom.types.search_quick_responses_request.SearchQuickResponsesRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["search_expression"] = search_expression
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1199,14 +1199,14 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.start_content_upload_request.StartContentUploadRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["content_type"] = content_type
+        input_: aws_sdk_wisdom.types.start_content_upload_request.StartContentUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["content_type"] = content_type
         if presigned_url_time_to_live is not None:
-            input["presigned_url_time_to_live"] = presigned_url_time_to_live
+            input_["presigned_url_time_to_live"] = presigned_url_time_to_live
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1256,19 +1256,19 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.start_import_job_request.StartImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["import_job_type"] = import_job_type
-        input["upload_id"] = upload_id
+        input_: aws_sdk_wisdom.types.start_import_job_request.StartImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["import_job_type"] = import_job_type
+        input_["upload_id"] = upload_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if external_source_configuration is not None:
-            input["external_source_configuration"] = external_source_configuration
+            input_["external_source_configuration"] = external_source_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1304,12 +1304,12 @@ class AsyncKnowledgeBase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.update_knowledge_base_template_uri_request.UpdateKnowledgeBaseTemplateUriRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["template_uri"] = template_uri
+        input_: aws_sdk_wisdom.types.update_knowledge_base_template_uri_request.UpdateKnowledgeBaseTemplateUriRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["template_uri"] = template_uri
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

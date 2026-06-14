@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_workspaces_web._services.async_work_spaces_web import ensure_async_iterator
 from aws_sdk_workspaces_web._services.work_spaces_web import ensure_sync_iterator
+import datetime
 from aws_sdk_workspaces_web._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
@@ -47,14 +48,14 @@ class TrustStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_trust_store_request.CreateTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_list"] = certificate_list
+        input_: aws_sdk_workspaces_web.types.create_trust_store_request.CreateTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_list"] = certificate_list
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def read(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_trust_store_response.GetTrustStoreResponse":
         """<p>Gets the trust store.</p>
@@ -68,10 +69,10 @@ class TrustStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_trust_store_request.GetTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
+        input_: aws_sdk_workspaces_web.types.get_trust_store_request.GetTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, certificates_to_add: Optional["aws_sdk_workspaces_web.types.certificate_list.CertificateList"] = None, certificates_to_delete: Optional["aws_sdk_workspaces_web.types.certificate_thumbprint_list.CertificateThumbprintList"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_trust_store_response.UpdateTrustStoreResponse":
         """<p>Updates the trust store.</p>
@@ -88,16 +89,16 @@ class TrustStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_trust_store_request.UpdateTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
+        input_: aws_sdk_workspaces_web.types.update_trust_store_request.UpdateTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
         if certificates_to_add is not None:
-            input["certificates_to_add"] = certificates_to_add
+            input_["certificates_to_add"] = certificates_to_add
         if certificates_to_delete is not None:
-            input["certificates_to_delete"] = certificates_to_delete
+            input_["certificates_to_delete"] = certificates_to_delete
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_trust_store_response.DeleteTrustStoreResponse":
         """<p>Deletes the trust store.</p>
@@ -111,10 +112,10 @@ class TrustStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_trust_store_request.DeleteTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
+        input_: aws_sdk_workspaces_web.types.delete_trust_store_request.DeleteTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list(self, *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_trust_stores_response.ListTrustStoresResponse":
         """<p>Retrieves a list of trust stores.</p>
@@ -129,13 +130,13 @@ class TrustStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_trust_stores_request.ListTrustStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_trust_stores_request.ListTrustStoresRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def get_trust_store_certificate(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", thumbprint: "aws_sdk_workspaces_web.types.certificate_thumbprint.CertificateThumbprint", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_trust_store_certificate_response.GetTrustStoreCertificateResponse":
         """<p>Gets the trust store certificate.</p>
@@ -150,11 +151,11 @@ class TrustStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_trust_store_certificate_request.GetTrustStoreCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
-        input["thumbprint"] = thumbprint
+        input_: aws_sdk_workspaces_web.types.get_trust_store_certificate_request.GetTrustStoreCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
+        input_["thumbprint"] = thumbprint
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_trust_store_certificates(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_trust_store_certificates_response.ListTrustStoreCertificatesResponse":
         """<p>Retrieves a list of trust store certificates.</p>
@@ -170,14 +171,14 @@ class TrustStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_trust_store_certificates_request.ListTrustStoreCertificatesRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
+        input_: aws_sdk_workspaces_web.types.list_trust_store_certificates_request.ListTrustStoreCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncTrustStoreResource:
@@ -197,14 +198,14 @@ class AsyncTrustStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_trust_store_request.CreateTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_list"] = certificate_list
+        input_: aws_sdk_workspaces_web.types.create_trust_store_request.CreateTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_list"] = certificate_list
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def read(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_trust_store_response.GetTrustStoreResponse":
         """<p>Gets the trust store.</p>
@@ -218,10 +219,10 @@ class AsyncTrustStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_trust_store_request.GetTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
+        input_: aws_sdk_workspaces_web.types.get_trust_store_request.GetTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def update(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, certificates_to_add: Optional["aws_sdk_workspaces_web.types.certificate_list.CertificateList"] = None, certificates_to_delete: Optional["aws_sdk_workspaces_web.types.certificate_thumbprint_list.CertificateThumbprintList"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_trust_store_response.UpdateTrustStoreResponse":
         """<p>Updates the trust store.</p>
@@ -238,16 +239,16 @@ class AsyncTrustStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_trust_store_request.UpdateTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
+        input_: aws_sdk_workspaces_web.types.update_trust_store_request.UpdateTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
         if certificates_to_add is not None:
-            input["certificates_to_add"] = certificates_to_add
+            input_["certificates_to_add"] = certificates_to_add
         if certificates_to_delete is not None:
-            input["certificates_to_delete"] = certificates_to_delete
+            input_["certificates_to_delete"] = certificates_to_delete
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def delete(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_trust_store_response.DeleteTrustStoreResponse":
         """<p>Deletes the trust store.</p>
@@ -261,10 +262,10 @@ class AsyncTrustStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_trust_store_request.DeleteTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
+        input_: aws_sdk_workspaces_web.types.delete_trust_store_request.DeleteTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list(self, *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_trust_stores_response.ListTrustStoresResponse":
         """<p>Retrieves a list of trust stores.</p>
@@ -279,13 +280,13 @@ class AsyncTrustStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_trust_stores_request.ListTrustStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_trust_stores_request.ListTrustStoresRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def get_trust_store_certificate(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", thumbprint: "aws_sdk_workspaces_web.types.certificate_thumbprint.CertificateThumbprint", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_trust_store_certificate_response.GetTrustStoreCertificateResponse":
         """<p>Gets the trust store certificate.</p>
@@ -300,11 +301,11 @@ class AsyncTrustStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_trust_store_certificate_request.GetTrustStoreCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
-        input["thumbprint"] = thumbprint
+        input_: aws_sdk_workspaces_web.types.get_trust_store_certificate_request.GetTrustStoreCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
+        input_["thumbprint"] = thumbprint
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list_trust_store_certificates(self, trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_trust_store_certificates_response.ListTrustStoreCertificatesResponse":
         """<p>Retrieves a list of trust store certificates.</p>
@@ -320,12 +321,12 @@ class AsyncTrustStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_trust_store_certificates_request.ListTrustStoreCertificatesRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_arn"] = trust_store_arn
+        input_: aws_sdk_workspaces_web.types.list_trust_store_certificates_request.ListTrustStoreCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_arn"] = trust_store_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

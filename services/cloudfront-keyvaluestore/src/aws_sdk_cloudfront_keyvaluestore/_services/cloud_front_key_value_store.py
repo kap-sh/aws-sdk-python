@@ -175,13 +175,13 @@ class CloudFrontKeyValueStoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest = {}  # type: ignore[typeddict-item]
-        input["kvs_arn"] = kvs_arn
-        input["key"] = key
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["kvs_arn"] = kvs_arn
+        input_["key"] = key
+        input_["if_match"] = if_match
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,11 +222,11 @@ class CloudFrontKeyValueStoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_request.DescribeKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input["kvs_arn"] = kvs_arn
+        input_: aws_sdk_cloudfront_keyvaluestore.types.describe_key_value_store_request.DescribeKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["kvs_arn"] = kvs_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,12 +266,12 @@ class CloudFrontKeyValueStoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront_keyvaluestore.types.get_key_request.GetKeyRequest = {}  # type: ignore[typeddict-item]
-        input["kvs_arn"] = kvs_arn
-        input["key"] = key
+        input_: aws_sdk_cloudfront_keyvaluestore.types.get_key_request.GetKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["kvs_arn"] = kvs_arn
+        input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -316,15 +316,15 @@ class CloudFrontKeyValueStoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront_keyvaluestore.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
-        input["kvs_arn"] = kvs_arn
+        input_: aws_sdk_cloudfront_keyvaluestore.types.list_keys_request.ListKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["kvs_arn"] = kvs_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,14 +391,14 @@ class CloudFrontKeyValueStoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront_keyvaluestore.types.put_key_request.PutKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key"] = key
-        input["value"] = value
-        input["kvs_arn"] = kvs_arn
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront_keyvaluestore.types.put_key_request.PutKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key"] = key
+        input_["value"] = value
+        input_["kvs_arn"] = kvs_arn
+        input_["if_match"] = if_match
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,16 +454,16 @@ class CloudFrontKeyValueStoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest = {}  # type: ignore[typeddict-item]
-        input["kvs_arn"] = kvs_arn
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["kvs_arn"] = kvs_arn
+        input_["if_match"] = if_match
         if puts is not None:
-            input["puts"] = puts
+            input_["puts"] = puts
         if deletes is not None:
-            input["deletes"] = deletes
+            input_["deletes"] = deletes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

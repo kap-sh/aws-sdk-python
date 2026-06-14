@@ -80,17 +80,17 @@ class AccessPolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_access_policy_request.CreateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.create_access_policy_request.CreateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["policy"] = policy
+            input_["description"] = description
+        input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -125,12 +125,12 @@ class AccessPolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.get_access_policy_request.GetAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.get_access_policy_request.GetAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,19 +179,19 @@ class AccessPolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_access_policy_request.UpdateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
-        input["policy_version"] = policy_version
+        input_: aws_sdk_opensearchserverless.types.update_access_policy_request.UpdateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
+        input_["policy_version"] = policy_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,14 +230,14 @@ class AccessPolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_access_policy_request.DeleteAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.delete_access_policy_request.DeleteAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,17 +278,17 @@ class AccessPolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_access_policies_request.ListAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_opensearchserverless.types.list_access_policies_request.ListAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if resource is not None:
-            input["resource"] = resource
+            input_["resource"] = resource
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,17 +339,17 @@ class AsyncAccessPolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_access_policy_request.CreateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.create_access_policy_request.CreateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["policy"] = policy
+            input_["description"] = description
+        input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,12 +385,12 @@ class AsyncAccessPolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.get_access_policy_request.GetAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.get_access_policy_request.GetAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,19 +440,19 @@ class AsyncAccessPolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_access_policy_request.UpdateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
-        input["policy_version"] = policy_version
+        input_: aws_sdk_opensearchserverless.types.update_access_policy_request.UpdateAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
+        input_["policy_version"] = policy_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,14 +492,14 @@ class AsyncAccessPolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_access_policy_request.DeleteAccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.delete_access_policy_request.DeleteAccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -541,17 +541,17 @@ class AsyncAccessPolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_access_policies_request.ListAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_opensearchserverless.types.list_access_policies_request.ListAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if resource is not None:
-            input["resource"] = resource
+            input_["resource"] = resource
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

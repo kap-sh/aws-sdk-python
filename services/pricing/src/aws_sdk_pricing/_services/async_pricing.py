@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_pricing._auth._signers
+import aws_sdk_pricing._auth._sigv4
 from aws_sdk_pricing._auth._identity import Credentials
 from aws_sdk_pricing._auth._providers import (
     CredentialsProvider,
@@ -198,18 +200,18 @@ class AsyncPricingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pricing.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pricing.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
         if service_code is not None:
-            input["service_code"] = service_code
+            input_["service_code"] = service_code
         if format_version is not None:
-            input["format_version"] = format_version
+            input_["format_version"] = format_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,16 +290,16 @@ class AsyncPricingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pricing.types.get_attribute_values_request.GetAttributeValuesRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_pricing.types.get_attribute_values_request.GetAttributeValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
+        input_["attribute_name"] = attribute_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,12 +362,12 @@ class AsyncPricingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pricing.types.get_price_list_file_url_request.GetPriceListFileUrlRequest = {}  # type: ignore[typeddict-item]
-        input["price_list_arn"] = price_list_arn
-        input["file_format"] = file_format
+        input_: aws_sdk_pricing.types.get_price_list_file_url_request.GetPriceListFileUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["price_list_arn"] = price_list_arn
+        input_["file_format"] = file_format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,19 +413,19 @@ class AsyncPricingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pricing.types.get_products_request.GetProductsRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
+        input_: aws_sdk_pricing.types.get_products_request.GetProductsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if format_version is not None:
-            input["format_version"] = format_version
+            input_["format_version"] = format_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -498,19 +500,19 @@ class AsyncPricingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pricing.types.list_price_lists_request.ListPriceListsRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
-        input["effective_date"] = effective_date
+        input_: aws_sdk_pricing.types.list_price_lists_request.ListPriceListsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
+        input_["effective_date"] = effective_date
         if region_code is not None:
-            input["region_code"] = region_code
-        input["currency_code"] = currency_code
+            input_["region_code"] = region_code
+        input_["currency_code"] = currency_code
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -96,23 +97,23 @@ class DataProduct:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_data_product_input.CreateDataProductInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
-        input["owning_project_identifier"] = owning_project_identifier
+        input_: aws_sdk_datazone.types.create_data_product_input.CreateDataProductInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
+        input_["owning_project_identifier"] = owning_project_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if forms_input is not None:
-            input["forms_input"] = forms_input
+            input_["forms_input"] = forms_input
         if items is not None:
-            input["items"] = items
+            input_["items"] = items
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -149,14 +150,14 @@ class DataProduct:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_data_product_input.GetDataProductInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_data_product_input.GetDataProductInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -191,12 +192,12 @@ class DataProduct:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_data_product_input.DeleteDataProductInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_data_product_input.DeleteDataProductInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,23 +254,23 @@ class DataProduct:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_data_product_revision_input.CreateDataProductRevisionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_data_product_revision_input.CreateDataProductRevisionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if items is not None:
-            input["items"] = items
+            input_["items"] = items
         if forms_input is not None:
-            input["forms_input"] = forms_input
+            input_["forms_input"] = forms_input
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,23 +333,23 @@ class AsyncDataProduct:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_data_product_input.CreateDataProductInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
-        input["owning_project_identifier"] = owning_project_identifier
+        input_: aws_sdk_datazone.types.create_data_product_input.CreateDataProductInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
+        input_["owning_project_identifier"] = owning_project_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if forms_input is not None:
-            input["forms_input"] = forms_input
+            input_["forms_input"] = forms_input
         if items is not None:
-            input["items"] = items
+            input_["items"] = items
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,14 +387,14 @@ class AsyncDataProduct:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_data_product_input.GetDataProductInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_data_product_input.GetDataProductInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,12 +430,12 @@ class AsyncDataProduct:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_data_product_input.DeleteDataProductInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_data_product_input.DeleteDataProductInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,23 +493,23 @@ class AsyncDataProduct:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_data_product_revision_input.CreateDataProductRevisionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_data_product_revision_input.CreateDataProductRevisionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if items is not None:
-            input["items"] = items
+            input_["items"] = items
         if forms_input is not None:
-            input["forms_input"] = forms_input
+            input_["forms_input"] = forms_input
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

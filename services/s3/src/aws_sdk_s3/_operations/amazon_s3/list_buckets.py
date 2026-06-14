@@ -61,7 +61,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.list_buckets_request.ListBucketsRequest,
+    input_: aws_sdk_s3.types.list_buckets_request.ListBucketsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -86,14 +86,14 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/?x-id=ListBuckets"
     params: dict[str, str] = {}
-    if "max_buckets" in input:
-        params["max-buckets"] = str(input["max_buckets"])
-    if "continuation_token" in input:
-        params["continuation-token"] = str(input["continuation_token"])
-    if "prefix" in input:
-        params["prefix"] = str(input["prefix"])
-    if "bucket_region" in input:
-        params["bucket-region"] = str(input["bucket_region"])
+    if "max_buckets" in input_:
+        params["max-buckets"] = str(input_["max_buckets"])
+    if "continuation_token" in input_:
+        params["continuation-token"] = str(input_["continuation_token"])
+    if "prefix" in input_:
+        params["prefix"] = str(input_["prefix"])
+    if "bucket_region" in input_:
+        params["bucket-region"] = str(input_["bucket_region"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -106,9 +106,9 @@ def build_request(
 
 def list_buckets(
     options: OperationOptions,
-    input: aws_sdk_s3.types.list_buckets_request.ListBucketsRequest,
+    input_: aws_sdk_s3.types.list_buckets_request.ListBucketsRequest,
 ) -> tuple[aws_sdk_s3.types.list_buckets_output.ListBucketsOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -122,9 +122,9 @@ def list_buckets(
 
 async def async_list_buckets(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.list_buckets_request.ListBucketsRequest,
+    input_: aws_sdk_s3.types.list_buckets_request.ListBucketsRequest,
 ) -> tuple[aws_sdk_s3.types.list_buckets_output.ListBucketsOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

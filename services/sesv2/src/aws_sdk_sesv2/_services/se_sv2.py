@@ -480,11 +480,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.batch_get_metric_data_request.BatchGetMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["queries"] = queries
+        input_: aws_sdk_sesv2.types.batch_get_metric_data_request.BatchGetMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["queries"] = queries
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,11 +523,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.cancel_export_job_request.CancelExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_sesv2.types.cancel_export_job_request.CancelExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,27 +588,27 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_configuration_set_request.CreateConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.create_configuration_set_request.CreateConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if tracking_options is not None:
-            input["tracking_options"] = tracking_options
+            input_["tracking_options"] = tracking_options
         if delivery_options is not None:
-            input["delivery_options"] = delivery_options
+            input_["delivery_options"] = delivery_options
         if reputation_options is not None:
-            input["reputation_options"] = reputation_options
+            input_["reputation_options"] = reputation_options
         if sending_options is not None:
-            input["sending_options"] = sending_options
+            input_["sending_options"] = sending_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if suppression_options is not None:
-            input["suppression_options"] = suppression_options
+            input_["suppression_options"] = suppression_options
         if vdm_options is not None:
-            input["vdm_options"] = vdm_options
+            input_["vdm_options"] = vdm_options
         if archiving_options is not None:
-            input["archiving_options"] = archiving_options
+            input_["archiving_options"] = archiving_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -645,13 +645,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_configuration_set_event_destination_request.CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination_name"] = event_destination_name
-        input["event_destination"] = event_destination
+        input_: aws_sdk_sesv2.types.create_configuration_set_event_destination_request.CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination_name"] = event_destination_name
+        input_["event_destination"] = event_destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,18 +698,18 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_contact_request.CreateContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
-        input["email_address"] = email_address
+        input_: aws_sdk_sesv2.types.create_contact_request.CreateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
+        input_["email_address"] = email_address
         if topic_preferences is not None:
-            input["topic_preferences"] = topic_preferences
+            input_["topic_preferences"] = topic_preferences
         if unsubscribe_all is not None:
-            input["unsubscribe_all"] = unsubscribe_all
+            input_["unsubscribe_all"] = unsubscribe_all
         if attributes_data is not None:
-            input["attributes_data"] = attributes_data
+            input_["attributes_data"] = attributes_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -748,17 +748,17 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_contact_list_request.CreateContactListRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
+        input_: aws_sdk_sesv2.types.create_contact_list_request.CreateContactListRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
         if topics is not None:
-            input["topics"] = topics
+            input_["topics"] = topics
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,18 +803,18 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_custom_verification_email_template_request.CreateCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["from_email_address"] = from_email_address
-        input["template_subject"] = template_subject
-        input["template_content"] = template_content
+        input_: aws_sdk_sesv2.types.create_custom_verification_email_template_request.CreateCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["from_email_address"] = from_email_address
+        input_["template_subject"] = template_subject
+        input_["template_content"] = template_content
         if tags is not None:
-            input["tags"] = tags
-        input["success_redirection_url"] = success_redirection_url
-        input["failure_redirection_url"] = failure_redirection_url
+            input_["tags"] = tags
+        input_["success_redirection_url"] = success_redirection_url
+        input_["failure_redirection_url"] = failure_redirection_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,15 +851,15 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_dedicated_ip_pool_request.CreateDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_name"] = pool_name
+        input_: aws_sdk_sesv2.types.create_dedicated_ip_pool_request.CreateDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_name"] = pool_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if scaling_mode is not None:
-            input["scaling_mode"] = scaling_mode
+            input_["scaling_mode"] = scaling_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -898,16 +898,16 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_deliverability_test_report_request.CreateDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.create_deliverability_test_report_request.CreateDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
         if report_name is not None:
-            input["report_name"] = report_name
-        input["from_email_address"] = from_email_address
-        input["content"] = content
+            input_["report_name"] = report_name
+        input_["from_email_address"] = from_email_address
+        input_["content"] = content
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,17 +952,17 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_email_identity_request.CreateEmailIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_sesv2.types.create_email_identity_request.CreateEmailIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if dkim_signing_attributes is not None:
-            input["dkim_signing_attributes"] = dkim_signing_attributes
+            input_["dkim_signing_attributes"] = dkim_signing_attributes
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -999,13 +999,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_email_identity_policy_request.CreateEmailIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
-        input["policy_name"] = policy_name
-        input["policy"] = policy
+        input_: aws_sdk_sesv2.types.create_email_identity_policy_request.CreateEmailIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
+        input_["policy_name"] = policy_name
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1044,14 +1044,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_email_template_request.CreateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_content"] = template_content
+        input_: aws_sdk_sesv2.types.create_email_template_request.CreateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_content"] = template_content
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1086,12 +1086,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_export_job_request.CreateExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["export_data_source"] = export_data_source
-        input["export_destination"] = export_destination
+        input_: aws_sdk_sesv2.types.create_export_job_request.CreateExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["export_data_source"] = export_data_source
+        input_["export_destination"] = export_destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1126,12 +1126,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_import_job_request.CreateImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["import_destination"] = import_destination
-        input["import_data_source"] = import_data_source
+        input_: aws_sdk_sesv2.types.create_import_job_request.CreateImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["import_destination"] = import_destination
+        input_["import_data_source"] = import_data_source
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,14 +1168,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_multi_region_endpoint_request.CreateMultiRegionEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["details"] = details
+        input_: aws_sdk_sesv2.types.create_multi_region_endpoint_request.CreateMultiRegionEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["details"] = details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1214,15 +1214,15 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_tenant_request.CreateTenantRequest = {}  # type: ignore[typeddict-item]
-        input["tenant_name"] = tenant_name
+        input_: aws_sdk_sesv2.types.create_tenant_request.CreateTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["tenant_name"] = tenant_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if suppression_attributes is not None:
-            input["suppression_attributes"] = suppression_attributes
+            input_["suppression_attributes"] = suppression_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1257,12 +1257,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.create_tenant_resource_association_request.CreateTenantResourceAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["tenant_name"] = tenant_name
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_sesv2.types.create_tenant_resource_association_request.CreateTenantResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["tenant_name"] = tenant_name
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1295,11 +1295,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_configuration_set_request.DeleteConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.delete_configuration_set_request.DeleteConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1334,12 +1334,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_configuration_set_event_destination_request.DeleteConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination_name"] = event_destination_name
+        input_: aws_sdk_sesv2.types.delete_configuration_set_event_destination_request.DeleteConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination_name"] = event_destination_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1374,12 +1374,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_contact_request.DeleteContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
-        input["email_address"] = email_address
+        input_: aws_sdk_sesv2.types.delete_contact_request.DeleteContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
+        input_["email_address"] = email_address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1412,11 +1412,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_contact_list_request.DeleteContactListRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
+        input_: aws_sdk_sesv2.types.delete_contact_list_request.DeleteContactListRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1449,11 +1449,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_custom_verification_email_template_request.DeleteCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_sesv2.types.delete_custom_verification_email_template_request.DeleteCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1486,11 +1486,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_dedicated_ip_pool_request.DeleteDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_name"] = pool_name
+        input_: aws_sdk_sesv2.types.delete_dedicated_ip_pool_request.DeleteDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_name"] = pool_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1525,11 +1525,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_email_identity_request.DeleteEmailIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_sesv2.types.delete_email_identity_request.DeleteEmailIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1564,12 +1564,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_email_identity_policy_request.DeleteEmailIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
-        input["policy_name"] = policy_name
+        input_: aws_sdk_sesv2.types.delete_email_identity_policy_request.DeleteEmailIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
+        input_["policy_name"] = policy_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1604,11 +1604,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_email_template_request.DeleteEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_sesv2.types.delete_email_template_request.DeleteEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1641,11 +1641,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_multi_region_endpoint_request.DeleteMultiRegionEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_sesv2.types.delete_multi_region_endpoint_request.DeleteMultiRegionEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1680,13 +1680,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_suppressed_destination_request.DeleteSuppressedDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
+        input_: aws_sdk_sesv2.types.delete_suppressed_destination_request.DeleteSuppressedDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
         if tenant_name is not None:
-            input["tenant_name"] = tenant_name
+            input_["tenant_name"] = tenant_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1719,11 +1719,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_tenant_request.DeleteTenantRequest = {}  # type: ignore[typeddict-item]
-        input["tenant_name"] = tenant_name
+        input_: aws_sdk_sesv2.types.delete_tenant_request.DeleteTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["tenant_name"] = tenant_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1758,12 +1758,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.delete_tenant_resource_association_request.DeleteTenantResourceAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["tenant_name"] = tenant_name
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_sesv2.types.delete_tenant_resource_association_request.DeleteTenantResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["tenant_name"] = tenant_name
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1789,10 +1789,10 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_account_request.GetAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.get_account_request.GetAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1827,11 +1827,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_blacklist_reports_request.GetBlacklistReportsRequest = {}  # type: ignore[typeddict-item]
-        input["blacklist_item_names"] = blacklist_item_names
+        input_: aws_sdk_sesv2.types.get_blacklist_reports_request.GetBlacklistReportsRequest = {}  # type: ignore[typeddict-item]
+        input_["blacklist_item_names"] = blacklist_item_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1866,11 +1866,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_configuration_set_request.GetConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.get_configuration_set_request.GetConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1903,11 +1903,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_configuration_set_event_destinations_request.GetConfigurationSetEventDestinationsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.get_configuration_set_event_destinations_request.GetConfigurationSetEventDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1942,12 +1942,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_contact_request.GetContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
-        input["email_address"] = email_address
+        input_: aws_sdk_sesv2.types.get_contact_request.GetContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
+        input_["email_address"] = email_address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1980,11 +1980,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_contact_list_request.GetContactListRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
+        input_: aws_sdk_sesv2.types.get_contact_list_request.GetContactListRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2017,11 +2017,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_custom_verification_email_template_request.GetCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_sesv2.types.get_custom_verification_email_template_request.GetCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2054,11 +2054,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_dedicated_ip_request.GetDedicatedIpRequest = {}  # type: ignore[typeddict-item]
-        input["ip"] = ip
+        input_: aws_sdk_sesv2.types.get_dedicated_ip_request.GetDedicatedIpRequest = {}  # type: ignore[typeddict-item]
+        input_["ip"] = ip
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2093,11 +2093,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_dedicated_ip_pool_request.GetDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_name"] = pool_name
+        input_: aws_sdk_sesv2.types.get_dedicated_ip_pool_request.GetDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_name"] = pool_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2134,16 +2134,16 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_dedicated_ips_request.GetDedicatedIpsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.get_dedicated_ips_request.GetDedicatedIpsRequest = {}  # type: ignore[typeddict-item]
         if pool_name is not None:
-            input["pool_name"] = pool_name
+            input_["pool_name"] = pool_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2169,10 +2169,10 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_deliverability_dashboard_options_request.GetDeliverabilityDashboardOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.get_deliverability_dashboard_options_request.GetDeliverabilityDashboardOptionsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2205,11 +2205,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_deliverability_test_report_request.GetDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_sesv2.types.get_deliverability_test_report_request.GetDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2242,11 +2242,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_domain_deliverability_campaign_request.GetDomainDeliverabilityCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["campaign_id"] = campaign_id
+        input_: aws_sdk_sesv2.types.get_domain_deliverability_campaign_request.GetDomainDeliverabilityCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["campaign_id"] = campaign_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2283,13 +2283,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_domain_statistics_report_request.GetDomainStatisticsReportRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["start_date"] = start_date
-        input["end_date"] = end_date
+        input_: aws_sdk_sesv2.types.get_domain_statistics_report_request.GetDomainStatisticsReportRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["start_date"] = start_date
+        input_["end_date"] = end_date
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2328,11 +2328,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_email_address_insights_request.GetEmailAddressInsightsRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
+        input_: aws_sdk_sesv2.types.get_email_address_insights_request.GetEmailAddressInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2365,11 +2365,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_email_identity_request.GetEmailIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_sesv2.types.get_email_identity_request.GetEmailIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2402,11 +2402,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_email_identity_policies_request.GetEmailIdentityPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_sesv2.types.get_email_identity_policies_request.GetEmailIdentityPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2439,11 +2439,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_email_template_request.GetEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_sesv2.types.get_email_template_request.GetEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2476,11 +2476,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_export_job_request.GetExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_sesv2.types.get_export_job_request.GetExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2513,11 +2513,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_import_job_request.GetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_sesv2.types.get_import_job_request.GetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2550,11 +2550,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_message_insights_request.GetMessageInsightsRequest = {}  # type: ignore[typeddict-item]
-        input["message_id"] = message_id
+        input_: aws_sdk_sesv2.types.get_message_insights_request.GetMessageInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_["message_id"] = message_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2587,11 +2587,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_multi_region_endpoint_request.GetMultiRegionEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_sesv2.types.get_multi_region_endpoint_request.GetMultiRegionEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2628,12 +2628,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_reputation_entity_request.GetReputationEntityRequest = {}  # type: ignore[typeddict-item]
-        input["reputation_entity_reference"] = reputation_entity_reference
-        input["reputation_entity_type"] = reputation_entity_type
+        input_: aws_sdk_sesv2.types.get_reputation_entity_request.GetReputationEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["reputation_entity_reference"] = reputation_entity_reference
+        input_["reputation_entity_type"] = reputation_entity_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2668,13 +2668,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_suppressed_destination_request.GetSuppressedDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
+        input_: aws_sdk_sesv2.types.get_suppressed_destination_request.GetSuppressedDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
         if tenant_name is not None:
-            input["tenant_name"] = tenant_name
+            input_["tenant_name"] = tenant_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2707,11 +2707,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.get_tenant_request.GetTenantRequest = {}  # type: ignore[typeddict-item]
-        input["tenant_name"] = tenant_name
+        input_: aws_sdk_sesv2.types.get_tenant_request.GetTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["tenant_name"] = tenant_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2746,14 +2746,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_configuration_sets_request.ListConfigurationSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_configuration_sets_request.ListConfigurationSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2788,14 +2788,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_contact_lists_request.ListContactListsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_contact_lists_request.ListContactListsRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2836,17 +2836,17 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_contacts_request.ListContactsRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
+        input_: aws_sdk_sesv2.types.list_contacts_request.ListContactsRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2881,14 +2881,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_custom_verification_email_templates_request.ListCustomVerificationEmailTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_custom_verification_email_templates_request.ListCustomVerificationEmailTemplatesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2923,14 +2923,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_dedicated_ip_pools_request.ListDedicatedIpPoolsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_dedicated_ip_pools_request.ListDedicatedIpPoolsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2965,14 +2965,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_deliverability_test_reports_request.ListDeliverabilityTestReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_deliverability_test_reports_request.ListDeliverabilityTestReportsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3013,17 +3013,17 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_domain_deliverability_campaigns_request.ListDomainDeliverabilityCampaignsRequest = {}  # type: ignore[typeddict-item]
-        input["start_date"] = start_date
-        input["end_date"] = end_date
-        input["subscribed_domain"] = subscribed_domain
+        input_: aws_sdk_sesv2.types.list_domain_deliverability_campaigns_request.ListDomainDeliverabilityCampaignsRequest = {}  # type: ignore[typeddict-item]
+        input_["start_date"] = start_date
+        input_["end_date"] = end_date
+        input_["subscribed_domain"] = subscribed_domain
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3060,14 +3060,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_email_identities_request.ListEmailIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_email_identities_request.ListEmailIdentitiesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3102,14 +3102,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_email_templates_request.ListEmailTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_email_templates_request.ListEmailTemplatesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3150,18 +3150,18 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_export_jobs_request.ListExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_export_jobs_request.ListExportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if export_source_type is not None:
-            input["export_source_type"] = export_source_type
+            input_["export_source_type"] = export_source_type
         if job_status is not None:
-            input["job_status"] = job_status
+            input_["job_status"] = job_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3200,16 +3200,16 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_import_jobs_request.ListImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_import_jobs_request.ListImportJobsRequest = {}  # type: ignore[typeddict-item]
         if import_destination_type is not None:
-            input["import_destination_type"] = import_destination_type
+            input_["import_destination_type"] = import_destination_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3244,14 +3244,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_multi_region_endpoints_request.ListMultiRegionEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_multi_region_endpoints_request.ListMultiRegionEndpointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3313,16 +3313,16 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3361,16 +3361,16 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_reputation_entities_request.ListReputationEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_reputation_entities_request.ListReputationEntitiesRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3434,15 +3434,15 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_resource_tenants_request.ListResourceTenantsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_sesv2.types.list_resource_tenants_request.ListResourceTenantsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3512,22 +3512,22 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_suppressed_destinations_request.ListSuppressedDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_suppressed_destinations_request.ListSuppressedDestinationsRequest = {}  # type: ignore[typeddict-item]
         if tenant_name is not None:
-            input["tenant_name"] = tenant_name
+            input_["tenant_name"] = tenant_name
         if reasons is not None:
-            input["reasons"] = reasons
+            input_["reasons"] = reasons
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
+            input_["end_date"] = end_date
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3560,11 +3560,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_sesv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3607,17 +3607,17 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_tenant_resources_request.ListTenantResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["tenant_name"] = tenant_name
+        input_: aws_sdk_sesv2.types.list_tenant_resources_request.ListTenantResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["tenant_name"] = tenant_name
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3679,14 +3679,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.list_tenants_request.ListTenantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.list_tenants_request.ListTenantsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3740,12 +3740,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_account_dedicated_ip_warmup_attributes_request.PutAccountDedicatedIpWarmupAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.put_account_dedicated_ip_warmup_attributes_request.PutAccountDedicatedIpWarmupAttributesRequest = {}  # type: ignore[typeddict-item]
         if auto_warmup_enabled is not None:
-            input["auto_warmup_enabled"] = auto_warmup_enabled
+            input_["auto_warmup_enabled"] = auto_warmup_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3796,22 +3796,22 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_account_details_request.PutAccountDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["mail_type"] = mail_type
-        input["website_url"] = website_url
+        input_: aws_sdk_sesv2.types.put_account_details_request.PutAccountDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["mail_type"] = mail_type
+        input_["website_url"] = website_url
         if contact_language is not None:
-            input["contact_language"] = contact_language
+            input_["contact_language"] = contact_language
         if use_case_description is not None:
-            input["use_case_description"] = use_case_description
+            input_["use_case_description"] = use_case_description
         if additional_contact_email_addresses is not None:
-            input["additional_contact_email_addresses"] = (
+            input_["additional_contact_email_addresses"] = (
                 additional_contact_email_addresses
             )
         if production_access_enabled is not None:
-            input["production_access_enabled"] = production_access_enabled
+            input_["production_access_enabled"] = production_access_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3844,12 +3844,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_account_sending_attributes_request.PutAccountSendingAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.put_account_sending_attributes_request.PutAccountSendingAttributesRequest = {}  # type: ignore[typeddict-item]
         if sending_enabled is not None:
-            input["sending_enabled"] = sending_enabled
+            input_["sending_enabled"] = sending_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3888,14 +3888,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_account_suppression_attributes_request.PutAccountSuppressionAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.put_account_suppression_attributes_request.PutAccountSuppressionAttributesRequest = {}  # type: ignore[typeddict-item]
         if suppressed_reasons is not None:
-            input["suppressed_reasons"] = suppressed_reasons
+            input_["suppressed_reasons"] = suppressed_reasons
         if validation_attributes is not None:
-            input["validation_attributes"] = validation_attributes
+            input_["validation_attributes"] = validation_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3928,11 +3928,11 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_account_vdm_attributes_request.PutAccountVdmAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["vdm_attributes"] = vdm_attributes
+        input_: aws_sdk_sesv2.types.put_account_vdm_attributes_request.PutAccountVdmAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["vdm_attributes"] = vdm_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3973,13 +3973,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_configuration_set_archiving_options_request.PutConfigurationSetArchivingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.put_configuration_set_archiving_options_request.PutConfigurationSetArchivingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if archive_arn is not None:
-            input["archive_arn"] = archive_arn
+            input_["archive_arn"] = archive_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4022,17 +4022,17 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_configuration_set_delivery_options_request.PutConfigurationSetDeliveryOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.put_configuration_set_delivery_options_request.PutConfigurationSetDeliveryOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if tls_policy is not None:
-            input["tls_policy"] = tls_policy
+            input_["tls_policy"] = tls_policy
         if sending_pool_name is not None:
-            input["sending_pool_name"] = sending_pool_name
+            input_["sending_pool_name"] = sending_pool_name
         if max_delivery_seconds is not None:
-            input["max_delivery_seconds"] = max_delivery_seconds
+            input_["max_delivery_seconds"] = max_delivery_seconds
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4069,13 +4069,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_configuration_set_reputation_options_request.PutConfigurationSetReputationOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.put_configuration_set_reputation_options_request.PutConfigurationSetReputationOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if reputation_metrics_enabled is not None:
-            input["reputation_metrics_enabled"] = reputation_metrics_enabled
+            input_["reputation_metrics_enabled"] = reputation_metrics_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4110,13 +4110,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_configuration_set_sending_options_request.PutConfigurationSetSendingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.put_configuration_set_sending_options_request.PutConfigurationSetSendingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if sending_enabled is not None:
-            input["sending_enabled"] = sending_enabled
+            input_["sending_enabled"] = sending_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4161,17 +4161,17 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_configuration_set_suppression_options_request.PutConfigurationSetSuppressionOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.put_configuration_set_suppression_options_request.PutConfigurationSetSuppressionOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if suppression_scope is not None:
-            input["suppression_scope"] = suppression_scope
+            input_["suppression_scope"] = suppression_scope
         if suppressed_reasons is not None:
-            input["suppressed_reasons"] = suppressed_reasons
+            input_["suppressed_reasons"] = suppressed_reasons
         if validation_options is not None:
-            input["validation_options"] = validation_options
+            input_["validation_options"] = validation_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4209,15 +4209,15 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_configuration_set_tracking_options_request.PutConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.put_configuration_set_tracking_options_request.PutConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if custom_redirect_domain is not None:
-            input["custom_redirect_domain"] = custom_redirect_domain
+            input_["custom_redirect_domain"] = custom_redirect_domain
         if https_policy is not None:
-            input["https_policy"] = https_policy
+            input_["https_policy"] = https_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4252,13 +4252,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_configuration_set_vdm_options_request.PutConfigurationSetVdmOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_sesv2.types.put_configuration_set_vdm_options_request.PutConfigurationSetVdmOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if vdm_options is not None:
-            input["vdm_options"] = vdm_options
+            input_["vdm_options"] = vdm_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4293,12 +4293,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_dedicated_ip_in_pool_request.PutDedicatedIpInPoolRequest = {}  # type: ignore[typeddict-item]
-        input["ip"] = ip
-        input["destination_pool_name"] = destination_pool_name
+        input_: aws_sdk_sesv2.types.put_dedicated_ip_in_pool_request.PutDedicatedIpInPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["ip"] = ip
+        input_["destination_pool_name"] = destination_pool_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4339,12 +4339,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_dedicated_ip_pool_scaling_attributes_request.PutDedicatedIpPoolScalingAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["pool_name"] = pool_name
-        input["scaling_mode"] = scaling_mode
+        input_: aws_sdk_sesv2.types.put_dedicated_ip_pool_scaling_attributes_request.PutDedicatedIpPoolScalingAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_name"] = pool_name
+        input_["scaling_mode"] = scaling_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4379,12 +4379,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_dedicated_ip_warmup_attributes_request.PutDedicatedIpWarmupAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["ip"] = ip
-        input["warmup_percentage"] = warmup_percentage
+        input_: aws_sdk_sesv2.types.put_dedicated_ip_warmup_attributes_request.PutDedicatedIpWarmupAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["ip"] = ip
+        input_["warmup_percentage"] = warmup_percentage
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4421,13 +4421,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_deliverability_dashboard_option_request.PutDeliverabilityDashboardOptionRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_enabled"] = dashboard_enabled
+        input_: aws_sdk_sesv2.types.put_deliverability_dashboard_option_request.PutDeliverabilityDashboardOptionRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_enabled"] = dashboard_enabled
         if subscribed_domains is not None:
-            input["subscribed_domains"] = subscribed_domains
+            input_["subscribed_domains"] = subscribed_domains
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4464,13 +4464,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_email_identity_configuration_set_attributes_request.PutEmailIdentityConfigurationSetAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_sesv2.types.put_email_identity_configuration_set_attributes_request.PutEmailIdentityConfigurationSetAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4505,13 +4505,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_email_identity_dkim_attributes_request.PutEmailIdentityDkimAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_sesv2.types.put_email_identity_dkim_attributes_request.PutEmailIdentityDkimAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if signing_enabled is not None:
-            input["signing_enabled"] = signing_enabled
+            input_["signing_enabled"] = signing_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4550,14 +4550,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_email_identity_dkim_signing_attributes_request.PutEmailIdentityDkimSigningAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
-        input["signing_attributes_origin"] = signing_attributes_origin
+        input_: aws_sdk_sesv2.types.put_email_identity_dkim_signing_attributes_request.PutEmailIdentityDkimSigningAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
+        input_["signing_attributes_origin"] = signing_attributes_origin
         if signing_attributes is not None:
-            input["signing_attributes"] = signing_attributes
+            input_["signing_attributes"] = signing_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4594,13 +4594,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_email_identity_feedback_attributes_request.PutEmailIdentityFeedbackAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_sesv2.types.put_email_identity_feedback_attributes_request.PutEmailIdentityFeedbackAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if email_forwarding_enabled is not None:
-            input["email_forwarding_enabled"] = email_forwarding_enabled
+            input_["email_forwarding_enabled"] = email_forwarding_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4641,15 +4641,15 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_email_identity_mail_from_attributes_request.PutEmailIdentityMailFromAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_sesv2.types.put_email_identity_mail_from_attributes_request.PutEmailIdentityMailFromAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if mail_from_domain is not None:
-            input["mail_from_domain"] = mail_from_domain
+            input_["mail_from_domain"] = mail_from_domain
         if behavior_on_mx_failure is not None:
-            input["behavior_on_mx_failure"] = behavior_on_mx_failure
+            input_["behavior_on_mx_failure"] = behavior_on_mx_failure
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4686,14 +4686,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_suppressed_destination_request.PutSuppressedDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
-        input["reason"] = reason
+        input_: aws_sdk_sesv2.types.put_suppressed_destination_request.PutSuppressedDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
+        input_["reason"] = reason
         if tenant_name is not None:
-            input["tenant_name"] = tenant_name
+            input_["tenant_name"] = tenant_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4734,15 +4734,15 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.put_tenant_suppression_attributes_request.PutTenantSuppressionAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["tenant_name"] = tenant_name
+        input_: aws_sdk_sesv2.types.put_tenant_suppression_attributes_request.PutTenantSuppressionAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["tenant_name"] = tenant_name
         if suppressed_reasons is not None:
-            input["suppressed_reasons"] = suppressed_reasons
+            input_["suppressed_reasons"] = suppressed_reasons
         if suppression_scope is not None:
-            input["suppression_scope"] = suppression_scope
+            input_["suppression_scope"] = suppression_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4809,34 +4809,34 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.send_bulk_email_request.SendBulkEmailRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.send_bulk_email_request.SendBulkEmailRequest = {}  # type: ignore[typeddict-item]
         if from_email_address is not None:
-            input["from_email_address"] = from_email_address
+            input_["from_email_address"] = from_email_address
         if from_email_address_identity_arn is not None:
-            input["from_email_address_identity_arn"] = from_email_address_identity_arn
+            input_["from_email_address_identity_arn"] = from_email_address_identity_arn
         if reply_to_addresses is not None:
-            input["reply_to_addresses"] = reply_to_addresses
+            input_["reply_to_addresses"] = reply_to_addresses
         if feedback_forwarding_email_address is not None:
-            input["feedback_forwarding_email_address"] = (
+            input_["feedback_forwarding_email_address"] = (
                 feedback_forwarding_email_address
             )
         if feedback_forwarding_email_address_identity_arn is not None:
-            input["feedback_forwarding_email_address_identity_arn"] = (
+            input_["feedback_forwarding_email_address_identity_arn"] = (
                 feedback_forwarding_email_address_identity_arn
             )
         if default_email_tags is not None:
-            input["default_email_tags"] = default_email_tags
-        input["default_content"] = default_content
-        input["bulk_email_entries"] = bulk_email_entries
+            input_["default_email_tags"] = default_email_tags
+        input_["default_content"] = default_content
+        input_["bulk_email_entries"] = bulk_email_entries
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
         if endpoint_id is not None:
-            input["endpoint_id"] = endpoint_id
+            input_["endpoint_id"] = endpoint_id
         if tenant_name is not None:
-            input["tenant_name"] = tenant_name
+            input_["tenant_name"] = tenant_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4875,14 +4875,14 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.send_custom_verification_email_request.SendCustomVerificationEmailRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
-        input["template_name"] = template_name
+        input_: aws_sdk_sesv2.types.send_custom_verification_email_request.SendCustomVerificationEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
+        input_["template_name"] = template_name
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4953,37 +4953,37 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.send_email_request.SendEmailRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sesv2.types.send_email_request.SendEmailRequest = {}  # type: ignore[typeddict-item]
         if from_email_address is not None:
-            input["from_email_address"] = from_email_address
+            input_["from_email_address"] = from_email_address
         if from_email_address_identity_arn is not None:
-            input["from_email_address_identity_arn"] = from_email_address_identity_arn
+            input_["from_email_address_identity_arn"] = from_email_address_identity_arn
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if reply_to_addresses is not None:
-            input["reply_to_addresses"] = reply_to_addresses
+            input_["reply_to_addresses"] = reply_to_addresses
         if feedback_forwarding_email_address is not None:
-            input["feedback_forwarding_email_address"] = (
+            input_["feedback_forwarding_email_address"] = (
                 feedback_forwarding_email_address
             )
         if feedback_forwarding_email_address_identity_arn is not None:
-            input["feedback_forwarding_email_address_identity_arn"] = (
+            input_["feedback_forwarding_email_address_identity_arn"] = (
                 feedback_forwarding_email_address_identity_arn
             )
-        input["content"] = content
+        input_["content"] = content
         if email_tags is not None:
-            input["email_tags"] = email_tags
+            input_["email_tags"] = email_tags
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
         if endpoint_id is not None:
-            input["endpoint_id"] = endpoint_id
+            input_["endpoint_id"] = endpoint_id
         if tenant_name is not None:
-            input["tenant_name"] = tenant_name
+            input_["tenant_name"] = tenant_name
         if list_management_options is not None:
-            input["list_management_options"] = list_management_options
+            input_["list_management_options"] = list_management_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5018,12 +5018,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_sesv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5058,12 +5058,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.test_render_email_template_request.TestRenderEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_data"] = template_data
+        input_: aws_sdk_sesv2.types.test_render_email_template_request.TestRenderEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_data"] = template_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5098,12 +5098,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_sesv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5140,13 +5140,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.update_configuration_set_event_destination_request.UpdateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination_name"] = event_destination_name
-        input["event_destination"] = event_destination
+        input_: aws_sdk_sesv2.types.update_configuration_set_event_destination_request.UpdateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination_name"] = event_destination_name
+        input_["event_destination"] = event_destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5193,18 +5193,18 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.update_contact_request.UpdateContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
-        input["email_address"] = email_address
+        input_: aws_sdk_sesv2.types.update_contact_request.UpdateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
+        input_["email_address"] = email_address
         if topic_preferences is not None:
-            input["topic_preferences"] = topic_preferences
+            input_["topic_preferences"] = topic_preferences
         if unsubscribe_all is not None:
-            input["unsubscribe_all"] = unsubscribe_all
+            input_["unsubscribe_all"] = unsubscribe_all
         if attributes_data is not None:
-            input["attributes_data"] = attributes_data
+            input_["attributes_data"] = attributes_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5241,15 +5241,15 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.update_contact_list_request.UpdateContactListRequest = {}  # type: ignore[typeddict-item]
-        input["contact_list_name"] = contact_list_name
+        input_: aws_sdk_sesv2.types.update_contact_list_request.UpdateContactListRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_list_name"] = contact_list_name
         if topics is not None:
-            input["topics"] = topics
+            input_["topics"] = topics
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5292,16 +5292,16 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.update_custom_verification_email_template_request.UpdateCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["from_email_address"] = from_email_address
-        input["template_subject"] = template_subject
-        input["template_content"] = template_content
-        input["success_redirection_url"] = success_redirection_url
-        input["failure_redirection_url"] = failure_redirection_url
+        input_: aws_sdk_sesv2.types.update_custom_verification_email_template_request.UpdateCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["from_email_address"] = from_email_address
+        input_["template_subject"] = template_subject
+        input_["template_content"] = template_content
+        input_["success_redirection_url"] = success_redirection_url
+        input_["failure_redirection_url"] = failure_redirection_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5338,13 +5338,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.update_email_identity_policy_request.UpdateEmailIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
-        input["policy_name"] = policy_name
-        input["policy"] = policy
+        input_: aws_sdk_sesv2.types.update_email_identity_policy_request.UpdateEmailIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
+        input_["policy_name"] = policy_name
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5381,12 +5381,12 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.update_email_template_request.UpdateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_content"] = template_content
+        input_: aws_sdk_sesv2.types.update_email_template_request.UpdateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_content"] = template_content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5423,13 +5423,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.update_reputation_entity_customer_managed_status_request.UpdateReputationEntityCustomerManagedStatusRequest = {}  # type: ignore[typeddict-item]
-        input["reputation_entity_type"] = reputation_entity_type
-        input["reputation_entity_reference"] = reputation_entity_reference
-        input["sending_status"] = sending_status
+        input_: aws_sdk_sesv2.types.update_reputation_entity_customer_managed_status_request.UpdateReputationEntityCustomerManagedStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["reputation_entity_type"] = reputation_entity_type
+        input_["reputation_entity_reference"] = reputation_entity_reference
+        input_["sending_status"] = sending_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5466,13 +5466,13 @@ class SESv2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sesv2.types.update_reputation_entity_policy_request.UpdateReputationEntityPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["reputation_entity_type"] = reputation_entity_type
-        input["reputation_entity_reference"] = reputation_entity_reference
-        input["reputation_entity_policy"] = reputation_entity_policy
+        input_: aws_sdk_sesv2.types.update_reputation_entity_policy_request.UpdateReputationEntityPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["reputation_entity_type"] = reputation_entity_type
+        input_["reputation_entity_reference"] = reputation_entity_reference
+        input_["reputation_entity_policy"] = reputation_entity_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

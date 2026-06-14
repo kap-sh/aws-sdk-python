@@ -85,30 +85,30 @@ class LaunchConfigurationTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.create_launch_configuration_template_request.CreateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.create_launch_configuration_template_request.CreateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if launch_disposition is not None:
-            input["launch_disposition"] = launch_disposition
+            input_["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = (
+            input_["target_instance_type_right_sizing_method"] = (
                 target_instance_type_right_sizing_method
             )
         if copy_private_ip is not None:
-            input["copy_private_ip"] = copy_private_ip
+            input_["copy_private_ip"] = copy_private_ip
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if licensing is not None:
-            input["licensing"] = licensing
+            input_["licensing"] = licensing
         if export_bucket_arn is not None:
-            input["export_bucket_arn"] = export_bucket_arn
+            input_["export_bucket_arn"] = export_bucket_arn
         if post_launch_enabled is not None:
-            input["post_launch_enabled"] = post_launch_enabled
+            input_["post_launch_enabled"] = post_launch_enabled
         if launch_into_source_instance is not None:
-            input["launch_into_source_instance"] = launch_into_source_instance
+            input_["launch_into_source_instance"] = launch_into_source_instance
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -161,29 +161,29 @@ class LaunchConfigurationTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.update_launch_configuration_template_request.UpdateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["launch_configuration_template_id"] = launch_configuration_template_id
+        input_: aws_sdk_drs.types.update_launch_configuration_template_request.UpdateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["launch_configuration_template_id"] = launch_configuration_template_id
         if launch_disposition is not None:
-            input["launch_disposition"] = launch_disposition
+            input_["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = (
+            input_["target_instance_type_right_sizing_method"] = (
                 target_instance_type_right_sizing_method
             )
         if copy_private_ip is not None:
-            input["copy_private_ip"] = copy_private_ip
+            input_["copy_private_ip"] = copy_private_ip
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if licensing is not None:
-            input["licensing"] = licensing
+            input_["licensing"] = licensing
         if export_bucket_arn is not None:
-            input["export_bucket_arn"] = export_bucket_arn
+            input_["export_bucket_arn"] = export_bucket_arn
         if post_launch_enabled is not None:
-            input["post_launch_enabled"] = post_launch_enabled
+            input_["post_launch_enabled"] = post_launch_enabled
         if launch_into_source_instance is not None:
-            input["launch_into_source_instance"] = launch_into_source_instance
+            input_["launch_into_source_instance"] = launch_into_source_instance
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,11 +216,11 @@ class LaunchConfigurationTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["launch_configuration_template_id"] = launch_configuration_template_id
+        input_: aws_sdk_drs.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["launch_configuration_template_id"] = launch_configuration_template_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,18 +263,18 @@ class LaunchConfigurationTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
         if launch_configuration_template_i_ds is not None:
-            input["launch_configuration_template_i_ds"] = (
+            input_["launch_configuration_template_i_ds"] = (
                 launch_configuration_template_i_ds
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,30 +333,30 @@ class AsyncLaunchConfigurationTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.create_launch_configuration_template_request.CreateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.create_launch_configuration_template_request.CreateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if launch_disposition is not None:
-            input["launch_disposition"] = launch_disposition
+            input_["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = (
+            input_["target_instance_type_right_sizing_method"] = (
                 target_instance_type_right_sizing_method
             )
         if copy_private_ip is not None:
-            input["copy_private_ip"] = copy_private_ip
+            input_["copy_private_ip"] = copy_private_ip
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if licensing is not None:
-            input["licensing"] = licensing
+            input_["licensing"] = licensing
         if export_bucket_arn is not None:
-            input["export_bucket_arn"] = export_bucket_arn
+            input_["export_bucket_arn"] = export_bucket_arn
         if post_launch_enabled is not None:
-            input["post_launch_enabled"] = post_launch_enabled
+            input_["post_launch_enabled"] = post_launch_enabled
         if launch_into_source_instance is not None:
-            input["launch_into_source_instance"] = launch_into_source_instance
+            input_["launch_into_source_instance"] = launch_into_source_instance
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,29 +410,29 @@ class AsyncLaunchConfigurationTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.update_launch_configuration_template_request.UpdateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["launch_configuration_template_id"] = launch_configuration_template_id
+        input_: aws_sdk_drs.types.update_launch_configuration_template_request.UpdateLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["launch_configuration_template_id"] = launch_configuration_template_id
         if launch_disposition is not None:
-            input["launch_disposition"] = launch_disposition
+            input_["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = (
+            input_["target_instance_type_right_sizing_method"] = (
                 target_instance_type_right_sizing_method
             )
         if copy_private_ip is not None:
-            input["copy_private_ip"] = copy_private_ip
+            input_["copy_private_ip"] = copy_private_ip
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if licensing is not None:
-            input["licensing"] = licensing
+            input_["licensing"] = licensing
         if export_bucket_arn is not None:
-            input["export_bucket_arn"] = export_bucket_arn
+            input_["export_bucket_arn"] = export_bucket_arn
         if post_launch_enabled is not None:
-            input["post_launch_enabled"] = post_launch_enabled
+            input_["post_launch_enabled"] = post_launch_enabled
         if launch_into_source_instance is not None:
-            input["launch_into_source_instance"] = launch_into_source_instance
+            input_["launch_into_source_instance"] = launch_into_source_instance
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,11 +466,11 @@ class AsyncLaunchConfigurationTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["launch_configuration_template_id"] = launch_configuration_template_id
+        input_: aws_sdk_drs.types.delete_launch_configuration_template_request.DeleteLaunchConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["launch_configuration_template_id"] = launch_configuration_template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,18 +514,18 @@ class AsyncLaunchConfigurationTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.describe_launch_configuration_templates_request.DescribeLaunchConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
         if launch_configuration_template_i_ds is not None:
-            input["launch_configuration_template_i_ds"] = (
+            input_["launch_configuration_template_i_ds"] = (
                 launch_configuration_template_i_ds
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

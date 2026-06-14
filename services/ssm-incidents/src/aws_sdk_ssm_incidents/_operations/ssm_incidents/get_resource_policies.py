@@ -97,51 +97,48 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_ssm_incidents.types.get_resource_policies_input.GetResourcePoliciesInput,
+    input_: aws_sdk_ssm_incidents.types.get_resource_policies_input.GetResourcePoliciesInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/getResourcePolicies"
     params: dict[str, str] = {}
-    if "resource_arn" in input:
-        params["resourceArn"] = str(input["resource_arn"])
+    if "resource_arn" in input_:
+        params["resourceArn"] = str(input_["resource_arn"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_ssm_incidents.types.get_resource_policies_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_ssm_incidents.types.get_resource_policies_input.serialize_json(input)
+        aws_sdk_ssm_incidents.types.get_resource_policies_input.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_resource_policies(
     options: OperationOptions,
-    input: aws_sdk_ssm_incidents.types.get_resource_policies_input.GetResourcePoliciesInput,
+    input_: aws_sdk_ssm_incidents.types.get_resource_policies_input.GetResourcePoliciesInput,
 ) -> tuple[
     aws_sdk_ssm_incidents.types.get_resource_policies_output.GetResourcePoliciesOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -150,16 +147,17 @@ def get_resource_policies(
 
 async def async_get_resource_policies(
     options: AsyncOperationOptions,
-    input: aws_sdk_ssm_incidents.types.get_resource_policies_input.GetResourcePoliciesInput,
+    input_: aws_sdk_ssm_incidents.types.get_resource_policies_input.GetResourcePoliciesInput,
 ) -> tuple[
     aws_sdk_ssm_incidents.types.get_resource_policies_output.GetResourcePoliciesOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

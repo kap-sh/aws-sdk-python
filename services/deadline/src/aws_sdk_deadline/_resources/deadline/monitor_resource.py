@@ -90,20 +90,20 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_monitor_request.CreateMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.create_monitor_request.CreateMonitorRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["display_name"] = display_name
-        input["identity_center_instance_arn"] = identity_center_instance_arn
+            input_["client_token"] = client_token
+        input_["display_name"] = display_name
+        input_["identity_center_instance_arn"] = identity_center_instance_arn
         if identity_center_region is not None:
-            input["identity_center_region"] = identity_center_region
-        input["subdomain"] = subdomain
-        input["role_arn"] = role_arn
+            input_["identity_center_region"] = identity_center_region
+        input_["subdomain"] = subdomain
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,11 +136,11 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_monitor_request.GetMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
+        input_: aws_sdk_deadline.types.get_monitor_request.GetMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,17 +181,17 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_monitor_request.UpdateMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
+        input_: aws_sdk_deadline.types.update_monitor_request.UpdateMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
         if subdomain is not None:
-            input["subdomain"] = subdomain
+            input_["subdomain"] = subdomain
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,11 +224,11 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_monitor_request.DeleteMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
+        input_: aws_sdk_deadline.types.delete_monitor_request.DeleteMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,14 +263,14 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_monitors_request.ListMonitorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.list_monitors_request.ListMonitorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,11 +308,11 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_monitor_settings_request.GetMonitorSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
+        input_: aws_sdk_deadline.types.get_monitor_settings_request.GetMonitorSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,12 +352,12 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_monitor_settings_request.UpdateMonitorSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
-        input["settings"] = settings
+        input_: aws_sdk_deadline.types.update_monitor_settings_request.UpdateMonitorSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
+        input_["settings"] = settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,20 +410,20 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_monitor_request.CreateMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.create_monitor_request.CreateMonitorRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["display_name"] = display_name
-        input["identity_center_instance_arn"] = identity_center_instance_arn
+            input_["client_token"] = client_token
+        input_["display_name"] = display_name
+        input_["identity_center_instance_arn"] = identity_center_instance_arn
         if identity_center_region is not None:
-            input["identity_center_region"] = identity_center_region
-        input["subdomain"] = subdomain
-        input["role_arn"] = role_arn
+            input_["identity_center_region"] = identity_center_region
+        input_["subdomain"] = subdomain
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,11 +457,11 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_monitor_request.GetMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
+        input_: aws_sdk_deadline.types.get_monitor_request.GetMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,17 +503,17 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_monitor_request.UpdateMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
+        input_: aws_sdk_deadline.types.update_monitor_request.UpdateMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
         if subdomain is not None:
-            input["subdomain"] = subdomain
+            input_["subdomain"] = subdomain
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -547,11 +547,11 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_monitor_request.DeleteMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
+        input_: aws_sdk_deadline.types.delete_monitor_request.DeleteMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -587,14 +587,14 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_monitors_request.ListMonitorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.list_monitors_request.ListMonitorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -633,11 +633,11 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_monitor_settings_request.GetMonitorSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
+        input_: aws_sdk_deadline.types.get_monitor_settings_request.GetMonitorSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,12 +678,12 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_monitor_settings_request.UpdateMonitorSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_id"] = monitor_id
-        input["settings"] = settings
+        input_: aws_sdk_deadline.types.update_monitor_settings_request.UpdateMonitorSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_id"] = monitor_id
+        input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

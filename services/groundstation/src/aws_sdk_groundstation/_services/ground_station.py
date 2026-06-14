@@ -15,6 +15,23 @@ from aws_sdk_groundstation._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_groundstation._auth._zapros_handler import AuthMiddleware
+from aws_sdk_groundstation._resources.ground_station.agent import Agent
+from aws_sdk_groundstation._resources.ground_station.config import Config
+from aws_sdk_groundstation._resources.ground_station.contact import Contact
+from aws_sdk_groundstation._resources.ground_station.dataflow_endpoint_group import (
+    DataflowEndpointGroup,
+)
+from aws_sdk_groundstation._resources.ground_station.dataflow_endpoint_group_v2 import (
+    DataflowEndpointGroupV2,
+)
+from aws_sdk_groundstation._resources.ground_station.ephemeris import Ephemeris
+from aws_sdk_groundstation._resources.ground_station.ground_station_resource import (
+    GroundStationResource,
+)
+from aws_sdk_groundstation._resources.ground_station.mission_profile import (
+    MissionProfile,
+)
+from aws_sdk_groundstation._resources.ground_station.satellite import Satellite
 from aws_sdk_groundstation._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -113,6 +130,16 @@ class GroundStationClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.agent = Agent(self)
+        self.config = Config(self)
+        self.contact = Contact(self)
+        self.dataflow_endpoint_group = DataflowEndpointGroup(self)
+        self.dataflow_endpoint_group_v2 = DataflowEndpointGroupV2(self)
+        self.ephemeris = Ephemeris(self)
+        self.ground_station_resource = GroundStationResource(self)
+        self.mission_profile = MissionProfile(self)
+        self.satellite = Satellite(self)
 
     def operation_options(
         self, config_overrides: Optional[GroundStationClientConfig] = None
@@ -171,12 +198,12 @@ class GroundStationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_agent_task_response_url_request.GetAgentTaskResponseUrlRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["task_id"] = task_id
+        input_: aws_sdk_groundstation.types.get_agent_task_response_url_request.GetAgentTaskResponseUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,12 +238,12 @@ class GroundStationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_minute_usage_request.GetMinuteUsageRequest = {}  # type: ignore[typeddict-item]
-        input["month"] = month
-        input["year"] = year
+        input_: aws_sdk_groundstation.types.get_minute_usage_request.GetMinuteUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["month"] = month
+        input_["year"] = year
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,11 +276,11 @@ class GroundStationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_groundstation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,12 +315,12 @@ class GroundStationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_groundstation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,12 +355,12 @@ class GroundStationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_groundstation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

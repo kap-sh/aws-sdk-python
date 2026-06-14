@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_service_quotas._auth._signers
+import aws_sdk_service_quotas._auth._sigv4
 from aws_sdk_service_quotas._auth._identity import Credentials
 from aws_sdk_service_quotas._auth._providers import (
     CredentialsProvider,
@@ -223,10 +225,10 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.associate_service_quota_template_request.AssociateServiceQuotaTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.associate_service_quota_template_request.AssociateServiceQuotaTemplateRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,11 +262,11 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.create_support_case_request.CreateSupportCaseRequest = {}  # type: ignore[typeddict-item]
-        input["request_id"] = request_id
+        input_: aws_sdk_service_quotas.types.create_support_case_request.CreateSupportCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,13 +304,13 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.delete_service_quota_increase_request_from_template_request.DeleteServiceQuotaIncreaseRequestFromTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
-        input["quota_code"] = quota_code
-        input["aws_region"] = aws_region
+        input_: aws_sdk_service_quotas.types.delete_service_quota_increase_request_from_template_request.DeleteServiceQuotaIncreaseRequestFromTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
+        input_["quota_code"] = quota_code
+        input_["aws_region"] = aws_region
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,10 +337,10 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.disassociate_service_quota_template_request.DisassociateServiceQuotaTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.disassociate_service_quota_template_request.DisassociateServiceQuotaTemplateRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,10 +367,10 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.get_association_for_service_quota_template_request.GetAssociationForServiceQuotaTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.get_association_for_service_quota_template_request.GetAssociationForServiceQuotaTemplateRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,10 +397,10 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.get_auto_management_configuration_request.GetAutoManagementConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.get_auto_management_configuration_request.GetAutoManagementConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,12 +436,12 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.get_aws_default_service_quota_request.GetAWSDefaultServiceQuotaRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
-        input["quota_code"] = quota_code
+        input_: aws_sdk_service_quotas.types.get_aws_default_service_quota_request.GetAWSDefaultServiceQuotaRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
+        input_["quota_code"] = quota_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,15 +483,15 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.get_quota_utilization_report_request.GetQuotaUtilizationReportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_service_quotas.types.get_quota_utilization_report_request.GetQuotaUtilizationReportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,11 +525,11 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.get_requested_service_quota_change_request.GetRequestedServiceQuotaChangeRequest = {}  # type: ignore[typeddict-item]
-        input["request_id"] = request_id
+        input_: aws_sdk_service_quotas.types.get_requested_service_quota_change_request.GetRequestedServiceQuotaChangeRequest = {}  # type: ignore[typeddict-item]
+        input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,14 +569,14 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.get_service_quota_request.GetServiceQuotaRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
-        input["quota_code"] = quota_code
+        input_: aws_sdk_service_quotas.types.get_service_quota_request.GetServiceQuotaRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
+        input_["quota_code"] = quota_code
         if context_id is not None:
-            input["context_id"] = context_id
+            input_["context_id"] = context_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -612,13 +614,13 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.get_service_quota_increase_request_from_template_request.GetServiceQuotaIncreaseRequestFromTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
-        input["quota_code"] = quota_code
-        input["aws_region"] = aws_region
+        input_: aws_sdk_service_quotas.types.get_service_quota_increase_request_from_template_request.GetServiceQuotaIncreaseRequestFromTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
+        input_["quota_code"] = quota_code
+        input_["aws_region"] = aws_region
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -660,15 +662,15 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.list_aws_default_service_quotas_request.ListAWSDefaultServiceQuotasRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
+        input_: aws_sdk_service_quotas.types.list_aws_default_service_quotas_request.ListAWSDefaultServiceQuotasRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -747,20 +749,20 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.list_requested_service_quota_change_history_request.ListRequestedServiceQuotaChangeHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.list_requested_service_quota_change_history_request.ListRequestedServiceQuotaChangeHistoryRequest = {}  # type: ignore[typeddict-item]
         if service_code is not None:
-            input["service_code"] = service_code
+            input_["service_code"] = service_code
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if quota_requested_at_level is not None:
-            input["quota_requested_at_level"] = quota_requested_at_level
+            input_["quota_requested_at_level"] = quota_requested_at_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -849,20 +851,20 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.list_requested_service_quota_change_history_by_quota_request.ListRequestedServiceQuotaChangeHistoryByQuotaRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
-        input["quota_code"] = quota_code
+        input_: aws_sdk_service_quotas.types.list_requested_service_quota_change_history_by_quota_request.ListRequestedServiceQuotaChangeHistoryByQuotaRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
+        input_["quota_code"] = quota_code
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if quota_requested_at_level is not None:
-            input["quota_requested_at_level"] = quota_requested_at_level
+            input_["quota_requested_at_level"] = quota_requested_at_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -947,18 +949,18 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.list_service_quota_increase_requests_in_template_request.ListServiceQuotaIncreaseRequestsInTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.list_service_quota_increase_requests_in_template_request.ListServiceQuotaIncreaseRequestsInTemplateRequest = {}  # type: ignore[typeddict-item]
         if service_code is not None:
-            input["service_code"] = service_code
+            input_["service_code"] = service_code
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1043,19 +1045,19 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.list_service_quotas_request.ListServiceQuotasRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
+        input_: aws_sdk_service_quotas.types.list_service_quotas_request.ListServiceQuotasRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if quota_code is not None:
-            input["quota_code"] = quota_code
+            input_["quota_code"] = quota_code
         if quota_applied_at_level is not None:
-            input["quota_applied_at_level"] = quota_applied_at_level
+            input_["quota_applied_at_level"] = quota_applied_at_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1130,14 +1132,14 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1196,11 +1198,11 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_service_quotas.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1240,14 +1242,14 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.put_service_quota_increase_request_into_template_request.PutServiceQuotaIncreaseRequestIntoTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["quota_code"] = quota_code
-        input["service_code"] = service_code
-        input["aws_region"] = aws_region
-        input["desired_value"] = desired_value
+        input_: aws_sdk_service_quotas.types.put_service_quota_increase_request_into_template_request.PutServiceQuotaIncreaseRequestIntoTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["quota_code"] = quota_code
+        input_["service_code"] = service_code
+        input_["aws_region"] = aws_region
+        input_["desired_value"] = desired_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1293,17 +1295,17 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.request_service_quota_increase_request.RequestServiceQuotaIncreaseRequest = {}  # type: ignore[typeddict-item]
-        input["service_code"] = service_code
-        input["quota_code"] = quota_code
-        input["desired_value"] = desired_value
+        input_: aws_sdk_service_quotas.types.request_service_quota_increase_request.RequestServiceQuotaIncreaseRequest = {}  # type: ignore[typeddict-item]
+        input_["service_code"] = service_code
+        input_["quota_code"] = quota_code
+        input_["desired_value"] = desired_value
         if context_id is not None:
-            input["context_id"] = context_id
+            input_["context_id"] = context_id
         if support_case_allowed is not None:
-            input["support_case_allowed"] = support_case_allowed
+            input_["support_case_allowed"] = support_case_allowed
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1347,16 +1349,16 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.start_auto_management_request.StartAutoManagementRequest = {}  # type: ignore[typeddict-item]
-        input["opt_in_level"] = opt_in_level
-        input["opt_in_type"] = opt_in_type
+        input_: aws_sdk_service_quotas.types.start_auto_management_request.StartAutoManagementRequest = {}  # type: ignore[typeddict-item]
+        input_["opt_in_level"] = opt_in_level
+        input_["opt_in_type"] = opt_in_type
         if notification_arn is not None:
-            input["notification_arn"] = notification_arn
+            input_["notification_arn"] = notification_arn
         if exclusion_list is not None:
-            input["exclusion_list"] = exclusion_list
+            input_["exclusion_list"] = exclusion_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1383,10 +1385,10 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.start_quota_utilization_report_request.StartQuotaUtilizationReportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.start_quota_utilization_report_request.StartQuotaUtilizationReportRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1413,10 +1415,10 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.stop_auto_management_request.StopAutoManagementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.stop_auto_management_request.StopAutoManagementRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1452,12 +1454,12 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_service_quotas.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1493,12 +1495,12 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_service_quotas.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1542,16 +1544,16 @@ class AsyncServiceQuotasClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_quotas.types.update_auto_management_request.UpdateAutoManagementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_quotas.types.update_auto_management_request.UpdateAutoManagementRequest = {}  # type: ignore[typeddict-item]
         if opt_in_type is not None:
-            input["opt_in_type"] = opt_in_type
+            input_["opt_in_type"] = opt_in_type
         if notification_arn is not None:
-            input["notification_arn"] = notification_arn
+            input_["notification_arn"] = notification_arn
         if exclusion_list is not None:
-            input["exclusion_list"] = exclusion_list
+            input_["exclusion_list"] = exclusion_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

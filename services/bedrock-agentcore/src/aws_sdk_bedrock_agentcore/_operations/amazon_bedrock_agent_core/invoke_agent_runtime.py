@@ -79,77 +79,66 @@ def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: 
             return aws_sdk_bedrock_agentcore._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
-        EndpointParams(
-            Region=options.region,
-            UseDualStack=options.use_dual_stack,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-        )
-    )
+def build_request(options: OperationOptions | AsyncOperationOptions, input_: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest) -> zapros.Request:
+    endpoint = resolve(EndpointParams(Region=options.region, UseDualStack=options.use_dual_stack, UseFIPS=options.use_fips, Endpoint=options.endpoint))  # noqa: F841
     url = endpoint.url.rstrip("/") + "/runtimes/{agentRuntimeArn}/invocations"
-    url = url.replace("{agentRuntimeArn}", quote(str(input["agent_runtime_arn"]), safe=""))
+    url = url.replace("{agentRuntimeArn}", quote(str(input_["agent_runtime_arn"]), safe=""))
     params: dict[str, str] = {}
-    if "qualifier" in input:
-        params["qualifier"] = str(input["qualifier"])
-    if "account_id" in input:
-        params["accountId"] = str(input["account_id"])
+    if "qualifier" in input_:
+        params["qualifier"] = str(input_["qualifier"])
+    if "account_id" in input_:
+        params["accountId"] = str(input_["account_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "content_type" in input:
-        headers["Content-Type"] = str(input["content_type"])
-    if "accept" in input:
-        headers["Accept"] = str(input["accept"])
-    if "mcp_session_id" in input:
-        headers["Mcp-Session-Id"] = str(input["mcp_session_id"])
-    if "runtime_session_id" in input:
-        headers["X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"] = str(input["runtime_session_id"])
-    if "mcp_protocol_version" in input:
-        headers["Mcp-Protocol-Version"] = str(input["mcp_protocol_version"])
-    if "runtime_user_id" in input:
-        headers["X-Amzn-Bedrock-AgentCore-Runtime-User-Id"] = str(input["runtime_user_id"])
-    if "trace_id" in input:
-        headers["X-Amzn-Trace-Id"] = str(input["trace_id"])
-    if "trace_parent" in input:
-        headers["traceparent"] = str(input["trace_parent"])
-    if "trace_state" in input:
-        headers["tracestate"] = str(input["trace_state"])
-    if "baggage" in input:
-        headers["baggage"] = str(input["baggage"])
-    if "payload" in input:
+    if "content_type" in input_:
+        headers["Content-Type"] = str(input_["content_type"])
+    if "accept" in input_:
+        headers["Accept"] = str(input_["accept"])
+    if "mcp_session_id" in input_:
+        headers["Mcp-Session-Id"] = str(input_["mcp_session_id"])
+    if "runtime_session_id" in input_:
+        headers["X-Amzn-Bedrock-AgentCore-Runtime-Session-Id"] = str(input_["runtime_session_id"])
+    if "mcp_protocol_version" in input_:
+        headers["Mcp-Protocol-Version"] = str(input_["mcp_protocol_version"])
+    if "runtime_user_id" in input_:
+        headers["X-Amzn-Bedrock-AgentCore-Runtime-User-Id"] = str(input_["runtime_user_id"])
+    if "trace_id" in input_:
+        headers["X-Amzn-Trace-Id"] = str(input_["trace_id"])
+    if "trace_parent" in input_:
+        headers["traceparent"] = str(input_["trace_parent"])
+    if "trace_state" in input_:
+        headers["tracestate"] = str(input_["trace_state"])
+    if "baggage" in input_:
+        headers["baggage"] = str(input_["baggage"])
+    if "payload" in input_:
         import aws_sdk_bedrock_agentcore.types.body
-        body: bytes | None = json.dumps(aws_sdk_bedrock_agentcore.types.body.serialize_json(input["payload"])).encode()
+        body: bytes | None = json.dumps(aws_sdk_bedrock_agentcore.types.body.serialize_json(input_["payload"])).encode()
         headers["content-type"] = "application/json"
     else:
         body = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
-    return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
-    )
+    return zapros.Request(normalized_url, "POST", headers=headers, body=body, context={"signer": signer})
 
-def invoke_agent_runtime(options: OperationOptions, input: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest) -> tuple[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+def invoke_agent_runtime(options: OperationOptions, input_: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest) -> tuple[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse, zapros.Response]:
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
         raise
 
-async def async_invoke_agent_runtime(options: AsyncOperationOptions, input: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest) -> tuple[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+async def async_invoke_agent_runtime(options: AsyncOperationOptions, input_: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest) -> tuple[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse, zapros.Response]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

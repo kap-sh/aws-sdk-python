@@ -209,15 +209,15 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.associate_profile_request.AssociateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["resource_id"] = resource_id
-        input["name"] = name
+        input_: aws_sdk_route53profiles.types.associate_profile_request.AssociateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["resource_id"] = resource_id
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,15 +259,15 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.associate_resource_to_profile_request.AssociateResourceToProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["resource_arn"] = resource_arn
-        input["name"] = name
+        input_: aws_sdk_route53profiles.types.associate_resource_to_profile_request.AssociateResourceToProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["resource_arn"] = resource_arn
+        input_["name"] = name
         if resource_properties is not None:
-            input["resource_properties"] = resource_properties
+            input_["resource_properties"] = resource_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,14 +305,14 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["client_token"] = client_token
+        input_: aws_sdk_route53profiles.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,11 +346,11 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_route53profiles.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,12 +386,12 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.disassociate_profile_request.DisassociateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_route53profiles.types.disassociate_profile_request.DisassociateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,12 +427,12 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.disassociate_resource_from_profile_request.DisassociateResourceFromProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_route53profiles.types.disassociate_resource_from_profile_request.DisassociateResourceFromProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,11 +466,11 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_route53profiles.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -504,11 +504,11 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.get_profile_association_request.GetProfileAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["profile_association_id"] = profile_association_id
+        input_: aws_sdk_route53profiles.types.get_profile_association_request.GetProfileAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_association_id"] = profile_association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,11 +542,11 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.get_profile_resource_association_request.GetProfileResourceAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["profile_resource_association_id"] = profile_resource_association_id
+        input_: aws_sdk_route53profiles.types.get_profile_resource_association_request.GetProfileResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_resource_association_id"] = profile_resource_association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -594,18 +594,18 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.list_profile_associations_request.ListProfileAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53profiles.types.list_profile_associations_request.ListProfileAssociationsRequest = {}  # type: ignore[typeddict-item]
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if profile_id is not None:
-            input["profile_id"] = profile_id
+            input_["profile_id"] = profile_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -682,17 +682,17 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.list_profile_resource_associations_request.ListProfileResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_route53profiles.types.list_profile_resource_associations_request.ListProfileResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,14 +761,14 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53profiles.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -827,11 +827,11 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_route53profiles.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -867,12 +867,12 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_route53profiles.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -908,12 +908,12 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_route53profiles.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -953,15 +953,15 @@ class AsyncRoute53ProfilesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53profiles.types.update_profile_resource_association_request.UpdateProfileResourceAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["profile_resource_association_id"] = profile_resource_association_id
+        input_: aws_sdk_route53profiles.types.update_profile_resource_association_request.UpdateProfileResourceAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_resource_association_id"] = profile_resource_association_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if resource_properties is not None:
-            input["resource_properties"] = resource_properties
+            input_["resource_properties"] = resource_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

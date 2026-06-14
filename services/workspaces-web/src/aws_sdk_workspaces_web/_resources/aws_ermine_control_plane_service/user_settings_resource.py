@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_workspaces_web._services.async_work_spaces_web import ensure_async_iterator
 from aws_sdk_workspaces_web._services.work_spaces_web import ensure_sync_iterator
+import datetime
 from aws_sdk_workspaces_web._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
@@ -62,36 +63,36 @@ class UserSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_user_settings_request.CreateUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["copy_allowed"] = copy_allowed
-        input["paste_allowed"] = paste_allowed
-        input["download_allowed"] = download_allowed
-        input["upload_allowed"] = upload_allowed
-        input["print_allowed"] = print_allowed
+        input_: aws_sdk_workspaces_web.types.create_user_settings_request.CreateUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["copy_allowed"] = copy_allowed
+        input_["paste_allowed"] = paste_allowed
+        input_["download_allowed"] = download_allowed
+        input_["upload_allowed"] = upload_allowed
+        input_["print_allowed"] = print_allowed
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if disconnect_timeout_in_minutes is not None:
-            input["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
+            input_["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
         if idle_disconnect_timeout_in_minutes is not None:
-            input["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
+            input_["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if cookie_synchronization_configuration is not None:
-            input["cookie_synchronization_configuration"] = cookie_synchronization_configuration
+            input_["cookie_synchronization_configuration"] = cookie_synchronization_configuration
         if customer_managed_key is not None:
-            input["customer_managed_key"] = customer_managed_key
+            input_["customer_managed_key"] = customer_managed_key
         if additional_encryption_context is not None:
-            input["additional_encryption_context"] = additional_encryption_context
+            input_["additional_encryption_context"] = additional_encryption_context
         if deep_link_allowed is not None:
-            input["deep_link_allowed"] = deep_link_allowed
+            input_["deep_link_allowed"] = deep_link_allowed
         if toolbar_configuration is not None:
-            input["toolbar_configuration"] = toolbar_configuration
+            input_["toolbar_configuration"] = toolbar_configuration
         if branding_configuration_input is not None:
-            input["branding_configuration_input"] = branding_configuration_input
+            input_["branding_configuration_input"] = branding_configuration_input
         if web_authn_allowed is not None:
-            input["web_authn_allowed"] = web_authn_allowed
+            input_["web_authn_allowed"] = web_authn_allowed
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def read(self, user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_user_settings_response.GetUserSettingsResponse":
         """<p>Gets user settings.</p>
@@ -105,10 +106,10 @@ class UserSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_user_settings_request.GetUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_settings_arn"] = user_settings_arn
+        input_: aws_sdk_workspaces_web.types.get_user_settings_request.GetUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_settings_arn"] = user_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update(self, user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, copy_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, paste_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, download_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, upload_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, print_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, disconnect_timeout_in_minutes: Optional["aws_sdk_workspaces_web.types.disconnect_timeout_in_minutes.DisconnectTimeoutInMinutes"] = None, idle_disconnect_timeout_in_minutes: Optional["aws_sdk_workspaces_web.types.idle_disconnect_timeout_in_minutes.IdleDisconnectTimeoutInMinutes"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None, cookie_synchronization_configuration: Optional["aws_sdk_workspaces_web.types.cookie_synchronization_configuration.CookieSynchronizationConfiguration"] = None, deep_link_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, toolbar_configuration: Optional["aws_sdk_workspaces_web.types.toolbar_configuration.ToolbarConfiguration"] = None, branding_configuration_input: Optional["aws_sdk_workspaces_web.types.branding_configuration_update_input.BrandingConfigurationUpdateInput"] = None, web_authn_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None) -> "aws_sdk_workspaces_web.types.update_user_settings_response.UpdateUserSettingsResponse":
         """<p>Updates the user settings.</p>
@@ -135,36 +136,36 @@ class UserSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_user_settings_request.UpdateUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_settings_arn"] = user_settings_arn
+        input_: aws_sdk_workspaces_web.types.update_user_settings_request.UpdateUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_settings_arn"] = user_settings_arn
         if copy_allowed is not None:
-            input["copy_allowed"] = copy_allowed
+            input_["copy_allowed"] = copy_allowed
         if paste_allowed is not None:
-            input["paste_allowed"] = paste_allowed
+            input_["paste_allowed"] = paste_allowed
         if download_allowed is not None:
-            input["download_allowed"] = download_allowed
+            input_["download_allowed"] = download_allowed
         if upload_allowed is not None:
-            input["upload_allowed"] = upload_allowed
+            input_["upload_allowed"] = upload_allowed
         if print_allowed is not None:
-            input["print_allowed"] = print_allowed
+            input_["print_allowed"] = print_allowed
         if disconnect_timeout_in_minutes is not None:
-            input["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
+            input_["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
         if idle_disconnect_timeout_in_minutes is not None:
-            input["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
+            input_["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if cookie_synchronization_configuration is not None:
-            input["cookie_synchronization_configuration"] = cookie_synchronization_configuration
+            input_["cookie_synchronization_configuration"] = cookie_synchronization_configuration
         if deep_link_allowed is not None:
-            input["deep_link_allowed"] = deep_link_allowed
+            input_["deep_link_allowed"] = deep_link_allowed
         if toolbar_configuration is not None:
-            input["toolbar_configuration"] = toolbar_configuration
+            input_["toolbar_configuration"] = toolbar_configuration
         if branding_configuration_input is not None:
-            input["branding_configuration_input"] = branding_configuration_input
+            input_["branding_configuration_input"] = branding_configuration_input
         if web_authn_allowed is not None:
-            input["web_authn_allowed"] = web_authn_allowed
+            input_["web_authn_allowed"] = web_authn_allowed
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete(self, user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_user_settings_response.DeleteUserSettingsResponse":
         """<p>Deletes user settings.</p>
@@ -178,10 +179,10 @@ class UserSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_user_settings_request.DeleteUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_settings_arn"] = user_settings_arn
+        input_: aws_sdk_workspaces_web.types.delete_user_settings_request.DeleteUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_settings_arn"] = user_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list(self, *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_user_settings_response.ListUserSettingsResponse":
         """<p>Retrieves a list of user settings.</p>
@@ -196,13 +197,13 @@ class UserSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_user_settings_request.ListUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_user_settings_request.ListUserSettingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncUserSettingsResource:
@@ -235,36 +236,36 @@ class AsyncUserSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_user_settings_request.CreateUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["copy_allowed"] = copy_allowed
-        input["paste_allowed"] = paste_allowed
-        input["download_allowed"] = download_allowed
-        input["upload_allowed"] = upload_allowed
-        input["print_allowed"] = print_allowed
+        input_: aws_sdk_workspaces_web.types.create_user_settings_request.CreateUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["copy_allowed"] = copy_allowed
+        input_["paste_allowed"] = paste_allowed
+        input_["download_allowed"] = download_allowed
+        input_["upload_allowed"] = upload_allowed
+        input_["print_allowed"] = print_allowed
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if disconnect_timeout_in_minutes is not None:
-            input["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
+            input_["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
         if idle_disconnect_timeout_in_minutes is not None:
-            input["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
+            input_["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if cookie_synchronization_configuration is not None:
-            input["cookie_synchronization_configuration"] = cookie_synchronization_configuration
+            input_["cookie_synchronization_configuration"] = cookie_synchronization_configuration
         if customer_managed_key is not None:
-            input["customer_managed_key"] = customer_managed_key
+            input_["customer_managed_key"] = customer_managed_key
         if additional_encryption_context is not None:
-            input["additional_encryption_context"] = additional_encryption_context
+            input_["additional_encryption_context"] = additional_encryption_context
         if deep_link_allowed is not None:
-            input["deep_link_allowed"] = deep_link_allowed
+            input_["deep_link_allowed"] = deep_link_allowed
         if toolbar_configuration is not None:
-            input["toolbar_configuration"] = toolbar_configuration
+            input_["toolbar_configuration"] = toolbar_configuration
         if branding_configuration_input is not None:
-            input["branding_configuration_input"] = branding_configuration_input
+            input_["branding_configuration_input"] = branding_configuration_input
         if web_authn_allowed is not None:
-            input["web_authn_allowed"] = web_authn_allowed
+            input_["web_authn_allowed"] = web_authn_allowed
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def read(self, user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_user_settings_response.GetUserSettingsResponse":
         """<p>Gets user settings.</p>
@@ -278,10 +279,10 @@ class AsyncUserSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_user_settings_request.GetUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_settings_arn"] = user_settings_arn
+        input_: aws_sdk_workspaces_web.types.get_user_settings_request.GetUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_settings_arn"] = user_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def update(self, user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, copy_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, paste_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, download_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, upload_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, print_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, disconnect_timeout_in_minutes: Optional["aws_sdk_workspaces_web.types.disconnect_timeout_in_minutes.DisconnectTimeoutInMinutes"] = None, idle_disconnect_timeout_in_minutes: Optional["aws_sdk_workspaces_web.types.idle_disconnect_timeout_in_minutes.IdleDisconnectTimeoutInMinutes"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None, cookie_synchronization_configuration: Optional["aws_sdk_workspaces_web.types.cookie_synchronization_configuration.CookieSynchronizationConfiguration"] = None, deep_link_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None, toolbar_configuration: Optional["aws_sdk_workspaces_web.types.toolbar_configuration.ToolbarConfiguration"] = None, branding_configuration_input: Optional["aws_sdk_workspaces_web.types.branding_configuration_update_input.BrandingConfigurationUpdateInput"] = None, web_authn_allowed: Optional["aws_sdk_workspaces_web.types.enabled_type.EnabledType"] = None) -> "aws_sdk_workspaces_web.types.update_user_settings_response.UpdateUserSettingsResponse":
         """<p>Updates the user settings.</p>
@@ -308,36 +309,36 @@ class AsyncUserSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_user_settings_request.UpdateUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_settings_arn"] = user_settings_arn
+        input_: aws_sdk_workspaces_web.types.update_user_settings_request.UpdateUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_settings_arn"] = user_settings_arn
         if copy_allowed is not None:
-            input["copy_allowed"] = copy_allowed
+            input_["copy_allowed"] = copy_allowed
         if paste_allowed is not None:
-            input["paste_allowed"] = paste_allowed
+            input_["paste_allowed"] = paste_allowed
         if download_allowed is not None:
-            input["download_allowed"] = download_allowed
+            input_["download_allowed"] = download_allowed
         if upload_allowed is not None:
-            input["upload_allowed"] = upload_allowed
+            input_["upload_allowed"] = upload_allowed
         if print_allowed is not None:
-            input["print_allowed"] = print_allowed
+            input_["print_allowed"] = print_allowed
         if disconnect_timeout_in_minutes is not None:
-            input["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
+            input_["disconnect_timeout_in_minutes"] = disconnect_timeout_in_minutes
         if idle_disconnect_timeout_in_minutes is not None:
-            input["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
+            input_["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if cookie_synchronization_configuration is not None:
-            input["cookie_synchronization_configuration"] = cookie_synchronization_configuration
+            input_["cookie_synchronization_configuration"] = cookie_synchronization_configuration
         if deep_link_allowed is not None:
-            input["deep_link_allowed"] = deep_link_allowed
+            input_["deep_link_allowed"] = deep_link_allowed
         if toolbar_configuration is not None:
-            input["toolbar_configuration"] = toolbar_configuration
+            input_["toolbar_configuration"] = toolbar_configuration
         if branding_configuration_input is not None:
-            input["branding_configuration_input"] = branding_configuration_input
+            input_["branding_configuration_input"] = branding_configuration_input
         if web_authn_allowed is not None:
-            input["web_authn_allowed"] = web_authn_allowed
+            input_["web_authn_allowed"] = web_authn_allowed
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def delete(self, user_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_user_settings_response.DeleteUserSettingsResponse":
         """<p>Deletes user settings.</p>
@@ -351,10 +352,10 @@ class AsyncUserSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_user_settings_request.DeleteUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_settings_arn"] = user_settings_arn
+        input_: aws_sdk_workspaces_web.types.delete_user_settings_request.DeleteUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_settings_arn"] = user_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list(self, *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_user_settings_response.ListUserSettingsResponse":
         """<p>Retrieves a list of user settings.</p>
@@ -369,11 +370,11 @@ class AsyncUserSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_user_settings_request.ListUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_user_settings_request.ListUserSettingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

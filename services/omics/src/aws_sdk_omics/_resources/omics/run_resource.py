@@ -141,51 +141,51 @@ class RunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_run_request.StartRunRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.start_run_request.StartRunRequest = {}  # type: ignore[typeddict-item]
         if workflow_id is not None:
-            input["workflow_id"] = workflow_id
+            input_["workflow_id"] = workflow_id
         if workflow_type is not None:
-            input["workflow_type"] = workflow_type
+            input_["workflow_type"] = workflow_type
         if run_id is not None:
-            input["run_id"] = run_id
-        input["role_arn"] = role_arn
+            input_["run_id"] = run_id
+        input_["role_arn"] = role_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if cache_id is not None:
-            input["cache_id"] = cache_id
+            input_["cache_id"] = cache_id
         if cache_behavior is not None:
-            input["cache_behavior"] = cache_behavior
+            input_["cache_behavior"] = cache_behavior
         if run_group_id is not None:
-            input["run_group_id"] = run_group_id
+            input_["run_group_id"] = run_group_id
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
-        input["output_uri"] = output_uri
+            input_["storage_capacity"] = storage_capacity
+        input_["output_uri"] = output_uri
         if log_level is not None:
-            input["log_level"] = log_level
+            input_["log_level"] = log_level
         if tags is not None:
-            input["tags"] = tags
-        input["request_id"] = request_id
+            input_["tags"] = tags
+        input_["request_id"] = request_id
         if retention_mode is not None:
-            input["retention_mode"] = retention_mode
+            input_["retention_mode"] = retention_mode
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if workflow_owner_id is not None:
-            input["workflow_owner_id"] = workflow_owner_id
+            input_["workflow_owner_id"] = workflow_owner_id
         if workflow_version_name is not None:
-            input["workflow_version_name"] = workflow_version_name
+            input_["workflow_version_name"] = workflow_version_name
         if networking_mode is not None:
-            input["networking_mode"] = networking_mode
+            input_["networking_mode"] = networking_mode
         if configuration_name is not None:
-            input["configuration_name"] = configuration_name
+            input_["configuration_name"] = configuration_name
         if engine_settings is not None:
-            input["engine_settings"] = engine_settings
+            input_["engine_settings"] = engine_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,13 +216,13 @@ class RunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_run_request.GetRunRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_run_request.GetRunRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if export is not None:
-            input["export"] = export
+            input_["export"] = export
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,11 +253,11 @@ class RunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_run_request.DeleteRunRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_run_request.DeleteRunRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,22 +300,22 @@ class RunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_runs_request.ListRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_runs_request.ListRunsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if run_group_id is not None:
-            input["run_group_id"] = run_group_id
+            input_["run_group_id"] = run_group_id
         if batch_id is not None:
-            input["batch_id"] = batch_id
+            input_["batch_id"] = batch_id
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,11 +346,11 @@ class RunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.cancel_run_request.CancelRunRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.cancel_run_request.CancelRunRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,51 +449,51 @@ class AsyncRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_run_request.StartRunRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.start_run_request.StartRunRequest = {}  # type: ignore[typeddict-item]
         if workflow_id is not None:
-            input["workflow_id"] = workflow_id
+            input_["workflow_id"] = workflow_id
         if workflow_type is not None:
-            input["workflow_type"] = workflow_type
+            input_["workflow_type"] = workflow_type
         if run_id is not None:
-            input["run_id"] = run_id
-        input["role_arn"] = role_arn
+            input_["run_id"] = run_id
+        input_["role_arn"] = role_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if cache_id is not None:
-            input["cache_id"] = cache_id
+            input_["cache_id"] = cache_id
         if cache_behavior is not None:
-            input["cache_behavior"] = cache_behavior
+            input_["cache_behavior"] = cache_behavior
         if run_group_id is not None:
-            input["run_group_id"] = run_group_id
+            input_["run_group_id"] = run_group_id
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
-        input["output_uri"] = output_uri
+            input_["storage_capacity"] = storage_capacity
+        input_["output_uri"] = output_uri
         if log_level is not None:
-            input["log_level"] = log_level
+            input_["log_level"] = log_level
         if tags is not None:
-            input["tags"] = tags
-        input["request_id"] = request_id
+            input_["tags"] = tags
+        input_["request_id"] = request_id
         if retention_mode is not None:
-            input["retention_mode"] = retention_mode
+            input_["retention_mode"] = retention_mode
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if workflow_owner_id is not None:
-            input["workflow_owner_id"] = workflow_owner_id
+            input_["workflow_owner_id"] = workflow_owner_id
         if workflow_version_name is not None:
-            input["workflow_version_name"] = workflow_version_name
+            input_["workflow_version_name"] = workflow_version_name
         if networking_mode is not None:
-            input["networking_mode"] = networking_mode
+            input_["networking_mode"] = networking_mode
         if configuration_name is not None:
-            input["configuration_name"] = configuration_name
+            input_["configuration_name"] = configuration_name
         if engine_settings is not None:
-            input["engine_settings"] = engine_settings
+            input_["engine_settings"] = engine_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,13 +529,13 @@ class AsyncRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_run_request.GetRunRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_run_request.GetRunRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if export is not None:
-            input["export"] = export
+            input_["export"] = export
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,11 +567,11 @@ class AsyncRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_run_request.DeleteRunRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_run_request.DeleteRunRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,22 +617,22 @@ class AsyncRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_runs_request.ListRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_runs_request.ListRunsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if run_group_id is not None:
-            input["run_group_id"] = run_group_id
+            input_["run_group_id"] = run_group_id
         if batch_id is not None:
-            input["batch_id"] = batch_id
+            input_["batch_id"] = batch_id
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -664,11 +664,11 @@ class AsyncRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.cancel_run_request.CancelRunRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.cancel_run_request.CancelRunRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

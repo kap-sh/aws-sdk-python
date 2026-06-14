@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_codecommit._auth._signers
+import aws_sdk_codecommit._auth._sigv4
 from aws_sdk_codecommit._auth._identity import Credentials
 from aws_sdk_codecommit._auth._providers import (
     CredentialsProvider,
@@ -357,12 +359,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.associate_approval_rule_template_with_repository_input.AssociateApprovalRuleTemplateWithRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.associate_approval_rule_template_with_repository_input.AssociateApprovalRuleTemplateWithRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,12 +400,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.batch_associate_approval_rule_template_with_repositories_input.BatchAssociateApprovalRuleTemplateWithRepositoriesInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
-        input["repository_names"] = repository_names
+        input_: aws_sdk_codecommit.types.batch_associate_approval_rule_template_with_repositories_input.BatchAssociateApprovalRuleTemplateWithRepositoriesInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
+        input_["repository_names"] = repository_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,26 +465,26 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.batch_describe_merge_conflicts_input.BatchDescribeMergeConflictsInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["destination_commit_specifier"] = destination_commit_specifier
-        input["source_commit_specifier"] = source_commit_specifier
-        input["merge_option"] = merge_option
+        input_: aws_sdk_codecommit.types.batch_describe_merge_conflicts_input.BatchDescribeMergeConflictsInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["destination_commit_specifier"] = destination_commit_specifier
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["merge_option"] = merge_option
         if max_merge_hunks is not None:
-            input["max_merge_hunks"] = max_merge_hunks
+            input_["max_merge_hunks"] = max_merge_hunks
         if max_conflict_files is not None:
-            input["max_conflict_files"] = max_conflict_files
+            input_["max_conflict_files"] = max_conflict_files
         if file_paths is not None:
-            input["file_paths"] = file_paths
+            input_["file_paths"] = file_paths
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,12 +520,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.batch_disassociate_approval_rule_template_from_repositories_input.BatchDisassociateApprovalRuleTemplateFromRepositoriesInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
-        input["repository_names"] = repository_names
+        input_: aws_sdk_codecommit.types.batch_disassociate_approval_rule_template_from_repositories_input.BatchDisassociateApprovalRuleTemplateFromRepositoriesInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
+        input_["repository_names"] = repository_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,12 +561,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.batch_get_commits_input.BatchGetCommitsInput = {}  # type: ignore[typeddict-item]
-        input["commit_ids"] = commit_ids
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.batch_get_commits_input.BatchGetCommitsInput = {}  # type: ignore[typeddict-item]
+        input_["commit_ids"] = commit_ids
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -598,11 +600,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.batch_get_repositories_input.BatchGetRepositoriesInput = {}  # type: ignore[typeddict-item]
-        input["repository_names"] = repository_names
+        input_: aws_sdk_codecommit.types.batch_get_repositories_input.BatchGetRepositoriesInput = {}  # type: ignore[typeddict-item]
+        input_["repository_names"] = repository_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -642,16 +644,16 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.create_approval_rule_template_input.CreateApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
-        input["approval_rule_template_content"] = approval_rule_template_content
+        input_: aws_sdk_codecommit.types.create_approval_rule_template_input.CreateApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
+        input_["approval_rule_template_content"] = approval_rule_template_content
         if approval_rule_template_description is not None:
-            input["approval_rule_template_description"] = (
+            input_["approval_rule_template_description"] = (
                 approval_rule_template_description
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -687,13 +689,13 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.create_branch_input.CreateBranchInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["branch_name"] = branch_name
-        input["commit_id"] = commit_id
+        input_: aws_sdk_codecommit.types.create_branch_input.CreateBranchInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["branch_name"] = branch_name
+        input_["commit_id"] = commit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -755,28 +757,28 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.create_commit_input.CreateCommitInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["branch_name"] = branch_name
+        input_: aws_sdk_codecommit.types.create_commit_input.CreateCommitInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["branch_name"] = branch_name
         if parent_commit_id is not None:
-            input["parent_commit_id"] = parent_commit_id
+            input_["parent_commit_id"] = parent_commit_id
         if author_name is not None:
-            input["author_name"] = author_name
+            input_["author_name"] = author_name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if keep_empty_folders is not None:
-            input["keep_empty_folders"] = keep_empty_folders
+            input_["keep_empty_folders"] = keep_empty_folders
         if put_files is not None:
-            input["put_files"] = put_files
+            input_["put_files"] = put_files
         if delete_files is not None:
-            input["delete_files"] = delete_files
+            input_["delete_files"] = delete_files
         if set_file_modes is not None:
-            input["set_file_modes"] = set_file_modes
+            input_["set_file_modes"] = set_file_modes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -820,16 +822,16 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.create_pull_request_input.CreatePullRequestInput = {}  # type: ignore[typeddict-item]
-        input["title"] = title
+        input_: aws_sdk_codecommit.types.create_pull_request_input.CreatePullRequestInput = {}  # type: ignore[typeddict-item]
+        input_["title"] = title
         if description is not None:
-            input["description"] = description
-        input["targets"] = targets
+            input_["description"] = description
+        input_["targets"] = targets
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -867,13 +869,13 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.create_pull_request_approval_rule_input.CreatePullRequestApprovalRuleInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["approval_rule_name"] = approval_rule_name
-        input["approval_rule_content"] = approval_rule_content
+        input_: aws_sdk_codecommit.types.create_pull_request_approval_rule_input.CreatePullRequestApprovalRuleInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["approval_rule_name"] = approval_rule_name
+        input_["approval_rule_content"] = approval_rule_content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -915,17 +917,17 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.create_repository_input.CreateRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.create_repository_input.CreateRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if repository_description is not None:
-            input["repository_description"] = repository_description
+            input_["repository_description"] = repository_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,28 +989,28 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.create_unreferenced_merge_commit_input.CreateUnreferencedMergeCommitInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["source_commit_specifier"] = source_commit_specifier
-        input["destination_commit_specifier"] = destination_commit_specifier
-        input["merge_option"] = merge_option
+        input_: aws_sdk_codecommit.types.create_unreferenced_merge_commit_input.CreateUnreferencedMergeCommitInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["destination_commit_specifier"] = destination_commit_specifier
+        input_["merge_option"] = merge_option
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
         if author_name is not None:
-            input["author_name"] = author_name
+            input_["author_name"] = author_name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if keep_empty_folders is not None:
-            input["keep_empty_folders"] = keep_empty_folders
+            input_["keep_empty_folders"] = keep_empty_folders
         if conflict_resolution is not None:
-            input["conflict_resolution"] = conflict_resolution
+            input_["conflict_resolution"] = conflict_resolution
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1042,11 +1044,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.delete_approval_rule_template_input.DeleteApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
+        input_: aws_sdk_codecommit.types.delete_approval_rule_template_input.DeleteApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1082,12 +1084,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.delete_branch_input.DeleteBranchInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["branch_name"] = branch_name
+        input_: aws_sdk_codecommit.types.delete_branch_input.DeleteBranchInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["branch_name"] = branch_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1121,11 +1123,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.delete_comment_content_input.DeleteCommentContentInput = {}  # type: ignore[typeddict-item]
-        input["comment_id"] = comment_id
+        input_: aws_sdk_codecommit.types.delete_comment_content_input.DeleteCommentContentInput = {}  # type: ignore[typeddict-item]
+        input_["comment_id"] = comment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1175,22 +1177,22 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.delete_file_input.DeleteFileInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["branch_name"] = branch_name
-        input["file_path"] = file_path
-        input["parent_commit_id"] = parent_commit_id
+        input_: aws_sdk_codecommit.types.delete_file_input.DeleteFileInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["branch_name"] = branch_name
+        input_["file_path"] = file_path
+        input_["parent_commit_id"] = parent_commit_id
         if keep_empty_folders is not None:
-            input["keep_empty_folders"] = keep_empty_folders
+            input_["keep_empty_folders"] = keep_empty_folders
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1226,12 +1228,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.delete_pull_request_approval_rule_input.DeletePullRequestApprovalRuleInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["approval_rule_name"] = approval_rule_name
+        input_: aws_sdk_codecommit.types.delete_pull_request_approval_rule_input.DeletePullRequestApprovalRuleInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["approval_rule_name"] = approval_rule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1265,11 +1267,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.delete_repository_input.DeleteRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.delete_repository_input.DeleteRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1325,23 +1327,23 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.describe_merge_conflicts_input.DescribeMergeConflictsInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["destination_commit_specifier"] = destination_commit_specifier
-        input["source_commit_specifier"] = source_commit_specifier
-        input["merge_option"] = merge_option
+        input_: aws_sdk_codecommit.types.describe_merge_conflicts_input.DescribeMergeConflictsInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["destination_commit_specifier"] = destination_commit_specifier
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["merge_option"] = merge_option
         if max_merge_hunks is not None:
-            input["max_merge_hunks"] = max_merge_hunks
-        input["file_path"] = file_path
+            input_["max_merge_hunks"] = max_merge_hunks
+        input_["file_path"] = file_path
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1385,19 +1387,19 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.describe_pull_request_events_input.DescribePullRequestEventsInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
+        input_: aws_sdk_codecommit.types.describe_pull_request_events_input.DescribePullRequestEventsInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
         if pull_request_event_type is not None:
-            input["pull_request_event_type"] = pull_request_event_type
+            input_["pull_request_event_type"] = pull_request_event_type
         if actor_arn is not None:
-            input["actor_arn"] = actor_arn
+            input_["actor_arn"] = actor_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1431,12 +1433,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.disassociate_approval_rule_template_from_repository_input.DisassociateApprovalRuleTemplateFromRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.disassociate_approval_rule_template_from_repository_input.DisassociateApprovalRuleTemplateFromRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1472,12 +1474,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.evaluate_pull_request_approval_rules_input.EvaluatePullRequestApprovalRulesInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["revision_id"] = revision_id
+        input_: aws_sdk_codecommit.types.evaluate_pull_request_approval_rules_input.EvaluatePullRequestApprovalRulesInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1511,11 +1513,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_approval_rule_template_input.GetApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
+        input_: aws_sdk_codecommit.types.get_approval_rule_template_input.GetApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1551,12 +1553,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_blob_input.GetBlobInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["blob_id"] = blob_id
+        input_: aws_sdk_codecommit.types.get_blob_input.GetBlobInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["blob_id"] = blob_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1594,14 +1596,14 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_branch_input.GetBranchInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codecommit.types.get_branch_input.GetBranchInput = {}  # type: ignore[typeddict-item]
         if repository_name is not None:
-            input["repository_name"] = repository_name
+            input_["repository_name"] = repository_name
         if branch_name is not None:
-            input["branch_name"] = branch_name
+            input_["branch_name"] = branch_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1635,11 +1637,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_comment_input.GetCommentInput = {}  # type: ignore[typeddict-item]
-        input["comment_id"] = comment_id
+        input_: aws_sdk_codecommit.types.get_comment_input.GetCommentInput = {}  # type: ignore[typeddict-item]
+        input_["comment_id"] = comment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1679,17 +1681,17 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_comment_reactions_input.GetCommentReactionsInput = {}  # type: ignore[typeddict-item]
-        input["comment_id"] = comment_id
+        input_: aws_sdk_codecommit.types.get_comment_reactions_input.GetCommentReactionsInput = {}  # type: ignore[typeddict-item]
+        input_["comment_id"] = comment_id
         if reaction_user_arn is not None:
-            input["reaction_user_arn"] = reaction_user_arn
+            input_["reaction_user_arn"] = reaction_user_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1733,18 +1735,18 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_comments_for_compared_commit_input.GetCommentsForComparedCommitInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.get_comments_for_compared_commit_input.GetCommentsForComparedCommitInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if before_commit_id is not None:
-            input["before_commit_id"] = before_commit_id
-        input["after_commit_id"] = after_commit_id
+            input_["before_commit_id"] = before_commit_id
+        input_["after_commit_id"] = after_commit_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1792,21 +1794,21 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_comments_for_pull_request_input.GetCommentsForPullRequestInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
+        input_: aws_sdk_codecommit.types.get_comments_for_pull_request_input.GetCommentsForPullRequestInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
         if repository_name is not None:
-            input["repository_name"] = repository_name
+            input_["repository_name"] = repository_name
         if before_commit_id is not None:
-            input["before_commit_id"] = before_commit_id
+            input_["before_commit_id"] = before_commit_id
         if after_commit_id is not None:
-            input["after_commit_id"] = after_commit_id
+            input_["after_commit_id"] = after_commit_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1842,12 +1844,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_commit_input.GetCommitInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["commit_id"] = commit_id
+        input_: aws_sdk_codecommit.types.get_commit_input.GetCommitInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["commit_id"] = commit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1895,22 +1897,22 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_differences_input.GetDifferencesInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.get_differences_input.GetDifferencesInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if before_commit_specifier is not None:
-            input["before_commit_specifier"] = before_commit_specifier
-        input["after_commit_specifier"] = after_commit_specifier
+            input_["before_commit_specifier"] = before_commit_specifier
+        input_["after_commit_specifier"] = after_commit_specifier
         if before_path is not None:
-            input["before_path"] = before_path
+            input_["before_path"] = before_path
         if after_path is not None:
-            input["after_path"] = after_path
+            input_["after_path"] = after_path
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1950,14 +1952,14 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_file_input.GetFileInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.get_file_input.GetFileInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if commit_specifier is not None:
-            input["commit_specifier"] = commit_specifier
-        input["file_path"] = file_path
+            input_["commit_specifier"] = commit_specifier
+        input_["file_path"] = file_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1997,14 +1999,14 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_folder_input.GetFolderInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.get_folder_input.GetFolderInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if commit_specifier is not None:
-            input["commit_specifier"] = commit_specifier
-        input["folder_path"] = folder_path
+            input_["commit_specifier"] = commit_specifier
+        input_["folder_path"] = folder_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2050,17 +2052,17 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_merge_commit_input.GetMergeCommitInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["source_commit_specifier"] = source_commit_specifier
-        input["destination_commit_specifier"] = destination_commit_specifier
+        input_: aws_sdk_codecommit.types.get_merge_commit_input.GetMergeCommitInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["destination_commit_specifier"] = destination_commit_specifier
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2114,22 +2116,22 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_merge_conflicts_input.GetMergeConflictsInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["destination_commit_specifier"] = destination_commit_specifier
-        input["source_commit_specifier"] = source_commit_specifier
-        input["merge_option"] = merge_option
+        input_: aws_sdk_codecommit.types.get_merge_conflicts_input.GetMergeConflictsInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["destination_commit_specifier"] = destination_commit_specifier
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["merge_option"] = merge_option
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if max_conflict_files is not None:
-            input["max_conflict_files"] = max_conflict_files
+            input_["max_conflict_files"] = max_conflict_files
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2175,17 +2177,17 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_merge_options_input.GetMergeOptionsInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["source_commit_specifier"] = source_commit_specifier
-        input["destination_commit_specifier"] = destination_commit_specifier
+        input_: aws_sdk_codecommit.types.get_merge_options_input.GetMergeOptionsInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["destination_commit_specifier"] = destination_commit_specifier
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2219,11 +2221,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_pull_request_input.GetPullRequestInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
+        input_: aws_sdk_codecommit.types.get_pull_request_input.GetPullRequestInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2259,12 +2261,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_pull_request_approval_states_input.GetPullRequestApprovalStatesInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["revision_id"] = revision_id
+        input_: aws_sdk_codecommit.types.get_pull_request_approval_states_input.GetPullRequestApprovalStatesInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2300,12 +2302,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_pull_request_override_state_input.GetPullRequestOverrideStateInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["revision_id"] = revision_id
+        input_: aws_sdk_codecommit.types.get_pull_request_override_state_input.GetPullRequestOverrideStateInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2339,11 +2341,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_repository_input.GetRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.get_repository_input.GetRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2377,11 +2379,11 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.get_repository_triggers_input.GetRepositoryTriggersInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.get_repository_triggers_input.GetRepositoryTriggersInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2417,14 +2419,14 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.list_approval_rule_templates_input.ListApprovalRuleTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codecommit.types.list_approval_rule_templates_input.ListApprovalRuleTemplatesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2462,15 +2464,15 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.list_associated_approval_rule_templates_for_repository_input.ListAssociatedApprovalRuleTemplatesForRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.list_associated_approval_rule_templates_for_repository_input.ListAssociatedApprovalRuleTemplatesForRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2506,13 +2508,13 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.list_branches_input.ListBranchesInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.list_branches_input.ListBranchesInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2577,18 +2579,18 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.list_file_commit_history_request.ListFileCommitHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.list_file_commit_history_request.ListFileCommitHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if commit_specifier is not None:
-            input["commit_specifier"] = commit_specifier
-        input["file_path"] = file_path
+            input_["commit_specifier"] = commit_specifier
+        input_["file_path"] = file_path
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2632,19 +2634,19 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.list_pull_requests_input.ListPullRequestsInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.list_pull_requests_input.ListPullRequestsInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if author_arn is not None:
-            input["author_arn"] = author_arn
+            input_["author_arn"] = author_arn
         if pull_request_status is not None:
-            input["pull_request_status"] = pull_request_status
+            input_["pull_request_status"] = pull_request_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2682,16 +2684,16 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.list_repositories_input.ListRepositoriesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codecommit.types.list_repositories_input.ListRepositoriesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2752,15 +2754,15 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.list_repositories_for_approval_rule_template_input.ListRepositoriesForApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
+        input_: aws_sdk_codecommit.types.list_repositories_for_approval_rule_template_input.ListRepositoriesForApprovalRuleTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2796,13 +2798,13 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codecommit.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2844,15 +2846,15 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.merge_branches_by_fast_forward_input.MergeBranchesByFastForwardInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["source_commit_specifier"] = source_commit_specifier
-        input["destination_commit_specifier"] = destination_commit_specifier
+        input_: aws_sdk_codecommit.types.merge_branches_by_fast_forward_input.MergeBranchesByFastForwardInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["destination_commit_specifier"] = destination_commit_specifier
         if target_branch is not None:
-            input["target_branch"] = target_branch
+            input_["target_branch"] = target_branch
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2916,29 +2918,29 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.merge_branches_by_squash_input.MergeBranchesBySquashInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["source_commit_specifier"] = source_commit_specifier
-        input["destination_commit_specifier"] = destination_commit_specifier
+        input_: aws_sdk_codecommit.types.merge_branches_by_squash_input.MergeBranchesBySquashInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["destination_commit_specifier"] = destination_commit_specifier
         if target_branch is not None:
-            input["target_branch"] = target_branch
+            input_["target_branch"] = target_branch
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
         if author_name is not None:
-            input["author_name"] = author_name
+            input_["author_name"] = author_name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if keep_empty_folders is not None:
-            input["keep_empty_folders"] = keep_empty_folders
+            input_["keep_empty_folders"] = keep_empty_folders
         if conflict_resolution is not None:
-            input["conflict_resolution"] = conflict_resolution
+            input_["conflict_resolution"] = conflict_resolution
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3002,29 +3004,29 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.merge_branches_by_three_way_input.MergeBranchesByThreeWayInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["source_commit_specifier"] = source_commit_specifier
-        input["destination_commit_specifier"] = destination_commit_specifier
+        input_: aws_sdk_codecommit.types.merge_branches_by_three_way_input.MergeBranchesByThreeWayInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["source_commit_specifier"] = source_commit_specifier
+        input_["destination_commit_specifier"] = destination_commit_specifier
         if target_branch is not None:
-            input["target_branch"] = target_branch
+            input_["target_branch"] = target_branch
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
         if author_name is not None:
-            input["author_name"] = author_name
+            input_["author_name"] = author_name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if keep_empty_folders is not None:
-            input["keep_empty_folders"] = keep_empty_folders
+            input_["keep_empty_folders"] = keep_empty_folders
         if conflict_resolution is not None:
-            input["conflict_resolution"] = conflict_resolution
+            input_["conflict_resolution"] = conflict_resolution
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3064,14 +3066,14 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.merge_pull_request_by_fast_forward_input.MergePullRequestByFastForwardInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.merge_pull_request_by_fast_forward_input.MergePullRequestByFastForwardInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["repository_name"] = repository_name
         if source_commit_id is not None:
-            input["source_commit_id"] = source_commit_id
+            input_["source_commit_id"] = source_commit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3133,28 +3135,28 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.merge_pull_request_by_squash_input.MergePullRequestBySquashInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.merge_pull_request_by_squash_input.MergePullRequestBySquashInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["repository_name"] = repository_name
         if source_commit_id is not None:
-            input["source_commit_id"] = source_commit_id
+            input_["source_commit_id"] = source_commit_id
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if author_name is not None:
-            input["author_name"] = author_name
+            input_["author_name"] = author_name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if keep_empty_folders is not None:
-            input["keep_empty_folders"] = keep_empty_folders
+            input_["keep_empty_folders"] = keep_empty_folders
         if conflict_resolution is not None:
-            input["conflict_resolution"] = conflict_resolution
+            input_["conflict_resolution"] = conflict_resolution
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3216,28 +3218,28 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.merge_pull_request_by_three_way_input.MergePullRequestByThreeWayInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.merge_pull_request_by_three_way_input.MergePullRequestByThreeWayInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["repository_name"] = repository_name
         if source_commit_id is not None:
-            input["source_commit_id"] = source_commit_id
+            input_["source_commit_id"] = source_commit_id
         if conflict_detail_level is not None:
-            input["conflict_detail_level"] = conflict_detail_level
+            input_["conflict_detail_level"] = conflict_detail_level
         if conflict_resolution_strategy is not None:
-            input["conflict_resolution_strategy"] = conflict_resolution_strategy
+            input_["conflict_resolution_strategy"] = conflict_resolution_strategy
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if author_name is not None:
-            input["author_name"] = author_name
+            input_["author_name"] = author_name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if keep_empty_folders is not None:
-            input["keep_empty_folders"] = keep_empty_folders
+            input_["keep_empty_folders"] = keep_empty_folders
         if conflict_resolution is not None:
-            input["conflict_resolution"] = conflict_resolution
+            input_["conflict_resolution"] = conflict_resolution
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3273,13 +3275,13 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.override_pull_request_approval_rules_input.OverridePullRequestApprovalRulesInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["revision_id"] = revision_id
-        input["override_status"] = override_status
+        input_: aws_sdk_codecommit.types.override_pull_request_approval_rules_input.OverridePullRequestApprovalRulesInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["revision_id"] = revision_id
+        input_["override_status"] = override_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3327,19 +3329,19 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.post_comment_for_compared_commit_input.PostCommentForComparedCommitInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.post_comment_for_compared_commit_input.PostCommentForComparedCommitInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if before_commit_id is not None:
-            input["before_commit_id"] = before_commit_id
-        input["after_commit_id"] = after_commit_id
+            input_["before_commit_id"] = before_commit_id
+        input_["after_commit_id"] = after_commit_id
         if location is not None:
-            input["location"] = location
-        input["content"] = content
+            input_["location"] = location
+        input_["content"] = content
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3387,19 +3389,19 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.post_comment_for_pull_request_input.PostCommentForPullRequestInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["repository_name"] = repository_name
-        input["before_commit_id"] = before_commit_id
-        input["after_commit_id"] = after_commit_id
+        input_: aws_sdk_codecommit.types.post_comment_for_pull_request_input.PostCommentForPullRequestInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["repository_name"] = repository_name
+        input_["before_commit_id"] = before_commit_id
+        input_["after_commit_id"] = after_commit_id
         if location is not None:
-            input["location"] = location
-        input["content"] = content
+            input_["location"] = location
+        input_["content"] = content
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3439,14 +3441,14 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.post_comment_reply_input.PostCommentReplyInput = {}  # type: ignore[typeddict-item]
-        input["in_reply_to"] = in_reply_to
+        input_: aws_sdk_codecommit.types.post_comment_reply_input.PostCommentReplyInput = {}  # type: ignore[typeddict-item]
+        input_["in_reply_to"] = in_reply_to
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["content"] = content
+            input_["client_request_token"] = client_request_token
+        input_["content"] = content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3480,12 +3482,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.put_comment_reaction_input.PutCommentReactionInput = {}  # type: ignore[typeddict-item]
-        input["comment_id"] = comment_id
-        input["reaction_value"] = reaction_value
+        input_: aws_sdk_codecommit.types.put_comment_reaction_input.PutCommentReactionInput = {}  # type: ignore[typeddict-item]
+        input_["comment_id"] = comment_id
+        input_["reaction_value"] = reaction_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3539,24 +3541,24 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.put_file_input.PutFileInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["branch_name"] = branch_name
-        input["file_content"] = file_content
-        input["file_path"] = file_path
+        input_: aws_sdk_codecommit.types.put_file_input.PutFileInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["branch_name"] = branch_name
+        input_["file_content"] = file_content
+        input_["file_path"] = file_path
         if file_mode is not None:
-            input["file_mode"] = file_mode
+            input_["file_mode"] = file_mode
         if parent_commit_id is not None:
-            input["parent_commit_id"] = parent_commit_id
+            input_["parent_commit_id"] = parent_commit_id
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3592,12 +3594,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.put_repository_triggers_input.PutRepositoryTriggersInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["triggers"] = triggers
+        input_: aws_sdk_codecommit.types.put_repository_triggers_input.PutRepositoryTriggersInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["triggers"] = triggers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3631,12 +3633,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_codecommit.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3672,12 +3674,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.test_repository_triggers_input.TestRepositoryTriggersInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["triggers"] = triggers
+        input_: aws_sdk_codecommit.types.test_repository_triggers_input.TestRepositoryTriggersInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["triggers"] = triggers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3711,12 +3713,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codecommit.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3756,14 +3758,14 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_approval_rule_template_content_input.UpdateApprovalRuleTemplateContentInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
-        input["new_rule_content"] = new_rule_content
+        input_: aws_sdk_codecommit.types.update_approval_rule_template_content_input.UpdateApprovalRuleTemplateContentInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
+        input_["new_rule_content"] = new_rule_content
         if existing_rule_content_sha256 is not None:
-            input["existing_rule_content_sha256"] = existing_rule_content_sha256
+            input_["existing_rule_content_sha256"] = existing_rule_content_sha256
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3799,12 +3801,14 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_approval_rule_template_description_input.UpdateApprovalRuleTemplateDescriptionInput = {}  # type: ignore[typeddict-item]
-        input["approval_rule_template_name"] = approval_rule_template_name
-        input["approval_rule_template_description"] = approval_rule_template_description
+        input_: aws_sdk_codecommit.types.update_approval_rule_template_description_input.UpdateApprovalRuleTemplateDescriptionInput = {}  # type: ignore[typeddict-item]
+        input_["approval_rule_template_name"] = approval_rule_template_name
+        input_["approval_rule_template_description"] = (
+            approval_rule_template_description
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3840,12 +3844,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_approval_rule_template_name_input.UpdateApprovalRuleTemplateNameInput = {}  # type: ignore[typeddict-item]
-        input["old_approval_rule_template_name"] = old_approval_rule_template_name
-        input["new_approval_rule_template_name"] = new_approval_rule_template_name
+        input_: aws_sdk_codecommit.types.update_approval_rule_template_name_input.UpdateApprovalRuleTemplateNameInput = {}  # type: ignore[typeddict-item]
+        input_["old_approval_rule_template_name"] = old_approval_rule_template_name
+        input_["new_approval_rule_template_name"] = new_approval_rule_template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3881,12 +3885,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_comment_input.UpdateCommentInput = {}  # type: ignore[typeddict-item]
-        input["comment_id"] = comment_id
-        input["content"] = content
+        input_: aws_sdk_codecommit.types.update_comment_input.UpdateCommentInput = {}  # type: ignore[typeddict-item]
+        input_["comment_id"] = comment_id
+        input_["content"] = content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3920,12 +3924,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_default_branch_input.UpdateDefaultBranchInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["default_branch_name"] = default_branch_name
+        input_: aws_sdk_codecommit.types.update_default_branch_input.UpdateDefaultBranchInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["default_branch_name"] = default_branch_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3967,15 +3971,15 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_pull_request_approval_rule_content_input.UpdatePullRequestApprovalRuleContentInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["approval_rule_name"] = approval_rule_name
+        input_: aws_sdk_codecommit.types.update_pull_request_approval_rule_content_input.UpdatePullRequestApprovalRuleContentInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["approval_rule_name"] = approval_rule_name
         if existing_rule_content_sha256 is not None:
-            input["existing_rule_content_sha256"] = existing_rule_content_sha256
-        input["new_rule_content"] = new_rule_content
+            input_["existing_rule_content_sha256"] = existing_rule_content_sha256
+        input_["new_rule_content"] = new_rule_content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4011,13 +4015,13 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_pull_request_approval_state_input.UpdatePullRequestApprovalStateInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["revision_id"] = revision_id
-        input["approval_state"] = approval_state
+        input_: aws_sdk_codecommit.types.update_pull_request_approval_state_input.UpdatePullRequestApprovalStateInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["revision_id"] = revision_id
+        input_["approval_state"] = approval_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4053,12 +4057,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_pull_request_description_input.UpdatePullRequestDescriptionInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["description"] = description
+        input_: aws_sdk_codecommit.types.update_pull_request_description_input.UpdatePullRequestDescriptionInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4094,12 +4098,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_pull_request_status_input.UpdatePullRequestStatusInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["pull_request_status"] = pull_request_status
+        input_: aws_sdk_codecommit.types.update_pull_request_status_input.UpdatePullRequestStatusInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["pull_request_status"] = pull_request_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4135,12 +4139,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_pull_request_title_input.UpdatePullRequestTitleInput = {}  # type: ignore[typeddict-item]
-        input["pull_request_id"] = pull_request_id
-        input["title"] = title
+        input_: aws_sdk_codecommit.types.update_pull_request_title_input.UpdatePullRequestTitleInput = {}  # type: ignore[typeddict-item]
+        input_["pull_request_id"] = pull_request_id
+        input_["title"] = title
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4176,13 +4180,13 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_repository_description_input.UpdateRepositoryDescriptionInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_codecommit.types.update_repository_description_input.UpdateRepositoryDescriptionInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if repository_description is not None:
-            input["repository_description"] = repository_description
+            input_["repository_description"] = repository_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4218,12 +4222,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_repository_encryption_key_input.UpdateRepositoryEncryptionKeyInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["kms_key_id"] = kms_key_id
+        input_: aws_sdk_codecommit.types.update_repository_encryption_key_input.UpdateRepositoryEncryptionKeyInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4257,12 +4261,12 @@ class AsyncCodeCommitClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecommit.types.update_repository_name_input.UpdateRepositoryNameInput = {}  # type: ignore[typeddict-item]
-        input["old_name"] = old_name
-        input["new_name"] = new_name
+        input_: aws_sdk_codecommit.types.update_repository_name_input.UpdateRepositoryNameInput = {}  # type: ignore[typeddict-item]
+        input_["old_name"] = old_name
+        input_["new_name"] = new_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

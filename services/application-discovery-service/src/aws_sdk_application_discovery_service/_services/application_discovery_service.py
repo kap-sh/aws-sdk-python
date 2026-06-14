@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_application_discovery_service._auth._signers
+import aws_sdk_application_discovery_service._auth._sigv4
 from aws_sdk_application_discovery_service._auth._identity import Credentials
 from aws_sdk_application_discovery_service._auth._providers import (
     CredentialsProvider,

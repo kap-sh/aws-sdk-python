@@ -61,11 +61,11 @@ class LandingZoneOperationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_landing_zone_operation_input.GetLandingZoneOperationInput = {}  # type: ignore[typeddict-item]
-        input["operation_identifier"] = operation_identifier
+        input_: aws_sdk_controltower.types.get_landing_zone_operation_input.GetLandingZoneOperationInput = {}  # type: ignore[typeddict-item]
+        input_["operation_identifier"] = operation_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -106,16 +106,16 @@ class LandingZoneOperationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_landing_zone_operations_input.ListLandingZoneOperationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_landing_zone_operations_input.ListLandingZoneOperationsInput = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -154,11 +154,11 @@ class AsyncLandingZoneOperationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_landing_zone_operation_input.GetLandingZoneOperationInput = {}  # type: ignore[typeddict-item]
-        input["operation_identifier"] = operation_identifier
+        input_: aws_sdk_controltower.types.get_landing_zone_operation_input.GetLandingZoneOperationInput = {}  # type: ignore[typeddict-item]
+        input_["operation_identifier"] = operation_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -200,16 +200,16 @@ class AsyncLandingZoneOperationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_landing_zone_operations_input.ListLandingZoneOperationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_landing_zone_operations_input.ListLandingZoneOperationsInput = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

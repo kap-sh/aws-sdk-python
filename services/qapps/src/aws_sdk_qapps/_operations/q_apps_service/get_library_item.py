@@ -99,49 +99,46 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_qapps.types.get_library_item_input.GetLibraryItemInput,
+    input_: aws_sdk_qapps.types.get_library_item_input.GetLibraryItemInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/catalog.getItem"
     params: dict[str, str] = {}
-    if "library_item_id" in input:
-        params["libraryItemId"] = str(input["library_item_id"])
-    if "app_id" in input:
-        params["appId"] = str(input["app_id"])
+    if "library_item_id" in input_:
+        params["libraryItemId"] = str(input_["library_item_id"])
+    if "app_id" in input_:
+        params["appId"] = str(input_["app_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "instance_id" in input:
-        headers["instance-id"] = str(input["instance_id"])
+    if "instance_id" in input_:
+        headers["instance-id"] = str(input_["instance_id"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_library_item(
     options: OperationOptions,
-    input: aws_sdk_qapps.types.get_library_item_input.GetLibraryItemInput,
+    input_: aws_sdk_qapps.types.get_library_item_input.GetLibraryItemInput,
 ) -> tuple[
     aws_sdk_qapps.types.get_library_item_output.GetLibraryItemOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -150,15 +147,16 @@ def get_library_item(
 
 async def async_get_library_item(
     options: AsyncOperationOptions,
-    input: aws_sdk_qapps.types.get_library_item_input.GetLibraryItemInput,
+    input_: aws_sdk_qapps.types.get_library_item_input.GetLibraryItemInput,
 ) -> tuple[
     aws_sdk_qapps.types.get_library_item_output.GetLibraryItemOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

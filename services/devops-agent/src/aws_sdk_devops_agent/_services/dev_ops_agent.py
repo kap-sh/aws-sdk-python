@@ -17,6 +17,15 @@ from aws_sdk_devops_agent._auth._providers import (
 )
 from aws_sdk_devops_agent._auth._zapros_handler import AuthMiddleware
 from aws_sdk_devops_agent._pagination import resolve_path as _resolve_path
+from aws_sdk_devops_agent._resources.dev_ops_agent.agent_space_resource import (
+    AgentSpaceResource,
+)
+from aws_sdk_devops_agent._resources.dev_ops_agent.private_connection_resource import (
+    PrivateConnectionResource,
+)
+from aws_sdk_devops_agent._resources.dev_ops_agent.service_resource import (
+    ServiceResource,
+)
 from aws_sdk_devops_agent._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -196,6 +205,10 @@ class DevOpsAgentClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.agent_space_resource = AgentSpaceResource(self)
+        self.private_connection_resource = PrivateConnectionResource(self)
+        self.service_resource = ServiceResource(self)
 
     def operation_options(
         self, config_overrides: Optional[DevOpsAgentClientConfig] = None
@@ -257,17 +270,17 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.create_asset_request.CreateAssetRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_type"] = asset_type
+        input_: aws_sdk_devops_agent.types.create_asset_request.CreateAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_type"] = asset_type
         if metadata is not None:
-            input["metadata"] = metadata
-        input["content"] = content
+            input_["metadata"] = metadata
+        input_["content"] = content
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,18 +325,18 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.create_asset_file_request.CreateAssetFileRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
-        input["path"] = path
-        input["content"] = content
+        input_: aws_sdk_devops_agent.types.create_asset_file_request.CreateAssetFileRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
+        input_["path"] = path
+        input_["content"] = content
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,20 +385,20 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.create_backlog_task_request.CreateBacklogTaskRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.create_backlog_task_request.CreateBacklogTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if reference is not None:
-            input["reference"] = reference
-        input["task_type"] = task_type
-        input["title"] = title
+            input_["reference"] = reference
+        input_["task_type"] = task_type
+        input_["title"] = title
         if description is not None:
-            input["description"] = description
-        input["priority"] = priority
+            input_["description"] = description
+        input_["priority"] = priority
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,15 +434,15 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.create_chat_request.CreateChatRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.create_chat_request.CreateChatRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,12 +477,12 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
+        input_: aws_sdk_devops_agent.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -508,13 +521,13 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.delete_asset_file_request.DeleteAssetFileRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
-        input["path"] = path
+        input_: aws_sdk_devops_agent.types.delete_asset_file_request.DeleteAssetFileRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
+        input_["path"] = path
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -540,10 +553,10 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_account_usage_input.GetAccountUsageInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_agent.types.get_account_usage_input.GetAccountUsageInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -580,14 +593,14 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_asset_request.GetAssetRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
+        input_: aws_sdk_devops_agent.types.get_asset_request.GetAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
         if asset_version is not None:
-            input["asset_version"] = asset_version
+            input_["asset_version"] = asset_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -626,14 +639,14 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_asset_content_request.GetAssetContentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
+        input_: aws_sdk_devops_agent.types.get_asset_content_request.GetAssetContentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
         if asset_version is not None:
-            input["asset_version"] = asset_version
+            input_["asset_version"] = asset_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -672,15 +685,15 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_asset_file_request.GetAssetFileRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
-        input["path"] = path
+        input_: aws_sdk_devops_agent.types.get_asset_file_request.GetAssetFileRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
+        input_["path"] = path
         if asset_version is not None:
-            input["asset_version"] = asset_version
+            input_["asset_version"] = asset_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,12 +728,12 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_backlog_task_request.GetBacklogTaskRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["task_id"] = task_id
+        input_: aws_sdk_devops_agent.types.get_backlog_task_request.GetBacklogTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -757,14 +770,14 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["recommendation_id"] = recommendation_id
+        input_: aws_sdk_devops_agent.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["recommendation_id"] = recommendation_id
         if recommendation_version is not None:
-            input["recommendation_version"] = recommendation_version
+            input_["recommendation_version"] = recommendation_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -805,18 +818,18 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_asset_files_request.ListAssetFilesRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
+        input_: aws_sdk_devops_agent.types.list_asset_files_request.ListAssetFilesRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
         if asset_version is not None:
-            input["asset_version"] = asset_version
+            input_["asset_version"] = asset_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -886,21 +899,21 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_assets_request.ListAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.list_assets_request.ListAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if asset_type is not None:
-            input["asset_type"] = asset_type
+            input_["asset_type"] = asset_type
         if updated_after is not None:
-            input["updated_after"] = updated_after
+            input_["updated_after"] = updated_after
         if updated_before is not None:
-            input["updated_before"] = updated_before
+            input_["updated_before"] = updated_before
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -964,14 +977,14 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_asset_types_request.ListAssetTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_agent.types.list_asset_types_request.ListAssetTypesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1031,16 +1044,16 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_asset_versions_request.ListAssetVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
+        input_: aws_sdk_devops_agent.types.list_asset_versions_request.ListAssetVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1112,21 +1125,21 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_backlog_tasks_request.ListBacklogTasksRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.list_backlog_tasks_request.ListBacklogTasksRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_field is not None:
-            input["sort_field"] = sort_field
+            input_["sort_field"] = sort_field
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1197,17 +1210,17 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_chats_request.ListChatsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.list_chats_request.ListChatsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1246,16 +1259,16 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_executions_request.ListExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["task_id"] = task_id
+        input_: aws_sdk_devops_agent.types.list_executions_request.ListExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["task_id"] = task_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1321,19 +1334,19 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_goals_request.ListGoalsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.list_goals_request.ListGoalsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if goal_type is not None:
-            input["goal_type"] = goal_type
+            input_["goal_type"] = goal_type
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1403,20 +1416,20 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_journal_records_request.ListJournalRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_devops_agent.types.list_journal_records_request.ListJournalRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["execution_id"] = execution_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if record_type is not None:
-            input["record_type"] = record_type
+            input_["record_type"] = record_type
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1479,12 +1492,12 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_pending_messages_request.ListPendingMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_devops_agent.types.list_pending_messages_request.ListPendingMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["execution_id"] = execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,23 +1546,23 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if task_id is not None:
-            input["task_id"] = task_id
+            input_["task_id"] = task_id
         if goal_id is not None:
-            input["goal_id"] = goal_id
+            input_["goal_id"] = goal_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1582,11 +1595,11 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_devops_agent.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1633,19 +1646,19 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.send_message_request.SendMessageRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["execution_id"] = execution_id
-        input["content"] = content
+        input_: aws_sdk_devops_agent.types.send_message_request.SendMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["execution_id"] = execution_id
+        input_["content"] = content
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if asset_ids is not None:
-            input["asset_ids"] = asset_ids
+            input_["asset_ids"] = asset_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1680,12 +1693,12 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_devops_agent.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1720,12 +1733,12 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_devops_agent.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1768,18 +1781,18 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_asset_request.UpdateAssetRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
+        input_: aws_sdk_devops_agent.types.update_asset_request.UpdateAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1826,19 +1839,19 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_asset_file_request.UpdateAssetFileRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["asset_id"] = asset_id
-        input["path"] = path
+        input_: aws_sdk_devops_agent.types.update_asset_file_request.UpdateAssetFileRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["asset_id"] = asset_id
+        input_["path"] = path
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1879,16 +1892,16 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_backlog_task_request.UpdateBacklogTaskRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["task_id"] = task_id
+        input_: aws_sdk_devops_agent.types.update_backlog_task_request.UpdateBacklogTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["task_id"] = task_id
         if task_status is not None:
-            input["task_status"] = task_status
+            input_["task_status"] = task_status
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1929,16 +1942,16 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_goal_request.UpdateGoalRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["goal_id"] = goal_id
+        input_: aws_sdk_devops_agent.types.update_goal_request.UpdateGoalRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["goal_id"] = goal_id
         if evaluation_schedule is not None:
-            input["evaluation_schedule"] = evaluation_schedule
+            input_["evaluation_schedule"] = evaluation_schedule
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1981,18 +1994,18 @@ class DevOpsAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_recommendation_request.UpdateRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["recommendation_id"] = recommendation_id
+        input_: aws_sdk_devops_agent.types.update_recommendation_request.UpdateRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["recommendation_id"] = recommendation_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if additional_context is not None:
-            input["additional_context"] = additional_context
+            input_["additional_context"] = additional_context
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

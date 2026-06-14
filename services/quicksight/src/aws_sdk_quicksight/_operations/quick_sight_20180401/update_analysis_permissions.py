@@ -108,29 +108,29 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_quicksight.types.update_analysis_permissions_request.UpdateAnalysisPermissionsRequest,
+    input_: aws_sdk_quicksight.types.update_analysis_permissions_request.UpdateAnalysisPermissionsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions"
     )
-    url = url.replace("{AwsAccountId}", quote(str(input["aws_account_id"]), safe=""))
-    url = url.replace("{AnalysisId}", quote(str(input["analysis_id"]), safe=""))
+    url = url.replace("{AwsAccountId}", quote(str(input_["aws_account_id"]), safe=""))
+    url = url.replace("{AnalysisId}", quote(str(input_["analysis_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_quicksight.types.update_analysis_permissions_request
 
     body: bytes | None = json.dumps(
         aws_sdk_quicksight.types.update_analysis_permissions_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -138,26 +138,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_analysis_permissions(
     options: OperationOptions,
-    input: aws_sdk_quicksight.types.update_analysis_permissions_request.UpdateAnalysisPermissionsRequest,
+    input_: aws_sdk_quicksight.types.update_analysis_permissions_request.UpdateAnalysisPermissionsRequest,
 ) -> tuple[
     aws_sdk_quicksight.types.update_analysis_permissions_response.UpdateAnalysisPermissionsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -166,16 +163,17 @@ def update_analysis_permissions(
 
 async def async_update_analysis_permissions(
     options: AsyncOperationOptions,
-    input: aws_sdk_quicksight.types.update_analysis_permissions_request.UpdateAnalysisPermissionsRequest,
+    input_: aws_sdk_quicksight.types.update_analysis_permissions_request.UpdateAnalysisPermissionsRequest,
 ) -> tuple[
     aws_sdk_quicksight.types.update_analysis_permissions_response.UpdateAnalysisPermissionsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

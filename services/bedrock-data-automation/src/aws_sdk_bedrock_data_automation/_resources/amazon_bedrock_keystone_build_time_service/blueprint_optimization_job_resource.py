@@ -76,18 +76,18 @@ class BlueprintOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.InvokeBlueprintOptimizationAsyncRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint"] = blueprint
-        input["samples"] = samples
-        input["output_configuration"] = output_configuration
-        input["data_automation_profile_arn"] = data_automation_profile_arn
+        input_: aws_sdk_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.InvokeBlueprintOptimizationAsyncRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint"] = blueprint
+        input_["samples"] = samples
+        input_["output_configuration"] = output_configuration
+        input_["data_automation_profile_arn"] = data_automation_profile_arn
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,11 +120,11 @@ class BlueprintOptimizationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_blueprint_optimization_status_request.GetBlueprintOptimizationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["invocation_arn"] = invocation_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_blueprint_optimization_status_request.GetBlueprintOptimizationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["invocation_arn"] = invocation_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -175,18 +175,18 @@ class AsyncBlueprintOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.InvokeBlueprintOptimizationAsyncRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint"] = blueprint
-        input["samples"] = samples
-        input["output_configuration"] = output_configuration
-        input["data_automation_profile_arn"] = data_automation_profile_arn
+        input_: aws_sdk_bedrock_data_automation.types.invoke_blueprint_optimization_async_request.InvokeBlueprintOptimizationAsyncRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint"] = blueprint
+        input_["samples"] = samples
+        input_["output_configuration"] = output_configuration
+        input_["data_automation_profile_arn"] = data_automation_profile_arn
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,11 +220,11 @@ class AsyncBlueprintOptimizationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_blueprint_optimization_status_request.GetBlueprintOptimizationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["invocation_arn"] = invocation_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_blueprint_optimization_status_request.GetBlueprintOptimizationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["invocation_arn"] = invocation_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

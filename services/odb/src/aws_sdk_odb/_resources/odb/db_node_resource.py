@@ -55,12 +55,12 @@ class DbNodeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_db_node_input.GetDbNodeInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
-        input["db_node_id"] = db_node_id
+        input_: aws_sdk_odb.types.get_db_node_input.GetDbNodeInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_["db_node_id"] = db_node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -97,15 +97,15 @@ class DbNodeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_db_nodes_input.ListDbNodesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_db_nodes_input.ListDbNodesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+            input_["next_token"] = next_token
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -140,12 +140,12 @@ class DbNodeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.reboot_db_node_input.RebootDbNodeInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
-        input["db_node_id"] = db_node_id
+        input_: aws_sdk_odb.types.reboot_db_node_input.RebootDbNodeInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_["db_node_id"] = db_node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -180,12 +180,12 @@ class DbNodeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.start_db_node_input.StartDbNodeInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
-        input["db_node_id"] = db_node_id
+        input_: aws_sdk_odb.types.start_db_node_input.StartDbNodeInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_["db_node_id"] = db_node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,12 +220,12 @@ class DbNodeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.stop_db_node_input.StopDbNodeInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
-        input["db_node_id"] = db_node_id
+        input_: aws_sdk_odb.types.stop_db_node_input.StopDbNodeInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_["db_node_id"] = db_node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,12 +266,12 @@ class AsyncDbNodeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_db_node_input.GetDbNodeInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
-        input["db_node_id"] = db_node_id
+        input_: aws_sdk_odb.types.get_db_node_input.GetDbNodeInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_["db_node_id"] = db_node_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,15 +309,15 @@ class AsyncDbNodeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_db_nodes_input.ListDbNodesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_db_nodes_input.ListDbNodesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+            input_["next_token"] = next_token
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -353,12 +353,12 @@ class AsyncDbNodeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.reboot_db_node_input.RebootDbNodeInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
-        input["db_node_id"] = db_node_id
+        input_: aws_sdk_odb.types.reboot_db_node_input.RebootDbNodeInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_["db_node_id"] = db_node_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,12 +394,12 @@ class AsyncDbNodeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.start_db_node_input.StartDbNodeInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
-        input["db_node_id"] = db_node_id
+        input_: aws_sdk_odb.types.start_db_node_input.StartDbNodeInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_["db_node_id"] = db_node_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,12 +435,12 @@ class AsyncDbNodeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.stop_db_node_input.StopDbNodeInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
-        input["db_node_id"] = db_node_id
+        input_: aws_sdk_odb.types.stop_db_node_input.StopDbNodeInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_["db_node_id"] = db_node_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

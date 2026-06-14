@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -94,23 +95,23 @@ class GlossaryTerm:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_glossary_term_input.CreateGlossaryTermInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["glossary_identifier"] = glossary_identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_glossary_term_input.CreateGlossaryTermInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["glossary_identifier"] = glossary_identifier
+        input_["name"] = name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if short_description is not None:
-            input["short_description"] = short_description
+            input_["short_description"] = short_description
         if long_description is not None:
-            input["long_description"] = long_description
+            input_["long_description"] = long_description
         if term_relations is not None:
-            input["term_relations"] = term_relations
+            input_["term_relations"] = term_relations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -145,12 +146,12 @@ class GlossaryTerm:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_glossary_term_input.GetGlossaryTermInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_glossary_term_input.GetGlossaryTermInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -209,24 +210,24 @@ class GlossaryTerm:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_glossary_term_input.UpdateGlossaryTermInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.update_glossary_term_input.UpdateGlossaryTermInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if glossary_identifier is not None:
-            input["glossary_identifier"] = glossary_identifier
-        input["identifier"] = identifier
+            input_["glossary_identifier"] = glossary_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if short_description is not None:
-            input["short_description"] = short_description
+            input_["short_description"] = short_description
         if long_description is not None:
-            input["long_description"] = long_description
+            input_["long_description"] = long_description
         if term_relations is not None:
-            input["term_relations"] = term_relations
+            input_["term_relations"] = term_relations
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,12 +262,12 @@ class GlossaryTerm:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_glossary_term_input.DeleteGlossaryTermInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_glossary_term_input.DeleteGlossaryTermInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,23 +330,23 @@ class AsyncGlossaryTerm:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_glossary_term_input.CreateGlossaryTermInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["glossary_identifier"] = glossary_identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_glossary_term_input.CreateGlossaryTermInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["glossary_identifier"] = glossary_identifier
+        input_["name"] = name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if short_description is not None:
-            input["short_description"] = short_description
+            input_["short_description"] = short_description
         if long_description is not None:
-            input["long_description"] = long_description
+            input_["long_description"] = long_description
         if term_relations is not None:
-            input["term_relations"] = term_relations
+            input_["term_relations"] = term_relations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,12 +382,12 @@ class AsyncGlossaryTerm:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_glossary_term_input.GetGlossaryTermInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_glossary_term_input.GetGlossaryTermInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,24 +447,24 @@ class AsyncGlossaryTerm:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_glossary_term_input.UpdateGlossaryTermInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.update_glossary_term_input.UpdateGlossaryTermInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if glossary_identifier is not None:
-            input["glossary_identifier"] = glossary_identifier
-        input["identifier"] = identifier
+            input_["glossary_identifier"] = glossary_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if short_description is not None:
-            input["short_description"] = short_description
+            input_["short_description"] = short_description
         if long_description is not None:
-            input["long_description"] = long_description
+            input_["long_description"] = long_description
         if term_relations is not None:
-            input["term_relations"] = term_relations
+            input_["term_relations"] = term_relations
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,12 +500,12 @@ class AsyncGlossaryTerm:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_glossary_term_input.DeleteGlossaryTermInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_glossary_term_input.DeleteGlossaryTermInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

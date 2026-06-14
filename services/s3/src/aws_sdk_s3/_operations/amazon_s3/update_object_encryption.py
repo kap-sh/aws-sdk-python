@@ -75,11 +75,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest,
+    input_: aws_sdk_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -99,26 +99,26 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?encryption"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
-    url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
+    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
     params: dict[str, str] = {}
-    if "version_id" in input:
-        params["versionId"] = str(input["version_id"])
+    if "version_id" in input_:
+        params["versionId"] = str(input_["version_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "request_payer" in input:
-        headers["x-amz-request-payer"] = str(input["request_payer"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    if "content_md5" in input:
-        headers["Content-MD5"] = str(input["content_md5"])
-    if "checksum_algorithm" in input:
-        headers["x-amz-sdk-checksum-algorithm"] = str(input["checksum_algorithm"])
-    if "object_encryption" in input:
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = str(input_["request_payer"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    if "content_md5" in input_:
+        headers["Content-MD5"] = str(input_["content_md5"])
+    if "checksum_algorithm" in input_:
+        headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
+    if "object_encryption" in input_:
         import aws_sdk_s3.types.object_encryption
 
         payload_root = Element("_")
         aws_sdk_s3.types.object_encryption.serialize_xml(
-            input["object_encryption"], payload_root, "ObjectEncryption"
+            input_["object_encryption"], payload_root, "ObjectEncryption"
         )
         body: bytes | None = tostring(payload_root[0])
         headers["content-type"] = "application/xml"
@@ -134,12 +134,12 @@ def build_request(
 
 def update_object_encryption(
     options: OperationOptions,
-    input: aws_sdk_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest,
+    input_: aws_sdk_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest,
 ) -> tuple[
     aws_sdk_s3.types.update_object_encryption_response.UpdateObjectEncryptionResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -153,12 +153,12 @@ def update_object_encryption(
 
 async def async_update_object_encryption(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest,
+    input_: aws_sdk_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest,
 ) -> tuple[
     aws_sdk_s3.types.update_object_encryption_response.UpdateObjectEncryptionResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

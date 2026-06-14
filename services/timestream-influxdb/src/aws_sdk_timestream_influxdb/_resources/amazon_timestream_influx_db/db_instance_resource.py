@@ -136,40 +136,40 @@ class DbInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.create_db_instance_input.CreateDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_timestream_influxdb.types.create_db_instance_input.CreateDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if username is not None:
-            input["username"] = username
-        input["password"] = password
+            input_["username"] = username
+        input_["password"] = password
         if organization is not None:
-            input["organization"] = organization
+            input_["organization"] = organization
         if bucket is not None:
-            input["bucket"] = bucket
-        input["db_instance_type"] = db_instance_type
-        input["vpc_subnet_ids"] = vpc_subnet_ids
-        input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["bucket"] = bucket
+        input_["db_instance_type"] = db_instance_type
+        input_["vpc_subnet_ids"] = vpc_subnet_ids
+        input_["vpc_security_group_ids"] = vpc_security_group_ids
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if db_storage_type is not None:
-            input["db_storage_type"] = db_storage_type
-        input["allocated_storage"] = allocated_storage
+            input_["db_storage_type"] = db_storage_type
+        input_["allocated_storage"] = allocated_storage
         if db_parameter_group_identifier is not None:
-            input["db_parameter_group_identifier"] = db_parameter_group_identifier
+            input_["db_parameter_group_identifier"] = db_parameter_group_identifier
         if deployment_type is not None:
-            input["deployment_type"] = deployment_type
+            input_["deployment_type"] = deployment_type
         if log_delivery_configuration is not None:
-            input["log_delivery_configuration"] = log_delivery_configuration
+            input_["log_delivery_configuration"] = log_delivery_configuration
         if maintenance_schedule is not None:
-            input["maintenance_schedule"] = maintenance_schedule
+            input_["maintenance_schedule"] = maintenance_schedule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,11 +202,11 @@ class DbInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,27 +269,27 @@ class DbInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.update_db_instance_input.UpdateDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.update_db_instance_input.UpdateDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if log_delivery_configuration is not None:
-            input["log_delivery_configuration"] = log_delivery_configuration
+            input_["log_delivery_configuration"] = log_delivery_configuration
         if db_parameter_group_identifier is not None:
-            input["db_parameter_group_identifier"] = db_parameter_group_identifier
+            input_["db_parameter_group_identifier"] = db_parameter_group_identifier
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_instance_type is not None:
-            input["db_instance_type"] = db_instance_type
+            input_["db_instance_type"] = db_instance_type
         if deployment_type is not None:
-            input["deployment_type"] = deployment_type
+            input_["deployment_type"] = deployment_type
         if db_storage_type is not None:
-            input["db_storage_type"] = db_storage_type
+            input_["db_storage_type"] = db_storage_type
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if maintenance_schedule is not None:
-            input["maintenance_schedule"] = maintenance_schedule
+            input_["maintenance_schedule"] = maintenance_schedule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -322,11 +322,11 @@ class DbInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,14 +365,14 @@ class DbInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.list_db_instances_input.ListDbInstancesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_influxdb.types.list_db_instances_input.ListDbInstancesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,11 +405,11 @@ class DbInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,40 +500,40 @@ class AsyncDbInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.create_db_instance_input.CreateDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_timestream_influxdb.types.create_db_instance_input.CreateDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if username is not None:
-            input["username"] = username
-        input["password"] = password
+            input_["username"] = username
+        input_["password"] = password
         if organization is not None:
-            input["organization"] = organization
+            input_["organization"] = organization
         if bucket is not None:
-            input["bucket"] = bucket
-        input["db_instance_type"] = db_instance_type
-        input["vpc_subnet_ids"] = vpc_subnet_ids
-        input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["bucket"] = bucket
+        input_["db_instance_type"] = db_instance_type
+        input_["vpc_subnet_ids"] = vpc_subnet_ids
+        input_["vpc_security_group_ids"] = vpc_security_group_ids
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if db_storage_type is not None:
-            input["db_storage_type"] = db_storage_type
-        input["allocated_storage"] = allocated_storage
+            input_["db_storage_type"] = db_storage_type
+        input_["allocated_storage"] = allocated_storage
         if db_parameter_group_identifier is not None:
-            input["db_parameter_group_identifier"] = db_parameter_group_identifier
+            input_["db_parameter_group_identifier"] = db_parameter_group_identifier
         if deployment_type is not None:
-            input["deployment_type"] = deployment_type
+            input_["deployment_type"] = deployment_type
         if log_delivery_configuration is not None:
-            input["log_delivery_configuration"] = log_delivery_configuration
+            input_["log_delivery_configuration"] = log_delivery_configuration
         if maintenance_schedule is not None:
-            input["maintenance_schedule"] = maintenance_schedule
+            input_["maintenance_schedule"] = maintenance_schedule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,11 +567,11 @@ class AsyncDbInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.get_db_instance_input.GetDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -635,27 +635,27 @@ class AsyncDbInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.update_db_instance_input.UpdateDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.update_db_instance_input.UpdateDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if log_delivery_configuration is not None:
-            input["log_delivery_configuration"] = log_delivery_configuration
+            input_["log_delivery_configuration"] = log_delivery_configuration
         if db_parameter_group_identifier is not None:
-            input["db_parameter_group_identifier"] = db_parameter_group_identifier
+            input_["db_parameter_group_identifier"] = db_parameter_group_identifier
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_instance_type is not None:
-            input["db_instance_type"] = db_instance_type
+            input_["db_instance_type"] = db_instance_type
         if deployment_type is not None:
-            input["deployment_type"] = deployment_type
+            input_["deployment_type"] = deployment_type
         if db_storage_type is not None:
-            input["db_storage_type"] = db_storage_type
+            input_["db_storage_type"] = db_storage_type
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if maintenance_schedule is not None:
-            input["maintenance_schedule"] = maintenance_schedule
+            input_["maintenance_schedule"] = maintenance_schedule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,11 +689,11 @@ class AsyncDbInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.delete_db_instance_input.DeleteDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -733,14 +733,14 @@ class AsyncDbInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.list_db_instances_input.ListDbInstancesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_influxdb.types.list_db_instances_input.ListDbInstancesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -774,11 +774,11 @@ class AsyncDbInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.reboot_db_instance_input.RebootDbInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -89,21 +89,21 @@ class DataAutomationLibraryIngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.invoke_data_automation_library_ingestion_job_request.InvokeDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.invoke_data_automation_library_ingestion_job_request.InvokeDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["input_configuration"] = input_configuration
-        input["entity_type"] = entity_type
-        input["operation_type"] = operation_type
-        input["output_configuration"] = output_configuration
+            input_["client_token"] = client_token
+        input_["input_configuration"] = input_configuration
+        input_["entity_type"] = entity_type
+        input_["operation_type"] = operation_type
+        input_["output_configuration"] = output_configuration
         if notification_configuration is not None:
-            input["notification_configuration"] = notification_configuration
+            input_["notification_configuration"] = notification_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -138,12 +138,12 @@ class DataAutomationLibraryIngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_data_automation_library_ingestion_job_request.GetDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
-        input["job_arn"] = job_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_data_automation_library_ingestion_job_request.GetDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
+        input_["job_arn"] = job_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -183,15 +183,15 @@ class DataAutomationLibraryIngestionJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_data_automation_library_ingestion_jobs_request.ListDataAutomationLibraryIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.list_data_automation_library_ingestion_jobs_request.ListDataAutomationLibraryIngestionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,21 +248,21 @@ class AsyncDataAutomationLibraryIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.invoke_data_automation_library_ingestion_job_request.InvokeDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.invoke_data_automation_library_ingestion_job_request.InvokeDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["input_configuration"] = input_configuration
-        input["entity_type"] = entity_type
-        input["operation_type"] = operation_type
-        input["output_configuration"] = output_configuration
+            input_["client_token"] = client_token
+        input_["input_configuration"] = input_configuration
+        input_["entity_type"] = entity_type
+        input_["operation_type"] = operation_type
+        input_["output_configuration"] = output_configuration
         if notification_configuration is not None:
-            input["notification_configuration"] = notification_configuration
+            input_["notification_configuration"] = notification_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,12 +298,12 @@ class AsyncDataAutomationLibraryIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_data_automation_library_ingestion_job_request.GetDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
-        input["job_arn"] = job_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_data_automation_library_ingestion_job_request.GetDataAutomationLibraryIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
+        input_["job_arn"] = job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,15 +344,15 @@ class AsyncDataAutomationLibraryIngestionJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_data_automation_library_ingestion_jobs_request.ListDataAutomationLibraryIngestionJobsRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.list_data_automation_library_ingestion_jobs_request.ListDataAutomationLibraryIngestionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

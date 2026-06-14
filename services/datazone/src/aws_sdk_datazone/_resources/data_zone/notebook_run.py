@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -111,29 +112,29 @@ class NotebookRun:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.start_notebook_run_input.StartNotebookRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["owning_project_identifier"] = owning_project_identifier
-        input["notebook_identifier"] = notebook_identifier
+        input_: aws_sdk_datazone.types.start_notebook_run_input.StartNotebookRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["owning_project_identifier"] = owning_project_identifier
+        input_["notebook_identifier"] = notebook_identifier
         if schedule_identifier is not None:
-            input["schedule_identifier"] = schedule_identifier
+            input_["schedule_identifier"] = schedule_identifier
         if compute_configuration is not None:
-            input["compute_configuration"] = compute_configuration
+            input_["compute_configuration"] = compute_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if timeout_configuration is not None:
-            input["timeout_configuration"] = timeout_configuration
+            input_["timeout_configuration"] = timeout_configuration
         if trigger_source is not None:
-            input["trigger_source"] = trigger_source
+            input_["trigger_source"] = trigger_source
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,12 +169,12 @@ class NotebookRun:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_notebook_run_input.GetNotebookRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_notebook_run_input.GetNotebookRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -228,24 +229,24 @@ class NotebookRun:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_notebook_runs_input.ListNotebookRunsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["owning_project_identifier"] = owning_project_identifier
+        input_: aws_sdk_datazone.types.list_notebook_runs_input.ListNotebookRunsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["owning_project_identifier"] = owning_project_identifier
         if notebook_identifier is not None:
-            input["notebook_identifier"] = notebook_identifier
+            input_["notebook_identifier"] = notebook_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if schedule_identifier is not None:
-            input["schedule_identifier"] = schedule_identifier
+            input_["schedule_identifier"] = schedule_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,14 +285,14 @@ class NotebookRun:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.stop_notebook_run_input.StopNotebookRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.stop_notebook_run_input.StopNotebookRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -362,29 +363,29 @@ class AsyncNotebookRun:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.start_notebook_run_input.StartNotebookRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["owning_project_identifier"] = owning_project_identifier
-        input["notebook_identifier"] = notebook_identifier
+        input_: aws_sdk_datazone.types.start_notebook_run_input.StartNotebookRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["owning_project_identifier"] = owning_project_identifier
+        input_["notebook_identifier"] = notebook_identifier
         if schedule_identifier is not None:
-            input["schedule_identifier"] = schedule_identifier
+            input_["schedule_identifier"] = schedule_identifier
         if compute_configuration is not None:
-            input["compute_configuration"] = compute_configuration
+            input_["compute_configuration"] = compute_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if timeout_configuration is not None:
-            input["timeout_configuration"] = timeout_configuration
+            input_["timeout_configuration"] = timeout_configuration
         if trigger_source is not None:
-            input["trigger_source"] = trigger_source
+            input_["trigger_source"] = trigger_source
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,12 +421,12 @@ class AsyncNotebookRun:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_notebook_run_input.GetNotebookRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_notebook_run_input.GetNotebookRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,24 +482,24 @@ class AsyncNotebookRun:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_notebook_runs_input.ListNotebookRunsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["owning_project_identifier"] = owning_project_identifier
+        input_: aws_sdk_datazone.types.list_notebook_runs_input.ListNotebookRunsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["owning_project_identifier"] = owning_project_identifier
         if notebook_identifier is not None:
-            input["notebook_identifier"] = notebook_identifier
+            input_["notebook_identifier"] = notebook_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if schedule_identifier is not None:
-            input["schedule_identifier"] = schedule_identifier
+            input_["schedule_identifier"] = schedule_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,14 +539,14 @@ class AsyncNotebookRun:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.stop_notebook_run_input.StopNotebookRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.stop_notebook_run_input.StopNotebookRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -497,15 +497,15 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.associate_aws_account_with_partner_account_request.AssociateAwsAccountWithPartnerAccountRequest = {}  # type: ignore[typeddict-item]
-        input["sidewalk"] = sidewalk
+        input_: aws_sdk_iot_wireless.types.associate_aws_account_with_partner_account_request.AssociateAwsAccountWithPartnerAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["sidewalk"] = sidewalk
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -536,12 +536,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.associate_multicast_group_with_fuota_task_request.AssociateMulticastGroupWithFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["multicast_group_id"] = multicast_group_id
+        input_: aws_sdk_iot_wireless.types.associate_multicast_group_with_fuota_task_request.AssociateMulticastGroupWithFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["multicast_group_id"] = multicast_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,12 +572,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.associate_wireless_device_with_fuota_task_request.AssociateWirelessDeviceWithFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["wireless_device_id"] = wireless_device_id
+        input_: aws_sdk_iot_wireless.types.associate_wireless_device_with_fuota_task_request.AssociateWirelessDeviceWithFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["wireless_device_id"] = wireless_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -608,12 +608,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.associate_wireless_device_with_multicast_group_request.AssociateWirelessDeviceWithMulticastGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["wireless_device_id"] = wireless_device_id
+        input_: aws_sdk_iot_wireless.types.associate_wireless_device_with_multicast_group_request.AssociateWirelessDeviceWithMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["wireless_device_id"] = wireless_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -649,12 +649,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.associate_wireless_device_with_thing_request.AssociateWirelessDeviceWithThingRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["thing_arn"] = thing_arn
+        input_: aws_sdk_iot_wireless.types.associate_wireless_device_with_thing_request.AssociateWirelessDeviceWithThingRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["thing_arn"] = thing_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,12 +690,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.associate_wireless_gateway_with_certificate_request.AssociateWirelessGatewayWithCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["iot_certificate_id"] = iot_certificate_id
+        input_: aws_sdk_iot_wireless.types.associate_wireless_gateway_with_certificate_request.AssociateWirelessGatewayWithCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["iot_certificate_id"] = iot_certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -731,12 +731,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.associate_wireless_gateway_with_thing_request.AssociateWirelessGatewayWithThingRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["thing_arn"] = thing_arn
+        input_: aws_sdk_iot_wireless.types.associate_wireless_gateway_with_thing_request.AssociateWirelessGatewayWithThingRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["thing_arn"] = thing_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -766,11 +766,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.cancel_multicast_group_session_request.CancelMulticastGroupSessionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.cancel_multicast_group_session_request.CancelMulticastGroupSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -820,20 +820,20 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_destination_request.CreateDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["expression_type"] = expression_type
-        input["expression"] = expression
+        input_: aws_sdk_iot_wireless.types.create_destination_request.CreateDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["expression_type"] = expression_type
+        input_["expression"] = expression
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -883,20 +883,20 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_device_profile_request.CreateDeviceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.create_device_profile_request.CreateDeviceProfileRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if lo_ra_wan is not None:
-            input["lo_ra_wan"] = lo_ra_wan
+            input_["lo_ra_wan"] = lo_ra_wan
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if sidewalk is not None:
-            input["sidewalk"] = sidewalk
+            input_["sidewalk"] = sidewalk
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -954,30 +954,30 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_fuota_task_request.CreateFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.create_fuota_task_request.CreateFuotaTaskRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if lo_ra_wan is not None:
-            input["lo_ra_wan"] = lo_ra_wan
-        input["firmware_update_image"] = firmware_update_image
-        input["firmware_update_role"] = firmware_update_role
+            input_["lo_ra_wan"] = lo_ra_wan
+        input_["firmware_update_image"] = firmware_update_image
+        input_["firmware_update_role"] = firmware_update_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if redundancy_percent is not None:
-            input["redundancy_percent"] = redundancy_percent
+            input_["redundancy_percent"] = redundancy_percent
         if fragment_size_bytes is not None:
-            input["fragment_size_bytes"] = fragment_size_bytes
+            input_["fragment_size_bytes"] = fragment_size_bytes
         if fragment_interval_ms is not None:
-            input["fragment_interval_ms"] = fragment_interval_ms
+            input_["fragment_interval_ms"] = fragment_interval_ms
         if descriptor is not None:
-            input["descriptor"] = descriptor
+            input_["descriptor"] = descriptor
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1022,19 +1022,19 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_multicast_group_request.CreateMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.create_multicast_group_request.CreateMulticastGroupRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["lo_ra_wan"] = lo_ra_wan
+            input_["client_request_token"] = client_request_token
+        input_["lo_ra_wan"] = lo_ra_wan
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1089,25 +1089,25 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_network_analyzer_configuration_request.CreateNetworkAnalyzerConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_wireless.types.create_network_analyzer_configuration_request.CreateNetworkAnalyzerConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if trace_content is not None:
-            input["trace_content"] = trace_content
+            input_["trace_content"] = trace_content
         if wireless_devices is not None:
-            input["wireless_devices"] = wireless_devices
+            input_["wireless_devices"] = wireless_devices
         if wireless_gateways is not None:
-            input["wireless_gateways"] = wireless_gateways
+            input_["wireless_gateways"] = wireless_gateways
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if multicast_groups is not None:
-            input["multicast_groups"] = multicast_groups
+            input_["multicast_groups"] = multicast_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1153,18 +1153,18 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_service_profile_request.CreateServiceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.create_service_profile_request.CreateServiceProfileRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if lo_ra_wan is not None:
-            input["lo_ra_wan"] = lo_ra_wan
+            input_["lo_ra_wan"] = lo_ra_wan
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1226,26 +1226,26 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_wireless_device_request.CreateWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_iot_wireless.types.create_wireless_device_request.CreateWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["destination_name"] = destination_name
+            input_["description"] = description
+        input_["destination_name"] = destination_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if lo_ra_wan is not None:
-            input["lo_ra_wan"] = lo_ra_wan
+            input_["lo_ra_wan"] = lo_ra_wan
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if positioning is not None:
-            input["positioning"] = positioning
+            input_["positioning"] = positioning
         if sidewalk is not None:
-            input["sidewalk"] = sidewalk
+            input_["sidewalk"] = sidewalk
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1293,19 +1293,19 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_wireless_gateway_request.CreateWirelessGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.create_wireless_gateway_request.CreateWirelessGatewayRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["lo_ra_wan"] = lo_ra_wan
+            input_["description"] = description
+        input_["lo_ra_wan"] = lo_ra_wan
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1341,14 +1341,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_wireless_gateway_task_request.CreateWirelessGatewayTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["wireless_gateway_task_definition_id"] = (
+        input_: aws_sdk_iot_wireless.types.create_wireless_gateway_task_request.CreateWirelessGatewayTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["wireless_gateway_task_definition_id"] = (
             wireless_gateway_task_definition_id
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1396,19 +1396,19 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.create_wireless_gateway_task_definition_request.CreateWirelessGatewayTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["auto_create_tasks"] = auto_create_tasks
+        input_: aws_sdk_iot_wireless.types.create_wireless_gateway_task_definition_request.CreateWirelessGatewayTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_create_tasks"] = auto_create_tasks
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if update is not None:
-            input["update"] = update
+            input_["update"] = update
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1442,11 +1442,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_wireless.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1480,11 +1480,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_device_profile_request.DeleteDeviceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_device_profile_request.DeleteDeviceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1516,11 +1516,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_fuota_task_request.DeleteFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_fuota_task_request.DeleteFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1550,11 +1550,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_multicast_group_request.DeleteMulticastGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_multicast_group_request.DeleteMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1584,11 +1584,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_network_analyzer_configuration_request.DeleteNetworkAnalyzerConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_name"] = configuration_name
+        input_: aws_sdk_iot_wireless.types.delete_network_analyzer_configuration_request.DeleteNetworkAnalyzerConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_name"] = configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1628,14 +1628,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_queued_messages_request.DeleteQueuedMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["message_id"] = message_id
+        input_: aws_sdk_iot_wireless.types.delete_queued_messages_request.DeleteQueuedMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["message_id"] = message_id
         if wireless_device_type is not None:
-            input["wireless_device_type"] = wireless_device_type
+            input_["wireless_device_type"] = wireless_device_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1669,11 +1669,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_service_profile_request.DeleteServiceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_service_profile_request.DeleteServiceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1707,11 +1707,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_wireless_device_request.DeleteWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_wireless_device_request.DeleteWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1745,11 +1745,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_wireless_device_import_task_request.DeleteWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_wireless_device_import_task_request.DeleteWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1783,11 +1783,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_wireless_gateway_request.DeleteWirelessGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_wireless_gateway_request.DeleteWirelessGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1821,11 +1821,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_wireless_gateway_task_request.DeleteWirelessGatewayTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_wireless_gateway_task_request.DeleteWirelessGatewayTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1859,11 +1859,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.delete_wireless_gateway_task_definition_request.DeleteWirelessGatewayTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.delete_wireless_gateway_task_definition_request.DeleteWirelessGatewayTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1901,13 +1901,13 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.deregister_wireless_device_request.DeregisterWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_wireless.types.deregister_wireless_device_request.DeregisterWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if wireless_device_type is not None:
-            input["wireless_device_type"] = wireless_device_type
+            input_["wireless_device_type"] = wireless_device_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1943,12 +1943,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.disassociate_aws_account_from_partner_account_request.DisassociateAwsAccountFromPartnerAccountRequest = {}  # type: ignore[typeddict-item]
-        input["partner_account_id"] = partner_account_id
-        input["partner_type"] = partner_type
+        input_: aws_sdk_iot_wireless.types.disassociate_aws_account_from_partner_account_request.DisassociateAwsAccountFromPartnerAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["partner_account_id"] = partner_account_id
+        input_["partner_type"] = partner_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,12 +1979,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.disassociate_multicast_group_from_fuota_task_request.DisassociateMulticastGroupFromFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["multicast_group_id"] = multicast_group_id
+        input_: aws_sdk_iot_wireless.types.disassociate_multicast_group_from_fuota_task_request.DisassociateMulticastGroupFromFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["multicast_group_id"] = multicast_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2015,12 +2015,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.disassociate_wireless_device_from_fuota_task_request.DisassociateWirelessDeviceFromFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["wireless_device_id"] = wireless_device_id
+        input_: aws_sdk_iot_wireless.types.disassociate_wireless_device_from_fuota_task_request.DisassociateWirelessDeviceFromFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["wireless_device_id"] = wireless_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2051,12 +2051,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.disassociate_wireless_device_from_multicast_group_request.DisassociateWirelessDeviceFromMulticastGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["wireless_device_id"] = wireless_device_id
+        input_: aws_sdk_iot_wireless.types.disassociate_wireless_device_from_multicast_group_request.DisassociateWirelessDeviceFromMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["wireless_device_id"] = wireless_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2090,11 +2090,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.disassociate_wireless_device_from_thing_request.DisassociateWirelessDeviceFromThingRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.disassociate_wireless_device_from_thing_request.DisassociateWirelessDeviceFromThingRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2128,11 +2128,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.disassociate_wireless_gateway_from_certificate_request.DisassociateWirelessGatewayFromCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.disassociate_wireless_gateway_from_certificate_request.DisassociateWirelessGatewayFromCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2166,11 +2166,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.disassociate_wireless_gateway_from_thing_request.DisassociateWirelessGatewayFromThingRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.disassociate_wireless_gateway_from_thing_request.DisassociateWirelessGatewayFromThingRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2204,11 +2204,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_destination_request.GetDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_wireless.types.get_destination_request.GetDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2242,11 +2242,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_device_profile_request.GetDeviceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_device_profile_request.GetDeviceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2273,10 +2273,10 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_event_configuration_by_resource_types_request.GetEventConfigurationByResourceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.get_event_configuration_by_resource_types_request.GetEventConfigurationByResourceTypesRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2306,11 +2306,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_fuota_task_request.GetFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_fuota_task_request.GetFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2337,10 +2337,10 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_log_levels_by_resource_types_request.GetLogLevelsByResourceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.get_log_levels_by_resource_types_request.GetLogLevelsByResourceTypesRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2367,10 +2367,10 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_metric_configuration_request.GetMetricConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.get_metric_configuration_request.GetMetricConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2406,12 +2406,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_metrics_request.GetMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.get_metrics_request.GetMetricsRequest = {}  # type: ignore[typeddict-item]
         if summary_metric_queries is not None:
-            input["summary_metric_queries"] = summary_metric_queries
+            input_["summary_metric_queries"] = summary_metric_queries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2441,11 +2441,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_multicast_group_request.GetMulticastGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_multicast_group_request.GetMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2475,11 +2475,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_multicast_group_session_request.GetMulticastGroupSessionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_multicast_group_session_request.GetMulticastGroupSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2509,11 +2509,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_network_analyzer_configuration_request.GetNetworkAnalyzerConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_name"] = configuration_name
+        input_: aws_sdk_iot_wireless.types.get_network_analyzer_configuration_request.GetNetworkAnalyzerConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_name"] = configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2549,12 +2549,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_partner_account_request.GetPartnerAccountRequest = {}  # type: ignore[typeddict-item]
-        input["partner_account_id"] = partner_account_id
-        input["partner_type"] = partner_type
+        input_: aws_sdk_iot_wireless.types.get_partner_account_request.GetPartnerAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["partner_account_id"] = partner_account_id
+        input_["partner_type"] = partner_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2590,12 +2590,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_position_request.GetPositionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_wireless.types.get_position_request.GetPositionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2631,12 +2631,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_position_configuration_request.GetPositionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_wireless.types.get_position_configuration_request.GetPositionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2688,22 +2688,22 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_position_estimate_request.GetPositionEstimateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.get_position_estimate_request.GetPositionEstimateRequest = {}  # type: ignore[typeddict-item]
         if wi_fi_access_points is not None:
-            input["wi_fi_access_points"] = wi_fi_access_points
+            input_["wi_fi_access_points"] = wi_fi_access_points
         if cell_towers is not None:
-            input["cell_towers"] = cell_towers
+            input_["cell_towers"] = cell_towers
         if ip is not None:
-            input["ip"] = ip
+            input_["ip"] = ip
         if gnss is not None:
-            input["gnss"] = gnss
+            input_["gnss"] = gnss
         if timestamp is not None:
-            input["timestamp"] = timestamp
+            input_["timestamp"] = timestamp
         if advanced_configuration is not None:
-            input["advanced_configuration"] = advanced_configuration
+            input_["advanced_configuration"] = advanced_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2743,14 +2743,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_resource_event_configuration_request.GetResourceEventConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["identifier_type"] = identifier_type
+        input_: aws_sdk_iot_wireless.types.get_resource_event_configuration_request.GetResourceEventConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["identifier_type"] = identifier_type
         if partner_type is not None:
-            input["partner_type"] = partner_type
+            input_["partner_type"] = partner_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2785,12 +2785,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_resource_log_level_request.GetResourceLogLevelRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_wireless.types.get_resource_log_level_request.GetResourceLogLevelRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2826,12 +2826,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_resource_position_request.GetResourcePositionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_wireless.types.get_resource_position_request.GetResourcePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2867,12 +2867,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_service_endpoint_request.GetServiceEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.get_service_endpoint_request.GetServiceEndpointRequest = {}  # type: ignore[typeddict-item]
         if service_type is not None:
-            input["service_type"] = service_type
+            input_["service_type"] = service_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2906,11 +2906,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_service_profile_request.GetServiceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_service_profile_request.GetServiceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2946,12 +2946,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_device_request.GetWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["identifier_type"] = identifier_type
+        input_: aws_sdk_iot_wireless.types.get_wireless_device_request.GetWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["identifier_type"] = identifier_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2985,11 +2985,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_device_import_task_request.GetWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_wireless_device_import_task_request.GetWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3023,11 +3023,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_device_statistics_request.GetWirelessDeviceStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["wireless_device_id"] = wireless_device_id
+        input_: aws_sdk_iot_wireless.types.get_wireless_device_statistics_request.GetWirelessDeviceStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["wireless_device_id"] = wireless_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3063,12 +3063,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_gateway_request.GetWirelessGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["identifier_type"] = identifier_type
+        input_: aws_sdk_iot_wireless.types.get_wireless_gateway_request.GetWirelessGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["identifier_type"] = identifier_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3102,11 +3102,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_gateway_certificate_request.GetWirelessGatewayCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_wireless_gateway_certificate_request.GetWirelessGatewayCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3140,11 +3140,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_gateway_firmware_information_request.GetWirelessGatewayFirmwareInformationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_wireless_gateway_firmware_information_request.GetWirelessGatewayFirmwareInformationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3178,11 +3178,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_gateway_statistics_request.GetWirelessGatewayStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["wireless_gateway_id"] = wireless_gateway_id
+        input_: aws_sdk_iot_wireless.types.get_wireless_gateway_statistics_request.GetWirelessGatewayStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["wireless_gateway_id"] = wireless_gateway_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3216,11 +3216,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_gateway_task_request.GetWirelessGatewayTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_wireless_gateway_task_request.GetWirelessGatewayTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3254,11 +3254,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.get_wireless_gateway_task_definition_request.GetWirelessGatewayTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.get_wireless_gateway_task_definition_request.GetWirelessGatewayTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3298,14 +3298,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_destinations_request.ListDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_destinations_request.ListDestinationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3347,16 +3347,16 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_device_profiles_request.ListDeviceProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_device_profiles_request.ListDeviceProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if device_profile_type is not None:
-            input["device_profile_type"] = device_profile_type
+            input_["device_profile_type"] = device_profile_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3399,17 +3399,17 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_devices_for_wireless_device_import_task_request.ListDevicesForWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.list_devices_for_wireless_device_import_task_request.ListDevicesForWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3448,15 +3448,15 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_event_configurations_request.ListEventConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_wireless.types.list_event_configurations_request.ListEventConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3493,14 +3493,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_fuota_tasks_request.ListFuotaTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_fuota_tasks_request.ListFuotaTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3537,14 +3537,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_multicast_groups_request.ListMulticastGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_multicast_groups_request.ListMulticastGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3582,15 +3582,15 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_multicast_groups_by_fuota_task_request.ListMulticastGroupsByFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.list_multicast_groups_by_fuota_task_request.ListMulticastGroupsByFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3627,14 +3627,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_network_analyzer_configurations_request.ListNetworkAnalyzerConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_network_analyzer_configurations_request.ListNetworkAnalyzerConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3672,14 +3672,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_partner_accounts_request.ListPartnerAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_partner_accounts_request.ListPartnerAccountsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3720,16 +3720,16 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_position_configurations_request.ListPositionConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_position_configurations_request.ListPositionConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3773,17 +3773,17 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_queued_messages_request.ListQueuedMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.list_queued_messages_request.ListQueuedMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if wireless_device_type is not None:
-            input["wireless_device_type"] = wireless_device_type
+            input_["wireless_device_type"] = wireless_device_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3821,14 +3821,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_service_profiles_request.ListServiceProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_service_profiles_request.ListServiceProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3862,11 +3862,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iot_wireless.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3903,14 +3903,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_wireless_device_import_tasks_request.ListWirelessDeviceImportTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_wireless_device_import_tasks_request.ListWirelessDeviceImportTasksRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3970,26 +3970,26 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_wireless_devices_request.ListWirelessDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_wireless_devices_request.ListWirelessDevicesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if destination_name is not None:
-            input["destination_name"] = destination_name
+            input_["destination_name"] = destination_name
         if device_profile_id is not None:
-            input["device_profile_id"] = device_profile_id
+            input_["device_profile_id"] = device_profile_id
         if service_profile_id is not None:
-            input["service_profile_id"] = service_profile_id
+            input_["service_profile_id"] = service_profile_id
         if wireless_device_type is not None:
-            input["wireless_device_type"] = wireless_device_type
+            input_["wireless_device_type"] = wireless_device_type
         if fuota_task_id is not None:
-            input["fuota_task_id"] = fuota_task_id
+            input_["fuota_task_id"] = fuota_task_id
         if multicast_group_id is not None:
-            input["multicast_group_id"] = multicast_group_id
+            input_["multicast_group_id"] = multicast_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4027,14 +4027,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_wireless_gateways_request.ListWirelessGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_wireless_gateways_request.ListWirelessGatewaysRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4076,16 +4076,16 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.list_wireless_gateway_task_definitions_request.ListWirelessGatewayTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.list_wireless_gateway_task_definitions_request.ListWirelessGatewayTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if task_definition_type is not None:
-            input["task_definition_type"] = task_definition_type
+            input_["task_definition_type"] = task_definition_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4129,16 +4129,16 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.put_position_configuration_request.PutPositionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_wireless.types.put_position_configuration_request.PutPositionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
         if solvers is not None:
-            input["solvers"] = solvers
+            input_["solvers"] = solvers
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4174,13 +4174,13 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.put_resource_log_level_request.PutResourceLogLevelRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
-        input["log_level"] = log_level
+        input_: aws_sdk_iot_wireless.types.put_resource_log_level_request.PutResourceLogLevelRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
+        input_["log_level"] = log_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4207,10 +4207,10 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.reset_all_resource_log_levels_request.ResetAllResourceLogLevelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.reset_all_resource_log_levels_request.ResetAllResourceLogLevelsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4245,12 +4245,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.reset_resource_log_level_request.ResetResourceLogLevelRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_wireless.types.reset_resource_log_level_request.ResetResourceLogLevelRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4282,13 +4282,13 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.send_data_to_multicast_group_request.SendDataToMulticastGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["payload_data"] = payload_data
-        input["wireless_metadata"] = wireless_metadata
+        input_: aws_sdk_iot_wireless.types.send_data_to_multicast_group_request.SendDataToMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["payload_data"] = payload_data
+        input_["wireless_metadata"] = wireless_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4329,15 +4329,15 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.send_data_to_wireless_device_request.SendDataToWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["transmit_mode"] = transmit_mode
-        input["payload_data"] = payload_data
+        input_: aws_sdk_iot_wireless.types.send_data_to_wireless_device_request.SendDataToWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["transmit_mode"] = transmit_mode
+        input_["payload_data"] = payload_data
         if wireless_metadata is not None:
-            input["wireless_metadata"] = wireless_metadata
+            input_["wireless_metadata"] = wireless_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4371,15 +4371,15 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.start_bulk_associate_wireless_device_with_multicast_group_request.StartBulkAssociateWirelessDeviceWithMulticastGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.start_bulk_associate_wireless_device_with_multicast_group_request.StartBulkAssociateWirelessDeviceWithMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if query_string is not None:
-            input["query_string"] = query_string
+            input_["query_string"] = query_string
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4413,15 +4413,15 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.start_bulk_disassociate_wireless_device_from_multicast_group_request.StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.start_bulk_disassociate_wireless_device_from_multicast_group_request.StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if query_string is not None:
-            input["query_string"] = query_string
+            input_["query_string"] = query_string
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4454,13 +4454,13 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.start_fuota_task_request.StartFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.start_fuota_task_request.StartFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if lo_ra_wan is not None:
-            input["lo_ra_wan"] = lo_ra_wan
+            input_["lo_ra_wan"] = lo_ra_wan
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4491,12 +4491,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.start_multicast_group_session_request.StartMulticastGroupSessionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["lo_ra_wan"] = lo_ra_wan
+        input_: aws_sdk_iot_wireless.types.start_multicast_group_session_request.StartMulticastGroupSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["lo_ra_wan"] = lo_ra_wan
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4544,20 +4544,20 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.start_single_wireless_device_import_task_request.StartSingleWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["destination_name"] = destination_name
+        input_: aws_sdk_iot_wireless.types.start_single_wireless_device_import_task_request.StartSingleWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_name"] = destination_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if device_name is not None:
-            input["device_name"] = device_name
+            input_["device_name"] = device_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if positioning is not None:
-            input["positioning"] = positioning
-        input["sidewalk"] = sidewalk
+            input_["positioning"] = positioning
+        input_["sidewalk"] = sidewalk
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4601,18 +4601,18 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.start_wireless_device_import_task_request.StartWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["destination_name"] = destination_name
+        input_: aws_sdk_iot_wireless.types.start_wireless_device_import_task_request.StartWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_name"] = destination_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if positioning is not None:
-            input["positioning"] = positioning
-        input["sidewalk"] = sidewalk
+            input_["positioning"] = positioning
+        input_["sidewalk"] = sidewalk
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4648,12 +4648,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iot_wireless.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4687,11 +4687,11 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.test_wireless_device_request.TestWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.test_wireless_device_request.TestWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4727,12 +4727,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iot_wireless.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4778,19 +4778,19 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_destination_request.UpdateDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_wireless.types.update_destination_request.UpdateDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if expression_type is not None:
-            input["expression_type"] = expression_type
+            input_["expression_type"] = expression_type
         if expression is not None:
-            input["expression"] = expression
+            input_["expression"] = expression
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4842,20 +4842,20 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_event_configuration_by_resource_types_request.UpdateEventConfigurationByResourceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.update_event_configuration_by_resource_types_request.UpdateEventConfigurationByResourceTypesRequest = {}  # type: ignore[typeddict-item]
         if device_registration_state is not None:
-            input["device_registration_state"] = device_registration_state
+            input_["device_registration_state"] = device_registration_state
         if proximity is not None:
-            input["proximity"] = proximity
+            input_["proximity"] = proximity
         if join is not None:
-            input["join"] = join
+            input_["join"] = join
         if connection_status is not None:
-            input["connection_status"] = connection_status
+            input_["connection_status"] = connection_status
         if message_delivery_status is not None:
-            input["message_delivery_status"] = message_delivery_status
+            input_["message_delivery_status"] = message_delivery_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4914,29 +4914,29 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_fuota_task_request.UpdateFuotaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.update_fuota_task_request.UpdateFuotaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if lo_ra_wan is not None:
-            input["lo_ra_wan"] = lo_ra_wan
+            input_["lo_ra_wan"] = lo_ra_wan
         if firmware_update_image is not None:
-            input["firmware_update_image"] = firmware_update_image
+            input_["firmware_update_image"] = firmware_update_image
         if firmware_update_role is not None:
-            input["firmware_update_role"] = firmware_update_role
+            input_["firmware_update_role"] = firmware_update_role
         if redundancy_percent is not None:
-            input["redundancy_percent"] = redundancy_percent
+            input_["redundancy_percent"] = redundancy_percent
         if fragment_size_bytes is not None:
-            input["fragment_size_bytes"] = fragment_size_bytes
+            input_["fragment_size_bytes"] = fragment_size_bytes
         if fragment_interval_ms is not None:
-            input["fragment_interval_ms"] = fragment_interval_ms
+            input_["fragment_interval_ms"] = fragment_interval_ms
         if descriptor is not None:
-            input["descriptor"] = descriptor
+            input_["descriptor"] = descriptor
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4977,18 +4977,18 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_log_levels_by_resource_types_request.UpdateLogLevelsByResourceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.update_log_levels_by_resource_types_request.UpdateLogLevelsByResourceTypesRequest = {}  # type: ignore[typeddict-item]
         if default_log_level is not None:
-            input["default_log_level"] = default_log_level
+            input_["default_log_level"] = default_log_level
         if fuota_task_log_options is not None:
-            input["fuota_task_log_options"] = fuota_task_log_options
+            input_["fuota_task_log_options"] = fuota_task_log_options
         if wireless_device_log_options is not None:
-            input["wireless_device_log_options"] = wireless_device_log_options
+            input_["wireless_device_log_options"] = wireless_device_log_options
         if wireless_gateway_log_options is not None:
-            input["wireless_gateway_log_options"] = wireless_gateway_log_options
+            input_["wireless_gateway_log_options"] = wireless_gateway_log_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5024,12 +5024,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_metric_configuration_request.UpdateMetricConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_wireless.types.update_metric_configuration_request.UpdateMetricConfigurationRequest = {}  # type: ignore[typeddict-item]
         if summary_metric is not None:
-            input["summary_metric"] = summary_metric
+            input_["summary_metric"] = summary_metric
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5068,17 +5068,17 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_multicast_group_request.UpdateMulticastGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.update_multicast_group_request.UpdateMulticastGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if lo_ra_wan is not None:
-            input["lo_ra_wan"] = lo_ra_wan
+            input_["lo_ra_wan"] = lo_ra_wan
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5141,27 +5141,27 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_network_analyzer_configuration_request.UpdateNetworkAnalyzerConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_name"] = configuration_name
+        input_: aws_sdk_iot_wireless.types.update_network_analyzer_configuration_request.UpdateNetworkAnalyzerConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_name"] = configuration_name
         if trace_content is not None:
-            input["trace_content"] = trace_content
+            input_["trace_content"] = trace_content
         if wireless_devices_to_add is not None:
-            input["wireless_devices_to_add"] = wireless_devices_to_add
+            input_["wireless_devices_to_add"] = wireless_devices_to_add
         if wireless_devices_to_remove is not None:
-            input["wireless_devices_to_remove"] = wireless_devices_to_remove
+            input_["wireless_devices_to_remove"] = wireless_devices_to_remove
         if wireless_gateways_to_add is not None:
-            input["wireless_gateways_to_add"] = wireless_gateways_to_add
+            input_["wireless_gateways_to_add"] = wireless_gateways_to_add
         if wireless_gateways_to_remove is not None:
-            input["wireless_gateways_to_remove"] = wireless_gateways_to_remove
+            input_["wireless_gateways_to_remove"] = wireless_gateways_to_remove
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if multicast_groups_to_add is not None:
-            input["multicast_groups_to_add"] = multicast_groups_to_add
+            input_["multicast_groups_to_add"] = multicast_groups_to_add
         if multicast_groups_to_remove is not None:
-            input["multicast_groups_to_remove"] = multicast_groups_to_remove
+            input_["multicast_groups_to_remove"] = multicast_groups_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5199,13 +5199,13 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_partner_account_request.UpdatePartnerAccountRequest = {}  # type: ignore[typeddict-item]
-        input["sidewalk"] = sidewalk
-        input["partner_account_id"] = partner_account_id
-        input["partner_type"] = partner_type
+        input_: aws_sdk_iot_wireless.types.update_partner_account_request.UpdatePartnerAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["sidewalk"] = sidewalk
+        input_["partner_account_id"] = partner_account_id
+        input_["partner_type"] = partner_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5243,13 +5243,13 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_position_request.UpdatePositionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
-        input["position"] = position
+        input_: aws_sdk_iot_wireless.types.update_position_request.UpdatePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
+        input_["position"] = position
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5309,24 +5309,24 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_resource_event_configuration_request.UpdateResourceEventConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["identifier_type"] = identifier_type
+        input_: aws_sdk_iot_wireless.types.update_resource_event_configuration_request.UpdateResourceEventConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["identifier_type"] = identifier_type
         if partner_type is not None:
-            input["partner_type"] = partner_type
+            input_["partner_type"] = partner_type
         if device_registration_state is not None:
-            input["device_registration_state"] = device_registration_state
+            input_["device_registration_state"] = device_registration_state
         if proximity is not None:
-            input["proximity"] = proximity
+            input_["proximity"] = proximity
         if join is not None:
-            input["join"] = join
+            input_["join"] = join
         if connection_status is not None:
-            input["connection_status"] = connection_status
+            input_["connection_status"] = connection_status
         if message_delivery_status is not None:
-            input["message_delivery_status"] = message_delivery_status
+            input_["message_delivery_status"] = message_delivery_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5366,14 +5366,14 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_resource_position_request.UpdateResourcePositionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["resource_type"] = resource_type
+        input_: aws_sdk_iot_wireless.types.update_resource_position_request.UpdateResourcePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_type"] = resource_type
         if geo_json_payload is not None:
-            input["geo_json_payload"] = geo_json_payload
+            input_["geo_json_payload"] = geo_json_payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5431,23 +5431,23 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_wireless_device_request.UpdateWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.update_wireless_device_request.UpdateWirelessDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if destination_name is not None:
-            input["destination_name"] = destination_name
+            input_["destination_name"] = destination_name
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if lo_ra_wan is not None:
-            input["lo_ra_wan"] = lo_ra_wan
+            input_["lo_ra_wan"] = lo_ra_wan
         if positioning is not None:
-            input["positioning"] = positioning
+            input_["positioning"] = positioning
         if sidewalk is not None:
-            input["sidewalk"] = sidewalk
+            input_["sidewalk"] = sidewalk
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5483,12 +5483,12 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_wireless_device_import_task_request.UpdateWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["sidewalk"] = sidewalk
+        input_: aws_sdk_iot_wireless.types.update_wireless_device_import_task_request.UpdateWirelessDeviceImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["sidewalk"] = sidewalk
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5540,21 +5540,21 @@ class AsyncIoTWirelessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_wireless.types.update_wireless_gateway_request.UpdateWirelessGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iot_wireless.types.update_wireless_gateway_request.UpdateWirelessGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if join_eui_filters is not None:
-            input["join_eui_filters"] = join_eui_filters
+            input_["join_eui_filters"] = join_eui_filters
         if net_id_filters is not None:
-            input["net_id_filters"] = net_id_filters
+            input_["net_id_filters"] = net_id_filters
         if max_eirp is not None:
-            input["max_eirp"] = max_eirp
+            input_["max_eirp"] = max_eirp
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

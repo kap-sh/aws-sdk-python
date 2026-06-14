@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_compute_optimizer._auth._signers
+import aws_sdk_compute_optimizer._auth._sigv4
 from aws_sdk_compute_optimizer._auth._identity import Credentials
 from aws_sdk_compute_optimizer._auth._providers import (
     CredentialsProvider,
@@ -270,14 +272,14 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.delete_recommendation_preferences_request.DeleteRecommendationPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
+        input_: aws_sdk_compute_optimizer.types.delete_recommendation_preferences_request.DeleteRecommendationPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
         if scope is not None:
-            input["scope"] = scope
-        input["recommendation_preference_names"] = recommendation_preference_names
+            input_["scope"] = scope
+        input_["recommendation_preference_names"] = recommendation_preference_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -323,18 +325,18 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.describe_recommendation_export_jobs_request.DescribeRecommendationExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.describe_recommendation_export_jobs_request.DescribeRecommendationExportJobsRequest = {}  # type: ignore[typeddict-item]
         if job_ids is not None:
-            input["job_ids"] = job_ids
+            input_["job_ids"] = job_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,23 +423,23 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.export_auto_scaling_group_recommendations_request.ExportAutoScalingGroupRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.export_auto_scaling_group_recommendations_request.ExportAutoScalingGroupRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if fields_to_export is not None:
-            input["fields_to_export"] = fields_to_export
-        input["s3_destination_config"] = s3_destination_config
+            input_["fields_to_export"] = fields_to_export
+        input_["s3_destination_config"] = s3_destination_config
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
         if recommendation_preferences is not None:
-            input["recommendation_preferences"] = recommendation_preferences
+            input_["recommendation_preferences"] = recommendation_preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -490,21 +492,21 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.export_ebs_volume_recommendations_request.ExportEBSVolumeRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.export_ebs_volume_recommendations_request.ExportEBSVolumeRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if fields_to_export is not None:
-            input["fields_to_export"] = fields_to_export
-        input["s3_destination_config"] = s3_destination_config
+            input_["fields_to_export"] = fields_to_export
+        input_["s3_destination_config"] = s3_destination_config
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -560,23 +562,23 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.export_ec2_instance_recommendations_request.ExportEC2InstanceRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.export_ec2_instance_recommendations_request.ExportEC2InstanceRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if fields_to_export is not None:
-            input["fields_to_export"] = fields_to_export
-        input["s3_destination_config"] = s3_destination_config
+            input_["fields_to_export"] = fields_to_export
+        input_["s3_destination_config"] = s3_destination_config
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
         if recommendation_preferences is not None:
-            input["recommendation_preferences"] = recommendation_preferences
+            input_["recommendation_preferences"] = recommendation_preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -629,21 +631,21 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.export_ecs_service_recommendations_request.ExportECSServiceRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.export_ecs_service_recommendations_request.ExportECSServiceRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if fields_to_export is not None:
-            input["fields_to_export"] = fields_to_export
-        input["s3_destination_config"] = s3_destination_config
+            input_["fields_to_export"] = fields_to_export
+        input_["s3_destination_config"] = s3_destination_config
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,21 +698,21 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.export_idle_recommendations_request.ExportIdleRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.export_idle_recommendations_request.ExportIdleRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if fields_to_export is not None:
-            input["fields_to_export"] = fields_to_export
-        input["s3_destination_config"] = s3_destination_config
+            input_["fields_to_export"] = fields_to_export
+        input_["s3_destination_config"] = s3_destination_config
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,21 +765,21 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.export_lambda_function_recommendations_request.ExportLambdaFunctionRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.export_lambda_function_recommendations_request.ExportLambdaFunctionRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if fields_to_export is not None:
-            input["fields_to_export"] = fields_to_export
-        input["s3_destination_config"] = s3_destination_config
+            input_["fields_to_export"] = fields_to_export
+        input_["s3_destination_config"] = s3_destination_config
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,21 +832,21 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.export_license_recommendations_request.ExportLicenseRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.export_license_recommendations_request.ExportLicenseRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if fields_to_export is not None:
-            input["fields_to_export"] = fields_to_export
-        input["s3_destination_config"] = s3_destination_config
+            input_["fields_to_export"] = fields_to_export
+        input_["s3_destination_config"] = s3_destination_config
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -900,23 +902,23 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.export_rds_database_recommendations_request.ExportRDSDatabaseRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.export_rds_database_recommendations_request.ExportRDSDatabaseRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if fields_to_export is not None:
-            input["fields_to_export"] = fields_to_export
-        input["s3_destination_config"] = s3_destination_config
+            input_["fields_to_export"] = fields_to_export
+        input_["s3_destination_config"] = s3_destination_config
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
         if recommendation_preferences is not None:
-            input["recommendation_preferences"] = recommendation_preferences
+            input_["recommendation_preferences"] = recommendation_preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -970,22 +972,22 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_request.GetAutoScalingGroupRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_auto_scaling_group_recommendations_request.GetAutoScalingGroupRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if auto_scaling_group_arns is not None:
-            input["auto_scaling_group_arns"] = auto_scaling_group_arns
+            input_["auto_scaling_group_arns"] = auto_scaling_group_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if recommendation_preferences is not None:
-            input["recommendation_preferences"] = recommendation_preferences
+            input_["recommendation_preferences"] = recommendation_preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1037,20 +1039,20 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_ebs_volume_recommendations_request.GetEBSVolumeRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_ebs_volume_recommendations_request.GetEBSVolumeRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if volume_arns is not None:
-            input["volume_arns"] = volume_arns
+            input_["volume_arns"] = volume_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1104,22 +1106,22 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_ec2_instance_recommendations_request.GetEC2InstanceRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_ec2_instance_recommendations_request.GetEC2InstanceRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if instance_arns is not None:
-            input["instance_arns"] = instance_arns
+            input_["instance_arns"] = instance_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if recommendation_preferences is not None:
-            input["recommendation_preferences"] = recommendation_preferences
+            input_["recommendation_preferences"] = recommendation_preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1165,17 +1167,17 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_ec2_recommendation_projected_metrics_request.GetEC2RecommendationProjectedMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_arn"] = instance_arn
-        input["stat"] = stat
-        input["period"] = period
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_compute_optimizer.types.get_ec2_recommendation_projected_metrics_request.GetEC2RecommendationProjectedMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_arn"] = instance_arn
+        input_["stat"] = stat
+        input_["period"] = period
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if recommendation_preferences is not None:
-            input["recommendation_preferences"] = recommendation_preferences
+            input_["recommendation_preferences"] = recommendation_preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1217,15 +1219,15 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_ecs_service_recommendation_projected_metrics_request.GetECSServiceRecommendationProjectedMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
-        input["stat"] = stat
-        input["period"] = period
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_compute_optimizer.types.get_ecs_service_recommendation_projected_metrics_request.GetECSServiceRecommendationProjectedMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
+        input_["stat"] = stat
+        input_["period"] = period
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1277,20 +1279,20 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_ecs_service_recommendations_request.GetECSServiceRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_ecs_service_recommendations_request.GetECSServiceRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if service_arns is not None:
-            input["service_arns"] = service_arns
+            input_["service_arns"] = service_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1324,11 +1326,11 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_effective_recommendation_preferences_request.GetEffectiveRecommendationPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_compute_optimizer.types.get_effective_recommendation_preferences_request.GetEffectiveRecommendationPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1355,10 +1357,10 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_enrollment_status_request.GetEnrollmentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_enrollment_status_request.GetEnrollmentStatusRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1402,16 +1404,16 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_enrollment_statuses_for_organization_request.GetEnrollmentStatusesForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_enrollment_statuses_for_organization_request.GetEnrollmentStatusesForOrganizationRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1494,22 +1496,22 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_idle_recommendations_request.GetIdleRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_idle_recommendations_request.GetIdleRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if resource_arns is not None:
-            input["resource_arns"] = resource_arns
+            input_["resource_arns"] = resource_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1561,20 +1563,20 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_lambda_function_recommendations_request.GetLambdaFunctionRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_lambda_function_recommendations_request.GetLambdaFunctionRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if function_arns is not None:
-            input["function_arns"] = function_arns
+            input_["function_arns"] = function_arns
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1663,20 +1665,20 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_license_recommendations_request.GetLicenseRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_license_recommendations_request.GetLicenseRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if resource_arns is not None:
-            input["resource_arns"] = resource_arns
+            input_["resource_arns"] = resource_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1721,17 +1723,17 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_rds_database_recommendation_projected_metrics_request.GetRDSDatabaseRecommendationProjectedMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["stat"] = stat
-        input["period"] = period
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_compute_optimizer.types.get_rds_database_recommendation_projected_metrics_request.GetRDSDatabaseRecommendationProjectedMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["stat"] = stat
+        input_["period"] = period
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if recommendation_preferences is not None:
-            input["recommendation_preferences"] = recommendation_preferences
+            input_["recommendation_preferences"] = recommendation_preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1786,22 +1788,22 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_rds_database_recommendations_request.GetRDSDatabaseRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_rds_database_recommendations_request.GetRDSDatabaseRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if resource_arns is not None:
-            input["resource_arns"] = resource_arns
+            input_["resource_arns"] = resource_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if recommendation_preferences is not None:
-            input["recommendation_preferences"] = recommendation_preferences
+            input_["recommendation_preferences"] = recommendation_preferences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1845,17 +1847,17 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_recommendation_preferences_request.GetRecommendationPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
+        input_: aws_sdk_compute_optimizer.types.get_recommendation_preferences_request.GetRecommendationPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1928,16 +1930,16 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.get_recommendation_summaries_request.GetRecommendationSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer.types.get_recommendation_summaries_request.GetRecommendationSummariesRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2030,27 +2032,27 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.put_recommendation_preferences_request.PutRecommendationPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
+        input_: aws_sdk_compute_optimizer.types.put_recommendation_preferences_request.PutRecommendationPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if enhanced_infrastructure_metrics is not None:
-            input["enhanced_infrastructure_metrics"] = enhanced_infrastructure_metrics
+            input_["enhanced_infrastructure_metrics"] = enhanced_infrastructure_metrics
         if inferred_workload_types is not None:
-            input["inferred_workload_types"] = inferred_workload_types
+            input_["inferred_workload_types"] = inferred_workload_types
         if external_metrics_preference is not None:
-            input["external_metrics_preference"] = external_metrics_preference
+            input_["external_metrics_preference"] = external_metrics_preference
         if look_back_period is not None:
-            input["look_back_period"] = look_back_period
+            input_["look_back_period"] = look_back_period
         if utilization_preferences is not None:
-            input["utilization_preferences"] = utilization_preferences
+            input_["utilization_preferences"] = utilization_preferences
         if preferred_resources is not None:
-            input["preferred_resources"] = preferred_resources
+            input_["preferred_resources"] = preferred_resources
         if savings_estimation_mode is not None:
-            input["savings_estimation_mode"] = savings_estimation_mode
+            input_["savings_estimation_mode"] = savings_estimation_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2088,13 +2090,13 @@ class AsyncComputeOptimizerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer.types.update_enrollment_status_request.UpdateEnrollmentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["status"] = status
+        input_: aws_sdk_compute_optimizer.types.update_enrollment_status_request.UpdateEnrollmentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["status"] = status
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

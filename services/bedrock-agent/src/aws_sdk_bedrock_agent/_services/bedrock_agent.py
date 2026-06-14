@@ -15,6 +15,42 @@ from aws_sdk_bedrock_agent._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_bedrock_agent._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.action_group_resource import (
+    ActionGroupResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.agent_collaborator_resource import (
+    AgentCollaboratorResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.agent_resource import (
+    AgentResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.alias_resource import (
+    AliasResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.data_source_resource import (
+    DataSourceResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.flow_resource import (
+    FlowResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.ingestion_job_resource import (
+    IngestionJobResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.knowledge_base_document_resource import (
+    KnowledgeBaseDocumentResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.knowledge_base_resource import (
+    KnowledgeBaseResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.prompt_resource import (
+    PromptResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.tagging_resource import (
+    TaggingResource,
+)
+from aws_sdk_bedrock_agent._resources.amazon_bedrock_agent_build_time_lambda.version_resource import (
+    VersionResource,
+)
 from aws_sdk_bedrock_agent._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -100,6 +136,19 @@ class BedrockAgentClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.action_group_resource = ActionGroupResource(self)
+        self.agent_collaborator_resource = AgentCollaboratorResource(self)
+        self.agent_resource = AgentResource(self)
+        self.alias_resource = AliasResource(self)
+        self.data_source_resource = DataSourceResource(self)
+        self.flow_resource = FlowResource(self)
+        self.ingestion_job_resource = IngestionJobResource(self)
+        self.knowledge_base_document_resource = KnowledgeBaseDocumentResource(self)
+        self.knowledge_base_resource = KnowledgeBaseResource(self)
+        self.prompt_resource = PromptResource(self)
+        self.tagging_resource = TaggingResource(self)
+        self.version_resource = VersionResource(self)
 
     def operation_options(
         self, config_overrides: Optional[BedrockAgentClientConfig] = None
@@ -156,11 +205,11 @@ class BedrockAgentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.validate_flow_definition_request.ValidateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["definition"] = definition
+        input_: aws_sdk_bedrock_agent.types.validate_flow_definition_request.ValidateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["definition"] = definition
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

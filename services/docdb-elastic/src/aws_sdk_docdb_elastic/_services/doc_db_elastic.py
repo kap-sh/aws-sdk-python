@@ -212,15 +212,15 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.apply_pending_maintenance_action_input.ApplyPendingMaintenanceActionInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["apply_action"] = apply_action
-        input["opt_in_type"] = opt_in_type
+        input_: aws_sdk_docdb_elastic.types.apply_pending_maintenance_action_input.ApplyPendingMaintenanceActionInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["apply_action"] = apply_action
+        input_["opt_in_type"] = opt_in_type
         if apply_on is not None:
-            input["apply_on"] = apply_on
+            input_["apply_on"] = apply_on
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,18 +267,18 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.copy_cluster_snapshot_input.CopyClusterSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["snapshot_arn"] = snapshot_arn
-        input["target_snapshot_name"] = target_snapshot_name
+        input_: aws_sdk_docdb_elastic.types.copy_cluster_snapshot_input.CopyClusterSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["snapshot_arn"] = snapshot_arn
+        input_["target_snapshot_name"] = target_snapshot_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -343,34 +343,34 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.create_cluster_input.CreateClusterInput = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["auth_type"] = auth_type
-        input["admin_user_name"] = admin_user_name
-        input["admin_user_password"] = admin_user_password
-        input["shard_capacity"] = shard_capacity
-        input["shard_count"] = shard_count
+        input_: aws_sdk_docdb_elastic.types.create_cluster_input.CreateClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["auth_type"] = auth_type
+        input_["admin_user_name"] = admin_user_name
+        input_["admin_user_password"] = admin_user_password
+        input_["shard_capacity"] = shard_capacity
+        input_["shard_count"] = shard_count
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if shard_instance_count is not None:
-            input["shard_instance_count"] = shard_instance_count
+            input_["shard_instance_count"] = shard_instance_count
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,14 +407,14 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.create_cluster_snapshot_input.CreateClusterSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_docdb_elastic.types.create_cluster_snapshot_input.CreateClusterSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["snapshot_name"] = snapshot_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,11 +447,11 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.delete_cluster_input.DeleteClusterInput = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_docdb_elastic.types.delete_cluster_input.DeleteClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,11 +484,11 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.delete_cluster_snapshot_input.DeleteClusterSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["snapshot_arn"] = snapshot_arn
+        input_: aws_sdk_docdb_elastic.types.delete_cluster_snapshot_input.DeleteClusterSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["snapshot_arn"] = snapshot_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -521,11 +521,11 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.get_cluster_input.GetClusterInput = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_docdb_elastic.types.get_cluster_input.GetClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -558,11 +558,11 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.get_cluster_snapshot_input.GetClusterSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["snapshot_arn"] = snapshot_arn
+        input_: aws_sdk_docdb_elastic.types.get_cluster_snapshot_input.GetClusterSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["snapshot_arn"] = snapshot_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,11 +595,11 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.get_pending_maintenance_action_input.GetPendingMaintenanceActionInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_docdb_elastic.types.get_pending_maintenance_action_input.GetPendingMaintenanceActionInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,14 +636,14 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.list_clusters_input.ListClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb_elastic.types.list_clusters_input.ListClustersInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -707,18 +707,18 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.list_cluster_snapshots_input.ListClusterSnapshotsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb_elastic.types.list_cluster_snapshots_input.ListClusterSnapshotsInput = {}  # type: ignore[typeddict-item]
         if cluster_arn is not None:
-            input["cluster_arn"] = cluster_arn
+            input_["cluster_arn"] = cluster_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if snapshot_type is not None:
-            input["snapshot_type"] = snapshot_type
+            input_["snapshot_type"] = snapshot_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -782,14 +782,14 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.list_pending_maintenance_actions_input.ListPendingMaintenanceActionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb_elastic.types.list_pending_maintenance_actions_input.ListPendingMaintenanceActionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -845,11 +845,11 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_docdb_elastic.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -900,24 +900,24 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.restore_cluster_from_snapshot_input.RestoreClusterFromSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["snapshot_arn"] = snapshot_arn
+        input_: aws_sdk_docdb_elastic.types.restore_cluster_from_snapshot_input.RestoreClusterFromSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["snapshot_arn"] = snapshot_arn
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if shard_capacity is not None:
-            input["shard_capacity"] = shard_capacity
+            input_["shard_capacity"] = shard_capacity
         if shard_instance_count is not None:
-            input["shard_instance_count"] = shard_instance_count
+            input_["shard_instance_count"] = shard_instance_count
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -956,11 +956,11 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.start_cluster_input.StartClusterInput = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_docdb_elastic.types.start_cluster_input.StartClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -999,11 +999,11 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.stop_cluster_input.StopClusterInput = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_docdb_elastic.types.stop_cluster_input.StopClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1038,12 +1038,12 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_docdb_elastic.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1078,12 +1078,12 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_docdb_elastic.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1144,33 +1144,33 @@ class DocDBElasticClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb_elastic.types.update_cluster_input.UpdateClusterInput = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_docdb_elastic.types.update_cluster_input.UpdateClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if auth_type is not None:
-            input["auth_type"] = auth_type
+            input_["auth_type"] = auth_type
         if shard_capacity is not None:
-            input["shard_capacity"] = shard_capacity
+            input_["shard_capacity"] = shard_capacity
         if shard_count is not None:
-            input["shard_count"] = shard_count
+            input_["shard_count"] = shard_count
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if admin_user_password is not None:
-            input["admin_user_password"] = admin_user_password
+            input_["admin_user_password"] = admin_user_password
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if shard_instance_count is not None:
-            input["shard_instance_count"] = shard_instance_count
+            input_["shard_instance_count"] = shard_instance_count
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

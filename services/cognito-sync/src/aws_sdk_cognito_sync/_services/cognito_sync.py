@@ -201,11 +201,11 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.bulk_publish_request.BulkPublishRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_sync.types.bulk_publish_request.BulkPublishRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -242,13 +242,13 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_cognito_sync.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
+        input_["dataset_name"] = dataset_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,13 +285,13 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_cognito_sync.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
+        input_["dataset_name"] = dataset_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,11 +324,11 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.describe_identity_pool_usage_request.DescribeIdentityPoolUsageRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_sync.types.describe_identity_pool_usage_request.DescribeIdentityPoolUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -363,12 +363,12 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.describe_identity_usage_request.DescribeIdentityUsageRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
+        input_: aws_sdk_cognito_sync.types.describe_identity_usage_request.DescribeIdentityUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,11 +401,11 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.get_bulk_publish_details_request.GetBulkPublishDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_sync.types.get_bulk_publish_details_request.GetBulkPublishDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -438,11 +438,11 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.get_cognito_events_request.GetCognitoEventsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_sync.types.get_cognito_events_request.GetCognitoEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -475,11 +475,11 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.get_identity_pool_configuration_request.GetIdentityPoolConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_sync.types.get_identity_pool_configuration_request.GetIdentityPoolConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,16 +520,16 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
+        input_: aws_sdk_cognito_sync.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -566,14 +566,14 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.list_identity_pool_usage_request.ListIdentityPoolUsageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cognito_sync.types.list_identity_pool_usage_request.ListIdentityPoolUsageRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -622,21 +622,21 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.list_records_request.ListRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_cognito_sync.types.list_records_request.ListRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
+        input_["dataset_name"] = dataset_name
         if last_sync_count is not None:
-            input["last_sync_count"] = last_sync_count
+            input_["last_sync_count"] = last_sync_count
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sync_session_token is not None:
-            input["sync_session_token"] = sync_session_token
+            input_["sync_session_token"] = sync_session_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -675,14 +675,14 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.register_device_request.RegisterDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
-        input["platform"] = platform
-        input["token"] = token
+        input_: aws_sdk_cognito_sync.types.register_device_request.RegisterDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
+        input_["platform"] = platform
+        input_["token"] = token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,12 +715,12 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.set_cognito_events_request.SetCognitoEventsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["events"] = events
+        input_: aws_sdk_cognito_sync.types.set_cognito_events_request.SetCognitoEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["events"] = events
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,15 +759,15 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.set_identity_pool_configuration_request.SetIdentityPoolConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_sync.types.set_identity_pool_configuration_request.SetIdentityPoolConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
         if push_sync is not None:
-            input["push_sync"] = push_sync
+            input_["push_sync"] = push_sync
         if cognito_streams is not None:
-            input["cognito_streams"] = cognito_streams
+            input_["cognito_streams"] = cognito_streams
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,14 +806,14 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.subscribe_to_dataset_request.SubscribeToDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
-        input["dataset_name"] = dataset_name
-        input["device_id"] = device_id
+        input_: aws_sdk_cognito_sync.types.subscribe_to_dataset_request.SubscribeToDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
+        input_["dataset_name"] = dataset_name
+        input_["device_id"] = device_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -852,14 +852,14 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.unsubscribe_from_dataset_request.UnsubscribeFromDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
-        input["dataset_name"] = dataset_name
-        input["device_id"] = device_id
+        input_: aws_sdk_cognito_sync.types.unsubscribe_from_dataset_request.UnsubscribeFromDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
+        input_["dataset_name"] = dataset_name
+        input_["device_id"] = device_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -908,20 +908,20 @@ class CognitoSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_sync.types.update_records_request.UpdateRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_id"] = identity_id
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_cognito_sync.types.update_records_request.UpdateRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_id"] = identity_id
+        input_["dataset_name"] = dataset_name
         if device_id is not None:
-            input["device_id"] = device_id
+            input_["device_id"] = device_id
         if record_patches is not None:
-            input["record_patches"] = record_patches
-        input["sync_session_token"] = sync_session_token
+            input_["record_patches"] = record_patches
+        input_["sync_session_token"] = sync_session_token
         if client_context is not None:
-            input["client_context"] = client_context
+            input_["client_context"] = client_context
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

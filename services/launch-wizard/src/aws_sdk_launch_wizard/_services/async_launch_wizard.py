@@ -15,6 +15,9 @@ from aws_sdk_launch_wizard._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_launch_wizard._auth._zapros_handler import AuthMiddleware
+from aws_sdk_launch_wizard._resources.launch_wizard.deployment import AsyncDeployment
+from aws_sdk_launch_wizard._resources.launch_wizard.settings_set import AsyncSettingsSet
+from aws_sdk_launch_wizard._resources.launch_wizard.workload import AsyncWorkload
 from aws_sdk_launch_wizard._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -107,6 +110,10 @@ class AsyncLaunchWizardClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.deployment = AsyncDeployment(self)
+        self.settings_set = AsyncSettingsSet(self)
+        self.workload = AsyncWorkload(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncLaunchWizardClientConfig] = None
@@ -169,11 +176,11 @@ class AsyncLaunchWizardClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_launch_wizard.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,12 +221,12 @@ class AsyncLaunchWizardClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_launch_wizard.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,12 +267,12 @@ class AsyncLaunchWizardClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_launch_wizard.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

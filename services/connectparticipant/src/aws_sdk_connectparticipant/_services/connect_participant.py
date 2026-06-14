@@ -199,12 +199,12 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.cancel_participant_authentication_request.CancelParticipantAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
-        input["connection_token"] = connection_token
+        input_: aws_sdk_connectparticipant.types.cancel_participant_authentication_request.CancelParticipantAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,13 +241,13 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.complete_attachment_upload_request.CompleteAttachmentUploadRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_ids"] = attachment_ids
-        input["client_token"] = client_token
-        input["connection_token"] = connection_token
+        input_: aws_sdk_connectparticipant.types.complete_attachment_upload_request.CompleteAttachmentUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_ids"] = attachment_ids
+        input_["client_token"] = client_token
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,15 +288,15 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.create_participant_connection_request.CreateParticipantConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connectparticipant.types.create_participant_connection_request.CreateParticipantConnectionRequest = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
-        input["participant_token"] = participant_token
+            input_["type"] = type
+        input_["participant_token"] = participant_token
         if connect_participant is not None:
-            input["connect_participant"] = connect_participant
+            input_["connect_participant"] = connect_participant
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -331,12 +331,12 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.describe_view_request.DescribeViewRequest = {}  # type: ignore[typeddict-item]
-        input["view_token"] = view_token
-        input["connection_token"] = connection_token
+        input_: aws_sdk_connectparticipant.types.describe_view_request.DescribeViewRequest = {}  # type: ignore[typeddict-item]
+        input_["view_token"] = view_token
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,13 +373,13 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.disconnect_participant_request.DisconnectParticipantRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connectparticipant.types.disconnect_participant_request.DisconnectParticipantRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["connection_token"] = connection_token
+            input_["client_token"] = client_token
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,14 +420,14 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.get_attachment_request.GetAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["attachment_id"] = attachment_id
-        input["connection_token"] = connection_token
+        input_: aws_sdk_connectparticipant.types.get_attachment_request.GetAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["attachment_id"] = attachment_id
+        input_["connection_token"] = connection_token
         if url_expiry_in_seconds is not None:
-            input["url_expiry_in_seconds"] = url_expiry_in_seconds
+            input_["url_expiry_in_seconds"] = url_expiry_in_seconds
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,13 +464,13 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.get_authentication_url_request.GetAuthenticationUrlRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
-        input["redirect_uri"] = redirect_uri
-        input["connection_token"] = connection_token
+        input_: aws_sdk_connectparticipant.types.get_authentication_url_request.GetAuthenticationUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
+        input_["redirect_uri"] = redirect_uri
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,23 +529,23 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.get_transcript_request.GetTranscriptRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connectparticipant.types.get_transcript_request.GetTranscriptRequest = {}  # type: ignore[typeddict-item]
         if contact_id is not None:
-            input["contact_id"] = contact_id
+            input_["contact_id"] = contact_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if scan_direction is not None:
-            input["scan_direction"] = scan_direction
+            input_["scan_direction"] = scan_direction
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if start_position is not None:
-            input["start_position"] = start_position
-        input["connection_token"] = connection_token
+            input_["start_position"] = start_position
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,16 +588,16 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.send_event_request.SendEventRequest = {}  # type: ignore[typeddict-item]
-        input["content_type"] = content_type
+        input_: aws_sdk_connectparticipant.types.send_event_request.SendEventRequest = {}  # type: ignore[typeddict-item]
+        input_["content_type"] = content_type
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
         if client_token is not None:
-            input["client_token"] = client_token
-        input["connection_token"] = connection_token
+            input_["client_token"] = client_token
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,15 +638,15 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.send_message_request.SendMessageRequest = {}  # type: ignore[typeddict-item]
-        input["content_type"] = content_type
-        input["content"] = content
+        input_: aws_sdk_connectparticipant.types.send_message_request.SendMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["content_type"] = content_type
+        input_["content"] = content
         if client_token is not None:
-            input["client_token"] = client_token
-        input["connection_token"] = connection_token
+            input_["client_token"] = client_token
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -687,15 +687,15 @@ class ConnectParticipantClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectparticipant.types.start_attachment_upload_request.StartAttachmentUploadRequest = {}  # type: ignore[typeddict-item]
-        input["content_type"] = content_type
-        input["attachment_size_in_bytes"] = attachment_size_in_bytes
-        input["attachment_name"] = attachment_name
-        input["client_token"] = client_token
-        input["connection_token"] = connection_token
+        input_: aws_sdk_connectparticipant.types.start_attachment_upload_request.StartAttachmentUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["content_type"] = content_type
+        input_["attachment_size_in_bytes"] = attachment_size_in_bytes
+        input_["attachment_name"] = attachment_name
+        input_["client_token"] = client_token
+        input_["connection_token"] = connection_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

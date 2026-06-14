@@ -76,16 +76,16 @@ class ProbeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.create_probe_input.CreateProbeInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["probe"] = probe
+        input_: aws_sdk_networkmonitor.types.create_probe_input.CreateProbeInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["probe"] = probe
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,12 +120,12 @@ class ProbeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.get_probe_input.GetProbeInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["probe_id"] = probe_id
+        input_: aws_sdk_networkmonitor.types.get_probe_input.GetProbeInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["probe_id"] = probe_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -174,22 +174,22 @@ class ProbeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.update_probe_input.UpdateProbeInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["probe_id"] = probe_id
+        input_: aws_sdk_networkmonitor.types.update_probe_input.UpdateProbeInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["probe_id"] = probe_id
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if destination_port is not None:
-            input["destination_port"] = destination_port
+            input_["destination_port"] = destination_port
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if packet_size is not None:
-            input["packet_size"] = packet_size
+            input_["packet_size"] = packet_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,12 +224,12 @@ class ProbeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.delete_probe_input.DeleteProbeInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["probe_id"] = probe_id
+        input_: aws_sdk_networkmonitor.types.delete_probe_input.DeleteProbeInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["probe_id"] = probe_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,16 +274,16 @@ class AsyncProbeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.create_probe_input.CreateProbeInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["probe"] = probe
+        input_: aws_sdk_networkmonitor.types.create_probe_input.CreateProbeInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["probe"] = probe
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,12 +319,12 @@ class AsyncProbeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.get_probe_input.GetProbeInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["probe_id"] = probe_id
+        input_: aws_sdk_networkmonitor.types.get_probe_input.GetProbeInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["probe_id"] = probe_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,22 +374,22 @@ class AsyncProbeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.update_probe_input.UpdateProbeInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["probe_id"] = probe_id
+        input_: aws_sdk_networkmonitor.types.update_probe_input.UpdateProbeInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["probe_id"] = probe_id
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if destination_port is not None:
-            input["destination_port"] = destination_port
+            input_["destination_port"] = destination_port
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if packet_size is not None:
-            input["packet_size"] = packet_size
+            input_["packet_size"] = packet_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -425,12 +425,12 @@ class AsyncProbeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.delete_probe_input.DeleteProbeInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["probe_id"] = probe_id
+        input_: aws_sdk_networkmonitor.types.delete_probe_input.DeleteProbeInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["probe_id"] = probe_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

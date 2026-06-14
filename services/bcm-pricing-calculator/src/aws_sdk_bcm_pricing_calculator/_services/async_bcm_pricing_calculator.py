@@ -15,6 +15,15 @@ from aws_sdk_bcm_pricing_calculator._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_bcm_pricing_calculator._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bcm_pricing_calculator._resources.awsbcm_pricing_calculator.bill_estimate import (
+    AsyncBillEstimate,
+)
+from aws_sdk_bcm_pricing_calculator._resources.awsbcm_pricing_calculator.bill_scenario import (
+    AsyncBillScenario,
+)
+from aws_sdk_bcm_pricing_calculator._resources.awsbcm_pricing_calculator.workload_estimate import (
+    AsyncWorkloadEstimate,
+)
 from aws_sdk_bcm_pricing_calculator._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -109,6 +118,10 @@ class AsyncBCMPricingCalculatorClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.bill_estimate = AsyncBillEstimate(self)
+        self.bill_scenario = AsyncBillScenario(self)
+        self.workload_estimate = AsyncWorkloadEstimate(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncBCMPricingCalculatorClientConfig] = None

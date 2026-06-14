@@ -79,49 +79,46 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest,
+    input_: aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/distributionsByWebACLId/{WebACLId}"
-    url = url.replace("{WebACLId}", quote(str(input["web_acl_id"]), safe=""))
+    url = url.replace("{WebACLId}", quote(str(input_["web_acl_id"]), safe=""))
     params: dict[str, str] = {}
-    if "marker" in input:
-        params["Marker"] = str(input["marker"])
-    if "max_items" in input:
-        params["MaxItems"] = str(input["max_items"])
+    if "marker" in input_:
+        params["Marker"] = str(input_["marker"])
+    if "max_items" in input_:
+        params["MaxItems"] = str(input_["max_items"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_distributions_by_web_acl_id(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest,
+    input_: aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_result.ListDistributionsByWebACLIdResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -130,16 +127,17 @@ def list_distributions_by_web_acl_id(
 
 async def async_list_distributions_by_web_acl_id(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest,
+    input_: aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_result.ListDistributionsByWebACLIdResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

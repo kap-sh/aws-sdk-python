@@ -72,15 +72,15 @@ class AddressListResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_address_list_request.CreateAddressListRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_address_list_request.CreateAddressListRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["address_list_name"] = address_list_name
+            input_["client_token"] = client_token
+        input_["address_list_name"] = address_list_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -113,11 +113,11 @@ class AddressListResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_address_list_request.GetAddressListRequest = {}  # type: ignore[typeddict-item]
-        input["address_list_id"] = address_list_id
+        input_: aws_sdk_mailmanager.types.get_address_list_request.GetAddressListRequest = {}  # type: ignore[typeddict-item]
+        input_["address_list_id"] = address_list_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -150,11 +150,11 @@ class AddressListResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_address_list_request.DeleteAddressListRequest = {}  # type: ignore[typeddict-item]
-        input["address_list_id"] = address_list_id
+        input_: aws_sdk_mailmanager.types.delete_address_list_request.DeleteAddressListRequest = {}  # type: ignore[typeddict-item]
+        input_["address_list_id"] = address_list_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -193,14 +193,14 @@ class AddressListResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_address_lists_request.ListAddressListsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_address_lists_request.ListAddressListsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,15 +245,15 @@ class AsyncAddressListResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_address_list_request.CreateAddressListRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_address_list_request.CreateAddressListRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["address_list_name"] = address_list_name
+            input_["client_token"] = client_token
+        input_["address_list_name"] = address_list_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,11 +287,11 @@ class AsyncAddressListResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_address_list_request.GetAddressListRequest = {}  # type: ignore[typeddict-item]
-        input["address_list_id"] = address_list_id
+        input_: aws_sdk_mailmanager.types.get_address_list_request.GetAddressListRequest = {}  # type: ignore[typeddict-item]
+        input_["address_list_id"] = address_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,11 +325,11 @@ class AsyncAddressListResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_address_list_request.DeleteAddressListRequest = {}  # type: ignore[typeddict-item]
-        input["address_list_id"] = address_list_id
+        input_: aws_sdk_mailmanager.types.delete_address_list_request.DeleteAddressListRequest = {}  # type: ignore[typeddict-item]
+        input_["address_list_id"] = address_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -369,14 +369,14 @@ class AsyncAddressListResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_address_lists_request.ListAddressListsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_address_lists_request.ListAddressListsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

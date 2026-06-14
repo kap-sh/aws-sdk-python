@@ -84,49 +84,46 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iot.types.get_command_execution_request.GetCommandExecutionRequest,
+    input_: aws_sdk_iot.types.get_command_execution_request.GetCommandExecutionRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/command-executions/{executionId}"
-    url = url.replace("{executionId}", quote(str(input["execution_id"]), safe=""))
+    url = url.replace("{executionId}", quote(str(input_["execution_id"]), safe=""))
     params: dict[str, str] = {}
-    if "target_arn" in input:
-        params["targetArn"] = str(input["target_arn"])
-    if "include_result" in input:
-        params["includeResult"] = str(input["include_result"])
+    if "target_arn" in input_:
+        params["targetArn"] = str(input_["target_arn"])
+    if "include_result" in input_:
+        params["includeResult"] = str(input_["include_result"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_command_execution(
     options: OperationOptions,
-    input: aws_sdk_iot.types.get_command_execution_request.GetCommandExecutionRequest,
+    input_: aws_sdk_iot.types.get_command_execution_request.GetCommandExecutionRequest,
 ) -> tuple[
     aws_sdk_iot.types.get_command_execution_response.GetCommandExecutionResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -135,16 +132,17 @@ def get_command_execution(
 
 async def async_get_command_execution(
     options: AsyncOperationOptions,
-    input: aws_sdk_iot.types.get_command_execution_request.GetCommandExecutionRequest,
+    input_: aws_sdk_iot.types.get_command_execution_request.GetCommandExecutionRequest,
 ) -> tuple[
     aws_sdk_iot.types.get_command_execution_response.GetCommandExecutionResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

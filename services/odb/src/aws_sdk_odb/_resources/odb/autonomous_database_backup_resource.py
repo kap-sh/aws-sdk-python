@@ -75,19 +75,19 @@ class AutonomousDatabaseBackupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_autonomous_database_backup_input.CreateAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.create_autonomous_database_backup_input.CreateAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if retention_period_in_days is not None:
-            input["retention_period_in_days"] = retention_period_in_days
+            input_["retention_period_in_days"] = retention_period_in_days
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,11 +120,11 @@ class AutonomousDatabaseBackupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_autonomous_database_backup_input.GetAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_backup_id"] = autonomous_database_backup_id
+        input_: aws_sdk_odb.types.get_autonomous_database_backup_input.GetAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_backup_id"] = autonomous_database_backup_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,13 +159,13 @@ class AutonomousDatabaseBackupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.update_autonomous_database_backup_input.UpdateAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_backup_id"] = autonomous_database_backup_id
+        input_: aws_sdk_odb.types.update_autonomous_database_backup_input.UpdateAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_backup_id"] = autonomous_database_backup_id
         if retention_period_in_days is not None:
-            input["retention_period_in_days"] = retention_period_in_days
+            input_["retention_period_in_days"] = retention_period_in_days
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,11 +198,11 @@ class AutonomousDatabaseBackupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_autonomous_database_backup_input.DeleteAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_backup_id"] = autonomous_database_backup_id
+        input_: aws_sdk_odb.types.delete_autonomous_database_backup_input.DeleteAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_backup_id"] = autonomous_database_backup_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -247,19 +247,19 @@ class AutonomousDatabaseBackupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_database_backups_input.ListAutonomousDatabaseBackupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_database_backups_input.ListAutonomousDatabaseBackupsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["autonomous_database_id"] = autonomous_database_id
+            input_["next_token"] = next_token
+        input_["autonomous_database_id"] = autonomous_database_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,19 +310,19 @@ class AsyncAutonomousDatabaseBackupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_autonomous_database_backup_input.CreateAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.create_autonomous_database_backup_input.CreateAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if retention_period_in_days is not None:
-            input["retention_period_in_days"] = retention_period_in_days
+            input_["retention_period_in_days"] = retention_period_in_days
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,11 +356,11 @@ class AsyncAutonomousDatabaseBackupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_autonomous_database_backup_input.GetAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_backup_id"] = autonomous_database_backup_id
+        input_: aws_sdk_odb.types.get_autonomous_database_backup_input.GetAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_backup_id"] = autonomous_database_backup_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,13 +396,13 @@ class AsyncAutonomousDatabaseBackupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.update_autonomous_database_backup_input.UpdateAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_backup_id"] = autonomous_database_backup_id
+        input_: aws_sdk_odb.types.update_autonomous_database_backup_input.UpdateAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_backup_id"] = autonomous_database_backup_id
         if retention_period_in_days is not None:
-            input["retention_period_in_days"] = retention_period_in_days
+            input_["retention_period_in_days"] = retention_period_in_days
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,11 +436,11 @@ class AsyncAutonomousDatabaseBackupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_autonomous_database_backup_input.DeleteAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_backup_id"] = autonomous_database_backup_id
+        input_: aws_sdk_odb.types.delete_autonomous_database_backup_input.DeleteAutonomousDatabaseBackupInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_backup_id"] = autonomous_database_backup_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -486,19 +486,19 @@ class AsyncAutonomousDatabaseBackupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_database_backups_input.ListAutonomousDatabaseBackupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_database_backups_input.ListAutonomousDatabaseBackupsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["autonomous_database_id"] = autonomous_database_id
+            input_["next_token"] = next_token
+        input_["autonomous_database_id"] = autonomous_database_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

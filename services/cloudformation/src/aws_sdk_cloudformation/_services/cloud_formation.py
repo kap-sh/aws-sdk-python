@@ -8,6 +8,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_cloudformation._auth._signers
+import aws_sdk_cloudformation._auth._sigv4
 from aws_sdk_cloudformation._auth._identity import Credentials
 from aws_sdk_cloudformation._auth._providers import (
     CredentialsProvider,
@@ -473,10 +475,10 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.activate_organizations_access_input.ActivateOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.activate_organizations_access_input.ActivateOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -545,30 +547,30 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.activate_type_input.ActivateTypeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.activate_type_input.ActivateTypeInput = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if public_type_arn is not None:
-            input["public_type_arn"] = public_type_arn
+            input_["public_type_arn"] = public_type_arn
         if publisher_id is not None:
-            input["publisher_id"] = publisher_id
+            input_["publisher_id"] = publisher_id
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if type_name_alias is not None:
-            input["type_name_alias"] = type_name_alias
+            input_["type_name_alias"] = type_name_alias
         if auto_update is not None:
-            input["auto_update"] = auto_update
+            input_["auto_update"] = auto_update
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if version_bump is not None:
-            input["version_bump"] = version_bump
+            input_["version_bump"] = version_bump
         if major_version is not None:
-            input["major_version"] = major_version
+            input_["major_version"] = major_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -601,11 +603,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.batch_describe_type_configurations_input.BatchDescribeTypeConfigurationsInput = {}  # type: ignore[typeddict-item]
-        input["type_configuration_identifiers"] = type_configuration_identifiers
+        input_: aws_sdk_cloudformation.types.batch_describe_type_configurations_input.BatchDescribeTypeConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_["type_configuration_identifiers"] = type_configuration_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -640,13 +642,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.cancel_update_stack_input.CancelUpdateStackInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.cancel_update_stack_input.CancelUpdateStackInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,17 +691,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.continue_update_rollback_input.ContinueUpdateRollbackInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.continue_update_rollback_input.ContinueUpdateRollbackInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if resources_to_skip is not None:
-            input["resources_to_skip"] = resources_to_skip
+            input_["resources_to_skip"] = resources_to_skip
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -802,48 +804,48 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.create_change_set_input.CreateChangeSetInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.create_change_set_input.CreateChangeSetInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
         if use_previous_template is not None:
-            input["use_previous_template"] = use_previous_template
+            input_["use_previous_template"] = use_previous_template
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if rollback_configuration is not None:
-            input["rollback_configuration"] = rollback_configuration
+            input_["rollback_configuration"] = rollback_configuration
         if notification_ar_ns is not None:
-            input["notification_ar_ns"] = notification_ar_ns
+            input_["notification_ar_ns"] = notification_ar_ns
         if tags is not None:
-            input["tags"] = tags
-        input["change_set_name"] = change_set_name
+            input_["tags"] = tags
+        input_["change_set_name"] = change_set_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if change_set_type is not None:
-            input["change_set_type"] = change_set_type
+            input_["change_set_type"] = change_set_type
         if resources_to_import is not None:
-            input["resources_to_import"] = resources_to_import
+            input_["resources_to_import"] = resources_to_import
         if include_nested_stacks is not None:
-            input["include_nested_stacks"] = include_nested_stacks
+            input_["include_nested_stacks"] = include_nested_stacks
         if on_stack_failure is not None:
-            input["on_stack_failure"] = on_stack_failure
+            input_["on_stack_failure"] = on_stack_failure
         if import_existing_resources is not None:
-            input["import_existing_resources"] = import_existing_resources
+            input_["import_existing_resources"] = import_existing_resources
         if deployment_mode is not None:
-            input["deployment_mode"] = deployment_mode
+            input_["deployment_mode"] = deployment_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -894,17 +896,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.create_generated_template_input.CreateGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.create_generated_template_input.CreateGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
         if resources is not None:
-            input["resources"] = resources
-        input["generated_template_name"] = generated_template_name
+            input_["resources"] = resources
+        input_["generated_template_name"] = generated_template_name
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if template_configuration is not None:
-            input["template_configuration"] = template_configuration
+            input_["template_configuration"] = template_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1001,45 +1003,45 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.create_stack_input.CreateStackInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.create_stack_input.CreateStackInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if disable_rollback is not None:
-            input["disable_rollback"] = disable_rollback
+            input_["disable_rollback"] = disable_rollback
         if rollback_configuration is not None:
-            input["rollback_configuration"] = rollback_configuration
+            input_["rollback_configuration"] = rollback_configuration
         if timeout_in_minutes is not None:
-            input["timeout_in_minutes"] = timeout_in_minutes
+            input_["timeout_in_minutes"] = timeout_in_minutes
         if notification_ar_ns is not None:
-            input["notification_ar_ns"] = notification_ar_ns
+            input_["notification_ar_ns"] = notification_ar_ns
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if on_failure is not None:
-            input["on_failure"] = on_failure
+            input_["on_failure"] = on_failure
         if stack_policy_body is not None:
-            input["stack_policy_body"] = stack_policy_body
+            input_["stack_policy_body"] = stack_policy_body
         if stack_policy_url is not None:
-            input["stack_policy_url"] = stack_policy_url
+            input_["stack_policy_url"] = stack_policy_url
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if enable_termination_protection is not None:
-            input["enable_termination_protection"] = enable_termination_protection
+            input_["enable_termination_protection"] = enable_termination_protection
         if retain_except_on_create is not None:
-            input["retain_except_on_create"] = retain_except_on_create
+            input_["retain_except_on_create"] = retain_except_on_create
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1096,24 +1098,24 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.create_stack_instances_input.CreateStackInstancesInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.create_stack_instances_input.CreateStackInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
         if deployment_targets is not None:
-            input["deployment_targets"] = deployment_targets
-        input["regions"] = regions
+            input_["deployment_targets"] = deployment_targets
+        input_["regions"] = regions
         if parameter_overrides is not None:
-            input["parameter_overrides"] = parameter_overrides
+            input_["parameter_overrides"] = parameter_overrides
         if operation_preferences is not None:
-            input["operation_preferences"] = operation_preferences
+            input_["operation_preferences"] = operation_preferences
         if operation_id is not None:
-            input["operation_id"] = operation_id
+            input_["operation_id"] = operation_id
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1158,17 +1160,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.create_stack_refactor_input.CreateStackRefactorInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.create_stack_refactor_input.CreateStackRefactorInput = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if enable_stack_creation is not None:
-            input["enable_stack_creation"] = enable_stack_creation
+            input_["enable_stack_creation"] = enable_stack_creation
         if resource_mappings is not None:
-            input["resource_mappings"] = resource_mappings
-        input["stack_definitions"] = stack_definitions
+            input_["resource_mappings"] = resource_mappings
+        input_["stack_definitions"] = stack_definitions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1251,39 +1253,39 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.create_stack_set_input.CreateStackSetInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.create_stack_set_input.CreateStackSetInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
         if stack_id is not None:
-            input["stack_id"] = stack_id
+            input_["stack_id"] = stack_id
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if administration_role_arn is not None:
-            input["administration_role_arn"] = administration_role_arn
+            input_["administration_role_arn"] = administration_role_arn
         if execution_role_name is not None:
-            input["execution_role_name"] = execution_role_name
+            input_["execution_role_name"] = execution_role_name
         if permission_model is not None:
-            input["permission_model"] = permission_model
+            input_["permission_model"] = permission_model
         if auto_deployment is not None:
-            input["auto_deployment"] = auto_deployment
+            input_["auto_deployment"] = auto_deployment
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if managed_execution is not None:
-            input["managed_execution"] = managed_execution
+            input_["managed_execution"] = managed_execution
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1309,10 +1311,10 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.deactivate_organizations_access_input.DeactivateOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.deactivate_organizations_access_input.DeactivateOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1353,16 +1355,16 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.deactivate_type_input.DeactivateTypeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.deactivate_type_input.DeactivateTypeInput = {}  # type: ignore[typeddict-item]
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1399,13 +1401,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.delete_change_set_input.DeleteChangeSetInput = {}  # type: ignore[typeddict-item]
-        input["change_set_name"] = change_set_name
+        input_: aws_sdk_cloudformation.types.delete_change_set_input.DeleteChangeSetInput = {}  # type: ignore[typeddict-item]
+        input_["change_set_name"] = change_set_name
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1442,11 +1444,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.delete_generated_template_input.DeleteGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
-        input["generated_template_name"] = generated_template_name
+        input_: aws_sdk_cloudformation.types.delete_generated_template_input.DeleteGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["generated_template_name"] = generated_template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1491,19 +1493,19 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.delete_stack_input.DeleteStackInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.delete_stack_input.DeleteStackInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if retain_resources is not None:
-            input["retain_resources"] = retain_resources
+            input_["retain_resources"] = retain_resources
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if deletion_mode is not None:
-            input["deletion_mode"] = deletion_mode
+            input_["deletion_mode"] = deletion_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1558,23 +1560,23 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.delete_stack_instances_input.DeleteStackInstancesInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.delete_stack_instances_input.DeleteStackInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
         if deployment_targets is not None:
-            input["deployment_targets"] = deployment_targets
-        input["regions"] = regions
+            input_["deployment_targets"] = deployment_targets
+        input_["regions"] = regions
         if operation_preferences is not None:
-            input["operation_preferences"] = operation_preferences
-        input["retain_stacks"] = retain_stacks
+            input_["operation_preferences"] = operation_preferences
+        input_["retain_stacks"] = retain_stacks
         if operation_id is not None:
-            input["operation_id"] = operation_id
+            input_["operation_id"] = operation_id
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1609,13 +1611,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.delete_stack_set_input.DeleteStackSetInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.delete_stack_set_input.DeleteStackSetInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1660,18 +1662,18 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.deregister_type_input.DeregisterTypeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.deregister_type_input.DeregisterTypeInput = {}  # type: ignore[typeddict-item]
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1706,12 +1708,12 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_account_limits_input.DescribeAccountLimitsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.describe_account_limits_input.DescribeAccountLimitsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1777,17 +1779,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_change_set_input.DescribeChangeSetInput = {}  # type: ignore[typeddict-item]
-        input["change_set_name"] = change_set_name
+        input_: aws_sdk_cloudformation.types.describe_change_set_input.DescribeChangeSetInput = {}  # type: ignore[typeddict-item]
+        input_["change_set_name"] = change_set_name
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_property_values is not None:
-            input["include_property_values"] = include_property_values
+            input_["include_property_values"] = include_property_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1863,17 +1865,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_change_set_hooks_input.DescribeChangeSetHooksInput = {}  # type: ignore[typeddict-item]
-        input["change_set_name"] = change_set_name
+        input_: aws_sdk_cloudformation.types.describe_change_set_hooks_input.DescribeChangeSetHooksInput = {}  # type: ignore[typeddict-item]
+        input_["change_set_name"] = change_set_name
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if logical_resource_id is not None:
-            input["logical_resource_id"] = logical_resource_id
+            input_["logical_resource_id"] = logical_resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1924,20 +1926,20 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_events_input.DescribeEventsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.describe_events_input.DescribeEventsInput = {}  # type: ignore[typeddict-item]
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if change_set_name is not None:
-            input["change_set_name"] = change_set_name
+            input_["change_set_name"] = change_set_name
         if operation_id is not None:
-            input["operation_id"] = operation_id
+            input_["operation_id"] = operation_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2007,11 +2009,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_generated_template_input.DescribeGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
-        input["generated_template_name"] = generated_template_name
+        input_: aws_sdk_cloudformation.types.describe_generated_template_input.DescribeGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["generated_template_name"] = generated_template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2044,12 +2046,12 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_organizations_access_input.DescribeOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.describe_organizations_access_input.DescribeOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2086,12 +2088,12 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_publisher_input.DescribePublisherInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.describe_publisher_input.DescribePublisherInput = {}  # type: ignore[typeddict-item]
         if publisher_id is not None:
-            input["publisher_id"] = publisher_id
+            input_["publisher_id"] = publisher_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2124,11 +2126,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_resource_scan_input.DescribeResourceScanInput = {}  # type: ignore[typeddict-item]
-        input["resource_scan_id"] = resource_scan_id
+        input_: aws_sdk_cloudformation.types.describe_resource_scan_input.DescribeResourceScanInput = {}  # type: ignore[typeddict-item]
+        input_["resource_scan_id"] = resource_scan_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2161,11 +2163,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_drift_detection_status_input.DescribeStackDriftDetectionStatusInput = {}  # type: ignore[typeddict-item]
-        input["stack_drift_detection_id"] = stack_drift_detection_id
+        input_: aws_sdk_cloudformation.types.describe_stack_drift_detection_status_input.DescribeStackDriftDetectionStatusInput = {}  # type: ignore[typeddict-item]
+        input_["stack_drift_detection_id"] = stack_drift_detection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2202,13 +2204,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_events_input.DescribeStackEventsInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.describe_stack_events_input.DescribeStackEventsInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2270,15 +2272,15 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_instance_input.DescribeStackInstanceInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
-        input["stack_instance_account"] = stack_instance_account
-        input["stack_instance_region"] = stack_instance_region
+        input_: aws_sdk_cloudformation.types.describe_stack_instance_input.DescribeStackInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
+        input_["stack_instance_account"] = stack_instance_account
+        input_["stack_instance_region"] = stack_instance_region
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2311,11 +2313,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_refactor_input.DescribeStackRefactorInput = {}  # type: ignore[typeddict-item]
-        input["stack_refactor_id"] = stack_refactor_id
+        input_: aws_sdk_cloudformation.types.describe_stack_refactor_input.DescribeStackRefactorInput = {}  # type: ignore[typeddict-item]
+        input_["stack_refactor_id"] = stack_refactor_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2350,12 +2352,12 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_resource_input.DescribeStackResourceInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
-        input["logical_resource_id"] = logical_resource_id
+        input_: aws_sdk_cloudformation.types.describe_stack_resource_input.DescribeStackResourceInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
+        input_["logical_resource_id"] = logical_resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2400,19 +2402,19 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_resource_drifts_input.DescribeStackResourceDriftsInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.describe_stack_resource_drifts_input.DescribeStackResourceDriftsInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if stack_resource_drift_status_filters is not None:
-            input["stack_resource_drift_status_filters"] = (
+            input_["stack_resource_drift_status_filters"] = (
                 stack_resource_drift_status_filters
             )
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2455,16 +2457,16 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_resources_input.DescribeStackResourcesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.describe_stack_resources_input.DescribeStackResourcesInput = {}  # type: ignore[typeddict-item]
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if logical_resource_id is not None:
-            input["logical_resource_id"] = logical_resource_id
+            input_["logical_resource_id"] = logical_resource_id
         if physical_resource_id is not None:
-            input["physical_resource_id"] = physical_resource_id
+            input_["physical_resource_id"] = physical_resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2503,14 +2505,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stacks_input.DescribeStacksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.describe_stacks_input.DescribeStacksInput = {}  # type: ignore[typeddict-item]
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2622,13 +2624,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_set_input.DescribeStackSetInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.describe_stack_set_input.DescribeStackSetInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2665,14 +2667,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_stack_set_operation_input.DescribeStackSetOperationInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
-        input["operation_id"] = operation_id
+        input_: aws_sdk_cloudformation.types.describe_stack_set_operation_input.DescribeStackSetOperationInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
+        input_["operation_id"] = operation_id
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2723,22 +2725,22 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_type_input.DescribeTypeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.describe_type_input.DescribeTypeInput = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if publisher_id is not None:
-            input["publisher_id"] = publisher_id
+            input_["publisher_id"] = publisher_id
         if public_version_number is not None:
-            input["public_version_number"] = public_version_number
+            input_["public_version_number"] = public_version_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2771,11 +2773,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.describe_type_registration_input.DescribeTypeRegistrationInput = {}  # type: ignore[typeddict-item]
-        input["registration_token"] = registration_token
+        input_: aws_sdk_cloudformation.types.describe_type_registration_input.DescribeTypeRegistrationInput = {}  # type: ignore[typeddict-item]
+        input_["registration_token"] = registration_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2814,13 +2816,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.detect_stack_drift_input.DetectStackDriftInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.detect_stack_drift_input.DetectStackDriftInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if logical_resource_ids is not None:
-            input["logical_resource_ids"] = logical_resource_ids
+            input_["logical_resource_ids"] = logical_resource_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2855,12 +2857,12 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.detect_stack_resource_drift_input.DetectStackResourceDriftInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
-        input["logical_resource_id"] = logical_resource_id
+        input_: aws_sdk_cloudformation.types.detect_stack_resource_drift_input.DetectStackResourceDriftInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
+        input_["logical_resource_id"] = logical_resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2903,17 +2905,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.detect_stack_set_drift_input.DetectStackSetDriftInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.detect_stack_set_drift_input.DetectStackSetDriftInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if operation_preferences is not None:
-            input["operation_preferences"] = operation_preferences
+            input_["operation_preferences"] = operation_preferences
         if operation_id is not None:
-            input["operation_id"] = operation_id
+            input_["operation_id"] = operation_id
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2956,16 +2958,16 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.estimate_template_cost_input.EstimateTemplateCostInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.estimate_template_cost_input.EstimateTemplateCostInput = {}  # type: ignore[typeddict-item]
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3016,19 +3018,19 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.execute_change_set_input.ExecuteChangeSetInput = {}  # type: ignore[typeddict-item]
-        input["change_set_name"] = change_set_name
+        input_: aws_sdk_cloudformation.types.execute_change_set_input.ExecuteChangeSetInput = {}  # type: ignore[typeddict-item]
+        input_["change_set_name"] = change_set_name
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if disable_rollback is not None:
-            input["disable_rollback"] = disable_rollback
+            input_["disable_rollback"] = disable_rollback
         if retain_except_on_create is not None:
-            input["retain_except_on_create"] = retain_except_on_create
+            input_["retain_except_on_create"] = retain_except_on_create
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3059,11 +3061,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.execute_stack_refactor_input.ExecuteStackRefactorInput = {}  # type: ignore[typeddict-item]
-        input["stack_refactor_id"] = stack_refactor_id
+        input_: aws_sdk_cloudformation.types.execute_stack_refactor_input.ExecuteStackRefactorInput = {}  # type: ignore[typeddict-item]
+        input_["stack_refactor_id"] = stack_refactor_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3110,13 +3112,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.get_generated_template_input.GetGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.get_generated_template_input.GetGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
         if format is not None:
-            input["format"] = format
-        input["generated_template_name"] = generated_template_name
+            input_["format"] = format
+        input_["generated_template_name"] = generated_template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3151,12 +3153,12 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.get_hook_result_input.GetHookResultInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.get_hook_result_input.GetHookResultInput = {}  # type: ignore[typeddict-item]
         if hook_result_id is not None:
-            input["hook_result_id"] = hook_result_id
+            input_["hook_result_id"] = hook_result_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3189,11 +3191,11 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.get_stack_policy_input.GetStackPolicyInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.get_stack_policy_input.GetStackPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3236,16 +3238,16 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.get_template_input.GetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.get_template_input.GetTemplateInput = {}  # type: ignore[typeddict-item]
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if change_set_name is not None:
-            input["change_set_name"] = change_set_name
+            input_["change_set_name"] = change_set_name
         if template_stage is not None:
-            input["template_stage"] = template_stage
+            input_["template_stage"] = template_stage
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3298,22 +3300,22 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.get_template_summary_input.GetTemplateSummaryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.get_template_summary_input.GetTemplateSummaryInput = {}  # type: ignore[typeddict-item]
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if stack_set_name is not None:
-            input["stack_set_name"] = stack_set_name
+            input_["stack_set_name"] = stack_set_name
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
         if template_summary_config is not None:
-            input["template_summary_config"] = template_summary_config
+            input_["template_summary_config"] = template_summary_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3368,23 +3370,23 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.import_stacks_to_stack_set_input.ImportStacksToStackSetInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.import_stacks_to_stack_set_input.ImportStacksToStackSetInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if stack_ids is not None:
-            input["stack_ids"] = stack_ids
+            input_["stack_ids"] = stack_ids
         if stack_ids_url is not None:
-            input["stack_ids_url"] = stack_ids_url
+            input_["stack_ids_url"] = stack_ids_url
         if organizational_unit_ids is not None:
-            input["organizational_unit_ids"] = organizational_unit_ids
+            input_["organizational_unit_ids"] = organizational_unit_ids
         if operation_preferences is not None:
-            input["operation_preferences"] = operation_preferences
+            input_["operation_preferences"] = operation_preferences
         if operation_id is not None:
-            input["operation_id"] = operation_id
+            input_["operation_id"] = operation_id
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3421,13 +3423,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_change_sets_input.ListChangeSetsInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.list_change_sets_input.ListChangeSetsInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3485,12 +3487,12 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_exports_input.ListExportsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_exports_input.ListExportsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3550,14 +3552,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_generated_templates_input.ListGeneratedTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_generated_templates_input.ListGeneratedTemplatesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3631,20 +3633,20 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_hook_results_input.ListHookResultsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_hook_results_input.ListHookResultsInput = {}  # type: ignore[typeddict-item]
         if target_type is not None:
-            input["target_type"] = target_type
+            input_["target_type"] = target_type
         if target_id is not None:
-            input["target_id"] = target_id
+            input_["target_id"] = target_id
         if type_arn is not None:
-            input["type_arn"] = type_arn
+            input_["type_arn"] = type_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3681,13 +3683,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_imports_input.ListImportsInput = {}  # type: ignore[typeddict-item]
-        input["export_name"] = export_name
+        input_: aws_sdk_cloudformation.types.list_imports_input.ListImportsInput = {}  # type: ignore[typeddict-item]
+        input_["export_name"] = export_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3759,16 +3761,16 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_resource_scan_related_resources_input.ListResourceScanRelatedResourcesInput = {}  # type: ignore[typeddict-item]
-        input["resource_scan_id"] = resource_scan_id
-        input["resources"] = resources
+        input_: aws_sdk_cloudformation.types.list_resource_scan_related_resources_input.ListResourceScanRelatedResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["resource_scan_id"] = resource_scan_id
+        input_["resources"] = resources
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3860,23 +3862,23 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_resource_scan_resources_input.ListResourceScanResourcesInput = {}  # type: ignore[typeddict-item]
-        input["resource_scan_id"] = resource_scan_id
+        input_: aws_sdk_cloudformation.types.list_resource_scan_resources_input.ListResourceScanResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["resource_scan_id"] = resource_scan_id
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if resource_type_prefix is not None:
-            input["resource_type_prefix"] = resource_type_prefix
+            input_["resource_type_prefix"] = resource_type_prefix
         if tag_key is not None:
-            input["tag_key"] = tag_key
+            input_["tag_key"] = tag_key
         if tag_value is not None:
-            input["tag_value"] = tag_value
+            input_["tag_value"] = tag_value
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3958,16 +3960,16 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_resource_scans_input.ListResourceScansInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_resource_scans_input.ListResourceScansInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if scan_type_filter is not None:
-            input["scan_type_filter"] = scan_type_filter
+            input_["scan_type_filter"] = scan_type_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4049,24 +4051,24 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_instance_resource_drifts_input.ListStackInstanceResourceDriftsInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.list_stack_instance_resource_drifts_input.ListStackInstanceResourceDriftsInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if stack_instance_resource_drift_statuses is not None:
-            input["stack_instance_resource_drift_statuses"] = (
+            input_["stack_instance_resource_drift_statuses"] = (
                 stack_instance_resource_drift_statuses
             )
-        input["stack_instance_account"] = stack_instance_account
-        input["stack_instance_region"] = stack_instance_region
-        input["operation_id"] = operation_id
+        input_["stack_instance_account"] = stack_instance_account
+        input_["stack_instance_region"] = stack_instance_region
+        input_["operation_id"] = operation_id
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4121,23 +4123,23 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_instances_input.ListStackInstancesInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.list_stack_instances_input.ListStackInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if stack_instance_account is not None:
-            input["stack_instance_account"] = stack_instance_account
+            input_["stack_instance_account"] = stack_instance_account
         if stack_instance_region is not None:
-            input["stack_instance_region"] = stack_instance_region
+            input_["stack_instance_region"] = stack_instance_region
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4219,15 +4221,15 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_refactor_actions_input.ListStackRefactorActionsInput = {}  # type: ignore[typeddict-item]
-        input["stack_refactor_id"] = stack_refactor_id
+        input_: aws_sdk_cloudformation.types.list_stack_refactor_actions_input.ListStackRefactorActionsInput = {}  # type: ignore[typeddict-item]
+        input_["stack_refactor_id"] = stack_refactor_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4297,16 +4299,16 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_refactors_input.ListStackRefactorsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_stack_refactors_input.ListStackRefactorsInput = {}  # type: ignore[typeddict-item]
         if execution_status_filter is not None:
-            input["execution_status_filter"] = execution_status_filter
+            input_["execution_status_filter"] = execution_status_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4372,13 +4374,13 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_resources_input.ListStackResourcesInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.list_stack_resources_input.ListStackResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4440,14 +4442,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stacks_input.ListStacksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_stacks_input.ListStacksInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if stack_status_filter is not None:
-            input["stack_status_filter"] = stack_status_filter
+            input_["stack_status_filter"] = stack_status_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4515,17 +4517,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_set_auto_deployment_targets_input.ListStackSetAutoDeploymentTargetsInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.list_stack_set_auto_deployment_targets_input.ListStackSetAutoDeploymentTargetsInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4574,20 +4576,20 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_set_operation_results_input.ListStackSetOperationResultsInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
-        input["operation_id"] = operation_id
+        input_: aws_sdk_cloudformation.types.list_stack_set_operation_results_input.ListStackSetOperationResultsInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
+        input_["operation_id"] = operation_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4665,17 +4667,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_set_operations_input.ListStackSetOperationsInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.list_stack_set_operations_input.ListStackSetOperationsInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4749,18 +4751,18 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_stack_sets_input.ListStackSetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_stack_sets_input.ListStackSetsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4842,22 +4844,22 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_type_registrations_input.ListTypeRegistrationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_type_registrations_input.ListTypeRegistrationsInput = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if type_arn is not None:
-            input["type_arn"] = type_arn
+            input_["type_arn"] = type_arn
         if registration_status_filter is not None:
-            input["registration_status_filter"] = registration_status_filter
+            input_["registration_status_filter"] = registration_status_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4916,24 +4918,24 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_types_input.ListTypesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_types_input.ListTypesInput = {}  # type: ignore[typeddict-item]
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
         if provisioning_type is not None:
-            input["provisioning_type"] = provisioning_type
+            input_["provisioning_type"] = provisioning_type
         if deprecated_status is not None:
-            input["deprecated_status"] = deprecated_status
+            input_["deprecated_status"] = deprecated_status
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5035,24 +5037,24 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.list_type_versions_input.ListTypeVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.list_type_versions_input.ListTypeVersionsInput = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if deprecated_status is not None:
-            input["deprecated_status"] = deprecated_status
+            input_["deprecated_status"] = deprecated_status
         if publisher_id is not None:
-            input["publisher_id"] = publisher_id
+            input_["publisher_id"] = publisher_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5097,18 +5099,18 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.publish_type_input.PublishTypeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.publish_type_input.PublishTypeInput = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if public_version_number is not None:
-            input["public_version_number"] = public_version_number
+            input_["public_version_number"] = public_version_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5163,22 +5165,22 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.record_handler_progress_input.RecordHandlerProgressInput = {}  # type: ignore[typeddict-item]
-        input["bearer_token"] = bearer_token
-        input["operation_status"] = operation_status
+        input_: aws_sdk_cloudformation.types.record_handler_progress_input.RecordHandlerProgressInput = {}  # type: ignore[typeddict-item]
+        input_["bearer_token"] = bearer_token
+        input_["operation_status"] = operation_status
         if current_operation_status is not None:
-            input["current_operation_status"] = current_operation_status
+            input_["current_operation_status"] = current_operation_status
         if status_message is not None:
-            input["status_message"] = status_message
+            input_["status_message"] = status_message
         if error_code is not None:
-            input["error_code"] = error_code
+            input_["error_code"] = error_code
         if resource_model is not None:
-            input["resource_model"] = resource_model
+            input_["resource_model"] = resource_model
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5219,14 +5221,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.register_publisher_input.RegisterPublisherInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.register_publisher_input.RegisterPublisherInput = {}  # type: ignore[typeddict-item]
         if accept_terms_and_conditions is not None:
-            input["accept_terms_and_conditions"] = accept_terms_and_conditions
+            input_["accept_terms_and_conditions"] = accept_terms_and_conditions
         if connection_arn is not None:
-            input["connection_arn"] = connection_arn
+            input_["connection_arn"] = connection_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5277,20 +5279,20 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.register_type_input.RegisterTypeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.register_type_input.RegisterTypeInput = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
-        input["type_name"] = type_name
-        input["schema_handler_package"] = schema_handler_package
+            input_["type"] = type
+        input_["type_name"] = type_name
+        input_["schema_handler_package"] = schema_handler_package
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5333,17 +5335,17 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.rollback_stack_input.RollbackStackInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.rollback_stack_input.RollbackStackInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if retain_except_on_create is not None:
-            input["retain_except_on_create"] = retain_except_on_create
+            input_["retain_except_on_create"] = retain_except_on_create
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5382,15 +5384,15 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.set_stack_policy_input.SetStackPolicyInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.set_stack_policy_input.SetStackPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if stack_policy_body is not None:
-            input["stack_policy_body"] = stack_policy_body
+            input_["stack_policy_body"] = stack_policy_body
         if stack_policy_url is not None:
-            input["stack_policy_url"] = stack_policy_url
+            input_["stack_policy_url"] = stack_policy_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5435,19 +5437,19 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.set_type_configuration_input.SetTypeConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.set_type_configuration_input.SetTypeConfigurationInput = {}  # type: ignore[typeddict-item]
         if type_arn is not None:
-            input["type_arn"] = type_arn
-        input["configuration"] = configuration
+            input_["type_arn"] = type_arn
+        input_["configuration"] = configuration
         if configuration_alias is not None:
-            input["configuration_alias"] = configuration_alias
+            input_["configuration_alias"] = configuration_alias
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5492,18 +5494,18 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.set_type_default_version_input.SetTypeDefaultVersionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.set_type_default_version_input.SetTypeDefaultVersionInput = {}  # type: ignore[typeddict-item]
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5540,14 +5542,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.signal_resource_input.SignalResourceInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
-        input["logical_resource_id"] = logical_resource_id
-        input["unique_id"] = unique_id
-        input["status"] = status
+        input_: aws_sdk_cloudformation.types.signal_resource_input.SignalResourceInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
+        input_["logical_resource_id"] = logical_resource_id
+        input_["unique_id"] = unique_id
+        input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5592,14 +5594,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.start_resource_scan_input.StartResourceScanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.start_resource_scan_input.StartResourceScanInput = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if scan_filters is not None:
-            input["scan_filters"] = scan_filters
+            input_["scan_filters"] = scan_filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5636,14 +5638,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.stop_stack_set_operation_input.StopStackSetOperationInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
-        input["operation_id"] = operation_id
+        input_: aws_sdk_cloudformation.types.stop_stack_set_operation_input.StopStackSetOperationInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
+        input_["operation_id"] = operation_id
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5690,20 +5692,20 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.test_type_input.TestTypeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.test_type_input.TestTypeInput = {}  # type: ignore[typeddict-item]
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if log_delivery_bucket is not None:
-            input["log_delivery_bucket"] = log_delivery_bucket
+            input_["log_delivery_bucket"] = log_delivery_bucket
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5770,21 +5772,21 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.update_generated_template_input.UpdateGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
-        input["generated_template_name"] = generated_template_name
+        input_: aws_sdk_cloudformation.types.update_generated_template_input.UpdateGeneratedTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["generated_template_name"] = generated_template_name
         if new_generated_template_name is not None:
-            input["new_generated_template_name"] = new_generated_template_name
+            input_["new_generated_template_name"] = new_generated_template_name
         if add_resources is not None:
-            input["add_resources"] = add_resources
+            input_["add_resources"] = add_resources
         if remove_resources is not None:
-            input["remove_resources"] = remove_resources
+            input_["remove_resources"] = remove_resources
         if refresh_all_resources is not None:
-            input["refresh_all_resources"] = refresh_all_resources
+            input_["refresh_all_resources"] = refresh_all_resources
         if template_configuration is not None:
-            input["template_configuration"] = template_configuration
+            input_["template_configuration"] = template_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5881,45 +5883,45 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.update_stack_input.UpdateStackInput = {}  # type: ignore[typeddict-item]
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.update_stack_input.UpdateStackInput = {}  # type: ignore[typeddict-item]
+        input_["stack_name"] = stack_name
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
         if use_previous_template is not None:
-            input["use_previous_template"] = use_previous_template
+            input_["use_previous_template"] = use_previous_template
         if stack_policy_during_update_body is not None:
-            input["stack_policy_during_update_body"] = stack_policy_during_update_body
+            input_["stack_policy_during_update_body"] = stack_policy_during_update_body
         if stack_policy_during_update_url is not None:
-            input["stack_policy_during_update_url"] = stack_policy_during_update_url
+            input_["stack_policy_during_update_url"] = stack_policy_during_update_url
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if rollback_configuration is not None:
-            input["rollback_configuration"] = rollback_configuration
+            input_["rollback_configuration"] = rollback_configuration
         if stack_policy_body is not None:
-            input["stack_policy_body"] = stack_policy_body
+            input_["stack_policy_body"] = stack_policy_body
         if stack_policy_url is not None:
-            input["stack_policy_url"] = stack_policy_url
+            input_["stack_policy_url"] = stack_policy_url
         if notification_ar_ns is not None:
-            input["notification_ar_ns"] = notification_ar_ns
+            input_["notification_ar_ns"] = notification_ar_ns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if disable_rollback is not None:
-            input["disable_rollback"] = disable_rollback
+            input_["disable_rollback"] = disable_rollback
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if retain_except_on_create is not None:
-            input["retain_except_on_create"] = retain_except_on_create
+            input_["retain_except_on_create"] = retain_except_on_create
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5976,24 +5978,24 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.update_stack_instances_input.UpdateStackInstancesInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.update_stack_instances_input.UpdateStackInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
         if deployment_targets is not None:
-            input["deployment_targets"] = deployment_targets
-        input["regions"] = regions
+            input_["deployment_targets"] = deployment_targets
+        input_["regions"] = regions
         if parameter_overrides is not None:
-            input["parameter_overrides"] = parameter_overrides
+            input_["parameter_overrides"] = parameter_overrides
         if operation_preferences is not None:
-            input["operation_preferences"] = operation_preferences
+            input_["operation_preferences"] = operation_preferences
         if operation_id is not None:
-            input["operation_id"] = operation_id
+            input_["operation_id"] = operation_id
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6092,47 +6094,47 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.update_stack_set_input.UpdateStackSetInput = {}  # type: ignore[typeddict-item]
-        input["stack_set_name"] = stack_set_name
+        input_: aws_sdk_cloudformation.types.update_stack_set_input.UpdateStackSetInput = {}  # type: ignore[typeddict-item]
+        input_["stack_set_name"] = stack_set_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
         if use_previous_template is not None:
-            input["use_previous_template"] = use_previous_template
+            input_["use_previous_template"] = use_previous_template
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if operation_preferences is not None:
-            input["operation_preferences"] = operation_preferences
+            input_["operation_preferences"] = operation_preferences
         if administration_role_arn is not None:
-            input["administration_role_arn"] = administration_role_arn
+            input_["administration_role_arn"] = administration_role_arn
         if execution_role_name is not None:
-            input["execution_role_name"] = execution_role_name
+            input_["execution_role_name"] = execution_role_name
         if deployment_targets is not None:
-            input["deployment_targets"] = deployment_targets
+            input_["deployment_targets"] = deployment_targets
         if permission_model is not None:
-            input["permission_model"] = permission_model
+            input_["permission_model"] = permission_model
         if auto_deployment is not None:
-            input["auto_deployment"] = auto_deployment
+            input_["auto_deployment"] = auto_deployment
         if operation_id is not None:
-            input["operation_id"] = operation_id
+            input_["operation_id"] = operation_id
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if call_as is not None:
-            input["call_as"] = call_as
+            input_["call_as"] = call_as
         if managed_execution is not None:
-            input["managed_execution"] = managed_execution
+            input_["managed_execution"] = managed_execution
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6167,12 +6169,12 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.update_termination_protection_input.UpdateTerminationProtectionInput = {}  # type: ignore[typeddict-item]
-        input["enable_termination_protection"] = enable_termination_protection
-        input["stack_name"] = stack_name
+        input_: aws_sdk_cloudformation.types.update_termination_protection_input.UpdateTerminationProtectionInput = {}  # type: ignore[typeddict-item]
+        input_["enable_termination_protection"] = enable_termination_protection
+        input_["stack_name"] = stack_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6211,14 +6213,14 @@ class CloudFormationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudformation.types.validate_template_input.ValidateTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudformation.types.validate_template_input.ValidateTemplateInput = {}  # type: ignore[typeddict-item]
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if template_url is not None:
-            input["template_url"] = template_url
+            input_["template_url"] = template_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

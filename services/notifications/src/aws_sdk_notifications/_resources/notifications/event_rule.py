@@ -83,16 +83,16 @@ class EventRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.create_event_rule_request.CreateEventRuleRequest = {}  # type: ignore[typeddict-item]
-        input["notification_configuration_arn"] = notification_configuration_arn
-        input["source"] = source
-        input["event_type"] = event_type
+        input_: aws_sdk_notifications.types.create_event_rule_request.CreateEventRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["notification_configuration_arn"] = notification_configuration_arn
+        input_["source"] = source
+        input_["event_type"] = event_type
         if event_pattern is not None:
-            input["event_pattern"] = event_pattern
-        input["regions"] = regions
+            input_["event_pattern"] = event_pattern
+        input_["regions"] = regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,15 +133,15 @@ class EventRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.update_event_rule_request.UpdateEventRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.update_event_rule_request.UpdateEventRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if event_pattern is not None:
-            input["event_pattern"] = event_pattern
+            input_["event_pattern"] = event_pattern
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -174,11 +174,11 @@ class EventRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_event_rule_request.GetEventRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.get_event_rule_request.GetEventRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,11 +213,11 @@ class EventRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.delete_event_rule_request.DeleteEventRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.delete_event_rule_request.DeleteEventRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,15 +254,15 @@ class EventRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_event_rules_request.ListEventRulesRequest = {}  # type: ignore[typeddict-item]
-        input["notification_configuration_arn"] = notification_configuration_arn
+        input_: aws_sdk_notifications.types.list_event_rules_request.ListEventRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["notification_configuration_arn"] = notification_configuration_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -313,16 +313,16 @@ class AsyncEventRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.create_event_rule_request.CreateEventRuleRequest = {}  # type: ignore[typeddict-item]
-        input["notification_configuration_arn"] = notification_configuration_arn
-        input["source"] = source
-        input["event_type"] = event_type
+        input_: aws_sdk_notifications.types.create_event_rule_request.CreateEventRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["notification_configuration_arn"] = notification_configuration_arn
+        input_["source"] = source
+        input_["event_type"] = event_type
         if event_pattern is not None:
-            input["event_pattern"] = event_pattern
-        input["regions"] = regions
+            input_["event_pattern"] = event_pattern
+        input_["regions"] = regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,15 +364,15 @@ class AsyncEventRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.update_event_rule_request.UpdateEventRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.update_event_rule_request.UpdateEventRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if event_pattern is not None:
-            input["event_pattern"] = event_pattern
+            input_["event_pattern"] = event_pattern
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -406,11 +406,11 @@ class AsyncEventRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_event_rule_request.GetEventRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.get_event_rule_request.GetEventRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,11 +446,11 @@ class AsyncEventRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.delete_event_rule_request.DeleteEventRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.delete_event_rule_request.DeleteEventRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,15 +488,15 @@ class AsyncEventRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_event_rules_request.ListEventRulesRequest = {}  # type: ignore[typeddict-item]
-        input["notification_configuration_arn"] = notification_configuration_arn
+        input_: aws_sdk_notifications.types.list_event_rules_request.ListEventRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["notification_configuration_arn"] = notification_configuration_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

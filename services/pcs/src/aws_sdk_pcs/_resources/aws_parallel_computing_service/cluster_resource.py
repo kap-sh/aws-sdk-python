@@ -85,20 +85,20 @@ class ClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["scheduler"] = scheduler
-        input["size"] = size
-        input["networking"] = networking
+        input_: aws_sdk_pcs.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["scheduler"] = scheduler
+        input_["size"] = size
+        input_["networking"] = networking
         if slurm_configuration is not None:
-            input["slurm_configuration"] = slurm_configuration
+            input_["slurm_configuration"] = slurm_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -139,15 +139,15 @@ class ClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_pcs.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if slurm_configuration is not None:
-            input["slurm_configuration"] = slurm_configuration
+            input_["slurm_configuration"] = slurm_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -184,13 +184,13 @@ class ClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_pcs.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,11 +223,11 @@ class ClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.get_cluster_request.GetClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_pcs.types.get_cluster_request.GetClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,12 +262,12 @@ class ClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.register_compute_node_group_instance_request.RegisterComputeNodeGroupInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["bootstrap_id"] = bootstrap_id
+        input_: aws_sdk_pcs.types.register_compute_node_group_instance_request.RegisterComputeNodeGroupInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["bootstrap_id"] = bootstrap_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,14 +302,14 @@ class ClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pcs.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,20 +364,20 @@ class AsyncClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["scheduler"] = scheduler
-        input["size"] = size
-        input["networking"] = networking
+        input_: aws_sdk_pcs.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["scheduler"] = scheduler
+        input_["size"] = size
+        input_["networking"] = networking
         if slurm_configuration is not None:
-            input["slurm_configuration"] = slurm_configuration
+            input_["slurm_configuration"] = slurm_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,15 +419,15 @@ class AsyncClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_pcs.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if slurm_configuration is not None:
-            input["slurm_configuration"] = slurm_configuration
+            input_["slurm_configuration"] = slurm_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,13 +465,13 @@ class AsyncClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_pcs.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,11 +505,11 @@ class AsyncClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.get_cluster_request.GetClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_pcs.types.get_cluster_request.GetClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -545,12 +545,12 @@ class AsyncClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.register_compute_node_group_instance_request.RegisterComputeNodeGroupInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["bootstrap_id"] = bootstrap_id
+        input_: aws_sdk_pcs.types.register_compute_node_group_instance_request.RegisterComputeNodeGroupInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["bootstrap_id"] = bootstrap_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,14 +586,14 @@ class AsyncClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pcs.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pcs.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -74,17 +74,17 @@ class DbParameterGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.create_db_parameter_group_input.CreateDbParameterGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_timestream_influxdb.types.create_db_parameter_group_input.CreateDbParameterGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -117,11 +117,11 @@ class DbParameterGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.get_db_parameter_group_input.GetDbParameterGroupInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.get_db_parameter_group_input.GetDbParameterGroupInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -160,14 +160,14 @@ class DbParameterGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.list_db_parameter_groups_input.ListDbParameterGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_influxdb.types.list_db_parameter_groups_input.ListDbParameterGroupsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,17 +216,17 @@ class AsyncDbParameterGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.create_db_parameter_group_input.CreateDbParameterGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_timestream_influxdb.types.create_db_parameter_group_input.CreateDbParameterGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,11 +260,11 @@ class AsyncDbParameterGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.get_db_parameter_group_input.GetDbParameterGroupInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_timestream_influxdb.types.get_db_parameter_group_input.GetDbParameterGroupInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -304,14 +304,14 @@ class AsyncDbParameterGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.list_db_parameter_groups_input.ListDbParameterGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_influxdb.types.list_db_parameter_groups_input.ListDbParameterGroupsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

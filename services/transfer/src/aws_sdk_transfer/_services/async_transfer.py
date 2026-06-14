@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_transfer._auth._signers
+import aws_sdk_transfer._auth._sigv4
 from aws_sdk_transfer._auth._identity import Credentials
 from aws_sdk_transfer._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,31 @@ from aws_sdk_transfer._auth._providers import (
 )
 from aws_sdk_transfer._auth._zapros_handler import AuthMiddleware
 from aws_sdk_transfer._pagination import resolve_path as _resolve_path
+from aws_sdk_transfer._resources.transfer_service.agreement_resource import (
+    AsyncAgreementResource,
+)
+from aws_sdk_transfer._resources.transfer_service.certificate_resource import (
+    AsyncCertificateResource,
+)
+from aws_sdk_transfer._resources.transfer_service.connector_resource import (
+    AsyncConnectorResource,
+)
+from aws_sdk_transfer._resources.transfer_service.profile_resource import (
+    AsyncProfileResource,
+)
+from aws_sdk_transfer._resources.transfer_service.server_resource import (
+    AsyncServerResource,
+)
+from aws_sdk_transfer._resources.transfer_service.user_resource import AsyncUserResource
+from aws_sdk_transfer._resources.transfer_service.web_app_customization_resource import (
+    AsyncWebAppCustomizationResource,
+)
+from aws_sdk_transfer._resources.transfer_service.web_app_resource import (
+    AsyncWebAppResource,
+)
+from aws_sdk_transfer._resources.transfer_service.workflow_resource import (
+    AsyncWorkflowResource,
+)
 from aws_sdk_transfer._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -186,6 +213,16 @@ class AsyncTransferClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.agreement_resource = AsyncAgreementResource(self)
+        self.certificate_resource = AsyncCertificateResource(self)
+        self.connector_resource = AsyncConnectorResource(self)
+        self.profile_resource = AsyncProfileResource(self)
+        self.server_resource = AsyncServerResource(self)
+        self.user_resource = AsyncUserResource(self)
+        self.web_app_customization_resource = AsyncWebAppCustomizationResource(self)
+        self.web_app_resource = AsyncWebAppResource(self)
+        self.workflow_resource = AsyncWorkflowResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncTransferClientConfig] = None
@@ -264,23 +301,23 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_access_request.CreateAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_access_request.CreateAccessRequest = {}  # type: ignore[typeddict-item]
         if home_directory is not None:
-            input["home_directory"] = home_directory
+            input_["home_directory"] = home_directory
         if home_directory_type is not None:
-            input["home_directory_type"] = home_directory_type
+            input_["home_directory_type"] = home_directory_type
         if home_directory_mappings is not None:
-            input["home_directory_mappings"] = home_directory_mappings
+            input_["home_directory_mappings"] = home_directory_mappings
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if posix_profile is not None:
-            input["posix_profile"] = posix_profile
-        input["role"] = role
-        input["server_id"] = server_id
-        input["external_id"] = external_id
+            input_["posix_profile"] = posix_profile
+        input_["role"] = role
+        input_["server_id"] = server_id
+        input_["external_id"] = external_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,12 +351,12 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_access_request.DeleteAccessRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["external_id"] = external_id
+        input_: aws_sdk_transfer.types.delete_access_request.DeleteAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["external_id"] = external_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -353,12 +390,12 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_host_key_request.DeleteHostKeyRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["host_key_id"] = host_key_id
+        input_: aws_sdk_transfer.types.delete_host_key_request.DeleteHostKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["host_key_id"] = host_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,13 +431,13 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_ssh_public_key_request.DeleteSshPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["ssh_public_key_id"] = ssh_public_key_id
-        input["user_name"] = user_name
+        input_: aws_sdk_transfer.types.delete_ssh_public_key_request.DeleteSshPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["ssh_public_key_id"] = ssh_public_key_id
+        input_["user_name"] = user_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,12 +473,12 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_access_request.DescribeAccessRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["external_id"] = external_id
+        input_: aws_sdk_transfer.types.describe_access_request.DescribeAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["external_id"] = external_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -477,12 +514,12 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_execution_request.DescribeExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["execution_id"] = execution_id
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_transfer.types.describe_execution_request.DescribeExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["execution_id"] = execution_id
+        input_["workflow_id"] = workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,12 +555,12 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_host_key_request.DescribeHostKeyRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["host_key_id"] = host_key_id
+        input_: aws_sdk_transfer.types.describe_host_key_request.DescribeHostKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["host_key_id"] = host_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,11 +594,11 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_security_policy_request.DescribeSecurityPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["security_policy_name"] = security_policy_name
+        input_: aws_sdk_transfer.types.describe_security_policy_request.DescribeSecurityPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["security_policy_name"] = security_policy_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,16 +640,16 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.import_host_key_request.ImportHostKeyRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["host_key_body"] = host_key_body
+        input_: aws_sdk_transfer.types.import_host_key_request.ImportHostKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["host_key_body"] = host_key_body
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -650,13 +687,13 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.import_ssh_public_key_request.ImportSshPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["ssh_public_key_body"] = ssh_public_key_body
-        input["user_name"] = user_name
+        input_: aws_sdk_transfer.types.import_ssh_public_key_request.ImportSshPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["ssh_public_key_body"] = ssh_public_key_body
+        input_["user_name"] = user_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -694,15 +731,15 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_accesses_request.ListAccessesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_accesses_request.ListAccessesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["server_id"] = server_id
+            input_["next_token"] = next_token
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,15 +800,15 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_executions_request.ListExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_executions_request.ListExecutionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["workflow_id"] = workflow_id
+            input_["next_token"] = next_token
+        input_["workflow_id"] = workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -834,16 +871,16 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_file_transfer_results_request.ListFileTransferResultsRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
-        input["transfer_id"] = transfer_id
+        input_: aws_sdk_transfer.types.list_file_transfer_results_request.ListFileTransferResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
+        input_["transfer_id"] = transfer_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -906,15 +943,15 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_host_keys_request.ListHostKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_host_keys_request.ListHostKeysRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["server_id"] = server_id
+            input_["next_token"] = next_token
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -950,14 +987,14 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_security_policies_request.ListSecurityPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_security_policies_request.ListSecurityPoliciesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1018,15 +1055,15 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_transfer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1089,14 +1126,14 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.send_workflow_step_state_request.SendWorkflowStepStateRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
-        input["execution_id"] = execution_id
-        input["token"] = token
-        input["status"] = status
+        input_: aws_sdk_transfer.types.send_workflow_step_state_request.SendWorkflowStepStateRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
+        input_["execution_id"] = execution_id
+        input_["token"] = token
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1136,15 +1173,15 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.start_directory_listing_request.StartDirectoryListingRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
-        input["remote_directory_path"] = remote_directory_path
+        input_: aws_sdk_transfer.types.start_directory_listing_request.StartDirectoryListingRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
+        input_["remote_directory_path"] = remote_directory_path
         if max_items is not None:
-            input["max_items"] = max_items
-        input["output_directory_path"] = output_directory_path
+            input_["max_items"] = max_items
+        input_["output_directory_path"] = output_directory_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1198,21 +1235,21 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.start_file_transfer_request.StartFileTransferRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_transfer.types.start_file_transfer_request.StartFileTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
         if send_file_paths is not None:
-            input["send_file_paths"] = send_file_paths
+            input_["send_file_paths"] = send_file_paths
         if retrieve_file_paths is not None:
-            input["retrieve_file_paths"] = retrieve_file_paths
+            input_["retrieve_file_paths"] = retrieve_file_paths
         if local_directory_path is not None:
-            input["local_directory_path"] = local_directory_path
+            input_["local_directory_path"] = local_directory_path
         if remote_directory_path is not None:
-            input["remote_directory_path"] = remote_directory_path
+            input_["remote_directory_path"] = remote_directory_path
         if custom_http_headers is not None:
-            input["custom_http_headers"] = custom_http_headers
+            input_["custom_http_headers"] = custom_http_headers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1250,12 +1287,12 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.start_remote_delete_request.StartRemoteDeleteRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
-        input["delete_path"] = delete_path
+        input_: aws_sdk_transfer.types.start_remote_delete_request.StartRemoteDeleteRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
+        input_["delete_path"] = delete_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1293,13 +1330,13 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.start_remote_move_request.StartRemoteMoveRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
-        input["source_path"] = source_path
-        input["target_path"] = target_path
+        input_: aws_sdk_transfer.types.start_remote_move_request.StartRemoteMoveRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
+        input_["source_path"] = source_path
+        input_["target_path"] = target_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1331,11 +1368,11 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.start_server_request.StartServerRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.start_server_request.StartServerRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1367,11 +1404,11 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.stop_server_request.StopServerRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.stop_server_request.StopServerRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1405,12 +1442,12 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_transfer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1444,11 +1481,11 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.test_connection_request.TestConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_transfer.types.test_connection_request.TestConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1492,18 +1529,18 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.test_identity_provider_request.TestIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.test_identity_provider_request.TestIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
         if server_protocol is not None:
-            input["server_protocol"] = server_protocol
+            input_["server_protocol"] = server_protocol
         if source_ip is not None:
-            input["source_ip"] = source_ip
-        input["user_name"] = user_name
+            input_["source_ip"] = source_ip
+        input_["user_name"] = user_name
         if user_password is not None:
-            input["user_password"] = user_password
+            input_["user_password"] = user_password
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1537,12 +1574,12 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_transfer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1597,24 +1634,24 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_access_request.UpdateAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.update_access_request.UpdateAccessRequest = {}  # type: ignore[typeddict-item]
         if home_directory is not None:
-            input["home_directory"] = home_directory
+            input_["home_directory"] = home_directory
         if home_directory_type is not None:
-            input["home_directory_type"] = home_directory_type
+            input_["home_directory_type"] = home_directory_type
         if home_directory_mappings is not None:
-            input["home_directory_mappings"] = home_directory_mappings
+            input_["home_directory_mappings"] = home_directory_mappings
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if posix_profile is not None:
-            input["posix_profile"] = posix_profile
+            input_["posix_profile"] = posix_profile
         if role is not None:
-            input["role"] = role
-        input["server_id"] = server_id
-        input["external_id"] = external_id
+            input_["role"] = role
+        input_["server_id"] = server_id
+        input_["external_id"] = external_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1652,13 +1689,13 @@ class AsyncTransferClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_host_key_request.UpdateHostKeyRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["host_key_id"] = host_key_id
-        input["description"] = description
+        input_: aws_sdk_transfer.types.update_host_key_request.UpdateHostKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["host_key_id"] = host_key_id
+        input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

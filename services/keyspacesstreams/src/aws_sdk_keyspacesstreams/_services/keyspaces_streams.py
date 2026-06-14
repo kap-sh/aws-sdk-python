@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_keyspacesstreams._auth._signers
+import aws_sdk_keyspacesstreams._auth._sigv4
 from aws_sdk_keyspacesstreams._auth._identity import Credentials
 from aws_sdk_keyspacesstreams._auth._providers import (
     CredentialsProvider,
@@ -167,13 +169,13 @@ class KeyspacesStreamsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspacesstreams.types.get_records_input.GetRecordsInput = {}  # type: ignore[typeddict-item]
-        input["shard_iterator"] = shard_iterator
+        input_: aws_sdk_keyspacesstreams.types.get_records_input.GetRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["shard_iterator"] = shard_iterator
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,15 +216,15 @@ class KeyspacesStreamsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspacesstreams.types.get_shard_iterator_input.GetShardIteratorInput = {}  # type: ignore[typeddict-item]
-        input["stream_arn"] = stream_arn
-        input["shard_id"] = shard_id
-        input["shard_iterator_type"] = shard_iterator_type
+        input_: aws_sdk_keyspacesstreams.types.get_shard_iterator_input.GetShardIteratorInput = {}  # type: ignore[typeddict-item]
+        input_["stream_arn"] = stream_arn
+        input_["shard_id"] = shard_id
+        input_["shard_iterator_type"] = shard_iterator_type
         if sequence_number is not None:
-            input["sequence_number"] = sequence_number
+            input_["sequence_number"] = sequence_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,17 +267,17 @@ class KeyspacesStreamsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspacesstreams.types.get_stream_input.GetStreamInput = {}  # type: ignore[typeddict-item]
-        input["stream_arn"] = stream_arn
+        input_: aws_sdk_keyspacesstreams.types.get_stream_input.GetStreamInput = {}  # type: ignore[typeddict-item]
+        input_["stream_arn"] = stream_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if shard_filter is not None:
-            input["shard_filter"] = shard_filter
+            input_["shard_filter"] = shard_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,18 +351,18 @@ class KeyspacesStreamsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspacesstreams.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_keyspacesstreams.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
         if keyspace_name is not None:
-            input["keyspace_name"] = keyspace_name
+            input_["keyspace_name"] = keyspace_name
         if table_name is not None:
-            input["table_name"] = table_name
+            input_["table_name"] = table_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -108,45 +108,45 @@ class CloudVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_cloud_vm_cluster_input.CreateCloudVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
-        input["cpu_core_count"] = cpu_core_count
-        input["display_name"] = display_name
-        input["gi_version"] = gi_version
-        input["hostname"] = hostname
-        input["ssh_public_keys"] = ssh_public_keys
-        input["odb_network_id"] = odb_network_id
+        input_: aws_sdk_odb.types.create_cloud_vm_cluster_input.CreateCloudVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_["cpu_core_count"] = cpu_core_count
+        input_["display_name"] = display_name
+        input_["gi_version"] = gi_version
+        input_["hostname"] = hostname
+        input_["ssh_public_keys"] = ssh_public_keys
+        input_["odb_network_id"] = odb_network_id
         if cluster_name is not None:
-            input["cluster_name"] = cluster_name
+            input_["cluster_name"] = cluster_name
         if data_collection_options is not None:
-            input["data_collection_options"] = data_collection_options
+            input_["data_collection_options"] = data_collection_options
         if data_storage_size_in_t_bs is not None:
-            input["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
+            input_["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
         if db_node_storage_size_in_g_bs is not None:
-            input["db_node_storage_size_in_g_bs"] = db_node_storage_size_in_g_bs
+            input_["db_node_storage_size_in_g_bs"] = db_node_storage_size_in_g_bs
         if db_servers is not None:
-            input["db_servers"] = db_servers
+            input_["db_servers"] = db_servers
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if is_local_backup_enabled is not None:
-            input["is_local_backup_enabled"] = is_local_backup_enabled
+            input_["is_local_backup_enabled"] = is_local_backup_enabled
         if is_sparse_diskgroup_enabled is not None:
-            input["is_sparse_diskgroup_enabled"] = is_sparse_diskgroup_enabled
+            input_["is_sparse_diskgroup_enabled"] = is_sparse_diskgroup_enabled
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if memory_size_in_g_bs is not None:
-            input["memory_size_in_g_bs"] = memory_size_in_g_bs
+            input_["memory_size_in_g_bs"] = memory_size_in_g_bs
         if system_version is not None:
-            input["system_version"] = system_version
+            input_["system_version"] = system_version
         if time_zone is not None:
-            input["time_zone"] = time_zone
+            input_["time_zone"] = time_zone
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if scan_listener_port_tcp is not None:
-            input["scan_listener_port_tcp"] = scan_listener_port_tcp
+            input_["scan_listener_port_tcp"] = scan_listener_port_tcp
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,11 +179,11 @@ class CloudVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_cloud_vm_cluster_input.GetCloudVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_: aws_sdk_odb.types.get_cloud_vm_cluster_input.GetCloudVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,11 +216,11 @@ class CloudVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_cloud_vm_cluster_input.DeleteCloudVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_: aws_sdk_odb.types.delete_cloud_vm_cluster_input.DeleteCloudVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,16 +259,16 @@ class CloudVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_cloud_vm_clusters_input.ListCloudVmClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_cloud_vm_clusters_input.ListCloudVmClustersInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if cloud_exadata_infrastructure_id is not None:
-            input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+            input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -351,45 +351,45 @@ class AsyncCloudVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_cloud_vm_cluster_input.CreateCloudVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
-        input["cpu_core_count"] = cpu_core_count
-        input["display_name"] = display_name
-        input["gi_version"] = gi_version
-        input["hostname"] = hostname
-        input["ssh_public_keys"] = ssh_public_keys
-        input["odb_network_id"] = odb_network_id
+        input_: aws_sdk_odb.types.create_cloud_vm_cluster_input.CreateCloudVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_["cpu_core_count"] = cpu_core_count
+        input_["display_name"] = display_name
+        input_["gi_version"] = gi_version
+        input_["hostname"] = hostname
+        input_["ssh_public_keys"] = ssh_public_keys
+        input_["odb_network_id"] = odb_network_id
         if cluster_name is not None:
-            input["cluster_name"] = cluster_name
+            input_["cluster_name"] = cluster_name
         if data_collection_options is not None:
-            input["data_collection_options"] = data_collection_options
+            input_["data_collection_options"] = data_collection_options
         if data_storage_size_in_t_bs is not None:
-            input["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
+            input_["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
         if db_node_storage_size_in_g_bs is not None:
-            input["db_node_storage_size_in_g_bs"] = db_node_storage_size_in_g_bs
+            input_["db_node_storage_size_in_g_bs"] = db_node_storage_size_in_g_bs
         if db_servers is not None:
-            input["db_servers"] = db_servers
+            input_["db_servers"] = db_servers
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if is_local_backup_enabled is not None:
-            input["is_local_backup_enabled"] = is_local_backup_enabled
+            input_["is_local_backup_enabled"] = is_local_backup_enabled
         if is_sparse_diskgroup_enabled is not None:
-            input["is_sparse_diskgroup_enabled"] = is_sparse_diskgroup_enabled
+            input_["is_sparse_diskgroup_enabled"] = is_sparse_diskgroup_enabled
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if memory_size_in_g_bs is not None:
-            input["memory_size_in_g_bs"] = memory_size_in_g_bs
+            input_["memory_size_in_g_bs"] = memory_size_in_g_bs
         if system_version is not None:
-            input["system_version"] = system_version
+            input_["system_version"] = system_version
         if time_zone is not None:
-            input["time_zone"] = time_zone
+            input_["time_zone"] = time_zone
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if scan_listener_port_tcp is not None:
-            input["scan_listener_port_tcp"] = scan_listener_port_tcp
+            input_["scan_listener_port_tcp"] = scan_listener_port_tcp
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -423,11 +423,11 @@ class AsyncCloudVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_cloud_vm_cluster_input.GetCloudVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_: aws_sdk_odb.types.get_cloud_vm_cluster_input.GetCloudVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,11 +461,11 @@ class AsyncCloudVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_cloud_vm_cluster_input.DeleteCloudVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_vm_cluster_id"] = cloud_vm_cluster_id
+        input_: aws_sdk_odb.types.delete_cloud_vm_cluster_input.DeleteCloudVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_vm_cluster_id"] = cloud_vm_cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,16 +505,16 @@ class AsyncCloudVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_cloud_vm_clusters_input.ListCloudVmClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_cloud_vm_clusters_input.ListCloudVmClustersInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if cloud_exadata_infrastructure_id is not None:
-            input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+            input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -186,11 +186,11 @@ class AsyncSigninClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signin.types.create_o_auth2_token_request.CreateOAuth2TokenRequest = {}  # type: ignore[typeddict-item]
-        input["token_input"] = token_input
+        input_: aws_sdk_signin.types.create_o_auth2_token_request.CreateOAuth2TokenRequest = {}  # type: ignore[typeddict-item]
+        input_["token_input"] = token_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,12 +224,12 @@ class AsyncSigninClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signin.types.delete_console_authorization_configuration_input.DeleteConsoleAuthorizationConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signin.types.delete_console_authorization_configuration_input.DeleteConsoleAuthorizationConfigurationInput = {}  # type: ignore[typeddict-item]
         if target_id is not None:
-            input["target_id"] = target_id
+            input_["target_id"] = target_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,13 +265,13 @@ class AsyncSigninClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signin.types.delete_resource_permission_statement_input.DeleteResourcePermissionStatementInput = {}  # type: ignore[typeddict-item]
-        input["statement_id"] = statement_id
+        input_: aws_sdk_signin.types.delete_resource_permission_statement_input.DeleteResourcePermissionStatementInput = {}  # type: ignore[typeddict-item]
+        input_["statement_id"] = statement_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,12 +305,12 @@ class AsyncSigninClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signin.types.get_console_authorization_configuration_input.GetConsoleAuthorizationConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signin.types.get_console_authorization_configuration_input.GetConsoleAuthorizationConfigurationInput = {}  # type: ignore[typeddict-item]
         if target_id is not None:
-            input["target_id"] = target_id
+            input_["target_id"] = target_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,10 +337,10 @@ class AsyncSigninClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signin.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signin.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,14 +378,14 @@ class AsyncSigninClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signin.types.list_resource_permission_statements_input.ListResourcePermissionStatementsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signin.types.list_resource_permission_statements_input.ListResourcePermissionStatementsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,12 +442,12 @@ class AsyncSigninClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signin.types.put_console_authorization_configuration_input.PutConsoleAuthorizationConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signin.types.put_console_authorization_configuration_input.PutConsoleAuthorizationConfigurationInput = {}  # type: ignore[typeddict-item]
         if target_id is not None:
-            input["target_id"] = target_id
+            input_["target_id"] = target_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,26 +505,26 @@ class AsyncSigninClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signin.types.put_resource_permission_statement_input.PutResourcePermissionStatementInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signin.types.put_resource_permission_statement_input.PutResourcePermissionStatementInput = {}  # type: ignore[typeddict-item]
         if source_vpc is not None:
-            input["source_vpc"] = source_vpc
+            input_["source_vpc"] = source_vpc
         if signin_source_vpce is not None:
-            input["signin_source_vpce"] = signin_source_vpce
+            input_["signin_source_vpce"] = signin_source_vpce
         if console_source_vpce is not None:
-            input["console_source_vpce"] = console_source_vpce
+            input_["console_source_vpce"] = console_source_vpce
         if vpc_source_ip is not None:
-            input["vpc_source_ip"] = vpc_source_ip
+            input_["vpc_source_ip"] = vpc_source_ip
         if source_ip is not None:
-            input["source_ip"] = source_ip
+            input_["source_ip"] = source_ip
         if requested_region is not None:
-            input["requested_region"] = requested_region
+            input_["requested_region"] = requested_region
         if excluded_principal is not None:
-            input["excluded_principal"] = excluded_principal
+            input_["excluded_principal"] = excluded_principal
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -82,14 +82,14 @@ def build_request(
     options: OperationOptions | AsyncOperationOptions,
     input: aws_sdk_backup.types.disassociate_recovery_point_from_parent_input.DisassociateRecoveryPointFromParentInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/parentAssociation"
@@ -107,11 +107,7 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
@@ -124,6 +120,7 @@ def disassociate_recovery_point_from_parent(
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -139,6 +136,7 @@ async def async_disassociate_recovery_point_from_parent(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

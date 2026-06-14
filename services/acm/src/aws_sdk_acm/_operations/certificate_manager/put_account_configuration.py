@@ -71,7 +71,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_acm.types.put_account_configuration_request.PutAccountConfigurationRequest,
+    input_: aws_sdk_acm.types.put_account_configuration_request.PutAccountConfigurationRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -89,7 +89,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_acm.types.put_account_configuration_request.serialize_aws_json_1_1(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
@@ -103,9 +103,9 @@ def build_request(
 
 def put_account_configuration(
     options: OperationOptions,
-    input: aws_sdk_acm.types.put_account_configuration_request.PutAccountConfigurationRequest,
+    input_: aws_sdk_acm.types.put_account_configuration_request.PutAccountConfigurationRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -119,9 +119,9 @@ def put_account_configuration(
 
 async def async_put_account_configuration(
     options: AsyncOperationOptions,
-    input: aws_sdk_acm.types.put_account_configuration_request.PutAccountConfigurationRequest,
+    input_: aws_sdk_acm.types.put_account_configuration_request.PutAccountConfigurationRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

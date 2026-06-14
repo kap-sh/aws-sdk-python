@@ -106,29 +106,29 @@ class JobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["algorithm_specification"] = algorithm_specification
+        input_: aws_sdk_braket.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["algorithm_specification"] = algorithm_specification
         if input_data_config is not None:
-            input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
+            input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
         if checkpoint_config is not None:
-            input["checkpoint_config"] = checkpoint_config
-        input["job_name"] = job_name
-        input["role_arn"] = role_arn
+            input_["checkpoint_config"] = checkpoint_config
+        input_["job_name"] = job_name
+        input_["role_arn"] = role_arn
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
-        input["instance_config"] = instance_config
+            input_["stopping_condition"] = stopping_condition
+        input_["instance_config"] = instance_config
         if hyper_parameters is not None:
-            input["hyper_parameters"] = hyper_parameters
-        input["device_config"] = device_config
+            input_["hyper_parameters"] = hyper_parameters
+        input_["device_config"] = device_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if associations is not None:
-            input["associations"] = associations
+            input_["associations"] = associations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -161,13 +161,13 @@ class JobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
+        input_: aws_sdk_braket.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
         if additional_attribute_names is not None:
-            input["additional_attribute_names"] = additional_attribute_names
+            input_["additional_attribute_names"] = additional_attribute_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -200,11 +200,11 @@ class JobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
+        input_: aws_sdk_braket.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,15 +241,15 @@ class JobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_braket.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["filters"] = filters
+            input_["max_results"] = max_results
+        input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,29 +320,29 @@ class AsyncJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["algorithm_specification"] = algorithm_specification
+        input_: aws_sdk_braket.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["algorithm_specification"] = algorithm_specification
         if input_data_config is not None:
-            input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
+            input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
         if checkpoint_config is not None:
-            input["checkpoint_config"] = checkpoint_config
-        input["job_name"] = job_name
-        input["role_arn"] = role_arn
+            input_["checkpoint_config"] = checkpoint_config
+        input_["job_name"] = job_name
+        input_["role_arn"] = role_arn
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
-        input["instance_config"] = instance_config
+            input_["stopping_condition"] = stopping_condition
+        input_["instance_config"] = instance_config
         if hyper_parameters is not None:
-            input["hyper_parameters"] = hyper_parameters
-        input["device_config"] = device_config
+            input_["hyper_parameters"] = hyper_parameters
+        input_["device_config"] = device_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if associations is not None:
-            input["associations"] = associations
+            input_["associations"] = associations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,13 +380,13 @@ class AsyncJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
+        input_: aws_sdk_braket.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
         if additional_attribute_names is not None:
-            input["additional_attribute_names"] = additional_attribute_names
+            input_["additional_attribute_names"] = additional_attribute_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,11 +420,11 @@ class AsyncJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
+        input_: aws_sdk_braket.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,15 +462,15 @@ class AsyncJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_braket.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["filters"] = filters
+            input_["max_results"] = max_results
+        input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

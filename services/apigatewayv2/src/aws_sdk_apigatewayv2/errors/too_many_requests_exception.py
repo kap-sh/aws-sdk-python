@@ -1,7 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#TooManyRequestsException``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
+
 from aws_sdk_apigatewayv2.errors import ServiceError
 
 if TYPE_CHECKING:

@@ -203,11 +203,11 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.deregister_subscription_provider_request.DeregisterSubscriptionProviderRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_provider_arn"] = subscription_provider_arn
+        input_: aws_sdk_license_manager_linux_subscriptions.types.deregister_subscription_provider_request.DeregisterSubscriptionProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_provider_arn"] = subscription_provider_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,11 +243,11 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.get_registered_subscription_provider_request.GetRegisteredSubscriptionProviderRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_provider_arn"] = subscription_provider_arn
+        input_: aws_sdk_license_manager_linux_subscriptions.types.get_registered_subscription_provider_request.GetRegisteredSubscriptionProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_provider_arn"] = subscription_provider_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,10 +278,10 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.get_service_settings_request.GetServiceSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_linux_subscriptions.types.get_service_settings_request.GetServiceSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,16 +325,16 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.list_linux_subscription_instances_request.ListLinuxSubscriptionInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_linux_subscriptions.types.list_linux_subscription_instances_request.ListLinuxSubscriptionInstancesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,16 +407,16 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.list_linux_subscriptions_request.ListLinuxSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_linux_subscriptions.types.list_linux_subscriptions_request.ListLinuxSubscriptionsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,16 +489,16 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.list_registered_subscription_providers_request.ListRegisteredSubscriptionProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_linux_subscriptions.types.list_registered_subscription_providers_request.ListRegisteredSubscriptionProvidersRequest = {}  # type: ignore[typeddict-item]
         if subscription_provider_sources is not None:
-            input["subscription_provider_sources"] = subscription_provider_sources
+            input_["subscription_provider_sources"] = subscription_provider_sources
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -563,11 +563,11 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_license_manager_linux_subscriptions.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,14 +609,14 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.register_subscription_provider_request.RegisterSubscriptionProviderRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_provider_source"] = subscription_provider_source
-        input["secret_arn"] = secret_arn
+        input_: aws_sdk_license_manager_linux_subscriptions.types.register_subscription_provider_request.RegisterSubscriptionProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_provider_source"] = subscription_provider_source
+        input_["secret_arn"] = secret_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,12 +654,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_license_manager_linux_subscriptions.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -697,12 +697,12 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_license_manager_linux_subscriptions.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -742,16 +742,16 @@ class AsyncLicenseManagerLinuxSubscriptionsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_linux_subscriptions.types.update_service_settings_request.UpdateServiceSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["linux_subscriptions_discovery"] = linux_subscriptions_discovery
-        input["linux_subscriptions_discovery_settings"] = (
+        input_: aws_sdk_license_manager_linux_subscriptions.types.update_service_settings_request.UpdateServiceSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["linux_subscriptions_discovery"] = linux_subscriptions_discovery
+        input_["linux_subscriptions_discovery_settings"] = (
             linux_subscriptions_discovery_settings
         )
         if allow_update is not None:
-            input["allow_update"] = allow_update
+            input_["allow_update"] = allow_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

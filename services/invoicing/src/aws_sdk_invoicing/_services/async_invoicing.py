@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_invoicing._auth._signers
+import aws_sdk_invoicing._auth._sigv4
 from aws_sdk_invoicing._auth._identity import Credentials
 from aws_sdk_invoicing._auth._providers import (
     CredentialsProvider,
@@ -221,11 +223,11 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.batch_get_invoice_profile_request.BatchGetInvoiceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_invoicing.types.batch_get_invoice_profile_request.BatchGetInvoiceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,21 +288,21 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.create_invoice_unit_request.CreateInvoiceUnitRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["invoice_receiver"] = invoice_receiver
+        input_: aws_sdk_invoicing.types.create_invoice_unit_request.CreateInvoiceUnitRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["invoice_receiver"] = invoice_receiver
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tax_inheritance_disabled is not None:
-            input["tax_inheritance_disabled"] = tax_inheritance_disabled
-        input["rule"] = rule
+            input_["tax_inheritance_disabled"] = tax_inheritance_disabled
+        input_["rule"] = rule
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,34 +382,36 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.create_procurement_portal_preference_request.CreateProcurementPortalPreferenceRequest = {}  # type: ignore[typeddict-item]
-        input["procurement_portal_name"] = procurement_portal_name
-        input["buyer_domain"] = buyer_domain
-        input["buyer_identifier"] = buyer_identifier
-        input["supplier_domain"] = supplier_domain
-        input["supplier_identifier"] = supplier_identifier
+        input_: aws_sdk_invoicing.types.create_procurement_portal_preference_request.CreateProcurementPortalPreferenceRequest = {}  # type: ignore[typeddict-item]
+        input_["procurement_portal_name"] = procurement_portal_name
+        input_["buyer_domain"] = buyer_domain
+        input_["buyer_identifier"] = buyer_identifier
+        input_["supplier_domain"] = supplier_domain
+        input_["supplier_identifier"] = supplier_identifier
         if selector is not None:
-            input["selector"] = selector
+            input_["selector"] = selector
         if procurement_portal_shared_secret is not None:
-            input["procurement_portal_shared_secret"] = procurement_portal_shared_secret
+            input_["procurement_portal_shared_secret"] = (
+                procurement_portal_shared_secret
+            )
         if procurement_portal_instance_endpoint is not None:
-            input["procurement_portal_instance_endpoint"] = (
+            input_["procurement_portal_instance_endpoint"] = (
                 procurement_portal_instance_endpoint
             )
         if test_env_preference is not None:
-            input["test_env_preference"] = test_env_preference
-        input["einvoice_delivery_enabled"] = einvoice_delivery_enabled
+            input_["test_env_preference"] = test_env_preference
+        input_["einvoice_delivery_enabled"] = einvoice_delivery_enabled
         if einvoice_delivery_preference is not None:
-            input["einvoice_delivery_preference"] = einvoice_delivery_preference
-        input["purchase_order_retrieval_enabled"] = purchase_order_retrieval_enabled
-        input["contacts"] = contacts
+            input_["einvoice_delivery_preference"] = einvoice_delivery_preference
+        input_["purchase_order_retrieval_enabled"] = purchase_order_retrieval_enabled
+        input_["contacts"] = contacts
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -452,13 +456,13 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.delete_invoice_unit_request.DeleteInvoiceUnitRequest = {}  # type: ignore[typeddict-item]
-        input["invoice_unit_arn"] = invoice_unit_arn
+        input_: aws_sdk_invoicing.types.delete_invoice_unit_request.DeleteInvoiceUnitRequest = {}  # type: ignore[typeddict-item]
+        input_["invoice_unit_arn"] = invoice_unit_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,13 +505,13 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.delete_procurement_portal_preference_request.DeleteProcurementPortalPreferenceRequest = {}  # type: ignore[typeddict-item]
-        input["procurement_portal_preference_arn"] = procurement_portal_preference_arn
+        input_: aws_sdk_invoicing.types.delete_procurement_portal_preference_request.DeleteProcurementPortalPreferenceRequest = {}  # type: ignore[typeddict-item]
+        input_["procurement_portal_preference_arn"] = procurement_portal_preference_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -549,11 +553,11 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.get_invoice_pdf_request.GetInvoicePDFRequest = {}  # type: ignore[typeddict-item]
-        input["invoice_id"] = invoice_id
+        input_: aws_sdk_invoicing.types.get_invoice_pdf_request.GetInvoicePDFRequest = {}  # type: ignore[typeddict-item]
+        input_["invoice_id"] = invoice_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,13 +601,13 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.get_invoice_unit_request.GetInvoiceUnitRequest = {}  # type: ignore[typeddict-item]
-        input["invoice_unit_arn"] = invoice_unit_arn
+        input_: aws_sdk_invoicing.types.get_invoice_unit_request.GetInvoiceUnitRequest = {}  # type: ignore[typeddict-item]
+        input_["invoice_unit_arn"] = invoice_unit_arn
         if as_of is not None:
-            input["as_of"] = as_of
+            input_["as_of"] = as_of
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -642,11 +646,11 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.get_procurement_portal_preference_request.GetProcurementPortalPreferenceRequest = {}  # type: ignore[typeddict-item]
-        input["procurement_portal_preference_arn"] = procurement_portal_preference_arn
+        input_: aws_sdk_invoicing.types.get_procurement_portal_preference_request.GetProcurementPortalPreferenceRequest = {}  # type: ignore[typeddict-item]
+        input_["procurement_portal_preference_arn"] = procurement_portal_preference_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -712,17 +716,17 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.list_invoice_summaries_request.ListInvoiceSummariesRequest = {}  # type: ignore[typeddict-item]
-        input["selector"] = selector
+        input_: aws_sdk_invoicing.types.list_invoice_summaries_request.ListInvoiceSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_["selector"] = selector
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -811,18 +815,18 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.list_invoice_units_request.ListInvoiceUnitsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_invoicing.types.list_invoice_units_request.ListInvoiceUnitsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if as_of is not None:
-            input["as_of"] = as_of
+            input_["as_of"] = as_of
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -897,14 +901,14 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.list_procurement_portal_preferences_request.ListProcurementPortalPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_invoicing.types.list_procurement_portal_preferences_request.ListProcurementPortalPreferencesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -966,11 +970,11 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_invoicing.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1038,28 +1042,30 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.put_procurement_portal_preference_request.PutProcurementPortalPreferenceRequest = {}  # type: ignore[typeddict-item]
-        input["procurement_portal_preference_arn"] = procurement_portal_preference_arn
+        input_: aws_sdk_invoicing.types.put_procurement_portal_preference_request.PutProcurementPortalPreferenceRequest = {}  # type: ignore[typeddict-item]
+        input_["procurement_portal_preference_arn"] = procurement_portal_preference_arn
         if selector is not None:
-            input["selector"] = selector
+            input_["selector"] = selector
         if procurement_portal_shared_secret is not None:
-            input["procurement_portal_shared_secret"] = procurement_portal_shared_secret
+            input_["procurement_portal_shared_secret"] = (
+                procurement_portal_shared_secret
+            )
         if procurement_portal_instance_endpoint is not None:
-            input["procurement_portal_instance_endpoint"] = (
+            input_["procurement_portal_instance_endpoint"] = (
                 procurement_portal_instance_endpoint
             )
         if test_env_preference is not None:
-            input["test_env_preference"] = test_env_preference
-        input["einvoice_delivery_enabled"] = einvoice_delivery_enabled
+            input_["test_env_preference"] = test_env_preference
+        input_["einvoice_delivery_enabled"] = einvoice_delivery_enabled
         if einvoice_delivery_preference is not None:
-            input["einvoice_delivery_preference"] = einvoice_delivery_preference
-        input["purchase_order_retrieval_enabled"] = purchase_order_retrieval_enabled
-        input["contacts"] = contacts
+            input_["einvoice_delivery_preference"] = einvoice_delivery_preference
+        input_["purchase_order_retrieval_enabled"] = purchase_order_retrieval_enabled
+        input_["contacts"] = contacts
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1100,12 +1106,12 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tags"] = resource_tags
+        input_: aws_sdk_invoicing.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1146,12 +1152,12 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tag_keys"] = resource_tag_keys
+        input_: aws_sdk_invoicing.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tag_keys"] = resource_tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1211,19 +1217,19 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.update_invoice_unit_request.UpdateInvoiceUnitRequest = {}  # type: ignore[typeddict-item]
-        input["invoice_unit_arn"] = invoice_unit_arn
+        input_: aws_sdk_invoicing.types.update_invoice_unit_request.UpdateInvoiceUnitRequest = {}  # type: ignore[typeddict-item]
+        input_["invoice_unit_arn"] = invoice_unit_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tax_inheritance_disabled is not None:
-            input["tax_inheritance_disabled"] = tax_inheritance_disabled
+            input_["tax_inheritance_disabled"] = tax_inheritance_disabled
         if rule is not None:
-            input["rule"] = rule
+            input_["rule"] = rule
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1282,29 +1288,29 @@ class AsyncInvoicingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_invoicing.types.update_procurement_portal_preference_status_request.UpdateProcurementPortalPreferenceStatusRequest = {}  # type: ignore[typeddict-item]
-        input["procurement_portal_preference_arn"] = procurement_portal_preference_arn
+        input_: aws_sdk_invoicing.types.update_procurement_portal_preference_status_request.UpdateProcurementPortalPreferenceStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["procurement_portal_preference_arn"] = procurement_portal_preference_arn
         if einvoice_delivery_preference_status is not None:
-            input["einvoice_delivery_preference_status"] = (
+            input_["einvoice_delivery_preference_status"] = (
                 einvoice_delivery_preference_status
             )
         if einvoice_delivery_preference_status_reason is not None:
-            input["einvoice_delivery_preference_status_reason"] = (
+            input_["einvoice_delivery_preference_status_reason"] = (
                 einvoice_delivery_preference_status_reason
             )
         if purchase_order_retrieval_preference_status is not None:
-            input["purchase_order_retrieval_preference_status"] = (
+            input_["purchase_order_retrieval_preference_status"] = (
                 purchase_order_retrieval_preference_status
             )
         if purchase_order_retrieval_preference_status_reason is not None:
-            input["purchase_order_retrieval_preference_status_reason"] = (
+            input_["purchase_order_retrieval_preference_status_reason"] = (
                 purchase_order_retrieval_preference_status_reason
             )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

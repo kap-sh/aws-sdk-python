@@ -76,26 +76,26 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest,
+    input_: aws_sdk_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/greengrass/updates"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "amzn_client_token" in input:
-        headers["X-Amzn-Client-Token"] = str(input["amzn_client_token"])
+    if "amzn_client_token" in input_:
+        headers["X-Amzn-Client-Token"] = str(input_["amzn_client_token"])
     import aws_sdk_greengrass.types.create_software_update_job_request
 
     body: bytes | None = json.dumps(
         aws_sdk_greengrass.types.create_software_update_job_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -103,26 +103,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def create_software_update_job(
     options: OperationOptions,
-    input: aws_sdk_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest,
+    input_: aws_sdk_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest,
 ) -> tuple[
     aws_sdk_greengrass.types.create_software_update_job_response.CreateSoftwareUpdateJobResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -131,16 +128,17 @@ def create_software_update_job(
 
 async def async_create_software_update_job(
     options: AsyncOperationOptions,
-    input: aws_sdk_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest,
+    input_: aws_sdk_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest,
 ) -> tuple[
     aws_sdk_greengrass.types.create_software_update_job_response.CreateSoftwareUpdateJobResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

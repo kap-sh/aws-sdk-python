@@ -86,19 +86,19 @@ class ApprovalTeam:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.create_approval_team_request.CreateApprovalTeamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.create_approval_team_request.CreateApprovalTeamRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["approval_strategy"] = approval_strategy
-        input["approvers"] = approvers
-        input["description"] = description
-        input["policies"] = policies
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["approval_strategy"] = approval_strategy
+        input_["approvers"] = approvers
+        input_["description"] = description
+        input_["policies"] = policies
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,11 +131,11 @@ class ApprovalTeam:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.get_approval_team_request.GetApprovalTeamRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mpa.types.get_approval_team_request.GetApprovalTeamRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -182,19 +182,19 @@ class ApprovalTeam:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.update_approval_team_request.UpdateApprovalTeamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.update_approval_team_request.UpdateApprovalTeamRequest = {}  # type: ignore[typeddict-item]
         if approval_strategy is not None:
-            input["approval_strategy"] = approval_strategy
+            input_["approval_strategy"] = approval_strategy
         if approvers is not None:
-            input["approvers"] = approvers
+            input_["approvers"] = approvers
         if description is not None:
-            input["description"] = description
-        input["arn"] = arn
+            input_["description"] = description
+        input_["arn"] = arn
         if update_actions is not None:
-            input["update_actions"] = update_actions
+            input_["update_actions"] = update_actions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -229,12 +229,12 @@ class ApprovalTeam:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.delete_inactive_approval_team_version_request.DeleteInactiveApprovalTeamVersionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["version_id"] = version_id
+        input_: aws_sdk_mpa.types.delete_inactive_approval_team_version_request.DeleteInactiveApprovalTeamVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["version_id"] = version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,14 +269,14 @@ class ApprovalTeam:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_approval_teams_request.ListApprovalTeamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.list_approval_teams_request.ListApprovalTeamsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,13 +311,13 @@ class ApprovalTeam:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.start_active_approval_team_deletion_request.StartActiveApprovalTeamDeletionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.start_active_approval_team_deletion_request.StartActiveApprovalTeamDeletionRequest = {}  # type: ignore[typeddict-item]
         if pending_window_days is not None:
-            input["pending_window_days"] = pending_window_days
-        input["arn"] = arn
+            input_["pending_window_days"] = pending_window_days
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -354,13 +354,13 @@ class ApprovalTeam:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.start_approval_team_baseline_request.StartApprovalTeamBaselineRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mpa.types.start_approval_team_baseline_request.StartApprovalTeamBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if approver_ids is not None:
-            input["approver_ids"] = approver_ids
+            input_["approver_ids"] = approver_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,19 +411,19 @@ class AsyncApprovalTeam:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.create_approval_team_request.CreateApprovalTeamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.create_approval_team_request.CreateApprovalTeamRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["approval_strategy"] = approval_strategy
-        input["approvers"] = approvers
-        input["description"] = description
-        input["policies"] = policies
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["approval_strategy"] = approval_strategy
+        input_["approvers"] = approvers
+        input_["description"] = description
+        input_["policies"] = policies
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,11 +457,11 @@ class AsyncApprovalTeam:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.get_approval_team_request.GetApprovalTeamRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mpa.types.get_approval_team_request.GetApprovalTeamRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,19 +509,19 @@ class AsyncApprovalTeam:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.update_approval_team_request.UpdateApprovalTeamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.update_approval_team_request.UpdateApprovalTeamRequest = {}  # type: ignore[typeddict-item]
         if approval_strategy is not None:
-            input["approval_strategy"] = approval_strategy
+            input_["approval_strategy"] = approval_strategy
         if approvers is not None:
-            input["approvers"] = approvers
+            input_["approvers"] = approvers
         if description is not None:
-            input["description"] = description
-        input["arn"] = arn
+            input_["description"] = description
+        input_["arn"] = arn
         if update_actions is not None:
-            input["update_actions"] = update_actions
+            input_["update_actions"] = update_actions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,12 +557,12 @@ class AsyncApprovalTeam:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.delete_inactive_approval_team_version_request.DeleteInactiveApprovalTeamVersionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["version_id"] = version_id
+        input_: aws_sdk_mpa.types.delete_inactive_approval_team_version_request.DeleteInactiveApprovalTeamVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -598,14 +598,14 @@ class AsyncApprovalTeam:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_approval_teams_request.ListApprovalTeamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.list_approval_teams_request.ListApprovalTeamsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -641,13 +641,13 @@ class AsyncApprovalTeam:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.start_active_approval_team_deletion_request.StartActiveApprovalTeamDeletionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.start_active_approval_team_deletion_request.StartActiveApprovalTeamDeletionRequest = {}  # type: ignore[typeddict-item]
         if pending_window_days is not None:
-            input["pending_window_days"] = pending_window_days
-        input["arn"] = arn
+            input_["pending_window_days"] = pending_window_days
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -685,13 +685,13 @@ class AsyncApprovalTeam:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.start_approval_team_baseline_request.StartApprovalTeamBaselineRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mpa.types.start_approval_team_baseline_request.StartApprovalTeamBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if approver_ids is not None:
-            input["approver_ids"] = approver_ids
+            input_["approver_ids"] = approver_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -98,21 +98,21 @@ class VehicleResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_vehicle_request.CreateVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
-        input["model_manifest_arn"] = model_manifest_arn
-        input["decoder_manifest_arn"] = decoder_manifest_arn
+        input_: aws_sdk_iotfleetwise.types.create_vehicle_request.CreateVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
+        input_["model_manifest_arn"] = model_manifest_arn
+        input_["decoder_manifest_arn"] = decoder_manifest_arn
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if association_behavior is not None:
-            input["association_behavior"] = association_behavior
+            input_["association_behavior"] = association_behavior
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if state_templates is not None:
-            input["state_templates"] = state_templates
+            input_["state_templates"] = state_templates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -145,11 +145,11 @@ class VehicleResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_vehicle_request.GetVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
+        input_: aws_sdk_iotfleetwise.types.get_vehicle_request.GetVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,25 +206,25 @@ class VehicleResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_vehicle_request.UpdateVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
+        input_: aws_sdk_iotfleetwise.types.update_vehicle_request.UpdateVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
         if model_manifest_arn is not None:
-            input["model_manifest_arn"] = model_manifest_arn
+            input_["model_manifest_arn"] = model_manifest_arn
         if decoder_manifest_arn is not None:
-            input["decoder_manifest_arn"] = decoder_manifest_arn
+            input_["decoder_manifest_arn"] = decoder_manifest_arn
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if attribute_update_mode is not None:
-            input["attribute_update_mode"] = attribute_update_mode
+            input_["attribute_update_mode"] = attribute_update_mode
         if state_templates_to_add is not None:
-            input["state_templates_to_add"] = state_templates_to_add
+            input_["state_templates_to_add"] = state_templates_to_add
         if state_templates_to_remove is not None:
-            input["state_templates_to_remove"] = state_templates_to_remove
+            input_["state_templates_to_remove"] = state_templates_to_remove
         if state_templates_to_update is not None:
-            input["state_templates_to_update"] = state_templates_to_update
+            input_["state_templates_to_update"] = state_templates_to_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -257,11 +257,11 @@ class VehicleResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_vehicle_request.DeleteVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
+        input_: aws_sdk_iotfleetwise.types.delete_vehicle_request.DeleteVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,22 +312,22 @@ class VehicleResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_vehicles_request.ListVehiclesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_vehicles_request.ListVehiclesRequest = {}  # type: ignore[typeddict-item]
         if model_manifest_arn is not None:
-            input["model_manifest_arn"] = model_manifest_arn
+            input_["model_manifest_arn"] = model_manifest_arn
         if attribute_names is not None:
-            input["attribute_names"] = attribute_names
+            input_["attribute_names"] = attribute_names
         if attribute_values is not None:
-            input["attribute_values"] = attribute_values
+            input_["attribute_values"] = attribute_values
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -362,12 +362,12 @@ class VehicleResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.associate_vehicle_fleet_request.AssociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_iotfleetwise.types.associate_vehicle_fleet_request.AssociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
+        input_["fleet_id"] = fleet_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,12 +402,12 @@ class VehicleResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.disassociate_vehicle_fleet_request.DisassociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_iotfleetwise.types.disassociate_vehicle_fleet_request.DisassociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
+        input_["fleet_id"] = fleet_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,21 +464,21 @@ class AsyncVehicleResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_vehicle_request.CreateVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
-        input["model_manifest_arn"] = model_manifest_arn
-        input["decoder_manifest_arn"] = decoder_manifest_arn
+        input_: aws_sdk_iotfleetwise.types.create_vehicle_request.CreateVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
+        input_["model_manifest_arn"] = model_manifest_arn
+        input_["decoder_manifest_arn"] = decoder_manifest_arn
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if association_behavior is not None:
-            input["association_behavior"] = association_behavior
+            input_["association_behavior"] = association_behavior
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if state_templates is not None:
-            input["state_templates"] = state_templates
+            input_["state_templates"] = state_templates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -512,11 +512,11 @@ class AsyncVehicleResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_vehicle_request.GetVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
+        input_: aws_sdk_iotfleetwise.types.get_vehicle_request.GetVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,25 +574,25 @@ class AsyncVehicleResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_vehicle_request.UpdateVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
+        input_: aws_sdk_iotfleetwise.types.update_vehicle_request.UpdateVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
         if model_manifest_arn is not None:
-            input["model_manifest_arn"] = model_manifest_arn
+            input_["model_manifest_arn"] = model_manifest_arn
         if decoder_manifest_arn is not None:
-            input["decoder_manifest_arn"] = decoder_manifest_arn
+            input_["decoder_manifest_arn"] = decoder_manifest_arn
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if attribute_update_mode is not None:
-            input["attribute_update_mode"] = attribute_update_mode
+            input_["attribute_update_mode"] = attribute_update_mode
         if state_templates_to_add is not None:
-            input["state_templates_to_add"] = state_templates_to_add
+            input_["state_templates_to_add"] = state_templates_to_add
         if state_templates_to_remove is not None:
-            input["state_templates_to_remove"] = state_templates_to_remove
+            input_["state_templates_to_remove"] = state_templates_to_remove
         if state_templates_to_update is not None:
-            input["state_templates_to_update"] = state_templates_to_update
+            input_["state_templates_to_update"] = state_templates_to_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -626,11 +626,11 @@ class AsyncVehicleResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_vehicle_request.DeleteVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
+        input_: aws_sdk_iotfleetwise.types.delete_vehicle_request.DeleteVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -682,22 +682,22 @@ class AsyncVehicleResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_vehicles_request.ListVehiclesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_vehicles_request.ListVehiclesRequest = {}  # type: ignore[typeddict-item]
         if model_manifest_arn is not None:
-            input["model_manifest_arn"] = model_manifest_arn
+            input_["model_manifest_arn"] = model_manifest_arn
         if attribute_names is not None:
-            input["attribute_names"] = attribute_names
+            input_["attribute_names"] = attribute_names
         if attribute_values is not None:
-            input["attribute_values"] = attribute_values
+            input_["attribute_values"] = attribute_values
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -733,12 +733,12 @@ class AsyncVehicleResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.associate_vehicle_fleet_request.AssociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_iotfleetwise.types.associate_vehicle_fleet_request.AssociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -774,12 +774,12 @@ class AsyncVehicleResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.disassociate_vehicle_fleet_request.DisassociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
-        input["vehicle_name"] = vehicle_name
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_iotfleetwise.types.disassociate_vehicle_fleet_request.DisassociateVehicleFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicle_name"] = vehicle_name
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

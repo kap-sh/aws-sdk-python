@@ -99,16 +99,16 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudsearch.types.delete_suggester_request.DeleteSuggesterRequest,
+    input_: aws_sdk_cloudsearch.types.delete_suggester_request.DeleteSuggesterRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -117,33 +117,32 @@ def build_request(
     pairs.append(("Version", "2013-01-01"))
     import aws_sdk_cloudsearch.types.delete_suggester_request
 
-    aws_sdk_cloudsearch.types.delete_suggester_request.serialize_query(input, pairs, "")
+    aws_sdk_cloudsearch.types.delete_suggester_request.serialize_query(
+        input_, pairs, ""
+    )
     body: bytes | None = urlencode(pairs).encode()
     headers["content-type"] = "application/x-www-form-urlencoded"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_suggester(
     options: OperationOptions,
-    input: aws_sdk_cloudsearch.types.delete_suggester_request.DeleteSuggesterRequest,
+    input_: aws_sdk_cloudsearch.types.delete_suggester_request.DeleteSuggesterRequest,
 ) -> tuple[
     aws_sdk_cloudsearch.types.delete_suggester_response.DeleteSuggesterResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -152,16 +151,17 @@ def delete_suggester(
 
 async def async_delete_suggester(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudsearch.types.delete_suggester_request.DeleteSuggesterRequest,
+    input_: aws_sdk_cloudsearch.types.delete_suggester_request.DeleteSuggesterRequest,
 ) -> tuple[
     aws_sdk_cloudsearch.types.delete_suggester_response.DeleteSuggesterResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

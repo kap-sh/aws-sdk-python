@@ -75,14 +75,14 @@ class EmailContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.create_email_contact_request.CreateEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["email_address"] = email_address
+        input_: aws_sdk_notificationscontacts.types.create_email_contact_request.CreateEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["email_address"] = email_address
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,11 +115,11 @@ class EmailContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.get_email_contact_request.GetEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notificationscontacts.types.get_email_contact_request.GetEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,11 +152,11 @@ class EmailContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.delete_email_contact_request.DeleteEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notificationscontacts.types.delete_email_contact_request.DeleteEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -191,14 +191,14 @@ class EmailContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.list_email_contacts_request.ListEmailContactsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notificationscontacts.types.list_email_contacts_request.ListEmailContactsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,12 +233,12 @@ class EmailContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.activate_email_contact_request.ActivateEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["code"] = code
+        input_: aws_sdk_notificationscontacts.types.activate_email_contact_request.ActivateEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["code"] = code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,11 +271,11 @@ class EmailContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.send_activation_code_request.SendActivationCodeRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notificationscontacts.types.send_activation_code_request.SendActivationCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,14 +318,14 @@ class AsyncEmailContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.create_email_contact_request.CreateEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["email_address"] = email_address
+        input_: aws_sdk_notificationscontacts.types.create_email_contact_request.CreateEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["email_address"] = email_address
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,11 +359,11 @@ class AsyncEmailContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.get_email_contact_request.GetEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notificationscontacts.types.get_email_contact_request.GetEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,11 +397,11 @@ class AsyncEmailContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.delete_email_contact_request.DeleteEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notificationscontacts.types.delete_email_contact_request.DeleteEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,14 +437,14 @@ class AsyncEmailContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.list_email_contacts_request.ListEmailContactsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notificationscontacts.types.list_email_contacts_request.ListEmailContactsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,12 +480,12 @@ class AsyncEmailContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.activate_email_contact_request.ActivateEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["code"] = code
+        input_: aws_sdk_notificationscontacts.types.activate_email_contact_request.ActivateEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["code"] = code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -519,11 +519,11 @@ class AsyncEmailContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notificationscontacts.types.send_activation_code_request.SendActivationCodeRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notificationscontacts.types.send_activation_code_request.SendActivationCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

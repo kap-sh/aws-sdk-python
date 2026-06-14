@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_ecs._auth._signers
+import aws_sdk_ecs._auth._sigv4
 from aws_sdk_ecs._auth._identity import Credentials
 from aws_sdk_ecs._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,45 @@ from aws_sdk_ecs._auth._providers import (
 )
 from aws_sdk_ecs._auth._zapros_handler import AuthMiddleware
 from aws_sdk_ecs._pagination import resolve_path as _resolve_path
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.capacity_provider_resource import (
+    AsyncCapacityProviderResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.cluster_resource import (
+    AsyncClusterResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.container_instance_resource import (
+    AsyncContainerInstanceResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.daemon_deployment_resource import (
+    AsyncDaemonDeploymentResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.daemon_resource import (
+    AsyncDaemonResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.daemon_revision_resource import (
+    AsyncDaemonRevisionResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.daemon_task_definition_resource import (
+    AsyncDaemonTaskDefinitionResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.service_deployment_resource import (
+    AsyncServiceDeploymentResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.service_resource import (
+    AsyncServiceResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.service_revision_resource import (
+    AsyncServiceRevisionResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.task_definition_resource import (
+    AsyncTaskDefinitionResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.task_resource import (
+    AsyncTaskResource,
+)
+from aws_sdk_ecs._resources.amazon_ec2_container_service_v20141113.task_set_resource import (
+    AsyncTaskSetResource,
+)
 from aws_sdk_ecs._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -135,6 +176,20 @@ class AsyncECSClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.capacity_provider_resource = AsyncCapacityProviderResource(self)
+        self.cluster_resource = AsyncClusterResource(self)
+        self.container_instance_resource = AsyncContainerInstanceResource(self)
+        self.daemon_deployment_resource = AsyncDaemonDeploymentResource(self)
+        self.daemon_resource = AsyncDaemonResource(self)
+        self.daemon_revision_resource = AsyncDaemonRevisionResource(self)
+        self.daemon_task_definition_resource = AsyncDaemonTaskDefinitionResource(self)
+        self.service_deployment_resource = AsyncServiceDeploymentResource(self)
+        self.service_resource = AsyncServiceResource(self)
+        self.service_revision_resource = AsyncServiceRevisionResource(self)
+        self.task_definition_resource = AsyncTaskDefinitionResource(self)
+        self.task_resource = AsyncTaskResource(self)
+        self.task_set_resource = AsyncTaskSetResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncECSClientConfig] = None
@@ -208,14 +263,14 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.continue_service_deployment_request.ContinueServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["service_deployment_arn"] = service_deployment_arn
-        input["hook_id"] = hook_id
+        input_: aws_sdk_ecs.types.continue_service_deployment_request.ContinueServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_deployment_arn"] = service_deployment_arn
+        input_["hook_id"] = hook_id
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,13 +318,13 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_account_setting_request.DeleteAccountSettingRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ecs.types.delete_account_setting_request.DeleteAccountSettingRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if principal_arn is not None:
-            input["principal_arn"] = principal_arn
+            input_["principal_arn"] = principal_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,11 +364,11 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.deregister_task_definition_request.DeregisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["task_definition"] = task_definition
+        input_: aws_sdk_ecs.types.deregister_task_definition_request.DeregisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["task_definition"] = task_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -357,13 +412,13 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_task_definition_request.DescribeTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["task_definition"] = task_definition
+        input_: aws_sdk_ecs.types.describe_task_definition_request.DescribeTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["task_definition"] = task_definition
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,14 +456,14 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.discover_poll_endpoint_request.DiscoverPollEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.discover_poll_endpoint_request.DiscoverPollEndpointRequest = {}  # type: ignore[typeddict-item]
         if container_instance is not None:
-            input["container_instance"] = container_instance
+            input_["container_instance"] = container_instance
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,22 +517,22 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_account_settings_request.ListAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_account_settings_request.ListAccountSettingsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if value is not None:
-            input["value"] = value
+            input_["value"] = value
         if principal_arn is not None:
-            input["principal_arn"] = principal_arn
+            input_["principal_arn"] = principal_arn
         if effective_settings is not None:
-            input["effective_settings"] = effective_settings
+            input_["effective_settings"] = effective_settings
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,15 +599,15 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_services_by_namespace_request.ListServicesByNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace"] = namespace
+        input_: aws_sdk_ecs.types.list_services_by_namespace_request.ListServicesByNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace"] = namespace
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,11 +672,11 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ecs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -673,18 +728,18 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_task_definition_families_request.ListTaskDefinitionFamiliesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_task_definition_families_request.ListTaskDefinitionFamiliesRequest = {}  # type: ignore[typeddict-item]
         if family_prefix is not None:
-            input["family_prefix"] = family_prefix
+            input_["family_prefix"] = family_prefix
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,14 +814,14 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.put_account_setting_request.PutAccountSettingRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["value"] = value
+        input_: aws_sdk_ecs.types.put_account_setting_request.PutAccountSettingRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["value"] = value
         if principal_arn is not None:
-            input["principal_arn"] = principal_arn
+            input_["principal_arn"] = principal_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -808,12 +863,12 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.put_account_setting_default_request.PutAccountSettingDefaultRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["value"] = value
+        input_: aws_sdk_ecs.types.put_account_setting_default_request.PutAccountSettingDefaultRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["value"] = value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -855,12 +910,12 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_ecs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -902,12 +957,12 @@ class AsyncECSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ecs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

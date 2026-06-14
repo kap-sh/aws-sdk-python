@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_iotsecuretunneling._auth._signers
+import aws_sdk_iotsecuretunneling._auth._sigv4
 from aws_sdk_iotsecuretunneling._auth._identity import Credentials
 from aws_sdk_iotsecuretunneling._auth._providers import (
     CredentialsProvider,
@@ -183,13 +185,13 @@ class IoTSecureTunnelingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsecuretunneling.types.close_tunnel_request.CloseTunnelRequest = {}  # type: ignore[typeddict-item]
-        input["tunnel_id"] = tunnel_id
+        input_: aws_sdk_iotsecuretunneling.types.close_tunnel_request.CloseTunnelRequest = {}  # type: ignore[typeddict-item]
+        input_["tunnel_id"] = tunnel_id
         if delete is not None:
-            input["delete"] = delete
+            input_["delete"] = delete
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,11 +224,11 @@ class IoTSecureTunnelingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsecuretunneling.types.describe_tunnel_request.DescribeTunnelRequest = {}  # type: ignore[typeddict-item]
-        input["tunnel_id"] = tunnel_id
+        input_: aws_sdk_iotsecuretunneling.types.describe_tunnel_request.DescribeTunnelRequest = {}  # type: ignore[typeddict-item]
+        input_["tunnel_id"] = tunnel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,11 +261,11 @@ class IoTSecureTunnelingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsecuretunneling.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iotsecuretunneling.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,16 +308,16 @@ class IoTSecureTunnelingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsecuretunneling.types.list_tunnels_request.ListTunnelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsecuretunneling.types.list_tunnels_request.ListTunnelsRequest = {}  # type: ignore[typeddict-item]
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,18 +362,18 @@ class IoTSecureTunnelingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsecuretunneling.types.open_tunnel_request.OpenTunnelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotsecuretunneling.types.open_tunnel_request.OpenTunnelRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if destination_config is not None:
-            input["destination_config"] = destination_config
+            input_["destination_config"] = destination_config
         if timeout_config is not None:
-            input["timeout_config"] = timeout_config
+            input_["timeout_config"] = timeout_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -409,14 +411,14 @@ class IoTSecureTunnelingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsecuretunneling.types.rotate_tunnel_access_token_request.RotateTunnelAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["tunnel_id"] = tunnel_id
-        input["client_mode"] = client_mode
+        input_: aws_sdk_iotsecuretunneling.types.rotate_tunnel_access_token_request.RotateTunnelAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["tunnel_id"] = tunnel_id
+        input_["client_mode"] = client_mode
         if destination_config is not None:
-            input["destination_config"] = destination_config
+            input_["destination_config"] = destination_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,12 +453,12 @@ class IoTSecureTunnelingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsecuretunneling.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iotsecuretunneling.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -493,12 +495,12 @@ class IoTSecureTunnelingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotsecuretunneling.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iotsecuretunneling.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

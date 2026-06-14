@@ -109,33 +109,35 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
         if admin_username is not None:
-            input["admin_username"] = admin_username
+            input_["admin_username"] = admin_username
         if admin_user_password is not None:
-            input["admin_user_password"] = admin_user_password
+            input_["admin_user_password"] = admin_user_password
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if default_iam_role_arn is not None:
-            input["default_iam_role_arn"] = default_iam_role_arn
+            input_["default_iam_role_arn"] = default_iam_role_arn
         if iam_roles is not None:
-            input["iam_roles"] = iam_roles
+            input_["iam_roles"] = iam_roles
         if log_exports is not None:
-            input["log_exports"] = log_exports
+            input_["log_exports"] = log_exports
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if manage_admin_password is not None:
-            input["manage_admin_password"] = manage_admin_password
+            input_["manage_admin_password"] = manage_admin_password
         if admin_password_secret_kms_key_id is not None:
-            input["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
+            input_["admin_password_secret_kms_key_id"] = (
+                admin_password_secret_kms_key_id
+            )
         if redshift_idc_application_arn is not None:
-            input["redshift_idc_application_arn"] = redshift_idc_application_arn
+            input_["redshift_idc_application_arn"] = redshift_idc_application_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -170,11 +172,11 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,27 +235,29 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_namespace_request.UpdateNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.update_namespace_request.UpdateNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
         if admin_user_password is not None:
-            input["admin_user_password"] = admin_user_password
+            input_["admin_user_password"] = admin_user_password
         if admin_username is not None:
-            input["admin_username"] = admin_username
+            input_["admin_username"] = admin_username
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if default_iam_role_arn is not None:
-            input["default_iam_role_arn"] = default_iam_role_arn
+            input_["default_iam_role_arn"] = default_iam_role_arn
         if iam_roles is not None:
-            input["iam_roles"] = iam_roles
+            input_["iam_roles"] = iam_roles
         if log_exports is not None:
-            input["log_exports"] = log_exports
+            input_["log_exports"] = log_exports
         if manage_admin_password is not None:
-            input["manage_admin_password"] = manage_admin_password
+            input_["manage_admin_password"] = manage_admin_password
         if admin_password_secret_kms_key_id is not None:
-            input["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
+            input_["admin_password_secret_kms_key_id"] = (
+                admin_password_secret_kms_key_id
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -290,15 +294,15 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
         if final_snapshot_name is not None:
-            input["final_snapshot_name"] = final_snapshot_name
+            input_["final_snapshot_name"] = final_snapshot_name
         if final_snapshot_retention_period is not None:
-            input["final_snapshot_retention_period"] = final_snapshot_retention_period
+            input_["final_snapshot_retention_period"] = final_snapshot_retention_period
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,14 +337,14 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -389,21 +393,21 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_lakehouse_configuration_request.UpdateLakehouseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.update_lakehouse_configuration_request.UpdateLakehouseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
         if lakehouse_registration is not None:
-            input["lakehouse_registration"] = lakehouse_registration
+            input_["lakehouse_registration"] = lakehouse_registration
         if catalog_name is not None:
-            input["catalog_name"] = catalog_name
+            input_["catalog_name"] = catalog_name
         if lakehouse_idc_registration is not None:
-            input["lakehouse_idc_registration"] = lakehouse_idc_registration
+            input_["lakehouse_idc_registration"] = lakehouse_idc_registration
         if lakehouse_idc_application_arn is not None:
-            input["lakehouse_idc_application_arn"] = lakehouse_idc_application_arn
+            input_["lakehouse_idc_application_arn"] = lakehouse_idc_application_arn
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,33 +480,35 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
         if admin_username is not None:
-            input["admin_username"] = admin_username
+            input_["admin_username"] = admin_username
         if admin_user_password is not None:
-            input["admin_user_password"] = admin_user_password
+            input_["admin_user_password"] = admin_user_password
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if default_iam_role_arn is not None:
-            input["default_iam_role_arn"] = default_iam_role_arn
+            input_["default_iam_role_arn"] = default_iam_role_arn
         if iam_roles is not None:
-            input["iam_roles"] = iam_roles
+            input_["iam_roles"] = iam_roles
         if log_exports is not None:
-            input["log_exports"] = log_exports
+            input_["log_exports"] = log_exports
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if manage_admin_password is not None:
-            input["manage_admin_password"] = manage_admin_password
+            input_["manage_admin_password"] = manage_admin_password
         if admin_password_secret_kms_key_id is not None:
-            input["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
+            input_["admin_password_secret_kms_key_id"] = (
+                admin_password_secret_kms_key_id
+            )
         if redshift_idc_application_arn is not None:
-            input["redshift_idc_application_arn"] = redshift_idc_application_arn
+            input_["redshift_idc_application_arn"] = redshift_idc_application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,11 +544,11 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -602,27 +608,29 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_namespace_request.UpdateNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.update_namespace_request.UpdateNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
         if admin_user_password is not None:
-            input["admin_user_password"] = admin_user_password
+            input_["admin_user_password"] = admin_user_password
         if admin_username is not None:
-            input["admin_username"] = admin_username
+            input_["admin_username"] = admin_username
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if default_iam_role_arn is not None:
-            input["default_iam_role_arn"] = default_iam_role_arn
+            input_["default_iam_role_arn"] = default_iam_role_arn
         if iam_roles is not None:
-            input["iam_roles"] = iam_roles
+            input_["iam_roles"] = iam_roles
         if log_exports is not None:
-            input["log_exports"] = log_exports
+            input_["log_exports"] = log_exports
         if manage_admin_password is not None:
-            input["manage_admin_password"] = manage_admin_password
+            input_["manage_admin_password"] = manage_admin_password
         if admin_password_secret_kms_key_id is not None:
-            input["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
+            input_["admin_password_secret_kms_key_id"] = (
+                admin_password_secret_kms_key_id
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -660,15 +668,15 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
         if final_snapshot_name is not None:
-            input["final_snapshot_name"] = final_snapshot_name
+            input_["final_snapshot_name"] = final_snapshot_name
         if final_snapshot_retention_period is not None:
-            input["final_snapshot_retention_period"] = final_snapshot_retention_period
+            input_["final_snapshot_retention_period"] = final_snapshot_retention_period
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -704,14 +712,14 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,21 +769,21 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_lakehouse_configuration_request.UpdateLakehouseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.update_lakehouse_configuration_request.UpdateLakehouseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
         if lakehouse_registration is not None:
-            input["lakehouse_registration"] = lakehouse_registration
+            input_["lakehouse_registration"] = lakehouse_registration
         if catalog_name is not None:
-            input["catalog_name"] = catalog_name
+            input_["catalog_name"] = catalog_name
         if lakehouse_idc_registration is not None:
-            input["lakehouse_idc_registration"] = lakehouse_idc_registration
+            input_["lakehouse_idc_registration"] = lakehouse_idc_registration
         if lakehouse_idc_application_arn is not None:
-            input["lakehouse_idc_application_arn"] = lakehouse_idc_application_arn
+            input_["lakehouse_idc_application_arn"] = lakehouse_idc_application_arn
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

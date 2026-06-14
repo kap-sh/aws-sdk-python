@@ -56,11 +56,11 @@ class ManagedThingStateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_state_request.GetManagedThingStateRequest = {}  # type: ignore[typeddict-item]
-        input["managed_thing_id"] = managed_thing_id
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_state_request.GetManagedThingStateRequest = {}  # type: ignore[typeddict-item]
+        input_["managed_thing_id"] = managed_thing_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -99,11 +99,11 @@ class AsyncManagedThingStateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_state_request.GetManagedThingStateRequest = {}  # type: ignore[typeddict-item]
-        input["managed_thing_id"] = managed_thing_id
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_state_request.GetManagedThingStateRequest = {}  # type: ignore[typeddict-item]
+        input_["managed_thing_id"] = managed_thing_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

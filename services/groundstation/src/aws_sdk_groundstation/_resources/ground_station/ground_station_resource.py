@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_groundstation._auth._signers
@@ -75,16 +76,16 @@ class GroundStationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_ground_stations_request.ListGroundStationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_ground_stations_request.ListGroundStationsRequest = {}  # type: ignore[typeddict-item]
         if satellite_id is not None:
-            input["satellite_id"] = satellite_id
+            input_["satellite_id"] = satellite_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -125,15 +126,15 @@ class GroundStationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_antennas_request.ListAntennasRequest = {}  # type: ignore[typeddict-item]
-        input["ground_station_id"] = ground_station_id
+        input_: aws_sdk_groundstation.types.list_antennas_request.ListAntennasRequest = {}  # type: ignore[typeddict-item]
+        input_["ground_station_id"] = ground_station_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -182,19 +183,19 @@ class GroundStationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_ground_station_reservations_request.ListGroundStationReservationsRequest = {}  # type: ignore[typeddict-item]
-        input["ground_station_id"] = ground_station_id
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_groundstation.types.list_ground_station_reservations_request.ListGroundStationReservationsRequest = {}  # type: ignore[typeddict-item]
+        input_["ground_station_id"] = ground_station_id
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if reservation_types is not None:
-            input["reservation_types"] = reservation_types
+            input_["reservation_types"] = reservation_types
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,16 +242,16 @@ class AsyncGroundStationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_ground_stations_request.ListGroundStationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_ground_stations_request.ListGroundStationsRequest = {}  # type: ignore[typeddict-item]
         if satellite_id is not None:
-            input["satellite_id"] = satellite_id
+            input_["satellite_id"] = satellite_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,15 +293,15 @@ class AsyncGroundStationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_antennas_request.ListAntennasRequest = {}  # type: ignore[typeddict-item]
-        input["ground_station_id"] = ground_station_id
+        input_: aws_sdk_groundstation.types.list_antennas_request.ListAntennasRequest = {}  # type: ignore[typeddict-item]
+        input_["ground_station_id"] = ground_station_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,19 +351,19 @@ class AsyncGroundStationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_ground_station_reservations_request.ListGroundStationReservationsRequest = {}  # type: ignore[typeddict-item]
-        input["ground_station_id"] = ground_station_id
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_groundstation.types.list_ground_station_reservations_request.ListGroundStationReservationsRequest = {}  # type: ignore[typeddict-item]
+        input_["ground_station_id"] = ground_station_id
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if reservation_types is not None:
-            input["reservation_types"] = reservation_types
+            input_["reservation_types"] = reservation_types
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

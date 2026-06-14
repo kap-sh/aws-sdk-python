@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_migrationhub_config._auth._signers
+import aws_sdk_migrationhub_config._auth._sigv4
 from aws_sdk_migrationhub_config._auth._identity import Credentials
 from aws_sdk_migrationhub_config._auth._providers import (
     CredentialsProvider,
@@ -169,14 +171,14 @@ class MigrationHubConfigClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhub_config.types.create_home_region_control_request.CreateHomeRegionControlRequest = {}  # type: ignore[typeddict-item]
-        input["home_region"] = home_region
-        input["target"] = target
+        input_: aws_sdk_migrationhub_config.types.create_home_region_control_request.CreateHomeRegionControlRequest = {}  # type: ignore[typeddict-item]
+        input_["home_region"] = home_region
+        input_["target"] = target
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -209,11 +211,11 @@ class MigrationHubConfigClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhub_config.types.delete_home_region_control_request.DeleteHomeRegionControlRequest = {}  # type: ignore[typeddict-item]
-        input["control_id"] = control_id
+        input_: aws_sdk_migrationhub_config.types.delete_home_region_control_request.DeleteHomeRegionControlRequest = {}  # type: ignore[typeddict-item]
+        input_["control_id"] = control_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,20 +262,20 @@ class MigrationHubConfigClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhub_config.types.describe_home_region_controls_request.DescribeHomeRegionControlsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhub_config.types.describe_home_region_controls_request.DescribeHomeRegionControlsRequest = {}  # type: ignore[typeddict-item]
         if control_id is not None:
-            input["control_id"] = control_id
+            input_["control_id"] = control_id
         if home_region is not None:
-            input["home_region"] = home_region
+            input_["home_region"] = home_region
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -299,10 +301,10 @@ class MigrationHubConfigClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhub_config.types.get_home_region_request.GetHomeRegionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhub_config.types.get_home_region_request.GetHomeRegionRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

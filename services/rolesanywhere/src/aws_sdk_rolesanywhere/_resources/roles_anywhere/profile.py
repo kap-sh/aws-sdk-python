@@ -90,26 +90,26 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rolesanywhere.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if require_instance_properties is not None:
-            input["require_instance_properties"] = require_instance_properties
+            input_["require_instance_properties"] = require_instance_properties
         if session_policy is not None:
-            input["session_policy"] = session_policy
-        input["role_arns"] = role_arns
+            input_["session_policy"] = session_policy
+        input_["role_arns"] = role_arns
         if managed_policy_arns is not None:
-            input["managed_policy_arns"] = managed_policy_arns
+            input_["managed_policy_arns"] = managed_policy_arns
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if accept_role_session_name is not None:
-            input["accept_role_session_name"] = accept_role_session_name
+            input_["accept_role_session_name"] = accept_role_session_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,11 +142,11 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -195,23 +195,23 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if session_policy is not None:
-            input["session_policy"] = session_policy
+            input_["session_policy"] = session_policy
         if role_arns is not None:
-            input["role_arns"] = role_arns
+            input_["role_arns"] = role_arns
         if managed_policy_arns is not None:
-            input["managed_policy_arns"] = managed_policy_arns
+            input_["managed_policy_arns"] = managed_policy_arns
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if accept_role_session_name is not None:
-            input["accept_role_session_name"] = accept_role_session_name
+            input_["accept_role_session_name"] = accept_role_session_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,11 +244,11 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,14 +283,14 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.list_request.ListRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rolesanywhere.types.list_request.ListRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,14 +334,14 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.delete_attribute_mapping_request.DeleteAttributeMappingRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["certificate_field"] = certificate_field
+        input_: aws_sdk_rolesanywhere.types.delete_attribute_mapping_request.DeleteAttributeMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["certificate_field"] = certificate_field
         if specifiers is not None:
-            input["specifiers"] = specifiers
+            input_["specifiers"] = specifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,11 +374,11 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,11 +411,11 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,13 +457,13 @@ class Profile:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.put_attribute_mapping_request.PutAttributeMappingRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["certificate_field"] = certificate_field
-        input["mapping_rules"] = mapping_rules
+        input_: aws_sdk_rolesanywhere.types.put_attribute_mapping_request.PutAttributeMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["certificate_field"] = certificate_field
+        input_["mapping_rules"] = mapping_rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,26 +520,26 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rolesanywhere.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if require_instance_properties is not None:
-            input["require_instance_properties"] = require_instance_properties
+            input_["require_instance_properties"] = require_instance_properties
         if session_policy is not None:
-            input["session_policy"] = session_policy
-        input["role_arns"] = role_arns
+            input_["session_policy"] = session_policy
+        input_["role_arns"] = role_arns
         if managed_policy_arns is not None:
-            input["managed_policy_arns"] = managed_policy_arns
+            input_["managed_policy_arns"] = managed_policy_arns
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if accept_role_session_name is not None:
-            input["accept_role_session_name"] = accept_role_session_name
+            input_["accept_role_session_name"] = accept_role_session_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -573,11 +573,11 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -627,23 +627,23 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if session_policy is not None:
-            input["session_policy"] = session_policy
+            input_["session_policy"] = session_policy
         if role_arns is not None:
-            input["role_arns"] = role_arns
+            input_["role_arns"] = role_arns
         if managed_policy_arns is not None:
-            input["managed_policy_arns"] = managed_policy_arns
+            input_["managed_policy_arns"] = managed_policy_arns
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if accept_role_session_name is not None:
-            input["accept_role_session_name"] = accept_role_session_name
+            input_["accept_role_session_name"] = accept_role_session_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -677,11 +677,11 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -717,14 +717,14 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.list_request.ListRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rolesanywhere.types.list_request.ListRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -769,14 +769,14 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.delete_attribute_mapping_request.DeleteAttributeMappingRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["certificate_field"] = certificate_field
+        input_: aws_sdk_rolesanywhere.types.delete_attribute_mapping_request.DeleteAttributeMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["certificate_field"] = certificate_field
         if specifiers is not None:
-            input["specifiers"] = specifiers
+            input_["specifiers"] = specifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -810,11 +810,11 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,11 +848,11 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_rolesanywhere.types.scalar_profile_request.ScalarProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -895,13 +895,13 @@ class AsyncProfile:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.put_attribute_mapping_request.PutAttributeMappingRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["certificate_field"] = certificate_field
-        input["mapping_rules"] = mapping_rules
+        input_: aws_sdk_rolesanywhere.types.put_attribute_mapping_request.PutAttributeMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["certificate_field"] = certificate_field
+        input_["mapping_rules"] = mapping_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

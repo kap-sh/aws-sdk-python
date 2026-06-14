@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_keyspaces._auth._signers
+import aws_sdk_keyspaces._auth._sigv4
 from aws_sdk_keyspaces._auth._identity import Credentials
 from aws_sdk_keyspaces._auth._providers import (
     CredentialsProvider,
@@ -222,15 +224,15 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.create_keyspace_request.CreateKeyspaceRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
+        input_: aws_sdk_keyspaces.types.create_keyspace_request.CreateKeyspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if replication_specification is not None:
-            input["replication_specification"] = replication_specification
+            input_["replication_specification"] = replication_specification
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,37 +311,37 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["table_name"] = table_name
-        input["schema_definition"] = schema_definition
+        input_: aws_sdk_keyspaces.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["table_name"] = table_name
+        input_["schema_definition"] = schema_definition
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if capacity_specification is not None:
-            input["capacity_specification"] = capacity_specification
+            input_["capacity_specification"] = capacity_specification
         if encryption_specification is not None:
-            input["encryption_specification"] = encryption_specification
+            input_["encryption_specification"] = encryption_specification
         if point_in_time_recovery is not None:
-            input["point_in_time_recovery"] = point_in_time_recovery
+            input_["point_in_time_recovery"] = point_in_time_recovery
         if ttl is not None:
-            input["ttl"] = ttl
+            input_["ttl"] = ttl
         if default_time_to_live is not None:
-            input["default_time_to_live"] = default_time_to_live
+            input_["default_time_to_live"] = default_time_to_live
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_side_timestamps is not None:
-            input["client_side_timestamps"] = client_side_timestamps
+            input_["client_side_timestamps"] = client_side_timestamps
         if auto_scaling_specification is not None:
-            input["auto_scaling_specification"] = auto_scaling_specification
+            input_["auto_scaling_specification"] = auto_scaling_specification
         if replica_specifications is not None:
-            input["replica_specifications"] = replica_specifications
+            input_["replica_specifications"] = replica_specifications
         if cdc_specification is not None:
-            input["cdc_specification"] = cdc_specification
+            input_["cdc_specification"] = cdc_specification
         if warm_throughput_specification is not None:
-            input["warm_throughput_specification"] = warm_throughput_specification
+            input_["warm_throughput_specification"] = warm_throughput_specification
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,13 +378,13 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.create_type_request.CreateTypeRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["type_name"] = type_name
-        input["field_definitions"] = field_definitions
+        input_: aws_sdk_keyspaces.types.create_type_request.CreateTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["type_name"] = type_name
+        input_["field_definitions"] = field_definitions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,11 +417,11 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.delete_keyspace_request.DeleteKeyspaceRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
+        input_: aws_sdk_keyspaces.types.delete_keyspace_request.DeleteKeyspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,12 +456,12 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["table_name"] = table_name
+        input_: aws_sdk_keyspaces.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -494,12 +496,12 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.delete_type_request.DeleteTypeRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["type_name"] = type_name
+        input_: aws_sdk_keyspaces.types.delete_type_request.DeleteTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["type_name"] = type_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,11 +534,11 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.get_keyspace_request.GetKeyspaceRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
+        input_: aws_sdk_keyspaces.types.get_keyspace_request.GetKeyspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -571,12 +573,12 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["table_name"] = table_name
+        input_: aws_sdk_keyspaces.types.get_table_request.GetTableRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -611,12 +613,12 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.get_table_auto_scaling_settings_request.GetTableAutoScalingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["table_name"] = table_name
+        input_: aws_sdk_keyspaces.types.get_table_auto_scaling_settings_request.GetTableAutoScalingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,12 +653,12 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.get_type_request.GetTypeRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["type_name"] = type_name
+        input_: aws_sdk_keyspaces.types.get_type_request.GetTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["type_name"] = type_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -691,14 +693,14 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.list_keyspaces_request.ListKeyspacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_keyspaces.types.list_keyspaces_request.ListKeyspacesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -756,15 +758,15 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_keyspaces.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["keyspace_name"] = keyspace_name
+            input_["max_results"] = max_results
+        input_["keyspace_name"] = keyspace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -824,15 +826,15 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_keyspaces.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -892,15 +894,15 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.list_types_request.ListTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_keyspaces.types.list_types_request.ListTypesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["keyspace_name"] = keyspace_name
+            input_["max_results"] = max_results
+        input_["keyspace_name"] = keyspace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -988,30 +990,30 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.restore_table_request.RestoreTableRequest = {}  # type: ignore[typeddict-item]
-        input["source_keyspace_name"] = source_keyspace_name
-        input["source_table_name"] = source_table_name
-        input["target_keyspace_name"] = target_keyspace_name
-        input["target_table_name"] = target_table_name
+        input_: aws_sdk_keyspaces.types.restore_table_request.RestoreTableRequest = {}  # type: ignore[typeddict-item]
+        input_["source_keyspace_name"] = source_keyspace_name
+        input_["source_table_name"] = source_table_name
+        input_["target_keyspace_name"] = target_keyspace_name
+        input_["target_table_name"] = target_table_name
         if restore_timestamp is not None:
-            input["restore_timestamp"] = restore_timestamp
+            input_["restore_timestamp"] = restore_timestamp
         if capacity_specification_override is not None:
-            input["capacity_specification_override"] = capacity_specification_override
+            input_["capacity_specification_override"] = capacity_specification_override
         if encryption_specification_override is not None:
-            input["encryption_specification_override"] = (
+            input_["encryption_specification_override"] = (
                 encryption_specification_override
             )
         if point_in_time_recovery_override is not None:
-            input["point_in_time_recovery_override"] = point_in_time_recovery_override
+            input_["point_in_time_recovery_override"] = point_in_time_recovery_override
         if tags_override is not None:
-            input["tags_override"] = tags_override
+            input_["tags_override"] = tags_override
         if auto_scaling_specification is not None:
-            input["auto_scaling_specification"] = auto_scaling_specification
+            input_["auto_scaling_specification"] = auto_scaling_specification
         if replica_specifications is not None:
-            input["replica_specifications"] = replica_specifications
+            input_["replica_specifications"] = replica_specifications
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1046,12 +1048,12 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_keyspaces.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1086,12 +1088,12 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_keyspaces.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1128,14 +1130,14 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.update_keyspace_request.UpdateKeyspaceRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["replication_specification"] = replication_specification
+        input_: aws_sdk_keyspaces.types.update_keyspace_request.UpdateKeyspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["replication_specification"] = replication_specification
         if client_side_timestamps is not None:
-            input["client_side_timestamps"] = client_side_timestamps
+            input_["client_side_timestamps"] = client_side_timestamps
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1212,34 +1214,34 @@ class KeyspacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_keyspaces.types.update_table_request.UpdateTableRequest = {}  # type: ignore[typeddict-item]
-        input["keyspace_name"] = keyspace_name
-        input["table_name"] = table_name
+        input_: aws_sdk_keyspaces.types.update_table_request.UpdateTableRequest = {}  # type: ignore[typeddict-item]
+        input_["keyspace_name"] = keyspace_name
+        input_["table_name"] = table_name
         if add_columns is not None:
-            input["add_columns"] = add_columns
+            input_["add_columns"] = add_columns
         if capacity_specification is not None:
-            input["capacity_specification"] = capacity_specification
+            input_["capacity_specification"] = capacity_specification
         if encryption_specification is not None:
-            input["encryption_specification"] = encryption_specification
+            input_["encryption_specification"] = encryption_specification
         if point_in_time_recovery is not None:
-            input["point_in_time_recovery"] = point_in_time_recovery
+            input_["point_in_time_recovery"] = point_in_time_recovery
         if ttl is not None:
-            input["ttl"] = ttl
+            input_["ttl"] = ttl
         if default_time_to_live is not None:
-            input["default_time_to_live"] = default_time_to_live
+            input_["default_time_to_live"] = default_time_to_live
         if client_side_timestamps is not None:
-            input["client_side_timestamps"] = client_side_timestamps
+            input_["client_side_timestamps"] = client_side_timestamps
         if auto_scaling_specification is not None:
-            input["auto_scaling_specification"] = auto_scaling_specification
+            input_["auto_scaling_specification"] = auto_scaling_specification
         if replica_specifications is not None:
-            input["replica_specifications"] = replica_specifications
+            input_["replica_specifications"] = replica_specifications
         if cdc_specification is not None:
-            input["cdc_specification"] = cdc_specification
+            input_["cdc_specification"] = cdc_specification
         if warm_throughput_specification is not None:
-            input["warm_throughput_specification"] = warm_throughput_specification
+            input_["warm_throughput_specification"] = warm_throughput_specification
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

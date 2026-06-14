@@ -258,11 +258,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.accept_data_grant_request.AcceptDataGrantRequest = {}  # type: ignore[typeddict-item]
-        input["data_grant_arn"] = data_grant_arn
+        input_: aws_sdk_dataexchange.types.accept_data_grant_request.AcceptDataGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["data_grant_arn"] = data_grant_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,11 +293,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_dataexchange.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,20 +348,20 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.create_data_grant_request.CreateDataGrantRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["grant_distribution_scope"] = grant_distribution_scope
-        input["receiver_principal"] = receiver_principal
-        input["source_data_set_id"] = source_data_set_id
+        input_: aws_sdk_dataexchange.types.create_data_grant_request.CreateDataGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["grant_distribution_scope"] = grant_distribution_scope
+        input_["receiver_principal"] = receiver_principal
+        input_["source_data_set_id"] = source_data_set_id
         if ends_at is not None:
-            input["ends_at"] = ends_at
+            input_["ends_at"] = ends_at
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,15 +402,15 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.create_data_set_request.CreateDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["asset_type"] = asset_type
-        input["description"] = description
-        input["name"] = name
+        input_: aws_sdk_dataexchange.types.create_data_set_request.CreateDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_type"] = asset_type
+        input_["description"] = description
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,14 +449,14 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.create_event_action_request.CreateEventActionRequest = {}  # type: ignore[typeddict-item]
-        input["action"] = action
-        input["event"] = event
+        input_: aws_sdk_dataexchange.types.create_event_action_request.CreateEventActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
+        input_["event"] = event
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -495,14 +495,14 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
         if asset_configuration is not None:
-            input["asset_configuration"] = asset_configuration
-        input["details"] = details
-        input["type"] = type
+            input_["asset_configuration"] = asset_configuration
+        input_["details"] = details
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -543,15 +543,15 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.create_revision_request.CreateRevisionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.create_revision_request.CreateRevisionRequest = {}  # type: ignore[typeddict-item]
         if comment is not None:
-            input["comment"] = comment
-        input["data_set_id"] = data_set_id
+            input_["comment"] = comment
+        input_["data_set_id"] = data_set_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,13 +586,13 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["data_set_id"] = data_set_id
-        input["revision_id"] = revision_id
+        input_: aws_sdk_dataexchange.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["data_set_id"] = data_set_id
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -623,11 +623,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.delete_data_grant_request.DeleteDataGrantRequest = {}  # type: ignore[typeddict-item]
-        input["data_grant_id"] = data_grant_id
+        input_: aws_sdk_dataexchange.types.delete_data_grant_request.DeleteDataGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["data_grant_id"] = data_grant_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,11 +658,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.delete_data_set_request.DeleteDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_dataexchange.types.delete_data_set_request.DeleteDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -693,11 +693,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.delete_event_action_request.DeleteEventActionRequest = {}  # type: ignore[typeddict-item]
-        input["event_action_id"] = event_action_id
+        input_: aws_sdk_dataexchange.types.delete_event_action_request.DeleteEventActionRequest = {}  # type: ignore[typeddict-item]
+        input_["event_action_id"] = event_action_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -730,12 +730,12 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.delete_revision_request.DeleteRevisionRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
-        input["revision_id"] = revision_id
+        input_: aws_sdk_dataexchange.types.delete_revision_request.DeleteRevisionRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,13 +772,13 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.get_asset_request.GetAssetRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["data_set_id"] = data_set_id
-        input["revision_id"] = revision_id
+        input_: aws_sdk_dataexchange.types.get_asset_request.GetAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["data_set_id"] = data_set_id
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -811,11 +811,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.get_data_grant_request.GetDataGrantRequest = {}  # type: ignore[typeddict-item]
-        input["data_grant_id"] = data_grant_id
+        input_: aws_sdk_dataexchange.types.get_data_grant_request.GetDataGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["data_grant_id"] = data_grant_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,11 +848,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.get_data_set_request.GetDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_dataexchange.types.get_data_set_request.GetDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -885,11 +885,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.get_event_action_request.GetEventActionRequest = {}  # type: ignore[typeddict-item]
-        input["event_action_id"] = event_action_id
+        input_: aws_sdk_dataexchange.types.get_event_action_request.GetEventActionRequest = {}  # type: ignore[typeddict-item]
+        input_["event_action_id"] = event_action_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -922,11 +922,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_dataexchange.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -959,11 +959,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.get_received_data_grant_request.GetReceivedDataGrantRequest = {}  # type: ignore[typeddict-item]
-        input["data_grant_arn"] = data_grant_arn
+        input_: aws_sdk_dataexchange.types.get_received_data_grant_request.GetReceivedDataGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["data_grant_arn"] = data_grant_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -998,12 +998,12 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.get_revision_request.GetRevisionRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
-        input["revision_id"] = revision_id
+        input_: aws_sdk_dataexchange.types.get_revision_request.GetRevisionRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1040,14 +1040,14 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.list_data_grants_request.ListDataGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.list_data_grants_request.ListDataGrantsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1109,15 +1109,15 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.list_data_set_revisions_request.ListDataSetRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_dataexchange.types.list_data_set_revisions_request.ListDataSetRevisionsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1181,16 +1181,16 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.list_data_sets_request.ListDataSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.list_data_sets_request.ListDataSetsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if origin is not None:
-            input["origin"] = origin
+            input_["origin"] = origin
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1256,16 +1256,16 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.list_event_actions_request.ListEventActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.list_event_actions_request.ListEventActionsRequest = {}  # type: ignore[typeddict-item]
         if event_source_id is not None:
-            input["event_source_id"] = event_source_id
+            input_["event_source_id"] = event_source_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1333,18 +1333,18 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if data_set_id is not None:
-            input["data_set_id"] = data_set_id
+            input_["data_set_id"] = data_set_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1412,16 +1412,16 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.list_received_data_grants_request.ListReceivedDataGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.list_received_data_grants_request.ListReceivedDataGrantsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if acceptance_state is not None:
-            input["acceptance_state"] = acceptance_state
+            input_["acceptance_state"] = acceptance_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1489,16 +1489,16 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.list_revision_assets_request.ListRevisionAssetsRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_dataexchange.types.list_revision_assets_request.ListRevisionAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["revision_id"] = revision_id
+            input_["next_token"] = next_token
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1558,11 +1558,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_dataexchange.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1599,13 +1599,13 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.revoke_revision_request.RevokeRevisionRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
-        input["revision_id"] = revision_id
-        input["revocation_comment"] = revocation_comment
+        input_: aws_sdk_dataexchange.types.revoke_revision_request.RevokeRevisionRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
+        input_["revision_id"] = revision_id
+        input_["revocation_comment"] = revocation_comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1656,23 +1656,23 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.send_api_asset_request.SendApiAssetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.send_api_asset_request.SendApiAssetRequest = {}  # type: ignore[typeddict-item]
         if body is not None:
-            input["body"] = body
+            input_["body"] = body
         if query_string_parameters is not None:
-            input["query_string_parameters"] = query_string_parameters
-        input["asset_id"] = asset_id
-        input["data_set_id"] = data_set_id
+            input_["query_string_parameters"] = query_string_parameters
+        input_["asset_id"] = asset_id
+        input_["data_set_id"] = data_set_id
         if request_headers is not None:
-            input["request_headers"] = request_headers
+            input_["request_headers"] = request_headers
         if method is not None:
-            input["method"] = method
+            input_["method"] = method
         if path is not None:
-            input["path"] = path
-        input["revision_id"] = revision_id
+            input_["path"] = path
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1721,20 +1721,20 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.send_data_set_notification_request.SendDataSetNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.send_data_set_notification_request.SendDataSetNotificationRequest = {}  # type: ignore[typeddict-item]
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if comment is not None:
-            input["comment"] = comment
-        input["data_set_id"] = data_set_id
+            input_["comment"] = comment
+        input_["data_set_id"] = data_set_id
         if details is not None:
-            input["details"] = details
-        input["type"] = type
+            input_["details"] = details
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1767,11 +1767,11 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.start_job_request.StartJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_dataexchange.types.start_job_request.StartJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1804,12 +1804,12 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_dataexchange.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1842,12 +1842,12 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_dataexchange.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1886,14 +1886,14 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.update_asset_request.UpdateAssetRequest = {}  # type: ignore[typeddict-item]
-        input["asset_id"] = asset_id
-        input["data_set_id"] = data_set_id
-        input["name"] = name
-        input["revision_id"] = revision_id
+        input_: aws_sdk_dataexchange.types.update_asset_request.UpdateAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["asset_id"] = asset_id
+        input_["data_set_id"] = data_set_id
+        input_["name"] = name
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1932,15 +1932,15 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.update_data_set_request.UpdateDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_dataexchange.types.update_data_set_request.UpdateDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1975,13 +1975,13 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.update_event_action_request.UpdateEventActionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.update_event_action_request.UpdateEventActionRequest = {}  # type: ignore[typeddict-item]
         if action is not None:
-            input["action"] = action
-        input["event_action_id"] = event_action_id
+            input_["action"] = action
+        input_["event_action_id"] = event_action_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2022,16 +2022,16 @@ class DataExchangeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dataexchange.types.update_revision_request.UpdateRevisionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dataexchange.types.update_revision_request.UpdateRevisionRequest = {}  # type: ignore[typeddict-item]
         if comment is not None:
-            input["comment"] = comment
-        input["data_set_id"] = data_set_id
+            input_["comment"] = comment
+        input_["data_set_id"] = data_set_id
         if finalized is not None:
-            input["finalized"] = finalized
-        input["revision_id"] = revision_id
+            input_["finalized"] = finalized
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -94,53 +94,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_connect.types.get_task_template_request.GetTaskTemplateRequest,
+    input_: aws_sdk_connect.types.get_task_template_request.GetTaskTemplateRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/instance/{InstanceId}/task/template/{TaskTemplateId}"
     )
-    url = url.replace("{InstanceId}", quote(str(input["instance_id"]), safe=""))
+    url = url.replace("{InstanceId}", quote(str(input_["instance_id"]), safe=""))
     url = url.replace(
-        "{TaskTemplateId}", quote(str(input["task_template_id"]), safe="")
+        "{TaskTemplateId}", quote(str(input_["task_template_id"]), safe="")
     )
     params: dict[str, str] = {}
-    if "snapshot_version" in input:
-        params["snapshotVersion"] = str(input["snapshot_version"])
+    if "snapshot_version" in input_:
+        params["snapshotVersion"] = str(input_["snapshot_version"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_task_template(
     options: OperationOptions,
-    input: aws_sdk_connect.types.get_task_template_request.GetTaskTemplateRequest,
+    input_: aws_sdk_connect.types.get_task_template_request.GetTaskTemplateRequest,
 ) -> tuple[
     aws_sdk_connect.types.get_task_template_response.GetTaskTemplateResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -149,16 +146,17 @@ def get_task_template(
 
 async def async_get_task_template(
     options: AsyncOperationOptions,
-    input: aws_sdk_connect.types.get_task_template_request.GetTaskTemplateRequest,
+    input_: aws_sdk_connect.types.get_task_template_request.GetTaskTemplateRequest,
 ) -> tuple[
     aws_sdk_connect.types.get_task_template_response.GetTaskTemplateResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

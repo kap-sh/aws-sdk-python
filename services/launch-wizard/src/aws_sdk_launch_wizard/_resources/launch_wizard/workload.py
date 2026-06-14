@@ -66,11 +66,11 @@ class Workload:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.get_workload_input.GetWorkloadInput = {}  # type: ignore[typeddict-item]
-        input["workload_name"] = workload_name
+        input_: aws_sdk_launch_wizard.types.get_workload_input.GetWorkloadInput = {}  # type: ignore[typeddict-item]
+        input_["workload_name"] = workload_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -112,14 +112,14 @@ class Workload:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.list_workloads_input.ListWorkloadsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_launch_wizard.types.list_workloads_input.ListWorkloadsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -163,11 +163,11 @@ class AsyncWorkload:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.get_workload_input.GetWorkloadInput = {}  # type: ignore[typeddict-item]
-        input["workload_name"] = workload_name
+        input_: aws_sdk_launch_wizard.types.get_workload_input.GetWorkloadInput = {}  # type: ignore[typeddict-item]
+        input_["workload_name"] = workload_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -210,14 +210,14 @@ class AsyncWorkload:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.list_workloads_input.ListWorkloadsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_launch_wizard.types.list_workloads_input.ListWorkloadsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

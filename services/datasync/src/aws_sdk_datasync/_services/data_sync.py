@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_datasync._auth._signers
+import aws_sdk_datasync._auth._sigv4
 from aws_sdk_datasync._auth._identity import Credentials
 from aws_sdk_datasync._auth._providers import (
     CredentialsProvider,
@@ -345,11 +347,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.cancel_task_execution_request.CancelTaskExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["task_execution_arn"] = task_execution_arn
+        input_: aws_sdk_datasync.types.cancel_task_execution_request.CancelTaskExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["task_execution_arn"] = task_execution_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,21 +400,21 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
-        input["activation_key"] = activation_key
+        input_: aws_sdk_datasync.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["activation_key"] = activation_key
         if agent_name is not None:
-            input["agent_name"] = agent_name
+            input_["agent_name"] = agent_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if subnet_arns is not None:
-            input["subnet_arns"] = subnet_arns
+            input_["subnet_arns"] = subnet_arns
         if security_group_arns is not None:
-            input["security_group_arns"] = security_group_arns
+            input_["security_group_arns"] = security_group_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -477,28 +479,28 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_azure_blob_request.CreateLocationAzureBlobRequest = {}  # type: ignore[typeddict-item]
-        input["container_url"] = container_url
-        input["authentication_type"] = authentication_type
+        input_: aws_sdk_datasync.types.create_location_azure_blob_request.CreateLocationAzureBlobRequest = {}  # type: ignore[typeddict-item]
+        input_["container_url"] = container_url
+        input_["authentication_type"] = authentication_type
         if sas_configuration is not None:
-            input["sas_configuration"] = sas_configuration
+            input_["sas_configuration"] = sas_configuration
         if blob_type is not None:
-            input["blob_type"] = blob_type
+            input_["blob_type"] = blob_type
         if access_tier is not None:
-            input["access_tier"] = access_tier
+            input_["access_tier"] = access_tier
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if agent_arns is not None:
-            input["agent_arns"] = agent_arns
+            input_["agent_arns"] = agent_arns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,22 +555,22 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_efs_request.CreateLocationEfsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datasync.types.create_location_efs_request.CreateLocationEfsRequest = {}  # type: ignore[typeddict-item]
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
-        input["efs_filesystem_arn"] = efs_filesystem_arn
-        input["ec2_config"] = ec2_config
+            input_["subdirectory"] = subdirectory
+        input_["efs_filesystem_arn"] = efs_filesystem_arn
+        input_["ec2_config"] = ec2_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if access_point_arn is not None:
-            input["access_point_arn"] = access_point_arn
+            input_["access_point_arn"] = access_point_arn
         if file_system_access_role_arn is not None:
-            input["file_system_access_role_arn"] = file_system_access_role_arn
+            input_["file_system_access_role_arn"] = file_system_access_role_arn
         if in_transit_encryption is not None:
-            input["in_transit_encryption"] = in_transit_encryption
+            input_["in_transit_encryption"] = in_transit_encryption
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,16 +611,16 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_fsx_lustre_request.CreateLocationFsxLustreRequest = {}  # type: ignore[typeddict-item]
-        input["fsx_filesystem_arn"] = fsx_filesystem_arn
-        input["security_group_arns"] = security_group_arns
+        input_: aws_sdk_datasync.types.create_location_fsx_lustre_request.CreateLocationFsxLustreRequest = {}  # type: ignore[typeddict-item]
+        input_["fsx_filesystem_arn"] = fsx_filesystem_arn
+        input_["security_group_arns"] = security_group_arns
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -660,17 +662,17 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_fsx_ontap_request.CreateLocationFsxOntapRequest = {}  # type: ignore[typeddict-item]
-        input["protocol"] = protocol
-        input["security_group_arns"] = security_group_arns
-        input["storage_virtual_machine_arn"] = storage_virtual_machine_arn
+        input_: aws_sdk_datasync.types.create_location_fsx_ontap_request.CreateLocationFsxOntapRequest = {}  # type: ignore[typeddict-item]
+        input_["protocol"] = protocol
+        input_["security_group_arns"] = security_group_arns
+        input_["storage_virtual_machine_arn"] = storage_virtual_machine_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -713,17 +715,17 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_fsx_open_zfs_request.CreateLocationFsxOpenZfsRequest = {}  # type: ignore[typeddict-item]
-        input["fsx_filesystem_arn"] = fsx_filesystem_arn
-        input["protocol"] = protocol
-        input["security_group_arns"] = security_group_arns
+        input_: aws_sdk_datasync.types.create_location_fsx_open_zfs_request.CreateLocationFsxOpenZfsRequest = {}  # type: ignore[typeddict-item]
+        input_["fsx_filesystem_arn"] = fsx_filesystem_arn
+        input_["protocol"] = protocol
+        input_["security_group_arns"] = security_group_arns
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -778,25 +780,25 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_fsx_windows_request.CreateLocationFsxWindowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datasync.types.create_location_fsx_windows_request.CreateLocationFsxWindowsRequest = {}  # type: ignore[typeddict-item]
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
-        input["fsx_filesystem_arn"] = fsx_filesystem_arn
-        input["security_group_arns"] = security_group_arns
+            input_["subdirectory"] = subdirectory
+        input_["fsx_filesystem_arn"] = fsx_filesystem_arn
+        input_["security_group_arns"] = security_group_arns
         if tags is not None:
-            input["tags"] = tags
-        input["user"] = user
+            input_["tags"] = tags
+        input_["user"] = user
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -877,37 +879,37 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_hdfs_request.CreateLocationHdfsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datasync.types.create_location_hdfs_request.CreateLocationHdfsRequest = {}  # type: ignore[typeddict-item]
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
-        input["name_nodes"] = name_nodes
+            input_["subdirectory"] = subdirectory
+        input_["name_nodes"] = name_nodes
         if block_size is not None:
-            input["block_size"] = block_size
+            input_["block_size"] = block_size
         if replication_factor is not None:
-            input["replication_factor"] = replication_factor
+            input_["replication_factor"] = replication_factor
         if kms_key_provider_uri is not None:
-            input["kms_key_provider_uri"] = kms_key_provider_uri
+            input_["kms_key_provider_uri"] = kms_key_provider_uri
         if qop_configuration is not None:
-            input["qop_configuration"] = qop_configuration
-        input["authentication_type"] = authentication_type
+            input_["qop_configuration"] = qop_configuration
+        input_["authentication_type"] = authentication_type
         if simple_user is not None:
-            input["simple_user"] = simple_user
+            input_["simple_user"] = simple_user
         if kerberos_principal is not None:
-            input["kerberos_principal"] = kerberos_principal
+            input_["kerberos_principal"] = kerberos_principal
         if kerberos_keytab is not None:
-            input["kerberos_keytab"] = kerberos_keytab
+            input_["kerberos_keytab"] = kerberos_keytab
         if kerberos_krb5_conf is not None:
-            input["kerberos_krb5_conf"] = kerberos_krb5_conf
-        input["agent_arns"] = agent_arns
+            input_["kerberos_krb5_conf"] = kerberos_krb5_conf
+        input_["agent_arns"] = agent_arns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,17 +954,17 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_nfs_request.CreateLocationNfsRequest = {}  # type: ignore[typeddict-item]
-        input["subdirectory"] = subdirectory
-        input["server_hostname"] = server_hostname
-        input["on_prem_config"] = on_prem_config
+        input_: aws_sdk_datasync.types.create_location_nfs_request.CreateLocationNfsRequest = {}  # type: ignore[typeddict-item]
+        input_["subdirectory"] = subdirectory
+        input_["server_hostname"] = server_hostname
+        input_["on_prem_config"] = on_prem_config
         if mount_options is not None:
-            input["mount_options"] = mount_options
+            input_["mount_options"] = mount_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1035,32 +1037,32 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_object_storage_request.CreateLocationObjectStorageRequest = {}  # type: ignore[typeddict-item]
-        input["server_hostname"] = server_hostname
+        input_: aws_sdk_datasync.types.create_location_object_storage_request.CreateLocationObjectStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["server_hostname"] = server_hostname
         if server_port is not None:
-            input["server_port"] = server_port
+            input_["server_port"] = server_port
         if server_protocol is not None:
-            input["server_protocol"] = server_protocol
+            input_["server_protocol"] = server_protocol
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
-        input["bucket_name"] = bucket_name
+            input_["subdirectory"] = subdirectory
+        input_["bucket_name"] = bucket_name
         if access_key is not None:
-            input["access_key"] = access_key
+            input_["access_key"] = access_key
         if secret_key is not None:
-            input["secret_key"] = secret_key
+            input_["secret_key"] = secret_key
         if agent_arns is not None:
-            input["agent_arns"] = agent_arns
+            input_["agent_arns"] = agent_arns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if server_certificate is not None:
-            input["server_certificate"] = server_certificate
+            input_["server_certificate"] = server_certificate
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1108,20 +1110,20 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_s3_request.CreateLocationS3Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datasync.types.create_location_s3_request.CreateLocationS3Request = {}  # type: ignore[typeddict-item]
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
-        input["s3_bucket_arn"] = s3_bucket_arn
+            input_["subdirectory"] = subdirectory
+        input_["s3_bucket_arn"] = s3_bucket_arn
         if s3_storage_class is not None:
-            input["s3_storage_class"] = s3_storage_class
-        input["s3_config"] = s3_config
+            input_["s3_storage_class"] = s3_storage_class
+        input_["s3_config"] = s3_config
         if agent_arns is not None:
-            input["agent_arns"] = agent_arns
+            input_["agent_arns"] = agent_arns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1200,37 +1202,37 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_location_smb_request.CreateLocationSmbRequest = {}  # type: ignore[typeddict-item]
-        input["subdirectory"] = subdirectory
-        input["server_hostname"] = server_hostname
+        input_: aws_sdk_datasync.types.create_location_smb_request.CreateLocationSmbRequest = {}  # type: ignore[typeddict-item]
+        input_["subdirectory"] = subdirectory
+        input_["server_hostname"] = server_hostname
         if user is not None:
-            input["user"] = user
+            input_["user"] = user
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
-        input["agent_arns"] = agent_arns
+            input_["custom_secret_config"] = custom_secret_config
+        input_["agent_arns"] = agent_arns
         if mount_options is not None:
-            input["mount_options"] = mount_options
+            input_["mount_options"] = mount_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if authentication_type is not None:
-            input["authentication_type"] = authentication_type
+            input_["authentication_type"] = authentication_type
         if dns_ip_addresses is not None:
-            input["dns_ip_addresses"] = dns_ip_addresses
+            input_["dns_ip_addresses"] = dns_ip_addresses
         if kerberos_principal is not None:
-            input["kerberos_principal"] = kerberos_principal
+            input_["kerberos_principal"] = kerberos_principal
         if kerberos_keytab is not None:
-            input["kerberos_keytab"] = kerberos_keytab
+            input_["kerberos_keytab"] = kerberos_keytab
         if kerberos_krb5_conf is not None:
-            input["kerberos_krb5_conf"] = kerberos_krb5_conf
+            input_["kerberos_krb5_conf"] = kerberos_krb5_conf
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1291,32 +1293,32 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.create_task_request.CreateTaskRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_arn"] = source_location_arn
-        input["destination_location_arn"] = destination_location_arn
+        input_: aws_sdk_datasync.types.create_task_request.CreateTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_arn"] = source_location_arn
+        input_["destination_location_arn"] = destination_location_arn
         if cloud_watch_log_group_arn is not None:
-            input["cloud_watch_log_group_arn"] = cloud_watch_log_group_arn
+            input_["cloud_watch_log_group_arn"] = cloud_watch_log_group_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
         if excludes is not None:
-            input["excludes"] = excludes
+            input_["excludes"] = excludes
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if includes is not None:
-            input["includes"] = includes
+            input_["includes"] = includes
         if manifest_config is not None:
-            input["manifest_config"] = manifest_config
+            input_["manifest_config"] = manifest_config
         if task_report_config is not None:
-            input["task_report_config"] = task_report_config
+            input_["task_report_config"] = task_report_config
         if task_mode is not None:
-            input["task_mode"] = task_mode
+            input_["task_mode"] = task_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1349,11 +1351,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_arn"] = agent_arn
+        input_: aws_sdk_datasync.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_arn"] = agent_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1386,11 +1388,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.delete_location_request.DeleteLocationRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.delete_location_request.DeleteLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1423,11 +1425,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.delete_task_request.DeleteTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_arn"] = task_arn
+        input_: aws_sdk_datasync.types.delete_task_request.DeleteTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_arn"] = task_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1460,11 +1462,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_agent_request.DescribeAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_arn"] = agent_arn
+        input_: aws_sdk_datasync.types.describe_agent_request.DescribeAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_arn"] = agent_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1497,11 +1499,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_azure_blob_request.DescribeLocationAzureBlobRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_azure_blob_request.DescribeLocationAzureBlobRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1534,11 +1536,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_efs_request.DescribeLocationEfsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_efs_request.DescribeLocationEfsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1571,11 +1573,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_fsx_lustre_request.DescribeLocationFsxLustreRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_fsx_lustre_request.DescribeLocationFsxLustreRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1608,11 +1610,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_fsx_ontap_request.DescribeLocationFsxOntapRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_fsx_ontap_request.DescribeLocationFsxOntapRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1645,11 +1647,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_fsx_open_zfs_request.DescribeLocationFsxOpenZfsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_fsx_open_zfs_request.DescribeLocationFsxOpenZfsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1682,11 +1684,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_fsx_windows_request.DescribeLocationFsxWindowsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_fsx_windows_request.DescribeLocationFsxWindowsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1719,11 +1721,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_hdfs_request.DescribeLocationHdfsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_hdfs_request.DescribeLocationHdfsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1756,11 +1758,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_nfs_request.DescribeLocationNfsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_nfs_request.DescribeLocationNfsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1793,11 +1795,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_object_storage_request.DescribeLocationObjectStorageRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_object_storage_request.DescribeLocationObjectStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1830,11 +1832,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_s3_request.DescribeLocationS3Request = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_s3_request.DescribeLocationS3Request = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1867,11 +1869,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_location_smb_request.DescribeLocationSmbRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.describe_location_smb_request.DescribeLocationSmbRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1904,11 +1906,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_task_request.DescribeTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_arn"] = task_arn
+        input_: aws_sdk_datasync.types.describe_task_request.DescribeTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_arn"] = task_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1941,11 +1943,11 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.describe_task_execution_request.DescribeTaskExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["task_execution_arn"] = task_execution_arn
+        input_: aws_sdk_datasync.types.describe_task_execution_request.DescribeTaskExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["task_execution_arn"] = task_execution_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1980,14 +1982,14 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datasync.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2047,16 +2049,16 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.list_locations_request.ListLocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datasync.types.list_locations_request.ListLocationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2118,15 +2120,15 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_datasync.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2186,16 +2188,16 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.list_task_executions_request.ListTaskExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datasync.types.list_task_executions_request.ListTaskExecutionsRequest = {}  # type: ignore[typeddict-item]
         if task_arn is not None:
-            input["task_arn"] = task_arn
+            input_["task_arn"] = task_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2255,16 +2257,16 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.list_tasks_request.ListTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datasync.types.list_tasks_request.ListTasksRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2335,23 +2337,23 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.start_task_execution_request.StartTaskExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["task_arn"] = task_arn
+        input_: aws_sdk_datasync.types.start_task_execution_request.StartTaskExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["task_arn"] = task_arn
         if override_options is not None:
-            input["override_options"] = override_options
+            input_["override_options"] = override_options
         if includes is not None:
-            input["includes"] = includes
+            input_["includes"] = includes
         if excludes is not None:
-            input["excludes"] = excludes
+            input_["excludes"] = excludes
         if manifest_config is not None:
-            input["manifest_config"] = manifest_config
+            input_["manifest_config"] = manifest_config
         if task_report_config is not None:
-            input["task_report_config"] = task_report_config
+            input_["task_report_config"] = task_report_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2386,12 +2388,12 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_datasync.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2426,12 +2428,12 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["keys"] = keys
+        input_: aws_sdk_datasync.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["keys"] = keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2466,13 +2468,13 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_arn"] = agent_arn
+        input_: aws_sdk_datasync.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_arn"] = agent_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2537,27 +2539,27 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_azure_blob_request.UpdateLocationAzureBlobRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_azure_blob_request.UpdateLocationAzureBlobRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if authentication_type is not None:
-            input["authentication_type"] = authentication_type
+            input_["authentication_type"] = authentication_type
         if sas_configuration is not None:
-            input["sas_configuration"] = sas_configuration
+            input_["sas_configuration"] = sas_configuration
         if blob_type is not None:
-            input["blob_type"] = blob_type
+            input_["blob_type"] = blob_type
         if access_tier is not None:
-            input["access_tier"] = access_tier
+            input_["access_tier"] = access_tier
         if agent_arns is not None:
-            input["agent_arns"] = agent_arns
+            input_["agent_arns"] = agent_arns
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2608,19 +2610,19 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_efs_request.UpdateLocationEfsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_efs_request.UpdateLocationEfsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if access_point_arn is not None:
-            input["access_point_arn"] = access_point_arn
+            input_["access_point_arn"] = access_point_arn
         if file_system_access_role_arn is not None:
-            input["file_system_access_role_arn"] = file_system_access_role_arn
+            input_["file_system_access_role_arn"] = file_system_access_role_arn
         if in_transit_encryption is not None:
-            input["in_transit_encryption"] = in_transit_encryption
+            input_["in_transit_encryption"] = in_transit_encryption
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2657,13 +2659,13 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_fsx_lustre_request.UpdateLocationFsxLustreRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_fsx_lustre_request.UpdateLocationFsxLustreRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2704,15 +2706,15 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_fsx_ontap_request.UpdateLocationFsxOntapRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_fsx_ontap_request.UpdateLocationFsxOntapRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2750,15 +2752,15 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_fsx_open_zfs_request.UpdateLocationFsxOpenZfsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_fsx_open_zfs_request.UpdateLocationFsxOpenZfsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2811,23 +2813,23 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_fsx_windows_request.UpdateLocationFsxWindowsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_fsx_windows_request.UpdateLocationFsxWindowsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if user is not None:
-            input["user"] = user
+            input_["user"] = user
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2914,39 +2916,39 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_hdfs_request.UpdateLocationHdfsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_hdfs_request.UpdateLocationHdfsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if name_nodes is not None:
-            input["name_nodes"] = name_nodes
+            input_["name_nodes"] = name_nodes
         if block_size is not None:
-            input["block_size"] = block_size
+            input_["block_size"] = block_size
         if replication_factor is not None:
-            input["replication_factor"] = replication_factor
+            input_["replication_factor"] = replication_factor
         if kms_key_provider_uri is not None:
-            input["kms_key_provider_uri"] = kms_key_provider_uri
+            input_["kms_key_provider_uri"] = kms_key_provider_uri
         if qop_configuration is not None:
-            input["qop_configuration"] = qop_configuration
+            input_["qop_configuration"] = qop_configuration
         if authentication_type is not None:
-            input["authentication_type"] = authentication_type
+            input_["authentication_type"] = authentication_type
         if simple_user is not None:
-            input["simple_user"] = simple_user
+            input_["simple_user"] = simple_user
         if kerberos_principal is not None:
-            input["kerberos_principal"] = kerberos_principal
+            input_["kerberos_principal"] = kerberos_principal
         if kerberos_keytab is not None:
-            input["kerberos_keytab"] = kerberos_keytab
+            input_["kerberos_keytab"] = kerberos_keytab
         if kerberos_krb5_conf is not None:
-            input["kerberos_krb5_conf"] = kerberos_krb5_conf
+            input_["kerberos_krb5_conf"] = kerberos_krb5_conf
         if agent_arns is not None:
-            input["agent_arns"] = agent_arns
+            input_["agent_arns"] = agent_arns
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2995,19 +2997,19 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_nfs_request.UpdateLocationNfsRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_nfs_request.UpdateLocationNfsRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if server_hostname is not None:
-            input["server_hostname"] = server_hostname
+            input_["server_hostname"] = server_hostname
         if on_prem_config is not None:
-            input["on_prem_config"] = on_prem_config
+            input_["on_prem_config"] = on_prem_config
         if mount_options is not None:
-            input["mount_options"] = mount_options
+            input_["mount_options"] = mount_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3080,31 +3082,31 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_object_storage_request.UpdateLocationObjectStorageRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_object_storage_request.UpdateLocationObjectStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if server_port is not None:
-            input["server_port"] = server_port
+            input_["server_port"] = server_port
         if server_protocol is not None:
-            input["server_protocol"] = server_protocol
+            input_["server_protocol"] = server_protocol
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if server_hostname is not None:
-            input["server_hostname"] = server_hostname
+            input_["server_hostname"] = server_hostname
         if access_key is not None:
-            input["access_key"] = access_key
+            input_["access_key"] = access_key
         if secret_key is not None:
-            input["secret_key"] = secret_key
+            input_["secret_key"] = secret_key
         if agent_arns is not None:
-            input["agent_arns"] = agent_arns
+            input_["agent_arns"] = agent_arns
         if server_certificate is not None:
-            input["server_certificate"] = server_certificate
+            input_["server_certificate"] = server_certificate
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3146,17 +3148,17 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_s3_request.UpdateLocationS3Request = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_s3_request.UpdateLocationS3Request = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if s3_storage_class is not None:
-            input["s3_storage_class"] = s3_storage_class
+            input_["s3_storage_class"] = s3_storage_class
         if s3_config is not None:
-            input["s3_config"] = s3_config
+            input_["s3_config"] = s3_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3240,39 +3242,39 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_location_smb_request.UpdateLocationSmbRequest = {}  # type: ignore[typeddict-item]
-        input["location_arn"] = location_arn
+        input_: aws_sdk_datasync.types.update_location_smb_request.UpdateLocationSmbRequest = {}  # type: ignore[typeddict-item]
+        input_["location_arn"] = location_arn
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
         if server_hostname is not None:
-            input["server_hostname"] = server_hostname
+            input_["server_hostname"] = server_hostname
         if user is not None:
-            input["user"] = user
+            input_["user"] = user
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if cmk_secret_config is not None:
-            input["cmk_secret_config"] = cmk_secret_config
+            input_["cmk_secret_config"] = cmk_secret_config
         if custom_secret_config is not None:
-            input["custom_secret_config"] = custom_secret_config
+            input_["custom_secret_config"] = custom_secret_config
         if agent_arns is not None:
-            input["agent_arns"] = agent_arns
+            input_["agent_arns"] = agent_arns
         if mount_options is not None:
-            input["mount_options"] = mount_options
+            input_["mount_options"] = mount_options
         if authentication_type is not None:
-            input["authentication_type"] = authentication_type
+            input_["authentication_type"] = authentication_type
         if dns_ip_addresses is not None:
-            input["dns_ip_addresses"] = dns_ip_addresses
+            input_["dns_ip_addresses"] = dns_ip_addresses
         if kerberos_principal is not None:
-            input["kerberos_principal"] = kerberos_principal
+            input_["kerberos_principal"] = kerberos_principal
         if kerberos_keytab is not None:
-            input["kerberos_keytab"] = kerberos_keytab
+            input_["kerberos_keytab"] = kerberos_keytab
         if kerberos_krb5_conf is not None:
-            input["kerberos_krb5_conf"] = kerberos_krb5_conf
+            input_["kerberos_krb5_conf"] = kerberos_krb5_conf
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3326,27 +3328,27 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_task_request.UpdateTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_arn"] = task_arn
+        input_: aws_sdk_datasync.types.update_task_request.UpdateTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_arn"] = task_arn
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
         if excludes is not None:
-            input["excludes"] = excludes
+            input_["excludes"] = excludes
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if cloud_watch_log_group_arn is not None:
-            input["cloud_watch_log_group_arn"] = cloud_watch_log_group_arn
+            input_["cloud_watch_log_group_arn"] = cloud_watch_log_group_arn
         if includes is not None:
-            input["includes"] = includes
+            input_["includes"] = includes
         if manifest_config is not None:
-            input["manifest_config"] = manifest_config
+            input_["manifest_config"] = manifest_config
         if task_report_config is not None:
-            input["task_report_config"] = task_report_config
+            input_["task_report_config"] = task_report_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3380,12 +3382,12 @@ class DataSyncClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datasync.types.update_task_execution_request.UpdateTaskExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["task_execution_arn"] = task_execution_arn
-        input["options"] = options
+        input_: aws_sdk_datasync.types.update_task_execution_request.UpdateTaskExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["task_execution_arn"] = task_execution_arn
+        input_["options"] = options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

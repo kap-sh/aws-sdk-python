@@ -15,6 +15,7 @@ from aws_sdk_simspaceweaver._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_simspaceweaver._auth._zapros_handler import AuthMiddleware
+from aws_sdk_simspaceweaver._resources.sim_space_weaver.simulation import Simulation
 from aws_sdk_simspaceweaver._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -106,6 +107,8 @@ class SimSpaceWeaverClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.simulation = Simulation(self)
 
     def operation_options(
         self, config_overrides: Optional[SimSpaceWeaverClientConfig] = None
@@ -162,11 +165,11 @@ class SimSpaceWeaverClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_simspaceweaver.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,12 +204,12 @@ class SimSpaceWeaverClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_simspaceweaver.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,12 +244,12 @@ class SimSpaceWeaverClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_simspaceweaver.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -283,49 +283,49 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.create_broker_request.CreateBrokerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mq.types.create_broker_request.CreateBrokerRequest = {}  # type: ignore[typeddict-item]
         if authentication_strategy is not None:
-            input["authentication_strategy"] = authentication_strategy
+            input_["authentication_strategy"] = authentication_strategy
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
-        input["broker_name"] = broker_name
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+        input_["broker_name"] = broker_name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
-        input["deployment_mode"] = deployment_mode
+            input_["creator_request_id"] = creator_request_id
+        input_["deployment_mode"] = deployment_mode
         if encryption_options is not None:
-            input["encryption_options"] = encryption_options
-        input["engine_type"] = engine_type
+            input_["encryption_options"] = encryption_options
+        input_["engine_type"] = engine_type
         if engine_version is not None:
-            input["engine_version"] = engine_version
-        input["host_instance_type"] = host_instance_type
+            input_["engine_version"] = engine_version
+        input_["host_instance_type"] = host_instance_type
         if ldap_server_metadata is not None:
-            input["ldap_server_metadata"] = ldap_server_metadata
+            input_["ldap_server_metadata"] = ldap_server_metadata
         if logs is not None:
-            input["logs"] = logs
+            input_["logs"] = logs
         if maintenance_window_start_time is not None:
-            input["maintenance_window_start_time"] = maintenance_window_start_time
-        input["publicly_accessible"] = publicly_accessible
+            input_["maintenance_window_start_time"] = maintenance_window_start_time
+        input_["publicly_accessible"] = publicly_accessible
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if users is not None:
-            input["users"] = users
+            input_["users"] = users
         if data_replication_mode is not None:
-            input["data_replication_mode"] = data_replication_mode
+            input_["data_replication_mode"] = data_replication_mode
         if data_replication_primary_broker_arn is not None:
-            input["data_replication_primary_broker_arn"] = (
+            input_["data_replication_primary_broker_arn"] = (
                 data_replication_primary_broker_arn
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -369,18 +369,18 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mq.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
         if authentication_strategy is not None:
-            input["authentication_strategy"] = authentication_strategy
-        input["engine_type"] = engine_type
+            input_["authentication_strategy"] = authentication_strategy
+        input_["engine_type"] = engine_type
         if engine_version is not None:
-            input["engine_version"] = engine_version
-        input["name"] = name
+            input_["engine_version"] = engine_version
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,13 +414,13 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mq.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,19 +464,19 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
+        input_: aws_sdk_mq.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
         if console_access is not None:
-            input["console_access"] = console_access
+            input_["console_access"] = console_access
         if groups is not None:
-            input["groups"] = groups
-        input["password"] = password
-        input["username"] = username
+            input_["groups"] = groups
+        input_["password"] = password
+        input_["username"] = username
         if replication_user is not None:
-            input["replication_user"] = replication_user
+            input_["replication_user"] = replication_user
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,11 +510,11 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.delete_broker_request.DeleteBrokerRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
+        input_: aws_sdk_mq.types.delete_broker_request.DeleteBrokerRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -548,11 +548,11 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.delete_configuration_request.DeleteConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_id"] = configuration_id
+        input_: aws_sdk_mq.types.delete_configuration_request.DeleteConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_id"] = configuration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,12 +586,12 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mq.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -627,12 +627,12 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
-        input["username"] = username
+        input_: aws_sdk_mq.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
+        input_["username"] = username
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -666,11 +666,11 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.describe_broker_request.DescribeBrokerRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
+        input_: aws_sdk_mq.types.describe_broker_request.DescribeBrokerRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -708,16 +708,16 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.describe_broker_engine_types_request.DescribeBrokerEngineTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mq.types.describe_broker_engine_types_request.DescribeBrokerEngineTypesRequest = {}  # type: ignore[typeddict-item]
         if engine_type is not None:
-            input["engine_type"] = engine_type
+            input_["engine_type"] = engine_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,20 +759,20 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.describe_broker_instance_options_request.DescribeBrokerInstanceOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mq.types.describe_broker_instance_options_request.DescribeBrokerInstanceOptionsRequest = {}  # type: ignore[typeddict-item]
         if engine_type is not None:
-            input["engine_type"] = engine_type
+            input_["engine_type"] = engine_type
         if host_instance_type is not None:
-            input["host_instance_type"] = host_instance_type
+            input_["host_instance_type"] = host_instance_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -808,11 +808,11 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.describe_configuration_request.DescribeConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_id"] = configuration_id
+        input_: aws_sdk_mq.types.describe_configuration_request.DescribeConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_id"] = configuration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,12 +848,12 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.describe_configuration_revision_request.DescribeConfigurationRevisionRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_id"] = configuration_id
-        input["configuration_revision"] = configuration_revision
+        input_: aws_sdk_mq.types.describe_configuration_revision_request.DescribeConfigurationRevisionRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_id"] = configuration_id
+        input_["configuration_revision"] = configuration_revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -889,12 +889,12 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
-        input["username"] = username
+        input_: aws_sdk_mq.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
+        input_["username"] = username
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -930,14 +930,14 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.list_brokers_request.ListBrokersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mq.types.list_brokers_request.ListBrokersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,15 +996,15 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.list_configuration_revisions_request.ListConfigurationRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_id"] = configuration_id
+        input_: aws_sdk_mq.types.list_configuration_revisions_request.ListConfigurationRevisionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_id"] = configuration_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1040,14 +1040,14 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mq.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1081,11 +1081,11 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mq.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1123,15 +1123,15 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
+        input_: aws_sdk_mq.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1167,12 +1167,12 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.promote_request.PromoteRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
-        input["mode"] = mode
+        input_: aws_sdk_mq.types.promote_request.PromoteRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
+        input_["mode"] = mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1206,11 +1206,11 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.reboot_broker_request.RebootBrokerRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
+        input_: aws_sdk_mq.types.reboot_broker_request.RebootBrokerRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1278,31 +1278,31 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.update_broker_request.UpdateBrokerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mq.types.update_broker_request.UpdateBrokerRequest = {}  # type: ignore[typeddict-item]
         if authentication_strategy is not None:
-            input["authentication_strategy"] = authentication_strategy
+            input_["authentication_strategy"] = authentication_strategy
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
-        input["broker_id"] = broker_id
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+        input_["broker_id"] = broker_id
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if host_instance_type is not None:
-            input["host_instance_type"] = host_instance_type
+            input_["host_instance_type"] = host_instance_type
         if ldap_server_metadata is not None:
-            input["ldap_server_metadata"] = ldap_server_metadata
+            input_["ldap_server_metadata"] = ldap_server_metadata
         if logs is not None:
-            input["logs"] = logs
+            input_["logs"] = logs
         if maintenance_window_start_time is not None:
-            input["maintenance_window_start_time"] = maintenance_window_start_time
+            input_["maintenance_window_start_time"] = maintenance_window_start_time
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
         if data_replication_mode is not None:
-            input["data_replication_mode"] = data_replication_mode
+            input_["data_replication_mode"] = data_replication_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1340,14 +1340,14 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.update_configuration_request.UpdateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_id"] = configuration_id
-        input["data"] = data
+        input_: aws_sdk_mq.types.update_configuration_request.UpdateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_id"] = configuration_id
+        input_["data"] = data
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1391,20 +1391,20 @@ class AsyncmqClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mq.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["broker_id"] = broker_id
+        input_: aws_sdk_mq.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_id"] = broker_id
         if console_access is not None:
-            input["console_access"] = console_access
+            input_["console_access"] = console_access
         if groups is not None:
-            input["groups"] = groups
+            input_["groups"] = groups
         if password is not None:
-            input["password"] = password
-        input["username"] = username
+            input_["password"] = password
+        input_["username"] = username
         if replication_user is not None:
-            input["replication_user"] = replication_user
+            input_["replication_user"] = replication_user
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -153,41 +153,43 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_managed_thing_request.CreateManagedThingRequest = {}  # type: ignore[typeddict-item]
-        input["role"] = role
+        input_: aws_sdk_iot_managed_integrations.types.create_managed_thing_request.CreateManagedThingRequest = {}  # type: ignore[typeddict-item]
+        input_["role"] = role
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if credential_locker_id is not None:
-            input["credential_locker_id"] = credential_locker_id
-        input["authentication_material"] = authentication_material
-        input["authentication_material_type"] = authentication_material_type
+            input_["credential_locker_id"] = credential_locker_id
+        input_["authentication_material"] = authentication_material
+        input_["authentication_material_type"] = authentication_material_type
         if wi_fi_simple_setup_configuration is not None:
-            input["wi_fi_simple_setup_configuration"] = wi_fi_simple_setup_configuration
+            input_["wi_fi_simple_setup_configuration"] = (
+                wi_fi_simple_setup_configuration
+            )
         if serial_number is not None:
-            input["serial_number"] = serial_number
+            input_["serial_number"] = serial_number
         if brand is not None:
-            input["brand"] = brand
+            input_["brand"] = brand
         if model is not None:
-            input["model"] = model
+            input_["model"] = model
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if capability_report is not None:
-            input["capability_report"] = capability_report
+            input_["capability_report"] = capability_report
         if capability_schemas is not None:
-            input["capability_schemas"] = capability_schemas
+            input_["capability_schemas"] = capability_schemas
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if classification is not None:
-            input["classification"] = classification
+            input_["classification"] = classification
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if meta_data is not None:
-            input["meta_data"] = meta_data
+            input_["meta_data"] = meta_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,11 +222,11 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_request.GetManagedThingRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_request.GetManagedThingRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -299,37 +301,39 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_managed_thing_request.UpdateManagedThingRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.update_managed_thing_request.UpdateManagedThingRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if credential_locker_id is not None:
-            input["credential_locker_id"] = credential_locker_id
+            input_["credential_locker_id"] = credential_locker_id
         if serial_number is not None:
-            input["serial_number"] = serial_number
+            input_["serial_number"] = serial_number
         if wi_fi_simple_setup_configuration is not None:
-            input["wi_fi_simple_setup_configuration"] = wi_fi_simple_setup_configuration
+            input_["wi_fi_simple_setup_configuration"] = (
+                wi_fi_simple_setup_configuration
+            )
         if brand is not None:
-            input["brand"] = brand
+            input_["brand"] = brand
         if model is not None:
-            input["model"] = model
+            input_["model"] = model
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if capability_report is not None:
-            input["capability_report"] = capability_report
+            input_["capability_report"] = capability_report
         if capability_schemas is not None:
-            input["capability_schemas"] = capability_schemas
+            input_["capability_schemas"] = capability_schemas
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if classification is not None:
-            input["classification"] = classification
+            input_["classification"] = classification
         if hub_network_mode is not None:
-            input["hub_network_mode"] = hub_network_mode
+            input_["hub_network_mode"] = hub_network_mode
         if meta_data is not None:
-            input["meta_data"] = meta_data
+            input_["meta_data"] = meta_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -362,13 +366,13 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_managed_thing_request.DeleteManagedThingRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.delete_managed_thing_request.DeleteManagedThingRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,34 +447,34 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_managed_things_request.ListManagedThingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_managed_things_request.ListManagedThingsRequest = {}  # type: ignore[typeddict-item]
         if owner_filter is not None:
-            input["owner_filter"] = owner_filter
+            input_["owner_filter"] = owner_filter
         if credential_locker_filter is not None:
-            input["credential_locker_filter"] = credential_locker_filter
+            input_["credential_locker_filter"] = credential_locker_filter
         if role_filter is not None:
-            input["role_filter"] = role_filter
+            input_["role_filter"] = role_filter
         if parent_controller_identifier_filter is not None:
-            input["parent_controller_identifier_filter"] = (
+            input_["parent_controller_identifier_filter"] = (
                 parent_controller_identifier_filter
             )
         if connector_policy_id_filter is not None:
-            input["connector_policy_id_filter"] = connector_policy_id_filter
+            input_["connector_policy_id_filter"] = connector_policy_id_filter
         if connector_destination_id_filter is not None:
-            input["connector_destination_id_filter"] = connector_destination_id_filter
+            input_["connector_destination_id_filter"] = connector_destination_id_filter
         if connector_device_id_filter is not None:
-            input["connector_device_id_filter"] = connector_device_id_filter
+            input_["connector_device_id_filter"] = connector_device_id_filter
         if serial_number_filter is not None:
-            input["serial_number_filter"] = serial_number_filter
+            input_["serial_number_filter"] = serial_number_filter
         if provisioning_status_filter is not None:
-            input["provisioning_status_filter"] = provisioning_status_filter
+            input_["provisioning_status_filter"] = provisioning_status_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,11 +507,11 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_capabilities_request.GetManagedThingCapabilitiesRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_capabilities_request.GetManagedThingCapabilitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -545,11 +549,11 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_certificate_request.GetManagedThingCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_certificate_request.GetManagedThingCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,11 +586,11 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_connectivity_data_request.GetManagedThingConnectivityDataRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_connectivity_data_request.GetManagedThingConnectivityDataRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -619,11 +623,11 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_meta_data_request.GetManagedThingMetaDataRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_meta_data_request.GetManagedThingMetaDataRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -672,19 +676,19 @@ class ManagedThingResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_managed_thing_schemas_request.ListManagedThingSchemasRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.list_managed_thing_schemas_request.ListManagedThingSchemasRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if endpoint_id_filter is not None:
-            input["endpoint_id_filter"] = endpoint_id_filter
+            input_["endpoint_id_filter"] = endpoint_id_filter
         if capability_id_filter is not None:
-            input["capability_id_filter"] = capability_id_filter
+            input_["capability_id_filter"] = capability_id_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -775,41 +779,43 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_managed_thing_request.CreateManagedThingRequest = {}  # type: ignore[typeddict-item]
-        input["role"] = role
+        input_: aws_sdk_iot_managed_integrations.types.create_managed_thing_request.CreateManagedThingRequest = {}  # type: ignore[typeddict-item]
+        input_["role"] = role
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if credential_locker_id is not None:
-            input["credential_locker_id"] = credential_locker_id
-        input["authentication_material"] = authentication_material
-        input["authentication_material_type"] = authentication_material_type
+            input_["credential_locker_id"] = credential_locker_id
+        input_["authentication_material"] = authentication_material
+        input_["authentication_material_type"] = authentication_material_type
         if wi_fi_simple_setup_configuration is not None:
-            input["wi_fi_simple_setup_configuration"] = wi_fi_simple_setup_configuration
+            input_["wi_fi_simple_setup_configuration"] = (
+                wi_fi_simple_setup_configuration
+            )
         if serial_number is not None:
-            input["serial_number"] = serial_number
+            input_["serial_number"] = serial_number
         if brand is not None:
-            input["brand"] = brand
+            input_["brand"] = brand
         if model is not None:
-            input["model"] = model
+            input_["model"] = model
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if capability_report is not None:
-            input["capability_report"] = capability_report
+            input_["capability_report"] = capability_report
         if capability_schemas is not None:
-            input["capability_schemas"] = capability_schemas
+            input_["capability_schemas"] = capability_schemas
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if classification is not None:
-            input["classification"] = classification
+            input_["classification"] = classification
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if meta_data is not None:
-            input["meta_data"] = meta_data
+            input_["meta_data"] = meta_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -843,11 +849,11 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_request.GetManagedThingRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_request.GetManagedThingRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -923,37 +929,39 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_managed_thing_request.UpdateManagedThingRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.update_managed_thing_request.UpdateManagedThingRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if credential_locker_id is not None:
-            input["credential_locker_id"] = credential_locker_id
+            input_["credential_locker_id"] = credential_locker_id
         if serial_number is not None:
-            input["serial_number"] = serial_number
+            input_["serial_number"] = serial_number
         if wi_fi_simple_setup_configuration is not None:
-            input["wi_fi_simple_setup_configuration"] = wi_fi_simple_setup_configuration
+            input_["wi_fi_simple_setup_configuration"] = (
+                wi_fi_simple_setup_configuration
+            )
         if brand is not None:
-            input["brand"] = brand
+            input_["brand"] = brand
         if model is not None:
-            input["model"] = model
+            input_["model"] = model
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if capability_report is not None:
-            input["capability_report"] = capability_report
+            input_["capability_report"] = capability_report
         if capability_schemas is not None:
-            input["capability_schemas"] = capability_schemas
+            input_["capability_schemas"] = capability_schemas
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if classification is not None:
-            input["classification"] = classification
+            input_["classification"] = classification
         if hub_network_mode is not None:
-            input["hub_network_mode"] = hub_network_mode
+            input_["hub_network_mode"] = hub_network_mode
         if meta_data is not None:
-            input["meta_data"] = meta_data
+            input_["meta_data"] = meta_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,13 +995,13 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_managed_thing_request.DeleteManagedThingRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.delete_managed_thing_request.DeleteManagedThingRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,34 +1077,34 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_managed_things_request.ListManagedThingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_managed_things_request.ListManagedThingsRequest = {}  # type: ignore[typeddict-item]
         if owner_filter is not None:
-            input["owner_filter"] = owner_filter
+            input_["owner_filter"] = owner_filter
         if credential_locker_filter is not None:
-            input["credential_locker_filter"] = credential_locker_filter
+            input_["credential_locker_filter"] = credential_locker_filter
         if role_filter is not None:
-            input["role_filter"] = role_filter
+            input_["role_filter"] = role_filter
         if parent_controller_identifier_filter is not None:
-            input["parent_controller_identifier_filter"] = (
+            input_["parent_controller_identifier_filter"] = (
                 parent_controller_identifier_filter
             )
         if connector_policy_id_filter is not None:
-            input["connector_policy_id_filter"] = connector_policy_id_filter
+            input_["connector_policy_id_filter"] = connector_policy_id_filter
         if connector_destination_id_filter is not None:
-            input["connector_destination_id_filter"] = connector_destination_id_filter
+            input_["connector_destination_id_filter"] = connector_destination_id_filter
         if connector_device_id_filter is not None:
-            input["connector_device_id_filter"] = connector_device_id_filter
+            input_["connector_device_id_filter"] = connector_device_id_filter
         if serial_number_filter is not None:
-            input["serial_number_filter"] = serial_number_filter
+            input_["serial_number_filter"] = serial_number_filter
         if provisioning_status_filter is not None:
-            input["provisioning_status_filter"] = provisioning_status_filter
+            input_["provisioning_status_filter"] = provisioning_status_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1130,11 +1138,11 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_capabilities_request.GetManagedThingCapabilitiesRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_capabilities_request.GetManagedThingCapabilitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1173,11 +1181,11 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_certificate_request.GetManagedThingCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_certificate_request.GetManagedThingCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1211,11 +1219,11 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_connectivity_data_request.GetManagedThingConnectivityDataRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_connectivity_data_request.GetManagedThingConnectivityDataRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1249,11 +1257,11 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_managed_thing_meta_data_request.GetManagedThingMetaDataRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_managed_thing_meta_data_request.GetManagedThingMetaDataRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1303,19 +1311,19 @@ class AsyncManagedThingResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_managed_thing_schemas_request.ListManagedThingSchemasRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.list_managed_thing_schemas_request.ListManagedThingSchemasRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if endpoint_id_filter is not None:
-            input["endpoint_id_filter"] = endpoint_id_filter
+            input_["endpoint_id_filter"] = endpoint_id_filter
         if capability_id_filter is not None:
-            input["capability_id_filter"] = capability_id_filter
+            input_["capability_id_filter"] = capability_id_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

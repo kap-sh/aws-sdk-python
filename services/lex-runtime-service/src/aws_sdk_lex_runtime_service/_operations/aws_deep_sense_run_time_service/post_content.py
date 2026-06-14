@@ -189,60 +189,57 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_lex_runtime_service.types.post_content_request.PostContentRequest,
+    input_: aws_sdk_lex_runtime_service.types.post_content_request.PostContentRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/bot/{botName}/alias/{botAlias}/user/{userId}/content"
     )
-    url = url.replace("{botName}", quote(str(input["bot_name"]), safe=""))
-    url = url.replace("{botAlias}", quote(str(input["bot_alias"]), safe=""))
-    url = url.replace("{userId}", quote(str(input["user_id"]), safe=""))
+    url = url.replace("{botName}", quote(str(input_["bot_name"]), safe=""))
+    url = url.replace("{botAlias}", quote(str(input_["bot_alias"]), safe=""))
+    url = url.replace("{userId}", quote(str(input_["user_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "session_attributes" in input:
-        headers["x-amz-lex-session-attributes"] = str(input["session_attributes"])
-    if "request_attributes" in input:
-        headers["x-amz-lex-request-attributes"] = str(input["request_attributes"])
-    if "content_type" in input:
-        headers["Content-Type"] = str(input["content_type"])
-    if "accept" in input:
-        headers["Accept"] = str(input["accept"])
-    if "active_contexts" in input:
-        headers["x-amz-lex-active-contexts"] = str(input["active_contexts"])
-    body = input["input_stream"]
+    if "session_attributes" in input_:
+        headers["x-amz-lex-session-attributes"] = str(input_["session_attributes"])
+    if "request_attributes" in input_:
+        headers["x-amz-lex-request-attributes"] = str(input_["request_attributes"])
+    if "content_type" in input_:
+        headers["Content-Type"] = str(input_["content_type"])
+    if "accept" in input_:
+        headers["Accept"] = str(input_["accept"])
+    if "active_contexts" in input_:
+        headers["x-amz-lex-active-contexts"] = str(input_["active_contexts"])
+    body = input_["input_stream"]
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def post_content(
     options: OperationOptions,
-    input: aws_sdk_lex_runtime_service.types.post_content_request.PostContentRequest,
+    input_: aws_sdk_lex_runtime_service.types.post_content_request.PostContentRequest,
 ) -> tuple[
     aws_sdk_lex_runtime_service.types.post_content_response.PostContentResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -251,16 +248,17 @@ def post_content(
 
 async def async_post_content(
     options: AsyncOperationOptions,
-    input: aws_sdk_lex_runtime_service.types.post_content_request.PostContentRequest,
+    input_: aws_sdk_lex_runtime_service.types.post_content_request.PostContentRequest,
 ) -> tuple[
     aws_sdk_lex_runtime_service.types.post_content_response.PostContentResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

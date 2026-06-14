@@ -84,19 +84,19 @@ class AccessToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_access_token_input.CreateAccessTokenInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.create_access_token_input.CreateAccessTokenInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dns_view_id"] = dns_view_id
+            input_["client_token"] = client_token
+        input_["dns_view_id"] = dns_view_id
         if expires_at is not None:
-            input["expires_at"] = expires_at
+            input_["expires_at"] = expires_at
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -129,11 +129,11 @@ class AccessToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_access_token_input.GetAccessTokenInput = {}  # type: ignore[typeddict-item]
-        input["access_token_id"] = access_token_id
+        input_: aws_sdk_route53globalresolver.types.get_access_token_input.GetAccessTokenInput = {}  # type: ignore[typeddict-item]
+        input_["access_token_id"] = access_token_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,12 +168,12 @@ class AccessToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_access_token_input.UpdateAccessTokenInput = {}  # type: ignore[typeddict-item]
-        input["access_token_id"] = access_token_id
-        input["name"] = name
+        input_: aws_sdk_route53globalresolver.types.update_access_token_input.UpdateAccessTokenInput = {}  # type: ignore[typeddict-item]
+        input_["access_token_id"] = access_token_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,11 +206,11 @@ class AccessToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_access_token_input.DeleteAccessTokenInput = {}  # type: ignore[typeddict-item]
-        input["access_token_id"] = access_token_id
+        input_: aws_sdk_route53globalresolver.types.delete_access_token_input.DeleteAccessTokenInput = {}  # type: ignore[typeddict-item]
+        input_["access_token_id"] = access_token_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,17 +249,17 @@ class AccessToken:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_access_tokens_input.ListAccessTokensInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_access_tokens_input.ListAccessTokensInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["dns_view_id"] = dns_view_id
+            input_["next_token"] = next_token
+        input_["dns_view_id"] = dns_view_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,19 +312,19 @@ class AsyncAccessToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_access_token_input.CreateAccessTokenInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.create_access_token_input.CreateAccessTokenInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dns_view_id"] = dns_view_id
+            input_["client_token"] = client_token
+        input_["dns_view_id"] = dns_view_id
         if expires_at is not None:
-            input["expires_at"] = expires_at
+            input_["expires_at"] = expires_at
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,11 +358,11 @@ class AsyncAccessToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_access_token_input.GetAccessTokenInput = {}  # type: ignore[typeddict-item]
-        input["access_token_id"] = access_token_id
+        input_: aws_sdk_route53globalresolver.types.get_access_token_input.GetAccessTokenInput = {}  # type: ignore[typeddict-item]
+        input_["access_token_id"] = access_token_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,12 +398,12 @@ class AsyncAccessToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_access_token_input.UpdateAccessTokenInput = {}  # type: ignore[typeddict-item]
-        input["access_token_id"] = access_token_id
-        input["name"] = name
+        input_: aws_sdk_route53globalresolver.types.update_access_token_input.UpdateAccessTokenInput = {}  # type: ignore[typeddict-item]
+        input_["access_token_id"] = access_token_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,11 +437,11 @@ class AsyncAccessToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_access_token_input.DeleteAccessTokenInput = {}  # type: ignore[typeddict-item]
-        input["access_token_id"] = access_token_id
+        input_: aws_sdk_route53globalresolver.types.delete_access_token_input.DeleteAccessTokenInput = {}  # type: ignore[typeddict-item]
+        input_["access_token_id"] = access_token_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,17 +481,17 @@ class AsyncAccessToken:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_access_tokens_input.ListAccessTokensInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_access_tokens_input.ListAccessTokensInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["dns_view_id"] = dns_view_id
+            input_["next_token"] = next_token
+        input_["dns_view_id"] = dns_view_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

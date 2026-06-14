@@ -82,7 +82,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.import_table_input.ImportTableInput,
+    input_: aws_sdk_dynamodb.types.import_table_input.ImportTableInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -92,7 +92,7 @@ def build_request(
             Endpoint=options.endpoint,
             AccountId=options.account_id,
             AccountIdEndpointMode=options.account_id_endpoint_mode,
-            ResourceArn=jmespath.search("TableCreationParameters.TableName", input),
+            ResourceArn=jmespath.search("TableCreationParameters.TableName", input_),
             ResourceArnList=options.resource_arn_list,
         )
     )  # noqa: F841
@@ -103,7 +103,7 @@ def build_request(
     import aws_sdk_dynamodb.types.import_table_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_dynamodb.types.import_table_input.serialize_aws_json_1_0(input)
+        aws_sdk_dynamodb.types.import_table_input.serialize_aws_json_1_0(input_)
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -116,11 +116,11 @@ def build_request(
 
 def import_table(
     options: OperationOptions,
-    input: aws_sdk_dynamodb.types.import_table_input.ImportTableInput,
+    input_: aws_sdk_dynamodb.types.import_table_input.ImportTableInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.import_table_output.ImportTableOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -134,11 +134,11 @@ def import_table(
 
 async def async_import_table(
     options: AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.import_table_input.ImportTableInput,
+    input_: aws_sdk_dynamodb.types.import_table_input.ImportTableInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.import_table_output.ImportTableOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

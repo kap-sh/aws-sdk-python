@@ -100,23 +100,23 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_prompt_request.CreatePromptRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.create_prompt_request.CreatePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if default_variant is not None:
-            input["default_variant"] = default_variant
+            input_["default_variant"] = default_variant
         if variants is not None:
-            input["variants"] = variants
+            input_["variants"] = variants
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,13 +151,13 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_prompt_request.GetPromptRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_identifier"] = prompt_identifier
+        input_: aws_sdk_bedrock_agent.types.get_prompt_request.GetPromptRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_identifier"] = prompt_identifier
         if prompt_version is not None:
-            input["prompt_version"] = prompt_version
+            input_["prompt_version"] = prompt_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,20 +208,20 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_prompt_request.UpdatePromptRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.update_prompt_request.UpdatePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if default_variant is not None:
-            input["default_variant"] = default_variant
+            input_["default_variant"] = default_variant
         if variants is not None:
-            input["variants"] = variants
-        input["prompt_identifier"] = prompt_identifier
+            input_["variants"] = variants
+        input_["prompt_identifier"] = prompt_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,13 +258,13 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_prompt_request.DeletePromptRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_identifier"] = prompt_identifier
+        input_: aws_sdk_bedrock_agent.types.delete_prompt_request.DeletePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_identifier"] = prompt_identifier
         if prompt_version is not None:
-            input["prompt_version"] = prompt_version
+            input_["prompt_version"] = prompt_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,16 +305,16 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_prompts_request.ListPromptsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.list_prompts_request.ListPromptsRequest = {}  # type: ignore[typeddict-item]
         if prompt_identifier is not None:
-            input["prompt_identifier"] = prompt_identifier
+            input_["prompt_identifier"] = prompt_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -357,17 +357,17 @@ class PromptResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_prompt_version_request.CreatePromptVersionRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_identifier"] = prompt_identifier
+        input_: aws_sdk_bedrock_agent.types.create_prompt_version_request.CreatePromptVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_identifier"] = prompt_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,23 +428,23 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_prompt_request.CreatePromptRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.create_prompt_request.CreatePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if default_variant is not None:
-            input["default_variant"] = default_variant
+            input_["default_variant"] = default_variant
         if variants is not None:
-            input["variants"] = variants
+            input_["variants"] = variants
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,13 +480,13 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_prompt_request.GetPromptRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_identifier"] = prompt_identifier
+        input_: aws_sdk_bedrock_agent.types.get_prompt_request.GetPromptRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_identifier"] = prompt_identifier
         if prompt_version is not None:
-            input["prompt_version"] = prompt_version
+            input_["prompt_version"] = prompt_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,20 +538,20 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_prompt_request.UpdatePromptRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.update_prompt_request.UpdatePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if default_variant is not None:
-            input["default_variant"] = default_variant
+            input_["default_variant"] = default_variant
         if variants is not None:
-            input["variants"] = variants
-        input["prompt_identifier"] = prompt_identifier
+            input_["variants"] = variants
+        input_["prompt_identifier"] = prompt_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -589,13 +589,13 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_prompt_request.DeletePromptRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_identifier"] = prompt_identifier
+        input_: aws_sdk_bedrock_agent.types.delete_prompt_request.DeletePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_identifier"] = prompt_identifier
         if prompt_version is not None:
-            input["prompt_version"] = prompt_version
+            input_["prompt_version"] = prompt_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -637,16 +637,16 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_prompts_request.ListPromptsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.list_prompts_request.ListPromptsRequest = {}  # type: ignore[typeddict-item]
         if prompt_identifier is not None:
-            input["prompt_identifier"] = prompt_identifier
+            input_["prompt_identifier"] = prompt_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,17 +690,17 @@ class AsyncPromptResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_prompt_version_request.CreatePromptVersionRequest = {}  # type: ignore[typeddict-item]
-        input["prompt_identifier"] = prompt_identifier
+        input_: aws_sdk_bedrock_agent.types.create_prompt_version_request.CreatePromptVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["prompt_identifier"] = prompt_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -16,6 +16,48 @@ from aws_sdk_mediaconnect._auth._providers import (
 )
 from aws_sdk_mediaconnect._auth._zapros_handler import AuthMiddleware
 from aws_sdk_mediaconnect._pagination import resolve_path as _resolve_path
+from aws_sdk_mediaconnect._resources.media_connect.bridge_resource import (
+    AsyncBridgeResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.entitlement_resource import (
+    AsyncEntitlementResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.flow_media_stream_resource import (
+    AsyncFlowMediaStreamResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.flow_output_resource import (
+    AsyncFlowOutputResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.flow_resource import (
+    AsyncFlowResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.flow_source_resource import (
+    AsyncFlowSourceResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.flow_vpc_interface_resource import (
+    AsyncFlowVpcInterfaceResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.gateway_instance_resource import (
+    AsyncGatewayInstanceResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.gateway_resource import (
+    AsyncGatewayResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.offering_resource import (
+    AsyncOfferingResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.reservation_resource import (
+    AsyncReservationResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.router_input_resource import (
+    AsyncRouterInputResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.router_network_interface_resource import (
+    AsyncRouterNetworkInterfaceResource,
+)
+from aws_sdk_mediaconnect._resources.media_connect.router_output_resource import (
+    AsyncRouterOutputResource,
+)
 from aws_sdk_mediaconnect._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -114,6 +156,23 @@ class AsyncMediaConnectClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.bridge_resource = AsyncBridgeResource(self)
+        self.entitlement_resource = AsyncEntitlementResource(self)
+        self.flow_media_stream_resource = AsyncFlowMediaStreamResource(self)
+        self.flow_output_resource = AsyncFlowOutputResource(self)
+        self.flow_resource = AsyncFlowResource(self)
+        self.flow_source_resource = AsyncFlowSourceResource(self)
+        self.flow_vpc_interface_resource = AsyncFlowVpcInterfaceResource(self)
+        self.gateway_instance_resource = AsyncGatewayInstanceResource(self)
+        self.gateway_resource = AsyncGatewayResource(self)
+        self.offering_resource = AsyncOfferingResource(self)
+        self.reservation_resource = AsyncReservationResource(self)
+        self.router_input_resource = AsyncRouterInputResource(self)
+        self.router_network_interface_resource = AsyncRouterNetworkInterfaceResource(
+            self
+        )
+        self.router_output_resource = AsyncRouterOutputResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncMediaConnectClientConfig] = None
@@ -177,14 +236,14 @@ class AsyncMediaConnectClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_entitlements_request.ListEntitlementsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_entitlements_request.ListEntitlementsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,11 +302,11 @@ class AsyncMediaConnectClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_tags_for_global_resource_request.ListTagsForGlobalResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mediaconnect.types.list_tags_for_global_resource_request.ListTagsForGlobalResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,11 +340,11 @@ class AsyncMediaConnectClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mediaconnect.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,12 +378,12 @@ class AsyncMediaConnectClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.tag_global_resource_request.TagGlobalResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mediaconnect.types.tag_global_resource_request.TagGlobalResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,12 +417,12 @@ class AsyncMediaConnectClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mediaconnect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,12 +456,12 @@ class AsyncMediaConnectClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.untag_global_resource_request.UntagGlobalResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mediaconnect.types.untag_global_resource_request.UntagGlobalResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,12 +495,12 @@ class AsyncMediaConnectClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mediaconnect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

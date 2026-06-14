@@ -80,18 +80,18 @@ class ResourceSnapshot:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_resource_snapshot_request.CreateResourceSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["engagement_identifier"] = engagement_identifier
-        input["resource_type"] = resource_type
-        input["resource_identifier"] = resource_identifier
-        input["resource_snapshot_template_identifier"] = (
+        input_: aws_sdk_partnercentral_selling.types.create_resource_snapshot_request.CreateResourceSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["engagement_identifier"] = engagement_identifier
+        input_["resource_type"] = resource_type
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_snapshot_template_identifier"] = (
             resource_snapshot_template_identifier
         )
-        input["client_token"] = client_token
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,19 +136,19 @@ class ResourceSnapshot:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_resource_snapshot_request.GetResourceSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["engagement_identifier"] = engagement_identifier
-        input["resource_type"] = resource_type
-        input["resource_identifier"] = resource_identifier
-        input["resource_snapshot_template_identifier"] = (
+        input_: aws_sdk_partnercentral_selling.types.get_resource_snapshot_request.GetResourceSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["engagement_identifier"] = engagement_identifier
+        input_["resource_type"] = resource_type
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_snapshot_template_identifier"] = (
             resource_snapshot_template_identifier
         )
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -203,23 +203,23 @@ class ResourceSnapshot:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagement_resource_associations_request.ListEngagementResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_engagement_resource_associations_request.ListEngagementResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if engagement_identifier is not None:
-            input["engagement_identifier"] = engagement_identifier
+            input_["engagement_identifier"] = engagement_identifier
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if created_by is not None:
-            input["created_by"] = created_by
+            input_["created_by"] = created_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,26 +276,26 @@ class ResourceSnapshot:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_resource_snapshots_request.ListResourceSnapshotsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_resource_snapshots_request.ListResourceSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["engagement_identifier"] = engagement_identifier
+            input_["next_token"] = next_token
+        input_["engagement_identifier"] = engagement_identifier
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if resource_snapshot_template_identifier is not None:
-            input["resource_snapshot_template_identifier"] = (
+            input_["resource_snapshot_template_identifier"] = (
                 resource_snapshot_template_identifier
             )
         if created_by is not None:
-            input["created_by"] = created_by
+            input_["created_by"] = created_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,18 +344,18 @@ class AsyncResourceSnapshot:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_resource_snapshot_request.CreateResourceSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["engagement_identifier"] = engagement_identifier
-        input["resource_type"] = resource_type
-        input["resource_identifier"] = resource_identifier
-        input["resource_snapshot_template_identifier"] = (
+        input_: aws_sdk_partnercentral_selling.types.create_resource_snapshot_request.CreateResourceSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["engagement_identifier"] = engagement_identifier
+        input_["resource_type"] = resource_type
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_snapshot_template_identifier"] = (
             resource_snapshot_template_identifier
         )
-        input["client_token"] = client_token
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,19 +401,19 @@ class AsyncResourceSnapshot:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_resource_snapshot_request.GetResourceSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["engagement_identifier"] = engagement_identifier
-        input["resource_type"] = resource_type
-        input["resource_identifier"] = resource_identifier
-        input["resource_snapshot_template_identifier"] = (
+        input_: aws_sdk_partnercentral_selling.types.get_resource_snapshot_request.GetResourceSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["engagement_identifier"] = engagement_identifier
+        input_["resource_type"] = resource_type
+        input_["resource_identifier"] = resource_identifier
+        input_["resource_snapshot_template_identifier"] = (
             resource_snapshot_template_identifier
         )
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -469,23 +469,23 @@ class AsyncResourceSnapshot:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagement_resource_associations_request.ListEngagementResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_engagement_resource_associations_request.ListEngagementResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if engagement_identifier is not None:
-            input["engagement_identifier"] = engagement_identifier
+            input_["engagement_identifier"] = engagement_identifier
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if created_by is not None:
-            input["created_by"] = created_by
+            input_["created_by"] = created_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -543,26 +543,26 @@ class AsyncResourceSnapshot:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_resource_snapshots_request.ListResourceSnapshotsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_resource_snapshots_request.ListResourceSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["engagement_identifier"] = engagement_identifier
+            input_["next_token"] = next_token
+        input_["engagement_identifier"] = engagement_identifier
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if resource_snapshot_template_identifier is not None:
-            input["resource_snapshot_template_identifier"] = (
+            input_["resource_snapshot_template_identifier"] = (
                 resource_snapshot_template_identifier
             )
         if created_by is not None:
-            input["created_by"] = created_by
+            input_["created_by"] = created_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

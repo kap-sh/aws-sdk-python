@@ -157,11 +157,11 @@ class AsyncApiGatewayManagementApiClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apigatewaymanagementapi.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_apigatewaymanagementapi.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -191,11 +191,11 @@ class AsyncApiGatewayManagementApiClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apigatewaymanagementapi.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_apigatewaymanagementapi.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -229,12 +229,12 @@ class AsyncApiGatewayManagementApiClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_apigatewaymanagementapi.types.post_to_connection_request.PostToConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["data"] = data
-        input["connection_id"] = connection_id
+        input_: aws_sdk_apigatewaymanagementapi.types.post_to_connection_request.PostToConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["data"] = data
+        input_["connection_id"] = connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

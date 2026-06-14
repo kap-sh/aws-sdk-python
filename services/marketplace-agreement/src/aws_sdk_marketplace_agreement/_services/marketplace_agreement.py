@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_marketplace_agreement._auth._signers
+import aws_sdk_marketplace_agreement._auth._sigv4
 from aws_sdk_marketplace_agreement._auth._identity import Credentials
 from aws_sdk_marketplace_agreement._auth._providers import (
     CredentialsProvider,
@@ -249,12 +251,12 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.accept_agreement_cancellation_request_input.AcceptAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["agreement_cancellation_request_id"] = agreement_cancellation_request_id
+        input_: aws_sdk_marketplace_agreement.types.accept_agreement_cancellation_request_input.AcceptAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["agreement_cancellation_request_id"] = agreement_cancellation_request_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,14 +295,14 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.accept_agreement_payment_request_input.AcceptAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
-        input["payment_request_id"] = payment_request_id
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.accept_agreement_payment_request_input.AcceptAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
+        input_["payment_request_id"] = payment_request_id
+        input_["agreement_id"] = agreement_id
         if purchase_order_reference is not None:
-            input["purchase_order_reference"] = purchase_order_reference
+            input_["purchase_order_reference"] = purchase_order_reference
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,13 +339,13 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.accept_agreement_request_input.AcceptAgreementRequestInput = {}  # type: ignore[typeddict-item]
-        input["agreement_request_id"] = agreement_request_id
+        input_: aws_sdk_marketplace_agreement.types.accept_agreement_request_input.AcceptAgreementRequestInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_request_id"] = agreement_request_id
         if purchase_orders is not None:
-            input["purchase_orders"] = purchase_orders
+            input_["purchase_orders"] = purchase_orders
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +383,13 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_request_input.BatchCreateBillingAdjustmentRequestInput = {}  # type: ignore[typeddict-item]
-        input["billing_adjustment_request_entries"] = billing_adjustment_request_entries
+        input_: aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_request_input.BatchCreateBillingAdjustmentRequestInput = {}  # type: ignore[typeddict-item]
+        input_["billing_adjustment_request_entries"] = (
+            billing_adjustment_request_entries
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,11 +422,11 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.cancel_agreement_input.CancelAgreementInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.cancel_agreement_input.CancelAgreementInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,13 +468,13 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.cancel_agreement_cancellation_request_input.CancelAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["agreement_cancellation_request_id"] = agreement_cancellation_request_id
-        input["cancellation_reason"] = cancellation_reason
+        input_: aws_sdk_marketplace_agreement.types.cancel_agreement_cancellation_request_input.CancelAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["agreement_cancellation_request_id"] = agreement_cancellation_request_id
+        input_["cancellation_reason"] = cancellation_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,12 +509,12 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.cancel_agreement_payment_request_input.CancelAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
-        input["payment_request_id"] = payment_request_id
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.cancel_agreement_payment_request_input.CancelAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
+        input_["payment_request_id"] = payment_request_id
+        input_["agreement_id"] = agreement_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,20 +565,20 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.create_agreement_request_input.CreateAgreementRequestInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_marketplace_agreement.types.create_agreement_request_input.CreateAgreementRequestInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["intent"] = intent
-        input["requested_terms"] = requested_terms
+            input_["client_token"] = client_token
+        input_["intent"] = intent
+        input_["requested_terms"] = requested_terms
         if source_agreement_identifier is not None:
-            input["source_agreement_identifier"] = source_agreement_identifier
+            input_["source_agreement_identifier"] = source_agreement_identifier
         if agreement_proposal_identifier is not None:
-            input["agreement_proposal_identifier"] = agreement_proposal_identifier
+            input_["agreement_proposal_identifier"] = agreement_proposal_identifier
         if tax_configuration is not None:
-            input["tax_configuration"] = tax_configuration
+            input_["tax_configuration"] = tax_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -607,11 +611,11 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.describe_agreement_input.DescribeAgreementInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.describe_agreement_input.DescribeAgreementInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,12 +655,12 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.get_agreement_cancellation_request_input.GetAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
-        input["agreement_cancellation_request_id"] = agreement_cancellation_request_id
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.get_agreement_cancellation_request_input.GetAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_cancellation_request_id"] = agreement_cancellation_request_id
+        input_["agreement_id"] = agreement_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -697,15 +701,15 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.get_agreement_entitlements_input.GetAgreementEntitlementsInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.get_agreement_entitlements_input.GetAgreementEntitlementsInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -767,12 +771,12 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.get_agreement_payment_request_input.GetAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
-        input["payment_request_id"] = payment_request_id
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.get_agreement_payment_request_input.GetAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
+        input_["payment_request_id"] = payment_request_id
+        input_["agreement_id"] = agreement_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -813,15 +817,15 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.get_agreement_terms_input.GetAgreementTermsInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.get_agreement_terms_input.GetAgreementTermsInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -888,12 +892,12 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.get_billing_adjustment_request_input.GetBillingAdjustmentRequestInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["billing_adjustment_request_id"] = billing_adjustment_request_id
+        input_: aws_sdk_marketplace_agreement.types.get_billing_adjustment_request_input.GetBillingAdjustmentRequestInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["billing_adjustment_request_id"] = billing_adjustment_request_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -953,23 +957,23 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.list_agreement_cancellation_requests_input.ListAgreementCancellationRequestsInput = {}  # type: ignore[typeddict-item]
-        input["party_type"] = party_type
+        input_: aws_sdk_marketplace_agreement.types.list_agreement_cancellation_requests_input.ListAgreementCancellationRequestsInput = {}  # type: ignore[typeddict-item]
+        input_["party_type"] = party_type
         if agreement_id is not None:
-            input["agreement_id"] = agreement_id
+            input_["agreement_id"] = agreement_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if agreement_type is not None:
-            input["agreement_type"] = agreement_type
+            input_["agreement_type"] = agreement_type
         if catalog is not None:
-            input["catalog"] = catalog
+            input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1059,20 +1063,20 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.list_agreement_charges_input.ListAgreementChargesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_marketplace_agreement.types.list_agreement_charges_input.ListAgreementChargesInput = {}  # type: ignore[typeddict-item]
         if catalog is not None:
-            input["catalog"] = catalog
+            input_["catalog"] = catalog
         if agreement_id is not None:
-            input["agreement_id"] = agreement_id
+            input_["agreement_id"] = agreement_id
         if agreement_type is not None:
-            input["agreement_type"] = agreement_type
+            input_["agreement_type"] = agreement_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1175,26 +1179,26 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.list_agreement_invoice_line_items_input.ListAgreementInvoiceLineItemsInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["group_by"] = group_by
+        input_: aws_sdk_marketplace_agreement.types.list_agreement_invoice_line_items_input.ListAgreementInvoiceLineItemsInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["group_by"] = group_by
         if invoice_id is not None:
-            input["invoice_id"] = invoice_id
+            input_["invoice_id"] = invoice_id
         if invoice_type is not None:
-            input["invoice_type"] = invoice_type
+            input_["invoice_type"] = invoice_type
         if invoice_billing_period is not None:
-            input["invoice_billing_period"] = invoice_billing_period
+            input_["invoice_billing_period"] = invoice_billing_period
         if before_issued_time is not None:
-            input["before_issued_time"] = before_issued_time
+            input_["before_issued_time"] = before_issued_time
         if after_issued_time is not None:
-            input["after_issued_time"] = after_issued_time
+            input_["after_issued_time"] = after_issued_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1300,23 +1304,23 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.list_agreement_payment_requests_input.ListAgreementPaymentRequestsInput = {}  # type: ignore[typeddict-item]
-        input["party_type"] = party_type
+        input_: aws_sdk_marketplace_agreement.types.list_agreement_payment_requests_input.ListAgreementPaymentRequestsInput = {}  # type: ignore[typeddict-item]
+        input_["party_type"] = party_type
         if agreement_type is not None:
-            input["agreement_type"] = agreement_type
+            input_["agreement_type"] = agreement_type
         if catalog is not None:
-            input["catalog"] = catalog
+            input_["catalog"] = catalog
         if agreement_id is not None:
-            input["agreement_id"] = agreement_id
+            input_["agreement_id"] = agreement_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1423,26 +1427,26 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.list_billing_adjustment_requests_input.ListBillingAdjustmentRequestsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_marketplace_agreement.types.list_billing_adjustment_requests_input.ListBillingAdjustmentRequestsInput = {}  # type: ignore[typeddict-item]
         if agreement_id is not None:
-            input["agreement_id"] = agreement_id
+            input_["agreement_id"] = agreement_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if catalog is not None:
-            input["catalog"] = catalog
+            input_["catalog"] = catalog
         if agreement_type is not None:
-            input["agreement_type"] = agreement_type
+            input_["agreement_type"] = agreement_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1526,13 +1530,13 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.reject_agreement_cancellation_request_input.RejectAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["agreement_cancellation_request_id"] = agreement_cancellation_request_id
-        input["rejection_reason"] = rejection_reason
+        input_: aws_sdk_marketplace_agreement.types.reject_agreement_cancellation_request_input.RejectAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["agreement_cancellation_request_id"] = agreement_cancellation_request_id
+        input_["rejection_reason"] = rejection_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1571,14 +1575,14 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.reject_agreement_payment_request_input.RejectAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
-        input["payment_request_id"] = payment_request_id
-        input["agreement_id"] = agreement_id
+        input_: aws_sdk_marketplace_agreement.types.reject_agreement_payment_request_input.RejectAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
+        input_["payment_request_id"] = payment_request_id
+        input_["agreement_id"] = agreement_id
         if rejection_reason is not None:
-            input["rejection_reason"] = rejection_reason
+            input_["rejection_reason"] = rejection_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1625,20 +1629,20 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.search_agreements_input.SearchAgreementsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_marketplace_agreement.types.search_agreements_input.SearchAgreementsInput = {}  # type: ignore[typeddict-item]
         if catalog is not None:
-            input["catalog"] = catalog
+            input_["catalog"] = catalog
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1719,16 +1723,16 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.send_agreement_cancellation_request_input.SendAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["reason_code"] = reason_code
+        input_: aws_sdk_marketplace_agreement.types.send_agreement_cancellation_request_input.SendAgreementCancellationRequestInput = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["reason_code"] = reason_code
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1775,18 +1779,18 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.send_agreement_payment_request_input.SendAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_marketplace_agreement.types.send_agreement_payment_request_input.SendAgreementPaymentRequestInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["agreement_id"] = agreement_id
-        input["term_id"] = term_id
-        input["name"] = name
-        input["charge_amount"] = charge_amount
+            input_["client_token"] = client_token
+        input_["agreement_id"] = agreement_id
+        input_["term_id"] = term_id
+        input_["name"] = name
+        input_["charge_amount"] = charge_amount
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1819,11 +1823,11 @@ class MarketplaceAgreementClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_agreement.types.update_purchase_orders_input.UpdatePurchaseOrdersInput = {}  # type: ignore[typeddict-item]
-        input["purchase_orders"] = purchase_orders
+        input_: aws_sdk_marketplace_agreement.types.update_purchase_orders_input.UpdatePurchaseOrdersInput = {}  # type: ignore[typeddict-item]
+        input_["purchase_orders"] = purchase_orders
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

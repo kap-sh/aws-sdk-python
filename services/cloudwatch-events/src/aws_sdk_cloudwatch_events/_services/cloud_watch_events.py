@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_cloudwatch_events._auth._signers
+import aws_sdk_cloudwatch_events._auth._sigv4
 from aws_sdk_cloudwatch_events._auth._identity import Credentials
 from aws_sdk_cloudwatch_events._auth._providers import (
     CredentialsProvider,
@@ -292,11 +294,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.activate_event_source_request.ActivateEventSourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.activate_event_source_request.ActivateEventSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,11 +331,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.cancel_replay_request.CancelReplayRequest = {}  # type: ignore[typeddict-item]
-        input["replay_name"] = replay_name
+        input_: aws_sdk_cloudwatch_events.types.cancel_replay_request.CancelReplayRequest = {}  # type: ignore[typeddict-item]
+        input_["replay_name"] = replay_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,18 +382,20 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.create_api_destination_request.CreateApiDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.create_api_destination_request.CreateApiDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["connection_arn"] = connection_arn
-        input["invocation_endpoint"] = invocation_endpoint
-        input["http_method"] = http_method
+            input_["description"] = description
+        input_["connection_arn"] = connection_arn
+        input_["invocation_endpoint"] = invocation_endpoint
+        input_["http_method"] = http_method
         if invocation_rate_limit_per_second is not None:
-            input["invocation_rate_limit_per_second"] = invocation_rate_limit_per_second
+            input_["invocation_rate_limit_per_second"] = (
+                invocation_rate_limit_per_second
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,18 +444,18 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.create_archive_request.CreateArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_name"] = archive_name
-        input["event_source_arn"] = event_source_arn
+        input_: aws_sdk_cloudwatch_events.types.create_archive_request.CreateArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_name"] = archive_name
+        input_["event_source_arn"] = event_source_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if event_pattern is not None:
-            input["event_pattern"] = event_pattern
+            input_["event_pattern"] = event_pattern
         if retention_days is not None:
-            input["retention_days"] = retention_days
+            input_["retention_days"] = retention_days
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,15 +496,15 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["authorization_type"] = authorization_type
-        input["auth_parameters"] = auth_parameters
+            input_["description"] = description
+        input_["authorization_type"] = authorization_type
+        input_["auth_parameters"] = auth_parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,15 +543,15 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.create_event_bus_request.CreateEventBusRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.create_event_bus_request.CreateEventBusRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if event_source_name is not None:
-            input["event_source_name"] = event_source_name
+            input_["event_source_name"] = event_source_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,12 +586,12 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.create_partner_event_source_request.CreatePartnerEventSourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["account"] = account
+        input_: aws_sdk_cloudwatch_events.types.create_partner_event_source_request.CreatePartnerEventSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["account"] = account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -618,11 +622,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.deactivate_event_source_request.DeactivateEventSourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.deactivate_event_source_request.DeactivateEventSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -655,11 +659,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.deauthorize_connection_request.DeauthorizeConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.deauthorize_connection_request.DeauthorizeConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -692,11 +696,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.delete_api_destination_request.DeleteApiDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.delete_api_destination_request.DeleteApiDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -731,11 +735,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.delete_archive_request.DeleteArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_name"] = archive_name
+        input_: aws_sdk_cloudwatch_events.types.delete_archive_request.DeleteArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_name"] = archive_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -768,11 +772,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,11 +807,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.delete_event_bus_request.DeleteEventBusRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.delete_event_bus_request.DeleteEventBusRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,12 +844,12 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.delete_partner_event_source_request.DeletePartnerEventSourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["account"] = account
+        input_: aws_sdk_cloudwatch_events.types.delete_partner_event_source_request.DeletePartnerEventSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["account"] = account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -882,15 +886,15 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -923,11 +927,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.describe_api_destination_request.DescribeApiDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.describe_api_destination_request.DescribeApiDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -960,11 +964,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.describe_archive_request.DescribeArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_name"] = archive_name
+        input_: aws_sdk_cloudwatch_events.types.describe_archive_request.DescribeArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_name"] = archive_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,11 +1001,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.describe_connection_request.DescribeConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.describe_connection_request.DescribeConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1036,12 +1040,12 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.describe_event_bus_request.DescribeEventBusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.describe_event_bus_request.DescribeEventBusRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1074,11 +1078,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.describe_event_source_request.DescribeEventSourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.describe_event_source_request.DescribeEventSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1111,11 +1115,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.describe_partner_event_source_request.DescribePartnerEventSourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.describe_partner_event_source_request.DescribePartnerEventSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1148,11 +1152,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.describe_replay_request.DescribeReplayRequest = {}  # type: ignore[typeddict-item]
-        input["replay_name"] = replay_name
+        input_: aws_sdk_cloudwatch_events.types.describe_replay_request.DescribeReplayRequest = {}  # type: ignore[typeddict-item]
+        input_["replay_name"] = replay_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1189,13 +1193,13 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.describe_rule_request.DescribeRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.describe_rule_request.DescribeRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1230,13 +1234,13 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.disable_rule_request.DisableRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.disable_rule_request.DisableRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1271,13 +1275,13 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.enable_rule_request.EnableRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.enable_rule_request.EnableRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1324,18 +1328,18 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_api_destinations_request.ListApiDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.list_api_destinations_request.ListApiDestinationsRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if connection_arn is not None:
-            input["connection_arn"] = connection_arn
+            input_["connection_arn"] = connection_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1384,20 +1388,20 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_archives_request.ListArchivesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.list_archives_request.ListArchivesRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if event_source_arn is not None:
-            input["event_source_arn"] = event_source_arn
+            input_["event_source_arn"] = event_source_arn
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1444,18 +1448,18 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if connection_state is not None:
-            input["connection_state"] = connection_state
+            input_["connection_state"] = connection_state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1498,16 +1502,16 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_event_buses_request.ListEventBusesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.list_event_buses_request.ListEventBusesRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1550,16 +1554,16 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_event_sources_request.ListEventSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.list_event_sources_request.ListEventSourcesRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1600,15 +1604,15 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_partner_event_source_accounts_request.ListPartnerEventSourceAccountsRequest = {}  # type: ignore[typeddict-item]
-        input["event_source_name"] = event_source_name
+        input_: aws_sdk_cloudwatch_events.types.list_partner_event_source_accounts_request.ListPartnerEventSourceAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_["event_source_name"] = event_source_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1649,15 +1653,15 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_partner_event_sources_request.ListPartnerEventSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["name_prefix"] = name_prefix
+        input_: aws_sdk_cloudwatch_events.types.list_partner_event_sources_request.ListPartnerEventSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["name_prefix"] = name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1706,20 +1710,20 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_replays_request.ListReplaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.list_replays_request.ListReplaysRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if event_source_arn is not None:
-            input["event_source_arn"] = event_source_arn
+            input_["event_source_arn"] = event_source_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1764,17 +1768,17 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_rule_names_by_target_request.ListRuleNamesByTargetRequest = {}  # type: ignore[typeddict-item]
-        input["target_arn"] = target_arn
+        input_: aws_sdk_cloudwatch_events.types.list_rule_names_by_target_request.ListRuleNamesByTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["target_arn"] = target_arn
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1821,18 +1825,18 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1865,11 +1869,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudwatch_events.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1914,17 +1918,17 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.list_targets_by_rule_request.ListTargetsByRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule"] = rule
+        input_: aws_sdk_cloudwatch_events.types.list_targets_by_rule_request.ListTargetsByRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule"] = rule
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1957,11 +1961,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.put_events_request.PutEventsRequest = {}  # type: ignore[typeddict-item]
-        input["entries"] = entries
+        input_: aws_sdk_cloudwatch_events.types.put_events_request.PutEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["entries"] = entries
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1994,11 +1998,11 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.put_partner_events_request.PutPartnerEventsRequest = {}  # type: ignore[typeddict-item]
-        input["entries"] = entries
+        input_: aws_sdk_cloudwatch_events.types.put_partner_events_request.PutPartnerEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["entries"] = entries
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2047,22 +2051,22 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.put_permission_request.PutPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.put_permission_request.PutPermissionRequest = {}  # type: ignore[typeddict-item]
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if principal is not None:
-            input["principal"] = principal
+            input_["principal"] = principal
         if statement_id is not None:
-            input["statement_id"] = statement_id
+            input_["statement_id"] = statement_id
         if condition is not None:
-            input["condition"] = condition
+            input_["condition"] = condition
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2117,25 +2121,25 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.put_rule_request.PutRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.put_rule_request.PutRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if schedule_expression is not None:
-            input["schedule_expression"] = schedule_expression
+            input_["schedule_expression"] = schedule_expression
         if event_pattern is not None:
-            input["event_pattern"] = event_pattern
+            input_["event_pattern"] = event_pattern
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2174,14 +2178,14 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.put_targets_request.PutTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["rule"] = rule
+        input_: aws_sdk_cloudwatch_events.types.put_targets_request.PutTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["rule"] = rule
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
-        input["targets"] = targets
+            input_["event_bus_name"] = event_bus_name
+        input_["targets"] = targets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2222,16 +2226,16 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_events.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
         if statement_id is not None:
-            input["statement_id"] = statement_id
+            input_["statement_id"] = statement_id
         if remove_all_permissions is not None:
-            input["remove_all_permissions"] = remove_all_permissions
+            input_["remove_all_permissions"] = remove_all_permissions
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
+            input_["event_bus_name"] = event_bus_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2274,16 +2278,16 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.remove_targets_request.RemoveTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["rule"] = rule
+        input_: aws_sdk_cloudwatch_events.types.remove_targets_request.RemoveTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["rule"] = rule
         if event_bus_name is not None:
-            input["event_bus_name"] = event_bus_name
-        input["ids"] = ids
+            input_["event_bus_name"] = event_bus_name
+        input_["ids"] = ids
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2328,17 +2332,17 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.start_replay_request.StartReplayRequest = {}  # type: ignore[typeddict-item]
-        input["replay_name"] = replay_name
+        input_: aws_sdk_cloudwatch_events.types.start_replay_request.StartReplayRequest = {}  # type: ignore[typeddict-item]
+        input_["replay_name"] = replay_name
         if description is not None:
-            input["description"] = description
-        input["event_source_arn"] = event_source_arn
-        input["event_start_time"] = event_start_time
-        input["event_end_time"] = event_end_time
-        input["destination"] = destination
+            input_["description"] = description
+        input_["event_source_arn"] = event_source_arn
+        input_["event_start_time"] = event_start_time
+        input_["event_end_time"] = event_end_time
+        input_["destination"] = destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2373,12 +2377,12 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_cloudwatch_events.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2413,12 +2417,12 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.test_event_pattern_request.TestEventPatternRequest = {}  # type: ignore[typeddict-item]
-        input["event_pattern"] = event_pattern
-        input["event"] = event
+        input_: aws_sdk_cloudwatch_events.types.test_event_pattern_request.TestEventPatternRequest = {}  # type: ignore[typeddict-item]
+        input_["event_pattern"] = event_pattern
+        input_["event"] = event
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2455,12 +2459,12 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cloudwatch_events.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2513,21 +2517,23 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.update_api_destination_request.UpdateApiDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.update_api_destination_request.UpdateApiDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if connection_arn is not None:
-            input["connection_arn"] = connection_arn
+            input_["connection_arn"] = connection_arn
         if invocation_endpoint is not None:
-            input["invocation_endpoint"] = invocation_endpoint
+            input_["invocation_endpoint"] = invocation_endpoint
         if http_method is not None:
-            input["http_method"] = http_method
+            input_["http_method"] = http_method
         if invocation_rate_limit_per_second is not None:
-            input["invocation_rate_limit_per_second"] = invocation_rate_limit_per_second
+            input_["invocation_rate_limit_per_second"] = (
+                invocation_rate_limit_per_second
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2574,17 +2580,17 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.update_archive_request.UpdateArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_name"] = archive_name
+        input_: aws_sdk_cloudwatch_events.types.update_archive_request.UpdateArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_name"] = archive_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if event_pattern is not None:
-            input["event_pattern"] = event_pattern
+            input_["event_pattern"] = event_pattern
         if retention_days is not None:
-            input["retention_days"] = retention_days
+            input_["retention_days"] = retention_days
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2629,17 +2635,17 @@ class CloudWatchEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_events.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_events.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if authorization_type is not None:
-            input["authorization_type"] = authorization_type
+            input_["authorization_type"] = authorization_type
         if auth_parameters is not None:
-            input["auth_parameters"] = auth_parameters
+            input_["auth_parameters"] = auth_parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

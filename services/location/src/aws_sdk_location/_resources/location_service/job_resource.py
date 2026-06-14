@@ -88,22 +88,22 @@ class JobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.start_job_request.StartJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.start_job_request.StartJobRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["action"] = action
+            input_["client_token"] = client_token
+        input_["action"] = action
         if action_options is not None:
-            input["action_options"] = action_options
-        input["execution_role_arn"] = execution_role_arn
-        input["input_options"] = input_options
+            input_["action_options"] = action_options
+        input_["execution_role_arn"] = execution_role_arn
+        input_["input_options"] = input_options
         if name is not None:
-            input["name"] = name
-        input["output_options"] = output_options
+            input_["name"] = name
+        input_["output_options"] = output_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,11 +136,11 @@ class JobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_location.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -177,16 +177,16 @@ class JobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,11 +219,11 @@ class JobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_location.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,22 +280,22 @@ class AsyncJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.start_job_request.StartJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.start_job_request.StartJobRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["action"] = action
+            input_["client_token"] = client_token
+        input_["action"] = action
         if action_options is not None:
-            input["action_options"] = action_options
-        input["execution_role_arn"] = execution_role_arn
-        input["input_options"] = input_options
+            input_["action_options"] = action_options
+        input_["execution_role_arn"] = execution_role_arn
+        input_["input_options"] = input_options
         if name is not None:
-            input["name"] = name
-        input["output_options"] = output_options
+            input_["name"] = name
+        input_["output_options"] = output_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,11 +329,11 @@ class AsyncJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_location.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,16 +371,16 @@ class AsyncJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,11 +414,11 @@ class AsyncJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_location.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

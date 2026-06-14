@@ -15,6 +15,25 @@ from aws_sdk_omics._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_omics._auth._zapros_handler import AuthMiddleware
+from aws_sdk_omics._resources.omics.annotation_import_job import AnnotationImportJob
+from aws_sdk_omics._resources.omics.annotation_store import AnnotationStore
+from aws_sdk_omics._resources.omics.annotation_store_version import (
+    AnnotationStoreVersion,
+)
+from aws_sdk_omics._resources.omics.configuration_resource import ConfigurationResource
+from aws_sdk_omics._resources.omics.reference_store_resource import (
+    ReferenceStoreResource,
+)
+from aws_sdk_omics._resources.omics.run_batch_resource import RunBatchResource
+from aws_sdk_omics._resources.omics.run_cache_resource import RunCacheResource
+from aws_sdk_omics._resources.omics.run_group_resource import RunGroupResource
+from aws_sdk_omics._resources.omics.run_resource import RunResource
+from aws_sdk_omics._resources.omics.sequence_store_resource import SequenceStoreResource
+from aws_sdk_omics._resources.omics.share import Share
+from aws_sdk_omics._resources.omics.tagging_resource import TaggingResource
+from aws_sdk_omics._resources.omics.variant_import_job import VariantImportJob
+from aws_sdk_omics._resources.omics.variant_store import VariantStore
+from aws_sdk_omics._resources.omics.workflow_resource import WorkflowResource
 from aws_sdk_omics._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -105,6 +124,22 @@ class OmicsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.annotation_import_job = AnnotationImportJob(self)
+        self.annotation_store = AnnotationStore(self)
+        self.annotation_store_version = AnnotationStoreVersion(self)
+        self.configuration_resource = ConfigurationResource(self)
+        self.reference_store_resource = ReferenceStoreResource(self)
+        self.run_batch_resource = RunBatchResource(self)
+        self.run_cache_resource = RunCacheResource(self)
+        self.run_group_resource = RunGroupResource(self)
+        self.run_resource = RunResource(self)
+        self.sequence_store_resource = SequenceStoreResource(self)
+        self.share = Share(self)
+        self.tagging_resource = TaggingResource(self)
+        self.variant_import_job = VariantImportJob(self)
+        self.variant_store = VariantStore(self)
+        self.workflow_resource = WorkflowResource(self)
 
     def operation_options(
         self, config_overrides: Optional[OmicsClientConfig] = None
@@ -161,11 +196,11 @@ class OmicsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_s3_access_policy_request.DeleteS3AccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["s3_access_point_arn"] = s3_access_point_arn
+        input_: aws_sdk_omics.types.delete_s3_access_policy_request.DeleteS3AccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["s3_access_point_arn"] = s3_access_point_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,11 +233,11 @@ class OmicsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_s3_access_policy_request.GetS3AccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["s3_access_point_arn"] = s3_access_point_arn
+        input_: aws_sdk_omics.types.get_s3_access_policy_request.GetS3AccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["s3_access_point_arn"] = s3_access_point_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -237,12 +272,12 @@ class OmicsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_omics.types.put_s3_access_policy_request.PutS3AccessPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["s3_access_point_arn"] = s3_access_point_arn
-        input["s3_access_policy"] = s3_access_policy
+        input_: aws_sdk_omics.types.put_s3_access_policy_request.PutS3AccessPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["s3_access_point_arn"] = s3_access_point_arn
+        input_["s3_access_policy"] = s3_access_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

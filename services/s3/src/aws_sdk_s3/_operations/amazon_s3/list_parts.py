@@ -74,11 +74,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.list_parts_request.ListPartsRequest,
+    input_: aws_sdk_s3.types.list_parts_request.ListPartsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -87,7 +87,7 @@ def build_request(
             Accelerate=options.accelerate,
             UseGlobalEndpoint=options.use_global_endpoint,
             UseObjectLambdaEndpoint=options.use_object_lambda_endpoint,
-            Key=input.get("key"),
+            Key=input_.get("key"),
             Prefix=options.prefix,
             CopySource=options.copy_source,
             DisableAccessPoints=options.disable_access_points,
@@ -98,31 +98,31 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=ListParts"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
-    url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
+    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
     params: dict[str, str] = {}
-    if "max_parts" in input:
-        params["max-parts"] = str(input["max_parts"])
-    if "part_number_marker" in input:
-        params["part-number-marker"] = str(input["part_number_marker"])
-    if "upload_id" in input:
-        params["uploadId"] = str(input["upload_id"])
+    if "max_parts" in input_:
+        params["max-parts"] = str(input_["max_parts"])
+    if "part_number_marker" in input_:
+        params["part-number-marker"] = str(input_["part_number_marker"])
+    if "upload_id" in input_:
+        params["uploadId"] = str(input_["upload_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "request_payer" in input:
-        headers["x-amz-request-payer"] = str(input["request_payer"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    if "sse_customer_algorithm" in input:
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = str(input_["request_payer"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    if "sse_customer_algorithm" in input_:
         headers["x-amz-server-side-encryption-customer-algorithm"] = str(
-            input["sse_customer_algorithm"]
+            input_["sse_customer_algorithm"]
         )
-    if "sse_customer_key" in input:
+    if "sse_customer_key" in input_:
         headers["x-amz-server-side-encryption-customer-key"] = str(
-            input["sse_customer_key"]
+            input_["sse_customer_key"]
         )
-    if "sse_customer_key_md5" in input:
+    if "sse_customer_key_md5" in input_:
         headers["x-amz-server-side-encryption-customer-key-MD5"] = str(
-            input["sse_customer_key_md5"]
+            input_["sse_customer_key_md5"]
         )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -135,9 +135,9 @@ def build_request(
 
 def list_parts(
     options: OperationOptions,
-    input: aws_sdk_s3.types.list_parts_request.ListPartsRequest,
+    input_: aws_sdk_s3.types.list_parts_request.ListPartsRequest,
 ) -> tuple[aws_sdk_s3.types.list_parts_output.ListPartsOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -151,9 +151,9 @@ def list_parts(
 
 async def async_list_parts(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.list_parts_request.ListPartsRequest,
+    input_: aws_sdk_s3.types.list_parts_request.ListPartsRequest,
 ) -> tuple[aws_sdk_s3.types.list_parts_output.ListPartsOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

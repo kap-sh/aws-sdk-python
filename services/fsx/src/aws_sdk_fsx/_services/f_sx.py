@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_fsx._auth._signers
+import aws_sdk_fsx._auth._sigv4
 from aws_sdk_fsx._auth._identity import Credentials
 from aws_sdk_fsx._auth._providers import (
     CredentialsProvider,
@@ -350,14 +352,14 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.associate_file_system_aliases_request.AssociateFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.associate_file_system_aliases_request.AssociateFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["file_system_id"] = file_system_id
-        input["aliases"] = aliases
+            input_["client_request_token"] = client_request_token
+        input_["file_system_id"] = file_system_id
+        input_["aliases"] = aliases
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -390,11 +392,11 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.cancel_data_repository_task_request.CancelDataRepositoryTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_fsx.types.cancel_data_repository_task_request.CancelDataRepositoryTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,21 +444,21 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.copy_backup_request.CopyBackupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.copy_backup_request.CopyBackupRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["source_backup_id"] = source_backup_id
+            input_["client_request_token"] = client_request_token
+        input_["source_backup_id"] = source_backup_id
         if source_region is not None:
-            input["source_region"] = source_region
+            input_["source_region"] = source_region
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,18 +503,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.copy_snapshot_and_update_volume_request.CopySnapshotAndUpdateVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.copy_snapshot_and_update_volume_request.CopySnapshotAndUpdateVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["volume_id"] = volume_id
-        input["source_snapshot_arn"] = source_snapshot_arn
+            input_["client_request_token"] = client_request_token
+        input_["volume_id"] = volume_id
+        input_["source_snapshot_arn"] = source_snapshot_arn
         if copy_strategy is not None:
-            input["copy_strategy"] = copy_strategy
+            input_["copy_strategy"] = copy_strategy
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,20 +563,20 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_and_attach_s3_access_point_request.CreateAndAttachS3AccessPointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.create_and_attach_s3_access_point_request.CreateAndAttachS3AccessPointRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["name"] = name
-        input["type"] = type
+            input_["client_request_token"] = client_request_token
+        input_["name"] = name
+        input_["type"] = type
         if open_zfs_configuration is not None:
-            input["open_zfs_configuration"] = open_zfs_configuration
+            input_["open_zfs_configuration"] = open_zfs_configuration
         if ontap_configuration is not None:
-            input["ontap_configuration"] = ontap_configuration
+            input_["ontap_configuration"] = ontap_configuration
         if s3_access_point is not None:
-            input["s3_access_point"] = s3_access_point
+            input_["s3_access_point"] = s3_access_point
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,18 +619,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_backup_request.CreateBackupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.create_backup_request.CreateBackupRequest = {}  # type: ignore[typeddict-item]
         if file_system_id is not None:
-            input["file_system_id"] = file_system_id
+            input_["file_system_id"] = file_system_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if volume_id is not None:
-            input["volume_id"] = volume_id
+            input_["volume_id"] = volume_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -680,24 +682,26 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_data_repository_association_request.CreateDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_fsx.types.create_data_repository_association_request.CreateDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if file_system_path is not None:
-            input["file_system_path"] = file_system_path
-        input["data_repository_path"] = data_repository_path
+            input_["file_system_path"] = file_system_path
+        input_["data_repository_path"] = data_repository_path
         if batch_import_meta_data_on_create is not None:
-            input["batch_import_meta_data_on_create"] = batch_import_meta_data_on_create
+            input_["batch_import_meta_data_on_create"] = (
+                batch_import_meta_data_on_create
+            )
         if imported_file_chunk_size is not None:
-            input["imported_file_chunk_size"] = imported_file_chunk_size
+            input_["imported_file_chunk_size"] = imported_file_chunk_size
         if s3 is not None:
-            input["s3"] = s3
+            input_["s3"] = s3
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -749,23 +753,23 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_data_repository_task_request.CreateDataRepositoryTaskRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_fsx.types.create_data_repository_task_request.CreateDataRepositoryTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if paths is not None:
-            input["paths"] = paths
-        input["file_system_id"] = file_system_id
-        input["report"] = report
+            input_["paths"] = paths
+        input_["file_system_id"] = file_system_id
+        input_["report"] = report
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if capacity_to_release is not None:
-            input["capacity_to_release"] = capacity_to_release
+            input_["capacity_to_release"] = capacity_to_release
         if release_configuration is not None:
-            input["release_configuration"] = release_configuration
+            input_["release_configuration"] = release_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -826,30 +830,30 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_file_cache_request.CreateFileCacheRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.create_file_cache_request.CreateFileCacheRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["file_cache_type"] = file_cache_type
-        input["file_cache_type_version"] = file_cache_type_version
-        input["storage_capacity"] = storage_capacity
-        input["subnet_ids"] = subnet_ids
+            input_["client_request_token"] = client_request_token
+        input_["file_cache_type"] = file_cache_type
+        input_["file_cache_type_version"] = file_cache_type_version
+        input_["storage_capacity"] = storage_capacity
+        input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if copy_tags_to_data_repository_associations is not None:
-            input["copy_tags_to_data_repository_associations"] = (
+            input_["copy_tags_to_data_repository_associations"] = (
                 copy_tags_to_data_repository_associations
             )
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if lustre_configuration is not None:
-            input["lustre_configuration"] = lustre_configuration
+            input_["lustre_configuration"] = lustre_configuration
         if data_repository_associations is not None:
-            input["data_repository_associations"] = data_repository_associations
+            input_["data_repository_associations"] = data_repository_associations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -921,36 +925,36 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_file_system_request.CreateFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.create_file_system_request.CreateFileSystemRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["file_system_type"] = file_system_type
+            input_["client_request_token"] = client_request_token
+        input_["file_system_type"] = file_system_type
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
+            input_["storage_capacity"] = storage_capacity
         if storage_type is not None:
-            input["storage_type"] = storage_type
-        input["subnet_ids"] = subnet_ids
+            input_["storage_type"] = storage_type
+        input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if windows_configuration is not None:
-            input["windows_configuration"] = windows_configuration
+            input_["windows_configuration"] = windows_configuration
         if lustre_configuration is not None:
-            input["lustre_configuration"] = lustre_configuration
+            input_["lustre_configuration"] = lustre_configuration
         if ontap_configuration is not None:
-            input["ontap_configuration"] = ontap_configuration
+            input_["ontap_configuration"] = ontap_configuration
         if file_system_type_version is not None:
-            input["file_system_type_version"] = file_system_type_version
+            input_["file_system_type_version"] = file_system_type_version
         if open_zfs_configuration is not None:
-            input["open_zfs_configuration"] = open_zfs_configuration
+            input_["open_zfs_configuration"] = open_zfs_configuration
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1018,34 +1022,34 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_file_system_from_backup_request.CreateFileSystemFromBackupRequest = {}  # type: ignore[typeddict-item]
-        input["backup_id"] = backup_id
+        input_: aws_sdk_fsx.types.create_file_system_from_backup_request.CreateFileSystemFromBackupRequest = {}  # type: ignore[typeddict-item]
+        input_["backup_id"] = backup_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["subnet_ids"] = subnet_ids
+            input_["client_request_token"] = client_request_token
+        input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if windows_configuration is not None:
-            input["windows_configuration"] = windows_configuration
+            input_["windows_configuration"] = windows_configuration
         if lustre_configuration is not None:
-            input["lustre_configuration"] = lustre_configuration
+            input_["lustre_configuration"] = lustre_configuration
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if file_system_type_version is not None:
-            input["file_system_type_version"] = file_system_type_version
+            input_["file_system_type_version"] = file_system_type_version
         if open_zfs_configuration is not None:
-            input["open_zfs_configuration"] = open_zfs_configuration
+            input_["open_zfs_configuration"] = open_zfs_configuration
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
+            input_["storage_capacity"] = storage_capacity
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1084,16 +1088,16 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["name"] = name
-        input["volume_id"] = volume_id
+            input_["client_request_token"] = client_request_token
+        input_["name"] = name
+        input_["volume_id"] = volume_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1143,22 +1147,22 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_storage_virtual_machine_request.CreateStorageVirtualMachineRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.create_storage_virtual_machine_request.CreateStorageVirtualMachineRequest = {}  # type: ignore[typeddict-item]
         if active_directory_configuration is not None:
-            input["active_directory_configuration"] = active_directory_configuration
+            input_["active_directory_configuration"] = active_directory_configuration
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["file_system_id"] = file_system_id
-        input["name"] = name
+            input_["client_request_token"] = client_request_token
+        input_["file_system_id"] = file_system_id
+        input_["name"] = name
         if svm_admin_password is not None:
-            input["svm_admin_password"] = svm_admin_password
+            input_["svm_admin_password"] = svm_admin_password
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if root_volume_security_style is not None:
-            input["root_volume_security_style"] = root_volume_security_style
+            input_["root_volume_security_style"] = root_volume_security_style
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1205,20 +1209,20 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_volume_request.CreateVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.create_volume_request.CreateVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["volume_type"] = volume_type
-        input["name"] = name
+            input_["client_request_token"] = client_request_token
+        input_["volume_type"] = volume_type
+        input_["name"] = name
         if ontap_configuration is not None:
-            input["ontap_configuration"] = ontap_configuration
+            input_["ontap_configuration"] = ontap_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if open_zfs_configuration is not None:
-            input["open_zfs_configuration"] = open_zfs_configuration
+            input_["open_zfs_configuration"] = open_zfs_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1260,18 +1264,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.create_volume_from_backup_request.CreateVolumeFromBackupRequest = {}  # type: ignore[typeddict-item]
-        input["backup_id"] = backup_id
+        input_: aws_sdk_fsx.types.create_volume_from_backup_request.CreateVolumeFromBackupRequest = {}  # type: ignore[typeddict-item]
+        input_["backup_id"] = backup_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["name"] = name
+            input_["client_request_token"] = client_request_token
+        input_["name"] = name
         if ontap_configuration is not None:
-            input["ontap_configuration"] = ontap_configuration
+            input_["ontap_configuration"] = ontap_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1314,13 +1318,13 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.delete_backup_request.DeleteBackupRequest = {}  # type: ignore[typeddict-item]
-        input["backup_id"] = backup_id
+        input_: aws_sdk_fsx.types.delete_backup_request.DeleteBackupRequest = {}  # type: ignore[typeddict-item]
+        input_["backup_id"] = backup_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1360,15 +1364,15 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.delete_data_repository_association_request.DeleteDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["association_id"] = association_id
+        input_: aws_sdk_fsx.types.delete_data_repository_association_request.DeleteDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["association_id"] = association_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if delete_data_in_file_system is not None:
-            input["delete_data_in_file_system"] = delete_data_in_file_system
+            input_["delete_data_in_file_system"] = delete_data_in_file_system
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1404,13 +1408,13 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.delete_file_cache_request.DeleteFileCacheRequest = {}  # type: ignore[typeddict-item]
-        input["file_cache_id"] = file_cache_id
+        input_: aws_sdk_fsx.types.delete_file_cache_request.DeleteFileCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["file_cache_id"] = file_cache_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1463,19 +1467,19 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.delete_file_system_request.DeleteFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_fsx.types.delete_file_system_request.DeleteFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if windows_configuration is not None:
-            input["windows_configuration"] = windows_configuration
+            input_["windows_configuration"] = windows_configuration
         if lustre_configuration is not None:
-            input["lustre_configuration"] = lustre_configuration
+            input_["lustre_configuration"] = lustre_configuration
         if open_zfs_configuration is not None:
-            input["open_zfs_configuration"] = open_zfs_configuration
+            input_["open_zfs_configuration"] = open_zfs_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1511,13 +1515,13 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["snapshot_id"] = snapshot_id
+            input_["client_request_token"] = client_request_token
+        input_["snapshot_id"] = snapshot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1553,13 +1557,13 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.delete_storage_virtual_machine_request.DeleteStorageVirtualMachineRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.delete_storage_virtual_machine_request.DeleteStorageVirtualMachineRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["storage_virtual_machine_id"] = storage_virtual_machine_id
+            input_["client_request_token"] = client_request_token
+        input_["storage_virtual_machine_id"] = storage_virtual_machine_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1603,17 +1607,17 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.delete_volume_request.DeleteVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.delete_volume_request.DeleteVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["volume_id"] = volume_id
+            input_["client_request_token"] = client_request_token
+        input_["volume_id"] = volume_id
         if ontap_configuration is not None:
-            input["ontap_configuration"] = ontap_configuration
+            input_["ontap_configuration"] = ontap_configuration
         if open_zfs_configuration is not None:
-            input["open_zfs_configuration"] = open_zfs_configuration
+            input_["open_zfs_configuration"] = open_zfs_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1652,18 +1656,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_backups_request.DescribeBackupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_backups_request.DescribeBackupsRequest = {}  # type: ignore[typeddict-item]
         if backup_ids is not None:
-            input["backup_ids"] = backup_ids
+            input_["backup_ids"] = backup_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1704,18 +1708,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_data_repository_associations_request.DescribeDataRepositoryAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_data_repository_associations_request.DescribeDataRepositoryAssociationsRequest = {}  # type: ignore[typeddict-item]
         if association_ids is not None:
-            input["association_ids"] = association_ids
+            input_["association_ids"] = association_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1754,18 +1758,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_data_repository_tasks_request.DescribeDataRepositoryTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_data_repository_tasks_request.DescribeDataRepositoryTasksRequest = {}  # type: ignore[typeddict-item]
         if task_ids is not None:
-            input["task_ids"] = task_ids
+            input_["task_ids"] = task_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1802,16 +1806,16 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_file_caches_request.DescribeFileCachesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_file_caches_request.DescribeFileCachesRequest = {}  # type: ignore[typeddict-item]
         if file_cache_ids is not None:
-            input["file_cache_ids"] = file_cache_ids
+            input_["file_cache_ids"] = file_cache_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1851,17 +1855,17 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_file_system_aliases_request.DescribeFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_file_system_aliases_request.DescribeFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["file_system_id"] = file_system_id
+            input_["client_request_token"] = client_request_token
+        input_["file_system_id"] = file_system_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1900,16 +1904,16 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_file_systems_request.DescribeFileSystemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_file_systems_request.DescribeFileSystemsRequest = {}  # type: ignore[typeddict-item]
         if file_system_ids is not None:
-            input["file_system_ids"] = file_system_ids
+            input_["file_system_ids"] = file_system_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1950,18 +1954,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_s3_access_point_attachments_request.DescribeS3AccessPointAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_s3_access_point_attachments_request.DescribeS3AccessPointAttachmentsRequest = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2018,10 +2022,10 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_shared_vpc_configuration_request.DescribeSharedVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_shared_vpc_configuration_request.DescribeSharedVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2062,20 +2066,20 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_snapshots_request.DescribeSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_snapshots_request.DescribeSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if snapshot_ids is not None:
-            input["snapshot_ids"] = snapshot_ids
+            input_["snapshot_ids"] = snapshot_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_shared is not None:
-            input["include_shared"] = include_shared
+            input_["include_shared"] = include_shared
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2145,18 +2149,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_storage_virtual_machines_request.DescribeStorageVirtualMachinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_storage_virtual_machines_request.DescribeStorageVirtualMachinesRequest = {}  # type: ignore[typeddict-item]
         if storage_virtual_machine_ids is not None:
-            input["storage_virtual_machine_ids"] = storage_virtual_machine_ids
+            input_["storage_virtual_machine_ids"] = storage_virtual_machine_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2222,18 +2226,18 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.describe_volumes_request.DescribeVolumesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.describe_volumes_request.DescribeVolumesRequest = {}  # type: ignore[typeddict-item]
         if volume_ids is not None:
-            input["volume_ids"] = volume_ids
+            input_["volume_ids"] = volume_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2294,13 +2298,13 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.detach_and_delete_s3_access_point_request.DetachAndDeleteS3AccessPointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.detach_and_delete_s3_access_point_request.DetachAndDeleteS3AccessPointRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["name"] = name
+            input_["client_request_token"] = client_request_token
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2338,14 +2342,14 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.disassociate_file_system_aliases_request.DisassociateFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.disassociate_file_system_aliases_request.DisassociateFileSystemAliasesRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["file_system_id"] = file_system_id
-        input["aliases"] = aliases
+            input_["client_request_token"] = client_request_token
+        input_["file_system_id"] = file_system_id
+        input_["aliases"] = aliases
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2390,15 +2394,15 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_fsx.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2430,13 +2434,13 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.release_file_system_nfs_v3_locks_request.ReleaseFileSystemNfsV3LocksRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_fsx.types.release_file_system_nfs_v3_locks_request.ReleaseFileSystemNfsV3LocksRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2478,16 +2482,16 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.restore_volume_from_snapshot_request.RestoreVolumeFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.restore_volume_from_snapshot_request.RestoreVolumeFromSnapshotRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["volume_id"] = volume_id
-        input["snapshot_id"] = snapshot_id
+            input_["client_request_token"] = client_request_token
+        input_["volume_id"] = volume_id
+        input_["snapshot_id"] = snapshot_id
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2519,13 +2523,13 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.start_misconfigured_state_recovery_request.StartMisconfiguredStateRecoveryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.start_misconfigured_state_recovery_request.StartMisconfiguredStateRecoveryRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["file_system_id"] = file_system_id
+            input_["client_request_token"] = client_request_token
+        input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2566,12 +2570,12 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_fsx.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2612,12 +2616,12 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_fsx.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2661,17 +2665,17 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.update_data_repository_association_request.UpdateDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["association_id"] = association_id
+        input_: aws_sdk_fsx.types.update_data_repository_association_request.UpdateDataRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["association_id"] = association_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if imported_file_chunk_size is not None:
-            input["imported_file_chunk_size"] = imported_file_chunk_size
+            input_["imported_file_chunk_size"] = imported_file_chunk_size
         if s3 is not None:
-            input["s3"] = s3
+            input_["s3"] = s3
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2711,15 +2715,15 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.update_file_cache_request.UpdateFileCacheRequest = {}  # type: ignore[typeddict-item]
-        input["file_cache_id"] = file_cache_id
+        input_: aws_sdk_fsx.types.update_file_cache_request.UpdateFileCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["file_cache_id"] = file_cache_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if lustre_configuration is not None:
-            input["lustre_configuration"] = lustre_configuration
+            input_["lustre_configuration"] = lustre_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2781,29 +2785,29 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.update_file_system_request.UpdateFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_fsx.types.update_file_system_request.UpdateFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
+            input_["storage_capacity"] = storage_capacity
         if windows_configuration is not None:
-            input["windows_configuration"] = windows_configuration
+            input_["windows_configuration"] = windows_configuration
         if lustre_configuration is not None:
-            input["lustre_configuration"] = lustre_configuration
+            input_["lustre_configuration"] = lustre_configuration
         if ontap_configuration is not None:
-            input["ontap_configuration"] = ontap_configuration
+            input_["ontap_configuration"] = ontap_configuration
         if open_zfs_configuration is not None:
-            input["open_zfs_configuration"] = open_zfs_configuration
+            input_["open_zfs_configuration"] = open_zfs_configuration
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if file_system_type_version is not None:
-            input["file_system_type_version"] = file_system_type_version
+            input_["file_system_type_version"] = file_system_type_version
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2841,16 +2845,16 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.update_shared_vpc_configuration_request.UpdateSharedVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.update_shared_vpc_configuration_request.UpdateSharedVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
         if enable_fsx_route_table_updates_from_participant_accounts is not None:
-            input["enable_fsx_route_table_updates_from_participant_accounts"] = (
+            input_["enable_fsx_route_table_updates_from_participant_accounts"] = (
                 enable_fsx_route_table_updates_from_participant_accounts
             )
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2888,14 +2892,14 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.update_snapshot_request.UpdateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.update_snapshot_request.UpdateSnapshotRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["name"] = name
-        input["snapshot_id"] = snapshot_id
+            input_["client_request_token"] = client_request_token
+        input_["name"] = name
+        input_["snapshot_id"] = snapshot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2939,17 +2943,17 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.update_storage_virtual_machine_request.UpdateStorageVirtualMachineRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.update_storage_virtual_machine_request.UpdateStorageVirtualMachineRequest = {}  # type: ignore[typeddict-item]
         if active_directory_configuration is not None:
-            input["active_directory_configuration"] = active_directory_configuration
+            input_["active_directory_configuration"] = active_directory_configuration
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["storage_virtual_machine_id"] = storage_virtual_machine_id
+            input_["client_request_token"] = client_request_token
+        input_["storage_virtual_machine_id"] = storage_virtual_machine_id
         if svm_admin_password is not None:
-            input["svm_admin_password"] = svm_admin_password
+            input_["svm_admin_password"] = svm_admin_password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2995,19 +2999,19 @@ class FSxClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fsx.types.update_volume_request.UpdateVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fsx.types.update_volume_request.UpdateVolumeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["volume_id"] = volume_id
+            input_["client_request_token"] = client_request_token
+        input_["volume_id"] = volume_id
         if ontap_configuration is not None:
-            input["ontap_configuration"] = ontap_configuration
+            input_["ontap_configuration"] = ontap_configuration
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if open_zfs_configuration is not None:
-            input["open_zfs_configuration"] = open_zfs_configuration
+            input_["open_zfs_configuration"] = open_zfs_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

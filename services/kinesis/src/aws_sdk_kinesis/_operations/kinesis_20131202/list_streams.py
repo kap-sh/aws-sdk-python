@@ -81,7 +81,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.list_streams_input.ListStreamsInput,
+    input_: aws_sdk_kinesis.types.list_streams_input.ListStreamsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -103,7 +103,7 @@ def build_request(
     import aws_sdk_kinesis.types.list_streams_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_kinesis.types.list_streams_input.serialize_aws_json_1_1(input)
+        aws_sdk_kinesis.types.list_streams_input.serialize_aws_json_1_1(input_)
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -116,11 +116,11 @@ def build_request(
 
 def list_streams(
     options: OperationOptions,
-    input: aws_sdk_kinesis.types.list_streams_input.ListStreamsInput,
+    input_: aws_sdk_kinesis.types.list_streams_input.ListStreamsInput,
 ) -> tuple[
     aws_sdk_kinesis.types.list_streams_output.ListStreamsOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -134,11 +134,11 @@ def list_streams(
 
 async def async_list_streams(
     options: AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.list_streams_input.ListStreamsInput,
+    input_: aws_sdk_kinesis.types.list_streams_input.ListStreamsInput,
 ) -> tuple[
     aws_sdk_kinesis.types.list_streams_output.ListStreamsOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

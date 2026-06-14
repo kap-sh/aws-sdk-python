@@ -80,64 +80,61 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest,
+    input_: aws_sdk_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/realtime-log-config"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("UpdateRealtimeLogConfigRequest")
-    if "end_points" in input:
+    if "end_points" in input_:
         import aws_sdk_cloudfront.types.end_point_list
 
         aws_sdk_cloudfront.types.end_point_list.serialize_xml(
-            input["end_points"], root, "EndPoints"
+            input_["end_points"], root, "EndPoints"
         )
-    if "fields" in input:
+    if "fields" in input_:
         import aws_sdk_cloudfront.types.field_list
 
         aws_sdk_cloudfront.types.field_list.serialize_xml(
-            input["fields"], root, "Fields"
+            input_["fields"], root, "Fields"
         )
-    if "name" in input:
-        SubElement(root, "Name").text = str(input["name"])
-    if "arn" in input:
-        SubElement(root, "ARN").text = str(input["arn"])
-    if "sampling_rate" in input:
-        SubElement(root, "SamplingRate").text = str(input["sampling_rate"])
+    if "name" in input_:
+        SubElement(root, "Name").text = str(input_["name"])
+    if "arn" in input_:
+        SubElement(root, "ARN").text = str(input_["arn"])
+    if "sampling_rate" in input_:
+        SubElement(root, "SamplingRate").text = str(input_["sampling_rate"])
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_realtime_log_config(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest,
+    input_: aws_sdk_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.update_realtime_log_config_result.UpdateRealtimeLogConfigResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -146,16 +143,17 @@ def update_realtime_log_config(
 
 async def async_update_realtime_log_config(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest,
+    input_: aws_sdk_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.update_realtime_log_config_result.UpdateRealtimeLogConfigResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

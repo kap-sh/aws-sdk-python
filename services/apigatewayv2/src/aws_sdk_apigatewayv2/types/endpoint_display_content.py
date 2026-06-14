@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#EndpointDisplayContent``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -9,7 +10,7 @@ if TYPE_CHECKING:
 
 
 class EndpointDisplayContent(TypedDict):
-    none: NotRequired["aws_sdk_apigatewayv2.types.none.None"]
+    none: NotRequired["aws_sdk_apigatewayv2.types.none.None_"]
     """<p>If your product REST endpoint contains no overrides, the none object is returned.</p>"""
     overrides: NotRequired[
         "aws_sdk_apigatewayv2.types.display_content_overrides.DisplayContentOverrides"

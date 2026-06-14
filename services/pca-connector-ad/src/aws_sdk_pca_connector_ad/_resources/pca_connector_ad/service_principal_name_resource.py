@@ -69,14 +69,14 @@ class ServicePrincipalNameResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.create_service_principal_name_request.CreateServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
-        input["directory_registration_arn"] = directory_registration_arn
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.create_service_principal_name_request.CreateServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_registration_arn"] = directory_registration_arn
+        input_["connector_arn"] = connector_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -111,12 +111,12 @@ class ServicePrincipalNameResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.get_service_principal_name_request.GetServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
-        input["directory_registration_arn"] = directory_registration_arn
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.get_service_principal_name_request.GetServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_registration_arn"] = directory_registration_arn
+        input_["connector_arn"] = connector_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -149,12 +149,12 @@ class ServicePrincipalNameResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.delete_service_principal_name_request.DeleteServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
-        input["directory_registration_arn"] = directory_registration_arn
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.delete_service_principal_name_request.DeleteServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_registration_arn"] = directory_registration_arn
+        input_["connector_arn"] = connector_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -195,15 +195,15 @@ class ServicePrincipalNameResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.list_service_principal_names_request.ListServicePrincipalNamesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pca_connector_ad.types.list_service_principal_names_request.ListServicePrincipalNamesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["directory_registration_arn"] = directory_registration_arn
+            input_["next_token"] = next_token
+        input_["directory_registration_arn"] = directory_registration_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,14 +246,14 @@ class AsyncServicePrincipalNameResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.create_service_principal_name_request.CreateServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
-        input["directory_registration_arn"] = directory_registration_arn
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.create_service_principal_name_request.CreateServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_registration_arn"] = directory_registration_arn
+        input_["connector_arn"] = connector_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -289,12 +289,12 @@ class AsyncServicePrincipalNameResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.get_service_principal_name_request.GetServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
-        input["directory_registration_arn"] = directory_registration_arn
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.get_service_principal_name_request.GetServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_registration_arn"] = directory_registration_arn
+        input_["connector_arn"] = connector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,12 +328,12 @@ class AsyncServicePrincipalNameResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.delete_service_principal_name_request.DeleteServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
-        input["directory_registration_arn"] = directory_registration_arn
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.delete_service_principal_name_request.DeleteServicePrincipalNameRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_registration_arn"] = directory_registration_arn
+        input_["connector_arn"] = connector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,15 +375,15 @@ class AsyncServicePrincipalNameResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.list_service_principal_names_request.ListServicePrincipalNamesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pca_connector_ad.types.list_service_principal_names_request.ListServicePrincipalNamesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["directory_registration_arn"] = directory_registration_arn
+            input_["next_token"] = next_token
+        input_["directory_registration_arn"] = directory_registration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

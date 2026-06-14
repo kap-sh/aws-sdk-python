@@ -78,14 +78,14 @@ class FeedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.create_feed_request.CreateFeedRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["outputs"] = outputs
+        input_: aws_sdk_elementalinference.types.create_feed_request.CreateFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["outputs"] = outputs
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -118,11 +118,11 @@ class FeedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.get_feed_request.GetFeedRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elementalinference.types.get_feed_request.GetFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,13 +159,13 @@ class FeedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.update_feed_request.UpdateFeedRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["id"] = id
-        input["outputs"] = outputs
+        input_: aws_sdk_elementalinference.types.update_feed_request.UpdateFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["id"] = id
+        input_["outputs"] = outputs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,11 +198,11 @@ class FeedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.delete_feed_request.DeleteFeedRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elementalinference.types.delete_feed_request.DeleteFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -237,14 +237,14 @@ class FeedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.list_feeds_request.ListFeedsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elementalinference.types.list_feeds_request.ListFeedsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,15 +285,15 @@ class FeedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.associate_feed_request.AssociateFeedRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["associated_resource_name"] = associated_resource_name
-        input["outputs"] = outputs
+        input_: aws_sdk_elementalinference.types.associate_feed_request.AssociateFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["associated_resource_name"] = associated_resource_name
+        input_["outputs"] = outputs
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,14 +330,14 @@ class FeedResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.disassociate_feed_request.DisassociateFeedRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["associated_resource_name"] = associated_resource_name
+        input_: aws_sdk_elementalinference.types.disassociate_feed_request.DisassociateFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["associated_resource_name"] = associated_resource_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,14 +380,14 @@ class AsyncFeedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.create_feed_request.CreateFeedRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["outputs"] = outputs
+        input_: aws_sdk_elementalinference.types.create_feed_request.CreateFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["outputs"] = outputs
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,11 +421,11 @@ class AsyncFeedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.get_feed_request.GetFeedRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elementalinference.types.get_feed_request.GetFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,13 +463,13 @@ class AsyncFeedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.update_feed_request.UpdateFeedRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["id"] = id
-        input["outputs"] = outputs
+        input_: aws_sdk_elementalinference.types.update_feed_request.UpdateFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["id"] = id
+        input_["outputs"] = outputs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,11 +503,11 @@ class AsyncFeedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.delete_feed_request.DeleteFeedRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elementalinference.types.delete_feed_request.DeleteFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -543,14 +543,14 @@ class AsyncFeedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.list_feeds_request.ListFeedsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elementalinference.types.list_feeds_request.ListFeedsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,15 +592,15 @@ class AsyncFeedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.associate_feed_request.AssociateFeedRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["associated_resource_name"] = associated_resource_name
-        input["outputs"] = outputs
+        input_: aws_sdk_elementalinference.types.associate_feed_request.AssociateFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["associated_resource_name"] = associated_resource_name
+        input_["outputs"] = outputs
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,14 +638,14 @@ class AsyncFeedResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_elementalinference.types.disassociate_feed_request.DisassociateFeedRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["associated_resource_name"] = associated_resource_name
+        input_: aws_sdk_elementalinference.types.disassociate_feed_request.DisassociateFeedRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["associated_resource_name"] = associated_resource_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

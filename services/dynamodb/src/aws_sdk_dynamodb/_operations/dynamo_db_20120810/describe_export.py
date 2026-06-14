@@ -81,7 +81,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.describe_export_input.DescribeExportInput,
+    input_: aws_sdk_dynamodb.types.describe_export_input.DescribeExportInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -91,7 +91,7 @@ def build_request(
             Endpoint=options.endpoint,
             AccountId=options.account_id,
             AccountIdEndpointMode=options.account_id_endpoint_mode,
-            ResourceArn=input.get("export_arn"),
+            ResourceArn=input_.get("export_arn"),
             ResourceArnList=options.resource_arn_list,
         )
     )  # noqa: F841
@@ -102,7 +102,7 @@ def build_request(
     import aws_sdk_dynamodb.types.describe_export_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_dynamodb.types.describe_export_input.serialize_aws_json_1_0(input)
+        aws_sdk_dynamodb.types.describe_export_input.serialize_aws_json_1_0(input_)
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -115,11 +115,11 @@ def build_request(
 
 def describe_export(
     options: OperationOptions,
-    input: aws_sdk_dynamodb.types.describe_export_input.DescribeExportInput,
+    input_: aws_sdk_dynamodb.types.describe_export_input.DescribeExportInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.describe_export_output.DescribeExportOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -133,11 +133,11 @@ def describe_export(
 
 async def async_describe_export(
     options: AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.describe_export_input.DescribeExportInput,
+    input_: aws_sdk_dynamodb.types.describe_export_input.DescribeExportInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.describe_export_output.DescribeExportOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

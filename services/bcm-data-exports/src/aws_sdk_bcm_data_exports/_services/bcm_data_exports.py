@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_bcm_data_exports._auth._signers
+import aws_sdk_bcm_data_exports._auth._sigv4
 from aws_sdk_bcm_data_exports._auth._identity import Credentials
 from aws_sdk_bcm_data_exports._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,9 @@ from aws_sdk_bcm_data_exports._auth._providers import (
 )
 from aws_sdk_bcm_data_exports._auth._zapros_handler import AuthMiddleware
 from aws_sdk_bcm_data_exports._pagination import resolve_path as _resolve_path
+from aws_sdk_bcm_data_exports._resources.aws_billing_and_cost_management_data_exports.data_export import (
+    DataExport,
+)
 from aws_sdk_bcm_data_exports._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -116,6 +121,8 @@ class BCMDataExportsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.data_export = DataExport(self)
 
     def operation_options(
         self, config_overrides: Optional[BCMDataExportsClientConfig] = None

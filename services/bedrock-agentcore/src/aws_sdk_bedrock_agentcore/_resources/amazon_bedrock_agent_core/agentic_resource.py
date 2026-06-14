@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import ensure_async_iterator
 from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import ensure_sync_iterator
+import datetime
 from aws_sdk_bedrock_agentcore._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 from collections.abc import Generator
 from collections.abc import AsyncGenerator
@@ -43,14 +44,14 @@ class AgenticResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest = {}  # type: ignore[typeddict-item]
         if runtime_session_id is not None:
-            input["runtime_session_id"] = runtime_session_id
-        input["agent_runtime_arn"] = agent_runtime_arn
+            input_["runtime_session_id"] = runtime_session_id
+        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     @contextmanager
     def invoke_agent_runtime(self, agent_runtime_arn: str, payload: "aws_sdk_bedrock_agentcore.types.body.Body", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, content_type: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, mcp_session_id: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, mcp_protocol_version: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, runtime_user_id: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, trace_state: Optional[str] = None, baggage: Optional[str] = None, qualifier: Optional[str] = None, account_id: Optional[str] = None) -> "Generator[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse]":
@@ -78,35 +79,35 @@ class AgenticResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
         if mcp_session_id is not None:
-            input["mcp_session_id"] = mcp_session_id
+            input_["mcp_session_id"] = mcp_session_id
         if runtime_session_id is not None:
-            input["runtime_session_id"] = runtime_session_id
+            input_["runtime_session_id"] = runtime_session_id
         if mcp_protocol_version is not None:
-            input["mcp_protocol_version"] = mcp_protocol_version
+            input_["mcp_protocol_version"] = mcp_protocol_version
         if runtime_user_id is not None:
-            input["runtime_user_id"] = runtime_user_id
+            input_["runtime_user_id"] = runtime_user_id
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
+            input_["trace_parent"] = trace_parent
         if trace_state is not None:
-            input["trace_state"] = trace_state
+            input_["trace_state"] = trace_state
         if baggage is not None:
-            input["baggage"] = baggage
-        input["agent_runtime_arn"] = agent_runtime_arn
+            input_["baggage"] = baggage
+        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if account_id is not None:
-            input["account_id"] = account_id
-        input["payload"] = payload
+            input_["account_id"] = account_id
+        input_["payload"] = payload
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         yield response.output
     def invoke_agent_runtime_command(self, agent_runtime_arn: str, body: "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request_body.InvokeAgentRuntimeCommandRequestBody", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, content_type: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, trace_state: Optional[str] = None, baggage: Optional[str] = None, qualifier: Optional[str] = None, account_id: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse":
         """<p>Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.</p> <p>To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through <code>contentStart</code>, <code>contentDelta</code>, and <code>contentStop</code> events.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntimeCommand</code> permission.</p>
@@ -130,29 +131,29 @@ class AgenticResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest = {}  # type: ignore[typeddict-item]
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
         if runtime_session_id is not None:
-            input["runtime_session_id"] = runtime_session_id
+            input_["runtime_session_id"] = runtime_session_id
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
+            input_["trace_parent"] = trace_parent
         if trace_state is not None:
-            input["trace_state"] = trace_state
+            input_["trace_state"] = trace_state
         if baggage is not None:
-            input["baggage"] = baggage
-        input["agent_runtime_arn"] = agent_runtime_arn
+            input_["baggage"] = baggage
+        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if account_id is not None:
-            input["account_id"] = account_id
-        input["body"] = body
+            input_["account_id"] = account_id
+        input_["body"] = body
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def stop_runtime_session(self, runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_type.SessionType", agent_runtime_arn: str, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, qualifier: Optional[str] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse":
         """<p>Stops a session that is running in an running AgentCore Runtime agent.</p>
@@ -169,15 +170,15 @@ class AgenticResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest = {}  # type: ignore[typeddict-item]
-        input["runtime_session_id"] = runtime_session_id
-        input["agent_runtime_arn"] = agent_runtime_arn
+        input_: aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["runtime_session_id"] = runtime_session_id
+        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncAgenticResource:
@@ -197,14 +198,14 @@ class AsyncAgenticResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.get_agent_card_request.GetAgentCardRequest = {}  # type: ignore[typeddict-item]
         if runtime_session_id is not None:
-            input["runtime_session_id"] = runtime_session_id
-        input["agent_runtime_arn"] = agent_runtime_arn
+            input_["runtime_session_id"] = runtime_session_id
+        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     @asynccontextmanager
     async def invoke_agent_runtime(self, agent_runtime_arn: str, payload: "aws_sdk_bedrock_agentcore.types.body.Body", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, content_type: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, mcp_session_id: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, mcp_protocol_version: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, runtime_user_id: Optional["aws_sdk_bedrock_agentcore.types.string_type.StringType"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, trace_state: Optional[str] = None, baggage: Optional[str] = None, qualifier: Optional[str] = None, account_id: Optional[str] = None) -> "AsyncGenerator[aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_response.InvokeAgentRuntimeResponse]":
@@ -232,35 +233,35 @@ class AsyncAgenticResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_request.InvokeAgentRuntimeRequest = {}  # type: ignore[typeddict-item]
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
         if mcp_session_id is not None:
-            input["mcp_session_id"] = mcp_session_id
+            input_["mcp_session_id"] = mcp_session_id
         if runtime_session_id is not None:
-            input["runtime_session_id"] = runtime_session_id
+            input_["runtime_session_id"] = runtime_session_id
         if mcp_protocol_version is not None:
-            input["mcp_protocol_version"] = mcp_protocol_version
+            input_["mcp_protocol_version"] = mcp_protocol_version
         if runtime_user_id is not None:
-            input["runtime_user_id"] = runtime_user_id
+            input_["runtime_user_id"] = runtime_user_id
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
+            input_["trace_parent"] = trace_parent
         if trace_state is not None:
-            input["trace_state"] = trace_state
+            input_["trace_state"] = trace_state
         if baggage is not None:
-            input["baggage"] = baggage
-        input["agent_runtime_arn"] = agent_runtime_arn
+            input_["baggage"] = baggage
+        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if account_id is not None:
-            input["account_id"] = account_id
-        input["payload"] = payload
+            input_["account_id"] = account_id
+        input_["payload"] = payload
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         yield response.output
     async def invoke_agent_runtime_command(self, agent_runtime_arn: str, body: "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request_body.InvokeAgentRuntimeCommandRequestBody", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, content_type: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, accept: Optional["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"] = None, runtime_session_id: Optional["aws_sdk_bedrock_agentcore.types.session_type.SessionType"] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, trace_state: Optional[str] = None, baggage: Optional[str] = None, qualifier: Optional[str] = None, account_id: Optional[str] = None) -> "aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_response.InvokeAgentRuntimeCommandResponse":
         """<p>Executes a command in a runtime session container and streams the output back to the caller. This operation allows you to run shell commands within the agent runtime environment and receive real-time streaming responses including standard output and standard error.</p> <p>To invoke a command, you must specify the agent runtime ARN and a runtime session ID. The command execution supports streaming responses, allowing you to receive output as it becomes available through <code>contentStart</code>, <code>contentDelta</code>, and <code>contentStop</code> events.</p> <p>To use this operation, you must have the <code>bedrock-agentcore:InvokeAgentRuntimeCommand</code> permission.</p>
@@ -284,29 +285,29 @@ class AsyncAgenticResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.invoke_agent_runtime_command_request.InvokeAgentRuntimeCommandRequest = {}  # type: ignore[typeddict-item]
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
         if runtime_session_id is not None:
-            input["runtime_session_id"] = runtime_session_id
+            input_["runtime_session_id"] = runtime_session_id
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
+            input_["trace_parent"] = trace_parent
         if trace_state is not None:
-            input["trace_state"] = trace_state
+            input_["trace_state"] = trace_state
         if baggage is not None:
-            input["baggage"] = baggage
-        input["agent_runtime_arn"] = agent_runtime_arn
+            input_["baggage"] = baggage
+        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if account_id is not None:
-            input["account_id"] = account_id
-        input["body"] = body
+            input_["account_id"] = account_id
+        input_["body"] = body
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def stop_runtime_session(self, runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_type.SessionType", agent_runtime_arn: str, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, qualifier: Optional[str] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.stop_runtime_session_response.StopRuntimeSessionResponse":
         """<p>Stops a session that is running in an running AgentCore Runtime agent.</p>
@@ -323,13 +324,13 @@ class AsyncAgenticResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest = {}  # type: ignore[typeddict-item]
-        input["runtime_session_id"] = runtime_session_id
-        input["agent_runtime_arn"] = agent_runtime_arn
+        input_: aws_sdk_bedrock_agentcore.types.stop_runtime_session_request.StopRuntimeSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["runtime_session_id"] = runtime_session_id
+        input_["agent_runtime_arn"] = agent_runtime_arn
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

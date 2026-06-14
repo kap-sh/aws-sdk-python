@@ -206,25 +206,25 @@ class SSOOIDCClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sso_oidc.types.create_token_request.CreateTokenRequest = {}  # type: ignore[typeddict-item]
-        input["client_id"] = client_id
-        input["client_secret"] = client_secret
-        input["grant_type"] = grant_type
+        input_: aws_sdk_sso_oidc.types.create_token_request.CreateTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["client_id"] = client_id
+        input_["client_secret"] = client_secret
+        input_["grant_type"] = grant_type
         if device_code is not None:
-            input["device_code"] = device_code
+            input_["device_code"] = device_code
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
         if refresh_token is not None:
-            input["refresh_token"] = refresh_token
+            input_["refresh_token"] = refresh_token
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if redirect_uri is not None:
-            input["redirect_uri"] = redirect_uri
+            input_["redirect_uri"] = redirect_uri
         if code_verifier is not None:
-            input["code_verifier"] = code_verifier
+            input_["code_verifier"] = code_verifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,30 +301,30 @@ class SSOOIDCClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sso_oidc.types.create_token_with_iam_request.CreateTokenWithIAMRequest = {}  # type: ignore[typeddict-item]
-        input["client_id"] = client_id
-        input["grant_type"] = grant_type
+        input_: aws_sdk_sso_oidc.types.create_token_with_iam_request.CreateTokenWithIAMRequest = {}  # type: ignore[typeddict-item]
+        input_["client_id"] = client_id
+        input_["grant_type"] = grant_type
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
         if refresh_token is not None:
-            input["refresh_token"] = refresh_token
+            input_["refresh_token"] = refresh_token
         if assertion is not None:
-            input["assertion"] = assertion
+            input_["assertion"] = assertion
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if redirect_uri is not None:
-            input["redirect_uri"] = redirect_uri
+            input_["redirect_uri"] = redirect_uri
         if subject_token is not None:
-            input["subject_token"] = subject_token
+            input_["subject_token"] = subject_token
         if subject_token_type is not None:
-            input["subject_token_type"] = subject_token_type
+            input_["subject_token_type"] = subject_token_type
         if requested_token_type is not None:
-            input["requested_token_type"] = requested_token_type
+            input_["requested_token_type"] = requested_token_type
         if code_verifier is not None:
-            input["code_verifier"] = code_verifier
+            input_["code_verifier"] = code_verifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,22 +378,22 @@ class SSOOIDCClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sso_oidc.types.register_client_request.RegisterClientRequest = {}  # type: ignore[typeddict-item]
-        input["client_name"] = client_name
-        input["client_type"] = client_type
+        input_: aws_sdk_sso_oidc.types.register_client_request.RegisterClientRequest = {}  # type: ignore[typeddict-item]
+        input_["client_name"] = client_name
+        input_["client_type"] = client_type
         if scopes is not None:
-            input["scopes"] = scopes
+            input_["scopes"] = scopes
         if redirect_uris is not None:
-            input["redirect_uris"] = redirect_uris
+            input_["redirect_uris"] = redirect_uris
         if grant_types is not None:
-            input["grant_types"] = grant_types
+            input_["grant_types"] = grant_types
         if issuer_url is not None:
-            input["issuer_url"] = issuer_url
+            input_["issuer_url"] = issuer_url
         if entitled_application_arn is not None:
-            input["entitled_application_arn"] = entitled_application_arn
+            input_["entitled_application_arn"] = entitled_application_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,13 +435,13 @@ class SSOOIDCClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sso_oidc.types.start_device_authorization_request.StartDeviceAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["client_id"] = client_id
-        input["client_secret"] = client_secret
-        input["start_url"] = start_url
+        input_: aws_sdk_sso_oidc.types.start_device_authorization_request.StartDeviceAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["client_id"] = client_id
+        input_["client_secret"] = client_secret
+        input_["start_url"] = start_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

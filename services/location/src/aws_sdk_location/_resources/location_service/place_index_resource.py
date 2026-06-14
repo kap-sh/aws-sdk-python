@@ -100,20 +100,20 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_place_index_request.CreatePlaceIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["data_source"] = data_source
+        input_: aws_sdk_location.types.create_place_index_request.CreatePlaceIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["data_source"] = data_source
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_source_configuration is not None:
-            input["data_source_configuration"] = data_source_configuration
+            input_["data_source_configuration"] = data_source_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -146,11 +146,11 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_place_index_request.DescribePlaceIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
+        input_: aws_sdk_location.types.describe_place_index_request.DescribePlaceIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -195,17 +195,17 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_place_index_request.UpdatePlaceIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
+        input_: aws_sdk_location.types.update_place_index_request.UpdatePlaceIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_source_configuration is not None:
-            input["data_source_configuration"] = data_source_configuration
+            input_["data_source_configuration"] = data_source_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -238,11 +238,11 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_place_index_request.DeletePlaceIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
+        input_: aws_sdk_location.types.delete_place_index_request.DeletePlaceIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,14 +277,14 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_place_indexes_request.ListPlaceIndexesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_place_indexes_request.ListPlaceIndexesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -323,16 +323,16 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_place_request.GetPlaceRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["place_id"] = place_id
+        input_: aws_sdk_location.types.get_place_request.GetPlaceRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["place_id"] = place_id
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,18 +375,18 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.search_place_index_for_position_request.SearchPlaceIndexForPositionRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["position"] = position
+        input_: aws_sdk_location.types.search_place_index_for_position_request.SearchPlaceIndexForPositionRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["position"] = position
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,26 +441,26 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.search_place_index_for_suggestions_request.SearchPlaceIndexForSuggestionsRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["text"] = text
+        input_: aws_sdk_location.types.search_place_index_for_suggestions_request.SearchPlaceIndexForSuggestionsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["text"] = text
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter_b_box is not None:
-            input["filter_b_box"] = filter_b_box
+            input_["filter_b_box"] = filter_b_box
         if filter_countries is not None:
-            input["filter_countries"] = filter_countries
+            input_["filter_countries"] = filter_countries
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if filter_categories is not None:
-            input["filter_categories"] = filter_categories
+            input_["filter_categories"] = filter_categories
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -517,26 +517,26 @@ class PlaceIndexResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.search_place_index_for_text_request.SearchPlaceIndexForTextRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["text"] = text
+        input_: aws_sdk_location.types.search_place_index_for_text_request.SearchPlaceIndexForTextRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["text"] = text
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter_b_box is not None:
-            input["filter_b_box"] = filter_b_box
+            input_["filter_b_box"] = filter_b_box
         if filter_countries is not None:
-            input["filter_countries"] = filter_countries
+            input_["filter_countries"] = filter_countries
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if filter_categories is not None:
-            input["filter_categories"] = filter_categories
+            input_["filter_categories"] = filter_categories
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,20 +591,20 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_place_index_request.CreatePlaceIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["data_source"] = data_source
+        input_: aws_sdk_location.types.create_place_index_request.CreatePlaceIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["data_source"] = data_source
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_source_configuration is not None:
-            input["data_source_configuration"] = data_source_configuration
+            input_["data_source_configuration"] = data_source_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,11 +638,11 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_place_index_request.DescribePlaceIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
+        input_: aws_sdk_location.types.describe_place_index_request.DescribePlaceIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -688,17 +688,17 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_place_index_request.UpdatePlaceIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
+        input_: aws_sdk_location.types.update_place_index_request.UpdatePlaceIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_source_configuration is not None:
-            input["data_source_configuration"] = data_source_configuration
+            input_["data_source_configuration"] = data_source_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -732,11 +732,11 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_place_index_request.DeletePlaceIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
+        input_: aws_sdk_location.types.delete_place_index_request.DeletePlaceIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,14 +772,14 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_place_indexes_request.ListPlaceIndexesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_place_indexes_request.ListPlaceIndexesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -819,16 +819,16 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_place_request.GetPlaceRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["place_id"] = place_id
+        input_: aws_sdk_location.types.get_place_request.GetPlaceRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["place_id"] = place_id
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -872,18 +872,18 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.search_place_index_for_position_request.SearchPlaceIndexForPositionRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["position"] = position
+        input_: aws_sdk_location.types.search_place_index_for_position_request.SearchPlaceIndexForPositionRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["position"] = position
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -939,26 +939,26 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.search_place_index_for_suggestions_request.SearchPlaceIndexForSuggestionsRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["text"] = text
+        input_: aws_sdk_location.types.search_place_index_for_suggestions_request.SearchPlaceIndexForSuggestionsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["text"] = text
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter_b_box is not None:
-            input["filter_b_box"] = filter_b_box
+            input_["filter_b_box"] = filter_b_box
         if filter_countries is not None:
-            input["filter_countries"] = filter_countries
+            input_["filter_countries"] = filter_countries
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if filter_categories is not None:
-            input["filter_categories"] = filter_categories
+            input_["filter_categories"] = filter_categories
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1016,26 +1016,26 @@ class AsyncPlaceIndexResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.search_place_index_for_text_request.SearchPlaceIndexForTextRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
-        input["text"] = text
+        input_: aws_sdk_location.types.search_place_index_for_text_request.SearchPlaceIndexForTextRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
+        input_["text"] = text
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter_b_box is not None:
-            input["filter_b_box"] = filter_b_box
+            input_["filter_b_box"] = filter_b_box
         if filter_countries is not None:
-            input["filter_countries"] = filter_countries
+            input_["filter_countries"] = filter_countries
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if filter_categories is not None:
-            input["filter_categories"] = filter_categories
+            input_["filter_categories"] = filter_categories
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

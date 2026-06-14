@@ -87,20 +87,20 @@ class StreamGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.create_stream_group_input.CreateStreamGroupInput = {}  # type: ignore[typeddict-item]
-        input["description"] = description
-        input["stream_class"] = stream_class
+        input_: aws_sdk_gameliftstreams.types.create_stream_group_input.CreateStreamGroupInput = {}  # type: ignore[typeddict-item]
+        input_["description"] = description
+        input_["stream_class"] = stream_class
         if default_application_identifier is not None:
-            input["default_application_identifier"] = default_application_identifier
+            input_["default_application_identifier"] = default_application_identifier
         if location_configurations is not None:
-            input["location_configurations"] = location_configurations
+            input_["location_configurations"] = location_configurations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,11 +133,11 @@ class StreamGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.get_stream_group_input.GetStreamGroupInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_gameliftstreams.types.get_stream_group_input.GetStreamGroupInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -182,17 +182,17 @@ class StreamGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.update_stream_group_input.UpdateStreamGroupInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_gameliftstreams.types.update_stream_group_input.UpdateStreamGroupInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if location_configurations is not None:
-            input["location_configurations"] = location_configurations
+            input_["location_configurations"] = location_configurations
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if default_application_identifier is not None:
-            input["default_application_identifier"] = default_application_identifier
+            input_["default_application_identifier"] = default_application_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,11 +223,11 @@ class StreamGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.delete_stream_group_input.DeleteStreamGroupInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_gameliftstreams.types.delete_stream_group_input.DeleteStreamGroupInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -268,14 +268,14 @@ class StreamGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.list_stream_groups_input.ListStreamGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gameliftstreams.types.list_stream_groups_input.ListStreamGroupsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,20 +330,20 @@ class AsyncStreamGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.create_stream_group_input.CreateStreamGroupInput = {}  # type: ignore[typeddict-item]
-        input["description"] = description
-        input["stream_class"] = stream_class
+        input_: aws_sdk_gameliftstreams.types.create_stream_group_input.CreateStreamGroupInput = {}  # type: ignore[typeddict-item]
+        input_["description"] = description
+        input_["stream_class"] = stream_class
         if default_application_identifier is not None:
-            input["default_application_identifier"] = default_application_identifier
+            input_["default_application_identifier"] = default_application_identifier
         if location_configurations is not None:
-            input["location_configurations"] = location_configurations
+            input_["location_configurations"] = location_configurations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,11 +377,11 @@ class AsyncStreamGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.get_stream_group_input.GetStreamGroupInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_gameliftstreams.types.get_stream_group_input.GetStreamGroupInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,17 +427,17 @@ class AsyncStreamGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.update_stream_group_input.UpdateStreamGroupInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_gameliftstreams.types.update_stream_group_input.UpdateStreamGroupInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if location_configurations is not None:
-            input["location_configurations"] = location_configurations
+            input_["location_configurations"] = location_configurations
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if default_application_identifier is not None:
-            input["default_application_identifier"] = default_application_identifier
+            input_["default_application_identifier"] = default_application_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -469,11 +469,11 @@ class AsyncStreamGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.delete_stream_group_input.DeleteStreamGroupInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_gameliftstreams.types.delete_stream_group_input.DeleteStreamGroupInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -515,14 +515,14 @@ class AsyncStreamGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_gameliftstreams.types.list_stream_groups_input.ListStreamGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gameliftstreams.types.list_stream_groups_input.ListStreamGroupsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

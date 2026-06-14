@@ -88,13 +88,11 @@ def build_request(
     options: OperationOptions | AsyncOperationOptions,
     input: aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_input.ListServiceLevelObjectiveExclusionWindowsInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-            Region=options.region,
+            UseFIPS=options.use_fips, Endpoint=options.endpoint, Region=options.region
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/slo/{Id}/exclusion-windows"
     url = url.replace("{Id}", quote(str(input["id"]), safe=""))
     params: dict[str, str] = {}
@@ -108,11 +106,7 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
@@ -128,6 +122,7 @@ def list_service_level_objective_exclusion_windows(
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -146,6 +141,7 @@ async def async_list_service_level_objective_exclusion_windows(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

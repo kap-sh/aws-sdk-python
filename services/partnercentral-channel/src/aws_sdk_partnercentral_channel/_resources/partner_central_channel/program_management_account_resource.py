@@ -91,18 +91,18 @@ class ProgramManagementAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.create_program_management_account_request.CreateProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["program"] = program
-        input["display_name"] = display_name
-        input["account_id"] = account_id
+        input_: aws_sdk_partnercentral_channel.types.create_program_management_account_request.CreateProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["program"] = program
+        input_["display_name"] = display_name
+        input_["account_id"] = account_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -150,16 +150,16 @@ class ProgramManagementAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.update_program_management_account_request.UpdateProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.update_program_management_account_request.UpdateProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -203,14 +203,14 @@ class ProgramManagementAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.delete_program_management_account_request.DeleteProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.delete_program_management_account_request.DeleteProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,25 +274,25 @@ class ProgramManagementAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.list_program_management_accounts_request.ListProgramManagementAccountsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_channel.types.list_program_management_accounts_request.ListProgramManagementAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if display_names is not None:
-            input["display_names"] = display_names
+            input_["display_names"] = display_names
         if programs is not None:
-            input["programs"] = programs
+            input_["programs"] = programs
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,18 +348,18 @@ class AsyncProgramManagementAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.create_program_management_account_request.CreateProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["program"] = program
-        input["display_name"] = display_name
-        input["account_id"] = account_id
+        input_: aws_sdk_partnercentral_channel.types.create_program_management_account_request.CreateProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["program"] = program
+        input_["display_name"] = display_name
+        input_["account_id"] = account_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,16 +408,16 @@ class AsyncProgramManagementAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.update_program_management_account_request.UpdateProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.update_program_management_account_request.UpdateProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,14 +462,14 @@ class AsyncProgramManagementAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.delete_program_management_account_request.DeleteProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_channel.types.delete_program_management_account_request.DeleteProgramManagementAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,25 +534,25 @@ class AsyncProgramManagementAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.list_program_management_accounts_request.ListProgramManagementAccountsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_channel.types.list_program_management_accounts_request.ListProgramManagementAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if display_names is not None:
-            input["display_names"] = display_names
+            input_["display_names"] = display_names
         if programs is not None:
-            input["programs"] = programs
+            input_["programs"] = programs
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

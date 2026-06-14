@@ -72,17 +72,17 @@ class Crl:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.import_crl_request.ImportCrlRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["crl_data"] = crl_data
+        input_: aws_sdk_rolesanywhere.types.import_crl_request.ImportCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["crl_data"] = crl_data
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
-        input["trust_anchor_arn"] = trust_anchor_arn
+            input_["tags"] = tags
+        input_["trust_anchor_arn"] = trust_anchor_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,11 +115,11 @@ class Crl:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -156,15 +156,15 @@ class Crl:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.update_crl_request.UpdateCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.update_crl_request.UpdateCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if crl_data is not None:
-            input["crl_data"] = crl_data
+            input_["crl_data"] = crl_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,11 +197,11 @@ class Crl:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -236,14 +236,14 @@ class Crl:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.list_request.ListRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rolesanywhere.types.list_request.ListRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,11 +276,11 @@ class Crl:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -313,11 +313,11 @@ class Crl:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,17 +364,17 @@ class AsyncCrl:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.import_crl_request.ImportCrlRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["crl_data"] = crl_data
+        input_: aws_sdk_rolesanywhere.types.import_crl_request.ImportCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["crl_data"] = crl_data
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
-        input["trust_anchor_arn"] = trust_anchor_arn
+            input_["tags"] = tags
+        input_["trust_anchor_arn"] = trust_anchor_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,11 +408,11 @@ class AsyncCrl:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -450,15 +450,15 @@ class AsyncCrl:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.update_crl_request.UpdateCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.update_crl_request.UpdateCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if crl_data is not None:
-            input["crl_data"] = crl_data
+            input_["crl_data"] = crl_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,11 +492,11 @@ class AsyncCrl:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,14 +532,14 @@ class AsyncCrl:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.list_request.ListRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rolesanywhere.types.list_request.ListRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -573,11 +573,11 @@ class AsyncCrl:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -611,11 +611,11 @@ class AsyncCrl:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
-        input["crl_id"] = crl_id
+        input_: aws_sdk_rolesanywhere.types.scalar_crl_request.ScalarCrlRequest = {}  # type: ignore[typeddict-item]
+        input_["crl_id"] = crl_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

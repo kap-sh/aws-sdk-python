@@ -8,6 +8,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_acm_pca._auth._signers
+import aws_sdk_acm_pca._auth._sigv4
 from aws_sdk_acm_pca._auth._identity import Credentials
 from aws_sdk_acm_pca._auth._providers import (
     CredentialsProvider,
@@ -240,24 +242,24 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.create_certificate_authority_request.CreateCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_configuration"] = (
+        input_: aws_sdk_acm_pca.types.create_certificate_authority_request.CreateCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_configuration"] = (
             certificate_authority_configuration
         )
         if revocation_configuration is not None:
-            input["revocation_configuration"] = revocation_configuration
-        input["certificate_authority_type"] = certificate_authority_type
+            input_["revocation_configuration"] = revocation_configuration
+        input_["certificate_authority_type"] = certificate_authority_type
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if key_storage_security_standard is not None:
-            input["key_storage_security_standard"] = key_storage_security_standard
+            input_["key_storage_security_standard"] = key_storage_security_standard
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if usage_mode is not None:
-            input["usage_mode"] = usage_mode
+            input_["usage_mode"] = usage_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,13 +296,13 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.create_certificate_authority_audit_report_request.CreateCertificateAuthorityAuditReportRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["s3_bucket_name"] = s3_bucket_name
-        input["audit_report_response_format"] = audit_report_response_format
+        input_: aws_sdk_acm_pca.types.create_certificate_authority_audit_report_request.CreateCertificateAuthorityAuditReportRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["s3_bucket_name"] = s3_bucket_name
+        input_["audit_report_response_format"] = audit_report_response_format
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,15 +339,15 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.create_permission_request.CreatePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["principal"] = principal
+        input_: aws_sdk_acm_pca.types.create_permission_request.CreatePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["principal"] = principal
         if source_account is not None:
-            input["source_account"] = source_account
-        input["actions"] = actions
+            input_["source_account"] = source_account
+        input_["actions"] = actions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,13 +382,13 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.delete_certificate_authority_request.DeleteCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
+        input_: aws_sdk_acm_pca.types.delete_certificate_authority_request.DeleteCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
         if permanent_deletion_time_in_days is not None:
-            input["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
+            input_["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,14 +423,14 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.delete_permission_request.DeletePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["principal"] = principal
+        input_: aws_sdk_acm_pca.types.delete_permission_request.DeletePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["principal"] = principal
         if source_account is not None:
-            input["source_account"] = source_account
+            input_["source_account"] = source_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,11 +461,11 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_acm_pca.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,11 +498,11 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.describe_certificate_authority_request.DescribeCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
+        input_: aws_sdk_acm_pca.types.describe_certificate_authority_request.DescribeCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,12 +537,12 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.describe_certificate_authority_audit_report_request.DescribeCertificateAuthorityAuditReportRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["audit_report_id"] = audit_report_id
+        input_: aws_sdk_acm_pca.types.describe_certificate_authority_audit_report_request.DescribeCertificateAuthorityAuditReportRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["audit_report_id"] = audit_report_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,12 +577,12 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.get_certificate_request.GetCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["certificate_arn"] = certificate_arn
+        input_: aws_sdk_acm_pca.types.get_certificate_request.GetCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["certificate_arn"] = certificate_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -664,11 +666,11 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.get_certificate_authority_certificate_request.GetCertificateAuthorityCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
+        input_: aws_sdk_acm_pca.types.get_certificate_authority_certificate_request.GetCertificateAuthorityCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -701,11 +703,11 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.get_certificate_authority_csr_request.GetCertificateAuthorityCsrRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
+        input_: aws_sdk_acm_pca.types.get_certificate_authority_csr_request.GetCertificateAuthorityCsrRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -787,11 +789,11 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_acm_pca.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -828,14 +830,14 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.import_certificate_authority_certificate_request.ImportCertificateAuthorityCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["certificate"] = certificate
+        input_: aws_sdk_acm_pca.types.import_certificate_authority_certificate_request.ImportCertificateAuthorityCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["certificate"] = certificate
         if certificate_chain is not None:
-            input["certificate_chain"] = certificate_chain
+            input_["certificate_chain"] = certificate_chain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -886,22 +888,22 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.issue_certificate_request.IssueCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_acm_pca.types.issue_certificate_request.IssueCertificateRequest = {}  # type: ignore[typeddict-item]
         if api_passthrough is not None:
-            input["api_passthrough"] = api_passthrough
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["csr"] = csr
-        input["signing_algorithm"] = signing_algorithm
+            input_["api_passthrough"] = api_passthrough
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["csr"] = csr
+        input_["signing_algorithm"] = signing_algorithm
         if template_arn is not None:
-            input["template_arn"] = template_arn
-        input["validity"] = validity
+            input_["template_arn"] = template_arn
+        input_["validity"] = validity
         if validity_not_before is not None:
-            input["validity_not_before"] = validity_not_before
+            input_["validity_not_before"] = validity_not_before
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -940,16 +942,16 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.list_certificate_authorities_request.ListCertificateAuthoritiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_acm_pca.types.list_certificate_authorities_request.ListCertificateAuthoritiesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
+            input_["resource_owner"] = resource_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1011,15 +1013,15 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.list_permissions_request.ListPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_acm_pca.types.list_permissions_request.ListPermissionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["certificate_authority_arn"] = certificate_authority_arn
+            input_["next_token"] = next_token
+        input_["certificate_authority_arn"] = certificate_authority_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1079,15 +1081,15 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_acm_pca.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["certificate_authority_arn"] = certificate_authority_arn
+            input_["next_token"] = next_token
+        input_["certificate_authority_arn"] = certificate_authority_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1143,12 +1145,12 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.put_policy_request.PutPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_acm_pca.types.put_policy_request.PutPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1179,11 +1181,11 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.restore_certificate_authority_request.RestoreCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
+        input_: aws_sdk_acm_pca.types.restore_certificate_authority_request.RestoreCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1218,13 +1220,13 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.revoke_certificate_request.RevokeCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["certificate_serial"] = certificate_serial
-        input["revocation_reason"] = revocation_reason
+        input_: aws_sdk_acm_pca.types.revoke_certificate_request.RevokeCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["certificate_serial"] = certificate_serial
+        input_["revocation_reason"] = revocation_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1257,12 +1259,12 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.tag_certificate_authority_request.TagCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["tags"] = tags
+        input_: aws_sdk_acm_pca.types.tag_certificate_authority_request.TagCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1295,12 +1297,12 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.untag_certificate_authority_request.UntagCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["tags"] = tags
+        input_: aws_sdk_acm_pca.types.untag_certificate_authority_request.UntagCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1339,15 +1341,15 @@ class ACMPCAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm_pca.types.update_certificate_authority_request.UpdateCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
+        input_: aws_sdk_acm_pca.types.update_certificate_authority_request.UpdateCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
         if revocation_configuration is not None:
-            input["revocation_configuration"] = revocation_configuration
+            input_["revocation_configuration"] = revocation_configuration
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

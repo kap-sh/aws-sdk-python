@@ -103,54 +103,51 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_chime_sdk_messaging.types.list_channels_request.ListChannelsRequest,
+    input_: aws_sdk_chime_sdk_messaging.types.list_channels_request.ListChannelsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/channels"
     params: dict[str, str] = {}
-    if "app_instance_arn" in input:
-        params["app-instance-arn"] = str(input["app_instance_arn"])
-    if "privacy" in input:
-        params["privacy"] = str(input["privacy"])
-    if "max_results" in input:
-        params["max-results"] = str(input["max_results"])
-    if "next_token" in input:
-        params["next-token"] = str(input["next_token"])
+    if "app_instance_arn" in input_:
+        params["app-instance-arn"] = str(input_["app_instance_arn"])
+    if "privacy" in input_:
+        params["privacy"] = str(input_["privacy"])
+    if "max_results" in input_:
+        params["max-results"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["next-token"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "chime_bearer" in input:
-        headers["x-amz-chime-bearer"] = str(input["chime_bearer"])
+    if "chime_bearer" in input_:
+        headers["x-amz-chime-bearer"] = str(input_["chime_bearer"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_channels(
     options: OperationOptions,
-    input: aws_sdk_chime_sdk_messaging.types.list_channels_request.ListChannelsRequest,
+    input_: aws_sdk_chime_sdk_messaging.types.list_channels_request.ListChannelsRequest,
 ) -> tuple[
     aws_sdk_chime_sdk_messaging.types.list_channels_response.ListChannelsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -159,16 +156,17 @@ def list_channels(
 
 async def async_list_channels(
     options: AsyncOperationOptions,
-    input: aws_sdk_chime_sdk_messaging.types.list_channels_request.ListChannelsRequest,
+    input_: aws_sdk_chime_sdk_messaging.types.list_channels_request.ListChannelsRequest,
 ) -> tuple[
     aws_sdk_chime_sdk_messaging.types.list_channels_response.ListChannelsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -15,6 +15,12 @@ from aws_sdk_rolesanywhere._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_rolesanywhere._auth._zapros_handler import AuthMiddleware
+from aws_sdk_rolesanywhere._resources.roles_anywhere.crl import AsyncCrl
+from aws_sdk_rolesanywhere._resources.roles_anywhere.profile import AsyncProfile
+from aws_sdk_rolesanywhere._resources.roles_anywhere.subject import AsyncSubject
+from aws_sdk_rolesanywhere._resources.roles_anywhere.trust_anchor import (
+    AsyncTrustAnchor,
+)
 from aws_sdk_rolesanywhere._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -115,6 +121,11 @@ class AsyncRolesAnywhereClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.crl = AsyncCrl(self)
+        self.profile = AsyncProfile(self)
+        self.subject = AsyncSubject(self)
+        self.trust_anchor = AsyncTrustAnchor(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncRolesAnywhereClientConfig] = None
@@ -172,11 +183,11 @@ class AsyncRolesAnywhereClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_rolesanywhere.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,12 +228,12 @@ class AsyncRolesAnywhereClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.put_notification_settings_request.PutNotificationSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["trust_anchor_id"] = trust_anchor_id
-        input["notification_settings"] = notification_settings
+        input_: aws_sdk_rolesanywhere.types.put_notification_settings_request.PutNotificationSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_anchor_id"] = trust_anchor_id
+        input_["notification_settings"] = notification_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,12 +274,12 @@ class AsyncRolesAnywhereClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.reset_notification_settings_request.ResetNotificationSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["trust_anchor_id"] = trust_anchor_id
-        input["notification_setting_keys"] = notification_setting_keys
+        input_: aws_sdk_rolesanywhere.types.reset_notification_settings_request.ResetNotificationSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_anchor_id"] = trust_anchor_id
+        input_["notification_setting_keys"] = notification_setting_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -304,12 +315,12 @@ class AsyncRolesAnywhereClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_rolesanywhere.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,12 +356,12 @@ class AsyncRolesAnywhereClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rolesanywhere.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_rolesanywhere.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

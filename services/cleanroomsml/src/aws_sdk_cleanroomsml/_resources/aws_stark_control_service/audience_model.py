@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_cleanroomsml._auth._signers
@@ -85,22 +86,22 @@ class AudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_audience_model_request.CreateAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.create_audience_model_request.CreateAudienceModelRequest = {}  # type: ignore[typeddict-item]
         if training_data_start_time is not None:
-            input["training_data_start_time"] = training_data_start_time
+            input_["training_data_start_time"] = training_data_start_time
         if training_data_end_time is not None:
-            input["training_data_end_time"] = training_data_end_time
-        input["name"] = name
-        input["training_dataset_arn"] = training_dataset_arn
+            input_["training_data_end_time"] = training_data_end_time
+        input_["name"] = name
+        input_["training_dataset_arn"] = training_dataset_arn
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,11 +134,11 @@ class AudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_audience_model_request.GetAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["audience_model_arn"] = audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.get_audience_model_request.GetAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["audience_model_arn"] = audience_model_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,11 +169,11 @@ class AudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_audience_model_request.DeleteAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["audience_model_arn"] = audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.delete_audience_model_request.DeleteAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["audience_model_arn"] = audience_model_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -209,14 +210,14 @@ class AudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_audience_models_request.ListAudienceModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_audience_models_request.ListAudienceModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,22 +272,22 @@ class AsyncAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_audience_model_request.CreateAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.create_audience_model_request.CreateAudienceModelRequest = {}  # type: ignore[typeddict-item]
         if training_data_start_time is not None:
-            input["training_data_start_time"] = training_data_start_time
+            input_["training_data_start_time"] = training_data_start_time
         if training_data_end_time is not None:
-            input["training_data_end_time"] = training_data_end_time
-        input["name"] = name
-        input["training_dataset_arn"] = training_dataset_arn
+            input_["training_data_end_time"] = training_data_end_time
+        input_["name"] = name
+        input_["training_dataset_arn"] = training_dataset_arn
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,11 +321,11 @@ class AsyncAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_audience_model_request.GetAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["audience_model_arn"] = audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.get_audience_model_request.GetAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["audience_model_arn"] = audience_model_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,11 +357,11 @@ class AsyncAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_audience_model_request.DeleteAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["audience_model_arn"] = audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.delete_audience_model_request.DeleteAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["audience_model_arn"] = audience_model_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,14 +399,14 @@ class AsyncAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_audience_models_request.ListAudienceModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_audience_models_request.ListAudienceModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

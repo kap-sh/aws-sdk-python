@@ -16,6 +16,9 @@ from aws_sdk_chatbot._auth._providers import (
 )
 from aws_sdk_chatbot._auth._zapros_handler import AuthMiddleware
 from aws_sdk_chatbot._pagination import resolve_path as _resolve_path
+from aws_sdk_chatbot._resources.wheatley_orchestration_20171011.custom_action_resource import (
+    AsyncCustomActionResource,
+)
 from aws_sdk_chatbot._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -191,6 +194,8 @@ class AsyncchatbotClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.custom_action_resource = AsyncCustomActionResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncchatbotClientConfig] = None
@@ -256,12 +261,12 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.associate_to_configuration_request.AssociateToConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["chat_configuration"] = chat_configuration
+        input_: aws_sdk_chatbot.types.associate_to_configuration_request.AssociateToConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["chat_configuration"] = chat_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,19 +314,19 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.create_chime_webhook_configuration_request.CreateChimeWebhookConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["webhook_description"] = webhook_description
-        input["webhook_url"] = webhook_url
-        input["sns_topic_arns"] = sns_topic_arns
-        input["iam_role_arn"] = iam_role_arn
-        input["configuration_name"] = configuration_name
+        input_: aws_sdk_chatbot.types.create_chime_webhook_configuration_request.CreateChimeWebhookConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["webhook_description"] = webhook_description
+        input_["webhook_url"] = webhook_url
+        input_["sns_topic_arns"] = sns_topic_arns
+        input_["iam_role_arn"] = iam_role_arn
+        input_["configuration_name"] = configuration_name
         if logging_level is not None:
-            input["logging_level"] = logging_level
+            input_["logging_level"] = logging_level
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,29 +392,29 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.create_teams_channel_configuration_request.CreateTeamsChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_chatbot.types.create_teams_channel_configuration_request.CreateTeamsChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
         if channel_name is not None:
-            input["channel_name"] = channel_name
-        input["team_id"] = team_id
+            input_["channel_name"] = channel_name
+        input_["team_id"] = team_id
         if team_name is not None:
-            input["team_name"] = team_name
-        input["tenant_id"] = tenant_id
+            input_["team_name"] = team_name
+        input_["tenant_id"] = tenant_id
         if sns_topic_arns is not None:
-            input["sns_topic_arns"] = sns_topic_arns
-        input["iam_role_arn"] = iam_role_arn
-        input["configuration_name"] = configuration_name
+            input_["sns_topic_arns"] = sns_topic_arns
+        input_["iam_role_arn"] = iam_role_arn
+        input_["configuration_name"] = configuration_name
         if logging_level is not None:
-            input["logging_level"] = logging_level
+            input_["logging_level"] = logging_level
         if guardrail_policy_arns is not None:
-            input["guardrail_policy_arns"] = guardrail_policy_arns
+            input_["guardrail_policy_arns"] = guardrail_policy_arns
         if user_authorization_required is not None:
-            input["user_authorization_required"] = user_authorization_required
+            input_["user_authorization_required"] = user_authorization_required
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -471,26 +476,26 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.create_slack_channel_configuration_request.CreateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["slack_team_id"] = slack_team_id
-        input["slack_channel_id"] = slack_channel_id
+        input_: aws_sdk_chatbot.types.create_slack_channel_configuration_request.CreateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["slack_team_id"] = slack_team_id
+        input_["slack_channel_id"] = slack_channel_id
         if slack_channel_name is not None:
-            input["slack_channel_name"] = slack_channel_name
+            input_["slack_channel_name"] = slack_channel_name
         if sns_topic_arns is not None:
-            input["sns_topic_arns"] = sns_topic_arns
-        input["iam_role_arn"] = iam_role_arn
-        input["configuration_name"] = configuration_name
+            input_["sns_topic_arns"] = sns_topic_arns
+        input_["iam_role_arn"] = iam_role_arn
+        input_["configuration_name"] = configuration_name
         if logging_level is not None:
-            input["logging_level"] = logging_level
+            input_["logging_level"] = logging_level
         if guardrail_policy_arns is not None:
-            input["guardrail_policy_arns"] = guardrail_policy_arns
+            input_["guardrail_policy_arns"] = guardrail_policy_arns
         if user_authorization_required is not None:
-            input["user_authorization_required"] = user_authorization_required
+            input_["user_authorization_required"] = user_authorization_required
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -524,11 +529,11 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_chime_webhook_configuration_request.DeleteChimeWebhookConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
+        input_: aws_sdk_chatbot.types.delete_chime_webhook_configuration_request.DeleteChimeWebhookConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -562,11 +567,11 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_teams_channel_configuration_request.DeleteTeamsChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
+        input_: aws_sdk_chatbot.types.delete_teams_channel_configuration_request.DeleteTeamsChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -600,11 +605,11 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_teams_configured_team_request.DeleteTeamsConfiguredTeamRequest = {}  # type: ignore[typeddict-item]
-        input["team_id"] = team_id
+        input_: aws_sdk_chatbot.types.delete_teams_configured_team_request.DeleteTeamsConfiguredTeamRequest = {}  # type: ignore[typeddict-item]
+        input_["team_id"] = team_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -640,12 +645,12 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_microsoft_teams_user_identity_request.DeleteMicrosoftTeamsUserIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
-        input["user_id"] = user_id
+        input_: aws_sdk_chatbot.types.delete_microsoft_teams_user_identity_request.DeleteMicrosoftTeamsUserIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -679,11 +684,11 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_slack_channel_configuration_request.DeleteSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
+        input_: aws_sdk_chatbot.types.delete_slack_channel_configuration_request.DeleteSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -721,13 +726,13 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_slack_user_identity_request.DeleteSlackUserIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
-        input["slack_team_id"] = slack_team_id
-        input["slack_user_id"] = slack_user_id
+        input_: aws_sdk_chatbot.types.delete_slack_user_identity_request.DeleteSlackUserIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
+        input_["slack_team_id"] = slack_team_id
+        input_["slack_user_id"] = slack_user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,11 +766,11 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_slack_workspace_authorization_request.DeleteSlackWorkspaceAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["slack_team_id"] = slack_team_id
+        input_: aws_sdk_chatbot.types.delete_slack_workspace_authorization_request.DeleteSlackWorkspaceAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["slack_team_id"] = slack_team_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -807,16 +812,16 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.describe_chime_webhook_configurations_request.DescribeChimeWebhookConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.describe_chime_webhook_configurations_request.DescribeChimeWebhookConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if chat_configuration_arn is not None:
-            input["chat_configuration_arn"] = chat_configuration_arn
+            input_["chat_configuration_arn"] = chat_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -885,16 +890,16 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.describe_slack_channel_configurations_request.DescribeSlackChannelConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.describe_slack_channel_configurations_request.DescribeSlackChannelConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if chat_configuration_arn is not None:
-            input["chat_configuration_arn"] = chat_configuration_arn
+            input_["chat_configuration_arn"] = chat_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -963,16 +968,16 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.describe_slack_user_identities_request.DescribeSlackUserIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.describe_slack_user_identities_request.DescribeSlackUserIdentitiesRequest = {}  # type: ignore[typeddict-item]
         if chat_configuration_arn is not None:
-            input["chat_configuration_arn"] = chat_configuration_arn
+            input_["chat_configuration_arn"] = chat_configuration_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1037,14 +1042,14 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.describe_slack_workspaces_request.DescribeSlackWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.describe_slack_workspaces_request.DescribeSlackWorkspacesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1108,12 +1113,12 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.disassociate_from_configuration_request.DisassociateFromConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["chat_configuration"] = chat_configuration
+        input_: aws_sdk_chatbot.types.disassociate_from_configuration_request.DisassociateFromConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["chat_configuration"] = chat_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1140,10 +1145,10 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.get_account_preferences_request.GetAccountPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.get_account_preferences_request.GetAccountPreferencesRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1177,11 +1182,11 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.get_teams_channel_configuration_request.GetTeamsChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
+        input_: aws_sdk_chatbot.types.get_teams_channel_configuration_request.GetTeamsChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1224,15 +1229,15 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.list_associations_request.ListAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration"] = chat_configuration
+        input_: aws_sdk_chatbot.types.list_associations_request.ListAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration"] = chat_configuration
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1295,16 +1300,16 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.list_teams_channel_configurations_request.ListTeamsChannelConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.list_teams_channel_configurations_request.ListTeamsChannelConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if team_id is not None:
-            input["team_id"] = team_id
+            input_["team_id"] = team_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1367,14 +1372,14 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.list_microsoft_teams_configured_teams_request.ListMicrosoftTeamsConfiguredTeamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.list_microsoft_teams_configured_teams_request.ListMicrosoftTeamsConfiguredTeamsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1439,16 +1444,16 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.list_microsoft_teams_user_identities_request.ListMicrosoftTeamsUserIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.list_microsoft_teams_user_identities_request.ListMicrosoftTeamsUserIdentitiesRequest = {}  # type: ignore[typeddict-item]
         if chat_configuration_arn is not None:
-            input["chat_configuration_arn"] = chat_configuration_arn
+            input_["chat_configuration_arn"] = chat_configuration_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1509,11 +1514,11 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_chatbot.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1549,12 +1554,12 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_chatbot.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1590,12 +1595,12 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_chatbot.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1635,14 +1640,16 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.update_account_preferences_request.UpdateAccountPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.update_account_preferences_request.UpdateAccountPreferencesRequest = {}  # type: ignore[typeddict-item]
         if user_authorization_required is not None:
-            input["user_authorization_required"] = user_authorization_required
+            input_["user_authorization_required"] = user_authorization_required
         if training_data_collection_enabled is not None:
-            input["training_data_collection_enabled"] = training_data_collection_enabled
+            input_["training_data_collection_enabled"] = (
+                training_data_collection_enabled
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1694,21 +1701,21 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.update_chime_webhook_configuration_request.UpdateChimeWebhookConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
+        input_: aws_sdk_chatbot.types.update_chime_webhook_configuration_request.UpdateChimeWebhookConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
         if webhook_description is not None:
-            input["webhook_description"] = webhook_description
+            input_["webhook_description"] = webhook_description
         if webhook_url is not None:
-            input["webhook_url"] = webhook_url
+            input_["webhook_url"] = webhook_url
         if sns_topic_arns is not None:
-            input["sns_topic_arns"] = sns_topic_arns
+            input_["sns_topic_arns"] = sns_topic_arns
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if logging_level is not None:
-            input["logging_level"] = logging_level
+            input_["logging_level"] = logging_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1766,24 +1773,24 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.update_teams_channel_configuration_request.UpdateTeamsChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
-        input["channel_id"] = channel_id
+        input_: aws_sdk_chatbot.types.update_teams_channel_configuration_request.UpdateTeamsChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
+        input_["channel_id"] = channel_id
         if channel_name is not None:
-            input["channel_name"] = channel_name
+            input_["channel_name"] = channel_name
         if sns_topic_arns is not None:
-            input["sns_topic_arns"] = sns_topic_arns
+            input_["sns_topic_arns"] = sns_topic_arns
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if logging_level is not None:
-            input["logging_level"] = logging_level
+            input_["logging_level"] = logging_level
         if guardrail_policy_arns is not None:
-            input["guardrail_policy_arns"] = guardrail_policy_arns
+            input_["guardrail_policy_arns"] = guardrail_policy_arns
         if user_authorization_required is not None:
-            input["user_authorization_required"] = user_authorization_required
+            input_["user_authorization_required"] = user_authorization_required
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1841,24 +1848,24 @@ class AsyncchatbotClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.update_slack_channel_configuration_request.UpdateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["chat_configuration_arn"] = chat_configuration_arn
-        input["slack_channel_id"] = slack_channel_id
+        input_: aws_sdk_chatbot.types.update_slack_channel_configuration_request.UpdateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["chat_configuration_arn"] = chat_configuration_arn
+        input_["slack_channel_id"] = slack_channel_id
         if slack_channel_name is not None:
-            input["slack_channel_name"] = slack_channel_name
+            input_["slack_channel_name"] = slack_channel_name
         if sns_topic_arns is not None:
-            input["sns_topic_arns"] = sns_topic_arns
+            input_["sns_topic_arns"] = sns_topic_arns
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if logging_level is not None:
-            input["logging_level"] = logging_level
+            input_["logging_level"] = logging_level
         if guardrail_policy_arns is not None:
-            input["guardrail_policy_arns"] = guardrail_policy_arns
+            input_["guardrail_policy_arns"] = guardrail_policy_arns
         if user_authorization_required is not None:
-            input["user_authorization_required"] = user_authorization_required
+            input_["user_authorization_required"] = user_authorization_required
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

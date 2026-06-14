@@ -103,7 +103,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput,
+    input_: aws_sdk_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -113,7 +113,7 @@ def build_request(
             Endpoint=options.endpoint,
             AccountId=options.account_id,
             AccountIdEndpointMode=options.account_id_endpoint_mode,
-            ResourceArn=input.get("global_table_name"),
+            ResourceArn=input_.get("global_table_name"),
             ResourceArnList=options.resource_arn_list,
         )
     )  # noqa: F841
@@ -125,7 +125,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb.types.update_global_table_settings_input.serialize_aws_json_1_0(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
@@ -139,12 +139,12 @@ def build_request(
 
 def update_global_table_settings(
     options: OperationOptions,
-    input: aws_sdk_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput,
+    input_: aws_sdk_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.update_global_table_settings_output.UpdateGlobalTableSettingsOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -158,12 +158,12 @@ def update_global_table_settings(
 
 async def async_update_global_table_settings(
     options: AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput,
+    input_: aws_sdk_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.update_global_table_settings_output.UpdateGlobalTableSettingsOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

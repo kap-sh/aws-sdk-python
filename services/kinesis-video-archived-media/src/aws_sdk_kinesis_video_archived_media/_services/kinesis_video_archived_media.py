@@ -207,15 +207,15 @@ class KinesisVideoArchivedMediaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_archived_media.types.get_clip_input.GetClipInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video_archived_media.types.get_clip_input.GetClipInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["clip_fragment_selector"] = clip_fragment_selector
+            input_["stream_arn"] = stream_arn
+        input_["clip_fragment_selector"] = clip_fragment_selector
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,26 +278,26 @@ class KinesisVideoArchivedMediaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_input.GetDASHStreamingSessionURLInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video_archived_media.types.get_dash_streaming_session_url_input.GetDASHStreamingSessionURLInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if playback_mode is not None:
-            input["playback_mode"] = playback_mode
+            input_["playback_mode"] = playback_mode
         if display_fragment_timestamp is not None:
-            input["display_fragment_timestamp"] = display_fragment_timestamp
+            input_["display_fragment_timestamp"] = display_fragment_timestamp
         if display_fragment_number is not None:
-            input["display_fragment_number"] = display_fragment_number
+            input_["display_fragment_number"] = display_fragment_number
         if dash_fragment_selector is not None:
-            input["dash_fragment_selector"] = dash_fragment_selector
+            input_["dash_fragment_selector"] = dash_fragment_selector
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
         if max_manifest_fragment_results is not None:
-            input["max_manifest_fragment_results"] = max_manifest_fragment_results
+            input_["max_manifest_fragment_results"] = max_manifest_fragment_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,30 +364,30 @@ class KinesisVideoArchivedMediaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_archived_media.types.get_hls_streaming_session_url_input.GetHLSStreamingSessionURLInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video_archived_media.types.get_hls_streaming_session_url_input.GetHLSStreamingSessionURLInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if playback_mode is not None:
-            input["playback_mode"] = playback_mode
+            input_["playback_mode"] = playback_mode
         if hls_fragment_selector is not None:
-            input["hls_fragment_selector"] = hls_fragment_selector
+            input_["hls_fragment_selector"] = hls_fragment_selector
         if container_format is not None:
-            input["container_format"] = container_format
+            input_["container_format"] = container_format
         if discontinuity_mode is not None:
-            input["discontinuity_mode"] = discontinuity_mode
+            input_["discontinuity_mode"] = discontinuity_mode
         if display_fragment_timestamp is not None:
-            input["display_fragment_timestamp"] = display_fragment_timestamp
+            input_["display_fragment_timestamp"] = display_fragment_timestamp
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
         if max_media_playlist_fragment_results is not None:
-            input["max_media_playlist_fragment_results"] = (
+            input_["max_media_playlist_fragment_results"] = (
                 max_media_playlist_fragment_results
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,30 +458,30 @@ class KinesisVideoArchivedMediaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_archived_media.types.get_images_input.GetImagesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video_archived_media.types.get_images_input.GetImagesInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["image_selector_type"] = image_selector_type
-        input["start_timestamp"] = start_timestamp
-        input["end_timestamp"] = end_timestamp
+            input_["stream_arn"] = stream_arn
+        input_["image_selector_type"] = image_selector_type
+        input_["start_timestamp"] = start_timestamp
+        input_["end_timestamp"] = end_timestamp
         if sampling_interval is not None:
-            input["sampling_interval"] = sampling_interval
-        input["format"] = format
+            input_["sampling_interval"] = sampling_interval
+        input_["format"] = format
         if format_config is not None:
-            input["format_config"] = format_config
+            input_["format_config"] = format_config
         if width_pixels is not None:
-            input["width_pixels"] = width_pixels
+            input_["width_pixels"] = width_pixels
         if height_pixels is not None:
-            input["height_pixels"] = height_pixels
+            input_["height_pixels"] = height_pixels
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -580,15 +580,15 @@ class KinesisVideoArchivedMediaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_archived_media.types.get_media_for_fragment_list_input.GetMediaForFragmentListInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video_archived_media.types.get_media_for_fragment_list_input.GetMediaForFragmentListInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["fragments"] = fragments
+            input_["stream_arn"] = stream_arn
+        input_["fragments"] = fragments
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -639,20 +639,20 @@ class KinesisVideoArchivedMediaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_archived_media.types.list_fragments_input.ListFragmentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video_archived_media.types.list_fragments_input.ListFragmentsInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if fragment_selector is not None:
-            input["fragment_selector"] = fragment_selector
+            input_["fragment_selector"] = fragment_selector
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

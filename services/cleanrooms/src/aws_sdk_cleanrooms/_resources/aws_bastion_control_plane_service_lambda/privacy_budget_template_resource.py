@@ -83,17 +83,17 @@ class PrivacyBudgetTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_privacy_budget_template_input.CreatePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.create_privacy_budget_template_input.CreatePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if auto_refresh is not None:
-            input["auto_refresh"] = auto_refresh
-        input["privacy_budget_type"] = privacy_budget_type
-        input["parameters"] = parameters
+            input_["auto_refresh"] = auto_refresh
+        input_["privacy_budget_type"] = privacy_budget_type
+        input_["parameters"] = parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -128,12 +128,14 @@ class PrivacyBudgetTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_privacy_budget_template_input.GetPrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["privacy_budget_template_identifier"] = privacy_budget_template_identifier
+        input_: aws_sdk_cleanrooms.types.get_privacy_budget_template_input.GetPrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["privacy_budget_template_identifier"] = (
+            privacy_budget_template_identifier
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -174,15 +176,17 @@ class PrivacyBudgetTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_privacy_budget_template_input.UpdatePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["privacy_budget_template_identifier"] = privacy_budget_template_identifier
-        input["privacy_budget_type"] = privacy_budget_type
+        input_: aws_sdk_cleanrooms.types.update_privacy_budget_template_input.UpdatePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["privacy_budget_template_identifier"] = (
+            privacy_budget_template_identifier
+        )
+        input_["privacy_budget_type"] = privacy_budget_type
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,12 +221,14 @@ class PrivacyBudgetTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_privacy_budget_template_input.DeletePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["privacy_budget_template_identifier"] = privacy_budget_template_identifier
+        input_: aws_sdk_cleanrooms.types.delete_privacy_budget_template_input.DeletePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["privacy_budget_template_identifier"] = (
+            privacy_budget_template_identifier
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,15 +267,15 @@ class PrivacyBudgetTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_privacy_budget_templates_input.ListPrivacyBudgetTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_privacy_budget_templates_input.ListPrivacyBudgetTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,17 +324,17 @@ class AsyncPrivacyBudgetTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_privacy_budget_template_input.CreatePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.create_privacy_budget_template_input.CreatePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if auto_refresh is not None:
-            input["auto_refresh"] = auto_refresh
-        input["privacy_budget_type"] = privacy_budget_type
-        input["parameters"] = parameters
+            input_["auto_refresh"] = auto_refresh
+        input_["privacy_budget_type"] = privacy_budget_type
+        input_["parameters"] = parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,12 +370,14 @@ class AsyncPrivacyBudgetTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_privacy_budget_template_input.GetPrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["privacy_budget_template_identifier"] = privacy_budget_template_identifier
+        input_: aws_sdk_cleanrooms.types.get_privacy_budget_template_input.GetPrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["privacy_budget_template_identifier"] = (
+            privacy_budget_template_identifier
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,15 +419,17 @@ class AsyncPrivacyBudgetTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_privacy_budget_template_input.UpdatePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["privacy_budget_template_identifier"] = privacy_budget_template_identifier
-        input["privacy_budget_type"] = privacy_budget_type
+        input_: aws_sdk_cleanrooms.types.update_privacy_budget_template_input.UpdatePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["privacy_budget_template_identifier"] = (
+            privacy_budget_template_identifier
+        )
+        input_["privacy_budget_type"] = privacy_budget_type
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,12 +465,14 @@ class AsyncPrivacyBudgetTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_privacy_budget_template_input.DeletePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["privacy_budget_template_identifier"] = privacy_budget_template_identifier
+        input_: aws_sdk_cleanrooms.types.delete_privacy_budget_template_input.DeletePrivacyBudgetTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["privacy_budget_template_identifier"] = (
+            privacy_budget_template_identifier
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,15 +512,15 @@ class AsyncPrivacyBudgetTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_privacy_budget_templates_input.ListPrivacyBudgetTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_privacy_budget_templates_input.ListPrivacyBudgetTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

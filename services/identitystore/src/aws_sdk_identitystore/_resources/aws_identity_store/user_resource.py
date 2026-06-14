@@ -138,47 +138,47 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
+        input_: aws_sdk_identitystore.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if nick_name is not None:
-            input["nick_name"] = nick_name
+            input_["nick_name"] = nick_name
         if profile_url is not None:
-            input["profile_url"] = profile_url
+            input_["profile_url"] = profile_url
         if emails is not None:
-            input["emails"] = emails
+            input_["emails"] = emails
         if addresses is not None:
-            input["addresses"] = addresses
+            input_["addresses"] = addresses
         if phone_numbers is not None:
-            input["phone_numbers"] = phone_numbers
+            input_["phone_numbers"] = phone_numbers
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if preferred_language is not None:
-            input["preferred_language"] = preferred_language
+            input_["preferred_language"] = preferred_language
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if timezone is not None:
-            input["timezone"] = timezone
+            input_["timezone"] = timezone
         if photos is not None:
-            input["photos"] = photos
+            input_["photos"] = photos
         if website is not None:
-            input["website"] = website
+            input_["website"] = website
         if birthdate is not None:
-            input["birthdate"] = birthdate
+            input_["birthdate"] = birthdate
         if roles is not None:
-            input["roles"] = roles
+            input_["roles"] = roles
         if extensions is not None:
-            input["extensions"] = extensions
+            input_["extensions"] = extensions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,14 +217,14 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["user_id"] = user_id
+        input_: aws_sdk_identitystore.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["user_id"] = user_id
         if extensions is not None:
-            input["extensions"] = extensions
+            input_["extensions"] = extensions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,13 +261,13 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["user_id"] = user_id
-        input["operations"] = operations
+        input_: aws_sdk_identitystore.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["user_id"] = user_id
+        input_["operations"] = operations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,12 +302,12 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["user_id"] = user_id
+        input_: aws_sdk_identitystore.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,19 +352,19 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
+        input_: aws_sdk_identitystore.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
         if extensions is not None:
-            input["extensions"] = extensions
+            input_["extensions"] = extensions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,47 +463,47 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
+        input_: aws_sdk_identitystore.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if nick_name is not None:
-            input["nick_name"] = nick_name
+            input_["nick_name"] = nick_name
         if profile_url is not None:
-            input["profile_url"] = profile_url
+            input_["profile_url"] = profile_url
         if emails is not None:
-            input["emails"] = emails
+            input_["emails"] = emails
         if addresses is not None:
-            input["addresses"] = addresses
+            input_["addresses"] = addresses
         if phone_numbers is not None:
-            input["phone_numbers"] = phone_numbers
+            input_["phone_numbers"] = phone_numbers
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if preferred_language is not None:
-            input["preferred_language"] = preferred_language
+            input_["preferred_language"] = preferred_language
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if timezone is not None:
-            input["timezone"] = timezone
+            input_["timezone"] = timezone
         if photos is not None:
-            input["photos"] = photos
+            input_["photos"] = photos
         if website is not None:
-            input["website"] = website
+            input_["website"] = website
         if birthdate is not None:
-            input["birthdate"] = birthdate
+            input_["birthdate"] = birthdate
         if roles is not None:
-            input["roles"] = roles
+            input_["roles"] = roles
         if extensions is not None:
-            input["extensions"] = extensions
+            input_["extensions"] = extensions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -543,14 +543,14 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["user_id"] = user_id
+        input_: aws_sdk_identitystore.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["user_id"] = user_id
         if extensions is not None:
-            input["extensions"] = extensions
+            input_["extensions"] = extensions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,13 +588,13 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["user_id"] = user_id
-        input["operations"] = operations
+        input_: aws_sdk_identitystore.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["user_id"] = user_id
+        input_["operations"] = operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,12 +630,12 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["user_id"] = user_id
+        input_: aws_sdk_identitystore.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -681,19 +681,19 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
+        input_: aws_sdk_identitystore.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
         if extensions is not None:
-            input["extensions"] = extensions
+            input_["extensions"] = extensions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import ensure_async_iterator
 from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import ensure_sync_iterator
+import datetime
 from aws_sdk_bedrock_agentcore._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_bedrock_agentcore._auth._signers
 import aws_sdk_bedrock_agentcore._auth._sigv4
@@ -51,11 +52,11 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_browser_session_request.GetBrowserSessionRequest = {}  # type: ignore[typeddict-item]
-        input["browser_identifier"] = browser_identifier
-        input["session_id"] = session_id
+        input_: aws_sdk_bedrock_agentcore.types.get_browser_session_request.GetBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["browser_identifier"] = browser_identifier
+        input_["session_id"] = session_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def invoke_browser(self, browser_identifier: str, session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId", action: "aws_sdk_bedrock_agentcore.types.browser_action.BrowserAction", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.invoke_browser_response.InvokeBrowserResponse":
         """<p>Invokes an operating system-level action on a browser session in Amazon Bedrock AgentCore. This operation provides direct OS-level control over browser sessions, enabling mouse actions, keyboard input, and screenshots that the WebSocket-based Chrome DevTools Protocol (CDP) cannot handle — such as interacting with print dialogs, context menus, and JavaScript alerts.</p> <p>You send a request with exactly one action in the <code>BrowserAction</code> union, and receive a corresponding result in the <code>BrowserActionResult</code> union.</p> <p>The following operations are related to <code>InvokeBrowser</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html\">StartBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html\">GetBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html\">StopBrowserSession</a> </p> </li> </ul>
@@ -71,12 +72,12 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.invoke_browser_request.InvokeBrowserRequest = {}  # type: ignore[typeddict-item]
-        input["browser_identifier"] = browser_identifier
-        input["session_id"] = session_id
-        input["action"] = action
+        input_: aws_sdk_bedrock_agentcore.types.invoke_browser_request.InvokeBrowserRequest = {}  # type: ignore[typeddict-item]
+        input_["browser_identifier"] = browser_identifier
+        input_["session_id"] = session_id
+        input_["action"] = action
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_browser_sessions(self, browser_identifier: str, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.next_token.NextToken"] = None, status: Optional["aws_sdk_bedrock_agentcore.types.browser_session_status.BrowserSessionStatus"] = None) -> "aws_sdk_bedrock_agentcore.types.list_browser_sessions_response.ListBrowserSessionsResponse":
         """<p>Retrieves a list of browser sessions in Amazon Bedrock AgentCore that match the specified criteria. This operation returns summary information about each session, including identifiers, status, and timestamps.</p> <p>You can filter the results by browser identifier and session status. The operation supports pagination to handle large result sets efficiently.</p> <p>We recommend using pagination to ensure that the operation returns quickly and successfully when retrieving large numbers of sessions.</p> <p>The following operations are related to <code>ListBrowserSessions</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html\">StartBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html\">GetBrowserSession</a> </p> </li> </ul>
@@ -93,16 +94,16 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_browser_sessions_request.ListBrowserSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["browser_identifier"] = browser_identifier
+        input_: aws_sdk_bedrock_agentcore.types.list_browser_sessions_request.ListBrowserSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["browser_identifier"] = browser_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def start_browser_session(self, browser_identifier: str, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, name: Optional["aws_sdk_bedrock_agentcore.types.name.Name"] = None, session_timeout_seconds: Optional["aws_sdk_bedrock_agentcore.types.browser_session_timeout.BrowserSessionTimeout"] = None, view_port: Optional["aws_sdk_bedrock_agentcore.types.view_port.ViewPort"] = None, extensions: Optional["aws_sdk_bedrock_agentcore.types.browser_extensions.BrowserExtensions"] = None, profile_configuration: Optional["aws_sdk_bedrock_agentcore.types.browser_profile_configuration.BrowserProfileConfiguration"] = None, proxy_configuration: Optional["aws_sdk_bedrock_agentcore.types.proxy_configuration.ProxyConfiguration"] = None, enterprise_policies: Optional["aws_sdk_bedrock_agentcore.types.browser_enterprise_policies.BrowserEnterprisePolicies"] = None, certificates: Optional["aws_sdk_bedrock_agentcore.types.certificates.Certificates"] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.start_browser_session_response.StartBrowserSessionResponse":
         """<p>Creates and initializes a browser session in Amazon Bedrock AgentCore. The session enables agents to navigate and interact with web content, extract information from websites, and perform web-based tasks as part of their response generation.</p> <p>To create a session, you must specify a browser identifier and a name. You can also configure the viewport dimensions to control the visible area of web content. The session remains active until it times out or you explicitly stop it using the <code>StopBrowserSession</code> operation.</p> <p>The following operations are related to <code>StartBrowserSession</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html\">GetBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_UpdateBrowserStream.html\">UpdateBrowserStream</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_SaveBrowserSessionProfile.html\">SaveBrowserSessionProfile</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html\">StopBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeBrowser.html\">InvokeBrowser</a> </p> </li> </ul>
@@ -127,32 +128,32 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.start_browser_session_request.StartBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.start_browser_session_request.StartBrowserSessionRequest = {}  # type: ignore[typeddict-item]
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["browser_identifier"] = browser_identifier
+            input_["trace_parent"] = trace_parent
+        input_["browser_identifier"] = browser_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if session_timeout_seconds is not None:
-            input["session_timeout_seconds"] = session_timeout_seconds
+            input_["session_timeout_seconds"] = session_timeout_seconds
         if view_port is not None:
-            input["view_port"] = view_port
+            input_["view_port"] = view_port
         if extensions is not None:
-            input["extensions"] = extensions
+            input_["extensions"] = extensions
         if profile_configuration is not None:
-            input["profile_configuration"] = profile_configuration
+            input_["profile_configuration"] = profile_configuration
         if proxy_configuration is not None:
-            input["proxy_configuration"] = proxy_configuration
+            input_["proxy_configuration"] = proxy_configuration
         if enterprise_policies is not None:
-            input["enterprise_policies"] = enterprise_policies
+            input_["enterprise_policies"] = enterprise_policies
         if certificates is not None:
-            input["certificates"] = certificates
+            input_["certificates"] = certificates
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def stop_browser_session(self, browser_identifier: str, session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.stop_browser_session_response.StopBrowserSessionResponse":
         """<p>Terminates an active browser session in Amazon Bedrock AgentCore. This operation stops the session, releases associated resources, and makes the session unavailable for further use.</p> <p>To stop a browser session, you must specify both the browser identifier and the session ID. Once stopped, a session cannot be restarted; you must create a new session using <code>StartBrowserSession</code>.</p> <p>The following operations are related to <code>StopBrowserSession</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html\">StartBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html\">GetBrowserSession</a> </p> </li> </ul>
@@ -170,17 +171,17 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.stop_browser_session_request.StopBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.stop_browser_session_request.StopBrowserSessionRequest = {}  # type: ignore[typeddict-item]
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["browser_identifier"] = browser_identifier
-        input["session_id"] = session_id
+            input_["trace_parent"] = trace_parent
+        input_["browser_identifier"] = browser_identifier
+        input_["session_id"] = session_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update_browser_stream(self, browser_identifier: str, session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId", stream_update: "aws_sdk_bedrock_agentcore.types.stream_update.StreamUpdate", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.update_browser_stream_response.UpdateBrowserStreamResponse":
         """<p>Updates a browser stream. To use this operation, you must have permissions to perform the bedrock:UpdateBrowserStream action.</p>
@@ -197,14 +198,14 @@ class BrowserSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.update_browser_stream_request.UpdateBrowserStreamRequest = {}  # type: ignore[typeddict-item]
-        input["browser_identifier"] = browser_identifier
-        input["session_id"] = session_id
-        input["stream_update"] = stream_update
+        input_: aws_sdk_bedrock_agentcore.types.update_browser_stream_request.UpdateBrowserStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["browser_identifier"] = browser_identifier
+        input_["session_id"] = session_id
+        input_["stream_update"] = stream_update
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncBrowserSessionResource:
@@ -223,11 +224,11 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_browser_session_request.GetBrowserSessionRequest = {}  # type: ignore[typeddict-item]
-        input["browser_identifier"] = browser_identifier
-        input["session_id"] = session_id
+        input_: aws_sdk_bedrock_agentcore.types.get_browser_session_request.GetBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["browser_identifier"] = browser_identifier
+        input_["session_id"] = session_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def invoke_browser(self, browser_identifier: str, session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId", action: "aws_sdk_bedrock_agentcore.types.browser_action.BrowserAction", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None) -> "aws_sdk_bedrock_agentcore.types.invoke_browser_response.InvokeBrowserResponse":
         """<p>Invokes an operating system-level action on a browser session in Amazon Bedrock AgentCore. This operation provides direct OS-level control over browser sessions, enabling mouse actions, keyboard input, and screenshots that the WebSocket-based Chrome DevTools Protocol (CDP) cannot handle — such as interacting with print dialogs, context menus, and JavaScript alerts.</p> <p>You send a request with exactly one action in the <code>BrowserAction</code> union, and receive a corresponding result in the <code>BrowserActionResult</code> union.</p> <p>The following operations are related to <code>InvokeBrowser</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html\">StartBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html\">GetBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html\">StopBrowserSession</a> </p> </li> </ul>
@@ -243,12 +244,12 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.invoke_browser_request.InvokeBrowserRequest = {}  # type: ignore[typeddict-item]
-        input["browser_identifier"] = browser_identifier
-        input["session_id"] = session_id
-        input["action"] = action
+        input_: aws_sdk_bedrock_agentcore.types.invoke_browser_request.InvokeBrowserRequest = {}  # type: ignore[typeddict-item]
+        input_["browser_identifier"] = browser_identifier
+        input_["session_id"] = session_id
+        input_["action"] = action
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list_browser_sessions(self, browser_identifier: str, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.next_token.NextToken"] = None, status: Optional["aws_sdk_bedrock_agentcore.types.browser_session_status.BrowserSessionStatus"] = None) -> "aws_sdk_bedrock_agentcore.types.list_browser_sessions_response.ListBrowserSessionsResponse":
         """<p>Retrieves a list of browser sessions in Amazon Bedrock AgentCore that match the specified criteria. This operation returns summary information about each session, including identifiers, status, and timestamps.</p> <p>You can filter the results by browser identifier and session status. The operation supports pagination to handle large result sets efficiently.</p> <p>We recommend using pagination to ensure that the operation returns quickly and successfully when retrieving large numbers of sessions.</p> <p>The following operations are related to <code>ListBrowserSessions</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html\">StartBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html\">GetBrowserSession</a> </p> </li> </ul>
@@ -265,16 +266,16 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_browser_sessions_request.ListBrowserSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["browser_identifier"] = browser_identifier
+        input_: aws_sdk_bedrock_agentcore.types.list_browser_sessions_request.ListBrowserSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["browser_identifier"] = browser_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def start_browser_session(self, browser_identifier: str, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, name: Optional["aws_sdk_bedrock_agentcore.types.name.Name"] = None, session_timeout_seconds: Optional["aws_sdk_bedrock_agentcore.types.browser_session_timeout.BrowserSessionTimeout"] = None, view_port: Optional["aws_sdk_bedrock_agentcore.types.view_port.ViewPort"] = None, extensions: Optional["aws_sdk_bedrock_agentcore.types.browser_extensions.BrowserExtensions"] = None, profile_configuration: Optional["aws_sdk_bedrock_agentcore.types.browser_profile_configuration.BrowserProfileConfiguration"] = None, proxy_configuration: Optional["aws_sdk_bedrock_agentcore.types.proxy_configuration.ProxyConfiguration"] = None, enterprise_policies: Optional["aws_sdk_bedrock_agentcore.types.browser_enterprise_policies.BrowserEnterprisePolicies"] = None, certificates: Optional["aws_sdk_bedrock_agentcore.types.certificates.Certificates"] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.start_browser_session_response.StartBrowserSessionResponse":
         """<p>Creates and initializes a browser session in Amazon Bedrock AgentCore. The session enables agents to navigate and interact with web content, extract information from websites, and perform web-based tasks as part of their response generation.</p> <p>To create a session, you must specify a browser identifier and a name. You can also configure the viewport dimensions to control the visible area of web content. The session remains active until it times out or you explicitly stop it using the <code>StopBrowserSession</code> operation.</p> <p>The following operations are related to <code>StartBrowserSession</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html\">GetBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_UpdateBrowserStream.html\">UpdateBrowserStream</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_SaveBrowserSessionProfile.html\">SaveBrowserSessionProfile</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopBrowserSession.html\">StopBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeBrowser.html\">InvokeBrowser</a> </p> </li> </ul>
@@ -299,32 +300,32 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.start_browser_session_request.StartBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.start_browser_session_request.StartBrowserSessionRequest = {}  # type: ignore[typeddict-item]
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["browser_identifier"] = browser_identifier
+            input_["trace_parent"] = trace_parent
+        input_["browser_identifier"] = browser_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if session_timeout_seconds is not None:
-            input["session_timeout_seconds"] = session_timeout_seconds
+            input_["session_timeout_seconds"] = session_timeout_seconds
         if view_port is not None:
-            input["view_port"] = view_port
+            input_["view_port"] = view_port
         if extensions is not None:
-            input["extensions"] = extensions
+            input_["extensions"] = extensions
         if profile_configuration is not None:
-            input["profile_configuration"] = profile_configuration
+            input_["profile_configuration"] = profile_configuration
         if proxy_configuration is not None:
-            input["proxy_configuration"] = proxy_configuration
+            input_["proxy_configuration"] = proxy_configuration
         if enterprise_policies is not None:
-            input["enterprise_policies"] = enterprise_policies
+            input_["enterprise_policies"] = enterprise_policies
         if certificates is not None:
-            input["certificates"] = certificates
+            input_["certificates"] = certificates
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def stop_browser_session(self, browser_identifier: str, session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.stop_browser_session_response.StopBrowserSessionResponse":
         """<p>Terminates an active browser session in Amazon Bedrock AgentCore. This operation stops the session, releases associated resources, and makes the session unavailable for further use.</p> <p>To stop a browser session, you must specify both the browser identifier and the session ID. Once stopped, a session cannot be restarted; you must create a new session using <code>StartBrowserSession</code>.</p> <p>The following operations are related to <code>StopBrowserSession</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartBrowserSession.html\">StartBrowserSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetBrowserSession.html\">GetBrowserSession</a> </p> </li> </ul>
@@ -342,17 +343,17 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.stop_browser_session_request.StopBrowserSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.stop_browser_session_request.StopBrowserSessionRequest = {}  # type: ignore[typeddict-item]
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["browser_identifier"] = browser_identifier
-        input["session_id"] = session_id
+            input_["trace_parent"] = trace_parent
+        input_["browser_identifier"] = browser_identifier
+        input_["session_id"] = session_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def update_browser_stream(self, browser_identifier: str, session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId", stream_update: "aws_sdk_bedrock_agentcore.types.stream_update.StreamUpdate", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.update_browser_stream_response.UpdateBrowserStreamResponse":
         """<p>Updates a browser stream. To use this operation, you must have permissions to perform the bedrock:UpdateBrowserStream action.</p>
@@ -369,12 +370,12 @@ class AsyncBrowserSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.update_browser_stream_request.UpdateBrowserStreamRequest = {}  # type: ignore[typeddict-item]
-        input["browser_identifier"] = browser_identifier
-        input["session_id"] = session_id
-        input["stream_update"] = stream_update
+        input_: aws_sdk_bedrock_agentcore.types.update_browser_stream_request.UpdateBrowserStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["browser_identifier"] = browser_identifier
+        input_["session_id"] = session_id
+        input_["stream_update"] = stream_update
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

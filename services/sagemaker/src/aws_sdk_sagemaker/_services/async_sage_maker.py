@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_sagemaker._auth._signers
+import aws_sdk_sagemaker._auth._sigv4
 from aws_sdk_sagemaker._auth._identity import Credentials
 from aws_sdk_sagemaker._auth._providers import (
     CredentialsProvider,
@@ -1585,14 +1587,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.add_association_request.AddAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["source_arn"] = source_arn
-        input["destination_arn"] = destination_arn
+        input_: aws_sdk_sagemaker.types.add_association_request.AddAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_arn"] = source_arn
+        input_["destination_arn"] = destination_arn
         if association_type is not None:
-            input["association_type"] = association_type
+            input_["association_type"] = association_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1628,12 +1630,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_sagemaker.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1669,12 +1671,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.associate_trial_component_request.AssociateTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input["trial_component_name"] = trial_component_name
-        input["trial_name"] = trial_name
+        input_: aws_sdk_sagemaker.types.associate_trial_component_request.AssociateTrialComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_component_name"] = trial_component_name
+        input_["trial_name"] = trial_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1712,13 +1714,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.attach_cluster_node_volume_request.AttachClusterNodeVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["node_id"] = node_id
-        input["volume_id"] = volume_id
+        input_: aws_sdk_sagemaker.types.attach_cluster_node_volume_request.AttachClusterNodeVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["node_id"] = node_id
+        input_["volume_id"] = volume_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1756,14 +1758,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.batch_add_cluster_nodes_request.BatchAddClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.batch_add_cluster_nodes_request.BatchAddClusterNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["nodes_to_add"] = nodes_to_add
+            input_["client_token"] = client_token
+        input_["nodes_to_add"] = nodes_to_add
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1805,15 +1807,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.batch_delete_cluster_nodes_request.BatchDeleteClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.batch_delete_cluster_nodes_request.BatchDeleteClusterNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if node_ids is not None:
-            input["node_ids"] = node_ids
+            input_["node_ids"] = node_ids
         if node_logical_ids is not None:
-            input["node_logical_ids"] = node_logical_ids
+            input_["node_logical_ids"] = node_logical_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1847,11 +1849,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.batch_describe_model_package_input.BatchDescribeModelPackageInput = {}  # type: ignore[typeddict-item]
-        input["model_package_arn_list"] = model_package_arn_list
+        input_: aws_sdk_sagemaker.types.batch_describe_model_package_input.BatchDescribeModelPackageInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_arn_list"] = model_package_arn_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1893,15 +1895,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.batch_reboot_cluster_nodes_request.BatchRebootClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.batch_reboot_cluster_nodes_request.BatchRebootClusterNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if node_ids is not None:
-            input["node_ids"] = node_ids
+            input_["node_ids"] = node_ids
         if node_logical_ids is not None:
-            input["node_logical_ids"] = node_logical_ids
+            input_["node_logical_ids"] = node_logical_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1943,15 +1945,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.batch_replace_cluster_nodes_request.BatchReplaceClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.batch_replace_cluster_nodes_request.BatchReplaceClusterNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if node_ids is not None:
-            input["node_ids"] = node_ids
+            input_["node_ids"] = node_ids
         if node_logical_ids is not None:
-            input["node_logical_ids"] = node_logical_ids
+            input_["node_logical_ids"] = node_logical_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2004,23 +2006,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_action_request.CreateActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_name"] = action_name
-        input["source"] = source
-        input["action_type"] = action_type
+        input_: aws_sdk_sagemaker.types.create_action_request.CreateActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_name"] = action_name
+        input_["source"] = source
+        input_["action_type"] = action_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
         if metadata_properties is not None:
-            input["metadata_properties"] = metadata_properties
+            input_["metadata_properties"] = metadata_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2068,19 +2070,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_ai_benchmark_job_request.CreateAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
-        input["ai_benchmark_job_name"] = ai_benchmark_job_name
-        input["benchmark_target"] = benchmark_target
-        input["output_config"] = output_config
-        input["ai_workload_config_identifier"] = ai_workload_config_identifier
-        input["role_arn"] = role_arn
+        input_: aws_sdk_sagemaker.types.create_ai_benchmark_job_request.CreateAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_benchmark_job_name"] = ai_benchmark_job_name
+        input_["benchmark_target"] = benchmark_target
+        input_["output_config"] = output_config
+        input_["ai_workload_config_identifier"] = ai_workload_config_identifier
+        input_["role_arn"] = role_arn
         if network_config is not None:
-            input["network_config"] = network_config
+            input_["network_config"] = network_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2138,24 +2140,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_ai_recommendation_job_request.CreateAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
-        input["ai_recommendation_job_name"] = ai_recommendation_job_name
-        input["model_source"] = model_source
-        input["output_config"] = output_config
-        input["ai_workload_config_identifier"] = ai_workload_config_identifier
-        input["performance_target"] = performance_target
-        input["role_arn"] = role_arn
+        input_: aws_sdk_sagemaker.types.create_ai_recommendation_job_request.CreateAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_recommendation_job_name"] = ai_recommendation_job_name
+        input_["model_source"] = model_source
+        input_["output_config"] = output_config
+        input_["ai_workload_config_identifier"] = ai_workload_config_identifier
+        input_["performance_target"] = performance_target
+        input_["role_arn"] = role_arn
         if inference_specification is not None:
-            input["inference_specification"] = inference_specification
+            input_["inference_specification"] = inference_specification
         if optimize_model is not None:
-            input["optimize_model"] = optimize_model
+            input_["optimize_model"] = optimize_model
         if compute_spec is not None:
-            input["compute_spec"] = compute_spec
+            input_["compute_spec"] = compute_spec
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2199,17 +2201,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_ai_workload_config_request.CreateAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
-        input["ai_workload_config_name"] = ai_workload_config_name
+        input_: aws_sdk_sagemaker.types.create_ai_workload_config_request.CreateAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_workload_config_name"] = ai_workload_config_name
         if dataset_config is not None:
-            input["dataset_config"] = dataset_config
+            input_["dataset_config"] = dataset_config
         if ai_workload_configs is not None:
-            input["ai_workload_configs"] = ai_workload_configs
+            input_["ai_workload_configs"] = ai_workload_configs
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2263,22 +2265,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_algorithm_input.CreateAlgorithmInput = {}  # type: ignore[typeddict-item]
-        input["algorithm_name"] = algorithm_name
+        input_: aws_sdk_sagemaker.types.create_algorithm_input.CreateAlgorithmInput = {}  # type: ignore[typeddict-item]
+        input_["algorithm_name"] = algorithm_name
         if algorithm_description is not None:
-            input["algorithm_description"] = algorithm_description
-        input["training_specification"] = training_specification
+            input_["algorithm_description"] = algorithm_description
+        input_["training_specification"] = training_specification
         if inference_specification is not None:
-            input["inference_specification"] = inference_specification
+            input_["inference_specification"] = inference_specification
         if validation_specification is not None:
-            input["validation_specification"] = validation_specification
+            input_["validation_specification"] = validation_specification
         if certify_for_marketplace is not None:
-            input["certify_for_marketplace"] = certify_for_marketplace
+            input_["certify_for_marketplace"] = certify_for_marketplace
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2330,23 +2332,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_sagemaker.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if user_profile_name is not None:
-            input["user_profile_name"] = user_profile_name
+            input_["user_profile_name"] = user_profile_name
         if space_name is not None:
-            input["space_name"] = space_name
-        input["app_type"] = app_type
-        input["app_name"] = app_name
+            input_["space_name"] = space_name
+        input_["app_type"] = app_type
+        input_["app_name"] = app_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if resource_spec is not None:
-            input["resource_spec"] = resource_spec
+            input_["resource_spec"] = resource_spec
         if recovery_mode is not None:
-            input["recovery_mode"] = recovery_mode
+            input_["recovery_mode"] = recovery_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2394,19 +2396,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_app_image_config_request.CreateAppImageConfigRequest = {}  # type: ignore[typeddict-item]
-        input["app_image_config_name"] = app_image_config_name
+        input_: aws_sdk_sagemaker.types.create_app_image_config_request.CreateAppImageConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["app_image_config_name"] = app_image_config_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kernel_gateway_image_config is not None:
-            input["kernel_gateway_image_config"] = kernel_gateway_image_config
+            input_["kernel_gateway_image_config"] = kernel_gateway_image_config
         if jupyter_lab_app_image_config is not None:
-            input["jupyter_lab_app_image_config"] = jupyter_lab_app_image_config
+            input_["jupyter_lab_app_image_config"] = jupyter_lab_app_image_config
         if code_editor_app_image_config is not None:
-            input["code_editor_app_image_config"] = code_editor_app_image_config
+            input_["code_editor_app_image_config"] = code_editor_app_image_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2455,20 +2457,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_artifact_request.CreateArtifactRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.create_artifact_request.CreateArtifactRequest = {}  # type: ignore[typeddict-item]
         if artifact_name is not None:
-            input["artifact_name"] = artifact_name
-        input["source"] = source
-        input["artifact_type"] = artifact_type
+            input_["artifact_name"] = artifact_name
+        input_["source"] = source
+        input_["artifact_type"] = artifact_type
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
         if metadata_properties is not None:
-            input["metadata_properties"] = metadata_properties
+            input_["metadata_properties"] = metadata_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2530,28 +2532,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_auto_ml_job_request.CreateAutoMLJobRequest = {}  # type: ignore[typeddict-item]
-        input["auto_ml_job_name"] = auto_ml_job_name
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
+        input_: aws_sdk_sagemaker.types.create_auto_ml_job_request.CreateAutoMLJobRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_ml_job_name"] = auto_ml_job_name
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
         if problem_type is not None:
-            input["problem_type"] = problem_type
+            input_["problem_type"] = problem_type
         if auto_ml_job_objective is not None:
-            input["auto_ml_job_objective"] = auto_ml_job_objective
+            input_["auto_ml_job_objective"] = auto_ml_job_objective
         if auto_ml_job_config is not None:
-            input["auto_ml_job_config"] = auto_ml_job_config
-        input["role_arn"] = role_arn
+            input_["auto_ml_job_config"] = auto_ml_job_config
+        input_["role_arn"] = role_arn
         if generate_candidate_definitions_only is not None:
-            input["generate_candidate_definitions_only"] = (
+            input_["generate_candidate_definitions_only"] = (
                 generate_candidate_definitions_only
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if model_deploy_config is not None:
-            input["model_deploy_config"] = model_deploy_config
+            input_["model_deploy_config"] = model_deploy_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2615,27 +2617,27 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_auto_ml_job_v2_request.CreateAutoMLJobV2Request = {}  # type: ignore[typeddict-item]
-        input["auto_ml_job_name"] = auto_ml_job_name
-        input["auto_ml_job_input_data_config"] = auto_ml_job_input_data_config
-        input["output_data_config"] = output_data_config
-        input["auto_ml_problem_type_config"] = auto_ml_problem_type_config
-        input["role_arn"] = role_arn
+        input_: aws_sdk_sagemaker.types.create_auto_ml_job_v2_request.CreateAutoMLJobV2Request = {}  # type: ignore[typeddict-item]
+        input_["auto_ml_job_name"] = auto_ml_job_name
+        input_["auto_ml_job_input_data_config"] = auto_ml_job_input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["auto_ml_problem_type_config"] = auto_ml_problem_type_config
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if security_config is not None:
-            input["security_config"] = security_config
+            input_["security_config"] = security_config
         if auto_ml_job_objective is not None:
-            input["auto_ml_job_objective"] = auto_ml_job_objective
+            input_["auto_ml_job_objective"] = auto_ml_job_objective
         if model_deploy_config is not None:
-            input["model_deploy_config"] = model_deploy_config
+            input_["model_deploy_config"] = model_deploy_config
         if data_split_config is not None:
-            input["data_split_config"] = data_split_config
+            input_["data_split_config"] = data_split_config
         if auto_ml_compute_config is not None:
-            input["auto_ml_compute_config"] = auto_ml_compute_config
+            input_["auto_ml_compute_config"] = auto_ml_compute_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2707,35 +2709,35 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if instance_groups is not None:
-            input["instance_groups"] = instance_groups
+            input_["instance_groups"] = instance_groups
         if restricted_instance_groups is not None:
-            input["restricted_instance_groups"] = restricted_instance_groups
+            input_["restricted_instance_groups"] = restricted_instance_groups
         if restricted_instance_groups_config is not None:
-            input["restricted_instance_groups_config"] = (
+            input_["restricted_instance_groups_config"] = (
                 restricted_instance_groups_config
             )
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if orchestrator is not None:
-            input["orchestrator"] = orchestrator
+            input_["orchestrator"] = orchestrator
         if node_recovery is not None:
-            input["node_recovery"] = node_recovery
+            input_["node_recovery"] = node_recovery
         if tiered_storage_config is not None:
-            input["tiered_storage_config"] = tiered_storage_config
+            input_["tiered_storage_config"] = tiered_storage_config
         if node_provisioning_mode is not None:
-            input["node_provisioning_mode"] = node_provisioning_mode
+            input_["node_provisioning_mode"] = node_provisioning_mode
         if cluster_role is not None:
-            input["cluster_role"] = cluster_role
+            input_["cluster_role"] = cluster_role
         if auto_scaling is not None:
-            input["auto_scaling"] = auto_scaling
+            input_["auto_scaling"] = auto_scaling
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2779,17 +2781,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_cluster_scheduler_config_request.CreateClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["cluster_arn"] = cluster_arn
-        input["scheduler_config"] = scheduler_config
+        input_: aws_sdk_sagemaker.types.create_cluster_scheduler_config_request.CreateClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["cluster_arn"] = cluster_arn
+        input_["scheduler_config"] = scheduler_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2827,14 +2829,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_code_repository_input.CreateCodeRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["code_repository_name"] = code_repository_name
-        input["git_config"] = git_config
+        input_: aws_sdk_sagemaker.types.create_code_repository_input.CreateCodeRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["code_repository_name"] = code_repository_name
+        input_["git_config"] = git_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2888,22 +2890,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_compilation_job_request.CreateCompilationJobRequest = {}  # type: ignore[typeddict-item]
-        input["compilation_job_name"] = compilation_job_name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_sagemaker.types.create_compilation_job_request.CreateCompilationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["compilation_job_name"] = compilation_job_name
+        input_["role_arn"] = role_arn
         if model_package_version_arn is not None:
-            input["model_package_version_arn"] = model_package_version_arn
+            input_["model_package_version_arn"] = model_package_version_arn
         if input_config is not None:
-            input["input_config"] = input_config
-        input["output_config"] = output_config
+            input_["input_config"] = input_config
+        input_["output_config"] = output_config
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
-        input["stopping_condition"] = stopping_condition
+            input_["vpc_config"] = vpc_config
+        input_["stopping_condition"] = stopping_condition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2953,20 +2955,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_compute_quota_request.CreateComputeQuotaRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker.types.create_compute_quota_request.CreateComputeQuotaRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["cluster_arn"] = cluster_arn
-        input["compute_quota_config"] = compute_quota_config
-        input["compute_quota_target"] = compute_quota_target
+            input_["description"] = description
+        input_["cluster_arn"] = cluster_arn
+        input_["compute_quota_config"] = compute_quota_config
+        input_["compute_quota_target"] = compute_quota_target
         if activation_state is not None:
-            input["activation_state"] = activation_state
+            input_["activation_state"] = activation_state
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3014,19 +3016,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_context_request.CreateContextRequest = {}  # type: ignore[typeddict-item]
-        input["context_name"] = context_name
-        input["source"] = source
-        input["context_type"] = context_type
+        input_: aws_sdk_sagemaker.types.create_context_request.CreateContextRequest = {}  # type: ignore[typeddict-item]
+        input_["context_name"] = context_name
+        input_["source"] = source
+        input_["context_type"] = context_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3081,24 +3083,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_data_quality_job_definition_request.CreateDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.create_data_quality_job_definition_request.CreateDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
         if data_quality_baseline_config is not None:
-            input["data_quality_baseline_config"] = data_quality_baseline_config
-        input["data_quality_app_specification"] = data_quality_app_specification
-        input["data_quality_job_input"] = data_quality_job_input
-        input["data_quality_job_output_config"] = data_quality_job_output_config
-        input["job_resources"] = job_resources
+            input_["data_quality_baseline_config"] = data_quality_baseline_config
+        input_["data_quality_app_specification"] = data_quality_app_specification
+        input_["data_quality_job_input"] = data_quality_job_input
+        input_["data_quality_job_output_config"] = data_quality_job_output_config
+        input_["job_resources"] = job_resources
         if network_config is not None:
-            input["network_config"] = network_config
-        input["role_arn"] = role_arn
+            input_["network_config"] = network_config
+        input_["role_arn"] = role_arn
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
+            input_["stopping_condition"] = stopping_condition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3144,20 +3146,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_device_fleet_request.CreateDeviceFleetRequest = {}  # type: ignore[typeddict-item]
-        input["device_fleet_name"] = device_fleet_name
+        input_: aws_sdk_sagemaker.types.create_device_fleet_request.CreateDeviceFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["device_fleet_name"] = device_fleet_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
-        input["output_config"] = output_config
+            input_["description"] = description
+        input_["output_config"] = output_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if enable_iot_role_alias is not None:
-            input["enable_iot_role_alias"] = enable_iot_role_alias
+            input_["enable_iot_role_alias"] = enable_iot_role_alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3231,35 +3233,35 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["auth_mode"] = auth_mode
-        input["default_user_settings"] = default_user_settings
+        input_: aws_sdk_sagemaker.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["auth_mode"] = auth_mode
+        input_["default_user_settings"] = default_user_settings
         if domain_settings is not None:
-            input["domain_settings"] = domain_settings
+            input_["domain_settings"] = domain_settings
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if app_network_access_type is not None:
-            input["app_network_access_type"] = app_network_access_type
+            input_["app_network_access_type"] = app_network_access_type
         if home_efs_file_system_kms_key_id is not None:
-            input["home_efs_file_system_kms_key_id"] = home_efs_file_system_kms_key_id
+            input_["home_efs_file_system_kms_key_id"] = home_efs_file_system_kms_key_id
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if app_security_group_management is not None:
-            input["app_security_group_management"] = app_security_group_management
+            input_["app_security_group_management"] = app_security_group_management
         if home_efs_file_system_creation is not None:
-            input["home_efs_file_system_creation"] = home_efs_file_system_creation
+            input_["home_efs_file_system_creation"] = home_efs_file_system_creation
         if tag_propagation is not None:
-            input["tag_propagation"] = tag_propagation
+            input_["tag_propagation"] = tag_propagation
         if default_space_settings is not None:
-            input["default_space_settings"] = default_space_settings
+            input_["default_space_settings"] = default_space_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3303,17 +3305,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_edge_deployment_plan_request.CreateEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
-        input["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input["model_configs"] = model_configs
-        input["device_fleet_name"] = device_fleet_name
+        input_: aws_sdk_sagemaker.types.create_edge_deployment_plan_request.CreateEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        input_["model_configs"] = model_configs
+        input_["device_fleet_name"] = device_fleet_name
         if stages is not None:
-            input["stages"] = stages
+            input_["stages"] = stages
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3347,12 +3349,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_edge_deployment_stage_request.CreateEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
-        input["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input["stages"] = stages
+        input_: aws_sdk_sagemaker.types.create_edge_deployment_stage_request.CreateEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        input_["stages"] = stages
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3398,20 +3400,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_edge_packaging_job_request.CreateEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
-        input["edge_packaging_job_name"] = edge_packaging_job_name
-        input["compilation_job_name"] = compilation_job_name
-        input["model_name"] = model_name
-        input["model_version"] = model_version
-        input["role_arn"] = role_arn
-        input["output_config"] = output_config
+        input_: aws_sdk_sagemaker.types.create_edge_packaging_job_request.CreateEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_packaging_job_name"] = edge_packaging_job_name
+        input_["compilation_job_name"] = compilation_job_name
+        input_["model_name"] = model_name
+        input_["model_version"] = model_version
+        input_["role_arn"] = role_arn
+        input_["output_config"] = output_config
         if resource_key is not None:
-            input["resource_key"] = resource_key
+            input_["resource_key"] = resource_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3452,16 +3454,16 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_endpoint_input.CreateEndpointInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["endpoint_config_name"] = endpoint_config_name
+        input_: aws_sdk_sagemaker.types.create_endpoint_input.CreateEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["endpoint_config_name"] = endpoint_config_name
         if deployment_config is not None:
-            input["deployment_config"] = deployment_config
+            input_["deployment_config"] = deployment_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3527,32 +3529,32 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_endpoint_config_input.CreateEndpointConfigInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_config_name"] = endpoint_config_name
-        input["production_variants"] = production_variants
+        input_: aws_sdk_sagemaker.types.create_endpoint_config_input.CreateEndpointConfigInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_config_name"] = endpoint_config_name
+        input_["production_variants"] = production_variants
         if data_capture_config is not None:
-            input["data_capture_config"] = data_capture_config
+            input_["data_capture_config"] = data_capture_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if async_inference_config is not None:
-            input["async_inference_config"] = async_inference_config
+            input_["async_inference_config"] = async_inference_config
         if explainer_config is not None:
-            input["explainer_config"] = explainer_config
+            input_["explainer_config"] = explainer_config
         if shadow_production_variants is not None:
-            input["shadow_production_variants"] = shadow_production_variants
+            input_["shadow_production_variants"] = shadow_production_variants
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if enable_network_isolation is not None:
-            input["enable_network_isolation"] = enable_network_isolation
+            input_["enable_network_isolation"] = enable_network_isolation
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3596,17 +3598,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_experiment_request.CreateExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_name"] = experiment_name
+        input_: aws_sdk_sagemaker.types.create_experiment_request.CreateExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_name"] = experiment_name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3663,26 +3665,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_feature_group_request.CreateFeatureGroupRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
-        input["record_identifier_feature_name"] = record_identifier_feature_name
-        input["event_time_feature_name"] = event_time_feature_name
-        input["feature_definitions"] = feature_definitions
+        input_: aws_sdk_sagemaker.types.create_feature_group_request.CreateFeatureGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
+        input_["record_identifier_feature_name"] = record_identifier_feature_name
+        input_["event_time_feature_name"] = event_time_feature_name
+        input_["feature_definitions"] = feature_definitions
         if online_store_config is not None:
-            input["online_store_config"] = online_store_config
+            input_["online_store_config"] = online_store_config
         if offline_store_config is not None:
-            input["offline_store_config"] = offline_store_config
+            input_["offline_store_config"] = offline_store_config
         if throughput_config is not None:
-            input["throughput_config"] = throughput_config
+            input_["throughput_config"] = throughput_config
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3734,21 +3736,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_flow_definition_request.CreateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["flow_definition_name"] = flow_definition_name
+        input_: aws_sdk_sagemaker.types.create_flow_definition_request.CreateFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_definition_name"] = flow_definition_name
         if human_loop_request_source is not None:
-            input["human_loop_request_source"] = human_loop_request_source
+            input_["human_loop_request_source"] = human_loop_request_source
         if human_loop_activation_config is not None:
-            input["human_loop_activation_config"] = human_loop_activation_config
+            input_["human_loop_activation_config"] = human_loop_activation_config
         if human_loop_config is not None:
-            input["human_loop_config"] = human_loop_config
-        input["output_config"] = output_config
-        input["role_arn"] = role_arn
+            input_["human_loop_config"] = human_loop_config
+        input_["output_config"] = output_config
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3798,20 +3800,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_hub_request.CreateHubRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_description"] = hub_description
+        input_: aws_sdk_sagemaker.types.create_hub_request.CreateHubRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_description"] = hub_description
         if hub_display_name is not None:
-            input["hub_display_name"] = hub_display_name
+            input_["hub_display_name"] = hub_display_name
         if hub_search_keywords is not None:
-            input["hub_search_keywords"] = hub_search_keywords
+            input_["hub_search_keywords"] = hub_search_keywords
         if s3_storage_config is not None:
-            input["s3_storage_config"] = s3_storage_config
+            input_["s3_storage_config"] = s3_storage_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3861,21 +3863,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_hub_content_presigned_urls_request.CreateHubContentPresignedUrlsRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_content_type"] = hub_content_type
-        input["hub_content_name"] = hub_content_name
+        input_: aws_sdk_sagemaker.types.create_hub_content_presigned_urls_request.CreateHubContentPresignedUrlsRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_content_type"] = hub_content_type
+        input_["hub_content_name"] = hub_content_name
         if hub_content_version is not None:
-            input["hub_content_version"] = hub_content_version
+            input_["hub_content_version"] = hub_content_version
         if access_config is not None:
-            input["access_config"] = access_config
+            input_["access_config"] = access_config
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3956,18 +3958,18 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_hub_content_reference_request.CreateHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["sage_maker_public_hub_content_arn"] = sage_maker_public_hub_content_arn
+        input_: aws_sdk_sagemaker.types.create_hub_content_reference_request.CreateHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["sage_maker_public_hub_content_arn"] = sage_maker_public_hub_content_arn
         if hub_content_name is not None:
-            input["hub_content_name"] = hub_content_name
+            input_["hub_content_name"] = hub_content_name
         if min_version is not None:
-            input["min_version"] = min_version
+            input_["min_version"] = min_version
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4004,14 +4006,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_human_task_ui_request.CreateHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
-        input["human_task_ui_name"] = human_task_ui_name
-        input["ui_template"] = ui_template
+        input_: aws_sdk_sagemaker.types.create_human_task_ui_request.CreateHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
+        input_["human_task_ui_name"] = human_task_ui_name
+        input_["ui_template"] = ui_template
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4063,22 +4065,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_hyper_parameter_tuning_job_request.CreateHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
-        input["hyper_parameter_tuning_job_config"] = hyper_parameter_tuning_job_config
+        input_: aws_sdk_sagemaker.types.create_hyper_parameter_tuning_job_request.CreateHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
+        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        input_["hyper_parameter_tuning_job_config"] = hyper_parameter_tuning_job_config
         if training_job_definition is not None:
-            input["training_job_definition"] = training_job_definition
+            input_["training_job_definition"] = training_job_definition
         if training_job_definitions is not None:
-            input["training_job_definitions"] = training_job_definitions
+            input_["training_job_definitions"] = training_job_definitions
         if warm_start_config is not None:
-            input["warm_start_config"] = warm_start_config
+            input_["warm_start_config"] = warm_start_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if autotune is not None:
-            input["autotune"] = autotune
+            input_["autotune"] = autotune
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4124,18 +4126,18 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_image_request.CreateImageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.create_image_request.CreateImageRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
-        input["image_name"] = image_name
-        input["role_arn"] = role_arn
+            input_["display_name"] = display_name
+        input_["image_name"] = image_name
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4199,29 +4201,29 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_image_version_request.CreateImageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["base_image"] = base_image
-        input["client_token"] = client_token
-        input["image_name"] = image_name
+        input_: aws_sdk_sagemaker.types.create_image_version_request.CreateImageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["base_image"] = base_image
+        input_["client_token"] = client_token
+        input_["image_name"] = image_name
         if aliases is not None:
-            input["aliases"] = aliases
+            input_["aliases"] = aliases
         if vendor_guidance is not None:
-            input["vendor_guidance"] = vendor_guidance
+            input_["vendor_guidance"] = vendor_guidance
         if job_type is not None:
-            input["job_type"] = job_type
+            input_["job_type"] = job_type
         if ml_framework is not None:
-            input["ml_framework"] = ml_framework
+            input_["ml_framework"] = ml_framework
         if programming_lang is not None:
-            input["programming_lang"] = programming_lang
+            input_["programming_lang"] = programming_lang
         if processor is not None:
-            input["processor"] = processor
+            input_["processor"] = processor
         if horovod is not None:
-            input["horovod"] = horovod
+            input_["horovod"] = horovod
         if release_notes is not None:
-            input["release_notes"] = release_notes
+            input_["release_notes"] = release_notes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4275,22 +4277,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_inference_component_input.CreateInferenceComponentInput = {}  # type: ignore[typeddict-item]
-        input["inference_component_name"] = inference_component_name
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_sagemaker.types.create_inference_component_input.CreateInferenceComponentInput = {}  # type: ignore[typeddict-item]
+        input_["inference_component_name"] = inference_component_name
+        input_["endpoint_name"] = endpoint_name
         if variant_name is not None:
-            input["variant_name"] = variant_name
+            input_["variant_name"] = variant_name
         if specification is not None:
-            input["specification"] = specification
+            input_["specification"] = specification
         if specifications is not None:
-            input["specifications"] = specifications
+            input_["specifications"] = specifications
         if runtime_config is not None:
-            input["runtime_config"] = runtime_config
+            input_["runtime_config"] = runtime_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4350,26 +4352,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_inference_experiment_request.CreateInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_sagemaker.types.create_inference_experiment_request.CreateInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
-        input["endpoint_name"] = endpoint_name
-        input["model_variants"] = model_variants
+            input_["description"] = description
+        input_["role_arn"] = role_arn
+        input_["endpoint_name"] = endpoint_name
+        input_["model_variants"] = model_variants
         if data_storage_config is not None:
-            input["data_storage_config"] = data_storage_config
-        input["shadow_mode_config"] = shadow_mode_config
+            input_["data_storage_config"] = data_storage_config
+        input_["shadow_mode_config"] = shadow_mode_config
         if kms_key is not None:
-            input["kms_key"] = kms_key
+            input_["kms_key"] = kms_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4423,22 +4425,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_inference_recommendations_job_request.CreateInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_type"] = job_type
-        input["role_arn"] = role_arn
-        input["input_config"] = input_config
+        input_: aws_sdk_sagemaker.types.create_inference_recommendations_job_request.CreateInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_type"] = job_type
+        input_["role_arn"] = role_arn
+        input_["input_config"] = input_config
         if job_description is not None:
-            input["job_description"] = job_description
+            input_["job_description"] = job_description
         if stopping_conditions is not None:
-            input["stopping_conditions"] = stopping_conditions
+            input_["stopping_conditions"] = stopping_conditions
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4482,17 +4484,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["role_arn"] = role_arn
-        input["job_category"] = job_category
-        input["job_config_schema_version"] = job_config_schema_version
-        input["job_config_document"] = job_config_document
+        input_: aws_sdk_sagemaker.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["role_arn"] = role_arn
+        input_["job_category"] = job_category
+        input_["job_config_schema_version"] = job_config_schema_version
+        input_["job_config_document"] = job_config_document
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4552,24 +4554,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_labeling_job_request.CreateLabelingJobRequest = {}  # type: ignore[typeddict-item]
-        input["labeling_job_name"] = labeling_job_name
-        input["label_attribute_name"] = label_attribute_name
-        input["input_config"] = input_config
-        input["output_config"] = output_config
-        input["role_arn"] = role_arn
+        input_: aws_sdk_sagemaker.types.create_labeling_job_request.CreateLabelingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["labeling_job_name"] = labeling_job_name
+        input_["label_attribute_name"] = label_attribute_name
+        input_["input_config"] = input_config
+        input_["output_config"] = output_config
+        input_["role_arn"] = role_arn
         if label_category_config_s3_uri is not None:
-            input["label_category_config_s3_uri"] = label_category_config_s3_uri
+            input_["label_category_config_s3_uri"] = label_category_config_s3_uri
         if stopping_conditions is not None:
-            input["stopping_conditions"] = stopping_conditions
+            input_["stopping_conditions"] = stopping_conditions
         if labeling_job_algorithms_config is not None:
-            input["labeling_job_algorithms_config"] = labeling_job_algorithms_config
-        input["human_task_config"] = human_task_config
+            input_["labeling_job_algorithms_config"] = labeling_job_algorithms_config
+        input_["human_task_config"] = human_task_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4625,23 +4627,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_mlflow_app_request.CreateMlflowAppRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["artifact_store_uri"] = artifact_store_uri
-        input["role_arn"] = role_arn
+        input_: aws_sdk_sagemaker.types.create_mlflow_app_request.CreateMlflowAppRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["artifact_store_uri"] = artifact_store_uri
+        input_["role_arn"] = role_arn
         if model_registration_mode is not None:
-            input["model_registration_mode"] = model_registration_mode
+            input_["model_registration_mode"] = model_registration_mode
         if weekly_maintenance_window_start is not None:
-            input["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+            input_["weekly_maintenance_window_start"] = weekly_maintenance_window_start
         if account_default_status is not None:
-            input["account_default_status"] = account_default_status
+            input_["account_default_status"] = account_default_status
         if default_domain_id_list is not None:
-            input["default_domain_id_list"] = default_domain_id_list
+            input_["default_domain_id_list"] = default_domain_id_list
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4705,27 +4707,27 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_mlflow_tracking_server_request.CreateMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_server_name"] = tracking_server_name
-        input["artifact_store_uri"] = artifact_store_uri
+        input_: aws_sdk_sagemaker.types.create_mlflow_tracking_server_request.CreateMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_server_name"] = tracking_server_name
+        input_["artifact_store_uri"] = artifact_store_uri
         if tracking_server_size is not None:
-            input["tracking_server_size"] = tracking_server_size
+            input_["tracking_server_size"] = tracking_server_size
         if mlflow_version is not None:
-            input["mlflow_version"] = mlflow_version
-        input["role_arn"] = role_arn
+            input_["mlflow_version"] = mlflow_version
+        input_["role_arn"] = role_arn
         if automatic_model_registration is not None:
-            input["automatic_model_registration"] = automatic_model_registration
+            input_["automatic_model_registration"] = automatic_model_registration
         if weekly_maintenance_window_start is not None:
-            input["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+            input_["weekly_maintenance_window_start"] = weekly_maintenance_window_start
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if s3_bucket_owner_account_id is not None:
-            input["s3_bucket_owner_account_id"] = s3_bucket_owner_account_id
+            input_["s3_bucket_owner_account_id"] = s3_bucket_owner_account_id
         if s3_bucket_owner_verification is not None:
-            input["s3_bucket_owner_verification"] = s3_bucket_owner_verification
+            input_["s3_bucket_owner_verification"] = s3_bucket_owner_verification
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4781,25 +4783,25 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_model_input.CreateModelInput = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_sagemaker.types.create_model_input.CreateModelInput = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
         if primary_container is not None:
-            input["primary_container"] = primary_container
+            input_["primary_container"] = primary_container
         if containers is not None:
-            input["containers"] = containers
+            input_["containers"] = containers
         if inference_execution_config is not None:
-            input["inference_execution_config"] = inference_execution_config
+            input_["inference_execution_config"] = inference_execution_config
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if enable_network_isolation is not None:
-            input["enable_network_isolation"] = enable_network_isolation
+            input_["enable_network_isolation"] = enable_network_isolation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4854,24 +4856,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_model_bias_job_definition_request.CreateModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.create_model_bias_job_definition_request.CreateModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
         if model_bias_baseline_config is not None:
-            input["model_bias_baseline_config"] = model_bias_baseline_config
-        input["model_bias_app_specification"] = model_bias_app_specification
-        input["model_bias_job_input"] = model_bias_job_input
-        input["model_bias_job_output_config"] = model_bias_job_output_config
-        input["job_resources"] = job_resources
+            input_["model_bias_baseline_config"] = model_bias_baseline_config
+        input_["model_bias_app_specification"] = model_bias_app_specification
+        input_["model_bias_job_input"] = model_bias_job_input
+        input_["model_bias_job_output_config"] = model_bias_job_output_config
+        input_["job_resources"] = job_resources
         if network_config is not None:
-            input["network_config"] = network_config
-        input["role_arn"] = role_arn
+            input_["network_config"] = network_config
+        input_["role_arn"] = role_arn
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
+            input_["stopping_condition"] = stopping_condition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4915,17 +4917,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_model_card_request.CreateModelCardRequest = {}  # type: ignore[typeddict-item]
-        input["model_card_name"] = model_card_name
+        input_: aws_sdk_sagemaker.types.create_model_card_request.CreateModelCardRequest = {}  # type: ignore[typeddict-item]
+        input_["model_card_name"] = model_card_name
         if security_config is not None:
-            input["security_config"] = security_config
-        input["content"] = content
-        input["model_card_status"] = model_card_status
+            input_["security_config"] = security_config
+        input_["content"] = content
+        input_["model_card_status"] = model_card_status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4965,15 +4967,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_model_card_export_job_request.CreateModelCardExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["model_card_name"] = model_card_name
+        input_: aws_sdk_sagemaker.types.create_model_card_export_job_request.CreateModelCardExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["model_card_name"] = model_card_name
         if model_card_version is not None:
-            input["model_card_version"] = model_card_version
-        input["model_card_export_job_name"] = model_card_export_job_name
-        input["output_config"] = output_config
+            input_["model_card_version"] = model_card_version
+        input_["model_card_export_job_name"] = model_card_export_job_name
+        input_["output_config"] = output_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5028,30 +5030,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_model_explainability_job_definition_request.CreateModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.create_model_explainability_job_definition_request.CreateModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
         if model_explainability_baseline_config is not None:
-            input["model_explainability_baseline_config"] = (
+            input_["model_explainability_baseline_config"] = (
                 model_explainability_baseline_config
             )
-        input["model_explainability_app_specification"] = (
+        input_["model_explainability_app_specification"] = (
             model_explainability_app_specification
         )
-        input["model_explainability_job_input"] = model_explainability_job_input
-        input["model_explainability_job_output_config"] = (
+        input_["model_explainability_job_input"] = model_explainability_job_input
+        input_["model_explainability_job_output_config"] = (
             model_explainability_job_output_config
         )
-        input["job_resources"] = job_resources
+        input_["job_resources"] = job_resources
         if network_config is not None:
-            input["network_config"] = network_config
-        input["role_arn"] = role_arn
+            input_["network_config"] = network_config
+        input_["role_arn"] = role_arn
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
+            input_["stopping_condition"] = stopping_condition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5174,62 +5176,62 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_model_package_input.CreateModelPackageInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.create_model_package_input.CreateModelPackageInput = {}  # type: ignore[typeddict-item]
         if model_package_name is not None:
-            input["model_package_name"] = model_package_name
+            input_["model_package_name"] = model_package_name
         if model_package_group_name is not None:
-            input["model_package_group_name"] = model_package_group_name
+            input_["model_package_group_name"] = model_package_group_name
         if model_package_description is not None:
-            input["model_package_description"] = model_package_description
+            input_["model_package_description"] = model_package_description
         if model_package_registration_type is not None:
-            input["model_package_registration_type"] = model_package_registration_type
+            input_["model_package_registration_type"] = model_package_registration_type
         if inference_specification is not None:
-            input["inference_specification"] = inference_specification
+            input_["inference_specification"] = inference_specification
         if validation_specification is not None:
-            input["validation_specification"] = validation_specification
+            input_["validation_specification"] = validation_specification
         if source_algorithm_specification is not None:
-            input["source_algorithm_specification"] = source_algorithm_specification
+            input_["source_algorithm_specification"] = source_algorithm_specification
         if certify_for_marketplace is not None:
-            input["certify_for_marketplace"] = certify_for_marketplace
+            input_["certify_for_marketplace"] = certify_for_marketplace
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if model_approval_status is not None:
-            input["model_approval_status"] = model_approval_status
+            input_["model_approval_status"] = model_approval_status
         if metadata_properties is not None:
-            input["metadata_properties"] = metadata_properties
+            input_["metadata_properties"] = metadata_properties
         if model_metrics is not None:
-            input["model_metrics"] = model_metrics
+            input_["model_metrics"] = model_metrics
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if task is not None:
-            input["task"] = task
+            input_["task"] = task
         if sample_payload_url is not None:
-            input["sample_payload_url"] = sample_payload_url
+            input_["sample_payload_url"] = sample_payload_url
         if customer_metadata_properties is not None:
-            input["customer_metadata_properties"] = customer_metadata_properties
+            input_["customer_metadata_properties"] = customer_metadata_properties
         if drift_check_baselines is not None:
-            input["drift_check_baselines"] = drift_check_baselines
+            input_["drift_check_baselines"] = drift_check_baselines
         if additional_inference_specifications is not None:
-            input["additional_inference_specifications"] = (
+            input_["additional_inference_specifications"] = (
                 additional_inference_specifications
             )
         if skip_model_validation is not None:
-            input["skip_model_validation"] = skip_model_validation
+            input_["skip_model_validation"] = skip_model_validation
         if source_uri is not None:
-            input["source_uri"] = source_uri
+            input_["source_uri"] = source_uri
         if security_config is not None:
-            input["security_config"] = security_config
+            input_["security_config"] = security_config
         if model_card is not None:
-            input["model_card"] = model_card
+            input_["model_card"] = model_card
         if model_life_cycle is not None:
-            input["model_life_cycle"] = model_life_cycle
+            input_["model_life_cycle"] = model_life_cycle
         if managed_storage_type is not None:
-            input["managed_storage_type"] = managed_storage_type
+            input_["managed_storage_type"] = managed_storage_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5273,17 +5275,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_model_package_group_input.CreateModelPackageGroupInput = {}  # type: ignore[typeddict-item]
-        input["model_package_group_name"] = model_package_group_name
+        input_: aws_sdk_sagemaker.types.create_model_package_group_input.CreateModelPackageGroupInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_group_name"] = model_package_group_name
         if model_package_group_description is not None:
-            input["model_package_group_description"] = model_package_group_description
+            input_["model_package_group_description"] = model_package_group_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if managed_configuration is not None:
-            input["managed_configuration"] = managed_configuration
+            input_["managed_configuration"] = managed_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5338,24 +5340,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_model_quality_job_definition_request.CreateModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.create_model_quality_job_definition_request.CreateModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
         if model_quality_baseline_config is not None:
-            input["model_quality_baseline_config"] = model_quality_baseline_config
-        input["model_quality_app_specification"] = model_quality_app_specification
-        input["model_quality_job_input"] = model_quality_job_input
-        input["model_quality_job_output_config"] = model_quality_job_output_config
-        input["job_resources"] = job_resources
+            input_["model_quality_baseline_config"] = model_quality_baseline_config
+        input_["model_quality_app_specification"] = model_quality_app_specification
+        input_["model_quality_job_input"] = model_quality_job_input
+        input_["model_quality_job_output_config"] = model_quality_job_output_config
+        input_["job_resources"] = job_resources
         if network_config is not None:
-            input["network_config"] = network_config
-        input["role_arn"] = role_arn
+            input_["network_config"] = network_config
+        input_["role_arn"] = role_arn
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
+            input_["stopping_condition"] = stopping_condition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5393,14 +5395,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_monitoring_schedule_request.CreateMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["monitoring_schedule_name"] = monitoring_schedule_name
-        input["monitoring_schedule_config"] = monitoring_schedule_config
+        input_: aws_sdk_sagemaker.types.create_monitoring_schedule_request.CreateMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["monitoring_schedule_name"] = monitoring_schedule_name
+        input_["monitoring_schedule_config"] = monitoring_schedule_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5486,43 +5488,43 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_notebook_instance_input.CreateNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_name"] = notebook_instance_name
-        input["instance_type"] = instance_type
+        input_: aws_sdk_sagemaker.types.create_notebook_instance_input.CreateNotebookInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_name"] = notebook_instance_name
+        input_["instance_type"] = instance_type
         if subnet_id is not None:
-            input["subnet_id"] = subnet_id
+            input_["subnet_id"] = subnet_id
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
-        input["role_arn"] = role_arn
+            input_["ip_address_type"] = ip_address_type
+        input_["role_arn"] = role_arn
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if lifecycle_config_name is not None:
-            input["lifecycle_config_name"] = lifecycle_config_name
+            input_["lifecycle_config_name"] = lifecycle_config_name
         if direct_internet_access is not None:
-            input["direct_internet_access"] = direct_internet_access
+            input_["direct_internet_access"] = direct_internet_access
         if volume_size_in_gb is not None:
-            input["volume_size_in_gb"] = volume_size_in_gb
+            input_["volume_size_in_gb"] = volume_size_in_gb
         if accelerator_types is not None:
-            input["accelerator_types"] = accelerator_types
+            input_["accelerator_types"] = accelerator_types
         if default_code_repository is not None:
-            input["default_code_repository"] = default_code_repository
+            input_["default_code_repository"] = default_code_repository
         if additional_code_repositories is not None:
-            input["additional_code_repositories"] = additional_code_repositories
+            input_["additional_code_repositories"] = additional_code_repositories
         if root_access is not None:
-            input["root_access"] = root_access
+            input_["root_access"] = root_access
         if platform_identifier is not None:
-            input["platform_identifier"] = platform_identifier
+            input_["platform_identifier"] = platform_identifier
         if instance_metadata_service_configuration is not None:
-            input["instance_metadata_service_configuration"] = (
+            input_["instance_metadata_service_configuration"] = (
                 instance_metadata_service_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5566,19 +5568,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_notebook_instance_lifecycle_config_input.CreateNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_lifecycle_config_name"] = (
+        input_: aws_sdk_sagemaker.types.create_notebook_instance_lifecycle_config_input.CreateNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_lifecycle_config_name"] = (
             notebook_instance_lifecycle_config_name
         )
         if on_create is not None:
-            input["on_create"] = on_create
+            input_["on_create"] = on_create
         if on_start is not None:
-            input["on_start"] = on_start
+            input_["on_start"] = on_start
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5637,25 +5639,25 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_optimization_job_request.CreateOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["optimization_job_name"] = optimization_job_name
-        input["role_arn"] = role_arn
-        input["model_source"] = model_source
-        input["deployment_instance_type"] = deployment_instance_type
+        input_: aws_sdk_sagemaker.types.create_optimization_job_request.CreateOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["optimization_job_name"] = optimization_job_name
+        input_["role_arn"] = role_arn
+        input_["model_source"] = model_source
+        input_["deployment_instance_type"] = deployment_instance_type
         if max_instance_count is not None:
-            input["max_instance_count"] = max_instance_count
+            input_["max_instance_count"] = max_instance_count
         if optimization_environment is not None:
-            input["optimization_environment"] = optimization_environment
-        input["optimization_configs"] = optimization_configs
-        input["output_config"] = output_config
-        input["stopping_condition"] = stopping_condition
+            input_["optimization_environment"] = optimization_environment
+        input_["optimization_configs"] = optimization_configs
+        input_["output_config"] = output_config
+        input_["stopping_condition"] = stopping_condition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5721,33 +5723,33 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_partner_app_request.CreatePartnerAppRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
-        input["execution_role_arn"] = execution_role_arn
+        input_: aws_sdk_sagemaker.types.create_partner_app_request.CreatePartnerAppRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
+        input_["execution_role_arn"] = execution_role_arn
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if maintenance_config is not None:
-            input["maintenance_config"] = maintenance_config
-        input["tier"] = tier
+            input_["maintenance_config"] = maintenance_config
+        input_["tier"] = tier
         if application_config is not None:
-            input["application_config"] = application_config
-        input["auth_type"] = auth_type
+            input_["application_config"] = application_config
+        input_["auth_type"] = auth_type
         if enable_iam_session_based_identity is not None:
-            input["enable_iam_session_based_identity"] = (
+            input_["enable_iam_session_based_identity"] = (
                 enable_iam_session_based_identity
             )
         if enable_auto_minor_version_upgrade is not None:
-            input["enable_auto_minor_version_upgrade"] = (
+            input_["enable_auto_minor_version_upgrade"] = (
                 enable_auto_minor_version_upgrade
             )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5789,17 +5791,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_partner_app_presigned_url_request.CreatePartnerAppPresignedUrlRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker.types.create_partner_app_presigned_url_request.CreatePartnerAppPresignedUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if expires_in_seconds is not None:
-            input["expires_in_seconds"] = expires_in_seconds
+            input_["expires_in_seconds"] = expires_in_seconds
         if session_expiration_duration_in_seconds is not None:
-            input["session_expiration_duration_in_seconds"] = (
+            input_["session_expiration_duration_in_seconds"] = (
                 session_expiration_duration_in_seconds
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5859,25 +5861,25 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_pipeline_request.CreatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_sagemaker.types.create_pipeline_request.CreatePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if pipeline_display_name is not None:
-            input["pipeline_display_name"] = pipeline_display_name
+            input_["pipeline_display_name"] = pipeline_display_name
         if pipeline_definition is not None:
-            input["pipeline_definition"] = pipeline_definition
+            input_["pipeline_definition"] = pipeline_definition
         if pipeline_definition_s3_location is not None:
-            input["pipeline_definition_s3_location"] = pipeline_definition_s3_location
+            input_["pipeline_definition_s3_location"] = pipeline_definition_s3_location
         if pipeline_description is not None:
-            input["pipeline_description"] = pipeline_description
-        input["client_request_token"] = client_request_token
-        input["role_arn"] = role_arn
+            input_["pipeline_description"] = pipeline_description
+        input_["client_request_token"] = client_request_token
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if parallelism_configuration is not None:
-            input["parallelism_configuration"] = parallelism_configuration
+            input_["parallelism_configuration"] = parallelism_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5925,22 +5927,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_presigned_domain_url_request.CreatePresignedDomainUrlRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["user_profile_name"] = user_profile_name
+        input_: aws_sdk_sagemaker.types.create_presigned_domain_url_request.CreatePresignedDomainUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["user_profile_name"] = user_profile_name
         if session_expiration_duration_in_seconds is not None:
-            input["session_expiration_duration_in_seconds"] = (
+            input_["session_expiration_duration_in_seconds"] = (
                 session_expiration_duration_in_seconds
             )
         if expires_in_seconds is not None:
-            input["expires_in_seconds"] = expires_in_seconds
+            input_["expires_in_seconds"] = expires_in_seconds
         if space_name is not None:
-            input["space_name"] = space_name
+            input_["space_name"] = space_name
         if landing_uri is not None:
-            input["landing_uri"] = landing_uri
+            input_["landing_uri"] = landing_uri
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5982,17 +5984,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_presigned_mlflow_app_url_request.CreatePresignedMlflowAppUrlRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker.types.create_presigned_mlflow_app_url_request.CreatePresignedMlflowAppUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if expires_in_seconds is not None:
-            input["expires_in_seconds"] = expires_in_seconds
+            input_["expires_in_seconds"] = expires_in_seconds
         if session_expiration_duration_in_seconds is not None:
-            input["session_expiration_duration_in_seconds"] = (
+            input_["session_expiration_duration_in_seconds"] = (
                 session_expiration_duration_in_seconds
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6034,17 +6036,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_presigned_mlflow_tracking_server_url_request.CreatePresignedMlflowTrackingServerUrlRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_server_name"] = tracking_server_name
+        input_: aws_sdk_sagemaker.types.create_presigned_mlflow_tracking_server_url_request.CreatePresignedMlflowTrackingServerUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_server_name"] = tracking_server_name
         if expires_in_seconds is not None:
-            input["expires_in_seconds"] = expires_in_seconds
+            input_["expires_in_seconds"] = expires_in_seconds
         if session_expiration_duration_in_seconds is not None:
-            input["session_expiration_duration_in_seconds"] = (
+            input_["session_expiration_duration_in_seconds"] = (
                 session_expiration_duration_in_seconds
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6082,15 +6084,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_presigned_notebook_instance_url_input.CreatePresignedNotebookInstanceUrlInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_name"] = notebook_instance_name
+        input_: aws_sdk_sagemaker.types.create_presigned_notebook_instance_url_input.CreatePresignedNotebookInstanceUrlInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_name"] = notebook_instance_name
         if session_expiration_duration_in_seconds is not None:
-            input["session_expiration_duration_in_seconds"] = (
+            input_["session_expiration_duration_in_seconds"] = (
                 session_expiration_duration_in_seconds
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6155,28 +6157,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_processing_job_request.CreateProcessingJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.create_processing_job_request.CreateProcessingJobRequest = {}  # type: ignore[typeddict-item]
         if processing_inputs is not None:
-            input["processing_inputs"] = processing_inputs
+            input_["processing_inputs"] = processing_inputs
         if processing_output_config is not None:
-            input["processing_output_config"] = processing_output_config
-        input["processing_job_name"] = processing_job_name
-        input["processing_resources"] = processing_resources
+            input_["processing_output_config"] = processing_output_config
+        input_["processing_job_name"] = processing_job_name
+        input_["processing_resources"] = processing_resources
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
-        input["app_specification"] = app_specification
+            input_["stopping_condition"] = stopping_condition
+        input_["app_specification"] = app_specification
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if network_config is not None:
-            input["network_config"] = network_config
-        input["role_arn"] = role_arn
+            input_["network_config"] = network_config
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if experiment_config is not None:
-            input["experiment_config"] = experiment_config
+            input_["experiment_config"] = experiment_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6224,21 +6226,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_project_input.CreateProjectInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_sagemaker.types.create_project_input.CreateProjectInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if project_description is not None:
-            input["project_description"] = project_description
+            input_["project_description"] = project_description
         if service_catalog_provisioning_details is not None:
-            input["service_catalog_provisioning_details"] = (
+            input_["service_catalog_provisioning_details"] = (
                 service_catalog_provisioning_details
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if template_providers is not None:
-            input["template_providers"] = template_providers
+            input_["template_providers"] = template_providers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6292,22 +6294,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_space_request.CreateSpaceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["space_name"] = space_name
+        input_: aws_sdk_sagemaker.types.create_space_request.CreateSpaceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["space_name"] = space_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if space_settings is not None:
-            input["space_settings"] = space_settings
+            input_["space_settings"] = space_settings
         if ownership_settings is not None:
-            input["ownership_settings"] = ownership_settings
+            input_["ownership_settings"] = ownership_settings
         if space_sharing_settings is not None:
-            input["space_sharing_settings"] = space_sharing_settings
+            input_["space_sharing_settings"] = space_sharing_settings
         if space_display_name is not None:
-            input["space_display_name"] = space_display_name
+            input_["space_display_name"] = space_display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6347,15 +6349,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_studio_lifecycle_config_request.CreateStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
-        input["studio_lifecycle_config_name"] = studio_lifecycle_config_name
-        input["studio_lifecycle_config_content"] = studio_lifecycle_config_content
-        input["studio_lifecycle_config_app_type"] = studio_lifecycle_config_app_type
+        input_: aws_sdk_sagemaker.types.create_studio_lifecycle_config_request.CreateStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
+        input_["studio_lifecycle_config_content"] = studio_lifecycle_config_content
+        input_["studio_lifecycle_config_app_type"] = studio_lifecycle_config_app_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6487,65 +6489,65 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_training_job_request.CreateTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input["training_job_name"] = training_job_name
+        input_: aws_sdk_sagemaker.types.create_training_job_request.CreateTrainingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["training_job_name"] = training_job_name
         if hyper_parameters is not None:
-            input["hyper_parameters"] = hyper_parameters
+            input_["hyper_parameters"] = hyper_parameters
         if algorithm_specification is not None:
-            input["algorithm_specification"] = algorithm_specification
-        input["role_arn"] = role_arn
+            input_["algorithm_specification"] = algorithm_specification
+        input_["role_arn"] = role_arn
         if input_data_config is not None:
-            input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
+            input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
         if resource_config is not None:
-            input["resource_config"] = resource_config
+            input_["resource_config"] = resource_config
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
+            input_["stopping_condition"] = stopping_condition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if enable_network_isolation is not None:
-            input["enable_network_isolation"] = enable_network_isolation
+            input_["enable_network_isolation"] = enable_network_isolation
         if enable_inter_container_traffic_encryption is not None:
-            input["enable_inter_container_traffic_encryption"] = (
+            input_["enable_inter_container_traffic_encryption"] = (
                 enable_inter_container_traffic_encryption
             )
         if enable_managed_spot_training is not None:
-            input["enable_managed_spot_training"] = enable_managed_spot_training
+            input_["enable_managed_spot_training"] = enable_managed_spot_training
         if checkpoint_config is not None:
-            input["checkpoint_config"] = checkpoint_config
+            input_["checkpoint_config"] = checkpoint_config
         if debug_hook_config is not None:
-            input["debug_hook_config"] = debug_hook_config
+            input_["debug_hook_config"] = debug_hook_config
         if debug_rule_configurations is not None:
-            input["debug_rule_configurations"] = debug_rule_configurations
+            input_["debug_rule_configurations"] = debug_rule_configurations
         if tensor_board_output_config is not None:
-            input["tensor_board_output_config"] = tensor_board_output_config
+            input_["tensor_board_output_config"] = tensor_board_output_config
         if experiment_config is not None:
-            input["experiment_config"] = experiment_config
+            input_["experiment_config"] = experiment_config
         if profiler_config is not None:
-            input["profiler_config"] = profiler_config
+            input_["profiler_config"] = profiler_config
         if profiler_rule_configurations is not None:
-            input["profiler_rule_configurations"] = profiler_rule_configurations
+            input_["profiler_rule_configurations"] = profiler_rule_configurations
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if retry_strategy is not None:
-            input["retry_strategy"] = retry_strategy
+            input_["retry_strategy"] = retry_strategy
         if remote_debug_config is not None:
-            input["remote_debug_config"] = remote_debug_config
+            input_["remote_debug_config"] = remote_debug_config
         if infra_check_config is not None:
-            input["infra_check_config"] = infra_check_config
+            input_["infra_check_config"] = infra_check_config
         if session_chaining_config is not None:
-            input["session_chaining_config"] = session_chaining_config
+            input_["session_chaining_config"] = session_chaining_config
         if serverless_job_config is not None:
-            input["serverless_job_config"] = serverless_job_config
+            input_["serverless_job_config"] = serverless_job_config
         if mlflow_config is not None:
-            input["mlflow_config"] = mlflow_config
+            input_["mlflow_config"] = mlflow_config
         if model_package_config is not None:
-            input["model_package_config"] = model_package_config
+            input_["model_package_config"] = model_package_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6587,18 +6589,18 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_training_plan_request.CreateTrainingPlanRequest = {}  # type: ignore[typeddict-item]
-        input["training_plan_name"] = training_plan_name
-        input["training_plan_offering_id"] = training_plan_offering_id
+        input_: aws_sdk_sagemaker.types.create_training_plan_request.CreateTrainingPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["training_plan_name"] = training_plan_name
+        input_["training_plan_offering_id"] = training_plan_offering_id
         if spare_instance_count_per_ultra_server is not None:
-            input["spare_instance_count_per_ultra_server"] = (
+            input_["spare_instance_count_per_ultra_server"] = (
                 spare_instance_count_per_ultra_server
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6673,33 +6675,33 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_transform_job_request.CreateTransformJobRequest = {}  # type: ignore[typeddict-item]
-        input["transform_job_name"] = transform_job_name
-        input["model_name"] = model_name
+        input_: aws_sdk_sagemaker.types.create_transform_job_request.CreateTransformJobRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_job_name"] = transform_job_name
+        input_["model_name"] = model_name
         if max_concurrent_transforms is not None:
-            input["max_concurrent_transforms"] = max_concurrent_transforms
+            input_["max_concurrent_transforms"] = max_concurrent_transforms
         if model_client_config is not None:
-            input["model_client_config"] = model_client_config
+            input_["model_client_config"] = model_client_config
         if max_payload_in_mb is not None:
-            input["max_payload_in_mb"] = max_payload_in_mb
+            input_["max_payload_in_mb"] = max_payload_in_mb
         if batch_strategy is not None:
-            input["batch_strategy"] = batch_strategy
+            input_["batch_strategy"] = batch_strategy
         if environment is not None:
-            input["environment"] = environment
-        input["transform_input"] = transform_input
-        input["transform_output"] = transform_output
+            input_["environment"] = environment
+        input_["transform_input"] = transform_input
+        input_["transform_output"] = transform_output
         if data_capture_config is not None:
-            input["data_capture_config"] = data_capture_config
-        input["transform_resources"] = transform_resources
+            input_["data_capture_config"] = data_capture_config
+        input_["transform_resources"] = transform_resources
         if data_processing is not None:
-            input["data_processing"] = data_processing
+            input_["data_processing"] = data_processing
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if experiment_config is not None:
-            input["experiment_config"] = experiment_config
+            input_["experiment_config"] = experiment_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6744,18 +6746,18 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_trial_request.CreateTrialRequest = {}  # type: ignore[typeddict-item]
-        input["trial_name"] = trial_name
+        input_: aws_sdk_sagemaker.types.create_trial_request.CreateTrialRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_name"] = trial_name
         if display_name is not None:
-            input["display_name"] = display_name
-        input["experiment_name"] = experiment_name
+            input_["display_name"] = display_name
+        input_["experiment_name"] = experiment_name
         if metadata_properties is not None:
-            input["metadata_properties"] = metadata_properties
+            input_["metadata_properties"] = metadata_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6818,29 +6820,29 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_trial_component_request.CreateTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input["trial_component_name"] = trial_component_name
+        input_: aws_sdk_sagemaker.types.create_trial_component_request.CreateTrialComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_component_name"] = trial_component_name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if input_artifacts is not None:
-            input["input_artifacts"] = input_artifacts
+            input_["input_artifacts"] = input_artifacts
         if output_artifacts is not None:
-            input["output_artifacts"] = output_artifacts
+            input_["output_artifacts"] = output_artifacts
         if metadata_properties is not None:
-            input["metadata_properties"] = metadata_properties
+            input_["metadata_properties"] = metadata_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6892,20 +6894,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_user_profile_request.CreateUserProfileRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["user_profile_name"] = user_profile_name
+        input_: aws_sdk_sagemaker.types.create_user_profile_request.CreateUserProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["user_profile_name"] = user_profile_name
         if single_sign_on_user_identifier is not None:
-            input["single_sign_on_user_identifier"] = single_sign_on_user_identifier
+            input_["single_sign_on_user_identifier"] = single_sign_on_user_identifier
         if single_sign_on_user_value is not None:
-            input["single_sign_on_user_value"] = single_sign_on_user_value
+            input_["single_sign_on_user_value"] = single_sign_on_user_value
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if user_settings is not None:
-            input["user_settings"] = user_settings
+            input_["user_settings"] = user_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6958,23 +6960,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_workforce_request.CreateWorkforceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.create_workforce_request.CreateWorkforceRequest = {}  # type: ignore[typeddict-item]
         if cognito_config is not None:
-            input["cognito_config"] = cognito_config
+            input_["cognito_config"] = cognito_config
         if oidc_config is not None:
-            input["oidc_config"] = oidc_config
+            input_["oidc_config"] = oidc_config
         if source_ip_config is not None:
-            input["source_ip_config"] = source_ip_config
-        input["workforce_name"] = workforce_name
+            input_["source_ip_config"] = source_ip_config
+        input_["workforce_name"] = workforce_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if workforce_vpc_config is not None:
-            input["workforce_vpc_config"] = workforce_vpc_config
+            input_["workforce_vpc_config"] = workforce_vpc_config
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7026,21 +7028,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.create_workteam_request.CreateWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input["workteam_name"] = workteam_name
+        input_: aws_sdk_sagemaker.types.create_workteam_request.CreateWorkteamRequest = {}  # type: ignore[typeddict-item]
+        input_["workteam_name"] = workteam_name
         if workforce_name is not None:
-            input["workforce_name"] = workforce_name
-        input["member_definitions"] = member_definitions
-        input["description"] = description
+            input_["workforce_name"] = workforce_name
+        input_["member_definitions"] = member_definitions
+        input_["description"] = description
         if notification_configuration is not None:
-            input["notification_configuration"] = notification_configuration
+            input_["notification_configuration"] = notification_configuration
         if worker_access_configuration is not None:
-            input["worker_access_configuration"] = worker_access_configuration
+            input_["worker_access_configuration"] = worker_access_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7074,11 +7076,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_action_request.DeleteActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_name"] = action_name
+        input_: aws_sdk_sagemaker.types.delete_action_request.DeleteActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_name"] = action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7112,11 +7114,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_ai_benchmark_job_request.DeleteAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
-        input["ai_benchmark_job_name"] = ai_benchmark_job_name
+        input_: aws_sdk_sagemaker.types.delete_ai_benchmark_job_request.DeleteAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_benchmark_job_name"] = ai_benchmark_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7150,11 +7152,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_ai_recommendation_job_request.DeleteAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
-        input["ai_recommendation_job_name"] = ai_recommendation_job_name
+        input_: aws_sdk_sagemaker.types.delete_ai_recommendation_job_request.DeleteAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_recommendation_job_name"] = ai_recommendation_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7188,11 +7190,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_ai_workload_config_request.DeleteAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
-        input["ai_workload_config_name"] = ai_workload_config_name
+        input_: aws_sdk_sagemaker.types.delete_ai_workload_config_request.DeleteAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_workload_config_name"] = ai_workload_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7224,11 +7226,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_algorithm_input.DeleteAlgorithmInput = {}  # type: ignore[typeddict-item]
-        input["algorithm_name"] = algorithm_name
+        input_: aws_sdk_sagemaker.types.delete_algorithm_input.DeleteAlgorithmInput = {}  # type: ignore[typeddict-item]
+        input_["algorithm_name"] = algorithm_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7270,17 +7272,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_sagemaker.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if user_profile_name is not None:
-            input["user_profile_name"] = user_profile_name
+            input_["user_profile_name"] = user_profile_name
         if space_name is not None:
-            input["space_name"] = space_name
-        input["app_type"] = app_type
-        input["app_name"] = app_name
+            input_["space_name"] = space_name
+        input_["app_type"] = app_type
+        input_["app_name"] = app_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7312,11 +7314,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_app_image_config_request.DeleteAppImageConfigRequest = {}  # type: ignore[typeddict-item]
-        input["app_image_config_name"] = app_image_config_name
+        input_: aws_sdk_sagemaker.types.delete_app_image_config_request.DeleteAppImageConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["app_image_config_name"] = app_image_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7356,14 +7358,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_artifact_request.DeleteArtifactRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.delete_artifact_request.DeleteArtifactRequest = {}  # type: ignore[typeddict-item]
         if artifact_arn is not None:
-            input["artifact_arn"] = artifact_arn
+            input_["artifact_arn"] = artifact_arn
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7401,12 +7403,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_association_request.DeleteAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["source_arn"] = source_arn
-        input["destination_arn"] = destination_arn
+        input_: aws_sdk_sagemaker.types.delete_association_request.DeleteAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_arn"] = source_arn
+        input_["destination_arn"] = destination_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7440,11 +7442,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7476,11 +7478,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_cluster_scheduler_config_request.DeleteClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_scheduler_config_id"] = cluster_scheduler_config_id
+        input_: aws_sdk_sagemaker.types.delete_cluster_scheduler_config_request.DeleteClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7512,11 +7514,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_code_repository_input.DeleteCodeRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["code_repository_name"] = code_repository_name
+        input_: aws_sdk_sagemaker.types.delete_code_repository_input.DeleteCodeRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["code_repository_name"] = code_repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7548,11 +7550,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_compilation_job_request.DeleteCompilationJobRequest = {}  # type: ignore[typeddict-item]
-        input["compilation_job_name"] = compilation_job_name
+        input_: aws_sdk_sagemaker.types.delete_compilation_job_request.DeleteCompilationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["compilation_job_name"] = compilation_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7584,11 +7586,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_compute_quota_request.DeleteComputeQuotaRequest = {}  # type: ignore[typeddict-item]
-        input["compute_quota_id"] = compute_quota_id
+        input_: aws_sdk_sagemaker.types.delete_compute_quota_request.DeleteComputeQuotaRequest = {}  # type: ignore[typeddict-item]
+        input_["compute_quota_id"] = compute_quota_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7622,11 +7624,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_context_request.DeleteContextRequest = {}  # type: ignore[typeddict-item]
-        input["context_name"] = context_name
+        input_: aws_sdk_sagemaker.types.delete_context_request.DeleteContextRequest = {}  # type: ignore[typeddict-item]
+        input_["context_name"] = context_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7658,11 +7660,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_data_quality_job_definition_request.DeleteDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.delete_data_quality_job_definition_request.DeleteDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7694,11 +7696,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_device_fleet_request.DeleteDeviceFleetRequest = {}  # type: ignore[typeddict-item]
-        input["device_fleet_name"] = device_fleet_name
+        input_: aws_sdk_sagemaker.types.delete_device_fleet_request.DeleteDeviceFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["device_fleet_name"] = device_fleet_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7734,13 +7736,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_sagemaker.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if retention_policy is not None:
-            input["retention_policy"] = retention_policy
+            input_["retention_policy"] = retention_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7772,11 +7774,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_edge_deployment_plan_request.DeleteEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
-        input["edge_deployment_plan_name"] = edge_deployment_plan_name
+        input_: aws_sdk_sagemaker.types.delete_edge_deployment_plan_request.DeleteEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7810,12 +7812,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_edge_deployment_stage_request.DeleteEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
-        input["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input["stage_name"] = stage_name
+        input_: aws_sdk_sagemaker.types.delete_edge_deployment_stage_request.DeleteEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        input_["stage_name"] = stage_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7847,11 +7849,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_endpoint_input.DeleteEndpointInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_sagemaker.types.delete_endpoint_input.DeleteEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7883,11 +7885,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_endpoint_config_input.DeleteEndpointConfigInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_config_name"] = endpoint_config_name
+        input_: aws_sdk_sagemaker.types.delete_endpoint_config_input.DeleteEndpointConfigInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_config_name"] = endpoint_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7921,11 +7923,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_experiment_request.DeleteExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_name"] = experiment_name
+        input_: aws_sdk_sagemaker.types.delete_experiment_request.DeleteExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_name"] = experiment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7957,11 +7959,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_feature_group_request.DeleteFeatureGroupRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
+        input_: aws_sdk_sagemaker.types.delete_feature_group_request.DeleteFeatureGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7995,11 +7997,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_flow_definition_request.DeleteFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["flow_definition_name"] = flow_definition_name
+        input_: aws_sdk_sagemaker.types.delete_flow_definition_request.DeleteFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_definition_name"] = flow_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8031,11 +8033,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_hub_request.DeleteHubRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
+        input_: aws_sdk_sagemaker.types.delete_hub_request.DeleteHubRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8073,14 +8075,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_hub_content_request.DeleteHubContentRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_content_type"] = hub_content_type
-        input["hub_content_name"] = hub_content_name
-        input["hub_content_version"] = hub_content_version
+        input_: aws_sdk_sagemaker.types.delete_hub_content_request.DeleteHubContentRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_content_type"] = hub_content_type
+        input_["hub_content_name"] = hub_content_name
+        input_["hub_content_version"] = hub_content_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8116,13 +8118,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_hub_content_reference_request.DeleteHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_content_type"] = hub_content_type
-        input["hub_content_name"] = hub_content_name
+        input_: aws_sdk_sagemaker.types.delete_hub_content_reference_request.DeleteHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_content_type"] = hub_content_type
+        input_["hub_content_name"] = hub_content_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8156,11 +8158,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_human_task_ui_request.DeleteHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
-        input["human_task_ui_name"] = human_task_ui_name
+        input_: aws_sdk_sagemaker.types.delete_human_task_ui_request.DeleteHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
+        input_["human_task_ui_name"] = human_task_ui_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8192,11 +8194,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_hyper_parameter_tuning_job_request.DeleteHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        input_: aws_sdk_sagemaker.types.delete_hyper_parameter_tuning_job_request.DeleteHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
+        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8230,11 +8232,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_image_request.DeleteImageRequest = {}  # type: ignore[typeddict-item]
-        input["image_name"] = image_name
+        input_: aws_sdk_sagemaker.types.delete_image_request.DeleteImageRequest = {}  # type: ignore[typeddict-item]
+        input_["image_name"] = image_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8276,15 +8278,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_image_version_request.DeleteImageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["image_name"] = image_name
+        input_: aws_sdk_sagemaker.types.delete_image_version_request.DeleteImageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["image_name"] = image_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8316,11 +8318,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_inference_component_input.DeleteInferenceComponentInput = {}  # type: ignore[typeddict-item]
-        input["inference_component_name"] = inference_component_name
+        input_: aws_sdk_sagemaker.types.delete_inference_component_input.DeleteInferenceComponentInput = {}  # type: ignore[typeddict-item]
+        input_["inference_component_name"] = inference_component_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8354,11 +8356,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_inference_experiment_request.DeleteInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker.types.delete_inference_experiment_request.DeleteInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8394,12 +8396,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_category"] = job_category
+        input_: aws_sdk_sagemaker.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_category"] = job_category
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8433,11 +8435,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_mlflow_app_request.DeleteMlflowAppRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker.types.delete_mlflow_app_request.DeleteMlflowAppRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8471,11 +8473,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_mlflow_tracking_server_request.DeleteMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_server_name"] = tracking_server_name
+        input_: aws_sdk_sagemaker.types.delete_mlflow_tracking_server_request.DeleteMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_server_name"] = tracking_server_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8507,11 +8509,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_model_input.DeleteModelInput = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_sagemaker.types.delete_model_input.DeleteModelInput = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8543,11 +8545,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_model_bias_job_definition_request.DeleteModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.delete_model_bias_job_definition_request.DeleteModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8579,11 +8581,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_model_card_request.DeleteModelCardRequest = {}  # type: ignore[typeddict-item]
-        input["model_card_name"] = model_card_name
+        input_: aws_sdk_sagemaker.types.delete_model_card_request.DeleteModelCardRequest = {}  # type: ignore[typeddict-item]
+        input_["model_card_name"] = model_card_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8615,11 +8617,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_model_explainability_job_definition_request.DeleteModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.delete_model_explainability_job_definition_request.DeleteModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8651,11 +8653,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_model_package_input.DeleteModelPackageInput = {}  # type: ignore[typeddict-item]
-        input["model_package_name"] = model_package_name
+        input_: aws_sdk_sagemaker.types.delete_model_package_input.DeleteModelPackageInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_name"] = model_package_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8687,11 +8689,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_model_package_group_input.DeleteModelPackageGroupInput = {}  # type: ignore[typeddict-item]
-        input["model_package_group_name"] = model_package_group_name
+        input_: aws_sdk_sagemaker.types.delete_model_package_group_input.DeleteModelPackageGroupInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_group_name"] = model_package_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8723,11 +8725,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_model_package_group_policy_input.DeleteModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
-        input["model_package_group_name"] = model_package_group_name
+        input_: aws_sdk_sagemaker.types.delete_model_package_group_policy_input.DeleteModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_group_name"] = model_package_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8759,11 +8761,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_model_quality_job_definition_request.DeleteModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.delete_model_quality_job_definition_request.DeleteModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8795,11 +8797,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_monitoring_schedule_request.DeleteMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["monitoring_schedule_name"] = monitoring_schedule_name
+        input_: aws_sdk_sagemaker.types.delete_monitoring_schedule_request.DeleteMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["monitoring_schedule_name"] = monitoring_schedule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8831,11 +8833,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_notebook_instance_input.DeleteNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_name"] = notebook_instance_name
+        input_: aws_sdk_sagemaker.types.delete_notebook_instance_input.DeleteNotebookInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_name"] = notebook_instance_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8867,13 +8869,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_notebook_instance_lifecycle_config_input.DeleteNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_lifecycle_config_name"] = (
+        input_: aws_sdk_sagemaker.types.delete_notebook_instance_lifecycle_config_input.DeleteNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_lifecycle_config_name"] = (
             notebook_instance_lifecycle_config_name
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8905,11 +8907,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_optimization_job_request.DeleteOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["optimization_job_name"] = optimization_job_name
+        input_: aws_sdk_sagemaker.types.delete_optimization_job_request.DeleteOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["optimization_job_name"] = optimization_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8947,13 +8949,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_partner_app_request.DeletePartnerAppRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker.types.delete_partner_app_request.DeletePartnerAppRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8989,12 +8991,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_pipeline_request.DeletePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_sagemaker.types.delete_pipeline_request.DeletePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9026,11 +9028,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_processing_job_request.DeleteProcessingJobRequest = {}  # type: ignore[typeddict-item]
-        input["processing_job_name"] = processing_job_name
+        input_: aws_sdk_sagemaker.types.delete_processing_job_request.DeleteProcessingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["processing_job_name"] = processing_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9062,11 +9064,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_project_input.DeleteProjectInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_sagemaker.types.delete_project_input.DeleteProjectInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9100,12 +9102,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_space_request.DeleteSpaceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["space_name"] = space_name
+        input_: aws_sdk_sagemaker.types.delete_space_request.DeleteSpaceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["space_name"] = space_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9137,11 +9139,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_studio_lifecycle_config_request.DeleteStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
-        input["studio_lifecycle_config_name"] = studio_lifecycle_config_name
+        input_: aws_sdk_sagemaker.types.delete_studio_lifecycle_config_request.DeleteStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9177,12 +9179,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_tags_input.DeleteTagsInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_sagemaker.types.delete_tags_input.DeleteTagsInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9214,11 +9216,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_training_job_request.DeleteTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input["training_job_name"] = training_job_name
+        input_: aws_sdk_sagemaker.types.delete_training_job_request.DeleteTrainingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["training_job_name"] = training_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9252,11 +9254,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_trial_request.DeleteTrialRequest = {}  # type: ignore[typeddict-item]
-        input["trial_name"] = trial_name
+        input_: aws_sdk_sagemaker.types.delete_trial_request.DeleteTrialRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_name"] = trial_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9290,11 +9292,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_trial_component_request.DeleteTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input["trial_component_name"] = trial_component_name
+        input_: aws_sdk_sagemaker.types.delete_trial_component_request.DeleteTrialComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_component_name"] = trial_component_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9328,12 +9330,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_user_profile_request.DeleteUserProfileRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["user_profile_name"] = user_profile_name
+        input_: aws_sdk_sagemaker.types.delete_user_profile_request.DeleteUserProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["user_profile_name"] = user_profile_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9367,11 +9369,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_workforce_request.DeleteWorkforceRequest = {}  # type: ignore[typeddict-item]
-        input["workforce_name"] = workforce_name
+        input_: aws_sdk_sagemaker.types.delete_workforce_request.DeleteWorkforceRequest = {}  # type: ignore[typeddict-item]
+        input_["workforce_name"] = workforce_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9405,11 +9407,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.delete_workteam_request.DeleteWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input["workteam_name"] = workteam_name
+        input_: aws_sdk_sagemaker.types.delete_workteam_request.DeleteWorkteamRequest = {}  # type: ignore[typeddict-item]
+        input_["workteam_name"] = workteam_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9443,12 +9445,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.deregister_devices_request.DeregisterDevicesRequest = {}  # type: ignore[typeddict-item]
-        input["device_fleet_name"] = device_fleet_name
-        input["device_names"] = device_names
+        input_: aws_sdk_sagemaker.types.deregister_devices_request.DeregisterDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_["device_fleet_name"] = device_fleet_name
+        input_["device_names"] = device_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9482,11 +9484,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_action_request.DescribeActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_name"] = action_name
+        input_: aws_sdk_sagemaker.types.describe_action_request.DescribeActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_name"] = action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9520,11 +9522,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_ai_benchmark_job_request.DescribeAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
-        input["ai_benchmark_job_name"] = ai_benchmark_job_name
+        input_: aws_sdk_sagemaker.types.describe_ai_benchmark_job_request.DescribeAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_benchmark_job_name"] = ai_benchmark_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9558,11 +9560,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_ai_recommendation_job_request.DescribeAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
-        input["ai_recommendation_job_name"] = ai_recommendation_job_name
+        input_: aws_sdk_sagemaker.types.describe_ai_recommendation_job_request.DescribeAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_recommendation_job_name"] = ai_recommendation_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9596,11 +9598,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_ai_workload_config_request.DescribeAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
-        input["ai_workload_config_name"] = ai_workload_config_name
+        input_: aws_sdk_sagemaker.types.describe_ai_workload_config_request.DescribeAIWorkloadConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_workload_config_name"] = ai_workload_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9634,11 +9636,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_algorithm_input.DescribeAlgorithmInput = {}  # type: ignore[typeddict-item]
-        input["algorithm_name"] = algorithm_name
+        input_: aws_sdk_sagemaker.types.describe_algorithm_input.DescribeAlgorithmInput = {}  # type: ignore[typeddict-item]
+        input_["algorithm_name"] = algorithm_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9682,17 +9684,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_app_request.DescribeAppRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_sagemaker.types.describe_app_request.DescribeAppRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if user_profile_name is not None:
-            input["user_profile_name"] = user_profile_name
+            input_["user_profile_name"] = user_profile_name
         if space_name is not None:
-            input["space_name"] = space_name
-        input["app_type"] = app_type
-        input["app_name"] = app_name
+            input_["space_name"] = space_name
+        input_["app_type"] = app_type
+        input_["app_name"] = app_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9726,11 +9728,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_app_image_config_request.DescribeAppImageConfigRequest = {}  # type: ignore[typeddict-item]
-        input["app_image_config_name"] = app_image_config_name
+        input_: aws_sdk_sagemaker.types.describe_app_image_config_request.DescribeAppImageConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["app_image_config_name"] = app_image_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9764,11 +9766,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_artifact_request.DescribeArtifactRequest = {}  # type: ignore[typeddict-item]
-        input["artifact_arn"] = artifact_arn
+        input_: aws_sdk_sagemaker.types.describe_artifact_request.DescribeArtifactRequest = {}  # type: ignore[typeddict-item]
+        input_["artifact_arn"] = artifact_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9802,11 +9804,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_auto_ml_job_request.DescribeAutoMLJobRequest = {}  # type: ignore[typeddict-item]
-        input["auto_ml_job_name"] = auto_ml_job_name
+        input_: aws_sdk_sagemaker.types.describe_auto_ml_job_request.DescribeAutoMLJobRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_ml_job_name"] = auto_ml_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9840,11 +9842,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_auto_ml_job_v2_request.DescribeAutoMLJobV2Request = {}  # type: ignore[typeddict-item]
-        input["auto_ml_job_name"] = auto_ml_job_name
+        input_: aws_sdk_sagemaker.types.describe_auto_ml_job_v2_request.DescribeAutoMLJobV2Request = {}  # type: ignore[typeddict-item]
+        input_["auto_ml_job_name"] = auto_ml_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9878,11 +9880,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9918,12 +9920,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_cluster_event_request.DescribeClusterEventRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.describe_cluster_event_request.DescribeClusterEventRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
+        input_["cluster_name"] = cluster_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9965,15 +9967,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_cluster_node_request.DescribeClusterNodeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.describe_cluster_node_request.DescribeClusterNodeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if node_id is not None:
-            input["node_id"] = node_id
+            input_["node_id"] = node_id
         if node_logical_id is not None:
-            input["node_logical_id"] = node_logical_id
+            input_["node_logical_id"] = node_logical_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10011,13 +10013,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_cluster_scheduler_config_request.DescribeClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_scheduler_config_id"] = cluster_scheduler_config_id
+        input_: aws_sdk_sagemaker.types.describe_cluster_scheduler_config_request.DescribeClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
         if cluster_scheduler_config_version is not None:
-            input["cluster_scheduler_config_version"] = cluster_scheduler_config_version
+            input_["cluster_scheduler_config_version"] = (
+                cluster_scheduler_config_version
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10051,11 +10055,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_code_repository_input.DescribeCodeRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["code_repository_name"] = code_repository_name
+        input_: aws_sdk_sagemaker.types.describe_code_repository_input.DescribeCodeRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["code_repository_name"] = code_repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10089,11 +10093,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_compilation_job_request.DescribeCompilationJobRequest = {}  # type: ignore[typeddict-item]
-        input["compilation_job_name"] = compilation_job_name
+        input_: aws_sdk_sagemaker.types.describe_compilation_job_request.DescribeCompilationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["compilation_job_name"] = compilation_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10131,13 +10135,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_compute_quota_request.DescribeComputeQuotaRequest = {}  # type: ignore[typeddict-item]
-        input["compute_quota_id"] = compute_quota_id
+        input_: aws_sdk_sagemaker.types.describe_compute_quota_request.DescribeComputeQuotaRequest = {}  # type: ignore[typeddict-item]
+        input_["compute_quota_id"] = compute_quota_id
         if compute_quota_version is not None:
-            input["compute_quota_version"] = compute_quota_version
+            input_["compute_quota_version"] = compute_quota_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10171,11 +10175,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_context_request.DescribeContextRequest = {}  # type: ignore[typeddict-item]
-        input["context_name"] = context_name
+        input_: aws_sdk_sagemaker.types.describe_context_request.DescribeContextRequest = {}  # type: ignore[typeddict-item]
+        input_["context_name"] = context_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10209,11 +10213,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_data_quality_job_definition_request.DescribeDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.describe_data_quality_job_definition_request.DescribeDataQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10251,14 +10255,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_device_request.DescribeDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.describe_device_request.DescribeDeviceRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
-        input["device_name"] = device_name
-        input["device_fleet_name"] = device_fleet_name
+            input_["next_token"] = next_token
+        input_["device_name"] = device_name
+        input_["device_fleet_name"] = device_fleet_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10292,11 +10296,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_device_fleet_request.DescribeDeviceFleetRequest = {}  # type: ignore[typeddict-item]
-        input["device_fleet_name"] = device_fleet_name
+        input_: aws_sdk_sagemaker.types.describe_device_fleet_request.DescribeDeviceFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["device_fleet_name"] = device_fleet_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10330,11 +10334,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_sagemaker.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10374,15 +10378,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_edge_deployment_plan_request.DescribeEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
-        input["edge_deployment_plan_name"] = edge_deployment_plan_name
+        input_: aws_sdk_sagemaker.types.describe_edge_deployment_plan_request.DescribeEdgeDeploymentPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10416,11 +10420,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_edge_packaging_job_request.DescribeEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
-        input["edge_packaging_job_name"] = edge_packaging_job_name
+        input_: aws_sdk_sagemaker.types.describe_edge_packaging_job_request.DescribeEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_packaging_job_name"] = edge_packaging_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10454,11 +10458,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_endpoint_input.DescribeEndpointInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_sagemaker.types.describe_endpoint_input.DescribeEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10492,11 +10496,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_endpoint_config_input.DescribeEndpointConfigInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_config_name"] = endpoint_config_name
+        input_: aws_sdk_sagemaker.types.describe_endpoint_config_input.DescribeEndpointConfigInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_config_name"] = endpoint_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10530,11 +10534,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_experiment_request.DescribeExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_name"] = experiment_name
+        input_: aws_sdk_sagemaker.types.describe_experiment_request.DescribeExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_name"] = experiment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10570,13 +10574,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_feature_group_request.DescribeFeatureGroupRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
+        input_: aws_sdk_sagemaker.types.describe_feature_group_request.DescribeFeatureGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10612,12 +10616,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_feature_metadata_request.DescribeFeatureMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
-        input["feature_name"] = feature_name
+        input_: aws_sdk_sagemaker.types.describe_feature_metadata_request.DescribeFeatureMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
+        input_["feature_name"] = feature_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10651,11 +10655,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_flow_definition_request.DescribeFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["flow_definition_name"] = flow_definition_name
+        input_: aws_sdk_sagemaker.types.describe_flow_definition_request.DescribeFlowDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_definition_name"] = flow_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10689,11 +10693,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_hub_request.DescribeHubRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
+        input_: aws_sdk_sagemaker.types.describe_hub_request.DescribeHubRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10735,15 +10739,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_hub_content_request.DescribeHubContentRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_content_type"] = hub_content_type
-        input["hub_content_name"] = hub_content_name
+        input_: aws_sdk_sagemaker.types.describe_hub_content_request.DescribeHubContentRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_content_type"] = hub_content_type
+        input_["hub_content_name"] = hub_content_name
         if hub_content_version is not None:
-            input["hub_content_version"] = hub_content_version
+            input_["hub_content_version"] = hub_content_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10777,11 +10781,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_human_task_ui_request.DescribeHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
-        input["human_task_ui_name"] = human_task_ui_name
+        input_: aws_sdk_sagemaker.types.describe_human_task_ui_request.DescribeHumanTaskUiRequest = {}  # type: ignore[typeddict-item]
+        input_["human_task_ui_name"] = human_task_ui_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10815,11 +10819,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_hyper_parameter_tuning_job_request.DescribeHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        input_: aws_sdk_sagemaker.types.describe_hyper_parameter_tuning_job_request.DescribeHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
+        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10853,11 +10857,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_image_request.DescribeImageRequest = {}  # type: ignore[typeddict-item]
-        input["image_name"] = image_name
+        input_: aws_sdk_sagemaker.types.describe_image_request.DescribeImageRequest = {}  # type: ignore[typeddict-item]
+        input_["image_name"] = image_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10899,15 +10903,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_image_version_request.DescribeImageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["image_name"] = image_name
+        input_: aws_sdk_sagemaker.types.describe_image_version_request.DescribeImageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["image_name"] = image_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10941,11 +10945,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_inference_component_input.DescribeInferenceComponentInput = {}  # type: ignore[typeddict-item]
-        input["inference_component_name"] = inference_component_name
+        input_: aws_sdk_sagemaker.types.describe_inference_component_input.DescribeInferenceComponentInput = {}  # type: ignore[typeddict-item]
+        input_["inference_component_name"] = inference_component_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10979,11 +10983,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_inference_experiment_request.DescribeInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker.types.describe_inference_experiment_request.DescribeInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11017,11 +11021,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_inference_recommendations_job_request.DescribeInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_sagemaker.types.describe_inference_recommendations_job_request.DescribeInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11057,12 +11061,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_category"] = job_category
+        input_: aws_sdk_sagemaker.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_category"] = job_category
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11100,13 +11104,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_job_schema_version_request.DescribeJobSchemaVersionRequest = {}  # type: ignore[typeddict-item]
-        input["job_category"] = job_category
+        input_: aws_sdk_sagemaker.types.describe_job_schema_version_request.DescribeJobSchemaVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_category"] = job_category
         if job_config_schema_version is not None:
-            input["job_config_schema_version"] = job_config_schema_version
+            input_["job_config_schema_version"] = job_config_schema_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11140,11 +11144,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_labeling_job_request.DescribeLabelingJobRequest = {}  # type: ignore[typeddict-item]
-        input["labeling_job_name"] = labeling_job_name
+        input_: aws_sdk_sagemaker.types.describe_labeling_job_request.DescribeLabelingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["labeling_job_name"] = labeling_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11178,11 +11182,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_lineage_group_request.DescribeLineageGroupRequest = {}  # type: ignore[typeddict-item]
-        input["lineage_group_name"] = lineage_group_name
+        input_: aws_sdk_sagemaker.types.describe_lineage_group_request.DescribeLineageGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["lineage_group_name"] = lineage_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11218,11 +11222,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_mlflow_app_request.DescribeMlflowAppRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker.types.describe_mlflow_app_request.DescribeMlflowAppRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11256,11 +11260,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_mlflow_tracking_server_request.DescribeMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_server_name"] = tracking_server_name
+        input_: aws_sdk_sagemaker.types.describe_mlflow_tracking_server_request.DescribeMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_server_name"] = tracking_server_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11294,11 +11298,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_model_input.DescribeModelInput = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_sagemaker.types.describe_model_input.DescribeModelInput = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11332,11 +11336,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_model_bias_job_definition_request.DescribeModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.describe_model_bias_job_definition_request.DescribeModelBiasJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11378,15 +11382,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_model_card_request.DescribeModelCardRequest = {}  # type: ignore[typeddict-item]
-        input["model_card_name"] = model_card_name
+        input_: aws_sdk_sagemaker.types.describe_model_card_request.DescribeModelCardRequest = {}  # type: ignore[typeddict-item]
+        input_["model_card_name"] = model_card_name
         if model_card_version is not None:
-            input["model_card_version"] = model_card_version
+            input_["model_card_version"] = model_card_version
         if included_data is not None:
-            input["included_data"] = included_data
+            input_["included_data"] = included_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11420,11 +11424,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_model_card_export_job_request.DescribeModelCardExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["model_card_export_job_arn"] = model_card_export_job_arn
+        input_: aws_sdk_sagemaker.types.describe_model_card_export_job_request.DescribeModelCardExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["model_card_export_job_arn"] = model_card_export_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11458,11 +11462,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_model_explainability_job_definition_request.DescribeModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.describe_model_explainability_job_definition_request.DescribeModelExplainabilityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11500,13 +11504,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_model_package_input.DescribeModelPackageInput = {}  # type: ignore[typeddict-item]
-        input["model_package_name"] = model_package_name
+        input_: aws_sdk_sagemaker.types.describe_model_package_input.DescribeModelPackageInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_name"] = model_package_name
         if included_data is not None:
-            input["included_data"] = included_data
+            input_["included_data"] = included_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11540,11 +11544,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_model_package_group_input.DescribeModelPackageGroupInput = {}  # type: ignore[typeddict-item]
-        input["model_package_group_name"] = model_package_group_name
+        input_: aws_sdk_sagemaker.types.describe_model_package_group_input.DescribeModelPackageGroupInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_group_name"] = model_package_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11578,11 +11582,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_model_quality_job_definition_request.DescribeModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["job_definition_name"] = job_definition_name
+        input_: aws_sdk_sagemaker.types.describe_model_quality_job_definition_request.DescribeModelQualityJobDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_definition_name"] = job_definition_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11616,11 +11620,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_monitoring_schedule_request.DescribeMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["monitoring_schedule_name"] = monitoring_schedule_name
+        input_: aws_sdk_sagemaker.types.describe_monitoring_schedule_request.DescribeMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["monitoring_schedule_name"] = monitoring_schedule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11654,11 +11658,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_notebook_instance_input.DescribeNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_name"] = notebook_instance_name
+        input_: aws_sdk_sagemaker.types.describe_notebook_instance_input.DescribeNotebookInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_name"] = notebook_instance_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11692,13 +11696,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_notebook_instance_lifecycle_config_input.DescribeNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_lifecycle_config_name"] = (
+        input_: aws_sdk_sagemaker.types.describe_notebook_instance_lifecycle_config_input.DescribeNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_lifecycle_config_name"] = (
             notebook_instance_lifecycle_config_name
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11732,11 +11736,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_optimization_job_request.DescribeOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["optimization_job_name"] = optimization_job_name
+        input_: aws_sdk_sagemaker.types.describe_optimization_job_request.DescribeOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["optimization_job_name"] = optimization_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11774,13 +11778,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_partner_app_request.DescribePartnerAppRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker.types.describe_partner_app_request.DescribePartnerAppRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if include_available_upgrade is not None:
-            input["include_available_upgrade"] = include_available_upgrade
+            input_["include_available_upgrade"] = include_available_upgrade
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11818,13 +11822,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_pipeline_request.DescribePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_sagemaker.types.describe_pipeline_request.DescribePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if pipeline_version_id is not None:
-            input["pipeline_version_id"] = pipeline_version_id
+            input_["pipeline_version_id"] = pipeline_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11858,11 +11862,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_pipeline_definition_for_execution_request.DescribePipelineDefinitionForExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_execution_arn"] = pipeline_execution_arn
+        input_: aws_sdk_sagemaker.types.describe_pipeline_definition_for_execution_request.DescribePipelineDefinitionForExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_execution_arn"] = pipeline_execution_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11896,11 +11900,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_pipeline_execution_request.DescribePipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_execution_arn"] = pipeline_execution_arn
+        input_: aws_sdk_sagemaker.types.describe_pipeline_execution_request.DescribePipelineExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_execution_arn"] = pipeline_execution_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11934,11 +11938,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_processing_job_request.DescribeProcessingJobRequest = {}  # type: ignore[typeddict-item]
-        input["processing_job_name"] = processing_job_name
+        input_: aws_sdk_sagemaker.types.describe_processing_job_request.DescribeProcessingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["processing_job_name"] = processing_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11972,11 +11976,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_project_input.DescribeProjectInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_sagemaker.types.describe_project_input.DescribeProjectInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12010,11 +12014,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_reserved_capacity_request.DescribeReservedCapacityRequest = {}  # type: ignore[typeddict-item]
-        input["reserved_capacity_arn"] = reserved_capacity_arn
+        input_: aws_sdk_sagemaker.types.describe_reserved_capacity_request.DescribeReservedCapacityRequest = {}  # type: ignore[typeddict-item]
+        input_["reserved_capacity_arn"] = reserved_capacity_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12050,12 +12054,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_space_request.DescribeSpaceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["space_name"] = space_name
+        input_: aws_sdk_sagemaker.types.describe_space_request.DescribeSpaceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["space_name"] = space_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12089,11 +12093,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_studio_lifecycle_config_request.DescribeStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
-        input["studio_lifecycle_config_name"] = studio_lifecycle_config_name
+        input_: aws_sdk_sagemaker.types.describe_studio_lifecycle_config_request.DescribeStudioLifecycleConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["studio_lifecycle_config_name"] = studio_lifecycle_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12127,11 +12131,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_subscribed_workteam_request.DescribeSubscribedWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input["workteam_arn"] = workteam_arn
+        input_: aws_sdk_sagemaker.types.describe_subscribed_workteam_request.DescribeSubscribedWorkteamRequest = {}  # type: ignore[typeddict-item]
+        input_["workteam_arn"] = workteam_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12165,11 +12169,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_training_job_request.DescribeTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input["training_job_name"] = training_job_name
+        input_: aws_sdk_sagemaker.types.describe_training_job_request.DescribeTrainingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["training_job_name"] = training_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12203,11 +12207,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_training_plan_request.DescribeTrainingPlanRequest = {}  # type: ignore[typeddict-item]
-        input["training_plan_name"] = training_plan_name
+        input_: aws_sdk_sagemaker.types.describe_training_plan_request.DescribeTrainingPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["training_plan_name"] = training_plan_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12245,15 +12249,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_training_plan_extension_history_request.DescribeTrainingPlanExtensionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["training_plan_arn"] = training_plan_arn
+        input_: aws_sdk_sagemaker.types.describe_training_plan_extension_history_request.DescribeTrainingPlanExtensionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["training_plan_arn"] = training_plan_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12310,11 +12314,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_transform_job_request.DescribeTransformJobRequest = {}  # type: ignore[typeddict-item]
-        input["transform_job_name"] = transform_job_name
+        input_: aws_sdk_sagemaker.types.describe_transform_job_request.DescribeTransformJobRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_job_name"] = transform_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12348,11 +12352,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_trial_request.DescribeTrialRequest = {}  # type: ignore[typeddict-item]
-        input["trial_name"] = trial_name
+        input_: aws_sdk_sagemaker.types.describe_trial_request.DescribeTrialRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_name"] = trial_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12386,11 +12390,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_trial_component_request.DescribeTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input["trial_component_name"] = trial_component_name
+        input_: aws_sdk_sagemaker.types.describe_trial_component_request.DescribeTrialComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_component_name"] = trial_component_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12426,12 +12430,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_user_profile_request.DescribeUserProfileRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["user_profile_name"] = user_profile_name
+        input_: aws_sdk_sagemaker.types.describe_user_profile_request.DescribeUserProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["user_profile_name"] = user_profile_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12467,11 +12471,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_workforce_request.DescribeWorkforceRequest = {}  # type: ignore[typeddict-item]
-        input["workforce_name"] = workforce_name
+        input_: aws_sdk_sagemaker.types.describe_workforce_request.DescribeWorkforceRequest = {}  # type: ignore[typeddict-item]
+        input_["workforce_name"] = workforce_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12505,11 +12509,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.describe_workteam_request.DescribeWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input["workteam_name"] = workteam_name
+        input_: aws_sdk_sagemaker.types.describe_workteam_request.DescribeWorkteamRequest = {}  # type: ignore[typeddict-item]
+        input_["workteam_name"] = workteam_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12547,13 +12551,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.detach_cluster_node_volume_request.DetachClusterNodeVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["node_id"] = node_id
-        input["volume_id"] = volume_id
+        input_: aws_sdk_sagemaker.types.detach_cluster_node_volume_request.DetachClusterNodeVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["node_id"] = node_id
+        input_["volume_id"] = volume_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12580,10 +12584,10 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.disable_sagemaker_servicecatalog_portfolio_input.DisableSagemakerServicecatalogPortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.disable_sagemaker_servicecatalog_portfolio_input.DisableSagemakerServicecatalogPortfolioInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12619,12 +12623,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.disassociate_trial_component_request.DisassociateTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input["trial_component_name"] = trial_component_name
-        input["trial_name"] = trial_name
+        input_: aws_sdk_sagemaker.types.disassociate_trial_component_request.DisassociateTrialComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_component_name"] = trial_component_name
+        input_["trial_name"] = trial_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12651,10 +12655,10 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.enable_sagemaker_servicecatalog_portfolio_input.EnableSagemakerServicecatalogPortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.enable_sagemaker_servicecatalog_portfolio_input.EnableSagemakerServicecatalogPortfolioInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12688,13 +12692,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.extend_training_plan_request.ExtendTrainingPlanRequest = {}  # type: ignore[typeddict-item]
-        input["training_plan_extension_offering_id"] = (
+        input_: aws_sdk_sagemaker.types.extend_training_plan_request.ExtendTrainingPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["training_plan_extension_offering_id"] = (
             training_plan_extension_offering_id
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12728,11 +12732,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.get_device_fleet_report_request.GetDeviceFleetReportRequest = {}  # type: ignore[typeddict-item]
-        input["device_fleet_name"] = device_fleet_name
+        input_: aws_sdk_sagemaker.types.get_device_fleet_report_request.GetDeviceFleetReportRequest = {}  # type: ignore[typeddict-item]
+        input_["device_fleet_name"] = device_fleet_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12766,11 +12770,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.get_lineage_group_policy_request.GetLineageGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["lineage_group_name"] = lineage_group_name
+        input_: aws_sdk_sagemaker.types.get_lineage_group_policy_request.GetLineageGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["lineage_group_name"] = lineage_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12804,11 +12808,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.get_model_package_group_policy_input.GetModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
-        input["model_package_group_name"] = model_package_group_name
+        input_: aws_sdk_sagemaker.types.get_model_package_group_policy_input.GetModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_group_name"] = model_package_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12835,10 +12839,10 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.get_sagemaker_servicecatalog_portfolio_status_input.GetSagemakerServicecatalogPortfolioStatusInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.get_sagemaker_servicecatalog_portfolio_status_input.GetSagemakerServicecatalogPortfolioStatusInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12886,19 +12890,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.get_scaling_configuration_recommendation_request.GetScalingConfigurationRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["inference_recommendations_job_name"] = inference_recommendations_job_name
+        input_: aws_sdk_sagemaker.types.get_scaling_configuration_recommendation_request.GetScalingConfigurationRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_recommendations_job_name"] = (
+            inference_recommendations_job_name
+        )
         if recommendation_id is not None:
-            input["recommendation_id"] = recommendation_id
+            input_["recommendation_id"] = recommendation_id
         if endpoint_name is not None:
-            input["endpoint_name"] = endpoint_name
+            input_["endpoint_name"] = endpoint_name
         if target_cpu_utilization_per_core is not None:
-            input["target_cpu_utilization_per_core"] = target_cpu_utilization_per_core
+            input_["target_cpu_utilization_per_core"] = target_cpu_utilization_per_core
         if scaling_policy_objective is not None:
-            input["scaling_policy_objective"] = scaling_policy_objective
+            input_["scaling_policy_objective"] = scaling_policy_objective
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12936,13 +12942,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.get_search_suggestions_request.GetSearchSuggestionsRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
+        input_: aws_sdk_sagemaker.types.get_search_suggestions_request.GetSearchSuggestionsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
         if suggestion_query is not None:
-            input["suggestion_query"] = suggestion_query
+            input_["suggestion_query"] = suggestion_query
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13010,29 +13016,29 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.import_hub_content_request.ImportHubContentRequest = {}  # type: ignore[typeddict-item]
-        input["hub_content_name"] = hub_content_name
+        input_: aws_sdk_sagemaker.types.import_hub_content_request.ImportHubContentRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_content_name"] = hub_content_name
         if hub_content_version is not None:
-            input["hub_content_version"] = hub_content_version
-        input["hub_content_type"] = hub_content_type
-        input["document_schema_version"] = document_schema_version
-        input["hub_name"] = hub_name
+            input_["hub_content_version"] = hub_content_version
+        input_["hub_content_type"] = hub_content_type
+        input_["document_schema_version"] = document_schema_version
+        input_["hub_name"] = hub_name
         if hub_content_display_name is not None:
-            input["hub_content_display_name"] = hub_content_display_name
+            input_["hub_content_display_name"] = hub_content_display_name
         if hub_content_description is not None:
-            input["hub_content_description"] = hub_content_description
+            input_["hub_content_description"] = hub_content_description
         if hub_content_markdown is not None:
-            input["hub_content_markdown"] = hub_content_markdown
-        input["hub_content_document"] = hub_content_document
+            input_["hub_content_markdown"] = hub_content_markdown
+        input_["hub_content_document"] = hub_content_document
         if support_status is not None:
-            input["support_status"] = support_status
+            input_["support_status"] = support_status
         if hub_content_search_keywords is not None:
-            input["hub_content_search_keywords"] = hub_content_search_keywords
+            input_["hub_content_search_keywords"] = hub_content_search_keywords
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13082,26 +13088,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_actions_request.ListActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_actions_request.ListActionsRequest = {}  # type: ignore[typeddict-item]
         if source_uri is not None:
-            input["source_uri"] = source_uri
+            input_["source_uri"] = source_uri
         if action_type is not None:
-            input["action_type"] = action_type
+            input_["action_type"] = action_type
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13194,26 +13200,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_ai_benchmark_jobs_request.ListAIBenchmarkJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_ai_benchmark_jobs_request.ListAIBenchmarkJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13314,26 +13320,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_ai_recommendation_jobs_request.ListAIRecommendationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_ai_recommendation_jobs_request.ListAIRecommendationJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13430,24 +13436,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_ai_workload_configs_request.ListAIWorkloadConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_ai_workload_configs_request.ListAIWorkloadConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13540,24 +13546,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_algorithms_input.ListAlgorithmsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_algorithms_input.ListAlgorithmsInput = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13642,19 +13648,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["image_name"] = image_name
+        input_: aws_sdk_sagemaker.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["image_name"] = image_name
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13747,28 +13753,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_app_image_configs_request.ListAppImageConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_app_image_configs_request.ListAppImageConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if modified_time_before is not None:
-            input["modified_time_before"] = modified_time_before
+            input_["modified_time_before"] = modified_time_before
         if modified_time_after is not None:
-            input["modified_time_after"] = modified_time_after
+            input_["modified_time_after"] = modified_time_after
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13865,24 +13871,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_apps_request.ListAppsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_apps_request.ListAppsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if domain_id_equals is not None:
-            input["domain_id_equals"] = domain_id_equals
+            input_["domain_id_equals"] = domain_id_equals
         if user_profile_name_equals is not None:
-            input["user_profile_name_equals"] = user_profile_name_equals
+            input_["user_profile_name_equals"] = user_profile_name_equals
         if space_name_equals is not None:
-            input["space_name_equals"] = space_name_equals
+            input_["space_name_equals"] = space_name_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13967,26 +13973,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_artifacts_request.ListArtifactsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_artifacts_request.ListArtifactsRequest = {}  # type: ignore[typeddict-item]
         if source_uri is not None:
-            input["source_uri"] = source_uri
+            input_["source_uri"] = source_uri
         if artifact_type is not None:
-            input["artifact_type"] = artifact_type
+            input_["artifact_type"] = artifact_type
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14085,32 +14091,32 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_associations_request.ListAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_associations_request.ListAssociationsRequest = {}  # type: ignore[typeddict-item]
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
+            input_["destination_arn"] = destination_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if destination_type is not None:
-            input["destination_type"] = destination_type
+            input_["destination_type"] = destination_type
         if association_type is not None:
-            input["association_type"] = association_type
+            input_["association_type"] = association_type
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14231,30 +14237,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_auto_ml_jobs_request.ListAutoMLJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_auto_ml_jobs_request.ListAutoMLJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14365,23 +14371,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_candidates_for_auto_ml_job_request.ListCandidatesForAutoMLJobRequest = {}  # type: ignore[typeddict-item]
-        input["auto_ml_job_name"] = auto_ml_job_name
+        input_: aws_sdk_sagemaker.types.list_candidates_for_auto_ml_job_request.ListCandidatesForAutoMLJobRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_ml_job_name"] = auto_ml_job_name
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if candidate_name_equals is not None:
-            input["candidate_name_equals"] = candidate_name_equals
+            input_["candidate_name_equals"] = candidate_name_equals
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14488,29 +14494,29 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_cluster_events_request.ListClusterEventsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.list_cluster_events_request.ListClusterEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if instance_group_name is not None:
-            input["instance_group_name"] = instance_group_name
+            input_["instance_group_name"] = instance_group_name
         if node_id is not None:
-            input["node_id"] = node_id
+            input_["node_id"] = node_id
         if event_time_after is not None:
-            input["event_time_after"] = event_time_after
+            input_["event_time_after"] = event_time_after
         if event_time_before is not None:
-            input["event_time_before"] = event_time_before
+            input_["event_time_before"] = event_time_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14619,27 +14625,27 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_cluster_nodes_request.ListClusterNodesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.list_cluster_nodes_request.ListClusterNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if instance_group_name_contains is not None:
-            input["instance_group_name_contains"] = instance_group_name_contains
+            input_["instance_group_name_contains"] = instance_group_name_contains
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if include_node_logical_ids is not None:
-            input["include_node_logical_ids"] = include_node_logical_ids
+            input_["include_node_logical_ids"] = include_node_logical_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14744,26 +14750,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if training_plan_arn is not None:
-            input["training_plan_arn"] = training_plan_arn
+            input_["training_plan_arn"] = training_plan_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14862,28 +14868,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_cluster_scheduler_configs_request.ListClusterSchedulerConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_cluster_scheduler_configs_request.ListClusterSchedulerConfigsRequest = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if cluster_arn is not None:
-            input["cluster_arn"] = cluster_arn
+            input_["cluster_arn"] = cluster_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14988,28 +14994,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_code_repositories_input.ListCodeRepositoriesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_code_repositories_input.ListCodeRepositoriesInput = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15124,30 +15130,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_compilation_jobs_request.ListCompilationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_compilation_jobs_request.ListCompilationJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15254,28 +15260,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_compute_quotas_request.ListComputeQuotasRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_compute_quotas_request.ListComputeQuotasRequest = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if cluster_arn is not None:
-            input["cluster_arn"] = cluster_arn
+            input_["cluster_arn"] = cluster_arn
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15364,26 +15370,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_contexts_request.ListContextsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_contexts_request.ListContextsRequest = {}  # type: ignore[typeddict-item]
         if source_uri is not None:
-            input["source_uri"] = source_uri
+            input_["source_uri"] = source_uri
         if context_type is not None:
-            input["context_type"] = context_type
+            input_["context_type"] = context_type
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15476,26 +15482,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_data_quality_job_definitions_request.ListDataQualityJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_data_quality_job_definitions_request.ListDataQualityJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if endpoint_name is not None:
-            input["endpoint_name"] = endpoint_name
+            input_["endpoint_name"] = endpoint_name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15602,28 +15608,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_device_fleets_request.ListDeviceFleetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_device_fleets_request.ListDeviceFleetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15722,20 +15728,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if latest_heartbeat_after is not None:
-            input["latest_heartbeat_after"] = latest_heartbeat_after
+            input_["latest_heartbeat_after"] = latest_heartbeat_after
         if model_name is not None:
-            input["model_name"] = model_name
+            input_["model_name"] = model_name
         if device_fleet_name is not None:
-            input["device_fleet_name"] = device_fleet_name
+            input_["device_fleet_name"] = device_fleet_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15804,14 +15810,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15900,30 +15906,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_edge_deployment_plans_request.ListEdgeDeploymentPlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_edge_deployment_plans_request.ListEdgeDeploymentPlansRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if device_fleet_name_contains is not None:
-            input["device_fleet_name_contains"] = device_fleet_name_contains
+            input_["device_fleet_name_contains"] = device_fleet_name_contains
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16048,32 +16054,32 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_edge_packaging_jobs_request.ListEdgePackagingJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_edge_packaging_jobs_request.ListEdgePackagingJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if model_name_contains is not None:
-            input["model_name_contains"] = model_name_contains
+            input_["model_name_contains"] = model_name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16188,24 +16194,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_endpoint_configs_input.ListEndpointConfigsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_endpoint_configs_input.ListEndpointConfigsInput = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16314,30 +16320,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_endpoints_input.ListEndpointsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_endpoints_input.ListEndpointsInput = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16436,22 +16442,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_experiments_request.ListExperimentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_experiments_request.ListExperimentsRequest = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16550,28 +16556,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_feature_groups_request.ListFeatureGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_feature_groups_request.ListFeatureGroupsRequest = {}  # type: ignore[typeddict-item]
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if feature_group_status_equals is not None:
-            input["feature_group_status_equals"] = feature_group_status_equals
+            input_["feature_group_status_equals"] = feature_group_status_equals
         if offline_store_status_equals is not None:
-            input["offline_store_status_equals"] = offline_store_status_equals
+            input_["offline_store_status_equals"] = offline_store_status_equals
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16668,20 +16674,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_flow_definitions_request.ListFlowDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_flow_definitions_request.ListFlowDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16774,28 +16780,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_hub_contents_request.ListHubContentsRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_content_type"] = hub_content_type
+        input_: aws_sdk_sagemaker.types.list_hub_contents_request.ListHubContentsRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_content_type"] = hub_content_type
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if max_schema_version is not None:
-            input["max_schema_version"] = max_schema_version
+            input_["max_schema_version"] = max_schema_version
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16859,29 +16865,29 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_hub_content_versions_request.ListHubContentVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_content_type"] = hub_content_type
-        input["hub_content_name"] = hub_content_name
+        input_: aws_sdk_sagemaker.types.list_hub_content_versions_request.ListHubContentVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_content_type"] = hub_content_type
+        input_["hub_content_name"] = hub_content_name
         if min_version is not None:
-            input["min_version"] = min_version
+            input_["min_version"] = min_version
         if max_schema_version is not None:
-            input["max_schema_version"] = max_schema_version
+            input_["max_schema_version"] = max_schema_version
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16941,28 +16947,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_hubs_request.ListHubsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_hubs_request.ListHubsRequest = {}  # type: ignore[typeddict-item]
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17010,20 +17016,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_human_task_uis_request.ListHumanTaskUisRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_human_task_uis_request.ListHumanTaskUisRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17120,30 +17126,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_hyper_parameter_tuning_jobs_request.ListHyperParameterTuningJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_hyper_parameter_tuning_jobs_request.ListHyperParameterTuningJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17256,28 +17262,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_images_request.ListImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_images_request.ListImagesRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17388,27 +17394,27 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_image_versions_request.ListImageVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_image_versions_request.ListImageVersionsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
-        input["image_name"] = image_name
+            input_["creation_time_before"] = creation_time_before
+        input_["image_name"] = image_name
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17531,34 +17537,34 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_inference_components_input.ListInferenceComponentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_inference_components_input.ListInferenceComponentsInput = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if endpoint_name_equals is not None:
-            input["endpoint_name_equals"] = endpoint_name_equals
+            input_["endpoint_name_equals"] = endpoint_name_equals
         if variant_name_equals is not None:
-            input["variant_name_equals"] = variant_name_equals
+            input_["variant_name_equals"] = variant_name_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17689,32 +17695,32 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_inference_experiments_request.ListInferenceExperimentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_inference_experiments_request.ListInferenceExperimentsRequest = {}  # type: ignore[typeddict-item]
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17843,34 +17849,36 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_inference_recommendations_jobs_request.ListInferenceRecommendationsJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_inference_recommendations_jobs_request.ListInferenceRecommendationsJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if model_name_equals is not None:
-            input["model_name_equals"] = model_name_equals
+            input_["model_name_equals"] = model_name_equals
         if model_package_version_arn_equals is not None:
-            input["model_package_version_arn_equals"] = model_package_version_arn_equals
+            input_["model_package_version_arn_equals"] = (
+                model_package_version_arn_equals
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17975,19 +17983,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_inference_recommendations_job_steps_request.ListInferenceRecommendationsJobStepsRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_sagemaker.types.list_inference_recommendations_job_steps_request.ListInferenceRecommendationsJobStepsRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if step_type is not None:
-            input["step_type"] = step_type
+            input_["step_type"] = step_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18082,31 +18090,31 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
-        input["job_category"] = job_category
+        input_: aws_sdk_sagemaker.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["job_category"] = job_category
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18193,15 +18201,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_job_schema_versions_request.ListJobSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["job_category"] = job_category
+        input_: aws_sdk_sagemaker.types.list_job_schema_versions_request.ListJobSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["job_category"] = job_category
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18288,30 +18296,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_labeling_jobs_request.ListLabelingJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_labeling_jobs_request.ListLabelingJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18418,25 +18426,25 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_labeling_jobs_for_workteam_request.ListLabelingJobsForWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input["workteam_arn"] = workteam_arn
+        input_: aws_sdk_sagemaker.types.list_labeling_jobs_for_workteam_request.ListLabelingJobsForWorkteamRequest = {}  # type: ignore[typeddict-item]
+        input_["workteam_arn"] = workteam_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if job_reference_code_contains is not None:
-            input["job_reference_code_contains"] = job_reference_code_contains
+            input_["job_reference_code_contains"] = job_reference_code_contains
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18525,22 +18533,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_lineage_groups_request.ListLineageGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_lineage_groups_request.ListLineageGroupsRequest = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18631,30 +18639,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_mlflow_apps_request.ListMlflowAppsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_mlflow_apps_request.ListMlflowAppsRequest = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if mlflow_version is not None:
-            input["mlflow_version"] = mlflow_version
+            input_["mlflow_version"] = mlflow_version
         if default_for_domain_id is not None:
-            input["default_for_domain_id"] = default_for_domain_id
+            input_["default_for_domain_id"] = default_for_domain_id
         if account_default_status is not None:
-            input["account_default_status"] = account_default_status
+            input_["account_default_status"] = account_default_status
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18753,26 +18761,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_mlflow_tracking_servers_request.ListMlflowTrackingServersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_mlflow_tracking_servers_request.ListMlflowTrackingServersRequest = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if tracking_server_status is not None:
-            input["tracking_server_status"] = tracking_server_status
+            input_["tracking_server_status"] = tracking_server_status
         if mlflow_version is not None:
-            input["mlflow_version"] = mlflow_version
+            input_["mlflow_version"] = mlflow_version
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18869,26 +18877,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_bias_job_definitions_request.ListModelBiasJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_model_bias_job_definitions_request.ListModelBiasJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if endpoint_name is not None:
-            input["endpoint_name"] = endpoint_name
+            input_["endpoint_name"] = endpoint_name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18995,31 +19003,31 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_card_export_jobs_request.ListModelCardExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["model_card_name"] = model_card_name
+        input_: aws_sdk_sagemaker.types.list_model_card_export_jobs_request.ListModelCardExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["model_card_name"] = model_card_name
         if model_card_version is not None:
-            input["model_card_version"] = model_card_version
+            input_["model_card_version"] = model_card_version
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if model_card_export_job_name_contains is not None:
-            input["model_card_export_job_name_contains"] = (
+            input_["model_card_export_job_name_contains"] = (
                 model_card_export_job_name_contains
             )
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19128,26 +19136,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_cards_request.ListModelCardsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_model_cards_request.ListModelCardsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if model_card_status is not None:
-            input["model_card_status"] = model_card_status
+            input_["model_card_status"] = model_card_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19250,25 +19258,25 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_card_versions_request.ListModelCardVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_model_card_versions_request.ListModelCardVersionsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if max_results is not None:
-            input["max_results"] = max_results
-        input["model_card_name"] = model_card_name
+            input_["max_results"] = max_results
+        input_["model_card_name"] = model_card_name
         if model_card_status is not None:
-            input["model_card_status"] = model_card_status
+            input_["model_card_status"] = model_card_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19369,26 +19377,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_explainability_job_definitions_request.ListModelExplainabilityJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_model_explainability_job_definitions_request.ListModelExplainabilityJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if endpoint_name is not None:
-            input["endpoint_name"] = endpoint_name
+            input_["endpoint_name"] = endpoint_name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19473,16 +19481,16 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_metadata_request.ListModelMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_model_metadata_request.ListModelMetadataRequest = {}  # type: ignore[typeddict-item]
         if search_expression is not None:
-            input["search_expression"] = search_expression
+            input_["search_expression"] = search_expression
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19565,26 +19573,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_package_groups_input.ListModelPackageGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_model_package_groups_input.ListModelPackageGroupsInput = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if cross_account_filter_option is not None:
-            input["cross_account_filter_option"] = cross_account_filter_option
+            input_["cross_account_filter_option"] = cross_account_filter_option
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19693,30 +19701,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_packages_input.ListModelPackagesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_model_packages_input.ListModelPackagesInput = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if model_approval_status is not None:
-            input["model_approval_status"] = model_approval_status
+            input_["model_approval_status"] = model_approval_status
         if model_package_group_name is not None:
-            input["model_package_group_name"] = model_package_group_name
+            input_["model_package_group_name"] = model_package_group_name
         if model_package_type is not None:
-            input["model_package_type"] = model_package_type
+            input_["model_package_type"] = model_package_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19825,26 +19833,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_model_quality_job_definitions_request.ListModelQualityJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_model_quality_job_definitions_request.ListModelQualityJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if endpoint_name is not None:
-            input["endpoint_name"] = endpoint_name
+            input_["endpoint_name"] = endpoint_name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19941,24 +19949,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_models_input.ListModelsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_models_input.ListModelsInput = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20059,28 +20067,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_monitoring_alert_history_request.ListMonitoringAlertHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_monitoring_alert_history_request.ListMonitoringAlertHistoryRequest = {}  # type: ignore[typeddict-item]
         if monitoring_schedule_name is not None:
-            input["monitoring_schedule_name"] = monitoring_schedule_name
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
         if monitoring_alert_name is not None:
-            input["monitoring_alert_name"] = monitoring_alert_name
+            input_["monitoring_alert_name"] = monitoring_alert_name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20165,15 +20173,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_monitoring_alerts_request.ListMonitoringAlertsRequest = {}  # type: ignore[typeddict-item]
-        input["monitoring_schedule_name"] = monitoring_schedule_name
+        input_: aws_sdk_sagemaker.types.list_monitoring_alerts_request.ListMonitoringAlertsRequest = {}  # type: ignore[typeddict-item]
+        input_["monitoring_schedule_name"] = monitoring_schedule_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20282,40 +20290,40 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_monitoring_executions_request.ListMonitoringExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_monitoring_executions_request.ListMonitoringExecutionsRequest = {}  # type: ignore[typeddict-item]
         if monitoring_schedule_name is not None:
-            input["monitoring_schedule_name"] = monitoring_schedule_name
+            input_["monitoring_schedule_name"] = monitoring_schedule_name
         if endpoint_name is not None:
-            input["endpoint_name"] = endpoint_name
+            input_["endpoint_name"] = endpoint_name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if scheduled_time_before is not None:
-            input["scheduled_time_before"] = scheduled_time_before
+            input_["scheduled_time_before"] = scheduled_time_before
         if scheduled_time_after is not None:
-            input["scheduled_time_after"] = scheduled_time_after
+            input_["scheduled_time_after"] = scheduled_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if monitoring_job_definition_name is not None:
-            input["monitoring_job_definition_name"] = monitoring_job_definition_name
+            input_["monitoring_job_definition_name"] = monitoring_job_definition_name
         if monitoring_type_equals is not None:
-            input["monitoring_type_equals"] = monitoring_type_equals
+            input_["monitoring_type_equals"] = monitoring_type_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20464,36 +20472,36 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_monitoring_schedules_request.ListMonitoringSchedulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_monitoring_schedules_request.ListMonitoringSchedulesRequest = {}  # type: ignore[typeddict-item]
         if endpoint_name is not None:
-            input["endpoint_name"] = endpoint_name
+            input_["endpoint_name"] = endpoint_name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if monitoring_job_definition_name is not None:
-            input["monitoring_job_definition_name"] = monitoring_job_definition_name
+            input_["monitoring_job_definition_name"] = monitoring_job_definition_name
         if monitoring_type_equals is not None:
-            input["monitoring_type_equals"] = monitoring_type_equals
+            input_["monitoring_type_equals"] = monitoring_type_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20620,28 +20628,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_notebook_instance_lifecycle_configs_input.ListNotebookInstanceLifecycleConfigsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_notebook_instance_lifecycle_configs_input.ListNotebookInstanceLifecycleConfigsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20770,40 +20778,42 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_notebook_instances_input.ListNotebookInstancesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_notebook_instances_input.ListNotebookInstancesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if notebook_instance_lifecycle_config_name_contains is not None:
-            input["notebook_instance_lifecycle_config_name_contains"] = (
+            input_["notebook_instance_lifecycle_config_name_contains"] = (
                 notebook_instance_lifecycle_config_name_contains
             )
         if default_code_repository_contains is not None:
-            input["default_code_repository_contains"] = default_code_repository_contains
+            input_["default_code_repository_contains"] = (
+                default_code_repository_contains
+            )
         if additional_code_repository_equals is not None:
-            input["additional_code_repository_equals"] = (
+            input_["additional_code_repository_equals"] = (
                 additional_code_repository_equals
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20938,32 +20948,32 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_optimization_jobs_request.ListOptimizationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_optimization_jobs_request.ListOptimizationJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if optimization_contains is not None:
-            input["optimization_contains"] = optimization_contains
+            input_["optimization_contains"] = optimization_contains
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21054,14 +21064,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_partner_apps_request.ListPartnerAppsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_partner_apps_request.ListPartnerAppsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21130,23 +21140,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_pipeline_executions_request.ListPipelineExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_sagemaker.types.list_pipeline_executions_request.ListPipelineExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21221,18 +21231,18 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_pipeline_execution_steps_request.ListPipelineExecutionStepsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_pipeline_execution_steps_request.ListPipelineExecutionStepsRequest = {}  # type: ignore[typeddict-item]
         if pipeline_execution_arn is not None:
-            input["pipeline_execution_arn"] = pipeline_execution_arn
+            input_["pipeline_execution_arn"] = pipeline_execution_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21297,15 +21307,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_pipeline_parameters_for_execution_request.ListPipelineParametersForExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_execution_arn"] = pipeline_execution_arn
+        input_: aws_sdk_sagemaker.types.list_pipeline_parameters_for_execution_request.ListPipelineParametersForExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_execution_arn"] = pipeline_execution_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21378,24 +21388,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_pipelines_request.ListPipelinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_pipelines_request.ListPipelinesRequest = {}  # type: ignore[typeddict-item]
         if pipeline_name_prefix is not None:
-            input["pipeline_name_prefix"] = pipeline_name_prefix
+            input_["pipeline_name_prefix"] = pipeline_name_prefix
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21474,21 +21484,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_pipeline_versions_request.ListPipelineVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_sagemaker.types.list_pipeline_versions_request.ListPipelineVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21579,30 +21589,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_processing_jobs_request.ListProcessingJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_processing_jobs_request.ListProcessingJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21705,24 +21715,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_projects_input.ListProjectsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_projects_input.ListProjectsInput = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21778,24 +21788,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_resource_catalogs_request.ListResourceCatalogsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_resource_catalogs_request.ListResourceCatalogsRequest = {}  # type: ignore[typeddict-item]
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21882,22 +21892,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_spaces_request.ListSpacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_spaces_request.ListSpacesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if domain_id_equals is not None:
-            input["domain_id_equals"] = domain_id_equals
+            input_["domain_id_equals"] = domain_id_equals
         if space_name_contains is not None:
-            input["space_name_contains"] = space_name_contains
+            input_["space_name_contains"] = space_name_contains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21974,20 +21984,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_stage_devices_request.ListStageDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_stage_devices_request.ListStageDevicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["edge_deployment_plan_name"] = edge_deployment_plan_name
+            input_["max_results"] = max_results
+        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
         if exclude_devices_deployed_in_other_stage is not None:
-            input["exclude_devices_deployed_in_other_stage"] = (
+            input_["exclude_devices_deployed_in_other_stage"] = (
                 exclude_devices_deployed_in_other_stage
             )
-        input["stage_name"] = stage_name
+        input_["stage_name"] = stage_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22084,30 +22094,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_studio_lifecycle_configs_request.ListStudioLifecycleConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_studio_lifecycle_configs_request.ListStudioLifecycleConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if app_type_equals is not None:
-            input["app_type_equals"] = app_type_equals
+            input_["app_type_equals"] = app_type_equals
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if modified_time_before is not None:
-            input["modified_time_before"] = modified_time_before
+            input_["modified_time_before"] = modified_time_before
         if modified_time_after is not None:
-            input["modified_time_after"] = modified_time_after
+            input_["modified_time_after"] = modified_time_after
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22198,16 +22208,16 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_subscribed_workteams_request.ListSubscribedWorkteamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_subscribed_workteams_request.ListSubscribedWorkteamsRequest = {}  # type: ignore[typeddict-item]
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22274,15 +22284,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_tags_input.ListTagsInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_sagemaker.types.list_tags_input.ListTagsInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22379,34 +22389,34 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_training_jobs_request.ListTrainingJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_training_jobs_request.ListTrainingJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if warm_pool_status_equals is not None:
-            input["warm_pool_status_equals"] = warm_pool_status_equals
+            input_["warm_pool_status_equals"] = warm_pool_status_equals
         if training_plan_arn_equals is not None:
-            input["training_plan_arn_equals"] = training_plan_arn_equals
+            input_["training_plan_arn_equals"] = training_plan_arn_equals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22513,21 +22523,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_training_jobs_for_hyper_parameter_tuning_job_request.ListTrainingJobsForHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        input_: aws_sdk_sagemaker.types.list_training_jobs_for_hyper_parameter_tuning_job_request.ListTrainingJobsForHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
+        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22618,24 +22628,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_training_plans_request.ListTrainingPlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_training_plans_request.ListTrainingPlansRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time_after is not None:
-            input["start_time_after"] = start_time_after
+            input_["start_time_after"] = start_time_after
         if start_time_before is not None:
-            input["start_time_before"] = start_time_before
+            input_["start_time_before"] = start_time_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22742,30 +22752,30 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_transform_jobs_request.ListTransformJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_transform_jobs_request.ListTransformJobsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
+            input_["creation_time_before"] = creation_time_before
         if last_modified_time_after is not None:
-            input["last_modified_time_after"] = last_modified_time_after
+            input_["last_modified_time_after"] = last_modified_time_after
         if last_modified_time_before is not None:
-            input["last_modified_time_before"] = last_modified_time_before
+            input_["last_modified_time_before"] = last_modified_time_before
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22870,28 +22880,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_trial_components_request.ListTrialComponentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_trial_components_request.ListTrialComponentsRequest = {}  # type: ignore[typeddict-item]
         if experiment_name is not None:
-            input["experiment_name"] = experiment_name
+            input_["experiment_name"] = experiment_name
         if trial_name is not None:
-            input["trial_name"] = trial_name
+            input_["trial_name"] = trial_name
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22984,26 +22994,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_trials_request.ListTrialsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_trials_request.ListTrialsRequest = {}  # type: ignore[typeddict-item]
         if experiment_name is not None:
-            input["experiment_name"] = experiment_name
+            input_["experiment_name"] = experiment_name
         if trial_component_name is not None:
-            input["trial_component_name"] = trial_component_name
+            input_["trial_component_name"] = trial_component_name
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23078,15 +23088,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_ultra_servers_by_reserved_capacity_request.ListUltraServersByReservedCapacityRequest = {}  # type: ignore[typeddict-item]
-        input["reserved_capacity_arn"] = reserved_capacity_arn
+        input_: aws_sdk_sagemaker.types.list_ultra_servers_by_reserved_capacity_request.ListUltraServersByReservedCapacityRequest = {}  # type: ignore[typeddict-item]
+        input_["reserved_capacity_arn"] = reserved_capacity_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23157,22 +23167,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_user_profiles_request.ListUserProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_user_profiles_request.ListUserProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if domain_id_equals is not None:
-            input["domain_id_equals"] = domain_id_equals
+            input_["domain_id_equals"] = domain_id_equals
         if user_profile_name_contains is not None:
-            input["user_profile_name_contains"] = user_profile_name_contains
+            input_["user_profile_name_contains"] = user_profile_name_contains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23253,20 +23263,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_workforces_request.ListWorkforcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_workforces_request.ListWorkforcesRequest = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23343,20 +23353,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.list_workteams_request.ListWorkteamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.list_workteams_request.ListWorkteamsRequest = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23423,12 +23433,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.put_model_package_group_policy_input.PutModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
-        input["model_package_group_name"] = model_package_group_name
-        input["resource_policy"] = resource_policy
+        input_: aws_sdk_sagemaker.types.put_model_package_group_policy_input.PutModelPackageGroupPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_group_name"] = model_package_group_name
+        input_["resource_policy"] = resource_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23480,24 +23490,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.query_lineage_request.QueryLineageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.query_lineage_request.QueryLineageRequest = {}  # type: ignore[typeddict-item]
         if start_arns is not None:
-            input["start_arns"] = start_arns
+            input_["start_arns"] = start_arns
         if direction is not None:
-            input["direction"] = direction
+            input_["direction"] = direction
         if include_edges is not None:
-            input["include_edges"] = include_edges
+            input_["include_edges"] = include_edges
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_depth is not None:
-            input["max_depth"] = max_depth
+            input_["max_depth"] = max_depth
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23533,14 +23543,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.register_devices_request.RegisterDevicesRequest = {}  # type: ignore[typeddict-item]
-        input["device_fleet_name"] = device_fleet_name
-        input["devices"] = devices
+        input_: aws_sdk_sagemaker.types.register_devices_request.RegisterDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_["device_fleet_name"] = device_fleet_name
+        input_["devices"] = devices
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23582,16 +23592,16 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.render_ui_template_request.RenderUiTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.render_ui_template_request.RenderUiTemplateRequest = {}  # type: ignore[typeddict-item]
         if ui_template is not None:
-            input["ui_template"] = ui_template
-        input["task"] = task
-        input["role_arn"] = role_arn
+            input_["ui_template"] = ui_template
+        input_["task"] = task
+        input_["role_arn"] = role_arn
         if human_task_ui_arn is not None:
-            input["human_task_ui_arn"] = human_task_ui_arn
+            input_["human_task_ui_arn"] = human_task_ui_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23631,14 +23641,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.retry_pipeline_execution_request.RetryPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_execution_arn"] = pipeline_execution_arn
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_sagemaker.types.retry_pipeline_execution_request.RetryPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_execution_arn"] = pipeline_execution_arn
+        input_["client_request_token"] = client_request_token
         if parallelism_configuration is not None:
-            input["parallelism_configuration"] = parallelism_configuration
+            input_["parallelism_configuration"] = parallelism_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23696,25 +23706,25 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.search_request.SearchRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
+        input_: aws_sdk_sagemaker.types.search_request.SearchRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
         if search_expression is not None:
-            input["search_expression"] = search_expression
+            input_["search_expression"] = search_expression
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if cross_account_filter_option is not None:
-            input["cross_account_filter_option"] = cross_account_filter_option
+            input_["cross_account_filter_option"] = cross_account_filter_option
         if visibility_conditions is not None:
-            input["visibility_conditions"] = visibility_conditions
+            input_["visibility_conditions"] = visibility_conditions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23821,28 +23831,28 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.search_training_plan_offerings_request.SearchTrainingPlanOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.search_training_plan_offerings_request.SearchTrainingPlanOfferingsRequest = {}  # type: ignore[typeddict-item]
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if instance_count is not None:
-            input["instance_count"] = instance_count
+            input_["instance_count"] = instance_count
         if ultra_server_type is not None:
-            input["ultra_server_type"] = ultra_server_type
+            input_["ultra_server_type"] = ultra_server_type
         if ultra_server_count is not None:
-            input["ultra_server_count"] = ultra_server_count
+            input_["ultra_server_count"] = ultra_server_count
         if start_time_after is not None:
-            input["start_time_after"] = start_time_after
+            input_["start_time_after"] = start_time_after
         if end_time_before is not None:
-            input["end_time_before"] = end_time_before
+            input_["end_time_before"] = end_time_before
         if duration_hours is not None:
-            input["duration_hours"] = duration_hours
+            input_["duration_hours"] = duration_hours
         if target_resources is not None:
-            input["target_resources"] = target_resources
+            input_["target_resources"] = target_resources
         if training_plan_arn is not None:
-            input["training_plan_arn"] = training_plan_arn
+            input_["training_plan_arn"] = training_plan_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23882,15 +23892,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.send_pipeline_execution_step_failure_request.SendPipelineExecutionStepFailureRequest = {}  # type: ignore[typeddict-item]
-        input["callback_token"] = callback_token
+        input_: aws_sdk_sagemaker.types.send_pipeline_execution_step_failure_request.SendPipelineExecutionStepFailureRequest = {}  # type: ignore[typeddict-item]
+        input_["callback_token"] = callback_token
         if failure_reason is not None:
-            input["failure_reason"] = failure_reason
+            input_["failure_reason"] = failure_reason
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23932,15 +23942,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.send_pipeline_execution_step_success_request.SendPipelineExecutionStepSuccessRequest = {}  # type: ignore[typeddict-item]
-        input["callback_token"] = callback_token
+        input_: aws_sdk_sagemaker.types.send_pipeline_execution_step_success_request.SendPipelineExecutionStepSuccessRequest = {}  # type: ignore[typeddict-item]
+        input_["callback_token"] = callback_token
         if output_parameters is not None:
-            input["output_parameters"] = output_parameters
+            input_["output_parameters"] = output_parameters
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -23976,12 +23986,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.start_cluster_health_check_request.StartClusterHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["deep_health_check_configurations"] = deep_health_check_configurations
+        input_: aws_sdk_sagemaker.types.start_cluster_health_check_request.StartClusterHealthCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["deep_health_check_configurations"] = deep_health_check_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24015,12 +24025,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.start_edge_deployment_stage_request.StartEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
-        input["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input["stage_name"] = stage_name
+        input_: aws_sdk_sagemaker.types.start_edge_deployment_stage_request.StartEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        input_["stage_name"] = stage_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24054,11 +24064,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.start_inference_experiment_request.StartInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker.types.start_inference_experiment_request.StartInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24092,11 +24102,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.start_mlflow_tracking_server_request.StartMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_server_name"] = tracking_server_name
+        input_: aws_sdk_sagemaker.types.start_mlflow_tracking_server_request.StartMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_server_name"] = tracking_server_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24128,11 +24138,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.start_monitoring_schedule_request.StartMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["monitoring_schedule_name"] = monitoring_schedule_name
+        input_: aws_sdk_sagemaker.types.start_monitoring_schedule_request.StartMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["monitoring_schedule_name"] = monitoring_schedule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24164,11 +24174,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.start_notebook_instance_input.StartNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_name"] = notebook_instance_name
+        input_: aws_sdk_sagemaker.types.start_notebook_instance_input.StartNotebookInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_name"] = notebook_instance_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24232,26 +24242,26 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.start_pipeline_execution_request.StartPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_sagemaker.types.start_pipeline_execution_request.StartPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if pipeline_execution_display_name is not None:
-            input["pipeline_execution_display_name"] = pipeline_execution_display_name
+            input_["pipeline_execution_display_name"] = pipeline_execution_display_name
         if pipeline_parameters is not None:
-            input["pipeline_parameters"] = pipeline_parameters
+            input_["pipeline_parameters"] = pipeline_parameters
         if pipeline_execution_description is not None:
-            input["pipeline_execution_description"] = pipeline_execution_description
-        input["client_request_token"] = client_request_token
+            input_["pipeline_execution_description"] = pipeline_execution_description
+        input_["client_request_token"] = client_request_token
         if parallelism_configuration is not None:
-            input["parallelism_configuration"] = parallelism_configuration
+            input_["parallelism_configuration"] = parallelism_configuration
         if selective_execution_config is not None:
-            input["selective_execution_config"] = selective_execution_config
+            input_["selective_execution_config"] = selective_execution_config
         if pipeline_version_id is not None:
-            input["pipeline_version_id"] = pipeline_version_id
+            input_["pipeline_version_id"] = pipeline_version_id
         if mlflow_experiment_name is not None:
-            input["mlflow_experiment_name"] = mlflow_experiment_name
+            input_["mlflow_experiment_name"] = mlflow_experiment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24285,11 +24295,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_sagemaker.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24323,11 +24333,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_ai_benchmark_job_request.StopAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
-        input["ai_benchmark_job_name"] = ai_benchmark_job_name
+        input_: aws_sdk_sagemaker.types.stop_ai_benchmark_job_request.StopAIBenchmarkJobRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_benchmark_job_name"] = ai_benchmark_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24361,11 +24371,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_ai_recommendation_job_request.StopAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
-        input["ai_recommendation_job_name"] = ai_recommendation_job_name
+        input_: aws_sdk_sagemaker.types.stop_ai_recommendation_job_request.StopAIRecommendationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["ai_recommendation_job_name"] = ai_recommendation_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24397,11 +24407,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_auto_ml_job_request.StopAutoMLJobRequest = {}  # type: ignore[typeddict-item]
-        input["auto_ml_job_name"] = auto_ml_job_name
+        input_: aws_sdk_sagemaker.types.stop_auto_ml_job_request.StopAutoMLJobRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_ml_job_name"] = auto_ml_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24433,11 +24443,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_compilation_job_request.StopCompilationJobRequest = {}  # type: ignore[typeddict-item]
-        input["compilation_job_name"] = compilation_job_name
+        input_: aws_sdk_sagemaker.types.stop_compilation_job_request.StopCompilationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["compilation_job_name"] = compilation_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24471,12 +24481,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_edge_deployment_stage_request.StopEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
-        input["edge_deployment_plan_name"] = edge_deployment_plan_name
-        input["stage_name"] = stage_name
+        input_: aws_sdk_sagemaker.types.stop_edge_deployment_stage_request.StopEdgeDeploymentStageRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_deployment_plan_name"] = edge_deployment_plan_name
+        input_["stage_name"] = stage_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24508,11 +24518,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_edge_packaging_job_request.StopEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
-        input["edge_packaging_job_name"] = edge_packaging_job_name
+        input_: aws_sdk_sagemaker.types.stop_edge_packaging_job_request.StopEdgePackagingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["edge_packaging_job_name"] = edge_packaging_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24544,11 +24554,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_hyper_parameter_tuning_job_request.StopHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
-        input["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
+        input_: aws_sdk_sagemaker.types.stop_hyper_parameter_tuning_job_request.StopHyperParameterTuningJobRequest = {}  # type: ignore[typeddict-item]
+        input_["hyper_parameter_tuning_job_name"] = hyper_parameter_tuning_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24596,18 +24606,18 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_inference_experiment_request.StopInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["model_variant_actions"] = model_variant_actions
+        input_: aws_sdk_sagemaker.types.stop_inference_experiment_request.StopInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["model_variant_actions"] = model_variant_actions
         if desired_model_variants is not None:
-            input["desired_model_variants"] = desired_model_variants
+            input_["desired_model_variants"] = desired_model_variants
         if desired_state is not None:
-            input["desired_state"] = desired_state
+            input_["desired_state"] = desired_state
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24639,11 +24649,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_inference_recommendations_job_request.StopInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
+        input_: aws_sdk_sagemaker.types.stop_inference_recommendations_job_request.StopInferenceRecommendationsJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24679,12 +24689,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_job_request.StopJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_name"] = job_name
-        input["job_category"] = job_category
+        input_: aws_sdk_sagemaker.types.stop_job_request.StopJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_name"] = job_name
+        input_["job_category"] = job_category
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24716,11 +24726,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_labeling_job_request.StopLabelingJobRequest = {}  # type: ignore[typeddict-item]
-        input["labeling_job_name"] = labeling_job_name
+        input_: aws_sdk_sagemaker.types.stop_labeling_job_request.StopLabelingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["labeling_job_name"] = labeling_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24754,11 +24764,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_mlflow_tracking_server_request.StopMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_server_name"] = tracking_server_name
+        input_: aws_sdk_sagemaker.types.stop_mlflow_tracking_server_request.StopMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_server_name"] = tracking_server_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24790,11 +24800,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_monitoring_schedule_request.StopMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["monitoring_schedule_name"] = monitoring_schedule_name
+        input_: aws_sdk_sagemaker.types.stop_monitoring_schedule_request.StopMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["monitoring_schedule_name"] = monitoring_schedule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24826,11 +24836,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_notebook_instance_input.StopNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_name"] = notebook_instance_name
+        input_: aws_sdk_sagemaker.types.stop_notebook_instance_input.StopNotebookInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_name"] = notebook_instance_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24862,11 +24872,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_optimization_job_request.StopOptimizationJobRequest = {}  # type: ignore[typeddict-item]
-        input["optimization_job_name"] = optimization_job_name
+        input_: aws_sdk_sagemaker.types.stop_optimization_job_request.StopOptimizationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["optimization_job_name"] = optimization_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24902,12 +24912,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_pipeline_execution_request.StopPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_execution_arn"] = pipeline_execution_arn
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_sagemaker.types.stop_pipeline_execution_request.StopPipelineExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_execution_arn"] = pipeline_execution_arn
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24939,11 +24949,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_processing_job_request.StopProcessingJobRequest = {}  # type: ignore[typeddict-item]
-        input["processing_job_name"] = processing_job_name
+        input_: aws_sdk_sagemaker.types.stop_processing_job_request.StopProcessingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["processing_job_name"] = processing_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -24975,11 +24985,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_training_job_request.StopTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input["training_job_name"] = training_job_name
+        input_: aws_sdk_sagemaker.types.stop_training_job_request.StopTrainingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["training_job_name"] = training_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25011,11 +25021,11 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.stop_transform_job_request.StopTransformJobRequest = {}  # type: ignore[typeddict-item]
-        input["transform_job_name"] = transform_job_name
+        input_: aws_sdk_sagemaker.types.stop_transform_job_request.StopTransformJobRequest = {}  # type: ignore[typeddict-item]
+        input_["transform_job_name"] = transform_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25063,19 +25073,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_action_request.UpdateActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_name"] = action_name
+        input_: aws_sdk_sagemaker.types.update_action_request.UpdateActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_name"] = action_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
         if properties_to_remove is not None:
-            input["properties_to_remove"] = properties_to_remove
+            input_["properties_to_remove"] = properties_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25121,17 +25131,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_app_image_config_request.UpdateAppImageConfigRequest = {}  # type: ignore[typeddict-item]
-        input["app_image_config_name"] = app_image_config_name
+        input_: aws_sdk_sagemaker.types.update_app_image_config_request.UpdateAppImageConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["app_image_config_name"] = app_image_config_name
         if kernel_gateway_image_config is not None:
-            input["kernel_gateway_image_config"] = kernel_gateway_image_config
+            input_["kernel_gateway_image_config"] = kernel_gateway_image_config
         if jupyter_lab_app_image_config is not None:
-            input["jupyter_lab_app_image_config"] = jupyter_lab_app_image_config
+            input_["jupyter_lab_app_image_config"] = jupyter_lab_app_image_config
         if code_editor_app_image_config is not None:
-            input["code_editor_app_image_config"] = code_editor_app_image_config
+            input_["code_editor_app_image_config"] = code_editor_app_image_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25177,17 +25187,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_artifact_request.UpdateArtifactRequest = {}  # type: ignore[typeddict-item]
-        input["artifact_arn"] = artifact_arn
+        input_: aws_sdk_sagemaker.types.update_artifact_request.UpdateArtifactRequest = {}  # type: ignore[typeddict-item]
+        input_["artifact_arn"] = artifact_arn
         if artifact_name is not None:
-            input["artifact_name"] = artifact_name
+            input_["artifact_name"] = artifact_name
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
         if properties_to_remove is not None:
-            input["properties_to_remove"] = properties_to_remove
+            input_["properties_to_remove"] = properties_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25258,33 +25268,33 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if instance_groups is not None:
-            input["instance_groups"] = instance_groups
+            input_["instance_groups"] = instance_groups
         if restricted_instance_groups is not None:
-            input["restricted_instance_groups"] = restricted_instance_groups
+            input_["restricted_instance_groups"] = restricted_instance_groups
         if restricted_instance_groups_config is not None:
-            input["restricted_instance_groups_config"] = (
+            input_["restricted_instance_groups_config"] = (
                 restricted_instance_groups_config
             )
         if tiered_storage_config is not None:
-            input["tiered_storage_config"] = tiered_storage_config
+            input_["tiered_storage_config"] = tiered_storage_config
         if node_recovery is not None:
-            input["node_recovery"] = node_recovery
+            input_["node_recovery"] = node_recovery
         if instance_groups_to_delete is not None:
-            input["instance_groups_to_delete"] = instance_groups_to_delete
+            input_["instance_groups_to_delete"] = instance_groups_to_delete
         if node_provisioning_mode is not None:
-            input["node_provisioning_mode"] = node_provisioning_mode
+            input_["node_provisioning_mode"] = node_provisioning_mode
         if cluster_role is not None:
-            input["cluster_role"] = cluster_role
+            input_["cluster_role"] = cluster_role
         if auto_scaling is not None:
-            input["auto_scaling"] = auto_scaling
+            input_["auto_scaling"] = auto_scaling
         if orchestrator is not None:
-            input["orchestrator"] = orchestrator
+            input_["orchestrator"] = orchestrator
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25328,16 +25338,16 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_cluster_scheduler_config_request.UpdateClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_scheduler_config_id"] = cluster_scheduler_config_id
-        input["target_version"] = target_version
+        input_: aws_sdk_sagemaker.types.update_cluster_scheduler_config_request.UpdateClusterSchedulerConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_scheduler_config_id"] = cluster_scheduler_config_id
+        input_["target_version"] = target_version
         if scheduler_config is not None:
-            input["scheduler_config"] = scheduler_config
+            input_["scheduler_config"] = scheduler_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25381,17 +25391,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_cluster_software_request.UpdateClusterSoftwareRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_sagemaker.types.update_cluster_software_request.UpdateClusterSoftwareRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if instance_groups is not None:
-            input["instance_groups"] = instance_groups
+            input_["instance_groups"] = instance_groups
         if deployment_config is not None:
-            input["deployment_config"] = deployment_config
+            input_["deployment_config"] = deployment_config
         if image_id is not None:
-            input["image_id"] = image_id
+            input_["image_id"] = image_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25429,13 +25439,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_code_repository_input.UpdateCodeRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["code_repository_name"] = code_repository_name
+        input_: aws_sdk_sagemaker.types.update_code_repository_input.UpdateCodeRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["code_repository_name"] = code_repository_name
         if git_config is not None:
-            input["git_config"] = git_config
+            input_["git_config"] = git_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25487,20 +25497,20 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_compute_quota_request.UpdateComputeQuotaRequest = {}  # type: ignore[typeddict-item]
-        input["compute_quota_id"] = compute_quota_id
-        input["target_version"] = target_version
+        input_: aws_sdk_sagemaker.types.update_compute_quota_request.UpdateComputeQuotaRequest = {}  # type: ignore[typeddict-item]
+        input_["compute_quota_id"] = compute_quota_id
+        input_["target_version"] = target_version
         if compute_quota_config is not None:
-            input["compute_quota_config"] = compute_quota_config
+            input_["compute_quota_config"] = compute_quota_config
         if compute_quota_target is not None:
-            input["compute_quota_target"] = compute_quota_target
+            input_["compute_quota_target"] = compute_quota_target
         if activation_state is not None:
-            input["activation_state"] = activation_state
+            input_["activation_state"] = activation_state
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25546,17 +25556,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_context_request.UpdateContextRequest = {}  # type: ignore[typeddict-item]
-        input["context_name"] = context_name
+        input_: aws_sdk_sagemaker.types.update_context_request.UpdateContextRequest = {}  # type: ignore[typeddict-item]
+        input_["context_name"] = context_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
         if properties_to_remove is not None:
-            input["properties_to_remove"] = properties_to_remove
+            input_["properties_to_remove"] = properties_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25600,18 +25610,18 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_device_fleet_request.UpdateDeviceFleetRequest = {}  # type: ignore[typeddict-item]
-        input["device_fleet_name"] = device_fleet_name
+        input_: aws_sdk_sagemaker.types.update_device_fleet_request.UpdateDeviceFleetRequest = {}  # type: ignore[typeddict-item]
+        input_["device_fleet_name"] = device_fleet_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
-        input["output_config"] = output_config
+            input_["description"] = description
+        input_["output_config"] = output_config
         if enable_iot_role_alias is not None:
-            input["enable_iot_role_alias"] = enable_iot_role_alias
+            input_["enable_iot_role_alias"] = enable_iot_role_alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25645,12 +25655,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_devices_request.UpdateDevicesRequest = {}  # type: ignore[typeddict-item]
-        input["device_fleet_name"] = device_fleet_name
-        input["devices"] = devices
+        input_: aws_sdk_sagemaker.types.update_devices_request.UpdateDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_["device_fleet_name"] = device_fleet_name
+        input_["devices"] = devices
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25716,29 +25726,29 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_sagemaker.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if default_user_settings is not None:
-            input["default_user_settings"] = default_user_settings
+            input_["default_user_settings"] = default_user_settings
         if domain_settings_for_update is not None:
-            input["domain_settings_for_update"] = domain_settings_for_update
+            input_["domain_settings_for_update"] = domain_settings_for_update
         if app_security_group_management is not None:
-            input["app_security_group_management"] = app_security_group_management
+            input_["app_security_group_management"] = app_security_group_management
         if default_space_settings is not None:
-            input["default_space_settings"] = default_space_settings
+            input_["default_space_settings"] = default_space_settings
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if app_network_access_type is not None:
-            input["app_network_access_type"] = app_network_access_type
+            input_["app_network_access_type"] = app_network_access_type
         if tag_propagation is not None:
-            input["tag_propagation"] = tag_propagation
+            input_["tag_propagation"] = tag_propagation
         if home_efs_file_system_creation is not None:
-            input["home_efs_file_system_creation"] = home_efs_file_system_creation
+            input_["home_efs_file_system_creation"] = home_efs_file_system_creation
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25790,22 +25800,22 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_endpoint_input.UpdateEndpointInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["endpoint_config_name"] = endpoint_config_name
+        input_: aws_sdk_sagemaker.types.update_endpoint_input.UpdateEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["endpoint_config_name"] = endpoint_config_name
         if retain_all_variant_properties is not None:
-            input["retain_all_variant_properties"] = retain_all_variant_properties
+            input_["retain_all_variant_properties"] = retain_all_variant_properties
         if exclude_retained_variant_properties is not None:
-            input["exclude_retained_variant_properties"] = (
+            input_["exclude_retained_variant_properties"] = (
                 exclude_retained_variant_properties
             )
         if deployment_config is not None:
-            input["deployment_config"] = deployment_config
+            input_["deployment_config"] = deployment_config
         if retain_deployment_config is not None:
-            input["retain_deployment_config"] = retain_deployment_config
+            input_["retain_deployment_config"] = retain_deployment_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25841,12 +25851,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_endpoint_weights_and_capacities_input.UpdateEndpointWeightsAndCapacitiesInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["desired_weights_and_capacities"] = desired_weights_and_capacities
+        input_: aws_sdk_sagemaker.types.update_endpoint_weights_and_capacities_input.UpdateEndpointWeightsAndCapacitiesInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["desired_weights_and_capacities"] = desired_weights_and_capacities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25888,15 +25898,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_experiment_request.UpdateExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_name"] = experiment_name
+        input_: aws_sdk_sagemaker.types.update_experiment_request.UpdateExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_name"] = experiment_name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25941,17 +25951,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_feature_group_request.UpdateFeatureGroupRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
+        input_: aws_sdk_sagemaker.types.update_feature_group_request.UpdateFeatureGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
         if feature_additions is not None:
-            input["feature_additions"] = feature_additions
+            input_["feature_additions"] = feature_additions
         if online_store_config is not None:
-            input["online_store_config"] = online_store_config
+            input_["online_store_config"] = online_store_config
         if throughput_config is not None:
-            input["throughput_config"] = throughput_config
+            input_["throughput_config"] = throughput_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -25997,18 +26007,18 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_feature_metadata_request.UpdateFeatureMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
-        input["feature_name"] = feature_name
+        input_: aws_sdk_sagemaker.types.update_feature_metadata_request.UpdateFeatureMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
+        input_["feature_name"] = feature_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parameter_additions is not None:
-            input["parameter_additions"] = parameter_additions
+            input_["parameter_additions"] = parameter_additions
         if parameter_removals is not None:
-            input["parameter_removals"] = parameter_removals
+            input_["parameter_removals"] = parameter_removals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26054,17 +26064,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_hub_request.UpdateHubRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
+        input_: aws_sdk_sagemaker.types.update_hub_request.UpdateHubRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
         if hub_description is not None:
-            input["hub_description"] = hub_description
+            input_["hub_description"] = hub_description
         if hub_display_name is not None:
-            input["hub_display_name"] = hub_display_name
+            input_["hub_display_name"] = hub_display_name
         if hub_search_keywords is not None:
-            input["hub_search_keywords"] = hub_search_keywords
+            input_["hub_search_keywords"] = hub_search_keywords
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26124,24 +26134,24 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_hub_content_request.UpdateHubContentRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_content_name"] = hub_content_name
-        input["hub_content_type"] = hub_content_type
-        input["hub_content_version"] = hub_content_version
+        input_: aws_sdk_sagemaker.types.update_hub_content_request.UpdateHubContentRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_content_name"] = hub_content_name
+        input_["hub_content_type"] = hub_content_type
+        input_["hub_content_version"] = hub_content_version
         if hub_content_display_name is not None:
-            input["hub_content_display_name"] = hub_content_display_name
+            input_["hub_content_display_name"] = hub_content_display_name
         if hub_content_description is not None:
-            input["hub_content_description"] = hub_content_description
+            input_["hub_content_description"] = hub_content_description
         if hub_content_markdown is not None:
-            input["hub_content_markdown"] = hub_content_markdown
+            input_["hub_content_markdown"] = hub_content_markdown
         if hub_content_search_keywords is not None:
-            input["hub_content_search_keywords"] = hub_content_search_keywords
+            input_["hub_content_search_keywords"] = hub_content_search_keywords
         if support_status is not None:
-            input["support_status"] = support_status
+            input_["support_status"] = support_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26183,15 +26193,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_hub_content_reference_request.UpdateHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
-        input["hub_name"] = hub_name
-        input["hub_content_name"] = hub_content_name
-        input["hub_content_type"] = hub_content_type
+        input_: aws_sdk_sagemaker.types.update_hub_content_reference_request.UpdateHubContentReferenceRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_name"] = hub_name
+        input_["hub_content_name"] = hub_content_name
+        input_["hub_content_type"] = hub_content_type
         if min_version is not None:
-            input["min_version"] = min_version
+            input_["min_version"] = min_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26239,19 +26249,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_image_request.UpdateImageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker.types.update_image_request.UpdateImageRequest = {}  # type: ignore[typeddict-item]
         if delete_properties is not None:
-            input["delete_properties"] = delete_properties
+            input_["delete_properties"] = delete_properties
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
-        input["image_name"] = image_name
+            input_["display_name"] = display_name
+        input_["image_name"] = image_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26323,33 +26333,33 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_image_version_request.UpdateImageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["image_name"] = image_name
+        input_: aws_sdk_sagemaker.types.update_image_version_request.UpdateImageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["image_name"] = image_name
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if aliases_to_add is not None:
-            input["aliases_to_add"] = aliases_to_add
+            input_["aliases_to_add"] = aliases_to_add
         if aliases_to_delete is not None:
-            input["aliases_to_delete"] = aliases_to_delete
+            input_["aliases_to_delete"] = aliases_to_delete
         if vendor_guidance is not None:
-            input["vendor_guidance"] = vendor_guidance
+            input_["vendor_guidance"] = vendor_guidance
         if job_type is not None:
-            input["job_type"] = job_type
+            input_["job_type"] = job_type
         if ml_framework is not None:
-            input["ml_framework"] = ml_framework
+            input_["ml_framework"] = ml_framework
         if programming_lang is not None:
-            input["programming_lang"] = programming_lang
+            input_["programming_lang"] = programming_lang
         if processor is not None:
-            input["processor"] = processor
+            input_["processor"] = processor
         if horovod is not None:
-            input["horovod"] = horovod
+            input_["horovod"] = horovod
         if release_notes is not None:
-            input["release_notes"] = release_notes
+            input_["release_notes"] = release_notes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26399,19 +26409,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_inference_component_input.UpdateInferenceComponentInput = {}  # type: ignore[typeddict-item]
-        input["inference_component_name"] = inference_component_name
+        input_: aws_sdk_sagemaker.types.update_inference_component_input.UpdateInferenceComponentInput = {}  # type: ignore[typeddict-item]
+        input_["inference_component_name"] = inference_component_name
         if specification is not None:
-            input["specification"] = specification
+            input_["specification"] = specification
         if specifications is not None:
-            input["specifications"] = specifications
+            input_["specifications"] = specifications
         if runtime_config is not None:
-            input["runtime_config"] = runtime_config
+            input_["runtime_config"] = runtime_config
         if deployment_config is not None:
-            input["deployment_config"] = deployment_config
+            input_["deployment_config"] = deployment_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26447,12 +26457,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_inference_component_runtime_config_input.UpdateInferenceComponentRuntimeConfigInput = {}  # type: ignore[typeddict-item]
-        input["inference_component_name"] = inference_component_name
-        input["desired_runtime_config"] = desired_runtime_config
+        input_: aws_sdk_sagemaker.types.update_inference_component_runtime_config_input.UpdateInferenceComponentRuntimeConfigInput = {}  # type: ignore[typeddict-item]
+        input_["inference_component_name"] = inference_component_name
+        input_["desired_runtime_config"] = desired_runtime_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26506,21 +26516,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_inference_experiment_request.UpdateInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker.types.update_inference_experiment_request.UpdateInferenceExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if model_variants is not None:
-            input["model_variants"] = model_variants
+            input_["model_variants"] = model_variants
         if data_storage_config is not None:
-            input["data_storage_config"] = data_storage_config
+            input_["data_storage_config"] = data_storage_config
         if shadow_mode_config is not None:
-            input["shadow_mode_config"] = shadow_mode_config
+            input_["shadow_mode_config"] = shadow_mode_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26574,23 +26584,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_mlflow_app_request.UpdateMlflowAppRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker.types.update_mlflow_app_request.UpdateMlflowAppRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if artifact_store_uri is not None:
-            input["artifact_store_uri"] = artifact_store_uri
+            input_["artifact_store_uri"] = artifact_store_uri
         if model_registration_mode is not None:
-            input["model_registration_mode"] = model_registration_mode
+            input_["model_registration_mode"] = model_registration_mode
         if weekly_maintenance_window_start is not None:
-            input["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+            input_["weekly_maintenance_window_start"] = weekly_maintenance_window_start
         if default_domain_id_list is not None:
-            input["default_domain_id_list"] = default_domain_id_list
+            input_["default_domain_id_list"] = default_domain_id_list
         if account_default_status is not None:
-            input["account_default_status"] = account_default_status
+            input_["account_default_status"] = account_default_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26646,23 +26656,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_mlflow_tracking_server_request.UpdateMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_server_name"] = tracking_server_name
+        input_: aws_sdk_sagemaker.types.update_mlflow_tracking_server_request.UpdateMlflowTrackingServerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_server_name"] = tracking_server_name
         if artifact_store_uri is not None:
-            input["artifact_store_uri"] = artifact_store_uri
+            input_["artifact_store_uri"] = artifact_store_uri
         if tracking_server_size is not None:
-            input["tracking_server_size"] = tracking_server_size
+            input_["tracking_server_size"] = tracking_server_size
         if automatic_model_registration is not None:
-            input["automatic_model_registration"] = automatic_model_registration
+            input_["automatic_model_registration"] = automatic_model_registration
         if weekly_maintenance_window_start is not None:
-            input["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+            input_["weekly_maintenance_window_start"] = weekly_maintenance_window_start
         if s3_bucket_owner_account_id is not None:
-            input["s3_bucket_owner_account_id"] = s3_bucket_owner_account_id
+            input_["s3_bucket_owner_account_id"] = s3_bucket_owner_account_id
         if s3_bucket_owner_verification is not None:
-            input["s3_bucket_owner_verification"] = s3_bucket_owner_verification
+            input_["s3_bucket_owner_verification"] = s3_bucket_owner_verification
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26704,15 +26714,15 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_model_card_request.UpdateModelCardRequest = {}  # type: ignore[typeddict-item]
-        input["model_card_name"] = model_card_name
+        input_: aws_sdk_sagemaker.types.update_model_card_request.UpdateModelCardRequest = {}  # type: ignore[typeddict-item]
+        input_["model_card_name"] = model_card_name
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
         if model_card_status is not None:
-            input["model_card_status"] = model_card_status
+            input_["model_card_status"] = model_card_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26790,37 +26800,37 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_model_package_input.UpdateModelPackageInput = {}  # type: ignore[typeddict-item]
-        input["model_package_arn"] = model_package_arn
+        input_: aws_sdk_sagemaker.types.update_model_package_input.UpdateModelPackageInput = {}  # type: ignore[typeddict-item]
+        input_["model_package_arn"] = model_package_arn
         if model_approval_status is not None:
-            input["model_approval_status"] = model_approval_status
+            input_["model_approval_status"] = model_approval_status
         if model_package_registration_type is not None:
-            input["model_package_registration_type"] = model_package_registration_type
+            input_["model_package_registration_type"] = model_package_registration_type
         if approval_description is not None:
-            input["approval_description"] = approval_description
+            input_["approval_description"] = approval_description
         if customer_metadata_properties is not None:
-            input["customer_metadata_properties"] = customer_metadata_properties
+            input_["customer_metadata_properties"] = customer_metadata_properties
         if customer_metadata_properties_to_remove is not None:
-            input["customer_metadata_properties_to_remove"] = (
+            input_["customer_metadata_properties_to_remove"] = (
                 customer_metadata_properties_to_remove
             )
         if additional_inference_specifications_to_add is not None:
-            input["additional_inference_specifications_to_add"] = (
+            input_["additional_inference_specifications_to_add"] = (
                 additional_inference_specifications_to_add
             )
         if inference_specification is not None:
-            input["inference_specification"] = inference_specification
+            input_["inference_specification"] = inference_specification
         if source_uri is not None:
-            input["source_uri"] = source_uri
+            input_["source_uri"] = source_uri
         if model_card is not None:
-            input["model_card"] = model_card
+            input_["model_card"] = model_card
         if model_life_cycle is not None:
-            input["model_life_cycle"] = model_life_cycle
+            input_["model_life_cycle"] = model_life_cycle
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26860,14 +26870,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_monitoring_alert_request.UpdateMonitoringAlertRequest = {}  # type: ignore[typeddict-item]
-        input["monitoring_schedule_name"] = monitoring_schedule_name
-        input["monitoring_alert_name"] = monitoring_alert_name
-        input["datapoints_to_alert"] = datapoints_to_alert
-        input["evaluation_period"] = evaluation_period
+        input_: aws_sdk_sagemaker.types.update_monitoring_alert_request.UpdateMonitoringAlertRequest = {}  # type: ignore[typeddict-item]
+        input_["monitoring_schedule_name"] = monitoring_schedule_name
+        input_["monitoring_alert_name"] = monitoring_alert_name
+        input_["datapoints_to_alert"] = datapoints_to_alert
+        input_["evaluation_period"] = evaluation_period
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26903,12 +26913,12 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_monitoring_schedule_request.UpdateMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["monitoring_schedule_name"] = monitoring_schedule_name
-        input["monitoring_schedule_config"] = monitoring_schedule_config
+        input_: aws_sdk_sagemaker.types.update_monitoring_schedule_request.UpdateMonitoringScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["monitoring_schedule_name"] = monitoring_schedule_name
+        input_["monitoring_schedule_config"] = monitoring_schedule_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -26998,47 +27008,47 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_notebook_instance_input.UpdateNotebookInstanceInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_name"] = notebook_instance_name
+        input_: aws_sdk_sagemaker.types.update_notebook_instance_input.UpdateNotebookInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_name"] = notebook_instance_name
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if platform_identifier is not None:
-            input["platform_identifier"] = platform_identifier
+            input_["platform_identifier"] = platform_identifier
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if lifecycle_config_name is not None:
-            input["lifecycle_config_name"] = lifecycle_config_name
+            input_["lifecycle_config_name"] = lifecycle_config_name
         if disassociate_lifecycle_config is not None:
-            input["disassociate_lifecycle_config"] = disassociate_lifecycle_config
+            input_["disassociate_lifecycle_config"] = disassociate_lifecycle_config
         if volume_size_in_gb is not None:
-            input["volume_size_in_gb"] = volume_size_in_gb
+            input_["volume_size_in_gb"] = volume_size_in_gb
         if default_code_repository is not None:
-            input["default_code_repository"] = default_code_repository
+            input_["default_code_repository"] = default_code_repository
         if additional_code_repositories is not None:
-            input["additional_code_repositories"] = additional_code_repositories
+            input_["additional_code_repositories"] = additional_code_repositories
         if accelerator_types is not None:
-            input["accelerator_types"] = accelerator_types
+            input_["accelerator_types"] = accelerator_types
         if disassociate_accelerator_types is not None:
-            input["disassociate_accelerator_types"] = disassociate_accelerator_types
+            input_["disassociate_accelerator_types"] = disassociate_accelerator_types
         if disassociate_default_code_repository is not None:
-            input["disassociate_default_code_repository"] = (
+            input_["disassociate_default_code_repository"] = (
                 disassociate_default_code_repository
             )
         if disassociate_additional_code_repositories is not None:
-            input["disassociate_additional_code_repositories"] = (
+            input_["disassociate_additional_code_repositories"] = (
                 disassociate_additional_code_repositories
             )
         if root_access is not None:
-            input["root_access"] = root_access
+            input_["root_access"] = root_access
         if instance_metadata_service_configuration is not None:
-            input["instance_metadata_service_configuration"] = (
+            input_["instance_metadata_service_configuration"] = (
                 instance_metadata_service_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27080,17 +27090,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_notebook_instance_lifecycle_config_input.UpdateNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
-        input["notebook_instance_lifecycle_config_name"] = (
+        input_: aws_sdk_sagemaker.types.update_notebook_instance_lifecycle_config_input.UpdateNotebookInstanceLifecycleConfigInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_instance_lifecycle_config_name"] = (
             notebook_instance_lifecycle_config_name
         )
         if on_create is not None:
-            input["on_create"] = on_create
+            input_["on_create"] = on_create
         if on_start is not None:
-            input["on_start"] = on_start
+            input_["on_start"] = on_start
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27154,31 +27164,31 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_partner_app_request.UpdatePartnerAppRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker.types.update_partner_app_request.UpdatePartnerAppRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if maintenance_config is not None:
-            input["maintenance_config"] = maintenance_config
+            input_["maintenance_config"] = maintenance_config
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if application_config is not None:
-            input["application_config"] = application_config
+            input_["application_config"] = application_config
         if enable_iam_session_based_identity is not None:
-            input["enable_iam_session_based_identity"] = (
+            input_["enable_iam_session_based_identity"] = (
                 enable_iam_session_based_identity
             )
         if enable_auto_minor_version_upgrade is not None:
-            input["enable_auto_minor_version_upgrade"] = (
+            input_["enable_auto_minor_version_upgrade"] = (
                 enable_auto_minor_version_upgrade
             )
         if app_version is not None:
-            input["app_version"] = app_version
+            input_["app_version"] = app_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27234,23 +27244,23 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_pipeline_request.UpdatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_sagemaker.types.update_pipeline_request.UpdatePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if pipeline_display_name is not None:
-            input["pipeline_display_name"] = pipeline_display_name
+            input_["pipeline_display_name"] = pipeline_display_name
         if pipeline_definition is not None:
-            input["pipeline_definition"] = pipeline_definition
+            input_["pipeline_definition"] = pipeline_definition
         if pipeline_definition_s3_location is not None:
-            input["pipeline_definition_s3_location"] = pipeline_definition_s3_location
+            input_["pipeline_definition_s3_location"] = pipeline_definition_s3_location
         if pipeline_description is not None:
-            input["pipeline_description"] = pipeline_description
+            input_["pipeline_description"] = pipeline_description
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if parallelism_configuration is not None:
-            input["parallelism_configuration"] = parallelism_configuration
+            input_["parallelism_configuration"] = parallelism_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27296,17 +27306,17 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_pipeline_execution_request.UpdatePipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_execution_arn"] = pipeline_execution_arn
+        input_: aws_sdk_sagemaker.types.update_pipeline_execution_request.UpdatePipelineExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_execution_arn"] = pipeline_execution_arn
         if pipeline_execution_description is not None:
-            input["pipeline_execution_description"] = pipeline_execution_description
+            input_["pipeline_execution_description"] = pipeline_execution_description
         if pipeline_execution_display_name is not None:
-            input["pipeline_execution_display_name"] = pipeline_execution_display_name
+            input_["pipeline_execution_display_name"] = pipeline_execution_display_name
         if parallelism_configuration is not None:
-            input["parallelism_configuration"] = parallelism_configuration
+            input_["parallelism_configuration"] = parallelism_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27350,16 +27360,16 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_pipeline_version_request.UpdatePipelineVersionRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_arn"] = pipeline_arn
-        input["pipeline_version_id"] = pipeline_version_id
+        input_: aws_sdk_sagemaker.types.update_pipeline_version_request.UpdatePipelineVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_arn"] = pipeline_arn
+        input_["pipeline_version_id"] = pipeline_version_id
         if pipeline_version_display_name is not None:
-            input["pipeline_version_display_name"] = pipeline_version_display_name
+            input_["pipeline_version_display_name"] = pipeline_version_display_name
         if pipeline_version_description is not None:
-            input["pipeline_version_description"] = pipeline_version_description
+            input_["pipeline_version_description"] = pipeline_version_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27407,21 +27417,21 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_project_input.UpdateProjectInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_sagemaker.types.update_project_input.UpdateProjectInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if project_description is not None:
-            input["project_description"] = project_description
+            input_["project_description"] = project_description
         if service_catalog_provisioning_update_details is not None:
-            input["service_catalog_provisioning_update_details"] = (
+            input_["service_catalog_provisioning_update_details"] = (
                 service_catalog_provisioning_update_details
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if template_providers_to_update is not None:
-            input["template_providers_to_update"] = template_providers_to_update
+            input_["template_providers_to_update"] = template_providers_to_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27465,16 +27475,16 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_space_request.UpdateSpaceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["space_name"] = space_name
+        input_: aws_sdk_sagemaker.types.update_space_request.UpdateSpaceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["space_name"] = space_name
         if space_settings is not None:
-            input["space_settings"] = space_settings
+            input_["space_settings"] = space_settings
         if space_display_name is not None:
-            input["space_display_name"] = space_display_name
+            input_["space_display_name"] = space_display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27526,19 +27536,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_training_job_request.UpdateTrainingJobRequest = {}  # type: ignore[typeddict-item]
-        input["training_job_name"] = training_job_name
+        input_: aws_sdk_sagemaker.types.update_training_job_request.UpdateTrainingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["training_job_name"] = training_job_name
         if profiler_config is not None:
-            input["profiler_config"] = profiler_config
+            input_["profiler_config"] = profiler_config
         if profiler_rule_configurations is not None:
-            input["profiler_rule_configurations"] = profiler_rule_configurations
+            input_["profiler_rule_configurations"] = profiler_rule_configurations
         if resource_config is not None:
-            input["resource_config"] = resource_config
+            input_["resource_config"] = resource_config
         if remote_debug_config is not None:
-            input["remote_debug_config"] = remote_debug_config
+            input_["remote_debug_config"] = remote_debug_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27576,13 +27586,13 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_trial_request.UpdateTrialRequest = {}  # type: ignore[typeddict-item]
-        input["trial_name"] = trial_name
+        input_: aws_sdk_sagemaker.types.update_trial_request.UpdateTrialRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_name"] = trial_name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27652,31 +27662,31 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_trial_component_request.UpdateTrialComponentRequest = {}  # type: ignore[typeddict-item]
-        input["trial_component_name"] = trial_component_name
+        input_: aws_sdk_sagemaker.types.update_trial_component_request.UpdateTrialComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["trial_component_name"] = trial_component_name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if parameters_to_remove is not None:
-            input["parameters_to_remove"] = parameters_to_remove
+            input_["parameters_to_remove"] = parameters_to_remove
         if input_artifacts is not None:
-            input["input_artifacts"] = input_artifacts
+            input_["input_artifacts"] = input_artifacts
         if input_artifacts_to_remove is not None:
-            input["input_artifacts_to_remove"] = input_artifacts_to_remove
+            input_["input_artifacts_to_remove"] = input_artifacts_to_remove
         if output_artifacts is not None:
-            input["output_artifacts"] = output_artifacts
+            input_["output_artifacts"] = output_artifacts
         if output_artifacts_to_remove is not None:
-            input["output_artifacts_to_remove"] = output_artifacts_to_remove
+            input_["output_artifacts_to_remove"] = output_artifacts_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27718,14 +27728,14 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_user_profile_request.UpdateUserProfileRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["user_profile_name"] = user_profile_name
+        input_: aws_sdk_sagemaker.types.update_user_profile_request.UpdateUserProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["user_profile_name"] = user_profile_name
         if user_settings is not None:
-            input["user_settings"] = user_settings
+            input_["user_settings"] = user_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27773,19 +27783,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_workforce_request.UpdateWorkforceRequest = {}  # type: ignore[typeddict-item]
-        input["workforce_name"] = workforce_name
+        input_: aws_sdk_sagemaker.types.update_workforce_request.UpdateWorkforceRequest = {}  # type: ignore[typeddict-item]
+        input_["workforce_name"] = workforce_name
         if source_ip_config is not None:
-            input["source_ip_config"] = source_ip_config
+            input_["source_ip_config"] = source_ip_config
         if oidc_config is not None:
-            input["oidc_config"] = oidc_config
+            input_["oidc_config"] = oidc_config
         if workforce_vpc_config is not None:
-            input["workforce_vpc_config"] = workforce_vpc_config
+            input_["workforce_vpc_config"] = workforce_vpc_config
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -27833,19 +27843,19 @@ class AsyncSageMakerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker.types.update_workteam_request.UpdateWorkteamRequest = {}  # type: ignore[typeddict-item]
-        input["workteam_name"] = workteam_name
+        input_: aws_sdk_sagemaker.types.update_workteam_request.UpdateWorkteamRequest = {}  # type: ignore[typeddict-item]
+        input_["workteam_name"] = workteam_name
         if member_definitions is not None:
-            input["member_definitions"] = member_definitions
+            input_["member_definitions"] = member_definitions
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if notification_configuration is not None:
-            input["notification_configuration"] = notification_configuration
+            input_["notification_configuration"] = notification_configuration
         if worker_access_configuration is not None:
-            input["worker_access_configuration"] = worker_access_configuration
+            input_["worker_access_configuration"] = worker_access_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

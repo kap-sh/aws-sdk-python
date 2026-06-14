@@ -72,18 +72,18 @@ class LayerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_layers_request.ListLayersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_layers_request.ListLayersRequest = {}  # type: ignore[typeddict-item]
         if compatible_runtime is not None:
-            input["compatible_runtime"] = compatible_runtime
+            input_["compatible_runtime"] = compatible_runtime
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if compatible_architecture is not None:
-            input["compatible_architecture"] = compatible_architecture
+            input_["compatible_architecture"] = compatible_architecture
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -138,18 +138,18 @@ class AsyncLayerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_layers_request.ListLayersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_layers_request.ListLayersRequest = {}  # type: ignore[typeddict-item]
         if compatible_runtime is not None:
-            input["compatible_runtime"] = compatible_runtime
+            input_["compatible_runtime"] = compatible_runtime
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if compatible_architecture is not None:
-            input["compatible_architecture"] = compatible_architecture
+            input_["compatible_architecture"] = compatible_architecture
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

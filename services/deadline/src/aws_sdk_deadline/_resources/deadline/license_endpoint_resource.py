@@ -85,17 +85,17 @@ class LicenseEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_license_endpoint_request.CreateLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.create_license_endpoint_request.CreateLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
+            input_["client_token"] = client_token
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -128,11 +128,11 @@ class LicenseEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_license_endpoint_request.GetLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
+        input_: aws_sdk_deadline.types.get_license_endpoint_request.GetLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -165,11 +165,11 @@ class LicenseEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_license_endpoint_request.DeleteLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
+        input_: aws_sdk_deadline.types.delete_license_endpoint_request.DeleteLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,14 +204,14 @@ class LicenseEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_license_endpoints_request.ListLicenseEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.list_license_endpoints_request.ListLicenseEndpointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,12 +246,12 @@ class LicenseEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_metered_product_request.DeleteMeteredProductRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
-        input["product_id"] = product_id
+        input_: aws_sdk_deadline.types.delete_metered_product_request.DeleteMeteredProductRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
+        input_["product_id"] = product_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,15 +288,15 @@ class LicenseEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_metered_products_request.ListMeteredProductsRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
+        input_: aws_sdk_deadline.types.list_metered_products_request.ListMeteredProductsRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,12 +333,12 @@ class LicenseEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.put_metered_product_request.PutMeteredProductRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
-        input["product_id"] = product_id
+        input_: aws_sdk_deadline.types.put_metered_product_request.PutMeteredProductRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
+        input_["product_id"] = product_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,17 +387,17 @@ class AsyncLicenseEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_license_endpoint_request.CreateLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.create_license_endpoint_request.CreateLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
+            input_["client_token"] = client_token
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -431,11 +431,11 @@ class AsyncLicenseEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_license_endpoint_request.GetLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
+        input_: aws_sdk_deadline.types.get_license_endpoint_request.GetLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -469,11 +469,11 @@ class AsyncLicenseEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_license_endpoint_request.DeleteLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
+        input_: aws_sdk_deadline.types.delete_license_endpoint_request.DeleteLicenseEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,14 +509,14 @@ class AsyncLicenseEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_license_endpoints_request.ListLicenseEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.list_license_endpoints_request.ListLicenseEndpointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,12 +552,12 @@ class AsyncLicenseEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_metered_product_request.DeleteMeteredProductRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
-        input["product_id"] = product_id
+        input_: aws_sdk_deadline.types.delete_metered_product_request.DeleteMeteredProductRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
+        input_["product_id"] = product_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,15 +595,15 @@ class AsyncLicenseEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_metered_products_request.ListMeteredProductsRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
+        input_: aws_sdk_deadline.types.list_metered_products_request.ListMeteredProductsRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -641,12 +641,12 @@ class AsyncLicenseEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.put_metered_product_request.PutMeteredProductRequest = {}  # type: ignore[typeddict-item]
-        input["license_endpoint_id"] = license_endpoint_id
-        input["product_id"] = product_id
+        input_: aws_sdk_deadline.types.put_metered_product_request.PutMeteredProductRequest = {}  # type: ignore[typeddict-item]
+        input_["license_endpoint_id"] = license_endpoint_id
+        input_["product_id"] = product_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

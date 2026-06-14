@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_secrets_manager._auth._signers
+import aws_sdk_secrets_manager._auth._sigv4
 from aws_sdk_secrets_manager._auth._identity import Credentials
 from aws_sdk_secrets_manager._auth._providers import (
     CredentialsProvider,
@@ -256,18 +258,18 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.batch_get_secret_value_request.BatchGetSecretValueRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_secrets_manager.types.batch_get_secret_value_request.BatchGetSecretValueRequest = {}  # type: ignore[typeddict-item]
         if secret_id_list is not None:
-            input["secret_id_list"] = secret_id_list
+            input_["secret_id_list"] = secret_id_list
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -307,11 +309,11 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.cancel_rotate_secret_request.CancelRotateSecretRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.cancel_rotate_secret_request.CancelRotateSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,29 +389,29 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.create_secret_request.CreateSecretRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_secrets_manager.types.create_secret_request.CreateSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if secret_binary is not None:
-            input["secret_binary"] = secret_binary
+            input_["secret_binary"] = secret_binary
         if secret_string is not None:
-            input["secret_string"] = secret_string
+            input_["secret_string"] = secret_string
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if add_replica_regions is not None:
-            input["add_replica_regions"] = add_replica_regions
+            input_["add_replica_regions"] = add_replica_regions
         if force_overwrite_replica_secret is not None:
-            input["force_overwrite_replica_secret"] = force_overwrite_replica_secret
+            input_["force_overwrite_replica_secret"] = force_overwrite_replica_secret
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,11 +451,11 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -495,15 +497,15 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.delete_secret_request.DeleteSecretRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.delete_secret_request.DeleteSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
         if recovery_window_in_days is not None:
-            input["recovery_window_in_days"] = recovery_window_in_days
+            input_["recovery_window_in_days"] = recovery_window_in_days
         if force_delete_without_recovery is not None:
-            input["force_delete_without_recovery"] = force_delete_without_recovery
+            input_["force_delete_without_recovery"] = force_delete_without_recovery
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,11 +541,11 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.describe_secret_request.DescribeSecretRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.describe_secret_request.DescribeSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -613,26 +615,26 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.get_random_password_request.GetRandomPasswordRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_secrets_manager.types.get_random_password_request.GetRandomPasswordRequest = {}  # type: ignore[typeddict-item]
         if password_length is not None:
-            input["password_length"] = password_length
+            input_["password_length"] = password_length
         if exclude_characters is not None:
-            input["exclude_characters"] = exclude_characters
+            input_["exclude_characters"] = exclude_characters
         if exclude_numbers is not None:
-            input["exclude_numbers"] = exclude_numbers
+            input_["exclude_numbers"] = exclude_numbers
         if exclude_punctuation is not None:
-            input["exclude_punctuation"] = exclude_punctuation
+            input_["exclude_punctuation"] = exclude_punctuation
         if exclude_uppercase is not None:
-            input["exclude_uppercase"] = exclude_uppercase
+            input_["exclude_uppercase"] = exclude_uppercase
         if exclude_lowercase is not None:
-            input["exclude_lowercase"] = exclude_lowercase
+            input_["exclude_lowercase"] = exclude_lowercase
         if include_space is not None:
-            input["include_space"] = include_space
+            input_["include_space"] = include_space
         if require_each_included_type is not None:
-            input["require_each_included_type"] = require_each_included_type
+            input_["require_each_included_type"] = require_each_included_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -672,11 +674,11 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -726,15 +728,15 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.get_secret_value_request.GetSecretValueRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.get_secret_value_request.GetSecretValueRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if version_stage is not None:
-            input["version_stage"] = version_stage
+            input_["version_stage"] = version_stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -796,22 +798,22 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.list_secrets_request.ListSecretsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_secrets_manager.types.list_secrets_request.ListSecretsRequest = {}  # type: ignore[typeddict-item]
         if include_planned_deletion is not None:
-            input["include_planned_deletion"] = include_planned_deletion
+            input_["include_planned_deletion"] = include_planned_deletion
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -863,17 +865,17 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.list_secret_version_ids_request.ListSecretVersionIdsRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.list_secret_version_ids_request.ListSecretVersionIdsRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_deprecated is not None:
-            input["include_deprecated"] = include_deprecated
+            input_["include_deprecated"] = include_deprecated
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,14 +921,14 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
-        input["resource_policy"] = resource_policy
+        input_: aws_sdk_secrets_manager.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
+        input_["resource_policy"] = resource_policy
         if block_public_policy is not None:
-            input["block_public_policy"] = block_public_policy
+            input_["block_public_policy"] = block_public_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -988,21 +990,21 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.put_secret_value_request.PutSecretValueRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.put_secret_value_request.PutSecretValueRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if secret_binary is not None:
-            input["secret_binary"] = secret_binary
+            input_["secret_binary"] = secret_binary
         if secret_string is not None:
-            input["secret_string"] = secret_string
+            input_["secret_string"] = secret_string
         if version_stages is not None:
-            input["version_stages"] = version_stages
+            input_["version_stages"] = version_stages
         if rotation_token is not None:
-            input["rotation_token"] = rotation_token
+            input_["rotation_token"] = rotation_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1038,12 +1040,12 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.remove_regions_from_replication_request.RemoveRegionsFromReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
-        input["remove_replica_regions"] = remove_replica_regions
+        input_: aws_sdk_secrets_manager.types.remove_regions_from_replication_request.RemoveRegionsFromReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
+        input_["remove_replica_regions"] = remove_replica_regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1089,14 +1091,14 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.replicate_secret_to_regions_request.ReplicateSecretToRegionsRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
-        input["add_replica_regions"] = add_replica_regions
+        input_: aws_sdk_secrets_manager.types.replicate_secret_to_regions_request.ReplicateSecretToRegionsRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
+        input_["add_replica_regions"] = add_replica_regions
         if force_overwrite_replica_secret is not None:
-            input["force_overwrite_replica_secret"] = force_overwrite_replica_secret
+            input_["force_overwrite_replica_secret"] = force_overwrite_replica_secret
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1136,11 +1138,11 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.restore_secret_request.RestoreSecretRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.restore_secret_request.RestoreSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1208,27 +1210,27 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.rotate_secret_request.RotateSecretRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.rotate_secret_request.RotateSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if rotation_lambda_arn is not None:
-            input["rotation_lambda_arn"] = rotation_lambda_arn
+            input_["rotation_lambda_arn"] = rotation_lambda_arn
         if rotation_rules is not None:
-            input["rotation_rules"] = rotation_rules
+            input_["rotation_rules"] = rotation_rules
         if external_secret_rotation_metadata is not None:
-            input["external_secret_rotation_metadata"] = (
+            input_["external_secret_rotation_metadata"] = (
                 external_secret_rotation_metadata
             )
         if external_secret_rotation_role_arn is not None:
-            input["external_secret_rotation_role_arn"] = (
+            input_["external_secret_rotation_role_arn"] = (
                 external_secret_rotation_role_arn
             )
         if rotate_immediately is not None:
-            input["rotate_immediately"] = rotate_immediately
+            input_["rotate_immediately"] = rotate_immediately
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1262,11 +1264,11 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.stop_replication_to_replica_request.StopReplicationToReplicaRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.stop_replication_to_replica_request.StopReplicationToReplicaRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1306,12 +1308,12 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
-        input["tags"] = tags
+        input_: aws_sdk_secrets_manager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1351,12 +1353,12 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_secrets_manager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1428,23 +1430,23 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.update_secret_request.UpdateSecretRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
+        input_: aws_sdk_secrets_manager.types.update_secret_request.UpdateSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if secret_binary is not None:
-            input["secret_binary"] = secret_binary
+            input_["secret_binary"] = secret_binary
         if secret_string is not None:
-            input["secret_string"] = secret_string
+            input_["secret_string"] = secret_string
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1502,16 +1504,16 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.update_secret_version_stage_request.UpdateSecretVersionStageRequest = {}  # type: ignore[typeddict-item]
-        input["secret_id"] = secret_id
-        input["version_stage"] = version_stage
+        input_: aws_sdk_secrets_manager.types.update_secret_version_stage_request.UpdateSecretVersionStageRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_id"] = secret_id
+        input_["version_stage"] = version_stage
         if remove_from_version_id is not None:
-            input["remove_from_version_id"] = remove_from_version_id
+            input_["remove_from_version_id"] = remove_from_version_id
         if move_to_version_id is not None:
-            input["move_to_version_id"] = move_to_version_id
+            input_["move_to_version_id"] = move_to_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1555,13 +1557,13 @@ class AsyncSecretsManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_secrets_manager.types.validate_resource_policy_request.ValidateResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_secrets_manager.types.validate_resource_policy_request.ValidateResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if secret_id is not None:
-            input["secret_id"] = secret_id
-        input["resource_policy"] = resource_policy
+            input_["secret_id"] = secret_id
+        input_["resource_policy"] = resource_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

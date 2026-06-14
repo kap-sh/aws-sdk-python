@@ -128,18 +128,18 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.create_profiling_group_request.CreateProfilingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.create_profiling_group_request.CreateProfilingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
         if compute_platform is not None:
-            input["compute_platform"] = compute_platform
-        input["client_token"] = client_token
+            input_["compute_platform"] = compute_platform
+        input_["client_token"] = client_token
         if agent_orchestration_config is not None:
-            input["agent_orchestration_config"] = agent_orchestration_config
+            input_["agent_orchestration_config"] = agent_orchestration_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -172,11 +172,11 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.describe_profiling_group_request.DescribeProfilingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.describe_profiling_group_request.DescribeProfilingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,12 +211,12 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.update_profiling_group_request.UpdateProfilingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["agent_orchestration_config"] = agent_orchestration_config
+        input_: aws_sdk_codeguruprofiler.types.update_profiling_group_request.UpdateProfilingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["agent_orchestration_config"] = agent_orchestration_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,11 +249,11 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.delete_profiling_group_request.DeleteProfilingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.delete_profiling_group_request.DeleteProfilingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,16 +294,16 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.list_profiling_groups_request.ListProfilingGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguruprofiler.types.list_profiling_groups_request.ListProfilingGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if include_description is not None:
-            input["include_description"] = include_description
+            input_["include_description"] = include_description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,12 +338,12 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.add_notification_channels_request.AddNotificationChannelsRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["channels"] = channels
+        input_: aws_sdk_codeguruprofiler.types.add_notification_channels_request.AddNotificationChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["channels"] = channels
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,21 +392,21 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.batch_get_frame_metric_data_request.BatchGetFrameMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.batch_get_frame_metric_data_request.BatchGetFrameMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if target_resolution is not None:
-            input["target_resolution"] = target_resolution
+            input_["target_resolution"] = target_resolution
         if frame_metrics is not None:
-            input["frame_metrics"] = frame_metrics
+            input_["frame_metrics"] = frame_metrics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,15 +447,15 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.configure_agent_request.ConfigureAgentRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.configure_agent_request.ConfigureAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
         if fleet_instance_id is not None:
-            input["fleet_instance_id"] = fleet_instance_id
+            input_["fleet_instance_id"] = fleet_instance_id
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,11 +488,11 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -525,11 +525,11 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,21 +574,21 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_depth is not None:
-            input["max_depth"] = max_depth
+            input_["max_depth"] = max_depth
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -627,15 +627,15 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_codeguruprofiler.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -682,19 +682,19 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.list_findings_reports_request.ListFindingsReportsRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_codeguruprofiler.types.list_findings_reports_request.ListFindingsReportsRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if daily_reports_only is not None:
-            input["daily_reports_only"] = daily_reports_only
+            input_["daily_reports_only"] = daily_reports_only
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,20 +743,20 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.list_profile_times_request.ListProfileTimesRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["period"] = period
+        input_: aws_sdk_codeguruprofiler.types.list_profile_times_request.ListProfileTimesRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["period"] = period
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -797,15 +797,15 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.post_agent_profile_request.PostAgentProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["agent_profile"] = agent_profile
+        input_: aws_sdk_codeguruprofiler.types.post_agent_profile_request.PostAgentProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["agent_profile"] = agent_profile
         if profile_token is not None:
-            input["profile_token"] = profile_token
-        input["content_type"] = content_type
+            input_["profile_token"] = profile_token
+        input_["content_type"] = content_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,15 +846,15 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.put_permission_request.PutPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["action_group"] = action_group
-        input["principals"] = principals
+        input_: aws_sdk_codeguruprofiler.types.put_permission_request.PutPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["action_group"] = action_group
+        input_["principals"] = principals
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -889,12 +889,12 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.remove_notification_channel_request.RemoveNotificationChannelRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["channel_id"] = channel_id
+        input_: aws_sdk_codeguruprofiler.types.remove_notification_channel_request.RemoveNotificationChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["channel_id"] = channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -931,13 +931,13 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["action_group"] = action_group
-        input["revision_id"] = revision_id
+        input_: aws_sdk_codeguruprofiler.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["action_group"] = action_group
+        input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -978,15 +978,15 @@ class ProfilingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.submit_feedback_request.SubmitFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["anomaly_instance_id"] = anomaly_instance_id
-        input["type"] = type
+        input_: aws_sdk_codeguruprofiler.types.submit_feedback_request.SubmitFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["anomaly_instance_id"] = anomaly_instance_id
+        input_["type"] = type
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1037,18 +1037,18 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.create_profiling_group_request.CreateProfilingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.create_profiling_group_request.CreateProfilingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
         if compute_platform is not None:
-            input["compute_platform"] = compute_platform
-        input["client_token"] = client_token
+            input_["compute_platform"] = compute_platform
+        input_["client_token"] = client_token
         if agent_orchestration_config is not None:
-            input["agent_orchestration_config"] = agent_orchestration_config
+            input_["agent_orchestration_config"] = agent_orchestration_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1082,11 +1082,11 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.describe_profiling_group_request.DescribeProfilingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.describe_profiling_group_request.DescribeProfilingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,12 +1122,12 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.update_profiling_group_request.UpdateProfilingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["agent_orchestration_config"] = agent_orchestration_config
+        input_: aws_sdk_codeguruprofiler.types.update_profiling_group_request.UpdateProfilingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["agent_orchestration_config"] = agent_orchestration_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1161,11 +1161,11 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.delete_profiling_group_request.DeleteProfilingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.delete_profiling_group_request.DeleteProfilingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1207,16 +1207,16 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.list_profiling_groups_request.ListProfilingGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguruprofiler.types.list_profiling_groups_request.ListProfilingGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if include_description is not None:
-            input["include_description"] = include_description
+            input_["include_description"] = include_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1252,12 +1252,12 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.add_notification_channels_request.AddNotificationChannelsRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["channels"] = channels
+        input_: aws_sdk_codeguruprofiler.types.add_notification_channels_request.AddNotificationChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["channels"] = channels
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1307,21 +1307,21 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.batch_get_frame_metric_data_request.BatchGetFrameMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.batch_get_frame_metric_data_request.BatchGetFrameMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if target_resolution is not None:
-            input["target_resolution"] = target_resolution
+            input_["target_resolution"] = target_resolution
         if frame_metrics is not None:
-            input["frame_metrics"] = frame_metrics
+            input_["frame_metrics"] = frame_metrics
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1363,15 +1363,15 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.configure_agent_request.ConfigureAgentRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.configure_agent_request.ConfigureAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
         if fleet_instance_id is not None:
-            input["fleet_instance_id"] = fleet_instance_id
+            input_["fleet_instance_id"] = fleet_instance_id
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1405,11 +1405,11 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1443,11 +1443,11 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1493,21 +1493,21 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
+        input_: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_depth is not None:
-            input["max_depth"] = max_depth
+            input_["max_depth"] = max_depth
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1547,15 +1547,15 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_codeguruprofiler.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1603,19 +1603,19 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.list_findings_reports_request.ListFindingsReportsRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_codeguruprofiler.types.list_findings_reports_request.ListFindingsReportsRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if daily_reports_only is not None:
-            input["daily_reports_only"] = daily_reports_only
+            input_["daily_reports_only"] = daily_reports_only
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1665,20 +1665,20 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.list_profile_times_request.ListProfileTimesRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["period"] = period
+        input_: aws_sdk_codeguruprofiler.types.list_profile_times_request.ListProfileTimesRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["period"] = period
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1720,15 +1720,15 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.post_agent_profile_request.PostAgentProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["agent_profile"] = agent_profile
+        input_: aws_sdk_codeguruprofiler.types.post_agent_profile_request.PostAgentProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["agent_profile"] = agent_profile
         if profile_token is not None:
-            input["profile_token"] = profile_token
-        input["content_type"] = content_type
+            input_["profile_token"] = profile_token
+        input_["content_type"] = content_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1770,15 +1770,15 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.put_permission_request.PutPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["action_group"] = action_group
-        input["principals"] = principals
+        input_: aws_sdk_codeguruprofiler.types.put_permission_request.PutPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["action_group"] = action_group
+        input_["principals"] = principals
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1814,12 +1814,12 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.remove_notification_channel_request.RemoveNotificationChannelRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["channel_id"] = channel_id
+        input_: aws_sdk_codeguruprofiler.types.remove_notification_channel_request.RemoveNotificationChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["channel_id"] = channel_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1857,13 +1857,13 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["action_group"] = action_group
-        input["revision_id"] = revision_id
+        input_: aws_sdk_codeguruprofiler.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["action_group"] = action_group
+        input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1905,15 +1905,15 @@ class AsyncProfilingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_codeguruprofiler.types.submit_feedback_request.SubmitFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["profiling_group_name"] = profiling_group_name
-        input["anomaly_instance_id"] = anomaly_instance_id
-        input["type"] = type
+        input_: aws_sdk_codeguruprofiler.types.submit_feedback_request.SubmitFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["profiling_group_name"] = profiling_group_name
+        input_["anomaly_instance_id"] = anomaly_instance_id
+        input_["type"] = type
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

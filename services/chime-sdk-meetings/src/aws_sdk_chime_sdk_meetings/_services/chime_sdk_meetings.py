@@ -202,12 +202,12 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.batch_create_attendee_request.BatchCreateAttendeeRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
-        input["attendees"] = attendees
+        input_: aws_sdk_chime_sdk_meetings.types.batch_create_attendee_request.BatchCreateAttendeeRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
+        input_["attendees"] = attendees
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -242,13 +242,13 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.batch_update_attendee_capabilities_except_request.BatchUpdateAttendeeCapabilitiesExceptRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
-        input["excluded_attendee_ids"] = excluded_attendee_ids
-        input["capabilities"] = capabilities
+        input_: aws_sdk_chime_sdk_meetings.types.batch_update_attendee_capabilities_except_request.BatchUpdateAttendeeCapabilitiesExceptRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
+        input_["excluded_attendee_ids"] = excluded_attendee_ids
+        input_["capabilities"] = capabilities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,14 +287,14 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.create_attendee_request.CreateAttendeeRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
-        input["external_user_id"] = external_user_id
+        input_: aws_sdk_chime_sdk_meetings.types.create_attendee_request.CreateAttendeeRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
+        input_["external_user_id"] = external_user_id
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,27 +359,27 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.create_meeting_request.CreateMeetingRequest = {}  # type: ignore[typeddict-item]
-        input["client_request_token"] = client_request_token
-        input["media_region"] = media_region
+        input_: aws_sdk_chime_sdk_meetings.types.create_meeting_request.CreateMeetingRequest = {}  # type: ignore[typeddict-item]
+        input_["client_request_token"] = client_request_token
+        input_["media_region"] = media_region
         if meeting_host_id is not None:
-            input["meeting_host_id"] = meeting_host_id
-        input["external_meeting_id"] = external_meeting_id
+            input_["meeting_host_id"] = meeting_host_id
+        input_["external_meeting_id"] = external_meeting_id
         if notifications_configuration is not None:
-            input["notifications_configuration"] = notifications_configuration
+            input_["notifications_configuration"] = notifications_configuration
         if meeting_features is not None:
-            input["meeting_features"] = meeting_features
+            input_["meeting_features"] = meeting_features
         if primary_meeting_id is not None:
-            input["primary_meeting_id"] = primary_meeting_id
+            input_["primary_meeting_id"] = primary_meeting_id
         if tenant_ids is not None:
-            input["tenant_ids"] = tenant_ids
+            input_["tenant_ids"] = tenant_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if media_placement_network_type is not None:
-            input["media_placement_network_type"] = media_placement_network_type
+            input_["media_placement_network_type"] = media_placement_network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,28 +444,28 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.create_meeting_with_attendees_request.CreateMeetingWithAttendeesRequest = {}  # type: ignore[typeddict-item]
-        input["client_request_token"] = client_request_token
-        input["media_region"] = media_region
+        input_: aws_sdk_chime_sdk_meetings.types.create_meeting_with_attendees_request.CreateMeetingWithAttendeesRequest = {}  # type: ignore[typeddict-item]
+        input_["client_request_token"] = client_request_token
+        input_["media_region"] = media_region
         if meeting_host_id is not None:
-            input["meeting_host_id"] = meeting_host_id
-        input["external_meeting_id"] = external_meeting_id
+            input_["meeting_host_id"] = meeting_host_id
+        input_["external_meeting_id"] = external_meeting_id
         if meeting_features is not None:
-            input["meeting_features"] = meeting_features
+            input_["meeting_features"] = meeting_features
         if notifications_configuration is not None:
-            input["notifications_configuration"] = notifications_configuration
-        input["attendees"] = attendees
+            input_["notifications_configuration"] = notifications_configuration
+        input_["attendees"] = attendees
         if primary_meeting_id is not None:
-            input["primary_meeting_id"] = primary_meeting_id
+            input_["primary_meeting_id"] = primary_meeting_id
         if tenant_ids is not None:
-            input["tenant_ids"] = tenant_ids
+            input_["tenant_ids"] = tenant_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if media_placement_network_type is not None:
-            input["media_placement_network_type"] = media_placement_network_type
+            input_["media_placement_network_type"] = media_placement_network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -498,12 +498,12 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.delete_attendee_request.DeleteAttendeeRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
-        input["attendee_id"] = attendee_id
+        input_: aws_sdk_chime_sdk_meetings.types.delete_attendee_request.DeleteAttendeeRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
+        input_["attendee_id"] = attendee_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,11 +534,11 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.delete_meeting_request.DeleteMeetingRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
+        input_: aws_sdk_chime_sdk_meetings.types.delete_meeting_request.DeleteMeetingRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -573,12 +573,12 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.get_attendee_request.GetAttendeeRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
-        input["attendee_id"] = attendee_id
+        input_: aws_sdk_chime_sdk_meetings.types.get_attendee_request.GetAttendeeRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
+        input_["attendee_id"] = attendee_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -611,11 +611,11 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.get_meeting_request.GetMeetingRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
+        input_: aws_sdk_chime_sdk_meetings.types.get_meeting_request.GetMeetingRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -656,15 +656,15 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.list_attendees_request.ListAttendeesRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
+        input_: aws_sdk_chime_sdk_meetings.types.list_attendees_request.ListAttendeesRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -697,11 +697,11 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_chime_sdk_meetings.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -734,12 +734,12 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.start_meeting_transcription_request.StartMeetingTranscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
-        input["transcription_configuration"] = transcription_configuration
+        input_: aws_sdk_chime_sdk_meetings.types.start_meeting_transcription_request.StartMeetingTranscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
+        input_["transcription_configuration"] = transcription_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -770,11 +770,11 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.stop_meeting_transcription_request.StopMeetingTranscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
+        input_: aws_sdk_chime_sdk_meetings.types.stop_meeting_transcription_request.StopMeetingTranscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -809,12 +809,12 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_chime_sdk_meetings.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,12 +851,12 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_chime_sdk_meetings.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -893,13 +893,13 @@ class ChimeSDKMeetingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_meetings.types.update_attendee_capabilities_request.UpdateAttendeeCapabilitiesRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
-        input["attendee_id"] = attendee_id
-        input["capabilities"] = capabilities
+        input_: aws_sdk_chime_sdk_meetings.types.update_attendee_capabilities_request.UpdateAttendeeCapabilitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
+        input_["attendee_id"] = attendee_id
+        input_["capabilities"] = capabilities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

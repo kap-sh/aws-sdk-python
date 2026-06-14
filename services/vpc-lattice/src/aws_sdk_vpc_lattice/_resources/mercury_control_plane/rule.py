@@ -91,20 +91,20 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["name"] = name
-        input["match"] = match
-        input["priority"] = priority
-        input["action"] = action
+        input_: aws_sdk_vpc_lattice.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["name"] = name
+        input_["match"] = match
+        input_["priority"] = priority
+        input_["action"] = action
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,13 +141,13 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_rule_request.GetRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_vpc_lattice.types.get_rule_request.GetRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["rule_identifier"] = rule_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -192,19 +192,19 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_vpc_lattice.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["rule_identifier"] = rule_identifier
         if match is not None:
-            input["match"] = match
+            input_["match"] = match
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,13 +241,13 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["rule_identifier"] = rule_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,16 +288,16 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
+        input_: aws_sdk_vpc_lattice.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,20 +352,20 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["name"] = name
-        input["match"] = match
-        input["priority"] = priority
-        input["action"] = action
+        input_: aws_sdk_vpc_lattice.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["name"] = name
+        input_["match"] = match
+        input_["priority"] = priority
+        input_["action"] = action
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,13 +403,13 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_rule_request.GetRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_vpc_lattice.types.get_rule_request.GetRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["rule_identifier"] = rule_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,19 +455,19 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_vpc_lattice.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["rule_identifier"] = rule_identifier
         if match is not None:
-            input["match"] = match
+            input_["match"] = match
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,13 +505,13 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["rule_identifier"] = rule_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,16 +553,16 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
+        input_: aws_sdk_vpc_lattice.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

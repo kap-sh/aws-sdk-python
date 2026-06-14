@@ -68,15 +68,15 @@ class RerankResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.rerank_request.RerankRequest = {}  # type: ignore[typeddict-item]
-        input["queries"] = queries
-        input["sources"] = sources
-        input["reranking_configuration"] = reranking_configuration
+        input_: aws_sdk_bedrock_agent_runtime.types.rerank_request.RerankRequest = {}  # type: ignore[typeddict-item]
+        input_["queries"] = queries
+        input_["sources"] = sources
+        input_["reranking_configuration"] = reranking_configuration
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -123,15 +123,15 @@ class AsyncRerankResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.rerank_request.RerankRequest = {}  # type: ignore[typeddict-item]
-        input["queries"] = queries
-        input["sources"] = sources
-        input["reranking_configuration"] = reranking_configuration
+        input_: aws_sdk_bedrock_agent_runtime.types.rerank_request.RerankRequest = {}  # type: ignore[typeddict-item]
+        input_["queries"] = queries
+        input_["sources"] = sources
+        input_["reranking_configuration"] = reranking_configuration
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

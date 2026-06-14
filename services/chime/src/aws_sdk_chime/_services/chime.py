@@ -309,13 +309,13 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.associate_phone_number_with_user_request.AssociatePhoneNumberWithUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id"] = user_id
-        input["e164_phone_number"] = e164_phone_number
+        input_: aws_sdk_chime.types.associate_phone_number_with_user_request.AssociatePhoneNumberWithUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id"] = user_id
+        input_["e164_phone_number"] = e164_phone_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,12 +350,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.associate_signin_delegate_groups_with_account_request.AssociateSigninDelegateGroupsWithAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["signin_delegate_groups"] = signin_delegate_groups
+        input_: aws_sdk_chime.types.associate_signin_delegate_groups_with_account_request.AssociateSigninDelegateGroupsWithAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["signin_delegate_groups"] = signin_delegate_groups
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,13 +392,13 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.batch_create_room_membership_request.BatchCreateRoomMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
-        input["membership_item_list"] = membership_item_list
+        input_: aws_sdk_chime.types.batch_create_room_membership_request.BatchCreateRoomMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
+        input_["membership_item_list"] = membership_item_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -431,11 +431,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.batch_delete_phone_number_request.BatchDeletePhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_ids"] = phone_number_ids
+        input_: aws_sdk_chime.types.batch_delete_phone_number_request.BatchDeletePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_ids"] = phone_number_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,12 +470,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.batch_suspend_user_request.BatchSuspendUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id_list"] = user_id_list
+        input_: aws_sdk_chime.types.batch_suspend_user_request.BatchSuspendUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id_list"] = user_id_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,12 +510,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.batch_unsuspend_user_request.BatchUnsuspendUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id_list"] = user_id_list
+        input_: aws_sdk_chime.types.batch_unsuspend_user_request.BatchUnsuspendUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id_list"] = user_id_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -548,11 +548,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.batch_update_phone_number_request.BatchUpdatePhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["update_phone_number_request_items"] = update_phone_number_request_items
+        input_: aws_sdk_chime.types.batch_update_phone_number_request.BatchUpdatePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["update_phone_number_request_items"] = update_phone_number_request_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -587,12 +587,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.batch_update_user_request.BatchUpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["update_user_request_items"] = update_user_request_items
+        input_: aws_sdk_chime.types.batch_update_user_request.BatchUpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["update_user_request_items"] = update_user_request_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,11 +625,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.create_account_request.CreateAccountRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_chime.types.create_account_request.CreateAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -666,14 +666,14 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.create_bot_request.CreateBotRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["display_name"] = display_name
+        input_: aws_sdk_chime.types.create_bot_request.CreateBotRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["display_name"] = display_name
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -712,14 +712,14 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.create_meeting_dial_out_request.CreateMeetingDialOutRequest = {}  # type: ignore[typeddict-item]
-        input["meeting_id"] = meeting_id
-        input["from_phone_number"] = from_phone_number
-        input["to_phone_number"] = to_phone_number
-        input["join_token"] = join_token
+        input_: aws_sdk_chime.types.create_meeting_dial_out_request.CreateMeetingDialOutRequest = {}  # type: ignore[typeddict-item]
+        input_["meeting_id"] = meeting_id
+        input_["from_phone_number"] = from_phone_number
+        input_["to_phone_number"] = to_phone_number
+        input_["join_token"] = join_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,12 +754,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.create_phone_number_order_request.CreatePhoneNumberOrderRequest = {}  # type: ignore[typeddict-item]
-        input["product_type"] = product_type
-        input["e164_phone_numbers"] = e164_phone_numbers
+        input_: aws_sdk_chime.types.create_phone_number_order_request.CreatePhoneNumberOrderRequest = {}  # type: ignore[typeddict-item]
+        input_["product_type"] = product_type
+        input_["e164_phone_numbers"] = e164_phone_numbers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -798,14 +798,14 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.create_room_request.CreateRoomRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["name"] = name
+        input_: aws_sdk_chime.types.create_room_request.CreateRoomRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["name"] = name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,15 +846,15 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.create_room_membership_request.CreateRoomMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
-        input["member_id"] = member_id
+        input_: aws_sdk_chime.types.create_room_membership_request.CreateRoomMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
+        input_["member_id"] = member_id
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -893,17 +893,17 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if email is not None:
-            input["email"] = email
+            input_["email"] = email
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -936,11 +936,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.delete_account_request.DeleteAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.delete_account_request.DeleteAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -973,12 +973,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.delete_events_configuration_request.DeleteEventsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["bot_id"] = bot_id
+        input_: aws_sdk_chime.types.delete_events_configuration_request.DeleteEventsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["bot_id"] = bot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1009,11 +1009,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.delete_phone_number_request.DeletePhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
+        input_: aws_sdk_chime.types.delete_phone_number_request.DeletePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1046,12 +1046,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.delete_room_request.DeleteRoomRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
+        input_: aws_sdk_chime.types.delete_room_request.DeleteRoomRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1086,13 +1086,13 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.delete_room_membership_request.DeleteRoomMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
-        input["member_id"] = member_id
+        input_: aws_sdk_chime.types.delete_room_membership_request.DeleteRoomMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
+        input_["member_id"] = member_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1127,12 +1127,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.disassociate_phone_number_from_user_request.DisassociatePhoneNumberFromUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id"] = user_id
+        input_: aws_sdk_chime.types.disassociate_phone_number_from_user_request.DisassociatePhoneNumberFromUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1167,12 +1167,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.disassociate_signin_delegate_groups_from_account_request.DisassociateSigninDelegateGroupsFromAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["group_names"] = group_names
+        input_: aws_sdk_chime.types.disassociate_signin_delegate_groups_from_account_request.DisassociateSigninDelegateGroupsFromAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["group_names"] = group_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1205,11 +1205,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_account_request.GetAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.get_account_request.GetAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1242,11 +1242,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1279,12 +1279,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_bot_request.GetBotRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["bot_id"] = bot_id
+        input_: aws_sdk_chime.types.get_bot_request.GetBotRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["bot_id"] = bot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1319,12 +1319,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_events_configuration_request.GetEventsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["bot_id"] = bot_id
+        input_: aws_sdk_chime.types.get_events_configuration_request.GetEventsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["bot_id"] = bot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1385,11 +1385,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_phone_number_request.GetPhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
+        input_: aws_sdk_chime.types.get_phone_number_request.GetPhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1422,11 +1422,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_phone_number_order_request.GetPhoneNumberOrderRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_order_id"] = phone_number_order_id
+        input_: aws_sdk_chime.types.get_phone_number_order_request.GetPhoneNumberOrderRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_order_id"] = phone_number_order_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,11 +1487,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_retention_settings_request.GetRetentionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.get_retention_settings_request.GetRetentionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1524,12 +1524,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_room_request.GetRoomRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
+        input_: aws_sdk_chime.types.get_room_request.GetRoomRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1562,12 +1562,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_user_request.GetUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id"] = user_id
+        input_: aws_sdk_chime.types.get_user_request.GetUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1602,12 +1602,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.get_user_settings_request.GetUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id"] = user_id
+        input_: aws_sdk_chime.types.get_user_settings_request.GetUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1644,14 +1644,14 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.invite_users_request.InviteUsersRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_email_list"] = user_email_list
+        input_: aws_sdk_chime.types.invite_users_request.InviteUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_email_list"] = user_email_list
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1692,18 +1692,18 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if user_email is not None:
-            input["user_email"] = user_email
+            input_["user_email"] = user_email
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1740,15 +1740,15 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.list_bots_request.ListBotsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.list_bots_request.ListBotsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1783,14 +1783,14 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.list_phone_number_orders_request.ListPhoneNumberOrdersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime.types.list_phone_number_orders_request.ListPhoneNumberOrdersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1839,22 +1839,22 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.list_phone_numbers_request.ListPhoneNumbersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime.types.list_phone_numbers_request.ListPhoneNumbersRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if product_type is not None:
-            input["product_type"] = product_type
+            input_["product_type"] = product_type
         if filter_name is not None:
-            input["filter_name"] = filter_name
+            input_["filter_name"] = filter_name
         if filter_value is not None:
-            input["filter_value"] = filter_value
+            input_["filter_value"] = filter_value
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1895,16 +1895,16 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.list_room_memberships_request.ListRoomMembershipsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
+        input_: aws_sdk_chime.types.list_room_memberships_request.ListRoomMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1943,17 +1943,17 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.list_rooms_request.ListRoomsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.list_rooms_request.ListRoomsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if member_id is not None:
-            input["member_id"] = member_id
+            input_["member_id"] = member_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1986,11 +1986,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.list_supported_phone_number_countries_request.ListSupportedPhoneNumberCountriesRequest = {}  # type: ignore[typeddict-item]
-        input["product_type"] = product_type
+        input_: aws_sdk_chime.types.list_supported_phone_number_countries_request.ListSupportedPhoneNumberCountriesRequest = {}  # type: ignore[typeddict-item]
+        input_["product_type"] = product_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2033,19 +2033,19 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if user_email is not None:
-            input["user_email"] = user_email
+            input_["user_email"] = user_email
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2080,12 +2080,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.logout_user_request.LogoutUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id"] = user_id
+        input_: aws_sdk_chime.types.logout_user_request.LogoutUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2128,16 +2128,16 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.put_events_configuration_request.PutEventsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["bot_id"] = bot_id
+        input_: aws_sdk_chime.types.put_events_configuration_request.PutEventsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["bot_id"] = bot_id
         if outbound_events_https_endpoint is not None:
-            input["outbound_events_https_endpoint"] = outbound_events_https_endpoint
+            input_["outbound_events_https_endpoint"] = outbound_events_https_endpoint
         if lambda_function_arn is not None:
-            input["lambda_function_arn"] = lambda_function_arn
+            input_["lambda_function_arn"] = lambda_function_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2172,12 +2172,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.put_retention_settings_request.PutRetentionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["retention_settings"] = retention_settings
+        input_: aws_sdk_chime.types.put_retention_settings_request.PutRetentionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["retention_settings"] = retention_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2214,13 +2214,13 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.redact_conversation_message_request.RedactConversationMessageRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["conversation_id"] = conversation_id
-        input["message_id"] = message_id
+        input_: aws_sdk_chime.types.redact_conversation_message_request.RedactConversationMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["conversation_id"] = conversation_id
+        input_["message_id"] = message_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2257,13 +2257,13 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.redact_room_message_request.RedactRoomMessageRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
-        input["message_id"] = message_id
+        input_: aws_sdk_chime.types.redact_room_message_request.RedactRoomMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
+        input_["message_id"] = message_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2298,12 +2298,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.regenerate_security_token_request.RegenerateSecurityTokenRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["bot_id"] = bot_id
+        input_: aws_sdk_chime.types.regenerate_security_token_request.RegenerateSecurityTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["bot_id"] = bot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2338,12 +2338,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.reset_personal_pin_request.ResetPersonalPINRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id"] = user_id
+        input_: aws_sdk_chime.types.reset_personal_pin_request.ResetPersonalPINRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2376,11 +2376,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.restore_phone_number_request.RestorePhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
+        input_: aws_sdk_chime.types.restore_phone_number_request.RestorePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2435,26 +2435,26 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.search_available_phone_numbers_request.SearchAvailablePhoneNumbersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime.types.search_available_phone_numbers_request.SearchAvailablePhoneNumbersRequest = {}  # type: ignore[typeddict-item]
         if area_code is not None:
-            input["area_code"] = area_code
+            input_["area_code"] = area_code
         if city is not None:
-            input["city"] = city
+            input_["city"] = city
         if country is not None:
-            input["country"] = country
+            input_["country"] = country
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if toll_free_prefix is not None:
-            input["toll_free_prefix"] = toll_free_prefix
+            input_["toll_free_prefix"] = toll_free_prefix
         if phone_number_type is not None:
-            input["phone_number_type"] = phone_number_type
+            input_["phone_number_type"] = phone_number_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2491,15 +2491,15 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_account_request.UpdateAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_chime.types.update_account_request.UpdateAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if default_license is not None:
-            input["default_license"] = default_license
+            input_["default_license"] = default_license
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2534,12 +2534,12 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["account_settings"] = account_settings
+        input_: aws_sdk_chime.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["account_settings"] = account_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2578,14 +2578,14 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_bot_request.UpdateBotRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["bot_id"] = bot_id
+        input_: aws_sdk_chime.types.update_bot_request.UpdateBotRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["bot_id"] = bot_id
         if disabled is not None:
-            input["disabled"] = disabled
+            input_["disabled"] = disabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2622,14 +2622,14 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_global_settings_request.UpdateGlobalSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime.types.update_global_settings_request.UpdateGlobalSettingsRequest = {}  # type: ignore[typeddict-item]
         if business_calling is not None:
-            input["business_calling"] = business_calling
+            input_["business_calling"] = business_calling
         if voice_connector is not None:
-            input["voice_connector"] = voice_connector
+            input_["voice_connector"] = voice_connector
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2668,15 +2668,15 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_phone_number_request.UpdatePhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
+        input_: aws_sdk_chime.types.update_phone_number_request.UpdatePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
         if product_type is not None:
-            input["product_type"] = product_type
+            input_["product_type"] = product_type
         if calling_name is not None:
-            input["calling_name"] = calling_name
+            input_["calling_name"] = calling_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2707,11 +2707,11 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_phone_number_settings_request.UpdatePhoneNumberSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["calling_name"] = calling_name
+        input_: aws_sdk_chime.types.update_phone_number_settings_request.UpdatePhoneNumberSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["calling_name"] = calling_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2748,14 +2748,14 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_room_request.UpdateRoomRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
+        input_: aws_sdk_chime.types.update_room_request.UpdateRoomRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2796,15 +2796,15 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_room_membership_request.UpdateRoomMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["room_id"] = room_id
-        input["member_id"] = member_id
+        input_: aws_sdk_chime.types.update_room_membership_request.UpdateRoomMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["room_id"] = room_id
+        input_["member_id"] = member_id
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2847,18 +2847,18 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id"] = user_id
+        input_: aws_sdk_chime.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id"] = user_id
         if license_type is not None:
-            input["license_type"] = license_type
+            input_["license_type"] = license_type
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
         if alexa_for_business_metadata is not None:
-            input["alexa_for_business_metadata"] = alexa_for_business_metadata
+            input_["alexa_for_business_metadata"] = alexa_for_business_metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2893,13 +2893,13 @@ class ChimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime.types.update_user_settings_request.UpdateUserSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["user_id"] = user_id
-        input["user_settings"] = user_settings
+        input_: aws_sdk_chime.types.update_user_settings_request.UpdateUserSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["user_id"] = user_id
+        input_["user_settings"] = user_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

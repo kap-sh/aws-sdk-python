@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_workspaces_web._services.async_work_spaces_web import ensure_async_iterator
 from aws_sdk_workspaces_web._services.work_spaces_web import ensure_sync_iterator
+import datetime
 from aws_sdk_workspaces_web._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
@@ -41,14 +42,14 @@ class UserAccessLoggingSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_user_access_logging_settings_request.CreateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["kinesis_stream_arn"] = kinesis_stream_arn
+        input_: aws_sdk_workspaces_web.types.create_user_access_logging_settings_request.CreateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["kinesis_stream_arn"] = kinesis_stream_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def read(self, user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_user_access_logging_settings_response.GetUserAccessLoggingSettingsResponse":
         """<p>Gets user access logging settings.</p>
@@ -62,10 +63,10 @@ class UserAccessLoggingSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_user_access_logging_settings_request.GetUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_access_logging_settings_arn"] = user_access_logging_settings_arn
+        input_: aws_sdk_workspaces_web.types.get_user_access_logging_settings_request.GetUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_access_logging_settings_arn"] = user_access_logging_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update(self, user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, kinesis_stream_arn: Optional["aws_sdk_workspaces_web.types.kinesis_stream_arn.KinesisStreamArn"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_user_access_logging_settings_response.UpdateUserAccessLoggingSettingsResponse":
         """<p>Updates the user access logging settings.</p>
@@ -81,14 +82,14 @@ class UserAccessLoggingSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_user_access_logging_settings_request.UpdateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_access_logging_settings_arn"] = user_access_logging_settings_arn
+        input_: aws_sdk_workspaces_web.types.update_user_access_logging_settings_request.UpdateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_access_logging_settings_arn"] = user_access_logging_settings_arn
         if kinesis_stream_arn is not None:
-            input["kinesis_stream_arn"] = kinesis_stream_arn
+            input_["kinesis_stream_arn"] = kinesis_stream_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete(self, user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_user_access_logging_settings_response.DeleteUserAccessLoggingSettingsResponse":
         """<p>Deletes user access logging settings.</p>
@@ -102,10 +103,10 @@ class UserAccessLoggingSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_user_access_logging_settings_request.DeleteUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_access_logging_settings_arn"] = user_access_logging_settings_arn
+        input_: aws_sdk_workspaces_web.types.delete_user_access_logging_settings_request.DeleteUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_access_logging_settings_arn"] = user_access_logging_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list(self, *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_user_access_logging_settings_response.ListUserAccessLoggingSettingsResponse":
         """<p>Retrieves a list of user access logging settings.</p>
@@ -120,13 +121,13 @@ class UserAccessLoggingSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_user_access_logging_settings_request.ListUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_user_access_logging_settings_request.ListUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncUserAccessLoggingSettingsResource:
@@ -146,14 +147,14 @@ class AsyncUserAccessLoggingSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_user_access_logging_settings_request.CreateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["kinesis_stream_arn"] = kinesis_stream_arn
+        input_: aws_sdk_workspaces_web.types.create_user_access_logging_settings_request.CreateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["kinesis_stream_arn"] = kinesis_stream_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def read(self, user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_user_access_logging_settings_response.GetUserAccessLoggingSettingsResponse":
         """<p>Gets user access logging settings.</p>
@@ -167,10 +168,10 @@ class AsyncUserAccessLoggingSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_user_access_logging_settings_request.GetUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_access_logging_settings_arn"] = user_access_logging_settings_arn
+        input_: aws_sdk_workspaces_web.types.get_user_access_logging_settings_request.GetUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_access_logging_settings_arn"] = user_access_logging_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def update(self, user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, kinesis_stream_arn: Optional["aws_sdk_workspaces_web.types.kinesis_stream_arn.KinesisStreamArn"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_user_access_logging_settings_response.UpdateUserAccessLoggingSettingsResponse":
         """<p>Updates the user access logging settings.</p>
@@ -186,14 +187,14 @@ class AsyncUserAccessLoggingSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_user_access_logging_settings_request.UpdateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_access_logging_settings_arn"] = user_access_logging_settings_arn
+        input_: aws_sdk_workspaces_web.types.update_user_access_logging_settings_request.UpdateUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_access_logging_settings_arn"] = user_access_logging_settings_arn
         if kinesis_stream_arn is not None:
-            input["kinesis_stream_arn"] = kinesis_stream_arn
+            input_["kinesis_stream_arn"] = kinesis_stream_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def delete(self, user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_user_access_logging_settings_response.DeleteUserAccessLoggingSettingsResponse":
         """<p>Deletes user access logging settings.</p>
@@ -207,10 +208,10 @@ class AsyncUserAccessLoggingSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_user_access_logging_settings_request.DeleteUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["user_access_logging_settings_arn"] = user_access_logging_settings_arn
+        input_: aws_sdk_workspaces_web.types.delete_user_access_logging_settings_request.DeleteUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_access_logging_settings_arn"] = user_access_logging_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list(self, *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_user_access_logging_settings_response.ListUserAccessLoggingSettingsResponse":
         """<p>Retrieves a list of user access logging settings.</p>
@@ -225,11 +226,11 @@ class AsyncUserAccessLoggingSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_user_access_logging_settings_request.ListUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_user_access_logging_settings_request.ListUserAccessLoggingSettingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

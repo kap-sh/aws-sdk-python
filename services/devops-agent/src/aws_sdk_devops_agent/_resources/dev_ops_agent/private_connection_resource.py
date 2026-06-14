@@ -71,14 +71,14 @@ class PrivateConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.create_private_connection_input.CreatePrivateConnectionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["mode"] = mode
+        input_: aws_sdk_devops_agent.types.create_private_connection_input.CreatePrivateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["mode"] = mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -111,11 +111,11 @@ class PrivateConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.describe_private_connection_input.DescribePrivateConnectionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_devops_agent.types.describe_private_connection_input.DescribePrivateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -148,11 +148,11 @@ class PrivateConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.delete_private_connection_input.DeletePrivateConnectionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_devops_agent.types.delete_private_connection_input.DeletePrivateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -178,10 +178,10 @@ class PrivateConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_private_connections_input.ListPrivateConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_agent.types.list_private_connections_input.ListPrivateConnectionsInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,12 +216,12 @@ class PrivateConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_private_connection_certificate_input.UpdatePrivateConnectionCertificateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["certificate"] = certificate
+        input_: aws_sdk_devops_agent.types.update_private_connection_certificate_input.UpdatePrivateConnectionCertificateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["certificate"] = certificate
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -264,14 +264,14 @@ class AsyncPrivateConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.create_private_connection_input.CreatePrivateConnectionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["mode"] = mode
+        input_: aws_sdk_devops_agent.types.create_private_connection_input.CreatePrivateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["mode"] = mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,11 +305,11 @@ class AsyncPrivateConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.describe_private_connection_input.DescribePrivateConnectionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_devops_agent.types.describe_private_connection_input.DescribePrivateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -343,11 +343,11 @@ class AsyncPrivateConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.delete_private_connection_input.DeletePrivateConnectionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_devops_agent.types.delete_private_connection_input.DeletePrivateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,10 +374,10 @@ class AsyncPrivateConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_private_connections_input.ListPrivateConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_agent.types.list_private_connections_input.ListPrivateConnectionsInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -413,12 +413,12 @@ class AsyncPrivateConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_private_connection_certificate_input.UpdatePrivateConnectionCertificateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["certificate"] = certificate
+        input_: aws_sdk_devops_agent.types.update_private_connection_certificate_input.UpdatePrivateConnectionCertificateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["certificate"] = certificate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -75,17 +75,17 @@ class WaveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.create_wave_request.CreateWaveRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mgn.types.create_wave_request.CreateWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,13 +120,13 @@ class WaveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.delete_wave_request.DeleteWaveRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
+        input_: aws_sdk_mgn.types.delete_wave_request.DeleteWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -171,18 +171,18 @@ class WaveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_waves_request.ListWavesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.list_waves_request.ListWavesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,13 +215,13 @@ class WaveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.archive_wave_request.ArchiveWaveRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
+        input_: aws_sdk_mgn.types.archive_wave_request.ArchiveWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,14 +258,14 @@ class WaveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.associate_applications_request.AssociateApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
-        input["application_i_ds"] = application_i_ds
+        input_: aws_sdk_mgn.types.associate_applications_request.AssociateApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
+        input_["application_i_ds"] = application_i_ds
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,14 +302,14 @@ class WaveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.disassociate_applications_request.DisassociateApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
-        input["application_i_ds"] = application_i_ds
+        input_: aws_sdk_mgn.types.disassociate_applications_request.DisassociateApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
+        input_["application_i_ds"] = application_i_ds
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,13 +342,13 @@ class WaveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.unarchive_wave_request.UnarchiveWaveRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
+        input_: aws_sdk_mgn.types.unarchive_wave_request.UnarchiveWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,17 +387,17 @@ class WaveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_wave_request.UpdateWaveRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
+        input_: aws_sdk_mgn.types.update_wave_request.UpdateWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,17 +442,17 @@ class AsyncWaveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.create_wave_request.CreateWaveRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mgn.types.create_wave_request.CreateWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,13 +488,13 @@ class AsyncWaveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.delete_wave_request.DeleteWaveRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
+        input_: aws_sdk_mgn.types.delete_wave_request.DeleteWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -540,18 +540,18 @@ class AsyncWaveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_waves_request.ListWavesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.list_waves_request.ListWavesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -585,13 +585,13 @@ class AsyncWaveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.archive_wave_request.ArchiveWaveRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
+        input_: aws_sdk_mgn.types.archive_wave_request.ArchiveWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -629,14 +629,14 @@ class AsyncWaveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.associate_applications_request.AssociateApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
-        input["application_i_ds"] = application_i_ds
+        input_: aws_sdk_mgn.types.associate_applications_request.AssociateApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
+        input_["application_i_ds"] = application_i_ds
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,14 +674,14 @@ class AsyncWaveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.disassociate_applications_request.DisassociateApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
-        input["application_i_ds"] = application_i_ds
+        input_: aws_sdk_mgn.types.disassociate_applications_request.DisassociateApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
+        input_["application_i_ds"] = application_i_ds
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,13 +715,13 @@ class AsyncWaveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.unarchive_wave_request.UnarchiveWaveRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
+        input_: aws_sdk_mgn.types.unarchive_wave_request.UnarchiveWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,17 +761,17 @@ class AsyncWaveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_wave_request.UpdateWaveRequest = {}  # type: ignore[typeddict-item]
-        input["wave_id"] = wave_id
+        input_: aws_sdk_mgn.types.update_wave_request.UpdateWaveRequest = {}  # type: ignore[typeddict-item]
+        input_["wave_id"] = wave_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

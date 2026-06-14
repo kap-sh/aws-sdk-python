@@ -118,40 +118,40 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_appconfig.types.create_hosted_configuration_version_request.CreateHostedConfigurationVersionRequest,
+    input_: aws_sdk_appconfig.types.create_hosted_configuration_version_request.CreateHostedConfigurationVersionRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions"
     )
-    url = url.replace("{ApplicationId}", quote(str(input["application_id"]), safe=""))
+    url = url.replace("{ApplicationId}", quote(str(input_["application_id"]), safe=""))
     url = url.replace(
         "{ConfigurationProfileId}",
-        quote(str(input["configuration_profile_id"]), safe=""),
+        quote(str(input_["configuration_profile_id"]), safe=""),
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "description" in input:
-        headers["Description"] = str(input["description"])
-    if "content_type" in input:
-        headers["Content-Type"] = str(input["content_type"])
-    if "latest_version_number" in input:
-        headers["Latest-Version-Number"] = str(input["latest_version_number"])
-    if "version_label" in input:
-        headers["VersionLabel"] = str(input["version_label"])
-    if "content" in input:
+    if "description" in input_:
+        headers["Description"] = str(input_["description"])
+    if "content_type" in input_:
+        headers["Content-Type"] = str(input_["content_type"])
+    if "latest_version_number" in input_:
+        headers["Latest-Version-Number"] = str(input_["latest_version_number"])
+    if "version_label" in input_:
+        headers["VersionLabel"] = str(input_["version_label"])
+    if "content" in input_:
         import aws_sdk_appconfig.types.blob
 
         body: bytes | None = json.dumps(
-            aws_sdk_appconfig.types.blob.serialize_json(input["content"])
+            aws_sdk_appconfig.types.blob.serialize_json(input_["content"])
         ).encode()
         headers["content-type"] = "application/json"
     else:
@@ -160,26 +160,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def create_hosted_configuration_version(
     options: OperationOptions,
-    input: aws_sdk_appconfig.types.create_hosted_configuration_version_request.CreateHostedConfigurationVersionRequest,
+    input_: aws_sdk_appconfig.types.create_hosted_configuration_version_request.CreateHostedConfigurationVersionRequest,
 ) -> tuple[
     aws_sdk_appconfig.types.hosted_configuration_version.HostedConfigurationVersion,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -188,16 +185,17 @@ def create_hosted_configuration_version(
 
 async def async_create_hosted_configuration_version(
     options: AsyncOperationOptions,
-    input: aws_sdk_appconfig.types.create_hosted_configuration_version_request.CreateHostedConfigurationVersionRequest,
+    input_: aws_sdk_appconfig.types.create_hosted_configuration_version_request.CreateHostedConfigurationVersionRequest,
 ) -> tuple[
     aws_sdk_appconfig.types.hosted_configuration_version.HostedConfigurationVersion,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

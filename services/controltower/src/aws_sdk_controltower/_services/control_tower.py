@@ -15,6 +15,30 @@ from aws_sdk_controltower._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_controltower._auth._zapros_handler import AuthMiddleware
+from aws_sdk_controltower._resources.aws_control_tower_apis.baseline_operation_resource import (
+    BaselineOperationResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.baseline_resource import (
+    BaselineResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.control_operation_resource import (
+    ControlOperationResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.enabled_baseline_resource import (
+    EnabledBaselineResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.enabled_control_resource import (
+    EnabledControlResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.landing_zone_operation_resource import (
+    LandingZoneOperationResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.landing_zone_resource import (
+    LandingZoneResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.tagging_resource import (
+    TaggingResource,
+)
 from aws_sdk_controltower._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -102,6 +126,15 @@ class ControlTowerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.baseline_operation_resource = BaselineOperationResource(self)
+        self.baseline_resource = BaselineResource(self)
+        self.control_operation_resource = ControlOperationResource(self)
+        self.enabled_baseline_resource = EnabledBaselineResource(self)
+        self.enabled_control_resource = EnabledControlResource(self)
+        self.landing_zone_operation_resource = LandingZoneOperationResource(self)
+        self.landing_zone_resource = LandingZoneResource(self)
+        self.tagging_resource = TaggingResource(self)
 
     def operation_options(
         self, config_overrides: Optional[ControlTowerClientConfig] = None
@@ -168,16 +201,16 @@ class ControlTowerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.disable_control_input.DisableControlInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.disable_control_input.DisableControlInput = {}  # type: ignore[typeddict-item]
         if control_identifier is not None:
-            input["control_identifier"] = control_identifier
+            input_["control_identifier"] = control_identifier
         if target_identifier is not None:
-            input["target_identifier"] = target_identifier
+            input_["target_identifier"] = target_identifier
         if enabled_control_identifier is not None:
-            input["enabled_control_identifier"] = enabled_control_identifier
+            input_["enabled_control_identifier"] = enabled_control_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

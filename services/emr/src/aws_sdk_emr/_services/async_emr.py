@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_emr._auth._signers
+import aws_sdk_emr._auth._sigv4
 from aws_sdk_emr._auth._identity import Credentials
 from aws_sdk_emr._auth._providers import (
     CredentialsProvider,
@@ -352,12 +354,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.add_instance_fleet_input.AddInstanceFleetInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["instance_fleet"] = instance_fleet
+        input_: aws_sdk_emr.types.add_instance_fleet_input.AddInstanceFleetInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["instance_fleet"] = instance_fleet
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,12 +395,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.add_instance_groups_input.AddInstanceGroupsInput = {}  # type: ignore[typeddict-item]
-        input["instance_groups"] = instance_groups
-        input["job_flow_id"] = job_flow_id
+        input_: aws_sdk_emr.types.add_instance_groups_input.AddInstanceGroupsInput = {}  # type: ignore[typeddict-item]
+        input_["instance_groups"] = instance_groups
+        input_["job_flow_id"] = job_flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,14 +438,14 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.add_job_flow_steps_input.AddJobFlowStepsInput = {}  # type: ignore[typeddict-item]
-        input["job_flow_id"] = job_flow_id
-        input["steps"] = steps
+        input_: aws_sdk_emr.types.add_job_flow_steps_input.AddJobFlowStepsInput = {}  # type: ignore[typeddict-item]
+        input_["job_flow_id"] = job_flow_id
+        input_["steps"] = steps
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,14 +481,14 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tags"] = tags
+        input_: aws_sdk_emr.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tags"] = tags
         if cluster_id is not None:
-            input["cluster_id"] = cluster_id
+            input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,14 +528,14 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.cancel_steps_input.CancelStepsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["step_ids"] = step_ids
+        input_: aws_sdk_emr.types.cancel_steps_input.CancelStepsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["step_ids"] = step_ids
         if step_cancellation_option is not None:
-            input["step_cancellation_option"] = step_cancellation_option
+            input_["step_cancellation_option"] = step_cancellation_option
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,19 +581,19 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.create_persistent_app_ui_input.CreatePersistentAppUIInput = {}  # type: ignore[typeddict-item]
-        input["target_resource_arn"] = target_resource_arn
+        input_: aws_sdk_emr.types.create_persistent_app_ui_input.CreatePersistentAppUIInput = {}  # type: ignore[typeddict-item]
+        input_["target_resource_arn"] = target_resource_arn
         if emr_containers_config is not None:
-            input["emr_containers_config"] = emr_containers_config
+            input_["emr_containers_config"] = emr_containers_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if x_referer is not None:
-            input["x_referer"] = x_referer
+            input_["x_referer"] = x_referer
         if profiler_type is not None:
-            input["profiler_type"] = profiler_type
+            input_["profiler_type"] = profiler_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -627,12 +629,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.create_security_configuration_input.CreateSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["security_configuration"] = security_configuration
+        input_: aws_sdk_emr.types.create_security_configuration_input.CreateSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["security_configuration"] = security_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -706,38 +708,38 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.create_studio_input.CreateStudioInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_emr.types.create_studio_input.CreateStudioInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["auth_mode"] = auth_mode
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["service_role"] = service_role
+            input_["description"] = description
+        input_["auth_mode"] = auth_mode
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["service_role"] = service_role
         if user_role is not None:
-            input["user_role"] = user_role
-        input["workspace_security_group_id"] = workspace_security_group_id
-        input["engine_security_group_id"] = engine_security_group_id
-        input["default_s3_location"] = default_s3_location
+            input_["user_role"] = user_role
+        input_["workspace_security_group_id"] = workspace_security_group_id
+        input_["engine_security_group_id"] = engine_security_group_id
+        input_["default_s3_location"] = default_s3_location
         if idp_auth_url is not None:
-            input["idp_auth_url"] = idp_auth_url
+            input_["idp_auth_url"] = idp_auth_url
         if idp_relay_state_parameter_name is not None:
-            input["idp_relay_state_parameter_name"] = idp_relay_state_parameter_name
+            input_["idp_relay_state_parameter_name"] = idp_relay_state_parameter_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if trusted_identity_propagation_enabled is not None:
-            input["trusted_identity_propagation_enabled"] = (
+            input_["trusted_identity_propagation_enabled"] = (
                 trusted_identity_propagation_enabled
             )
         if idc_user_assignment is not None:
-            input["idc_user_assignment"] = idc_user_assignment
+            input_["idc_user_assignment"] = idc_user_assignment
         if idc_instance_arn is not None:
-            input["idc_instance_arn"] = idc_instance_arn
+            input_["idc_instance_arn"] = idc_instance_arn
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -781,17 +783,17 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.create_studio_session_mapping_input.CreateStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
-        input["studio_id"] = studio_id
+        input_: aws_sdk_emr.types.create_studio_session_mapping_input.CreateStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
+        input_["studio_id"] = studio_id
         if identity_id is not None:
-            input["identity_id"] = identity_id
+            input_["identity_id"] = identity_id
         if identity_name is not None:
-            input["identity_name"] = identity_name
-        input["identity_type"] = identity_type
-        input["session_policy_arn"] = session_policy_arn
+            input_["identity_name"] = identity_name
+        input_["identity_type"] = identity_type
+        input_["session_policy_arn"] = session_policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -825,11 +827,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.delete_security_configuration_input.DeleteSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_emr.types.delete_security_configuration_input.DeleteSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -861,11 +863,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.delete_studio_input.DeleteStudioInput = {}  # type: ignore[typeddict-item]
-        input["studio_id"] = studio_id
+        input_: aws_sdk_emr.types.delete_studio_input.DeleteStudioInput = {}  # type: ignore[typeddict-item]
+        input_["studio_id"] = studio_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -907,16 +909,16 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.delete_studio_session_mapping_input.DeleteStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
-        input["studio_id"] = studio_id
+        input_: aws_sdk_emr.types.delete_studio_session_mapping_input.DeleteStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
+        input_["studio_id"] = studio_id
         if identity_id is not None:
-            input["identity_id"] = identity_id
+            input_["identity_id"] = identity_id
         if identity_name is not None:
-            input["identity_name"] = identity_name
-        input["identity_type"] = identity_type
+            input_["identity_name"] = identity_name
+        input_["identity_type"] = identity_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -950,11 +952,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.describe_cluster_input.DescribeClusterInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.describe_cluster_input.DescribeClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -998,18 +1000,18 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.describe_job_flows_input.DescribeJobFlowsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.describe_job_flows_input.DescribeJobFlowsInput = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if job_flow_ids is not None:
-            input["job_flow_ids"] = job_flow_ids
+            input_["job_flow_ids"] = job_flow_ids
         if job_flow_states is not None:
-            input["job_flow_states"] = job_flow_states
+            input_["job_flow_states"] = job_flow_states
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1043,11 +1045,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.describe_notebook_execution_input.DescribeNotebookExecutionInput = {}  # type: ignore[typeddict-item]
-        input["notebook_execution_id"] = notebook_execution_id
+        input_: aws_sdk_emr.types.describe_notebook_execution_input.DescribeNotebookExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_execution_id"] = notebook_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1081,11 +1083,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.describe_persistent_app_ui_input.DescribePersistentAppUIInput = {}  # type: ignore[typeddict-item]
-        input["persistent_app_ui_id"] = persistent_app_ui_id
+        input_: aws_sdk_emr.types.describe_persistent_app_ui_input.DescribePersistentAppUIInput = {}  # type: ignore[typeddict-item]
+        input_["persistent_app_ui_id"] = persistent_app_ui_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1125,16 +1127,16 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.describe_release_label_input.DescribeReleaseLabelInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.describe_release_label_input.DescribeReleaseLabelInput = {}  # type: ignore[typeddict-item]
         if release_label is not None:
-            input["release_label"] = release_label
+            input_["release_label"] = release_label
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,11 +1170,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.describe_security_configuration_input.DescribeSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_emr.types.describe_security_configuration_input.DescribeSecurityConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1208,12 +1210,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.describe_step_input.DescribeStepInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["step_id"] = step_id
+        input_: aws_sdk_emr.types.describe_step_input.DescribeStepInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["step_id"] = step_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1247,11 +1249,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.describe_studio_input.DescribeStudioInput = {}  # type: ignore[typeddict-item]
-        input["studio_id"] = studio_id
+        input_: aws_sdk_emr.types.describe_studio_input.DescribeStudioInput = {}  # type: ignore[typeddict-item]
+        input_["studio_id"] = studio_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1285,11 +1287,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_auto_termination_policy_input.GetAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.get_auto_termination_policy_input.GetAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1316,10 +1318,10 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_block_public_access_configuration_input.GetBlockPublicAccessConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.get_block_public_access_configuration_input.GetBlockPublicAccessConfigurationInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1355,13 +1357,13 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_cluster_session_credentials_input.GetClusterSessionCredentialsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.get_cluster_session_credentials_input.GetClusterSessionCredentialsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1395,11 +1397,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_managed_scaling_policy_input.GetManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.get_managed_scaling_policy_input.GetManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1445,19 +1447,19 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_on_cluster_app_ui_presigned_url_input.GetOnClusterAppUIPresignedURLInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.get_on_cluster_app_ui_presigned_url_input.GetOnClusterAppUIPresignedURLInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if on_cluster_app_ui_type is not None:
-            input["on_cluster_app_ui_type"] = on_cluster_app_ui_type
+            input_["on_cluster_app_ui_type"] = on_cluster_app_ui_type
         if application_id is not None:
-            input["application_id"] = application_id
+            input_["application_id"] = application_id
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1505,19 +1507,19 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_persistent_app_ui_presigned_url_input.GetPersistentAppUIPresignedURLInput = {}  # type: ignore[typeddict-item]
-        input["persistent_app_ui_id"] = persistent_app_ui_id
+        input_: aws_sdk_emr.types.get_persistent_app_ui_presigned_url_input.GetPersistentAppUIPresignedURLInput = {}  # type: ignore[typeddict-item]
+        input_["persistent_app_ui_id"] = persistent_app_ui_id
         if persistent_app_ui_type is not None:
-            input["persistent_app_ui_type"] = persistent_app_ui_type
+            input_["persistent_app_ui_type"] = persistent_app_ui_type
         if application_id is not None:
-            input["application_id"] = application_id
+            input_["application_id"] = application_id
         if auth_proxy_call is not None:
-            input["auth_proxy_call"] = auth_proxy_call
+            input_["auth_proxy_call"] = auth_proxy_call
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1553,12 +1555,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_session_input.GetSessionInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr.types.get_session_input.GetSessionInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1594,12 +1596,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_session_endpoint_input.GetSessionEndpointInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr.types.get_session_endpoint_input.GetSessionEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1643,16 +1645,16 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.get_studio_session_mapping_input.GetStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
-        input["studio_id"] = studio_id
+        input_: aws_sdk_emr.types.get_studio_session_mapping_input.GetStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
+        input_["studio_id"] = studio_id
         if identity_id is not None:
-            input["identity_id"] = identity_id
+            input_["identity_id"] = identity_id
         if identity_name is not None:
-            input["identity_name"] = identity_name
-        input["identity_type"] = identity_type
+            input_["identity_name"] = identity_name
+        input_["identity_type"] = identity_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1688,13 +1690,13 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_bootstrap_actions_input.ListBootstrapActionsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.list_bootstrap_actions_input.ListBootstrapActionsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1757,18 +1759,18 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_clusters_input.ListClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.list_clusters_input.ListClustersInput = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if cluster_states is not None:
-            input["cluster_states"] = cluster_states
+            input_["cluster_states"] = cluster_states
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1831,13 +1833,13 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_instance_fleets_input.ListInstanceFleetsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.list_instance_fleets_input.ListInstanceFleetsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1894,13 +1896,13 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_instance_groups_input.ListInstanceGroupsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.list_instance_groups_input.ListInstanceGroupsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1977,23 +1979,23 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_instances_input.ListInstancesInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.list_instances_input.ListInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if instance_group_id is not None:
-            input["instance_group_id"] = instance_group_id
+            input_["instance_group_id"] = instance_group_id
         if instance_group_types is not None:
-            input["instance_group_types"] = instance_group_types
+            input_["instance_group_types"] = instance_group_types
         if instance_fleet_id is not None:
-            input["instance_fleet_id"] = instance_fleet_id
+            input_["instance_fleet_id"] = instance_fleet_id
         if instance_fleet_type is not None:
-            input["instance_fleet_type"] = instance_fleet_type
+            input_["instance_fleet_type"] = instance_fleet_type
         if instance_states is not None:
-            input["instance_states"] = instance_states
+            input_["instance_states"] = instance_states
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2084,22 +2086,22 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_notebook_executions_input.ListNotebookExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.list_notebook_executions_input.ListNotebookExecutionsInput = {}  # type: ignore[typeddict-item]
         if editor_id is not None:
-            input["editor_id"] = editor_id
+            input_["editor_id"] = editor_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if from_ is not None:
-            input["from"] = from_
+            input_["from"] = from_
         if to is not None:
-            input["to"] = to
+            input_["to"] = to
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if execution_engine_id is not None:
-            input["execution_engine_id"] = execution_engine_id
+            input_["execution_engine_id"] = execution_engine_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2174,16 +2176,16 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_release_labels_input.ListReleaseLabelsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.list_release_labels_input.ListReleaseLabelsInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2217,12 +2219,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_security_configurations_input.ListSecurityConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.list_security_configurations_input.ListSecurityConfigurationsInput = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2285,17 +2287,17 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.list_sessions_input.ListSessionsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if session_states is not None:
-            input["session_states"] = session_states
+            input_["session_states"] = session_states
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2364,17 +2366,17 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_steps_input.ListStepsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.list_steps_input.ListStepsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if step_states is not None:
-            input["step_states"] = step_states
+            input_["step_states"] = step_states
         if step_ids is not None:
-            input["step_ids"] = step_ids
+            input_["step_ids"] = step_ids
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2433,12 +2435,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_studios_input.ListStudiosInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.list_studios_input.ListStudiosInput = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2497,16 +2499,16 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_studio_session_mappings_input.ListStudioSessionMappingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.list_studio_session_mappings_input.ListStudioSessionMappingsInput = {}  # type: ignore[typeddict-item]
         if studio_id is not None:
-            input["studio_id"] = studio_id
+            input_["studio_id"] = studio_id
         if identity_type is not None:
-            input["identity_type"] = identity_type
+            input_["identity_type"] = identity_type
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2569,13 +2571,13 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.list_supported_instance_types_input.ListSupportedInstanceTypesInput = {}  # type: ignore[typeddict-item]
-        input["release_label"] = release_label
+        input_: aws_sdk_emr.types.list_supported_instance_types_input.ListSupportedInstanceTypesInput = {}  # type: ignore[typeddict-item]
+        input_["release_label"] = release_label
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2615,15 +2617,15 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.modify_cluster_input.ModifyClusterInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.modify_cluster_input.ModifyClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if step_concurrency_level is not None:
-            input["step_concurrency_level"] = step_concurrency_level
+            input_["step_concurrency_level"] = step_concurrency_level
         if extended_support is not None:
-            input["extended_support"] = extended_support
+            input_["extended_support"] = extended_support
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2657,12 +2659,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.modify_instance_fleet_input.ModifyInstanceFleetInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["instance_fleet"] = instance_fleet
+        input_: aws_sdk_emr.types.modify_instance_fleet_input.ModifyInstanceFleetInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["instance_fleet"] = instance_fleet
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2698,14 +2700,14 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.modify_instance_groups_input.ModifyInstanceGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.modify_instance_groups_input.ModifyInstanceGroupsInput = {}  # type: ignore[typeddict-item]
         if cluster_id is not None:
-            input["cluster_id"] = cluster_id
+            input_["cluster_id"] = cluster_id
         if instance_groups is not None:
-            input["instance_groups"] = instance_groups
+            input_["instance_groups"] = instance_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2743,13 +2745,13 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.put_auto_scaling_policy_input.PutAutoScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["instance_group_id"] = instance_group_id
-        input["auto_scaling_policy"] = auto_scaling_policy
+        input_: aws_sdk_emr.types.put_auto_scaling_policy_input.PutAutoScalingPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["instance_group_id"] = instance_group_id
+        input_["auto_scaling_policy"] = auto_scaling_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2787,13 +2789,13 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.put_auto_termination_policy_input.PutAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.put_auto_termination_policy_input.PutAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if auto_termination_policy is not None:
-            input["auto_termination_policy"] = auto_termination_policy
+            input_["auto_termination_policy"] = auto_termination_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2827,11 +2829,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.put_block_public_access_configuration_input.PutBlockPublicAccessConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["block_public_access_configuration"] = block_public_access_configuration
+        input_: aws_sdk_emr.types.put_block_public_access_configuration_input.PutBlockPublicAccessConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["block_public_access_configuration"] = block_public_access_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2867,12 +2869,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.put_managed_scaling_policy_input.PutManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["managed_scaling_policy"] = managed_scaling_policy
+        input_: aws_sdk_emr.types.put_managed_scaling_policy_input.PutManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["managed_scaling_policy"] = managed_scaling_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2908,12 +2910,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.remove_auto_scaling_policy_input.RemoveAutoScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["instance_group_id"] = instance_group_id
+        input_: aws_sdk_emr.types.remove_auto_scaling_policy_input.RemoveAutoScalingPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["instance_group_id"] = instance_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2947,11 +2949,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.remove_auto_termination_policy_input.RemoveAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.remove_auto_termination_policy_input.RemoveAutoTerminationPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2985,11 +2987,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.remove_managed_scaling_policy_input.RemoveManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_emr.types.remove_managed_scaling_policy_input.RemoveManagedScalingPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3027,14 +3029,14 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_emr.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_keys"] = tag_keys
         if cluster_id is not None:
-            input["cluster_id"] = cluster_id
+            input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3177,78 +3179,78 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.run_job_flow_input.RunJobFlowInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_emr.types.run_job_flow_input.RunJobFlowInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if log_uri is not None:
-            input["log_uri"] = log_uri
+            input_["log_uri"] = log_uri
         if log_encryption_kms_key_id is not None:
-            input["log_encryption_kms_key_id"] = log_encryption_kms_key_id
+            input_["log_encryption_kms_key_id"] = log_encryption_kms_key_id
         if additional_info is not None:
-            input["additional_info"] = additional_info
+            input_["additional_info"] = additional_info
         if ami_version is not None:
-            input["ami_version"] = ami_version
+            input_["ami_version"] = ami_version
         if release_label is not None:
-            input["release_label"] = release_label
-        input["instances"] = instances
+            input_["release_label"] = release_label
+        input_["instances"] = instances
         if steps is not None:
-            input["steps"] = steps
+            input_["steps"] = steps
         if step_execution_role_arn is not None:
-            input["step_execution_role_arn"] = step_execution_role_arn
+            input_["step_execution_role_arn"] = step_execution_role_arn
         if bootstrap_actions is not None:
-            input["bootstrap_actions"] = bootstrap_actions
+            input_["bootstrap_actions"] = bootstrap_actions
         if supported_products is not None:
-            input["supported_products"] = supported_products
+            input_["supported_products"] = supported_products
         if new_supported_products is not None:
-            input["new_supported_products"] = new_supported_products
+            input_["new_supported_products"] = new_supported_products
         if applications is not None:
-            input["applications"] = applications
+            input_["applications"] = applications
         if configurations is not None:
-            input["configurations"] = configurations
+            input_["configurations"] = configurations
         if visible_to_all_users is not None:
-            input["visible_to_all_users"] = visible_to_all_users
+            input_["visible_to_all_users"] = visible_to_all_users
         if job_flow_role is not None:
-            input["job_flow_role"] = job_flow_role
+            input_["job_flow_role"] = job_flow_role
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if security_configuration is not None:
-            input["security_configuration"] = security_configuration
+            input_["security_configuration"] = security_configuration
         if auto_scaling_role is not None:
-            input["auto_scaling_role"] = auto_scaling_role
+            input_["auto_scaling_role"] = auto_scaling_role
         if scale_down_behavior is not None:
-            input["scale_down_behavior"] = scale_down_behavior
+            input_["scale_down_behavior"] = scale_down_behavior
         if custom_ami_id is not None:
-            input["custom_ami_id"] = custom_ami_id
+            input_["custom_ami_id"] = custom_ami_id
         if ebs_root_volume_size is not None:
-            input["ebs_root_volume_size"] = ebs_root_volume_size
+            input_["ebs_root_volume_size"] = ebs_root_volume_size
         if repo_upgrade_on_boot is not None:
-            input["repo_upgrade_on_boot"] = repo_upgrade_on_boot
+            input_["repo_upgrade_on_boot"] = repo_upgrade_on_boot
         if kerberos_attributes is not None:
-            input["kerberos_attributes"] = kerberos_attributes
+            input_["kerberos_attributes"] = kerberos_attributes
         if step_concurrency_level is not None:
-            input["step_concurrency_level"] = step_concurrency_level
+            input_["step_concurrency_level"] = step_concurrency_level
         if managed_scaling_policy is not None:
-            input["managed_scaling_policy"] = managed_scaling_policy
+            input_["managed_scaling_policy"] = managed_scaling_policy
         if placement_group_configs is not None:
-            input["placement_group_configs"] = placement_group_configs
+            input_["placement_group_configs"] = placement_group_configs
         if auto_termination_policy is not None:
-            input["auto_termination_policy"] = auto_termination_policy
+            input_["auto_termination_policy"] = auto_termination_policy
         if os_release_label is not None:
-            input["os_release_label"] = os_release_label
+            input_["os_release_label"] = os_release_label
         if ebs_root_volume_iops is not None:
-            input["ebs_root_volume_iops"] = ebs_root_volume_iops
+            input_["ebs_root_volume_iops"] = ebs_root_volume_iops
         if ebs_root_volume_throughput is not None:
-            input["ebs_root_volume_throughput"] = ebs_root_volume_throughput
+            input_["ebs_root_volume_throughput"] = ebs_root_volume_throughput
         if extended_support is not None:
-            input["extended_support"] = extended_support
+            input_["extended_support"] = extended_support
         if monitoring_configuration is not None:
-            input["monitoring_configuration"] = monitoring_configuration
+            input_["monitoring_configuration"] = monitoring_configuration
         if session_enabled is not None:
-            input["session_enabled"] = session_enabled
+            input_["session_enabled"] = session_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3282,12 +3284,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.set_keep_job_flow_alive_when_no_steps_input.SetKeepJobFlowAliveWhenNoStepsInput = {}  # type: ignore[typeddict-item]
-        input["job_flow_ids"] = job_flow_ids
-        input["keep_job_flow_alive_when_no_steps"] = keep_job_flow_alive_when_no_steps
+        input_: aws_sdk_emr.types.set_keep_job_flow_alive_when_no_steps_input.SetKeepJobFlowAliveWhenNoStepsInput = {}  # type: ignore[typeddict-item]
+        input_["job_flow_ids"] = job_flow_ids
+        input_["keep_job_flow_alive_when_no_steps"] = keep_job_flow_alive_when_no_steps
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3321,12 +3323,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.set_termination_protection_input.SetTerminationProtectionInput = {}  # type: ignore[typeddict-item]
-        input["job_flow_ids"] = job_flow_ids
-        input["termination_protected"] = termination_protected
+        input_: aws_sdk_emr.types.set_termination_protection_input.SetTerminationProtectionInput = {}  # type: ignore[typeddict-item]
+        input_["job_flow_ids"] = job_flow_ids
+        input_["termination_protected"] = termination_protected
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3360,12 +3362,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.set_unhealthy_node_replacement_input.SetUnhealthyNodeReplacementInput = {}  # type: ignore[typeddict-item]
-        input["job_flow_ids"] = job_flow_ids
-        input["unhealthy_node_replacement"] = unhealthy_node_replacement
+        input_: aws_sdk_emr.types.set_unhealthy_node_replacement_input.SetUnhealthyNodeReplacementInput = {}  # type: ignore[typeddict-item]
+        input_["job_flow_ids"] = job_flow_ids
+        input_["unhealthy_node_replacement"] = unhealthy_node_replacement
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3399,12 +3401,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.set_visible_to_all_users_input.SetVisibleToAllUsersInput = {}  # type: ignore[typeddict-item]
-        input["job_flow_ids"] = job_flow_ids
-        input["visible_to_all_users"] = visible_to_all_users
+        input_: aws_sdk_emr.types.set_visible_to_all_users_input.SetVisibleToAllUsersInput = {}  # type: ignore[typeddict-item]
+        input_["job_flow_ids"] = job_flow_ids
+        input_["visible_to_all_users"] = visible_to_all_users
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3476,34 +3478,34 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.start_notebook_execution_input.StartNotebookExecutionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.start_notebook_execution_input.StartNotebookExecutionInput = {}  # type: ignore[typeddict-item]
         if editor_id is not None:
-            input["editor_id"] = editor_id
+            input_["editor_id"] = editor_id
         if relative_path is not None:
-            input["relative_path"] = relative_path
+            input_["relative_path"] = relative_path
         if notebook_execution_name is not None:
-            input["notebook_execution_name"] = notebook_execution_name
+            input_["notebook_execution_name"] = notebook_execution_name
         if notebook_params is not None:
-            input["notebook_params"] = notebook_params
-        input["execution_engine"] = execution_engine
-        input["service_role"] = service_role
+            input_["notebook_params"] = notebook_params
+        input_["execution_engine"] = execution_engine
+        input_["service_role"] = service_role
         if notebook_instance_security_group_id is not None:
-            input["notebook_instance_security_group_id"] = (
+            input_["notebook_instance_security_group_id"] = (
                 notebook_instance_security_group_id
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if notebook_s3_location is not None:
-            input["notebook_s3_location"] = notebook_s3_location
+            input_["notebook_s3_location"] = notebook_s3_location
         if output_notebook_s3_location is not None:
-            input["output_notebook_s3_location"] = output_notebook_s3_location
+            input_["output_notebook_s3_location"] = output_notebook_s3_location
         if output_notebook_format is not None:
-            input["output_notebook_format"] = output_notebook_format
+            input_["output_notebook_format"] = output_notebook_format
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3561,25 +3563,25 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.start_session_input.StartSessionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr.types.start_session_input.StartSessionInput = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["cluster_id"] = cluster_id
+            input_["name"] = name
+        input_["cluster_id"] = cluster_id
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if engine_configurations is not None:
-            input["engine_configurations"] = engine_configurations
+            input_["engine_configurations"] = engine_configurations
         if monitoring_configuration is not None:
-            input["monitoring_configuration"] = monitoring_configuration
+            input_["monitoring_configuration"] = monitoring_configuration
         if session_idle_timeout_in_minutes is not None:
-            input["session_idle_timeout_in_minutes"] = session_idle_timeout_in_minutes
+            input_["session_idle_timeout_in_minutes"] = session_idle_timeout_in_minutes
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3611,11 +3613,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.stop_notebook_execution_input.StopNotebookExecutionInput = {}  # type: ignore[typeddict-item]
-        input["notebook_execution_id"] = notebook_execution_id
+        input_: aws_sdk_emr.types.stop_notebook_execution_input.StopNotebookExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["notebook_execution_id"] = notebook_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3647,11 +3649,11 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.terminate_job_flows_input.TerminateJobFlowsInput = {}  # type: ignore[typeddict-item]
-        input["job_flow_ids"] = job_flow_ids
+        input_: aws_sdk_emr.types.terminate_job_flows_input.TerminateJobFlowsInput = {}  # type: ignore[typeddict-item]
+        input_["job_flow_ids"] = job_flow_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3687,12 +3689,12 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.terminate_session_input.TerminateSessionInput = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["session_id"] = session_id
+        input_: aws_sdk_emr.types.terminate_session_input.TerminateSessionInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3738,21 +3740,21 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.update_studio_input.UpdateStudioInput = {}  # type: ignore[typeddict-item]
-        input["studio_id"] = studio_id
+        input_: aws_sdk_emr.types.update_studio_input.UpdateStudioInput = {}  # type: ignore[typeddict-item]
+        input_["studio_id"] = studio_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if default_s3_location is not None:
-            input["default_s3_location"] = default_s3_location
+            input_["default_s3_location"] = default_s3_location
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3796,17 +3798,17 @@ class AsyncEMRClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr.types.update_studio_session_mapping_input.UpdateStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
-        input["studio_id"] = studio_id
+        input_: aws_sdk_emr.types.update_studio_session_mapping_input.UpdateStudioSessionMappingInput = {}  # type: ignore[typeddict-item]
+        input_["studio_id"] = studio_id
         if identity_id is not None:
-            input["identity_id"] = identity_id
+            input_["identity_id"] = identity_id
         if identity_name is not None:
-            input["identity_name"] = identity_name
-        input["identity_type"] = identity_type
-        input["session_policy_arn"] = session_policy_arn
+            input_["identity_name"] = identity_name
+        input_["identity_type"] = identity_type
+        input_["session_policy_arn"] = session_policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

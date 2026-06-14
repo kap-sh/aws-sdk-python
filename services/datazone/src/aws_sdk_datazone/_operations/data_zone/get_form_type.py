@@ -101,53 +101,48 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput,
+    input_: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            Region=options.region,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
+            Region=options.region, UseFIPS=options.use_fips, Endpoint=options.endpoint
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/v2/domains/{domainIdentifier}/form-types/{formTypeIdentifier}"
     )
     url = url.replace(
-        "{domainIdentifier}", quote(str(input["domain_identifier"]), safe="")
+        "{domainIdentifier}", quote(str(input_["domain_identifier"]), safe="")
     )
     url = url.replace(
-        "{formTypeIdentifier}", quote(str(input["form_type_identifier"]), safe="")
+        "{formTypeIdentifier}", quote(str(input_["form_type_identifier"]), safe="")
     )
     params: dict[str, str] = {}
-    if "revision" in input:
-        params["revision"] = str(input["revision"])
+    if "revision" in input_:
+        params["revision"] = str(input_["revision"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_form_type(
     options: OperationOptions,
-    input: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput,
+    input_: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput,
 ) -> tuple[
     aws_sdk_datazone.types.get_form_type_output.GetFormTypeOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -156,15 +151,16 @@ def get_form_type(
 
 async def async_get_form_type(
     options: AsyncOperationOptions,
-    input: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput,
+    input_: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput,
 ) -> tuple[
     aws_sdk_datazone.types.get_form_type_output.GetFormTypeOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

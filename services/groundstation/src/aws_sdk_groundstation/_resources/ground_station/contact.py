@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_groundstation._auth._signers
@@ -96,20 +97,20 @@ class Contact:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.reserve_contact_request.ReserveContactRequest = {}  # type: ignore[typeddict-item]
-        input["mission_profile_arn"] = mission_profile_arn
+        input_: aws_sdk_groundstation.types.reserve_contact_request.ReserveContactRequest = {}  # type: ignore[typeddict-item]
+        input_["mission_profile_arn"] = mission_profile_arn
         if satellite_arn is not None:
-            input["satellite_arn"] = satellite_arn
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["ground_station"] = ground_station
+            input_["satellite_arn"] = satellite_arn
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["ground_station"] = ground_station
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tracking_overrides is not None:
-            input["tracking_overrides"] = tracking_overrides
+            input_["tracking_overrides"] = tracking_overrides
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -144,11 +145,11 @@ class Contact:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.describe_contact_request.DescribeContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
+        input_: aws_sdk_groundstation.types.describe_contact_request.DescribeContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -192,17 +193,17 @@ class Contact:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_contact_request.UpdateContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
+        input_: aws_sdk_groundstation.types.update_contact_request.UpdateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tracking_overrides is not None:
-            input["tracking_overrides"] = tracking_overrides
+            input_["tracking_overrides"] = tracking_overrides
         if satellite_arn is not None:
-            input["satellite_arn"] = satellite_arn
+            input_["satellite_arn"] = satellite_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,11 +236,11 @@ class Contact:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.cancel_contact_request.CancelContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
+        input_: aws_sdk_groundstation.types.cancel_contact_request.CancelContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,25 +301,25 @@ class Contact:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_contacts_request.ListContactsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_contacts_request.ListContactsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["status_list"] = status_list
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["next_token"] = next_token
+        input_["status_list"] = status_list
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if ground_station is not None:
-            input["ground_station"] = ground_station
+            input_["ground_station"] = ground_station
         if satellite_arn is not None:
-            input["satellite_arn"] = satellite_arn
+            input_["satellite_arn"] = satellite_arn
         if mission_profile_arn is not None:
-            input["mission_profile_arn"] = mission_profile_arn
+            input_["mission_profile_arn"] = mission_profile_arn
         if ephemeris is not None:
-            input["ephemeris"] = ephemeris
+            input_["ephemeris"] = ephemeris
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -353,12 +354,12 @@ class Contact:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.describe_contact_version_request.DescribeContactVersionRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
-        input["version_id"] = version_id
+        input_: aws_sdk_groundstation.types.describe_contact_version_request.DescribeContactVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
+        input_["version_id"] = version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -399,15 +400,15 @@ class Contact:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_contact_versions_request.ListContactVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
+        input_: aws_sdk_groundstation.types.list_contact_versions_request.ListContactVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,20 +463,20 @@ class AsyncContact:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.reserve_contact_request.ReserveContactRequest = {}  # type: ignore[typeddict-item]
-        input["mission_profile_arn"] = mission_profile_arn
+        input_: aws_sdk_groundstation.types.reserve_contact_request.ReserveContactRequest = {}  # type: ignore[typeddict-item]
+        input_["mission_profile_arn"] = mission_profile_arn
         if satellite_arn is not None:
-            input["satellite_arn"] = satellite_arn
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["ground_station"] = ground_station
+            input_["satellite_arn"] = satellite_arn
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["ground_station"] = ground_station
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tracking_overrides is not None:
-            input["tracking_overrides"] = tracking_overrides
+            input_["tracking_overrides"] = tracking_overrides
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -511,11 +512,11 @@ class AsyncContact:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.describe_contact_request.DescribeContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
+        input_: aws_sdk_groundstation.types.describe_contact_request.DescribeContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -560,17 +561,17 @@ class AsyncContact:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_contact_request.UpdateContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
+        input_: aws_sdk_groundstation.types.update_contact_request.UpdateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tracking_overrides is not None:
-            input["tracking_overrides"] = tracking_overrides
+            input_["tracking_overrides"] = tracking_overrides
         if satellite_arn is not None:
-            input["satellite_arn"] = satellite_arn
+            input_["satellite_arn"] = satellite_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,11 +605,11 @@ class AsyncContact:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.cancel_contact_request.CancelContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
+        input_: aws_sdk_groundstation.types.cancel_contact_request.CancelContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -670,25 +671,25 @@ class AsyncContact:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_contacts_request.ListContactsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_contacts_request.ListContactsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["status_list"] = status_list
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["next_token"] = next_token
+        input_["status_list"] = status_list
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if ground_station is not None:
-            input["ground_station"] = ground_station
+            input_["ground_station"] = ground_station
         if satellite_arn is not None:
-            input["satellite_arn"] = satellite_arn
+            input_["satellite_arn"] = satellite_arn
         if mission_profile_arn is not None:
-            input["mission_profile_arn"] = mission_profile_arn
+            input_["mission_profile_arn"] = mission_profile_arn
         if ephemeris is not None:
-            input["ephemeris"] = ephemeris
+            input_["ephemeris"] = ephemeris
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -724,12 +725,12 @@ class AsyncContact:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.describe_contact_version_request.DescribeContactVersionRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
-        input["version_id"] = version_id
+        input_: aws_sdk_groundstation.types.describe_contact_version_request.DescribeContactVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
+        input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,15 +772,15 @@ class AsyncContact:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_contact_versions_request.ListContactVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
+        input_: aws_sdk_groundstation.types.list_contact_versions_request.ListContactVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

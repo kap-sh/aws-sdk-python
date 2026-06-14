@@ -391,26 +391,26 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_api_key_request.CreateApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.create_api_key_request.CreateApiKeyRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if generate_distinct_id is not None:
-            input["generate_distinct_id"] = generate_distinct_id
+            input_["generate_distinct_id"] = generate_distinct_id
         if value is not None:
-            input["value"] = value
+            input_["value"] = value
         if stage_keys is not None:
-            input["stage_keys"] = stage_keys
+            input_["stage_keys"] = stage_keys
         if customer_id is not None:
-            input["customer_id"] = customer_id
+            input_["customer_id"] = customer_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,27 +468,29 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_authorizer_request.CreateAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_api_gateway.types.create_authorizer_request.CreateAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["name"] = name
+        input_["type"] = type
         if provider_ar_ns is not None:
-            input["provider_ar_ns"] = provider_ar_ns
+            input_["provider_ar_ns"] = provider_ar_ns
         if auth_type is not None:
-            input["auth_type"] = auth_type
+            input_["auth_type"] = auth_type
         if authorizer_uri is not None:
-            input["authorizer_uri"] = authorizer_uri
+            input_["authorizer_uri"] = authorizer_uri
         if authorizer_credentials is not None:
-            input["authorizer_credentials"] = authorizer_credentials
+            input_["authorizer_credentials"] = authorizer_credentials
         if identity_source is not None:
-            input["identity_source"] = identity_source
+            input_["identity_source"] = identity_source
         if identity_validation_expression is not None:
-            input["identity_validation_expression"] = identity_validation_expression
+            input_["identity_validation_expression"] = identity_validation_expression
         if authorizer_result_ttl_in_seconds is not None:
-            input["authorizer_result_ttl_in_seconds"] = authorizer_result_ttl_in_seconds
+            input_["authorizer_result_ttl_in_seconds"] = (
+                authorizer_result_ttl_in_seconds
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,18 +532,18 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_base_path_mapping_request.CreateBasePathMappingRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.create_base_path_mapping_request.CreateBasePathMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if domain_name_id is not None:
-            input["domain_name_id"] = domain_name_id
+            input_["domain_name_id"] = domain_name_id
         if base_path is not None:
-            input["base_path"] = base_path
-        input["rest_api_id"] = rest_api_id
+            input_["base_path"] = base_path
+        input_["rest_api_id"] = rest_api_id
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,27 +601,27 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if stage_name is not None:
-            input["stage_name"] = stage_name
+            input_["stage_name"] = stage_name
         if stage_description is not None:
-            input["stage_description"] = stage_description
+            input_["stage_description"] = stage_description
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if cache_cluster_enabled is not None:
-            input["cache_cluster_enabled"] = cache_cluster_enabled
+            input_["cache_cluster_enabled"] = cache_cluster_enabled
         if cache_cluster_size is not None:
-            input["cache_cluster_size"] = cache_cluster_size
+            input_["cache_cluster_size"] = cache_cluster_size
         if variables is not None:
-            input["variables"] = variables
+            input_["variables"] = variables
         if canary_settings is not None:
-            input["canary_settings"] = canary_settings
+            input_["canary_settings"] = canary_settings
         if tracing_enabled is not None:
-            input["tracing_enabled"] = tracing_enabled
+            input_["tracing_enabled"] = tracing_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -657,13 +659,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_documentation_part_request.CreateDocumentationPartRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["location"] = location
-        input["properties"] = properties
+        input_: aws_sdk_api_gateway.types.create_documentation_part_request.CreateDocumentationPartRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["location"] = location
+        input_["properties"] = properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -703,16 +705,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_documentation_version_request.CreateDocumentationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["documentation_version"] = documentation_version
+        input_: aws_sdk_api_gateway.types.create_documentation_version_request.CreateDocumentationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["documentation_version"] = documentation_version
         if stage_name is not None:
-            input["stage_name"] = stage_name
+            input_["stage_name"] = stage_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -793,43 +795,43 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_domain_name_request.CreateDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.create_domain_name_request.CreateDomainNameRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if certificate_name is not None:
-            input["certificate_name"] = certificate_name
+            input_["certificate_name"] = certificate_name
         if certificate_body is not None:
-            input["certificate_body"] = certificate_body
+            input_["certificate_body"] = certificate_body
         if certificate_private_key is not None:
-            input["certificate_private_key"] = certificate_private_key
+            input_["certificate_private_key"] = certificate_private_key
         if certificate_chain is not None:
-            input["certificate_chain"] = certificate_chain
+            input_["certificate_chain"] = certificate_chain
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if regional_certificate_name is not None:
-            input["regional_certificate_name"] = regional_certificate_name
+            input_["regional_certificate_name"] = regional_certificate_name
         if regional_certificate_arn is not None:
-            input["regional_certificate_arn"] = regional_certificate_arn
+            input_["regional_certificate_arn"] = regional_certificate_arn
         if endpoint_configuration is not None:
-            input["endpoint_configuration"] = endpoint_configuration
+            input_["endpoint_configuration"] = endpoint_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if security_policy is not None:
-            input["security_policy"] = security_policy
+            input_["security_policy"] = security_policy
         if endpoint_access_mode is not None:
-            input["endpoint_access_mode"] = endpoint_access_mode
+            input_["endpoint_access_mode"] = endpoint_access_mode
         if mutual_tls_authentication is not None:
-            input["mutual_tls_authentication"] = mutual_tls_authentication
+            input_["mutual_tls_authentication"] = mutual_tls_authentication
         if ownership_verification_certificate_arn is not None:
-            input["ownership_verification_certificate_arn"] = (
+            input_["ownership_verification_certificate_arn"] = (
                 ownership_verification_certificate_arn
             )
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if routing_mode is not None:
-            input["routing_mode"] = routing_mode
+            input_["routing_mode"] = routing_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -871,15 +873,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_domain_name_access_association_request.CreateDomainNameAccessAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name_arn"] = domain_name_arn
-        input["access_association_source_type"] = access_association_source_type
-        input["access_association_source"] = access_association_source
+        input_: aws_sdk_api_gateway.types.create_domain_name_access_association_request.CreateDomainNameAccessAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name_arn"] = domain_name_arn
+        input_["access_association_source_type"] = access_association_source_type
+        input_["access_association_source"] = access_association_source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,17 +921,17 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_model_request.CreateModelRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["name"] = name
+        input_: aws_sdk_api_gateway.types.create_model_request.CreateModelRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if schema is not None:
-            input["schema"] = schema
-        input["content_type"] = content_type
+            input_["schema"] = schema
+        input_["content_type"] = content_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -973,17 +975,17 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_request_validator_request.CreateRequestValidatorRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.create_request_validator_request.CreateRequestValidatorRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if validate_request_body is not None:
-            input["validate_request_body"] = validate_request_body
+            input_["validate_request_body"] = validate_request_body
         if validate_request_parameters is not None:
-            input["validate_request_parameters"] = validate_request_parameters
+            input_["validate_request_parameters"] = validate_request_parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1019,13 +1021,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_resource_request.CreateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["parent_id"] = parent_id
-        input["path_part"] = path_part
+        input_: aws_sdk_api_gateway.types.create_resource_request.CreateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["parent_id"] = parent_id
+        input_["path_part"] = path_part
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1097,35 +1099,35 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_rest_api_request.CreateRestApiRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_api_gateway.types.create_rest_api_request.CreateRestApiRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if clone_from is not None:
-            input["clone_from"] = clone_from
+            input_["clone_from"] = clone_from
         if binary_media_types is not None:
-            input["binary_media_types"] = binary_media_types
+            input_["binary_media_types"] = binary_media_types
         if minimum_compression_size is not None:
-            input["minimum_compression_size"] = minimum_compression_size
+            input_["minimum_compression_size"] = minimum_compression_size
         if api_key_source is not None:
-            input["api_key_source"] = api_key_source
+            input_["api_key_source"] = api_key_source
         if endpoint_configuration is not None:
-            input["endpoint_configuration"] = endpoint_configuration
+            input_["endpoint_configuration"] = endpoint_configuration
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if disable_execute_api_endpoint is not None:
-            input["disable_execute_api_endpoint"] = disable_execute_api_endpoint
+            input_["disable_execute_api_endpoint"] = disable_execute_api_endpoint
         if security_policy is not None:
-            input["security_policy"] = security_policy
+            input_["security_policy"] = security_policy
         if endpoint_access_mode is not None:
-            input["endpoint_access_mode"] = endpoint_access_mode
+            input_["endpoint_access_mode"] = endpoint_access_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1189,29 +1191,29 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_stage_request.CreateStageRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["stage_name"] = stage_name
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_api_gateway.types.create_stage_request.CreateStageRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["stage_name"] = stage_name
+        input_["deployment_id"] = deployment_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if cache_cluster_enabled is not None:
-            input["cache_cluster_enabled"] = cache_cluster_enabled
+            input_["cache_cluster_enabled"] = cache_cluster_enabled
         if cache_cluster_size is not None:
-            input["cache_cluster_size"] = cache_cluster_size
+            input_["cache_cluster_size"] = cache_cluster_size
         if variables is not None:
-            input["variables"] = variables
+            input_["variables"] = variables
         if documentation_version is not None:
-            input["documentation_version"] = documentation_version
+            input_["documentation_version"] = documentation_version
         if canary_settings is not None:
-            input["canary_settings"] = canary_settings
+            input_["canary_settings"] = canary_settings
         if tracing_enabled is not None:
-            input["tracing_enabled"] = tracing_enabled
+            input_["tracing_enabled"] = tracing_enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1261,21 +1263,21 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_usage_plan_request.CreateUsagePlanRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_api_gateway.types.create_usage_plan_request.CreateUsagePlanRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if api_stages is not None:
-            input["api_stages"] = api_stages
+            input_["api_stages"] = api_stages
         if throttle is not None:
-            input["throttle"] = throttle
+            input_["throttle"] = throttle
         if quota is not None:
-            input["quota"] = quota
+            input_["quota"] = quota
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1313,13 +1315,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_usage_plan_key_request.CreateUsagePlanKeyRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
-        input["key_id"] = key_id
-        input["key_type"] = key_type
+        input_: aws_sdk_api_gateway.types.create_usage_plan_key_request.CreateUsagePlanKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
+        input_["key_id"] = key_id
+        input_["key_type"] = key_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1359,16 +1361,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.create_vpc_link_request.CreateVpcLinkRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_api_gateway.types.create_vpc_link_request.CreateVpcLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["target_arns"] = target_arns
+            input_["description"] = description
+        input_["target_arns"] = target_arns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1400,11 +1402,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_api_key_request.DeleteApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["api_key"] = api_key
+        input_: aws_sdk_api_gateway.types.delete_api_key_request.DeleteApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["api_key"] = api_key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1438,12 +1440,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_authorizer_request.DeleteAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["authorizer_id"] = authorizer_id
+        input_: aws_sdk_api_gateway.types.delete_authorizer_request.DeleteAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["authorizer_id"] = authorizer_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1479,14 +1481,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_base_path_mapping_request.DeleteBasePathMappingRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.delete_base_path_mapping_request.DeleteBasePathMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if domain_name_id is not None:
-            input["domain_name_id"] = domain_name_id
-        input["base_path"] = base_path
+            input_["domain_name_id"] = domain_name_id
+        input_["base_path"] = base_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1518,11 +1520,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_client_certificate_request.DeleteClientCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["client_certificate_id"] = client_certificate_id
+        input_: aws_sdk_api_gateway.types.delete_client_certificate_request.DeleteClientCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["client_certificate_id"] = client_certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1556,12 +1558,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_deployment_request.DeleteDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_api_gateway.types.delete_deployment_request.DeleteDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1595,12 +1597,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_documentation_part_request.DeleteDocumentationPartRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["documentation_part_id"] = documentation_part_id
+        input_: aws_sdk_api_gateway.types.delete_documentation_part_request.DeleteDocumentationPartRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["documentation_part_id"] = documentation_part_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1634,12 +1636,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_documentation_version_request.DeleteDocumentationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["documentation_version"] = documentation_version
+        input_: aws_sdk_api_gateway.types.delete_documentation_version_request.DeleteDocumentationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["documentation_version"] = documentation_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1673,13 +1675,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_domain_name_request.DeleteDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.delete_domain_name_request.DeleteDomainNameRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if domain_name_id is not None:
-            input["domain_name_id"] = domain_name_id
+            input_["domain_name_id"] = domain_name_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1711,11 +1713,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_domain_name_access_association_request.DeleteDomainNameAccessAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name_access_association_arn"] = domain_name_access_association_arn
+        input_: aws_sdk_api_gateway.types.delete_domain_name_access_association_request.DeleteDomainNameAccessAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name_access_association_arn"] = (
+            domain_name_access_association_arn
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1749,12 +1753,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_gateway_response_request.DeleteGatewayResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["response_type"] = response_type
+        input_: aws_sdk_api_gateway.types.delete_gateway_response_request.DeleteGatewayResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["response_type"] = response_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1790,13 +1794,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
+        input_: aws_sdk_api_gateway.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1834,14 +1838,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_integration_response_request.DeleteIntegrationResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["status_code"] = status_code
+        input_: aws_sdk_api_gateway.types.delete_integration_response_request.DeleteIntegrationResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["status_code"] = status_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1877,13 +1881,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_method_request.DeleteMethodRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
+        input_: aws_sdk_api_gateway.types.delete_method_request.DeleteMethodRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1921,14 +1925,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_method_response_request.DeleteMethodResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["status_code"] = status_code
+        input_: aws_sdk_api_gateway.types.delete_method_response_request.DeleteMethodResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["status_code"] = status_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1962,12 +1966,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_model_request.DeleteModelRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["model_name"] = model_name
+        input_: aws_sdk_api_gateway.types.delete_model_request.DeleteModelRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["model_name"] = model_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2001,12 +2005,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_request_validator_request.DeleteRequestValidatorRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["request_validator_id"] = request_validator_id
+        input_: aws_sdk_api_gateway.types.delete_request_validator_request.DeleteRequestValidatorRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["request_validator_id"] = request_validator_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2040,12 +2044,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_resource_request.DeleteResourceRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_api_gateway.types.delete_resource_request.DeleteResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2077,11 +2081,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_rest_api_request.DeleteRestApiRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.delete_rest_api_request.DeleteRestApiRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2115,12 +2119,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_stage_request.DeleteStageRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["stage_name"] = stage_name
+        input_: aws_sdk_api_gateway.types.delete_stage_request.DeleteStageRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["stage_name"] = stage_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2152,11 +2156,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_usage_plan_request.DeleteUsagePlanRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
+        input_: aws_sdk_api_gateway.types.delete_usage_plan_request.DeleteUsagePlanRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2190,12 +2194,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_usage_plan_key_request.DeleteUsagePlanKeyRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
-        input["key_id"] = key_id
+        input_: aws_sdk_api_gateway.types.delete_usage_plan_key_request.DeleteUsagePlanKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
+        input_["key_id"] = key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2227,11 +2231,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.delete_vpc_link_request.DeleteVpcLinkRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_link_id"] = vpc_link_id
+        input_: aws_sdk_api_gateway.types.delete_vpc_link_request.DeleteVpcLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_link_id"] = vpc_link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2265,12 +2269,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.flush_stage_authorizers_cache_request.FlushStageAuthorizersCacheRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["stage_name"] = stage_name
+        input_: aws_sdk_api_gateway.types.flush_stage_authorizers_cache_request.FlushStageAuthorizersCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["stage_name"] = stage_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2304,12 +2308,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.flush_stage_cache_request.FlushStageCacheRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["stage_name"] = stage_name
+        input_: aws_sdk_api_gateway.types.flush_stage_cache_request.FlushStageCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["stage_name"] = stage_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2347,14 +2351,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.generate_client_certificate_request.GenerateClientCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.generate_client_certificate_request.GenerateClientCertificateRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2379,10 +2383,10 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_account_request.GetAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_account_request.GetAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2418,13 +2422,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_api_key_request.GetApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["api_key"] = api_key
+        input_: aws_sdk_api_gateway.types.get_api_key_request.GetApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["api_key"] = api_key
         if include_value is not None:
-            input["include_value"] = include_value
+            input_["include_value"] = include_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2468,20 +2472,20 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_api_keys_request.GetApiKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_api_keys_request.GetApiKeysRequest = {}  # type: ignore[typeddict-item]
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if name_query is not None:
-            input["name_query"] = name_query
+            input_["name_query"] = name_query
         if customer_id is not None:
-            input["customer_id"] = customer_id
+            input_["customer_id"] = customer_id
         if include_values is not None:
-            input["include_values"] = include_values
+            input_["include_values"] = include_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2546,12 +2550,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_authorizer_request.GetAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["authorizer_id"] = authorizer_id
+        input_: aws_sdk_api_gateway.types.get_authorizer_request.GetAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["authorizer_id"] = authorizer_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2591,15 +2595,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_authorizers_request.GetAuthorizersRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_authorizers_request.GetAuthorizersRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2637,14 +2641,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_base_path_mapping_request.GetBasePathMappingRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.get_base_path_mapping_request.GetBasePathMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if domain_name_id is not None:
-            input["domain_name_id"] = domain_name_id
-        input["base_path"] = base_path
+            input_["domain_name_id"] = domain_name_id
+        input_["base_path"] = base_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2686,17 +2690,17 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_base_path_mappings_request.GetBasePathMappingsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.get_base_path_mappings_request.GetBasePathMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if domain_name_id is not None:
-            input["domain_name_id"] = domain_name_id
+            input_["domain_name_id"] = domain_name_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2757,11 +2761,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_client_certificate_request.GetClientCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["client_certificate_id"] = client_certificate_id
+        input_: aws_sdk_api_gateway.types.get_client_certificate_request.GetClientCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["client_certificate_id"] = client_certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2799,14 +2803,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_client_certificates_request.GetClientCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_client_certificates_request.GetClientCertificatesRequest = {}  # type: ignore[typeddict-item]
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2867,14 +2871,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_api_gateway.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["deployment_id"] = deployment_id
         if embed is not None:
-            input["embed"] = embed
+            input_["embed"] = embed
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2914,15 +2918,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_deployments_request.GetDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_deployments_request.GetDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2983,12 +2987,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_documentation_part_request.GetDocumentationPartRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["documentation_part_id"] = documentation_part_id
+        input_: aws_sdk_api_gateway.types.get_documentation_part_request.GetDocumentationPartRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["documentation_part_id"] = documentation_part_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3040,23 +3044,23 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_documentation_parts_request.GetDocumentationPartsRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_documentation_parts_request.GetDocumentationPartsRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if name_query is not None:
-            input["name_query"] = name_query
+            input_["name_query"] = name_query
         if path is not None:
-            input["path"] = path
+            input_["path"] = path
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if location_status is not None:
-            input["location_status"] = location_status
+            input_["location_status"] = location_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3092,12 +3096,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_documentation_version_request.GetDocumentationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["documentation_version"] = documentation_version
+        input_: aws_sdk_api_gateway.types.get_documentation_version_request.GetDocumentationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["documentation_version"] = documentation_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3137,15 +3141,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_documentation_versions_request.GetDocumentationVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_documentation_versions_request.GetDocumentationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3179,13 +3183,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_domain_name_request.GetDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.get_domain_name_request.GetDomainNameRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if domain_name_id is not None:
-            input["domain_name_id"] = domain_name_id
+            input_["domain_name_id"] = domain_name_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3227,16 +3231,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_domain_name_access_associations_request.GetDomainNameAccessAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_domain_name_access_associations_request.GetDomainNameAccessAssociationsRequest = {}  # type: ignore[typeddict-item]
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
+            input_["resource_owner"] = resource_owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3278,16 +3282,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_domain_names_request.GetDomainNamesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_domain_names_request.GetDomainNamesRequest = {}  # type: ignore[typeddict-item]
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
+            input_["resource_owner"] = resource_owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3358,17 +3362,17 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["stage_name"] = stage_name
-        input["export_type"] = export_type
+        input_: aws_sdk_api_gateway.types.get_export_request.GetExportRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["stage_name"] = stage_name
+        input_["export_type"] = export_type
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if accepts is not None:
-            input["accepts"] = accepts
+            input_["accepts"] = accepts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3404,12 +3408,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_gateway_response_request.GetGatewayResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["response_type"] = response_type
+        input_: aws_sdk_api_gateway.types.get_gateway_response_request.GetGatewayResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["response_type"] = response_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3449,15 +3453,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_gateway_responses_request.GetGatewayResponsesRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_gateway_responses_request.GetGatewayResponsesRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3495,13 +3499,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_integration_request.GetIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
+        input_: aws_sdk_api_gateway.types.get_integration_request.GetIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3541,14 +3545,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_integration_response_request.GetIntegrationResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["status_code"] = status_code
+        input_: aws_sdk_api_gateway.types.get_integration_response_request.GetIntegrationResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["status_code"] = status_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3584,13 +3588,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_method_request.GetMethodRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
+        input_: aws_sdk_api_gateway.types.get_method_request.GetMethodRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3630,14 +3634,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_method_response_request.GetMethodResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["status_code"] = status_code
+        input_: aws_sdk_api_gateway.types.get_method_response_request.GetMethodResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["status_code"] = status_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3673,14 +3677,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_model_request.GetModelRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["model_name"] = model_name
+        input_: aws_sdk_api_gateway.types.get_model_request.GetModelRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["model_name"] = model_name
         if flatten is not None:
-            input["flatten"] = flatten
+            input_["flatten"] = flatten
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3718,15 +3722,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_models_request.GetModelsRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_models_request.GetModelsRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3785,12 +3789,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_model_template_request.GetModelTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["model_name"] = model_name
+        input_: aws_sdk_api_gateway.types.get_model_template_request.GetModelTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["model_name"] = model_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3826,12 +3830,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_request_validator_request.GetRequestValidatorRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["request_validator_id"] = request_validator_id
+        input_: aws_sdk_api_gateway.types.get_request_validator_request.GetRequestValidatorRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["request_validator_id"] = request_validator_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3871,15 +3875,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_request_validators_request.GetRequestValidatorsRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_request_validators_request.GetRequestValidatorsRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3915,14 +3919,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_resource_request.GetResourceRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_api_gateway.types.get_resource_request.GetResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
         if embed is not None:
-            input["embed"] = embed
+            input_["embed"] = embed
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3962,17 +3966,17 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_resources_request.GetResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_resources_request.GetResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if embed is not None:
-            input["embed"] = embed
+            input_["embed"] = embed
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4031,11 +4035,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_rest_api_request.GetRestApiRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_rest_api_request.GetRestApiRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4071,14 +4075,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_rest_apis_request.GetRestApisRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_rest_apis_request.GetRestApisRequest = {}  # type: ignore[typeddict-item]
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4143,15 +4147,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_sdk_request.GetSdkRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["stage_name"] = stage_name
-        input["sdk_type"] = sdk_type
+        input_: aws_sdk_api_gateway.types.get_sdk_request.GetSdkRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["stage_name"] = stage_name
+        input_["sdk_type"] = sdk_type
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4183,11 +4187,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_sdk_type_request.GetSdkTypeRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_api_gateway.types.get_sdk_type_request.GetSdkTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4223,14 +4227,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_sdk_types_request.GetSdkTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_sdk_types_request.GetSdkTypesRequest = {}  # type: ignore[typeddict-item]
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4264,12 +4268,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_stage_request.GetStageRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["stage_name"] = stage_name
+        input_: aws_sdk_api_gateway.types.get_stage_request.GetStageRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["stage_name"] = stage_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4303,13 +4307,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_stages_request.GetStagesRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.get_stages_request.GetStagesRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
+            input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4347,15 +4351,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_tags_request.GetTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_api_gateway.types.get_tags_request.GetTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4399,19 +4403,19 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_usage_request.GetUsageRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
+        input_: aws_sdk_api_gateway.types.get_usage_request.GetUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
         if key_id is not None:
-            input["key_id"] = key_id
-        input["start_date"] = start_date
-        input["end_date"] = end_date
+            input_["key_id"] = key_id
+        input_["start_date"] = start_date
+        input_["end_date"] = end_date
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4474,11 +4478,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_usage_plan_request.GetUsagePlanRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
+        input_: aws_sdk_api_gateway.types.get_usage_plan_request.GetUsagePlanRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4514,12 +4518,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_usage_plan_key_request.GetUsagePlanKeyRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
-        input["key_id"] = key_id
+        input_: aws_sdk_api_gateway.types.get_usage_plan_key_request.GetUsagePlanKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
+        input_["key_id"] = key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4561,17 +4565,17 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_usage_plan_keys_request.GetUsagePlanKeysRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
+        input_: aws_sdk_api_gateway.types.get_usage_plan_keys_request.GetUsagePlanKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if name_query is not None:
-            input["name_query"] = name_query
+            input_["name_query"] = name_query
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4636,16 +4640,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_usage_plans_request.GetUsagePlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_usage_plans_request.GetUsagePlansRequest = {}  # type: ignore[typeddict-item]
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if key_id is not None:
-            input["key_id"] = key_id
+            input_["key_id"] = key_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4702,11 +4706,11 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_vpc_link_request.GetVpcLinkRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_link_id"] = vpc_link_id
+        input_: aws_sdk_api_gateway.types.get_vpc_link_request.GetVpcLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_link_id"] = vpc_link_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4742,14 +4746,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.get_vpc_links_request.GetVpcLinksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.get_vpc_links_request.GetVpcLinksRequest = {}  # type: ignore[typeddict-item]
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4808,14 +4812,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.import_api_keys_request.ImportApiKeysRequest = {}  # type: ignore[typeddict-item]
-        input["body"] = body
-        input["format"] = format
+        input_: aws_sdk_api_gateway.types.import_api_keys_request.ImportApiKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["body"] = body
+        input_["format"] = format
         if fail_on_warnings is not None:
-            input["fail_on_warnings"] = fail_on_warnings
+            input_["fail_on_warnings"] = fail_on_warnings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4855,16 +4859,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.import_documentation_parts_request.ImportDocumentationPartsRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.import_documentation_parts_request.ImportDocumentationPartsRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if fail_on_warnings is not None:
-            input["fail_on_warnings"] = fail_on_warnings
-        input["body"] = body
+            input_["fail_on_warnings"] = fail_on_warnings
+        input_["body"] = body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4902,15 +4906,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.import_rest_api_request.ImportRestApiRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.import_rest_api_request.ImportRestApiRequest = {}  # type: ignore[typeddict-item]
         if fail_on_warnings is not None:
-            input["fail_on_warnings"] = fail_on_warnings
+            input_["fail_on_warnings"] = fail_on_warnings
         if parameters is not None:
-            input["parameters"] = parameters
-        input["body"] = body
+            input_["parameters"] = parameters
+        input_["body"] = body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4958,18 +4962,18 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.put_gateway_response_request.PutGatewayResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["response_type"] = response_type
+        input_: aws_sdk_api_gateway.types.put_gateway_response_request.PutGatewayResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["response_type"] = response_type
         if status_code is not None:
-            input["status_code"] = status_code
+            input_["status_code"] = status_code
         if response_parameters is not None:
-            input["response_parameters"] = response_parameters
+            input_["response_parameters"] = response_parameters
         if response_templates is not None:
-            input["response_templates"] = response_templates
+            input_["response_templates"] = response_templates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5056,44 +5060,44 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.put_integration_request.PutIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["type"] = type
+        input_: aws_sdk_api_gateway.types.put_integration_request.PutIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["type"] = type
         if integration_http_method is not None:
-            input["integration_http_method"] = integration_http_method
+            input_["integration_http_method"] = integration_http_method
         if uri is not None:
-            input["uri"] = uri
+            input_["uri"] = uri
         if connection_type is not None:
-            input["connection_type"] = connection_type
+            input_["connection_type"] = connection_type
         if connection_id is not None:
-            input["connection_id"] = connection_id
+            input_["connection_id"] = connection_id
         if credentials is not None:
-            input["credentials"] = credentials
+            input_["credentials"] = credentials
         if request_parameters is not None:
-            input["request_parameters"] = request_parameters
+            input_["request_parameters"] = request_parameters
         if request_templates is not None:
-            input["request_templates"] = request_templates
+            input_["request_templates"] = request_templates
         if passthrough_behavior is not None:
-            input["passthrough_behavior"] = passthrough_behavior
+            input_["passthrough_behavior"] = passthrough_behavior
         if cache_namespace is not None:
-            input["cache_namespace"] = cache_namespace
+            input_["cache_namespace"] = cache_namespace
         if cache_key_parameters is not None:
-            input["cache_key_parameters"] = cache_key_parameters
+            input_["cache_key_parameters"] = cache_key_parameters
         if content_handling is not None:
-            input["content_handling"] = content_handling
+            input_["content_handling"] = content_handling
         if timeout_in_millis is not None:
-            input["timeout_in_millis"] = timeout_in_millis
+            input_["timeout_in_millis"] = timeout_in_millis
         if tls_config is not None:
-            input["tls_config"] = tls_config
+            input_["tls_config"] = tls_config
         if response_transfer_mode is not None:
-            input["response_transfer_mode"] = response_transfer_mode
+            input_["response_transfer_mode"] = response_transfer_mode
         if integration_target is not None:
-            input["integration_target"] = integration_target
+            input_["integration_target"] = integration_target
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5147,22 +5151,22 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.put_integration_response_request.PutIntegrationResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["status_code"] = status_code
+        input_: aws_sdk_api_gateway.types.put_integration_response_request.PutIntegrationResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["status_code"] = status_code
         if selection_pattern is not None:
-            input["selection_pattern"] = selection_pattern
+            input_["selection_pattern"] = selection_pattern
         if response_parameters is not None:
-            input["response_parameters"] = response_parameters
+            input_["response_parameters"] = response_parameters
         if response_templates is not None:
-            input["response_templates"] = response_templates
+            input_["response_templates"] = response_templates
         if content_handling is not None:
-            input["content_handling"] = content_handling
+            input_["content_handling"] = content_handling
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5222,28 +5226,28 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.put_method_request.PutMethodRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["authorization_type"] = authorization_type
+        input_: aws_sdk_api_gateway.types.put_method_request.PutMethodRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["authorization_type"] = authorization_type
         if authorizer_id is not None:
-            input["authorizer_id"] = authorizer_id
+            input_["authorizer_id"] = authorizer_id
         if api_key_required is not None:
-            input["api_key_required"] = api_key_required
+            input_["api_key_required"] = api_key_required
         if operation_name is not None:
-            input["operation_name"] = operation_name
+            input_["operation_name"] = operation_name
         if request_parameters is not None:
-            input["request_parameters"] = request_parameters
+            input_["request_parameters"] = request_parameters
         if request_models is not None:
-            input["request_models"] = request_models
+            input_["request_models"] = request_models
         if request_validator_id is not None:
-            input["request_validator_id"] = request_validator_id
+            input_["request_validator_id"] = request_validator_id
         if authorization_scopes is not None:
-            input["authorization_scopes"] = authorization_scopes
+            input_["authorization_scopes"] = authorization_scopes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5291,18 +5295,18 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.put_method_response_request.PutMethodResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["status_code"] = status_code
+        input_: aws_sdk_api_gateway.types.put_method_response_request.PutMethodResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["status_code"] = status_code
         if response_parameters is not None:
-            input["response_parameters"] = response_parameters
+            input_["response_parameters"] = response_parameters
         if response_models is not None:
-            input["response_models"] = response_models
+            input_["response_models"] = response_models
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5344,18 +5348,18 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.put_rest_api_request.PutRestApiRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.put_rest_api_request.PutRestApiRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if fail_on_warnings is not None:
-            input["fail_on_warnings"] = fail_on_warnings
+            input_["fail_on_warnings"] = fail_on_warnings
         if parameters is not None:
-            input["parameters"] = parameters
-        input["body"] = body
+            input_["parameters"] = parameters
+        input_["body"] = body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5389,12 +5393,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.reject_domain_name_access_association_request.RejectDomainNameAccessAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name_access_association_arn"] = domain_name_access_association_arn
-        input["domain_name_arn"] = domain_name_arn
+        input_: aws_sdk_api_gateway.types.reject_domain_name_access_association_request.RejectDomainNameAccessAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name_access_association_arn"] = (
+            domain_name_access_association_arn
+        )
+        input_["domain_name_arn"] = domain_name_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5428,12 +5434,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_api_gateway.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5491,24 +5497,24 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.test_invoke_authorizer_request.TestInvokeAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["authorizer_id"] = authorizer_id
+        input_: aws_sdk_api_gateway.types.test_invoke_authorizer_request.TestInvokeAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["authorizer_id"] = authorizer_id
         if headers is not None:
-            input["headers"] = headers
+            input_["headers"] = headers
         if multi_value_headers is not None:
-            input["multi_value_headers"] = multi_value_headers
+            input_["multi_value_headers"] = multi_value_headers
         if path_with_query_string is not None:
-            input["path_with_query_string"] = path_with_query_string
+            input_["path_with_query_string"] = path_with_query_string
         if body is not None:
-            input["body"] = body
+            input_["body"] = body
         if stage_variables is not None:
-            input["stage_variables"] = stage_variables
+            input_["stage_variables"] = stage_variables
         if additional_context is not None:
-            input["additional_context"] = additional_context
+            input_["additional_context"] = additional_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5570,25 +5576,25 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.test_invoke_method_request.TestInvokeMethodRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
+        input_: aws_sdk_api_gateway.types.test_invoke_method_request.TestInvokeMethodRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
         if path_with_query_string is not None:
-            input["path_with_query_string"] = path_with_query_string
+            input_["path_with_query_string"] = path_with_query_string
         if body is not None:
-            input["body"] = body
+            input_["body"] = body
         if headers is not None:
-            input["headers"] = headers
+            input_["headers"] = headers
         if multi_value_headers is not None:
-            input["multi_value_headers"] = multi_value_headers
+            input_["multi_value_headers"] = multi_value_headers
         if client_certificate_id is not None:
-            input["client_certificate_id"] = client_certificate_id
+            input_["client_certificate_id"] = client_certificate_id
         if stage_variables is not None:
-            input["stage_variables"] = stage_variables
+            input_["stage_variables"] = stage_variables
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5622,12 +5628,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_api_gateway.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5661,12 +5667,12 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_account_request.UpdateAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_api_gateway.types.update_account_request.UpdateAccountRequest = {}  # type: ignore[typeddict-item]
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5702,13 +5708,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_api_key_request.UpdateApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["api_key"] = api_key
+        input_: aws_sdk_api_gateway.types.update_api_key_request.UpdateApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["api_key"] = api_key
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5746,14 +5752,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_authorizer_request.UpdateAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["authorizer_id"] = authorizer_id
+        input_: aws_sdk_api_gateway.types.update_authorizer_request.UpdateAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["authorizer_id"] = authorizer_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5795,16 +5801,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_base_path_mapping_request.UpdateBasePathMappingRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.update_base_path_mapping_request.UpdateBasePathMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if domain_name_id is not None:
-            input["domain_name_id"] = domain_name_id
-        input["base_path"] = base_path
+            input_["domain_name_id"] = domain_name_id
+        input_["base_path"] = base_path
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5842,13 +5848,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_client_certificate_request.UpdateClientCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["client_certificate_id"] = client_certificate_id
+        input_: aws_sdk_api_gateway.types.update_client_certificate_request.UpdateClientCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["client_certificate_id"] = client_certificate_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5886,14 +5892,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_deployment_request.UpdateDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_api_gateway.types.update_deployment_request.UpdateDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["deployment_id"] = deployment_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5933,14 +5939,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_documentation_part_request.UpdateDocumentationPartRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["documentation_part_id"] = documentation_part_id
+        input_: aws_sdk_api_gateway.types.update_documentation_part_request.UpdateDocumentationPartRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["documentation_part_id"] = documentation_part_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5980,14 +5986,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_documentation_version_request.UpdateDocumentationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["documentation_version"] = documentation_version
+        input_: aws_sdk_api_gateway.types.update_documentation_version_request.UpdateDocumentationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["documentation_version"] = documentation_version
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6025,15 +6031,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_domain_name_request.UpdateDomainNameRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_api_gateway.types.update_domain_name_request.UpdateDomainNameRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if domain_name_id is not None:
-            input["domain_name_id"] = domain_name_id
+            input_["domain_name_id"] = domain_name_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6073,14 +6079,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_gateway_response_request.UpdateGatewayResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["response_type"] = response_type
+        input_: aws_sdk_api_gateway.types.update_gateway_response_request.UpdateGatewayResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["response_type"] = response_type
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6122,15 +6128,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_integration_request.UpdateIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
+        input_: aws_sdk_api_gateway.types.update_integration_request.UpdateIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6174,16 +6180,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_integration_response_request.UpdateIntegrationResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["status_code"] = status_code
+        input_: aws_sdk_api_gateway.types.update_integration_response_request.UpdateIntegrationResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["status_code"] = status_code
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6223,15 +6229,15 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_method_request.UpdateMethodRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
+        input_: aws_sdk_api_gateway.types.update_method_request.UpdateMethodRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6275,16 +6281,16 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_method_response_request.UpdateMethodResponseRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
-        input["http_method"] = http_method
-        input["status_code"] = status_code
+        input_: aws_sdk_api_gateway.types.update_method_response_request.UpdateMethodResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
+        input_["http_method"] = http_method
+        input_["status_code"] = status_code
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6322,14 +6328,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_model_request.UpdateModelRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["model_name"] = model_name
+        input_: aws_sdk_api_gateway.types.update_model_request.UpdateModelRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["model_name"] = model_name
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6369,14 +6375,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_request_validator_request.UpdateRequestValidatorRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["request_validator_id"] = request_validator_id
+        input_: aws_sdk_api_gateway.types.update_request_validator_request.UpdateRequestValidatorRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["request_validator_id"] = request_validator_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6414,14 +6420,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_resource_request.UpdateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_api_gateway.types.update_resource_request.UpdateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["resource_id"] = resource_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6457,13 +6463,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_rest_api_request.UpdateRestApiRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
+        input_: aws_sdk_api_gateway.types.update_rest_api_request.UpdateRestApiRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6501,14 +6507,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_stage_request.UpdateStageRequest = {}  # type: ignore[typeddict-item]
-        input["rest_api_id"] = rest_api_id
-        input["stage_name"] = stage_name
+        input_: aws_sdk_api_gateway.types.update_stage_request.UpdateStageRequest = {}  # type: ignore[typeddict-item]
+        input_["rest_api_id"] = rest_api_id
+        input_["stage_name"] = stage_name
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6546,14 +6552,14 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_usage_request.UpdateUsageRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
-        input["key_id"] = key_id
+        input_: aws_sdk_api_gateway.types.update_usage_request.UpdateUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
+        input_["key_id"] = key_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6589,13 +6595,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_usage_plan_request.UpdateUsagePlanRequest = {}  # type: ignore[typeddict-item]
-        input["usage_plan_id"] = usage_plan_id
+        input_: aws_sdk_api_gateway.types.update_usage_plan_request.UpdateUsagePlanRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_plan_id"] = usage_plan_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6631,13 +6637,13 @@ class AsyncAPIGatewayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_api_gateway.types.update_vpc_link_request.UpdateVpcLinkRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_link_id"] = vpc_link_id
+        input_: aws_sdk_api_gateway.types.update_vpc_link_request.UpdateVpcLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_link_id"] = vpc_link_id
         if patch_operations is not None:
-            input["patch_operations"] = patch_operations
+            input_["patch_operations"] = patch_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

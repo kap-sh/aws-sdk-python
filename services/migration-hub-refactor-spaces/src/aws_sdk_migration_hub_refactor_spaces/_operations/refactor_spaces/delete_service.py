@@ -108,28 +108,28 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_migration_hub_refactor_spaces.types.delete_service_request.DeleteServiceRequest,
+    input_: aws_sdk_migration_hub_refactor_spaces.types.delete_service_request.DeleteServiceRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}"
     )
     url = url.replace(
-        "{EnvironmentIdentifier}", quote(str(input["environment_identifier"]), safe="")
+        "{EnvironmentIdentifier}", quote(str(input_["environment_identifier"]), safe="")
     )
     url = url.replace(
-        "{ApplicationIdentifier}", quote(str(input["application_identifier"]), safe="")
+        "{ApplicationIdentifier}", quote(str(input_["application_identifier"]), safe="")
     )
     url = url.replace(
-        "{ServiceIdentifier}", quote(str(input["service_identifier"]), safe="")
+        "{ServiceIdentifier}", quote(str(input_["service_identifier"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -138,26 +138,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_service(
     options: OperationOptions,
-    input: aws_sdk_migration_hub_refactor_spaces.types.delete_service_request.DeleteServiceRequest,
+    input_: aws_sdk_migration_hub_refactor_spaces.types.delete_service_request.DeleteServiceRequest,
 ) -> tuple[
     aws_sdk_migration_hub_refactor_spaces.types.delete_service_response.DeleteServiceResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -166,16 +163,17 @@ def delete_service(
 
 async def async_delete_service(
     options: AsyncOperationOptions,
-    input: aws_sdk_migration_hub_refactor_spaces.types.delete_service_request.DeleteServiceRequest,
+    input_: aws_sdk_migration_hub_refactor_spaces.types.delete_service_request.DeleteServiceRequest,
 ) -> tuple[
     aws_sdk_migration_hub_refactor_spaces.types.delete_service_response.DeleteServiceResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

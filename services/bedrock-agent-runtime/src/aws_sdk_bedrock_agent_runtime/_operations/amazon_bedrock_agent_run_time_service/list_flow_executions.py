@@ -98,51 +98,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest,
+    input_: aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/flows/{flowIdentifier}/executions"
-    url = url.replace("{flowIdentifier}", quote(str(input["flow_identifier"]), safe=""))
+    url = url.replace(
+        "{flowIdentifier}", quote(str(input_["flow_identifier"]), safe="")
+    )
     params: dict[str, str] = {}
-    if "flow_alias_identifier" in input:
-        params["flowAliasIdentifier"] = str(input["flow_alias_identifier"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
+    if "flow_alias_identifier" in input_:
+        params["flowAliasIdentifier"] = str(input_["flow_alias_identifier"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_flow_executions(
     options: OperationOptions,
-    input: aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest,
+    input_: aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest,
 ) -> tuple[
     aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -151,16 +150,17 @@ def list_flow_executions(
 
 async def async_list_flow_executions(
     options: AsyncOperationOptions,
-    input: aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest,
+    input_: aws_sdk_bedrock_agent_runtime.types.list_flow_executions_request.ListFlowExecutionsRequest,
 ) -> tuple[
     aws_sdk_bedrock_agent_runtime.types.list_flow_executions_response.ListFlowExecutionsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

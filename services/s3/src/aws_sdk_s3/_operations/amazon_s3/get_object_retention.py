@@ -63,11 +63,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.get_object_retention_request.GetObjectRetentionRequest,
+    input_: aws_sdk_s3.types.get_object_retention_request.GetObjectRetentionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -87,16 +87,16 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?retention"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
-    url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
+    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
     params: dict[str, str] = {}
-    if "version_id" in input:
-        params["versionId"] = str(input["version_id"])
+    if "version_id" in input_:
+        params["versionId"] = str(input_["version_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "request_payer" in input:
-        headers["x-amz-request-payer"] = str(input["request_payer"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = str(input_["request_payer"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -108,12 +108,12 @@ def build_request(
 
 def get_object_retention(
     options: OperationOptions,
-    input: aws_sdk_s3.types.get_object_retention_request.GetObjectRetentionRequest,
+    input_: aws_sdk_s3.types.get_object_retention_request.GetObjectRetentionRequest,
 ) -> tuple[
     aws_sdk_s3.types.get_object_retention_output.GetObjectRetentionOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -127,12 +127,12 @@ def get_object_retention(
 
 async def async_get_object_retention(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.get_object_retention_request.GetObjectRetentionRequest,
+    input_: aws_sdk_s3.types.get_object_retention_request.GetObjectRetentionRequest,
 ) -> tuple[
     aws_sdk_s3.types.get_object_retention_output.GetObjectRetentionOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

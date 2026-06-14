@@ -80,17 +80,17 @@ class IntegrationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_integration_input.CreateIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["input"] = input
-        input["integration_display_name"] = integration_display_name
+        input_: aws_sdk_securityagent.types.create_integration_input.CreateIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["input"] = input
+        input_["integration_display_name"] = integration_display_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -123,11 +123,11 @@ class IntegrationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.get_integration_input.GetIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["integration_id"] = integration_id
+        input_: aws_sdk_securityagent.types.get_integration_input.GetIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["integration_id"] = integration_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -162,11 +162,11 @@ class IntegrationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_integration_input.DeleteIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["integration_id"] = integration_id
+        input_: aws_sdk_securityagent.types.delete_integration_input.DeleteIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["integration_id"] = integration_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -207,16 +207,16 @@ class IntegrationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_integrations_input.ListIntegrationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_integrations_input.ListIntegrationsInput = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,17 +265,17 @@ class AsyncIntegrationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_integration_input.CreateIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["input"] = input
-        input["integration_display_name"] = integration_display_name
+        input_: aws_sdk_securityagent.types.create_integration_input.CreateIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["input"] = input
+        input_["integration_display_name"] = integration_display_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,11 +309,11 @@ class AsyncIntegrationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.get_integration_input.GetIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["integration_id"] = integration_id
+        input_: aws_sdk_securityagent.types.get_integration_input.GetIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["integration_id"] = integration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,11 +349,11 @@ class AsyncIntegrationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_integration_input.DeleteIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["integration_id"] = integration_id
+        input_: aws_sdk_securityagent.types.delete_integration_input.DeleteIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["integration_id"] = integration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,16 +395,16 @@ class AsyncIntegrationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_integrations_input.ListIntegrationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_integrations_input.ListIntegrationsInput = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

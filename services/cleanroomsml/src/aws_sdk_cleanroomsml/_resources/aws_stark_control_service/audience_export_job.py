@@ -68,15 +68,15 @@ class AudienceExportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["audience_generation_job_arn"] = audience_generation_job_arn
-        input["audience_size"] = audience_size
+        input_: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["audience_generation_job_arn"] = audience_generation_job_arn
+        input_["audience_size"] = audience_size
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -117,16 +117,16 @@ class AudienceExportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_audience_export_jobs_request.ListAudienceExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_audience_export_jobs_request.ListAudienceExportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if audience_generation_job_arn is not None:
-            input["audience_generation_job_arn"] = audience_generation_job_arn
+            input_["audience_generation_job_arn"] = audience_generation_job_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -170,15 +170,15 @@ class AsyncAudienceExportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["audience_generation_job_arn"] = audience_generation_job_arn
-        input["audience_size"] = audience_size
+        input_: aws_sdk_cleanroomsml.types.start_audience_export_job_request.StartAudienceExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["audience_generation_job_arn"] = audience_generation_job_arn
+        input_["audience_size"] = audience_size
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,16 +220,16 @@ class AsyncAudienceExportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_audience_export_jobs_request.ListAudienceExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_audience_export_jobs_request.ListAudienceExportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if audience_generation_job_arn is not None:
-            input["audience_generation_job_arn"] = audience_generation_job_arn
+            input_["audience_generation_job_arn"] = audience_generation_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

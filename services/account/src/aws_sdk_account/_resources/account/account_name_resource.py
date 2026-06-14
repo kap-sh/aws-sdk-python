@@ -55,13 +55,13 @@ class AccountNameResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.put_account_name_request.PutAccountNameRequest = {}  # type: ignore[typeddict-item]
-        input["account_name"] = account_name
+        input_: aws_sdk_account.types.put_account_name_request.PutAccountNameRequest = {}  # type: ignore[typeddict-item]
+        input_["account_name"] = account_name
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -94,12 +94,12 @@ class AccountNameResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_account_information_request.GetAccountInformationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_account.types.get_account_information_request.GetAccountInformationRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -138,13 +138,13 @@ class AsyncAccountNameResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.put_account_name_request.PutAccountNameRequest = {}  # type: ignore[typeddict-item]
-        input["account_name"] = account_name
+        input_: aws_sdk_account.types.put_account_name_request.PutAccountNameRequest = {}  # type: ignore[typeddict-item]
+        input_["account_name"] = account_name
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -178,12 +178,12 @@ class AsyncAccountNameResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_account_information_request.GetAccountInformationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_account.types.get_account_information_request.GetAccountInformationRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -108,53 +108,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_pinpoint.types.list_template_versions_request.ListTemplateVersionsRequest,
+    input_: aws_sdk_pinpoint.types.list_template_versions_request.ListTemplateVersionsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/v1/templates/{TemplateName}/{TemplateType}/versions"
     )
-    url = url.replace("{TemplateName}", quote(str(input["template_name"]), safe=""))
-    url = url.replace("{TemplateType}", quote(str(input["template_type"]), safe=""))
+    url = url.replace("{TemplateName}", quote(str(input_["template_name"]), safe=""))
+    url = url.replace("{TemplateType}", quote(str(input_["template_type"]), safe=""))
     params: dict[str, str] = {}
-    if "next_token" in input:
-        params["next-token"] = str(input["next_token"])
-    if "page_size" in input:
-        params["page-size"] = str(input["page_size"])
+    if "next_token" in input_:
+        params["next-token"] = str(input_["next_token"])
+    if "page_size" in input_:
+        params["page-size"] = str(input_["page_size"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_template_versions(
     options: OperationOptions,
-    input: aws_sdk_pinpoint.types.list_template_versions_request.ListTemplateVersionsRequest,
+    input_: aws_sdk_pinpoint.types.list_template_versions_request.ListTemplateVersionsRequest,
 ) -> tuple[
     aws_sdk_pinpoint.types.list_template_versions_response.ListTemplateVersionsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -163,16 +160,17 @@ def list_template_versions(
 
 async def async_list_template_versions(
     options: AsyncOperationOptions,
-    input: aws_sdk_pinpoint.types.list_template_versions_request.ListTemplateVersionsRequest,
+    input_: aws_sdk_pinpoint.types.list_template_versions_request.ListTemplateVersionsRequest,
 ) -> tuple[
     aws_sdk_pinpoint.types.list_template_versions_response.ListTemplateVersionsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

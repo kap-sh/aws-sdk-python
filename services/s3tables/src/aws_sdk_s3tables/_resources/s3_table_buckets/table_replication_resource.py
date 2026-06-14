@@ -62,12 +62,12 @@ class TableReplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_replication_request.DeleteTableReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
-        input["version_token"] = version_token
+        input_: aws_sdk_s3tables.types.delete_table_replication_request.DeleteTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
+        input_["version_token"] = version_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -100,11 +100,11 @@ class TableReplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_replication_request.GetTableReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.get_table_replication_request.GetTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -137,11 +137,11 @@ class TableReplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_replication_status_request.GetTableReplicationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.get_table_replication_status_request.GetTableReplicationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -178,14 +178,14 @@ class TableReplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_replication_request.PutTableReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.put_table_replication_request.PutTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
         if version_token is not None:
-            input["version_token"] = version_token
-        input["configuration"] = configuration
+            input_["version_token"] = version_token
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,12 +224,12 @@ class AsyncTableReplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_replication_request.DeleteTableReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
-        input["version_token"] = version_token
+        input_: aws_sdk_s3tables.types.delete_table_replication_request.DeleteTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
+        input_["version_token"] = version_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,11 +263,11 @@ class AsyncTableReplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_replication_request.GetTableReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.get_table_replication_request.GetTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,11 +301,11 @@ class AsyncTableReplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_replication_status_request.GetTableReplicationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.get_table_replication_status_request.GetTableReplicationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -343,14 +343,14 @@ class AsyncTableReplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_replication_request.PutTableReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_s3tables.types.put_table_replication_request.PutTableReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
         if version_token is not None:
-            input["version_token"] = version_token
-        input["configuration"] = configuration
+            input_["version_token"] = version_token
+        input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

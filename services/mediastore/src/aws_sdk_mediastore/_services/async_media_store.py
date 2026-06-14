@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_mediastore._auth._signers
+import aws_sdk_mediastore._auth._sigv4
 from aws_sdk_mediastore._auth._identity import Credentials
 from aws_sdk_mediastore._auth._providers import (
     CredentialsProvider,
@@ -208,13 +210,13 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.create_container_input.CreateContainerInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.create_container_input.CreateContainerInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,11 +250,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.delete_container_input.DeleteContainerInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.delete_container_input.DeleteContainerInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,11 +288,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.delete_container_policy_input.DeleteContainerPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.delete_container_policy_input.DeleteContainerPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,11 +326,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.delete_cors_policy_input.DeleteCorsPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.delete_cors_policy_input.DeleteCorsPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -362,11 +364,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.delete_lifecycle_policy_input.DeleteLifecyclePolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.delete_lifecycle_policy_input.DeleteLifecyclePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,11 +404,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.delete_metric_policy_input.DeleteMetricPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.delete_metric_policy_input.DeleteMetricPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,12 +444,12 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.describe_container_input.DescribeContainerInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediastore.types.describe_container_input.DescribeContainerInput = {}  # type: ignore[typeddict-item]
         if container_name is not None:
-            input["container_name"] = container_name
+            input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,11 +485,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.get_container_policy_input.GetContainerPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.get_container_policy_input.GetContainerPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -521,11 +523,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.get_cors_policy_input.GetCorsPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.get_cors_policy_input.GetCorsPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,11 +563,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.get_lifecycle_policy_input.GetLifecyclePolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.get_lifecycle_policy_input.GetLifecyclePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,11 +601,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.get_metric_policy_input.GetMetricPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.get_metric_policy_input.GetMetricPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -643,14 +645,14 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.list_containers_input.ListContainersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediastore.types.list_containers_input.ListContainersInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -684,11 +686,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
+        input_: aws_sdk_mediastore.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -726,12 +728,12 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.put_container_policy_input.PutContainerPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
-        input["policy"] = policy
+        input_: aws_sdk_mediastore.types.put_container_policy_input.PutContainerPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -767,12 +769,12 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.put_cors_policy_input.PutCorsPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
-        input["cors_policy"] = cors_policy
+        input_: aws_sdk_mediastore.types.put_cors_policy_input.PutCorsPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
+        input_["cors_policy"] = cors_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -810,12 +812,12 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.put_lifecycle_policy_input.PutLifecyclePolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
-        input["lifecycle_policy"] = lifecycle_policy
+        input_: aws_sdk_mediastore.types.put_lifecycle_policy_input.PutLifecyclePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
+        input_["lifecycle_policy"] = lifecycle_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,12 +853,12 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.put_metric_policy_input.PutMetricPolicyInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
-        input["metric_policy"] = metric_policy
+        input_: aws_sdk_mediastore.types.put_metric_policy_input.PutMetricPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
+        input_["metric_policy"] = metric_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -892,11 +894,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.start_access_logging_input.StartAccessLoggingInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.start_access_logging_input.StartAccessLoggingInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -930,11 +932,11 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.stop_access_logging_input.StopAccessLoggingInput = {}  # type: ignore[typeddict-item]
-        input["container_name"] = container_name
+        input_: aws_sdk_mediastore.types.stop_access_logging_input.StopAccessLoggingInput = {}  # type: ignore[typeddict-item]
+        input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -970,12 +972,12 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["tags"] = tags
+        input_: aws_sdk_mediastore.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1011,12 +1013,12 @@ class AsyncMediaStoreClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediastore.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mediastore.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

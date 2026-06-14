@@ -125,29 +125,29 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.autocomplete_request.AutocompleteRequest = {}  # type: ignore[typeddict-item]
-        input["query_text"] = query_text
+        input_: aws_sdk_geo_places.types.autocomplete_request.AutocompleteRequest = {}  # type: ignore[typeddict-item]
+        input_["query_text"] = query_text
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if postal_code_mode is not None:
-            input["postal_code_mode"] = postal_code_mode
+            input_["postal_code_mode"] = postal_code_mode
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -209,30 +209,30 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.geocode_request.GeocodeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_places.types.geocode_request.GeocodeRequest = {}  # type: ignore[typeddict-item]
         if query_text is not None:
-            input["query_text"] = query_text
+            input_["query_text"] = query_text
         if query_components is not None:
-            input["query_components"] = query_components
+            input_["query_components"] = query_components
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,21 +281,21 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.get_place_request.GetPlaceRequest = {}  # type: ignore[typeddict-item]
-        input["place_id"] = place_id
+        input_: aws_sdk_geo_places.types.get_place_request.GetPlaceRequest = {}  # type: ignore[typeddict-item]
+        input_["place_id"] = place_id
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,29 +356,29 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.reverse_geocode_request.ReverseGeocodeRequest = {}  # type: ignore[typeddict-item]
-        input["query_position"] = query_position
+        input_: aws_sdk_geo_places.types.reverse_geocode_request.ReverseGeocodeRequest = {}  # type: ignore[typeddict-item]
+        input_["query_position"] = query_position
         if query_radius is not None:
-            input["query_radius"] = query_radius
+            input_["query_radius"] = query_radius
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if heading is not None:
-            input["heading"] = heading
+            input_["heading"] = heading
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -439,29 +439,29 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.search_nearby_request.SearchNearbyRequest = {}  # type: ignore[typeddict-item]
-        input["query_position"] = query_position
+        input_: aws_sdk_geo_places.types.search_nearby_request.SearchNearbyRequest = {}  # type: ignore[typeddict-item]
+        input_["query_position"] = query_position
         if query_radius is not None:
-            input["query_radius"] = query_radius
+            input_["query_radius"] = query_radius
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,32 +526,32 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.search_text_request.SearchTextRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_places.types.search_text_request.SearchTextRequest = {}  # type: ignore[typeddict-item]
         if query_text is not None:
-            input["query_text"] = query_text
+            input_["query_text"] = query_text
         if query_id is not None:
-            input["query_id"] = query_id
+            input_["query_id"] = query_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -610,29 +610,29 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.suggest_request.SuggestRequest = {}  # type: ignore[typeddict-item]
-        input["query_text"] = query_text
+        input_: aws_sdk_geo_places.types.suggest_request.SuggestRequest = {}  # type: ignore[typeddict-item]
+        input_["query_text"] = query_text
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if max_query_refinements is not None:
-            input["max_query_refinements"] = max_query_refinements
+            input_["max_query_refinements"] = max_query_refinements
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -699,29 +699,29 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.autocomplete_request.AutocompleteRequest = {}  # type: ignore[typeddict-item]
-        input["query_text"] = query_text
+        input_: aws_sdk_geo_places.types.autocomplete_request.AutocompleteRequest = {}  # type: ignore[typeddict-item]
+        input_["query_text"] = query_text
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if postal_code_mode is not None:
-            input["postal_code_mode"] = postal_code_mode
+            input_["postal_code_mode"] = postal_code_mode
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -784,30 +784,30 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.geocode_request.GeocodeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_places.types.geocode_request.GeocodeRequest = {}  # type: ignore[typeddict-item]
         if query_text is not None:
-            input["query_text"] = query_text
+            input_["query_text"] = query_text
         if query_components is not None:
-            input["query_components"] = query_components
+            input_["query_components"] = query_components
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -857,21 +857,21 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.get_place_request.GetPlaceRequest = {}  # type: ignore[typeddict-item]
-        input["place_id"] = place_id
+        input_: aws_sdk_geo_places.types.get_place_request.GetPlaceRequest = {}  # type: ignore[typeddict-item]
+        input_["place_id"] = place_id
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -933,29 +933,29 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.reverse_geocode_request.ReverseGeocodeRequest = {}  # type: ignore[typeddict-item]
-        input["query_position"] = query_position
+        input_: aws_sdk_geo_places.types.reverse_geocode_request.ReverseGeocodeRequest = {}  # type: ignore[typeddict-item]
+        input_["query_position"] = query_position
         if query_radius is not None:
-            input["query_radius"] = query_radius
+            input_["query_radius"] = query_radius
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if heading is not None:
-            input["heading"] = heading
+            input_["heading"] = heading
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1017,29 +1017,29 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.search_nearby_request.SearchNearbyRequest = {}  # type: ignore[typeddict-item]
-        input["query_position"] = query_position
+        input_: aws_sdk_geo_places.types.search_nearby_request.SearchNearbyRequest = {}  # type: ignore[typeddict-item]
+        input_["query_position"] = query_position
         if query_radius is not None:
-            input["query_radius"] = query_radius
+            input_["query_radius"] = query_radius
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1105,32 +1105,32 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.search_text_request.SearchTextRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_places.types.search_text_request.SearchTextRequest = {}  # type: ignore[typeddict-item]
         if query_text is not None:
-            input["query_text"] = query_text
+            input_["query_text"] = query_text
         if query_id is not None:
-            input["query_id"] = query_id
+            input_["query_id"] = query_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1190,29 +1190,29 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_places.types.suggest_request.SuggestRequest = {}  # type: ignore[typeddict-item]
-        input["query_text"] = query_text
+        input_: aws_sdk_geo_places.types.suggest_request.SuggestRequest = {}  # type: ignore[typeddict-item]
+        input_["query_text"] = query_text
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if max_query_refinements is not None:
-            input["max_query_refinements"] = max_query_refinements
+            input_["max_query_refinements"] = max_query_refinements
         if bias_position is not None:
-            input["bias_position"] = bias_position
+            input_["bias_position"] = bias_position
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if additional_features is not None:
-            input["additional_features"] = additional_features
+            input_["additional_features"] = additional_features
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if intended_use is not None:
-            input["intended_use"] = intended_use
+            input_["intended_use"] = intended_use
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

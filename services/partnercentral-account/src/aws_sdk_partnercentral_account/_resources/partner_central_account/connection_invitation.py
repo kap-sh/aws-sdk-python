@@ -89,17 +89,17 @@ class ConnectionInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.create_connection_invitation_request.CreateConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["connection_type"] = connection_type
-        input["email"] = email
-        input["message"] = message
-        input["name"] = name
-        input["receiver_identifier"] = receiver_identifier
+        input_: aws_sdk_partnercentral_account.types.create_connection_invitation_request.CreateConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["connection_type"] = connection_type
+        input_["email"] = email
+        input_["message"] = message
+        input_["name"] = name
+        input_["receiver_identifier"] = receiver_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,12 +134,12 @@ class ConnectionInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.get_connection_invitation_request.GetConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_account.types.get_connection_invitation_request.GetConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,23 +196,23 @@ class ConnectionInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.list_connection_invitations_request.ListConnectionInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_account.types.list_connection_invitations_request.ListConnectionInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if connection_type is not None:
-            input["connection_type"] = connection_type
+            input_["connection_type"] = connection_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if other_participant_identifiers is not None:
-            input["other_participant_identifiers"] = other_participant_identifiers
+            input_["other_participant_identifiers"] = other_participant_identifiers
         if participant_type is not None:
-            input["participant_type"] = participant_type
+            input_["participant_type"] = participant_type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,13 +249,13 @@ class ConnectionInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.accept_connection_invitation_request.AcceptConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_account.types.accept_connection_invitation_request.AcceptConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,13 +292,13 @@ class ConnectionInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.cancel_connection_invitation_request.CancelConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_account.types.cancel_connection_invitation_request.CancelConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,15 +337,15 @@ class ConnectionInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.reject_connection_invitation_request.RejectConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_account.types.reject_connection_invitation_request.RejectConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["client_token"] = client_token
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,17 +396,17 @@ class AsyncConnectionInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.create_connection_invitation_request.CreateConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["connection_type"] = connection_type
-        input["email"] = email
-        input["message"] = message
-        input["name"] = name
-        input["receiver_identifier"] = receiver_identifier
+        input_: aws_sdk_partnercentral_account.types.create_connection_invitation_request.CreateConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["connection_type"] = connection_type
+        input_["email"] = email
+        input_["message"] = message
+        input_["name"] = name
+        input_["receiver_identifier"] = receiver_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,12 +442,12 @@ class AsyncConnectionInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.get_connection_invitation_request.GetConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_account.types.get_connection_invitation_request.GetConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,23 +505,23 @@ class AsyncConnectionInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.list_connection_invitations_request.ListConnectionInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_account.types.list_connection_invitations_request.ListConnectionInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if connection_type is not None:
-            input["connection_type"] = connection_type
+            input_["connection_type"] = connection_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if other_participant_identifiers is not None:
-            input["other_participant_identifiers"] = other_participant_identifiers
+            input_["other_participant_identifiers"] = other_participant_identifiers
         if participant_type is not None:
-            input["participant_type"] = participant_type
+            input_["participant_type"] = participant_type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,13 +559,13 @@ class AsyncConnectionInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.accept_connection_invitation_request.AcceptConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_account.types.accept_connection_invitation_request.AcceptConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,13 +603,13 @@ class AsyncConnectionInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.cancel_connection_invitation_request.CancelConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_account.types.cancel_connection_invitation_request.CancelConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -649,15 +649,15 @@ class AsyncConnectionInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.reject_connection_invitation_request.RejectConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_account.types.reject_connection_invitation_request.RejectConnectionInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["client_token"] = client_token
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

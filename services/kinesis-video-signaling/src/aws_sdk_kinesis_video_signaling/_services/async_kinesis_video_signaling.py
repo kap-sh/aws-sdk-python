@@ -177,17 +177,17 @@ class AsyncKinesisVideoSignalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_signaling.types.get_ice_server_config_request.GetIceServerConfigRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_kinesis_video_signaling.types.get_ice_server_config_request.GetIceServerConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if client_id is not None:
-            input["client_id"] = client_id
+            input_["client_id"] = client_id
         if service is not None:
-            input["service"] = service
+            input_["service"] = service
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -225,13 +225,13 @@ class AsyncKinesisVideoSignalingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_signaling.types.send_alexa_offer_to_master_request.SendAlexaOfferToMasterRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["sender_client_id"] = sender_client_id
-        input["message_payload"] = message_payload
+        input_: aws_sdk_kinesis_video_signaling.types.send_alexa_offer_to_master_request.SendAlexaOfferToMasterRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["sender_client_id"] = sender_client_id
+        input_["message_payload"] = message_payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

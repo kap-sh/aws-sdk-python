@@ -88,23 +88,23 @@ class ServiceTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_service_template_version_input.CreateServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.create_service_template_version_input.CreateServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["template_name"] = template_name
+            input_["client_token"] = client_token
+        input_["template_name"] = template_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if major_version is not None:
-            input["major_version"] = major_version
-        input["source"] = source
-        input["compatible_environment_templates"] = compatible_environment_templates
+            input_["major_version"] = major_version
+        input_["source"] = source
+        input_["compatible_environment_templates"] = compatible_environment_templates
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if supported_component_sources is not None:
-            input["supported_component_sources"] = supported_component_sources
+            input_["supported_component_sources"] = supported_component_sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,13 +141,13 @@ class ServiceTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_template_version_input.GetServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.get_service_template_version_input.GetServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,21 +198,23 @@ class ServiceTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_template_version_input.UpdateServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.update_service_template_version_input.UpdateServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if compatible_environment_templates is not None:
-            input["compatible_environment_templates"] = compatible_environment_templates
+            input_["compatible_environment_templates"] = (
+                compatible_environment_templates
+            )
         if supported_component_sources is not None:
-            input["supported_component_sources"] = supported_component_sources
+            input_["supported_component_sources"] = supported_component_sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,13 +251,13 @@ class ServiceTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_service_template_version_input.DeleteServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.delete_service_template_version_input.DeleteServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,17 +300,17 @@ class ServiceTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_service_template_versions_input.ListServiceTemplateVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_service_template_versions_input.ListServiceTemplateVersionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["template_name"] = template_name
+            input_["max_results"] = max_results
+        input_["template_name"] = template_name
         if major_version is not None:
-            input["major_version"] = major_version
+            input_["major_version"] = major_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,23 +367,23 @@ class AsyncServiceTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_service_template_version_input.CreateServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.create_service_template_version_input.CreateServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["template_name"] = template_name
+            input_["client_token"] = client_token
+        input_["template_name"] = template_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if major_version is not None:
-            input["major_version"] = major_version
-        input["source"] = source
-        input["compatible_environment_templates"] = compatible_environment_templates
+            input_["major_version"] = major_version
+        input_["source"] = source
+        input_["compatible_environment_templates"] = compatible_environment_templates
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if supported_component_sources is not None:
-            input["supported_component_sources"] = supported_component_sources
+            input_["supported_component_sources"] = supported_component_sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,13 +421,13 @@ class AsyncServiceTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_template_version_input.GetServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.get_service_template_version_input.GetServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -477,21 +479,23 @@ class AsyncServiceTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_template_version_input.UpdateServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.update_service_template_version_input.UpdateServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if compatible_environment_templates is not None:
-            input["compatible_environment_templates"] = compatible_environment_templates
+            input_["compatible_environment_templates"] = (
+                compatible_environment_templates
+            )
         if supported_component_sources is not None:
-            input["supported_component_sources"] = supported_component_sources
+            input_["supported_component_sources"] = supported_component_sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,13 +533,13 @@ class AsyncServiceTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_service_template_version_input.DeleteServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.delete_service_template_version_input.DeleteServiceTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,17 +583,17 @@ class AsyncServiceTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_service_template_versions_input.ListServiceTemplateVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_service_template_versions_input.ListServiceTemplateVersionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["template_name"] = template_name
+            input_["max_results"] = max_results
+        input_["template_name"] = template_name
         if major_version is not None:
-            input["major_version"] = major_version
+            input_["major_version"] = major_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

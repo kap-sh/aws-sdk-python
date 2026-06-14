@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_organizations._auth._signers
+import aws_sdk_organizations._auth._sigv4
 from aws_sdk_organizations._auth._identity import Credentials
 from aws_sdk_organizations._auth._providers import (
     CredentialsProvider,
@@ -300,11 +302,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.accept_handshake_request.AcceptHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["handshake_id"] = handshake_id
+        input_: aws_sdk_organizations.types.accept_handshake_request.AcceptHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["handshake_id"] = handshake_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,12 +351,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.attach_policy_request.AttachPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
-        input["target_id"] = target_id
+        input_: aws_sdk_organizations.types.attach_policy_request.AttachPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
+        input_["target_id"] = target_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -389,11 +391,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.cancel_handshake_request.CancelHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["handshake_id"] = handshake_id
+        input_: aws_sdk_organizations.types.cancel_handshake_request.CancelHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["handshake_id"] = handshake_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,11 +426,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.close_account_request.CloseAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_organizations.types.close_account_request.CloseAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,18 +481,18 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.create_account_request.CreateAccountRequest = {}  # type: ignore[typeddict-item]
-        input["email"] = email
-        input["account_name"] = account_name
+        input_: aws_sdk_organizations.types.create_account_request.CreateAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["email"] = email
+        input_["account_name"] = account_name
         if role_name is not None:
-            input["role_name"] = role_name
+            input_["role_name"] = role_name
         if iam_user_access_to_billing is not None:
-            input["iam_user_access_to_billing"] = iam_user_access_to_billing
+            input_["iam_user_access_to_billing"] = iam_user_access_to_billing
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -533,18 +535,18 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.create_gov_cloud_account_request.CreateGovCloudAccountRequest = {}  # type: ignore[typeddict-item]
-        input["email"] = email
-        input["account_name"] = account_name
+        input_: aws_sdk_organizations.types.create_gov_cloud_account_request.CreateGovCloudAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["email"] = email
+        input_["account_name"] = account_name
         if role_name is not None:
-            input["role_name"] = role_name
+            input_["role_name"] = role_name
         if iam_user_access_to_billing is not None:
-            input["iam_user_access_to_billing"] = iam_user_access_to_billing
+            input_["iam_user_access_to_billing"] = iam_user_access_to_billing
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,12 +595,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.create_organization_request.CreateOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.create_organization_request.CreateOrganizationRequest = {}  # type: ignore[typeddict-item]
         if feature_set is not None:
-            input["feature_set"] = feature_set
+            input_["feature_set"] = feature_set
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -643,14 +645,14 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.create_organizational_unit_request.CreateOrganizationalUnitRequest = {}  # type: ignore[typeddict-item]
-        input["parent_id"] = parent_id
-        input["name"] = name
+        input_: aws_sdk_organizations.types.create_organizational_unit_request.CreateOrganizationalUnitRequest = {}  # type: ignore[typeddict-item]
+        input_["parent_id"] = parent_id
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -699,16 +701,16 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["content"] = content
-        input["description"] = description
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_organizations.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["content"] = content
+        input_["description"] = description
+        input_["name"] = name
+        input_["type"] = type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -747,11 +749,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.decline_handshake_request.DeclineHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["handshake_id"] = handshake_id
+        input_: aws_sdk_organizations.types.decline_handshake_request.DeclineHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["handshake_id"] = handshake_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -814,11 +816,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.delete_organizational_unit_request.DeleteOrganizationalUnitRequest = {}  # type: ignore[typeddict-item]
-        input["organizational_unit_id"] = organizational_unit_id
+        input_: aws_sdk_organizations.types.delete_organizational_unit_request.DeleteOrganizationalUnitRequest = {}  # type: ignore[typeddict-item]
+        input_["organizational_unit_id"] = organizational_unit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -857,11 +859,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_organizations.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -918,12 +920,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.deregister_delegated_administrator_request.DeregisterDelegatedAdministratorRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["service_principal"] = service_principal
+        input_: aws_sdk_organizations.types.deregister_delegated_administrator_request.DeregisterDelegatedAdministratorRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["service_principal"] = service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -964,11 +966,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.describe_account_request.DescribeAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_organizations.types.describe_account_request.DescribeAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1007,11 +1009,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.describe_create_account_status_request.DescribeCreateAccountStatusRequest = {}  # type: ignore[typeddict-item]
-        input["create_account_request_id"] = create_account_request_id
+        input_: aws_sdk_organizations.types.describe_create_account_status_request.DescribeCreateAccountStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["create_account_request_id"] = create_account_request_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1048,13 +1050,13 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.describe_effective_policy_request.DescribeEffectivePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_type"] = policy_type
+        input_: aws_sdk_organizations.types.describe_effective_policy_request.DescribeEffectivePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_type"] = policy_type
         if target_id is not None:
-            input["target_id"] = target_id
+            input_["target_id"] = target_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1093,11 +1095,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.describe_handshake_request.DescribeHandshakeRequest = {}  # type: ignore[typeddict-item]
-        input["handshake_id"] = handshake_id
+        input_: aws_sdk_organizations.types.describe_handshake_request.DescribeHandshakeRequest = {}  # type: ignore[typeddict-item]
+        input_["handshake_id"] = handshake_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1171,11 +1173,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.describe_organizational_unit_request.DescribeOrganizationalUnitRequest = {}  # type: ignore[typeddict-item]
-        input["organizational_unit_id"] = organizational_unit_id
+        input_: aws_sdk_organizations.types.describe_organizational_unit_request.DescribeOrganizationalUnitRequest = {}  # type: ignore[typeddict-item]
+        input_["organizational_unit_id"] = organizational_unit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1214,11 +1216,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.describe_policy_request.DescribePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_organizations.types.describe_policy_request.DescribePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1279,11 +1281,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.describe_responsibility_transfer_request.DescribeResponsibilityTransferRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_organizations.types.describe_responsibility_transfer_request.DescribeResponsibilityTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1322,12 +1324,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.detach_policy_request.DetachPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
-        input["target_id"] = target_id
+        input_: aws_sdk_organizations.types.detach_policy_request.DetachPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
+        input_["target_id"] = target_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1358,11 +1360,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.disable_aws_service_access_request.DisableAWSServiceAccessRequest = {}  # type: ignore[typeddict-item]
-        input["service_principal"] = service_principal
+        input_: aws_sdk_organizations.types.disable_aws_service_access_request.DisableAWSServiceAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["service_principal"] = service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1403,12 +1405,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.disable_policy_type_request.DisablePolicyTypeRequest = {}  # type: ignore[typeddict-item]
-        input["root_id"] = root_id
-        input["policy_type"] = policy_type
+        input_: aws_sdk_organizations.types.disable_policy_type_request.DisablePolicyTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["root_id"] = root_id
+        input_["policy_type"] = policy_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1441,10 +1443,10 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.enable_all_features_request.EnableAllFeaturesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.enable_all_features_request.EnableAllFeaturesRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1475,11 +1477,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.enable_aws_service_access_request.EnableAWSServiceAccessRequest = {}  # type: ignore[typeddict-item]
-        input["service_principal"] = service_principal
+        input_: aws_sdk_organizations.types.enable_aws_service_access_request.EnableAWSServiceAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["service_principal"] = service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1520,12 +1522,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.enable_policy_type_request.EnablePolicyTypeRequest = {}  # type: ignore[typeddict-item]
-        input["root_id"] = root_id
-        input["policy_type"] = policy_type
+        input_: aws_sdk_organizations.types.enable_policy_type_request.EnablePolicyTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["root_id"] = root_id
+        input_["policy_type"] = policy_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1570,15 +1572,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.invite_account_to_organization_request.InviteAccountToOrganizationRequest = {}  # type: ignore[typeddict-item]
-        input["target"] = target
+        input_: aws_sdk_organizations.types.invite_account_to_organization_request.InviteAccountToOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_["target"] = target
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1623,18 +1625,18 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.invite_organization_to_transfer_responsibility_request.InviteOrganizationToTransferResponsibilityRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["target"] = target
+        input_: aws_sdk_organizations.types.invite_organization_to_transfer_responsibility_request.InviteOrganizationToTransferResponsibilityRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["target"] = target
         if notes is not None:
-            input["notes"] = notes
-        input["start_timestamp"] = start_timestamp
-        input["source_name"] = source_name
+            input_["notes"] = notes
+        input_["start_timestamp"] = start_timestamp
+        input_["source_name"] = source_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1702,14 +1704,14 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1754,15 +1756,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_accounts_for_parent_request.ListAccountsForParentRequest = {}  # type: ignore[typeddict-item]
-        input["parent_id"] = parent_id
+        input_: aws_sdk_organizations.types.list_accounts_for_parent_request.ListAccountsForParentRequest = {}  # type: ignore[typeddict-item]
+        input_["parent_id"] = parent_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1807,15 +1809,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_accounts_with_invalid_effective_policy_request.ListAccountsWithInvalidEffectivePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_type"] = policy_type
+        input_: aws_sdk_organizations.types.list_accounts_with_invalid_effective_policy_request.ListAccountsWithInvalidEffectivePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_type"] = policy_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1877,14 +1879,14 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_aws_service_access_for_organization_request.ListAWSServiceAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.list_aws_service_access_for_organization_request.ListAWSServiceAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1931,16 +1933,16 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_children_request.ListChildrenRequest = {}  # type: ignore[typeddict-item]
-        input["parent_id"] = parent_id
-        input["child_type"] = child_type
+        input_: aws_sdk_organizations.types.list_children_request.ListChildrenRequest = {}  # type: ignore[typeddict-item]
+        input_["parent_id"] = parent_id
+        input_["child_type"] = child_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1991,16 +1993,16 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_create_account_status_request.ListCreateAccountStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.list_create_account_status_request.ListCreateAccountStatusRequest = {}  # type: ignore[typeddict-item]
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2041,16 +2043,16 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_delegated_administrators_request.ListDelegatedAdministratorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.list_delegated_administrators_request.ListDelegatedAdministratorsRequest = {}  # type: ignore[typeddict-item]
         if service_principal is not None:
-            input["service_principal"] = service_principal
+            input_["service_principal"] = service_principal
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2116,15 +2118,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_delegated_services_for_account_request.ListDelegatedServicesForAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_organizations.types.list_delegated_services_for_account_request.ListDelegatedServicesForAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2190,16 +2192,16 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_effective_policy_validation_errors_request.ListEffectivePolicyValidationErrorsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["policy_type"] = policy_type
+        input_: aws_sdk_organizations.types.list_effective_policy_validation_errors_request.ListEffectivePolicyValidationErrorsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["policy_type"] = policy_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2273,16 +2275,16 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_handshakes_for_account_request.ListHandshakesForAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.list_handshakes_for_account_request.ListHandshakesForAccountRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2329,16 +2331,16 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_handshakes_for_organization_request.ListHandshakesForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.list_handshakes_for_organization_request.ListHandshakesForOrganizationRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2381,17 +2383,17 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_inbound_responsibility_transfers_request.ListInboundResponsibilityTransfersRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_organizations.types.list_inbound_responsibility_transfers_request.ListInboundResponsibilityTransfersRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2436,15 +2438,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_organizational_units_for_parent_request.ListOrganizationalUnitsForParentRequest = {}  # type: ignore[typeddict-item]
-        input["parent_id"] = parent_id
+        input_: aws_sdk_organizations.types.list_organizational_units_for_parent_request.ListOrganizationalUnitsForParentRequest = {}  # type: ignore[typeddict-item]
+        input_["parent_id"] = parent_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2483,15 +2485,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_outbound_responsibility_transfers_request.ListOutboundResponsibilityTransfersRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_organizations.types.list_outbound_responsibility_transfers_request.ListOutboundResponsibilityTransfersRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2536,15 +2538,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_parents_request.ListParentsRequest = {}  # type: ignore[typeddict-item]
-        input["child_id"] = child_id
+        input_: aws_sdk_organizations.types.list_parents_request.ListParentsRequest = {}  # type: ignore[typeddict-item]
+        input_["child_id"] = child_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2589,15 +2591,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["filter"] = filter
+        input_: aws_sdk_organizations.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2644,16 +2646,16 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_policies_for_target_request.ListPoliciesForTargetRequest = {}  # type: ignore[typeddict-item]
-        input["target_id"] = target_id
-        input["filter"] = filter
+        input_: aws_sdk_organizations.types.list_policies_for_target_request.ListPoliciesForTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["target_id"] = target_id
+        input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2696,14 +2698,14 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_roots_request.ListRootsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_organizations.types.list_roots_request.ListRootsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2738,13 +2740,13 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_organizations.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2810,15 +2812,15 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.list_targets_for_policy_request.ListTargetsForPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_organizations.types.list_targets_for_policy_request.ListTargetsForPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2859,13 +2861,13 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.move_account_request.MoveAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["source_parent_id"] = source_parent_id
-        input["destination_parent_id"] = destination_parent_id
+        input_: aws_sdk_organizations.types.move_account_request.MoveAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["source_parent_id"] = source_parent_id
+        input_["destination_parent_id"] = destination_parent_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2900,13 +2902,13 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["content"] = content
+        input_: aws_sdk_organizations.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["content"] = content
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2939,12 +2941,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.register_delegated_administrator_request.RegisterDelegatedAdministratorRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["service_principal"] = service_principal
+        input_: aws_sdk_organizations.types.register_delegated_administrator_request.RegisterDelegatedAdministratorRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["service_principal"] = service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2981,11 +2983,11 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.remove_account_from_organization_request.RemoveAccountFromOrganizationRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_organizations.types.remove_account_from_organization_request.RemoveAccountFromOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3018,12 +3020,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tags"] = tags
+        input_: aws_sdk_organizations.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3060,13 +3062,13 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.terminate_responsibility_transfer_request.TerminateResponsibilityTransferRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_organizations.types.terminate_responsibility_transfer_request.TerminateResponsibilityTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if end_timestamp is not None:
-            input["end_timestamp"] = end_timestamp
+            input_["end_timestamp"] = end_timestamp
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3099,12 +3101,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_organizations.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3147,13 +3149,13 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.update_organizational_unit_request.UpdateOrganizationalUnitRequest = {}  # type: ignore[typeddict-item]
-        input["organizational_unit_id"] = organizational_unit_id
+        input_: aws_sdk_organizations.types.update_organizational_unit_request.UpdateOrganizationalUnitRequest = {}  # type: ignore[typeddict-item]
+        input_["organizational_unit_id"] = organizational_unit_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3206,17 +3208,17 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.update_policy_request.UpdatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_organizations.types.update_policy_request.UpdatePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3251,12 +3253,12 @@ class OrganizationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_organizations.types.update_responsibility_transfer_request.UpdateResponsibilityTransferRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["name"] = name
+        input_: aws_sdk_organizations.types.update_responsibility_transfer_request.UpdateResponsibilityTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -74,11 +74,11 @@ class AsyncInvokeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.get_async_invoke_request.GetAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
-        input["invocation_arn"] = invocation_arn
+        input_: aws_sdk_bedrock_runtime.types.get_async_invoke_request.GetAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
+        input_["invocation_arn"] = invocation_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -137,24 +137,24 @@ class AsyncInvokeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.list_async_invokes_request.ListAsyncInvokesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_runtime.types.list_async_invokes_request.ListAsyncInvokesRequest = {}  # type: ignore[typeddict-item]
         if submit_time_after is not None:
-            input["submit_time_after"] = submit_time_after
+            input_["submit_time_after"] = submit_time_after
         if submit_time_before is not None:
-            input["submit_time_before"] = submit_time_before
+            input_["submit_time_before"] = submit_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,17 +197,17 @@ class AsyncInvokeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["model_id"] = model_id
-        input["model_input"] = model_input
-        input["output_data_config"] = output_data_config
+            input_["client_request_token"] = client_request_token
+        input_["model_id"] = model_id
+        input_["model_input"] = model_input
+        input_["output_data_config"] = output_data_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,11 +248,11 @@ class AsyncAsyncInvokeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.get_async_invoke_request.GetAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
-        input["invocation_arn"] = invocation_arn
+        input_: aws_sdk_bedrock_runtime.types.get_async_invoke_request.GetAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
+        input_["invocation_arn"] = invocation_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,24 +312,24 @@ class AsyncAsyncInvokeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.list_async_invokes_request.ListAsyncInvokesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_runtime.types.list_async_invokes_request.ListAsyncInvokesRequest = {}  # type: ignore[typeddict-item]
         if submit_time_after is not None:
-            input["submit_time_after"] = submit_time_after
+            input_["submit_time_after"] = submit_time_after
         if submit_time_before is not None:
-            input["submit_time_before"] = submit_time_before
+            input_["submit_time_before"] = submit_time_before
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,17 +373,17 @@ class AsyncAsyncInvokeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_runtime.types.start_async_invoke_request.StartAsyncInvokeRequest = {}  # type: ignore[typeddict-item]
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["model_id"] = model_id
-        input["model_input"] = model_input
-        input["output_data_config"] = output_data_config
+            input_["client_request_token"] = client_request_token
+        input_["model_id"] = model_id
+        input_["model_input"] = model_input
+        input_["output_data_config"] = output_data_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

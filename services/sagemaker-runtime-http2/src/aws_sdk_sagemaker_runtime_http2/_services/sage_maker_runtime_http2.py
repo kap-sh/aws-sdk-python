@@ -164,18 +164,18 @@ class SageMakerRuntimeHTTP2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_runtime_http2.types.invoke_endpoint_with_bidirectional_stream_input.InvokeEndpointWithBidirectionalStreamInput = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
-        input["body"] = ensure_sync_iterator(body)  # type: ignore
+        input_: aws_sdk_sagemaker_runtime_http2.types.invoke_endpoint_with_bidirectional_stream_input.InvokeEndpointWithBidirectionalStreamInput = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
+        input_["body"] = ensure_sync_iterator(body)  # type: ignore
         if target_variant is not None:
-            input["target_variant"] = target_variant
+            input_["target_variant"] = target_variant
         if model_invocation_path is not None:
-            input["model_invocation_path"] = model_invocation_path
+            input_["model_invocation_path"] = model_invocation_path
         if model_query_string is not None:
-            input["model_query_string"] = model_query_string
+            input_["model_query_string"] = model_query_string
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

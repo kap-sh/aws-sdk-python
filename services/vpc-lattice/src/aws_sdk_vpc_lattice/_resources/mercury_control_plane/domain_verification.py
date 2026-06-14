@@ -74,15 +74,15 @@ class DomainVerification:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.start_domain_verification_request.StartDomainVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.start_domain_verification_request.StartDomainVerificationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["domain_name"] = domain_name
+            input_["client_token"] = client_token
+        input_["domain_name"] = domain_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,11 +115,11 @@ class DomainVerification:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_domain_verification_request.GetDomainVerificationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_verification_identifier"] = domain_verification_identifier
+        input_: aws_sdk_vpc_lattice.types.get_domain_verification_request.GetDomainVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_verification_identifier"] = domain_verification_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,11 +152,11 @@ class DomainVerification:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_domain_verification_request.DeleteDomainVerificationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_verification_identifier"] = domain_verification_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_domain_verification_request.DeleteDomainVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_verification_identifier"] = domain_verification_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -193,14 +193,14 @@ class DomainVerification:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_domain_verifications_request.ListDomainVerificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_domain_verifications_request.ListDomainVerificationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,15 +245,15 @@ class AsyncDomainVerification:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.start_domain_verification_request.StartDomainVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.start_domain_verification_request.StartDomainVerificationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["domain_name"] = domain_name
+            input_["client_token"] = client_token
+        input_["domain_name"] = domain_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,11 +287,11 @@ class AsyncDomainVerification:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_domain_verification_request.GetDomainVerificationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_verification_identifier"] = domain_verification_identifier
+        input_: aws_sdk_vpc_lattice.types.get_domain_verification_request.GetDomainVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_verification_identifier"] = domain_verification_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,11 +325,11 @@ class AsyncDomainVerification:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_domain_verification_request.DeleteDomainVerificationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_verification_identifier"] = domain_verification_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_domain_verification_request.DeleteDomainVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_verification_identifier"] = domain_verification_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -367,14 +367,14 @@ class AsyncDomainVerification:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_domain_verifications_request.ListDomainVerificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_domain_verifications_request.ListDomainVerificationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

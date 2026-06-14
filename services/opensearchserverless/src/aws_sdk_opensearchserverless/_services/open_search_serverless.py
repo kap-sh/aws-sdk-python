@@ -7,12 +7,36 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_opensearchserverless._auth._signers
+import aws_sdk_opensearchserverless._auth._sigv4
 from aws_sdk_opensearchserverless._auth._identity import Credentials
 from aws_sdk_opensearchserverless._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_opensearchserverless._auth._zapros_handler import AuthMiddleware
+from aws_sdk_opensearchserverless._resources.open_search_serverless.access_policy import (
+    AccessPolicy,
+)
+from aws_sdk_opensearchserverless._resources.open_search_serverless.collection import (
+    Collection,
+)
+from aws_sdk_opensearchserverless._resources.open_search_serverless.collection_group import (
+    CollectionGroup,
+)
+from aws_sdk_opensearchserverless._resources.open_search_serverless.index import Index
+from aws_sdk_opensearchserverless._resources.open_search_serverless.lifecycle_policy import (
+    LifecyclePolicy,
+)
+from aws_sdk_opensearchserverless._resources.open_search_serverless.security_config import (
+    SecurityConfig,
+)
+from aws_sdk_opensearchserverless._resources.open_search_serverless.security_policy import (
+    SecurityPolicy,
+)
+from aws_sdk_opensearchserverless._resources.open_search_serverless.vpc_endpoint import (
+    VpcEndpoint,
+)
 from aws_sdk_opensearchserverless._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -143,6 +167,15 @@ class OpenSearchServerlessClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.access_policy = AccessPolicy(self)
+        self.collection = Collection(self)
+        self.collection_group = CollectionGroup(self)
+        self.index = Index(self)
+        self.lifecycle_policy = LifecyclePolicy(self)
+        self.security_config = SecurityConfig(self)
+        self.security_policy = SecurityPolicy(self)
+        self.vpc_endpoint = VpcEndpoint(self)
 
     def operation_options(
         self, config_overrides: Optional[OpenSearchServerlessClientConfig] = None
@@ -205,14 +238,14 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.batch_get_collection_request.BatchGetCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.batch_get_collection_request.BatchGetCollectionRequest = {}  # type: ignore[typeddict-item]
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,14 +284,14 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.batch_get_collection_group_request.BatchGetCollectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.batch_get_collection_group_request.BatchGetCollectionGroupRequest = {}  # type: ignore[typeddict-item]
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,11 +324,11 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.batch_get_effective_lifecycle_policy_request.BatchGetEffectiveLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_identifiers"] = resource_identifiers
+        input_: aws_sdk_opensearchserverless.types.batch_get_effective_lifecycle_policy_request.BatchGetEffectiveLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_identifiers"] = resource_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,11 +361,11 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.batch_get_lifecycle_policy_request.BatchGetLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_opensearchserverless.types.batch_get_lifecycle_policy_request.BatchGetLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,11 +398,11 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.batch_get_vpc_endpoint_request.BatchGetVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["ids"] = ids
+        input_: aws_sdk_opensearchserverless.types.batch_get_vpc_endpoint_request.BatchGetVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["ids"] = ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,17 +447,17 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_lifecycle_policy_request.CreateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.create_lifecycle_policy_request.CreateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["policy"] = policy
+            input_["description"] = description
+        input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -469,17 +502,17 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_security_policy_request.CreateSecurityPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.create_security_policy_request.CreateSecurityPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["policy"] = policy
+            input_["description"] = description
+        input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,10 +538,10 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,10 +567,10 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.get_policies_stats_request.GetPoliciesStatsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.get_policies_stats_request.GetPoliciesStatsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -570,11 +603,11 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_opensearchserverless.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,12 +642,12 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_opensearchserverless.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -649,12 +682,12 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_opensearchserverless.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -685,12 +718,12 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
         if capacity_limits is not None:
-            input["capacity_limits"] = capacity_limits
+            input_["capacity_limits"] = capacity_limits
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,21 +776,21 @@ class OpenSearchServerlessClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_vpc_endpoint_request.UpdateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.update_vpc_endpoint_request.UpdateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if add_subnet_ids is not None:
-            input["add_subnet_ids"] = add_subnet_ids
+            input_["add_subnet_ids"] = add_subnet_ids
         if remove_subnet_ids is not None:
-            input["remove_subnet_ids"] = remove_subnet_ids
+            input_["remove_subnet_ids"] = remove_subnet_ids
         if add_security_group_ids is not None:
-            input["add_security_group_ids"] = add_security_group_ids
+            input_["add_security_group_ids"] = add_security_group_ids
         if remove_security_group_ids is not None:
-            input["remove_security_group_ids"] = remove_security_group_ids
+            input_["remove_security_group_ids"] = remove_security_group_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

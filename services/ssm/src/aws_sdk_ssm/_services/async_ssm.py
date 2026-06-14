@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_ssm._auth._signers
+import aws_sdk_ssm._auth._sigv4
 from aws_sdk_ssm._auth._identity import Credentials
 from aws_sdk_ssm._auth._providers import (
     CredentialsProvider,
@@ -744,13 +746,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.add_tags_to_resource_request.AddTagsToResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_id"] = resource_id
-        input["tags"] = tags
+        input_: aws_sdk_ssm.types.add_tags_to_resource_request.AddTagsToResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_id"] = resource_id
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -790,14 +792,14 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.associate_ops_item_related_item_request.AssociateOpsItemRelatedItemRequest = {}  # type: ignore[typeddict-item]
-        input["ops_item_id"] = ops_item_id
-        input["association_type"] = association_type
-        input["resource_type"] = resource_type
-        input["resource_uri"] = resource_uri
+        input_: aws_sdk_ssm.types.associate_ops_item_related_item_request.AssociateOpsItemRelatedItemRequest = {}  # type: ignore[typeddict-item]
+        input_["ops_item_id"] = ops_item_id
+        input_["association_type"] = association_type
+        input_["resource_type"] = resource_type
+        input_["resource_uri"] = resource_uri
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -835,13 +837,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.cancel_command_request.CancelCommandRequest = {}  # type: ignore[typeddict-item]
-        input["command_id"] = command_id
+        input_: aws_sdk_ssm.types.cancel_command_request.CancelCommandRequest = {}  # type: ignore[typeddict-item]
+        input_["command_id"] = command_id
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
+            input_["instance_ids"] = instance_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -875,11 +877,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.cancel_maintenance_window_execution_request.CancelMaintenanceWindowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["window_execution_id"] = window_execution_id
+        input_: aws_sdk_ssm.types.cancel_maintenance_window_execution_request.CancelMaintenanceWindowExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["window_execution_id"] = window_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -935,23 +937,23 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_activation_request.CreateActivationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.create_activation_request.CreateActivationRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if default_instance_name is not None:
-            input["default_instance_name"] = default_instance_name
-        input["iam_role"] = iam_role
+            input_["default_instance_name"] = default_instance_name
+        input_["iam_role"] = iam_role
         if registration_limit is not None:
-            input["registration_limit"] = registration_limit
+            input_["registration_limit"] = registration_limit
         if expiration_date is not None:
-            input["expiration_date"] = expiration_date
+            input_["expiration_date"] = expiration_date
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if registration_metadata is not None:
-            input["registration_metadata"] = registration_metadata
+            input_["registration_metadata"] = registration_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1054,53 +1056,57 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_association_request.CreateAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.create_association_request.CreateAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if schedule_expression is not None:
-            input["schedule_expression"] = schedule_expression
+            input_["schedule_expression"] = schedule_expression
         if output_location is not None:
-            input["output_location"] = output_location
+            input_["output_location"] = output_location
         if association_name is not None:
-            input["association_name"] = association_name
+            input_["association_name"] = association_name
         if automation_target_parameter_name is not None:
-            input["automation_target_parameter_name"] = automation_target_parameter_name
+            input_["automation_target_parameter_name"] = (
+                automation_target_parameter_name
+            )
         if max_errors is not None:
-            input["max_errors"] = max_errors
+            input_["max_errors"] = max_errors
         if max_concurrency is not None:
-            input["max_concurrency"] = max_concurrency
+            input_["max_concurrency"] = max_concurrency
         if compliance_severity is not None:
-            input["compliance_severity"] = compliance_severity
+            input_["compliance_severity"] = compliance_severity
         if sync_compliance is not None:
-            input["sync_compliance"] = sync_compliance
+            input_["sync_compliance"] = sync_compliance
         if apply_only_at_cron_interval is not None:
-            input["apply_only_at_cron_interval"] = apply_only_at_cron_interval
+            input_["apply_only_at_cron_interval"] = apply_only_at_cron_interval
         if calendar_names is not None:
-            input["calendar_names"] = calendar_names
+            input_["calendar_names"] = calendar_names
         if target_locations is not None:
-            input["target_locations"] = target_locations
+            input_["target_locations"] = target_locations
         if schedule_offset is not None:
-            input["schedule_offset"] = schedule_offset
+            input_["schedule_offset"] = schedule_offset
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if target_maps is not None:
-            input["target_maps"] = target_maps
+            input_["target_maps"] = target_maps
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if alarm_configuration is not None:
-            input["alarm_configuration"] = alarm_configuration
+            input_["alarm_configuration"] = alarm_configuration
         if association_dispatch_assume_role is not None:
-            input["association_dispatch_assume_role"] = association_dispatch_assume_role
+            input_["association_dispatch_assume_role"] = (
+                association_dispatch_assume_role
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1140,13 +1146,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_association_batch_request.CreateAssociationBatchRequest = {}  # type: ignore[typeddict-item]
-        input["entries"] = entries
+        input_: aws_sdk_ssm.types.create_association_batch_request.CreateAssociationBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["entries"] = entries
         if association_dispatch_assume_role is not None:
-            input["association_dispatch_assume_role"] = association_dispatch_assume_role
+            input_["association_dispatch_assume_role"] = (
+                association_dispatch_assume_role
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1208,28 +1216,28 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_document_request.CreateDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["content"] = content
+        input_: aws_sdk_ssm.types.create_document_request.CreateDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["content"] = content
         if requires is not None:
-            input["requires"] = requires
+            input_["requires"] = requires
         if attachments is not None:
-            input["attachments"] = attachments
-        input["name"] = name
+            input_["attachments"] = attachments
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if document_type is not None:
-            input["document_type"] = document_type
+            input_["document_type"] = document_type
         if document_format is not None:
-            input["document_format"] = document_format
+            input_["document_format"] = document_format
         if target_type is not None:
-            input["target_type"] = target_type
+            input_["target_type"] = target_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1295,29 +1303,29 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_maintenance_window_request.CreateMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.create_maintenance_window_request.CreateMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
-        input["schedule"] = schedule
+            input_["end_date"] = end_date
+        input_["schedule"] = schedule
         if schedule_timezone is not None:
-            input["schedule_timezone"] = schedule_timezone
+            input_["schedule_timezone"] = schedule_timezone
         if schedule_offset is not None:
-            input["schedule_offset"] = schedule_offset
-        input["duration"] = duration
-        input["cutoff"] = cutoff
-        input["allow_unassociated_targets"] = allow_unassociated_targets
+            input_["schedule_offset"] = schedule_offset
+        input_["duration"] = duration
+        input_["cutoff"] = cutoff
+        input_["allow_unassociated_targets"] = allow_unassociated_targets
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1395,39 +1403,39 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_ops_item_request.CreateOpsItemRequest = {}  # type: ignore[typeddict-item]
-        input["description"] = description
+        input_: aws_sdk_ssm.types.create_ops_item_request.CreateOpsItemRequest = {}  # type: ignore[typeddict-item]
+        input_["description"] = description
         if ops_item_type is not None:
-            input["ops_item_type"] = ops_item_type
+            input_["ops_item_type"] = ops_item_type
         if operational_data is not None:
-            input["operational_data"] = operational_data
+            input_["operational_data"] = operational_data
         if notifications is not None:
-            input["notifications"] = notifications
+            input_["notifications"] = notifications
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if related_ops_items is not None:
-            input["related_ops_items"] = related_ops_items
-        input["source"] = source
-        input["title"] = title
+            input_["related_ops_items"] = related_ops_items
+        input_["source"] = source
+        input_["title"] = title
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if severity is not None:
-            input["severity"] = severity
+            input_["severity"] = severity
         if actual_start_time is not None:
-            input["actual_start_time"] = actual_start_time
+            input_["actual_start_time"] = actual_start_time
         if actual_end_time is not None:
-            input["actual_end_time"] = actual_end_time
+            input_["actual_end_time"] = actual_end_time
         if planned_start_time is not None:
-            input["planned_start_time"] = planned_start_time
+            input_["planned_start_time"] = planned_start_time
         if planned_end_time is not None:
-            input["planned_end_time"] = planned_end_time
+            input_["planned_end_time"] = planned_end_time
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1465,15 +1473,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_ops_metadata_request.CreateOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_ssm.types.create_ops_metadata_request.CreateOpsMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1553,43 +1561,43 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_patch_baseline_request.CreatePatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.create_patch_baseline_request.CreatePatchBaselineRequest = {}  # type: ignore[typeddict-item]
         if operating_system is not None:
-            input["operating_system"] = operating_system
-        input["name"] = name
+            input_["operating_system"] = operating_system
+        input_["name"] = name
         if global_filters is not None:
-            input["global_filters"] = global_filters
+            input_["global_filters"] = global_filters
         if approval_rules is not None:
-            input["approval_rules"] = approval_rules
+            input_["approval_rules"] = approval_rules
         if approved_patches is not None:
-            input["approved_patches"] = approved_patches
+            input_["approved_patches"] = approved_patches
         if approved_patches_compliance_level is not None:
-            input["approved_patches_compliance_level"] = (
+            input_["approved_patches_compliance_level"] = (
                 approved_patches_compliance_level
             )
         if approved_patches_enable_non_security is not None:
-            input["approved_patches_enable_non_security"] = (
+            input_["approved_patches_enable_non_security"] = (
                 approved_patches_enable_non_security
             )
         if rejected_patches is not None:
-            input["rejected_patches"] = rejected_patches
+            input_["rejected_patches"] = rejected_patches
         if rejected_patches_action is not None:
-            input["rejected_patches_action"] = rejected_patches_action
+            input_["rejected_patches_action"] = rejected_patches_action
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if available_security_updates_compliance_status is not None:
-            input["available_security_updates_compliance_status"] = (
+            input_["available_security_updates_compliance_status"] = (
                 available_security_updates_compliance_status
             )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1635,17 +1643,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.create_resource_data_sync_request.CreateResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
-        input["sync_name"] = sync_name
+        input_: aws_sdk_ssm.types.create_resource_data_sync_request.CreateResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
+        input_["sync_name"] = sync_name
         if s3_destination is not None:
-            input["s3_destination"] = s3_destination
+            input_["s3_destination"] = s3_destination
         if sync_type is not None:
-            input["sync_type"] = sync_type
+            input_["sync_type"] = sync_type
         if sync_source is not None:
-            input["sync_source"] = sync_source
+            input_["sync_source"] = sync_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1679,11 +1687,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_activation_request.DeleteActivationRequest = {}  # type: ignore[typeddict-item]
-        input["activation_id"] = activation_id
+        input_: aws_sdk_ssm.types.delete_activation_request.DeleteActivationRequest = {}  # type: ignore[typeddict-item]
+        input_["activation_id"] = activation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1723,16 +1731,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_association_request.DeleteAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.delete_association_request.DeleteAssociationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if association_id is not None:
-            input["association_id"] = association_id
+            input_["association_id"] = association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1776,17 +1784,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_document_request.DeleteDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.delete_document_request.DeleteDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1828,17 +1836,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_inventory_request.DeleteInventoryRequest = {}  # type: ignore[typeddict-item]
-        input["type_name"] = type_name
+        input_: aws_sdk_ssm.types.delete_inventory_request.DeleteInventoryRequest = {}  # type: ignore[typeddict-item]
+        input_["type_name"] = type_name
         if schema_delete_option is not None:
-            input["schema_delete_option"] = schema_delete_option
+            input_["schema_delete_option"] = schema_delete_option
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1872,11 +1880,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_maintenance_window_request.DeleteMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
+        input_: aws_sdk_ssm.types.delete_maintenance_window_request.DeleteMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1910,11 +1918,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_ops_item_request.DeleteOpsItemRequest = {}  # type: ignore[typeddict-item]
-        input["ops_item_id"] = ops_item_id
+        input_: aws_sdk_ssm.types.delete_ops_item_request.DeleteOpsItemRequest = {}  # type: ignore[typeddict-item]
+        input_["ops_item_id"] = ops_item_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1948,11 +1956,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_ops_metadata_request.DeleteOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["ops_metadata_arn"] = ops_metadata_arn
+        input_: aws_sdk_ssm.types.delete_ops_metadata_request.DeleteOpsMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["ops_metadata_arn"] = ops_metadata_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1986,11 +1994,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_parameter_request.DeleteParameterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.delete_parameter_request.DeleteParameterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2024,11 +2032,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_parameters_request.DeleteParametersRequest = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_ssm.types.delete_parameters_request.DeleteParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2062,11 +2070,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_patch_baseline_request.DeletePatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input["baseline_id"] = baseline_id
+        input_: aws_sdk_ssm.types.delete_patch_baseline_request.DeletePatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_["baseline_id"] = baseline_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2104,13 +2112,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_resource_data_sync_request.DeleteResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
-        input["sync_name"] = sync_name
+        input_: aws_sdk_ssm.types.delete_resource_data_sync_request.DeleteResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
+        input_["sync_name"] = sync_name
         if sync_type is not None:
-            input["sync_type"] = sync_type
+            input_["sync_type"] = sync_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2150,13 +2158,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy_id"] = policy_id
-        input["policy_hash"] = policy_hash
+        input_: aws_sdk_ssm.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy_id"] = policy_id
+        input_["policy_hash"] = policy_hash
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2190,11 +2198,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.deregister_managed_instance_request.DeregisterManagedInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_ssm.types.deregister_managed_instance_request.DeregisterManagedInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2230,12 +2238,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.deregister_patch_baseline_for_patch_group_request.DeregisterPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-        input["baseline_id"] = baseline_id
-        input["patch_group"] = patch_group
+        input_: aws_sdk_ssm.types.deregister_patch_baseline_for_patch_group_request.DeregisterPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["baseline_id"] = baseline_id
+        input_["patch_group"] = patch_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2273,14 +2281,14 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.deregister_target_from_maintenance_window_request.DeregisterTargetFromMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
-        input["window_target_id"] = window_target_id
+        input_: aws_sdk_ssm.types.deregister_target_from_maintenance_window_request.DeregisterTargetFromMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
+        input_["window_target_id"] = window_target_id
         if safe is not None:
-            input["safe"] = safe
+            input_["safe"] = safe
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2316,12 +2324,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.deregister_task_from_maintenance_window_request.DeregisterTaskFromMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
-        input["window_task_id"] = window_task_id
+        input_: aws_sdk_ssm.types.deregister_task_from_maintenance_window_request.DeregisterTaskFromMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
+        input_["window_task_id"] = window_task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2361,16 +2369,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_activations_request.DescribeActivationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_activations_request.DescribeActivationsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2439,18 +2447,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_association_request.DescribeAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_association_request.DescribeAssociationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if association_id is not None:
-            input["association_id"] = association_id
+            input_["association_id"] = association_id
         if association_version is not None:
-            input["association_version"] = association_version
+            input_["association_version"] = association_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2492,17 +2500,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_association_executions_request.DescribeAssociationExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["association_id"] = association_id
+        input_: aws_sdk_ssm.types.describe_association_executions_request.DescribeAssociationExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["association_id"] = association_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2573,18 +2581,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_association_execution_targets_request.DescribeAssociationExecutionTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["association_id"] = association_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_ssm.types.describe_association_execution_targets_request.DescribeAssociationExecutionTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["association_id"] = association_id
+        input_["execution_id"] = execution_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2653,16 +2661,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_automation_executions_request.DescribeAutomationExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_automation_executions_request.DescribeAutomationExecutionsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2731,19 +2739,19 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_automation_step_executions_request.DescribeAutomationStepExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["automation_execution_id"] = automation_execution_id
+        input_: aws_sdk_ssm.types.describe_automation_step_executions_request.DescribeAutomationStepExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["automation_execution_id"] = automation_execution_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2814,16 +2822,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_available_patches_request.DescribeAvailablePatchesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_available_patches_request.DescribeAvailablePatchesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2892,15 +2900,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_document_request.DescribeDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.describe_document_request.DescribeDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2942,16 +2950,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_document_permission_request.DescribeDocumentPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["permission_type"] = permission_type
+        input_: aws_sdk_ssm.types.describe_document_permission_request.DescribeDocumentPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["permission_type"] = permission_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2991,15 +2999,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_effective_instance_associations_request.DescribeEffectiveInstanceAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_ssm.types.describe_effective_instance_associations_request.DescribeEffectiveInstanceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3064,15 +3072,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_effective_patches_for_patch_baseline_request.DescribeEffectivePatchesForPatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input["baseline_id"] = baseline_id
+        input_: aws_sdk_ssm.types.describe_effective_patches_for_patch_baseline_request.DescribeEffectivePatchesForPatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_["baseline_id"] = baseline_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3135,15 +3143,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_instance_associations_status_request.DescribeInstanceAssociationsStatusRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_ssm.types.describe_instance_associations_status_request.DescribeInstanceAssociationsStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3212,18 +3220,20 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_instance_information_request.DescribeInstanceInformationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_instance_information_request.DescribeInstanceInformationRequest = {}  # type: ignore[typeddict-item]
         if instance_information_filter_list is not None:
-            input["instance_information_filter_list"] = instance_information_filter_list
+            input_["instance_information_filter_list"] = (
+                instance_information_filter_list
+            )
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3298,17 +3308,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_instance_patches_request.DescribeInstancePatchesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_ssm.types.describe_instance_patches_request.DescribeInstancePatchesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3377,15 +3387,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_instance_patch_states_request.DescribeInstancePatchStatesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_ids"] = instance_ids
+        input_: aws_sdk_ssm.types.describe_instance_patch_states_request.DescribeInstancePatchStatesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_ids"] = instance_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3454,17 +3464,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_instance_patch_states_for_patch_group_request.DescribeInstancePatchStatesForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-        input["patch_group"] = patch_group
+        input_: aws_sdk_ssm.types.describe_instance_patch_states_for_patch_group_request.DescribeInstancePatchStatesForPatchGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["patch_group"] = patch_group
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3539,18 +3549,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_instance_properties_request.DescribeInstancePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_instance_properties_request.DescribeInstancePropertiesRequest = {}  # type: ignore[typeddict-item]
         if instance_property_filter_list is not None:
-            input["instance_property_filter_list"] = instance_property_filter_list
+            input_["instance_property_filter_list"] = instance_property_filter_list
         if filters_with_operator is not None:
-            input["filters_with_operator"] = filters_with_operator
+            input_["filters_with_operator"] = filters_with_operator
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3619,16 +3629,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_inventory_deletions_request.DescribeInventoryDeletionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_inventory_deletions_request.DescribeInventoryDeletionsRequest = {}  # type: ignore[typeddict-item]
         if deletion_id is not None:
-            input["deletion_id"] = deletion_id
+            input_["deletion_id"] = deletion_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3695,17 +3705,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_maintenance_window_executions_request.DescribeMaintenanceWindowExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
+        input_: aws_sdk_ssm.types.describe_maintenance_window_executions_request.DescribeMaintenanceWindowExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3780,18 +3790,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_maintenance_window_execution_task_invocations_request.DescribeMaintenanceWindowExecutionTaskInvocationsRequest = {}  # type: ignore[typeddict-item]
-        input["window_execution_id"] = window_execution_id
-        input["task_id"] = task_id
+        input_: aws_sdk_ssm.types.describe_maintenance_window_execution_task_invocations_request.DescribeMaintenanceWindowExecutionTaskInvocationsRequest = {}  # type: ignore[typeddict-item]
+        input_["window_execution_id"] = window_execution_id
+        input_["task_id"] = task_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3870,17 +3880,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_maintenance_window_execution_tasks_request.DescribeMaintenanceWindowExecutionTasksRequest = {}  # type: ignore[typeddict-item]
-        input["window_execution_id"] = window_execution_id
+        input_: aws_sdk_ssm.types.describe_maintenance_window_execution_tasks_request.DescribeMaintenanceWindowExecutionTasksRequest = {}  # type: ignore[typeddict-item]
+        input_["window_execution_id"] = window_execution_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3951,16 +3961,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_maintenance_windows_request.DescribeMaintenanceWindowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_maintenance_windows_request.DescribeMaintenanceWindowsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4039,22 +4049,22 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_maintenance_window_schedule_request.DescribeMaintenanceWindowScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_maintenance_window_schedule_request.DescribeMaintenanceWindowScheduleRequest = {}  # type: ignore[typeddict-item]
         if window_id is not None:
-            input["window_id"] = window_id
+            input_["window_id"] = window_id
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4133,16 +4143,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_maintenance_windows_for_target_request.DescribeMaintenanceWindowsForTargetRequest = {}  # type: ignore[typeddict-item]
-        input["targets"] = targets
-        input["resource_type"] = resource_type
+        input_: aws_sdk_ssm.types.describe_maintenance_windows_for_target_request.DescribeMaintenanceWindowsForTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["targets"] = targets
+        input_["resource_type"] = resource_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4213,17 +4223,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_maintenance_window_targets_request.DescribeMaintenanceWindowTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
+        input_: aws_sdk_ssm.types.describe_maintenance_window_targets_request.DescribeMaintenanceWindowTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4296,17 +4306,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_maintenance_window_tasks_request.DescribeMaintenanceWindowTasksRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
+        input_: aws_sdk_ssm.types.describe_maintenance_window_tasks_request.DescribeMaintenanceWindowTasksRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4379,16 +4389,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_ops_items_request.DescribeOpsItemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_ops_items_request.DescribeOpsItemsRequest = {}  # type: ignore[typeddict-item]
         if ops_item_filters is not None:
-            input["ops_item_filters"] = ops_item_filters
+            input_["ops_item_filters"] = ops_item_filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4461,20 +4471,20 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_parameters_request.DescribeParametersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_parameters_request.DescribeParametersRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if parameter_filters is not None:
-            input["parameter_filters"] = parameter_filters
+            input_["parameter_filters"] = parameter_filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if shared is not None:
-            input["shared"] = shared
+            input_["shared"] = shared
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4518,16 +4528,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_patch_baselines_request.DescribePatchBaselinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_patch_baselines_request.DescribePatchBaselinesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4598,16 +4608,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_patch_groups_request.DescribePatchGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.describe_patch_groups_request.DescribePatchGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4668,11 +4678,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_patch_group_state_request.DescribePatchGroupStateRequest = {}  # type: ignore[typeddict-item]
-        input["patch_group"] = patch_group
+        input_: aws_sdk_ssm.types.describe_patch_group_state_request.DescribePatchGroupStateRequest = {}  # type: ignore[typeddict-item]
+        input_["patch_group"] = patch_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4714,18 +4724,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_patch_properties_request.DescribePatchPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["operating_system"] = operating_system
-        input["property"] = property
+        input_: aws_sdk_ssm.types.describe_patch_properties_request.DescribePatchPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["operating_system"] = operating_system
+        input_["property"] = property
         if patch_set is not None:
-            input["patch_set"] = patch_set
+            input_["patch_set"] = patch_set
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4796,17 +4806,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.describe_sessions_request.DescribeSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["state"] = state
+        input_: aws_sdk_ssm.types.describe_sessions_request.DescribeSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["state"] = state
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4871,12 +4881,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.disassociate_ops_item_related_item_request.DisassociateOpsItemRelatedItemRequest = {}  # type: ignore[typeddict-item]
-        input["ops_item_id"] = ops_item_id
-        input["association_id"] = association_id
+        input_: aws_sdk_ssm.types.disassociate_ops_item_related_item_request.DisassociateOpsItemRelatedItemRequest = {}  # type: ignore[typeddict-item]
+        input_["ops_item_id"] = ops_item_id
+        input_["association_id"] = association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4910,11 +4920,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_access_token_request.GetAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["access_request_id"] = access_request_id
+        input_: aws_sdk_ssm.types.get_access_token_request.GetAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["access_request_id"] = access_request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4950,11 +4960,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_automation_execution_request.GetAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["automation_execution_id"] = automation_execution_id
+        input_: aws_sdk_ssm.types.get_automation_execution_request.GetAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["automation_execution_id"] = automation_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4990,13 +5000,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_calendar_state_request.GetCalendarStateRequest = {}  # type: ignore[typeddict-item]
-        input["calendar_names"] = calendar_names
+        input_: aws_sdk_ssm.types.get_calendar_state_request.GetCalendarStateRequest = {}  # type: ignore[typeddict-item]
+        input_["calendar_names"] = calendar_names
         if at_time is not None:
-            input["at_time"] = at_time
+            input_["at_time"] = at_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5036,14 +5046,14 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_command_invocation_request.GetCommandInvocationRequest = {}  # type: ignore[typeddict-item]
-        input["command_id"] = command_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_ssm.types.get_command_invocation_request.GetCommandInvocationRequest = {}  # type: ignore[typeddict-item]
+        input_["command_id"] = command_id
+        input_["instance_id"] = instance_id
         if plugin_name is not None:
-            input["plugin_name"] = plugin_name
+            input_["plugin_name"] = plugin_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5077,11 +5087,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_connection_status_request.GetConnectionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["target"] = target
+        input_: aws_sdk_ssm.types.get_connection_status_request.GetConnectionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["target"] = target
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5117,12 +5127,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_default_patch_baseline_request.GetDefaultPatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.get_default_patch_baseline_request.GetDefaultPatchBaselineRequest = {}  # type: ignore[typeddict-item]
         if operating_system is not None:
-            input["operating_system"] = operating_system
+            input_["operating_system"] = operating_system
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5166,16 +5176,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_deployable_patch_snapshot_for_instance_request.GetDeployablePatchSnapshotForInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["snapshot_id"] = snapshot_id
+        input_: aws_sdk_ssm.types.get_deployable_patch_snapshot_for_instance_request.GetDeployablePatchSnapshotForInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["snapshot_id"] = snapshot_id
         if baseline_override is not None:
-            input["baseline_override"] = baseline_override
+            input_["baseline_override"] = baseline_override
         if use_s3_dual_stack_endpoint is not None:
-            input["use_s3_dual_stack_endpoint"] = use_s3_dual_stack_endpoint
+            input_["use_s3_dual_stack_endpoint"] = use_s3_dual_stack_endpoint
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5221,17 +5231,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_document_request.GetDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.get_document_request.GetDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if document_format is not None:
-            input["document_format"] = document_format
+            input_["document_format"] = document_format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5265,11 +5275,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_execution_preview_request.GetExecutionPreviewRequest = {}  # type: ignore[typeddict-item]
-        input["execution_preview_id"] = execution_preview_id
+        input_: aws_sdk_ssm.types.get_execution_preview_request.GetExecutionPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_["execution_preview_id"] = execution_preview_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5317,20 +5327,20 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_inventory_request.GetInventoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.get_inventory_request.GetInventoryRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if aggregators is not None:
-            input["aggregators"] = aggregators
+            input_["aggregators"] = aggregators
         if result_attributes is not None:
-            input["result_attributes"] = result_attributes
+            input_["result_attributes"] = result_attributes
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5415,20 +5425,20 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_inventory_schema_request.GetInventorySchemaRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.get_inventory_schema_request.GetInventorySchemaRequest = {}  # type: ignore[typeddict-item]
         if type_name is not None:
-            input["type_name"] = type_name
+            input_["type_name"] = type_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if aggregator is not None:
-            input["aggregator"] = aggregator
+            input_["aggregator"] = aggregator
         if sub_type is not None:
-            input["sub_type"] = sub_type
+            input_["sub_type"] = sub_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5497,11 +5507,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_maintenance_window_request.GetMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
+        input_: aws_sdk_ssm.types.get_maintenance_window_request.GetMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5535,11 +5545,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_maintenance_window_execution_request.GetMaintenanceWindowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["window_execution_id"] = window_execution_id
+        input_: aws_sdk_ssm.types.get_maintenance_window_execution_request.GetMaintenanceWindowExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["window_execution_id"] = window_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5575,12 +5585,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_maintenance_window_execution_task_request.GetMaintenanceWindowExecutionTaskRequest = {}  # type: ignore[typeddict-item]
-        input["window_execution_id"] = window_execution_id
-        input["task_id"] = task_id
+        input_: aws_sdk_ssm.types.get_maintenance_window_execution_task_request.GetMaintenanceWindowExecutionTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["window_execution_id"] = window_execution_id
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5618,13 +5628,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_maintenance_window_execution_task_invocation_request.GetMaintenanceWindowExecutionTaskInvocationRequest = {}  # type: ignore[typeddict-item]
-        input["window_execution_id"] = window_execution_id
-        input["task_id"] = task_id
-        input["invocation_id"] = invocation_id
+        input_: aws_sdk_ssm.types.get_maintenance_window_execution_task_invocation_request.GetMaintenanceWindowExecutionTaskInvocationRequest = {}  # type: ignore[typeddict-item]
+        input_["window_execution_id"] = window_execution_id
+        input_["task_id"] = task_id
+        input_["invocation_id"] = invocation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5660,12 +5670,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_maintenance_window_task_request.GetMaintenanceWindowTaskRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
-        input["window_task_id"] = window_task_id
+        input_: aws_sdk_ssm.types.get_maintenance_window_task_request.GetMaintenanceWindowTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
+        input_["window_task_id"] = window_task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5701,13 +5711,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_ops_item_request.GetOpsItemRequest = {}  # type: ignore[typeddict-item]
-        input["ops_item_id"] = ops_item_id
+        input_: aws_sdk_ssm.types.get_ops_item_request.GetOpsItemRequest = {}  # type: ignore[typeddict-item]
+        input_["ops_item_id"] = ops_item_id
         if ops_item_arn is not None:
-            input["ops_item_arn"] = ops_item_arn
+            input_["ops_item_arn"] = ops_item_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5747,15 +5757,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_ops_metadata_request.GetOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["ops_metadata_arn"] = ops_metadata_arn
+        input_: aws_sdk_ssm.types.get_ops_metadata_request.GetOpsMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["ops_metadata_arn"] = ops_metadata_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5805,22 +5815,22 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_ops_summary_request.GetOpsSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.get_ops_summary_request.GetOpsSummaryRequest = {}  # type: ignore[typeddict-item]
         if sync_name is not None:
-            input["sync_name"] = sync_name
+            input_["sync_name"] = sync_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if aggregators is not None:
-            input["aggregators"] = aggregators
+            input_["aggregators"] = aggregators
         if result_attributes is not None:
-            input["result_attributes"] = result_attributes
+            input_["result_attributes"] = result_attributes
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5891,13 +5901,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_parameter_request.GetParameterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.get_parameter_request.GetParameterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if with_decryption is not None:
-            input["with_decryption"] = with_decryption
+            input_["with_decryption"] = with_decryption
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5937,17 +5947,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_parameter_history_request.GetParameterHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.get_parameter_history_request.GetParameterHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if with_decryption is not None:
-            input["with_decryption"] = with_decryption
+            input_["with_decryption"] = with_decryption
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5983,13 +5993,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_parameters_request.GetParametersRequest = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_ssm.types.get_parameters_request.GetParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
         if with_decryption is not None:
-            input["with_decryption"] = with_decryption
+            input_["with_decryption"] = with_decryption
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6037,21 +6047,21 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_parameters_by_path_request.GetParametersByPathRequest = {}  # type: ignore[typeddict-item]
-        input["path"] = path
+        input_: aws_sdk_ssm.types.get_parameters_by_path_request.GetParametersByPathRequest = {}  # type: ignore[typeddict-item]
+        input_["path"] = path
         if recursive is not None:
-            input["recursive"] = recursive
+            input_["recursive"] = recursive
         if parameter_filters is not None:
-            input["parameter_filters"] = parameter_filters
+            input_["parameter_filters"] = parameter_filters
         if with_decryption is not None:
-            input["with_decryption"] = with_decryption
+            input_["with_decryption"] = with_decryption
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6085,11 +6095,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_patch_baseline_request.GetPatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input["baseline_id"] = baseline_id
+        input_: aws_sdk_ssm.types.get_patch_baseline_request.GetPatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_["baseline_id"] = baseline_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6127,13 +6137,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_patch_baseline_for_patch_group_request.GetPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-        input["patch_group"] = patch_group
+        input_: aws_sdk_ssm.types.get_patch_baseline_for_patch_group_request.GetPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["patch_group"] = patch_group
         if operating_system is not None:
-            input["operating_system"] = operating_system
+            input_["operating_system"] = operating_system
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6173,15 +6183,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_resource_policies_request.GetResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ssm.types.get_resource_policies_request.GetResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6240,11 +6250,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.get_service_setting_request.GetServiceSettingRequest = {}  # type: ignore[typeddict-item]
-        input["setting_id"] = setting_id
+        input_: aws_sdk_ssm.types.get_service_setting_request.GetServiceSettingRequest = {}  # type: ignore[typeddict-item]
+        input_["setting_id"] = setting_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6284,14 +6294,14 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.label_parameter_version_request.LabelParameterVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.label_parameter_version_request.LabelParameterVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if parameter_version is not None:
-            input["parameter_version"] = parameter_version
-        input["labels"] = labels
+            input_["parameter_version"] = parameter_version
+        input_["labels"] = labels
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6331,16 +6341,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_associations_request.ListAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_associations_request.ListAssociationsRequest = {}  # type: ignore[typeddict-item]
         if association_filter_list is not None:
-            input["association_filter_list"] = association_filter_list
+            input_["association_filter_list"] = association_filter_list
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6403,15 +6413,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_association_versions_request.ListAssociationVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["association_id"] = association_id
+        input_: aws_sdk_ssm.types.list_association_versions_request.ListAssociationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["association_id"] = association_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6484,22 +6494,22 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_command_invocations_request.ListCommandInvocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_command_invocations_request.ListCommandInvocationsRequest = {}  # type: ignore[typeddict-item]
         if command_id is not None:
-            input["command_id"] = command_id
+            input_["command_id"] = command_id
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if details is not None:
-            input["details"] = details
+            input_["details"] = details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6578,20 +6588,20 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_commands_request.ListCommandsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_commands_request.ListCommandsRequest = {}  # type: ignore[typeddict-item]
         if command_id is not None:
-            input["command_id"] = command_id
+            input_["command_id"] = command_id
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6670,20 +6680,20 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_compliance_items_request.ListComplianceItemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_compliance_items_request.ListComplianceItemsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if resource_ids is not None:
-            input["resource_ids"] = resource_ids
+            input_["resource_ids"] = resource_ids
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6756,16 +6766,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_compliance_summaries_request.ListComplianceSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_compliance_summaries_request.ListComplianceSummariesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6836,18 +6846,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_document_metadata_history_request.ListDocumentMetadataHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.list_document_metadata_history_request.ListDocumentMetadataHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if document_version is not None:
-            input["document_version"] = document_version
-        input["metadata"] = metadata
+            input_["document_version"] = document_version
+        input_["metadata"] = metadata
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6891,18 +6901,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_documents_request.ListDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_documents_request.ListDocumentsRequest = {}  # type: ignore[typeddict-item]
         if document_filter_list is not None:
-            input["document_filter_list"] = document_filter_list
+            input_["document_filter_list"] = document_filter_list
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6969,15 +6979,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_document_versions_request.ListDocumentVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.list_document_versions_request.ListDocumentVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7044,18 +7054,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_inventory_entries_request.ListInventoryEntriesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["type_name"] = type_name
+        input_: aws_sdk_ssm.types.list_inventory_entries_request.ListInventoryEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["type_name"] = type_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7097,18 +7107,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
         if sync_name is not None:
-            input["sync_name"] = sync_name
+            input_["sync_name"] = sync_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7185,19 +7195,19 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_nodes_summary_request.ListNodesSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_nodes_summary_request.ListNodesSummaryRequest = {}  # type: ignore[typeddict-item]
         if sync_name is not None:
-            input["sync_name"] = sync_name
+            input_["sync_name"] = sync_name
         if filters is not None:
-            input["filters"] = filters
-        input["aggregators"] = aggregators
+            input_["filters"] = filters
+        input_["aggregators"] = aggregators
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7268,16 +7278,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_ops_item_events_request.ListOpsItemEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_ops_item_events_request.ListOpsItemEventsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7348,18 +7358,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_ops_item_related_items_request.ListOpsItemRelatedItemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_ops_item_related_items_request.ListOpsItemRelatedItemsRequest = {}  # type: ignore[typeddict-item]
         if ops_item_id is not None:
-            input["ops_item_id"] = ops_item_id
+            input_["ops_item_id"] = ops_item_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7430,16 +7440,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_ops_metadata_request.ListOpsMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_ops_metadata_request.ListOpsMetadataRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7506,16 +7516,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_resource_compliance_summaries_request.ListResourceComplianceSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_resource_compliance_summaries_request.ListResourceComplianceSummariesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7580,16 +7590,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_resource_data_sync_request.ListResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.list_resource_data_sync_request.ListResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
         if sync_type is not None:
-            input["sync_type"] = sync_type
+            input_["sync_type"] = sync_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7652,12 +7662,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_id"] = resource_id
+        input_: aws_sdk_ssm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7705,18 +7715,18 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.modify_document_permission_request.ModifyDocumentPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["permission_type"] = permission_type
+        input_: aws_sdk_ssm.types.modify_document_permission_request.ModifyDocumentPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["permission_type"] = permission_type
         if account_ids_to_add is not None:
-            input["account_ids_to_add"] = account_ids_to_add
+            input_["account_ids_to_add"] = account_ids_to_add
         if account_ids_to_remove is not None:
-            input["account_ids_to_remove"] = account_ids_to_remove
+            input_["account_ids_to_remove"] = account_ids_to_remove
         if shared_document_version is not None:
-            input["shared_document_version"] = shared_document_version
+            input_["shared_document_version"] = shared_document_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7766,19 +7776,19 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.put_compliance_items_request.PutComplianceItemsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
-        input["compliance_type"] = compliance_type
-        input["execution_summary"] = execution_summary
-        input["items"] = items
+        input_: aws_sdk_ssm.types.put_compliance_items_request.PutComplianceItemsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
+        input_["compliance_type"] = compliance_type
+        input_["execution_summary"] = execution_summary
+        input_["items"] = items
         if item_content_hash is not None:
-            input["item_content_hash"] = item_content_hash
+            input_["item_content_hash"] = item_content_hash
         if upload_type is not None:
-            input["upload_type"] = upload_type
+            input_["upload_type"] = upload_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7814,12 +7824,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.put_inventory_request.PutInventoryRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["items"] = items
+        input_: aws_sdk_ssm.types.put_inventory_request.PutInventoryRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["items"] = items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7881,30 +7891,30 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.put_parameter_request.PutParameterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.put_parameter_request.PutParameterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["value"] = value
+            input_["description"] = description
+        input_["value"] = value
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if key_id is not None:
-            input["key_id"] = key_id
+            input_["key_id"] = key_id
         if overwrite is not None:
-            input["overwrite"] = overwrite
+            input_["overwrite"] = overwrite
         if allowed_pattern is not None:
-            input["allowed_pattern"] = allowed_pattern
+            input_["allowed_pattern"] = allowed_pattern
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if policies is not None:
-            input["policies"] = policies
+            input_["policies"] = policies
         if data_type is not None:
-            input["data_type"] = data_type
+            input_["data_type"] = data_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7944,16 +7954,16 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_ssm.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
         if policy_id is not None:
-            input["policy_id"] = policy_id
+            input_["policy_id"] = policy_id
         if policy_hash is not None:
-            input["policy_hash"] = policy_hash
+            input_["policy_hash"] = policy_hash
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7987,11 +7997,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.register_default_patch_baseline_request.RegisterDefaultPatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input["baseline_id"] = baseline_id
+        input_: aws_sdk_ssm.types.register_default_patch_baseline_request.RegisterDefaultPatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_["baseline_id"] = baseline_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8027,12 +8037,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.register_patch_baseline_for_patch_group_request.RegisterPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
-        input["baseline_id"] = baseline_id
-        input["patch_group"] = patch_group
+        input_: aws_sdk_ssm.types.register_patch_baseline_for_patch_group_request.RegisterPatchBaselineForPatchGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["baseline_id"] = baseline_id
+        input_["patch_group"] = patch_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8084,21 +8094,21 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.register_target_with_maintenance_window_request.RegisterTargetWithMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
-        input["resource_type"] = resource_type
-        input["targets"] = targets
+        input_: aws_sdk_ssm.types.register_target_with_maintenance_window_request.RegisterTargetWithMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
+        input_["resource_type"] = resource_type
+        input_["targets"] = targets
         if owner_information is not None:
-            input["owner_information"] = owner_information
+            input_["owner_information"] = owner_information
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8178,39 +8188,39 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.register_task_with_maintenance_window_request.RegisterTaskWithMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
+        input_: aws_sdk_ssm.types.register_task_with_maintenance_window_request.RegisterTaskWithMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
         if targets is not None:
-            input["targets"] = targets
-        input["task_arn"] = task_arn
+            input_["targets"] = targets
+        input_["task_arn"] = task_arn
         if service_role_arn is not None:
-            input["service_role_arn"] = service_role_arn
-        input["task_type"] = task_type
+            input_["service_role_arn"] = service_role_arn
+        input_["task_type"] = task_type
         if task_parameters is not None:
-            input["task_parameters"] = task_parameters
+            input_["task_parameters"] = task_parameters
         if task_invocation_parameters is not None:
-            input["task_invocation_parameters"] = task_invocation_parameters
+            input_["task_invocation_parameters"] = task_invocation_parameters
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if max_concurrency is not None:
-            input["max_concurrency"] = max_concurrency
+            input_["max_concurrency"] = max_concurrency
         if max_errors is not None:
-            input["max_errors"] = max_errors
+            input_["max_errors"] = max_errors
         if logging_info is not None:
-            input["logging_info"] = logging_info
+            input_["logging_info"] = logging_info
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if cutoff_behavior is not None:
-            input["cutoff_behavior"] = cutoff_behavior
+            input_["cutoff_behavior"] = cutoff_behavior
         if alarm_configuration is not None:
-            input["alarm_configuration"] = alarm_configuration
+            input_["alarm_configuration"] = alarm_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8248,13 +8258,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.remove_tags_from_resource_request.RemoveTagsFromResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_id"] = resource_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ssm.types.remove_tags_from_resource_request.RemoveTagsFromResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_id"] = resource_id
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8288,11 +8298,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.reset_service_setting_request.ResetServiceSettingRequest = {}  # type: ignore[typeddict-item]
-        input["setting_id"] = setting_id
+        input_: aws_sdk_ssm.types.reset_service_setting_request.ResetServiceSettingRequest = {}  # type: ignore[typeddict-item]
+        input_["setting_id"] = setting_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8326,11 +8336,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.resume_session_request.ResumeSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_ssm.types.resume_session_request.ResumeSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8370,14 +8380,14 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.send_automation_signal_request.SendAutomationSignalRequest = {}  # type: ignore[typeddict-item]
-        input["automation_execution_id"] = automation_execution_id
-        input["signal_type"] = signal_type
+        input_: aws_sdk_ssm.types.send_automation_signal_request.SendAutomationSignalRequest = {}  # type: ignore[typeddict-item]
+        input_["automation_execution_id"] = automation_execution_id
+        input_["signal_type"] = signal_type
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8465,45 +8475,45 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.send_command_request.SendCommandRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.send_command_request.SendCommandRequest = {}  # type: ignore[typeddict-item]
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
+            input_["instance_ids"] = instance_ids
         if targets is not None:
-            input["targets"] = targets
-        input["document_name"] = document_name
+            input_["targets"] = targets
+        input_["document_name"] = document_name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if document_hash is not None:
-            input["document_hash"] = document_hash
+            input_["document_hash"] = document_hash
         if document_hash_type is not None:
-            input["document_hash_type"] = document_hash_type
+            input_["document_hash_type"] = document_hash_type
         if timeout_seconds is not None:
-            input["timeout_seconds"] = timeout_seconds
+            input_["timeout_seconds"] = timeout_seconds
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if output_s3_region is not None:
-            input["output_s3_region"] = output_s3_region
+            input_["output_s3_region"] = output_s3_region
         if output_s3_bucket_name is not None:
-            input["output_s3_bucket_name"] = output_s3_bucket_name
+            input_["output_s3_bucket_name"] = output_s3_bucket_name
         if output_s3_key_prefix is not None:
-            input["output_s3_key_prefix"] = output_s3_key_prefix
+            input_["output_s3_key_prefix"] = output_s3_key_prefix
         if max_concurrency is not None:
-            input["max_concurrency"] = max_concurrency
+            input_["max_concurrency"] = max_concurrency
         if max_errors is not None:
-            input["max_errors"] = max_errors
+            input_["max_errors"] = max_errors
         if service_role_arn is not None:
-            input["service_role_arn"] = service_role_arn
+            input_["service_role_arn"] = service_role_arn
         if notification_config is not None:
-            input["notification_config"] = notification_config
+            input_["notification_config"] = notification_config
         if cloud_watch_output_config is not None:
-            input["cloud_watch_output_config"] = cloud_watch_output_config
+            input_["cloud_watch_output_config"] = cloud_watch_output_config
         if alarm_configuration is not None:
-            input["alarm_configuration"] = alarm_configuration
+            input_["alarm_configuration"] = alarm_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8541,14 +8551,14 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.start_access_request_request.StartAccessRequestRequest = {}  # type: ignore[typeddict-item]
-        input["reason"] = reason
-        input["targets"] = targets
+        input_: aws_sdk_ssm.types.start_access_request_request.StartAccessRequestRequest = {}  # type: ignore[typeddict-item]
+        input_["reason"] = reason
+        input_["targets"] = targets
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8582,11 +8592,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.start_associations_once_request.StartAssociationsOnceRequest = {}  # type: ignore[typeddict-item]
-        input["association_ids"] = association_ids
+        input_: aws_sdk_ssm.types.start_associations_once_request.StartAssociationsOnceRequest = {}  # type: ignore[typeddict-item]
+        input_["association_ids"] = association_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8662,37 +8672,37 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.start_automation_execution_request.StartAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["document_name"] = document_name
+        input_: aws_sdk_ssm.types.start_automation_execution_request.StartAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["document_name"] = document_name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if target_parameter_name is not None:
-            input["target_parameter_name"] = target_parameter_name
+            input_["target_parameter_name"] = target_parameter_name
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if target_maps is not None:
-            input["target_maps"] = target_maps
+            input_["target_maps"] = target_maps
         if max_concurrency is not None:
-            input["max_concurrency"] = max_concurrency
+            input_["max_concurrency"] = max_concurrency
         if max_errors is not None:
-            input["max_errors"] = max_errors
+            input_["max_errors"] = max_errors
         if target_locations is not None:
-            input["target_locations"] = target_locations
+            input_["target_locations"] = target_locations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if alarm_configuration is not None:
-            input["alarm_configuration"] = alarm_configuration
+            input_["alarm_configuration"] = alarm_configuration
         if target_locations_url is not None:
-            input["target_locations_url"] = target_locations_url
+            input_["target_locations_url"] = target_locations_url
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8756,30 +8766,30 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.start_change_request_execution_request.StartChangeRequestExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.start_change_request_execution_request.StartChangeRequestExecutionRequest = {}  # type: ignore[typeddict-item]
         if scheduled_time is not None:
-            input["scheduled_time"] = scheduled_time
-        input["document_name"] = document_name
+            input_["scheduled_time"] = scheduled_time
+        input_["document_name"] = document_name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if change_request_name is not None:
-            input["change_request_name"] = change_request_name
+            input_["change_request_name"] = change_request_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if auto_approve is not None:
-            input["auto_approve"] = auto_approve
-        input["runbooks"] = runbooks
+            input_["auto_approve"] = auto_approve
+        input_["runbooks"] = runbooks
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if scheduled_end_time is not None:
-            input["scheduled_end_time"] = scheduled_end_time
+            input_["scheduled_end_time"] = scheduled_end_time
         if change_details is not None:
-            input["change_details"] = change_details
+            input_["change_details"] = change_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8827,15 +8837,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.start_execution_preview_request.StartExecutionPreviewRequest = {}  # type: ignore[typeddict-item]
-        input["document_name"] = document_name
+        input_: aws_sdk_ssm.types.start_execution_preview_request.StartExecutionPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_["document_name"] = document_name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if execution_inputs is not None:
-            input["execution_inputs"] = execution_inputs
+            input_["execution_inputs"] = execution_inputs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8877,17 +8887,17 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
-        input["target"] = target
+        input_: aws_sdk_ssm.types.start_session_request.StartSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["target"] = target
         if document_name is not None:
-            input["document_name"] = document_name
+            input_["document_name"] = document_name
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8923,13 +8933,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.stop_automation_execution_request.StopAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["automation_execution_id"] = automation_execution_id
+        input_: aws_sdk_ssm.types.stop_automation_execution_request.StopAutomationExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["automation_execution_id"] = automation_execution_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8963,11 +8973,11 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_ssm.types.terminate_session_request.TerminateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9005,13 +9015,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.unlabel_parameter_version_request.UnlabelParameterVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["parameter_version"] = parameter_version
-        input["labels"] = labels
+        input_: aws_sdk_ssm.types.unlabel_parameter_version_request.UnlabelParameterVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["parameter_version"] = parameter_version
+        input_["labels"] = labels
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9116,53 +9126,57 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_association_request.UpdateAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["association_id"] = association_id
+        input_: aws_sdk_ssm.types.update_association_request.UpdateAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["association_id"] = association_id
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if schedule_expression is not None:
-            input["schedule_expression"] = schedule_expression
+            input_["schedule_expression"] = schedule_expression
         if output_location is not None:
-            input["output_location"] = output_location
+            input_["output_location"] = output_location
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if association_name is not None:
-            input["association_name"] = association_name
+            input_["association_name"] = association_name
         if association_version is not None:
-            input["association_version"] = association_version
+            input_["association_version"] = association_version
         if automation_target_parameter_name is not None:
-            input["automation_target_parameter_name"] = automation_target_parameter_name
+            input_["automation_target_parameter_name"] = (
+                automation_target_parameter_name
+            )
         if max_errors is not None:
-            input["max_errors"] = max_errors
+            input_["max_errors"] = max_errors
         if max_concurrency is not None:
-            input["max_concurrency"] = max_concurrency
+            input_["max_concurrency"] = max_concurrency
         if compliance_severity is not None:
-            input["compliance_severity"] = compliance_severity
+            input_["compliance_severity"] = compliance_severity
         if sync_compliance is not None:
-            input["sync_compliance"] = sync_compliance
+            input_["sync_compliance"] = sync_compliance
         if apply_only_at_cron_interval is not None:
-            input["apply_only_at_cron_interval"] = apply_only_at_cron_interval
+            input_["apply_only_at_cron_interval"] = apply_only_at_cron_interval
         if calendar_names is not None:
-            input["calendar_names"] = calendar_names
+            input_["calendar_names"] = calendar_names
         if target_locations is not None:
-            input["target_locations"] = target_locations
+            input_["target_locations"] = target_locations
         if schedule_offset is not None:
-            input["schedule_offset"] = schedule_offset
+            input_["schedule_offset"] = schedule_offset
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if target_maps is not None:
-            input["target_maps"] = target_maps
+            input_["target_maps"] = target_maps
         if alarm_configuration is not None:
-            input["alarm_configuration"] = alarm_configuration
+            input_["alarm_configuration"] = alarm_configuration
         if association_dispatch_assume_role is not None:
-            input["association_dispatch_assume_role"] = association_dispatch_assume_role
+            input_["association_dispatch_assume_role"] = (
+                association_dispatch_assume_role
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9200,13 +9214,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_association_status_request.UpdateAssociationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["instance_id"] = instance_id
-        input["association_status"] = association_status
+        input_: aws_sdk_ssm.types.update_association_status_request.UpdateAssociationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["instance_id"] = instance_id
+        input_["association_status"] = association_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9264,24 +9278,24 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_document_request.UpdateDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["content"] = content
+        input_: aws_sdk_ssm.types.update_document_request.UpdateDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["content"] = content
         if attachments is not None:
-            input["attachments"] = attachments
-        input["name"] = name
+            input_["attachments"] = attachments
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if document_format is not None:
-            input["document_format"] = document_format
+            input_["document_format"] = document_format
         if target_type is not None:
-            input["target_type"] = target_type
+            input_["target_type"] = target_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9317,12 +9331,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_document_default_version_request.UpdateDocumentDefaultVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["document_version"] = document_version
+        input_: aws_sdk_ssm.types.update_document_default_version_request.UpdateDocumentDefaultVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["document_version"] = document_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9362,14 +9376,14 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_document_metadata_request.UpdateDocumentMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ssm.types.update_document_metadata_request.UpdateDocumentMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if document_version is not None:
-            input["document_version"] = document_version
-        input["document_reviews"] = document_reviews
+            input_["document_version"] = document_version
+        input_["document_reviews"] = document_reviews
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9449,35 +9463,35 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_maintenance_window_request.UpdateMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
+        input_: aws_sdk_ssm.types.update_maintenance_window_request.UpdateMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
+            input_["end_date"] = end_date
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if schedule_timezone is not None:
-            input["schedule_timezone"] = schedule_timezone
+            input_["schedule_timezone"] = schedule_timezone
         if schedule_offset is not None:
-            input["schedule_offset"] = schedule_offset
+            input_["schedule_offset"] = schedule_offset
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if cutoff is not None:
-            input["cutoff"] = cutoff
+            input_["cutoff"] = cutoff
         if allow_unassociated_targets is not None:
-            input["allow_unassociated_targets"] = allow_unassociated_targets
+            input_["allow_unassociated_targets"] = allow_unassociated_targets
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if replace is not None:
-            input["replace"] = replace
+            input_["replace"] = replace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9529,22 +9543,22 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_maintenance_window_target_request.UpdateMaintenanceWindowTargetRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
-        input["window_target_id"] = window_target_id
+        input_: aws_sdk_ssm.types.update_maintenance_window_target_request.UpdateMaintenanceWindowTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
+        input_["window_target_id"] = window_target_id
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if owner_information is not None:
-            input["owner_information"] = owner_information
+            input_["owner_information"] = owner_information
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if replace is not None:
-            input["replace"] = replace
+            input_["replace"] = replace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9626,40 +9640,40 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_maintenance_window_task_request.UpdateMaintenanceWindowTaskRequest = {}  # type: ignore[typeddict-item]
-        input["window_id"] = window_id
-        input["window_task_id"] = window_task_id
+        input_: aws_sdk_ssm.types.update_maintenance_window_task_request.UpdateMaintenanceWindowTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["window_id"] = window_id
+        input_["window_task_id"] = window_task_id
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if task_arn is not None:
-            input["task_arn"] = task_arn
+            input_["task_arn"] = task_arn
         if service_role_arn is not None:
-            input["service_role_arn"] = service_role_arn
+            input_["service_role_arn"] = service_role_arn
         if task_parameters is not None:
-            input["task_parameters"] = task_parameters
+            input_["task_parameters"] = task_parameters
         if task_invocation_parameters is not None:
-            input["task_invocation_parameters"] = task_invocation_parameters
+            input_["task_invocation_parameters"] = task_invocation_parameters
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if max_concurrency is not None:
-            input["max_concurrency"] = max_concurrency
+            input_["max_concurrency"] = max_concurrency
         if max_errors is not None:
-            input["max_errors"] = max_errors
+            input_["max_errors"] = max_errors
         if logging_info is not None:
-            input["logging_info"] = logging_info
+            input_["logging_info"] = logging_info
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if replace is not None:
-            input["replace"] = replace
+            input_["replace"] = replace
         if cutoff_behavior is not None:
-            input["cutoff_behavior"] = cutoff_behavior
+            input_["cutoff_behavior"] = cutoff_behavior
         if alarm_configuration is not None:
-            input["alarm_configuration"] = alarm_configuration
+            input_["alarm_configuration"] = alarm_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9695,12 +9709,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_managed_instance_role_request.UpdateManagedInstanceRoleRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["iam_role"] = iam_role
+        input_: aws_sdk_ssm.types.update_managed_instance_role_request.UpdateManagedInstanceRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["iam_role"] = iam_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9780,41 +9794,41 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_ops_item_request.UpdateOpsItemRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm.types.update_ops_item_request.UpdateOpsItemRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if operational_data is not None:
-            input["operational_data"] = operational_data
+            input_["operational_data"] = operational_data
         if operational_data_to_delete is not None:
-            input["operational_data_to_delete"] = operational_data_to_delete
+            input_["operational_data_to_delete"] = operational_data_to_delete
         if notifications is not None:
-            input["notifications"] = notifications
+            input_["notifications"] = notifications
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if related_ops_items is not None:
-            input["related_ops_items"] = related_ops_items
+            input_["related_ops_items"] = related_ops_items
         if status is not None:
-            input["status"] = status
-        input["ops_item_id"] = ops_item_id
+            input_["status"] = status
+        input_["ops_item_id"] = ops_item_id
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if severity is not None:
-            input["severity"] = severity
+            input_["severity"] = severity
         if actual_start_time is not None:
-            input["actual_start_time"] = actual_start_time
+            input_["actual_start_time"] = actual_start_time
         if actual_end_time is not None:
-            input["actual_end_time"] = actual_end_time
+            input_["actual_end_time"] = actual_end_time
         if planned_start_time is not None:
-            input["planned_start_time"] = planned_start_time
+            input_["planned_start_time"] = planned_start_time
         if planned_end_time is not None:
-            input["planned_end_time"] = planned_end_time
+            input_["planned_end_time"] = planned_end_time
         if ops_item_arn is not None:
-            input["ops_item_arn"] = ops_item_arn
+            input_["ops_item_arn"] = ops_item_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9856,15 +9870,15 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_ops_metadata_request.UpdateOpsMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["ops_metadata_arn"] = ops_metadata_arn
+        input_: aws_sdk_ssm.types.update_ops_metadata_request.UpdateOpsMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["ops_metadata_arn"] = ops_metadata_arn
         if metadata_to_update is not None:
-            input["metadata_to_update"] = metadata_to_update
+            input_["metadata_to_update"] = metadata_to_update
         if keys_to_delete is not None:
-            input["keys_to_delete"] = keys_to_delete
+            input_["keys_to_delete"] = keys_to_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9940,41 +9954,41 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_patch_baseline_request.UpdatePatchBaselineRequest = {}  # type: ignore[typeddict-item]
-        input["baseline_id"] = baseline_id
+        input_: aws_sdk_ssm.types.update_patch_baseline_request.UpdatePatchBaselineRequest = {}  # type: ignore[typeddict-item]
+        input_["baseline_id"] = baseline_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if global_filters is not None:
-            input["global_filters"] = global_filters
+            input_["global_filters"] = global_filters
         if approval_rules is not None:
-            input["approval_rules"] = approval_rules
+            input_["approval_rules"] = approval_rules
         if approved_patches is not None:
-            input["approved_patches"] = approved_patches
+            input_["approved_patches"] = approved_patches
         if approved_patches_compliance_level is not None:
-            input["approved_patches_compliance_level"] = (
+            input_["approved_patches_compliance_level"] = (
                 approved_patches_compliance_level
             )
         if approved_patches_enable_non_security is not None:
-            input["approved_patches_enable_non_security"] = (
+            input_["approved_patches_enable_non_security"] = (
                 approved_patches_enable_non_security
             )
         if rejected_patches is not None:
-            input["rejected_patches"] = rejected_patches
+            input_["rejected_patches"] = rejected_patches
         if rejected_patches_action is not None:
-            input["rejected_patches_action"] = rejected_patches_action
+            input_["rejected_patches_action"] = rejected_patches_action
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if available_security_updates_compliance_status is not None:
-            input["available_security_updates_compliance_status"] = (
+            input_["available_security_updates_compliance_status"] = (
                 available_security_updates_compliance_status
             )
         if replace is not None:
-            input["replace"] = replace
+            input_["replace"] = replace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10012,13 +10026,13 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_resource_data_sync_request.UpdateResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
-        input["sync_name"] = sync_name
-        input["sync_type"] = sync_type
-        input["sync_source"] = sync_source
+        input_: aws_sdk_ssm.types.update_resource_data_sync_request.UpdateResourceDataSyncRequest = {}  # type: ignore[typeddict-item]
+        input_["sync_name"] = sync_name
+        input_["sync_type"] = sync_type
+        input_["sync_source"] = sync_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10054,12 +10068,12 @@ class AsyncSSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm.types.update_service_setting_request.UpdateServiceSettingRequest = {}  # type: ignore[typeddict-item]
-        input["setting_id"] = setting_id
-        input["setting_value"] = setting_value
+        input_: aws_sdk_ssm.types.update_service_setting_request.UpdateServiceSettingRequest = {}  # type: ignore[typeddict-item]
+        input_["setting_id"] = setting_id
+        input_["setting_value"] = setting_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

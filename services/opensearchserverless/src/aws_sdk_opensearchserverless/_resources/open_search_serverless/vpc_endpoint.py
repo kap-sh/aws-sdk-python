@@ -76,17 +76,17 @@ class VpcEndpoint:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
+        input_: aws_sdk_opensearchserverless.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -123,13 +123,13 @@ class VpcEndpoint:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_vpc_endpoint_request.DeleteVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.delete_vpc_endpoint_request.DeleteVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,16 +168,16 @@ class VpcEndpoint:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_vpc_endpoints_request.ListVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.list_vpc_endpoints_request.ListVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
         if vpc_endpoint_filters is not None:
-            input["vpc_endpoint_filters"] = vpc_endpoint_filters
+            input_["vpc_endpoint_filters"] = vpc_endpoint_filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -228,17 +228,17 @@ class AsyncVpcEndpoint:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
+        input_: aws_sdk_opensearchserverless.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,13 +276,13 @@ class AsyncVpcEndpoint:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_vpc_endpoint_request.DeleteVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.delete_vpc_endpoint_request.DeleteVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -322,16 +322,16 @@ class AsyncVpcEndpoint:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_vpc_endpoints_request.ListVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.list_vpc_endpoints_request.ListVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
         if vpc_endpoint_filters is not None:
-            input["vpc_endpoint_filters"] = vpc_endpoint_filters
+            input_["vpc_endpoint_filters"] = vpc_endpoint_filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

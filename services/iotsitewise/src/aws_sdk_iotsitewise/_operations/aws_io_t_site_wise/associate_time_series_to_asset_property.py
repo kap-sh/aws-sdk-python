@@ -82,30 +82,30 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.AssociateTimeSeriesToAssetPropertyRequest,
+    input_: aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.AssociateTimeSeriesToAssetPropertyRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/timeseries/associate"
     params: dict[str, str] = {}
-    if "alias" in input:
-        params["alias"] = str(input["alias"])
-    if "asset_id" in input:
-        params["assetId"] = str(input["asset_id"])
-    if "property_id" in input:
-        params["propertyId"] = str(input["property_id"])
+    if "alias" in input_:
+        params["alias"] = str(input_["alias"])
+    if "asset_id" in input_:
+        params["assetId"] = str(input_["asset_id"])
+    if "property_id" in input_:
+        params["propertyId"] = str(input_["property_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request
 
     body: bytes | None = json.dumps(
         aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -113,23 +113,20 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def associate_time_series_to_asset_property(
     options: OperationOptions,
-    input: aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.AssociateTimeSeriesToAssetPropertyRequest,
+    input_: aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.AssociateTimeSeriesToAssetPropertyRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -138,13 +135,14 @@ def associate_time_series_to_asset_property(
 
 async def async_associate_time_series_to_asset_property(
     options: AsyncOperationOptions,
-    input: aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.AssociateTimeSeriesToAssetPropertyRequest,
+    input_: aws_sdk_iotsitewise.types.associate_time_series_to_asset_property_request.AssociateTimeSeriesToAssetPropertyRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

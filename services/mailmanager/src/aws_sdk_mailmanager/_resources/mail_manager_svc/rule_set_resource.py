@@ -77,16 +77,16 @@ class RuleSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_rule_set_request.CreateRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_rule_set_request.CreateRuleSetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["rule_set_name"] = rule_set_name
-        input["rules"] = rules
+            input_["client_token"] = client_token
+        input_["rule_set_name"] = rule_set_name
+        input_["rules"] = rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -119,11 +119,11 @@ class RuleSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_rule_set_request.GetRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_id"] = rule_set_id
+        input_: aws_sdk_mailmanager.types.get_rule_set_request.GetRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_id"] = rule_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -162,15 +162,15 @@ class RuleSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_rule_set_request.UpdateRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_id"] = rule_set_id
+        input_: aws_sdk_mailmanager.types.update_rule_set_request.UpdateRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_id"] = rule_set_id
         if rule_set_name is not None:
-            input["rule_set_name"] = rule_set_name
+            input_["rule_set_name"] = rule_set_name
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -203,11 +203,11 @@ class RuleSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_rule_set_request.DeleteRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_id"] = rule_set_id
+        input_: aws_sdk_mailmanager.types.delete_rule_set_request.DeleteRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_id"] = rule_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,14 +244,14 @@ class RuleSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_rule_sets_request.ListRuleSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_rule_sets_request.ListRuleSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,16 +298,16 @@ class AsyncRuleSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_rule_set_request.CreateRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_rule_set_request.CreateRuleSetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["rule_set_name"] = rule_set_name
-        input["rules"] = rules
+            input_["client_token"] = client_token
+        input_["rule_set_name"] = rule_set_name
+        input_["rules"] = rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,11 +341,11 @@ class AsyncRuleSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_rule_set_request.GetRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_id"] = rule_set_id
+        input_: aws_sdk_mailmanager.types.get_rule_set_request.GetRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_id"] = rule_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,15 +385,15 @@ class AsyncRuleSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_rule_set_request.UpdateRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_id"] = rule_set_id
+        input_: aws_sdk_mailmanager.types.update_rule_set_request.UpdateRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_id"] = rule_set_id
         if rule_set_name is not None:
-            input["rule_set_name"] = rule_set_name
+            input_["rule_set_name"] = rule_set_name
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,11 +427,11 @@ class AsyncRuleSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_rule_set_request.DeleteRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_id"] = rule_set_id
+        input_: aws_sdk_mailmanager.types.delete_rule_set_request.DeleteRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_id"] = rule_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -469,14 +469,14 @@ class AsyncRuleSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_rule_sets_request.ListRuleSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_rule_sets_request.ListRuleSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

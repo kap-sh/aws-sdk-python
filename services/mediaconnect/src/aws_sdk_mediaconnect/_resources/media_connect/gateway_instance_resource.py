@@ -65,11 +65,11 @@ class GatewayInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_gateway_instance_request.DescribeGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_instance_arn"] = gateway_instance_arn
+        input_: aws_sdk_mediaconnect.types.describe_gateway_instance_request.DescribeGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_instance_arn"] = gateway_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -106,13 +106,13 @@ class GatewayInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_gateway_instance_request.UpdateGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_gateway_instance_request.UpdateGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
         if bridge_placement is not None:
-            input["bridge_placement"] = bridge_placement
-        input["gateway_instance_arn"] = gateway_instance_arn
+            input_["bridge_placement"] = bridge_placement
+        input_["gateway_instance_arn"] = gateway_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -147,13 +147,13 @@ class GatewayInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.deregister_gateway_instance_request.DeregisterGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.deregister_gateway_instance_request.DeregisterGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
         if force is not None:
-            input["force"] = force
-        input["gateway_instance_arn"] = gateway_instance_arn
+            input_["force"] = force
+        input_["gateway_instance_arn"] = gateway_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -192,16 +192,16 @@ class GatewayInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_gateway_instances_request.ListGatewayInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_gateway_instances_request.ListGatewayInstancesRequest = {}  # type: ignore[typeddict-item]
         if filter_arn is not None:
-            input["filter_arn"] = filter_arn
+            input_["filter_arn"] = filter_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -240,11 +240,11 @@ class AsyncGatewayInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_gateway_instance_request.DescribeGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_instance_arn"] = gateway_instance_arn
+        input_: aws_sdk_mediaconnect.types.describe_gateway_instance_request.DescribeGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_instance_arn"] = gateway_instance_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -282,13 +282,13 @@ class AsyncGatewayInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_gateway_instance_request.UpdateGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_gateway_instance_request.UpdateGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
         if bridge_placement is not None:
-            input["bridge_placement"] = bridge_placement
-        input["gateway_instance_arn"] = gateway_instance_arn
+            input_["bridge_placement"] = bridge_placement
+        input_["gateway_instance_arn"] = gateway_instance_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,13 +324,13 @@ class AsyncGatewayInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.deregister_gateway_instance_request.DeregisterGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.deregister_gateway_instance_request.DeregisterGatewayInstanceRequest = {}  # type: ignore[typeddict-item]
         if force is not None:
-            input["force"] = force
-        input["gateway_instance_arn"] = gateway_instance_arn
+            input_["force"] = force
+        input_["gateway_instance_arn"] = gateway_instance_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,16 +370,16 @@ class AsyncGatewayInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_gateway_instances_request.ListGatewayInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_gateway_instances_request.ListGatewayInstancesRequest = {}  # type: ignore[typeddict-item]
         if filter_arn is not None:
-            input["filter_arn"] = filter_arn
+            input_["filter_arn"] = filter_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

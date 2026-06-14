@@ -104,11 +104,11 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.get_app_monitor_request.GetAppMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.get_app_monitor_request.GetAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -161,23 +161,23 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.update_app_monitor_request.UpdateAppMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.update_app_monitor_request.UpdateAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_list is not None:
-            input["domain_list"] = domain_list
+            input_["domain_list"] = domain_list
         if app_monitor_configuration is not None:
-            input["app_monitor_configuration"] = app_monitor_configuration
+            input_["app_monitor_configuration"] = app_monitor_configuration
         if cw_log_enabled is not None:
-            input["cw_log_enabled"] = cw_log_enabled
+            input_["cw_log_enabled"] = cw_log_enabled
         if custom_events is not None:
-            input["custom_events"] = custom_events
+            input_["custom_events"] = custom_events
         if deobfuscation_configuration is not None:
-            input["deobfuscation_configuration"] = deobfuscation_configuration
+            input_["deobfuscation_configuration"] = deobfuscation_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -210,11 +210,11 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.delete_app_monitor_request.DeleteAppMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.delete_app_monitor_request.DeleteAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,14 +251,14 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.list_app_monitors_request.ListAppMonitorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rum.types.list_app_monitors_request.ListAppMonitorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -299,15 +299,15 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.batch_create_rum_metric_definitions_request.BatchCreateRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.batch_create_rum_metric_definitions_request.BatchCreateRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
-        input["metric_definitions"] = metric_definitions
+            input_["destination_arn"] = destination_arn
+        input_["metric_definitions"] = metric_definitions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,15 +348,15 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.batch_delete_rum_metric_definitions_request.BatchDeleteRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.batch_delete_rum_metric_definitions_request.BatchDeleteRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
-        input["metric_definition_ids"] = metric_definition_ids
+            input_["destination_arn"] = destination_arn
+        input_["metric_definition_ids"] = metric_definition_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,18 +401,18 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.batch_get_rum_metric_definitions_request.BatchGetRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.batch_get_rum_metric_definitions_request.BatchGetRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
+            input_["destination_arn"] = destination_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -471,27 +471,27 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.create_app_monitor_request.CreateAppMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.create_app_monitor_request.CreateAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_list is not None:
-            input["domain_list"] = domain_list
+            input_["domain_list"] = domain_list
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if app_monitor_configuration is not None:
-            input["app_monitor_configuration"] = app_monitor_configuration
+            input_["app_monitor_configuration"] = app_monitor_configuration
         if cw_log_enabled is not None:
-            input["cw_log_enabled"] = cw_log_enabled
+            input_["cw_log_enabled"] = cw_log_enabled
         if custom_events is not None:
-            input["custom_events"] = custom_events
+            input_["custom_events"] = custom_events
         if deobfuscation_configuration is not None:
-            input["deobfuscation_configuration"] = deobfuscation_configuration
+            input_["deobfuscation_configuration"] = deobfuscation_configuration
         if platform is not None:
-            input["platform"] = platform
+            input_["platform"] = platform
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,13 +530,13 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,14 +575,14 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.delete_rum_metrics_destination_request.DeleteRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.delete_rum_metrics_destination_request.DeleteRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
+            input_["destination_arn"] = destination_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,18 +625,18 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.get_app_monitor_data_request.GetAppMonitorDataRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["time_range"] = time_range
+        input_: aws_sdk_rum.types.get_app_monitor_data_request.GetAppMonitorDataRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["time_range"] = time_range
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -669,11 +669,11 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -712,15 +712,15 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.list_rum_metrics_destinations_request.ListRumMetricsDestinationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
+        input_: aws_sdk_rum.types.list_rum_metrics_destinations_request.ListRumMetricsDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,14 +759,14 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["policy_document"] = policy_document
+        input_: aws_sdk_rum.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["policy_document"] = policy_document
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -807,16 +807,16 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.put_rum_metrics_destination_request.PutRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.put_rum_metrics_destination_request.PutRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
+            input_["destination_arn"] = destination_arn
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -859,16 +859,16 @@ class AppMonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.update_rum_metric_definition_request.UpdateRumMetricDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.update_rum_metric_definition_request.UpdateRumMetricDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
-        input["metric_definition"] = metric_definition
-        input["metric_definition_id"] = metric_definition_id
+            input_["destination_arn"] = destination_arn
+        input_["metric_definition"] = metric_definition
+        input_["metric_definition_id"] = metric_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -907,11 +907,11 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.get_app_monitor_request.GetAppMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.get_app_monitor_request.GetAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -965,23 +965,23 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.update_app_monitor_request.UpdateAppMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.update_app_monitor_request.UpdateAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_list is not None:
-            input["domain_list"] = domain_list
+            input_["domain_list"] = domain_list
         if app_monitor_configuration is not None:
-            input["app_monitor_configuration"] = app_monitor_configuration
+            input_["app_monitor_configuration"] = app_monitor_configuration
         if cw_log_enabled is not None:
-            input["cw_log_enabled"] = cw_log_enabled
+            input_["cw_log_enabled"] = cw_log_enabled
         if custom_events is not None:
-            input["custom_events"] = custom_events
+            input_["custom_events"] = custom_events
         if deobfuscation_configuration is not None:
-            input["deobfuscation_configuration"] = deobfuscation_configuration
+            input_["deobfuscation_configuration"] = deobfuscation_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1015,11 +1015,11 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.delete_app_monitor_request.DeleteAppMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.delete_app_monitor_request.DeleteAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1057,14 +1057,14 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.list_app_monitors_request.ListAppMonitorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rum.types.list_app_monitors_request.ListAppMonitorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1106,15 +1106,15 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.batch_create_rum_metric_definitions_request.BatchCreateRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.batch_create_rum_metric_definitions_request.BatchCreateRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
-        input["metric_definitions"] = metric_definitions
+            input_["destination_arn"] = destination_arn
+        input_["metric_definitions"] = metric_definitions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1156,15 +1156,15 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.batch_delete_rum_metric_definitions_request.BatchDeleteRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.batch_delete_rum_metric_definitions_request.BatchDeleteRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
-        input["metric_definition_ids"] = metric_definition_ids
+            input_["destination_arn"] = destination_arn
+        input_["metric_definition_ids"] = metric_definition_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1210,18 +1210,18 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.batch_get_rum_metric_definitions_request.BatchGetRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.batch_get_rum_metric_definitions_request.BatchGetRumMetricDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
+            input_["destination_arn"] = destination_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1281,27 +1281,27 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.create_app_monitor_request.CreateAppMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.create_app_monitor_request.CreateAppMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_list is not None:
-            input["domain_list"] = domain_list
+            input_["domain_list"] = domain_list
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if app_monitor_configuration is not None:
-            input["app_monitor_configuration"] = app_monitor_configuration
+            input_["app_monitor_configuration"] = app_monitor_configuration
         if cw_log_enabled is not None:
-            input["cw_log_enabled"] = cw_log_enabled
+            input_["cw_log_enabled"] = cw_log_enabled
         if custom_events is not None:
-            input["custom_events"] = custom_events
+            input_["custom_events"] = custom_events
         if deobfuscation_configuration is not None:
-            input["deobfuscation_configuration"] = deobfuscation_configuration
+            input_["deobfuscation_configuration"] = deobfuscation_configuration
         if platform is not None:
-            input["platform"] = platform
+            input_["platform"] = platform
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1341,13 +1341,13 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1387,14 +1387,14 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.delete_rum_metrics_destination_request.DeleteRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.delete_rum_metrics_destination_request.DeleteRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
+            input_["destination_arn"] = destination_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1438,18 +1438,18 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.get_app_monitor_data_request.GetAppMonitorDataRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["time_range"] = time_range
+        input_: aws_sdk_rum.types.get_app_monitor_data_request.GetAppMonitorDataRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["time_range"] = time_range
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1483,11 +1483,11 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_rum.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1527,15 +1527,15 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.list_rum_metrics_destinations_request.ListRumMetricsDestinationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
+        input_: aws_sdk_rum.types.list_rum_metrics_destinations_request.ListRumMetricsDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1575,14 +1575,14 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["policy_document"] = policy_document
+        input_: aws_sdk_rum.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["policy_document"] = policy_document
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1624,16 +1624,16 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.put_rum_metrics_destination_request.PutRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.put_rum_metrics_destination_request.PutRumMetricsDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
+            input_["destination_arn"] = destination_arn
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1677,16 +1677,16 @@ class AsyncAppMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rum.types.update_rum_metric_definition_request.UpdateRumMetricDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["app_monitor_name"] = app_monitor_name
-        input["destination"] = destination
+        input_: aws_sdk_rum.types.update_rum_metric_definition_request.UpdateRumMetricDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_monitor_name"] = app_monitor_name
+        input_["destination"] = destination
         if destination_arn is not None:
-            input["destination_arn"] = destination_arn
-        input["metric_definition"] = metric_definition
-        input["metric_definition_id"] = metric_definition_id
+            input_["destination_arn"] = destination_arn
+        input_["metric_definition"] = metric_definition
+        input_["metric_definition_id"] = metric_definition_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

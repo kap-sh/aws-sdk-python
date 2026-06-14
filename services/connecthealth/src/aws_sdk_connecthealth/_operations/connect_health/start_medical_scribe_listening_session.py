@@ -16,13 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.start_medical_scribe_listening_session_output
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_connecthealth.types.start_medical_scribe_listening_session_input.StartMedicalScribeListeningSessionInput,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def start_medical_scribe_listening_session(
     options: OperationOptions,
     input: aws_sdk_connecthealth.types.start_medical_scribe_listening_session_input.StartMedicalScribeListeningSessionInput,

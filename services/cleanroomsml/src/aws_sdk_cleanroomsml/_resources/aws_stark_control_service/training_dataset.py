@@ -79,17 +79,17 @@ class TrainingDataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_training_dataset_request.CreateTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["role_arn"] = role_arn
-        input["training_data"] = training_data
+        input_: aws_sdk_cleanroomsml.types.create_training_dataset_request.CreateTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["role_arn"] = role_arn
+        input_["training_data"] = training_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,11 +122,11 @@ class TrainingDataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_training_dataset_request.GetTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["training_dataset_arn"] = training_dataset_arn
+        input_: aws_sdk_cleanroomsml.types.get_training_dataset_request.GetTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["training_dataset_arn"] = training_dataset_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,11 +157,11 @@ class TrainingDataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_training_dataset_request.DeleteTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["training_dataset_arn"] = training_dataset_arn
+        input_: aws_sdk_cleanroomsml.types.delete_training_dataset_request.DeleteTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["training_dataset_arn"] = training_dataset_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,14 +198,14 @@ class TrainingDataset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_training_datasets_request.ListTrainingDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_training_datasets_request.ListTrainingDatasetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,17 +254,17 @@ class AsyncTrainingDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_training_dataset_request.CreateTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["role_arn"] = role_arn
-        input["training_data"] = training_data
+        input_: aws_sdk_cleanroomsml.types.create_training_dataset_request.CreateTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["role_arn"] = role_arn
+        input_["training_data"] = training_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,11 +298,11 @@ class AsyncTrainingDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_training_dataset_request.GetTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["training_dataset_arn"] = training_dataset_arn
+        input_: aws_sdk_cleanroomsml.types.get_training_dataset_request.GetTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["training_dataset_arn"] = training_dataset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,11 +334,11 @@ class AsyncTrainingDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_training_dataset_request.DeleteTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["training_dataset_arn"] = training_dataset_arn
+        input_: aws_sdk_cleanroomsml.types.delete_training_dataset_request.DeleteTrainingDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["training_dataset_arn"] = training_dataset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,14 +376,14 @@ class AsyncTrainingDataset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_training_datasets_request.ListTrainingDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_training_datasets_request.ListTrainingDatasetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -83,19 +83,19 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_scep.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
+        input_: aws_sdk_pca_connector_scep.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
         if mobile_device_management is not None:
-            input["mobile_device_management"] = mobile_device_management
+            input_["mobile_device_management"] = mobile_device_management
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -128,11 +128,11 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_scep.types.get_connector_request.GetConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_scep.types.get_connector_request.GetConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_arn"] = connector_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -163,11 +163,11 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_scep.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_scep.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_arn"] = connector_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,14 +206,14 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_scep.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pca_connector_scep.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,19 +266,19 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_scep.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_arn"] = certificate_authority_arn
+        input_: aws_sdk_pca_connector_scep.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_arn"] = certificate_authority_arn
         if mobile_device_management is not None:
-            input["mobile_device_management"] = mobile_device_management
+            input_["mobile_device_management"] = mobile_device_management
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,11 +312,11 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_scep.types.get_connector_request.GetConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_scep.types.get_connector_request.GetConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_arn"] = connector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,11 +348,11 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_scep.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_scep.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_arn"] = connector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,14 +392,14 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_scep.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pca_connector_scep.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_workspaces_web._services.async_work_spaces_web import ensure_async_iterator
 from aws_sdk_workspaces_web._services.work_spaces_web import ensure_sync_iterator
+import datetime
 from aws_sdk_workspaces_web._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
@@ -50,23 +51,23 @@ class DataProtectionSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_data_protection_settings_request.CreateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.create_data_protection_settings_request.CreateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if customer_managed_key is not None:
-            input["customer_managed_key"] = customer_managed_key
+            input_["customer_managed_key"] = customer_managed_key
         if additional_encryption_context is not None:
-            input["additional_encryption_context"] = additional_encryption_context
+            input_["additional_encryption_context"] = additional_encryption_context
         if inline_redaction_configuration is not None:
-            input["inline_redaction_configuration"] = inline_redaction_configuration
+            input_["inline_redaction_configuration"] = inline_redaction_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def read(self, data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_data_protection_settings_response.GetDataProtectionSettingsResponse":
         """<p>Gets the data protection settings.</p>
@@ -80,10 +81,10 @@ class DataProtectionSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_data_protection_settings_request.GetDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["data_protection_settings_arn"] = data_protection_settings_arn
+        input_: aws_sdk_workspaces_web.types.get_data_protection_settings_request.GetDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_protection_settings_arn"] = data_protection_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update(self, data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, inline_redaction_configuration: Optional["aws_sdk_workspaces_web.types.inline_redaction_configuration.InlineRedactionConfiguration"] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"] = None, description: Optional["aws_sdk_workspaces_web.types.description_safe.DescriptionSafe"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_data_protection_settings_response.UpdateDataProtectionSettingsResponse":
         """<p>Updates data protection settings.</p>
@@ -101,18 +102,18 @@ class DataProtectionSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_data_protection_settings_request.UpdateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["data_protection_settings_arn"] = data_protection_settings_arn
+        input_: aws_sdk_workspaces_web.types.update_data_protection_settings_request.UpdateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_protection_settings_arn"] = data_protection_settings_arn
         if inline_redaction_configuration is not None:
-            input["inline_redaction_configuration"] = inline_redaction_configuration
+            input_["inline_redaction_configuration"] = inline_redaction_configuration
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete(self, data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_data_protection_settings_response.DeleteDataProtectionSettingsResponse":
         """<p>Deletes data protection settings.</p>
@@ -126,10 +127,10 @@ class DataProtectionSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_data_protection_settings_request.DeleteDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["data_protection_settings_arn"] = data_protection_settings_arn
+        input_: aws_sdk_workspaces_web.types.delete_data_protection_settings_request.DeleteDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_protection_settings_arn"] = data_protection_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list(self, *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_data_protection_settings_response.ListDataProtectionSettingsResponse":
         """<p>Retrieves a list of data protection settings.</p>
@@ -144,13 +145,13 @@ class DataProtectionSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_data_protection_settings_request.ListDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_data_protection_settings_request.ListDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncDataProtectionSettingsResource:
@@ -174,23 +175,23 @@ class AsyncDataProtectionSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_data_protection_settings_request.CreateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.create_data_protection_settings_request.CreateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if customer_managed_key is not None:
-            input["customer_managed_key"] = customer_managed_key
+            input_["customer_managed_key"] = customer_managed_key
         if additional_encryption_context is not None:
-            input["additional_encryption_context"] = additional_encryption_context
+            input_["additional_encryption_context"] = additional_encryption_context
         if inline_redaction_configuration is not None:
-            input["inline_redaction_configuration"] = inline_redaction_configuration
+            input_["inline_redaction_configuration"] = inline_redaction_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def read(self, data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_data_protection_settings_response.GetDataProtectionSettingsResponse":
         """<p>Gets the data protection settings.</p>
@@ -204,10 +205,10 @@ class AsyncDataProtectionSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_data_protection_settings_request.GetDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["data_protection_settings_arn"] = data_protection_settings_arn
+        input_: aws_sdk_workspaces_web.types.get_data_protection_settings_request.GetDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_protection_settings_arn"] = data_protection_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def update(self, data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, inline_redaction_configuration: Optional["aws_sdk_workspaces_web.types.inline_redaction_configuration.InlineRedactionConfiguration"] = None, display_name: Optional["aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"] = None, description: Optional["aws_sdk_workspaces_web.types.description_safe.DescriptionSafe"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_data_protection_settings_response.UpdateDataProtectionSettingsResponse":
         """<p>Updates data protection settings.</p>
@@ -225,18 +226,18 @@ class AsyncDataProtectionSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_data_protection_settings_request.UpdateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["data_protection_settings_arn"] = data_protection_settings_arn
+        input_: aws_sdk_workspaces_web.types.update_data_protection_settings_request.UpdateDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_protection_settings_arn"] = data_protection_settings_arn
         if inline_redaction_configuration is not None:
-            input["inline_redaction_configuration"] = inline_redaction_configuration
+            input_["inline_redaction_configuration"] = inline_redaction_configuration
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def delete(self, data_protection_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_data_protection_settings_response.DeleteDataProtectionSettingsResponse":
         """<p>Deletes data protection settings.</p>
@@ -250,10 +251,10 @@ class AsyncDataProtectionSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_data_protection_settings_request.DeleteDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["data_protection_settings_arn"] = data_protection_settings_arn
+        input_: aws_sdk_workspaces_web.types.delete_data_protection_settings_request.DeleteDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_protection_settings_arn"] = data_protection_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list(self, *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_data_protection_settings_response.ListDataProtectionSettingsResponse":
         """<p>Retrieves a list of data protection settings.</p>
@@ -268,11 +269,11 @@ class AsyncDataProtectionSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_data_protection_settings_request.ListDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_data_protection_settings_request.ListDataProtectionSettingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

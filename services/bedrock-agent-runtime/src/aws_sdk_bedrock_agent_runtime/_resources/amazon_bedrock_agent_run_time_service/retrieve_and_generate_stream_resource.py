@@ -71,19 +71,19 @@ class RetrieveAndGenerateStreamResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_request.RetrieveAndGenerateStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_request.RetrieveAndGenerateStreamRequest = {}  # type: ignore[typeddict-item]
         if session_id is not None:
-            input["session_id"] = session_id
-        input["input"] = input
+            input_["session_id"] = session_id
+        input_["input"] = input
         if retrieve_and_generate_configuration is not None:
-            input["retrieve_and_generate_configuration"] = (
+            input_["retrieve_and_generate_configuration"] = (
                 retrieve_and_generate_configuration
             )
         if session_configuration is not None:
-            input["session_configuration"] = session_configuration
+            input_["session_configuration"] = session_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,19 +134,19 @@ class AsyncRetrieveAndGenerateStreamResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_request.RetrieveAndGenerateStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_stream_request.RetrieveAndGenerateStreamRequest = {}  # type: ignore[typeddict-item]
         if session_id is not None:
-            input["session_id"] = session_id
-        input["input"] = input
+            input_["session_id"] = session_id
+        input_["input"] = input
         if retrieve_and_generate_configuration is not None:
-            input["retrieve_and_generate_configuration"] = (
+            input_["retrieve_and_generate_configuration"] = (
                 retrieve_and_generate_configuration
             )
         if session_configuration is not None:
-            input["session_configuration"] = session_configuration
+            input_["session_configuration"] = session_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

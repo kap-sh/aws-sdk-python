@@ -16,6 +16,12 @@ from aws_sdk_m2._auth._providers import (
 )
 from aws_sdk_m2._auth._zapros_handler import AuthMiddleware
 from aws_sdk_m2._pagination import resolve_path as _resolve_path
+from aws_sdk_m2._resources.aws_supernova_control_plane_service.application import (
+    Application,
+)
+from aws_sdk_m2._resources.aws_supernova_control_plane_service.environment import (
+    Environment,
+)
 from aws_sdk_m2._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -114,6 +120,9 @@ class m2Client:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.application = Application(self)
+        self.environment = Environment(self)
 
     def operation_options(
         self, config_overrides: Optional[m2ClientConfig] = None
@@ -202,16 +211,16 @@ class m2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_engine_versions_request.ListEngineVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_engine_versions_request.ListEngineVersionsRequest = {}  # type: ignore[typeddict-item]
         if engine_type is not None:
-            input["engine_type"] = engine_type
+            input_["engine_type"] = engine_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,11 +276,11 @@ class m2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_m2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,12 +315,12 @@ class m2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_m2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_m2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,12 +355,12 @@ class m2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_m2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_m2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

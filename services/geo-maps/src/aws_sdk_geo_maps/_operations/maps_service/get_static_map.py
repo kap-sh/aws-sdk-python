@@ -91,82 +91,79 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest,
+    input_: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/static/{FileName}"
-    url = url.replace("{FileName}", quote(str(input["file_name"]), safe=""))
+    url = url.replace("{FileName}", quote(str(input_["file_name"]), safe=""))
     params: dict[str, str] = {}
-    if "bounding_box" in input:
-        params["bounding-box"] = str(input["bounding_box"])
-    if "bounded_positions" in input:
-        params["bounded-positions"] = str(input["bounded_positions"])
-    if "center" in input:
-        params["center"] = str(input["center"])
-    if "color_scheme" in input:
-        params["color-scheme"] = str(input["color_scheme"])
-    if "compact_overlay" in input:
-        params["compact-overlay"] = str(input["compact_overlay"])
-    if "crop_labels" in input:
-        params["crop-labels"] = str(input["crop_labels"])
-    if "geo_json_overlay" in input:
-        params["geojson-overlay"] = str(input["geo_json_overlay"])
-    if "height" in input:
-        params["height"] = str(input["height"])
-    if "key" in input:
-        params["key"] = str(input["key"])
-    if "label_size" in input:
-        params["label-size"] = str(input["label_size"])
-    if "language" in input:
-        params["lang"] = str(input["language"])
-    if "padding" in input:
-        params["padding"] = str(input["padding"])
-    if "political_view" in input:
-        params["political-view"] = str(input["political_view"])
-    if "points_of_interests" in input:
-        params["pois"] = str(input["points_of_interests"])
-    if "radius" in input:
-        params["radius"] = str(input["radius"])
-    if "scale_bar_unit" in input:
-        params["scale-unit"] = str(input["scale_bar_unit"])
-    if "style" in input:
-        params["style"] = str(input["style"])
-    if "width" in input:
-        params["width"] = str(input["width"])
-    if "zoom" in input:
-        params["zoom"] = str(input["zoom"])
+    if "bounding_box" in input_:
+        params["bounding-box"] = str(input_["bounding_box"])
+    if "bounded_positions" in input_:
+        params["bounded-positions"] = str(input_["bounded_positions"])
+    if "center" in input_:
+        params["center"] = str(input_["center"])
+    if "color_scheme" in input_:
+        params["color-scheme"] = str(input_["color_scheme"])
+    if "compact_overlay" in input_:
+        params["compact-overlay"] = str(input_["compact_overlay"])
+    if "crop_labels" in input_:
+        params["crop-labels"] = str(input_["crop_labels"])
+    if "geo_json_overlay" in input_:
+        params["geojson-overlay"] = str(input_["geo_json_overlay"])
+    if "height" in input_:
+        params["height"] = str(input_["height"])
+    if "key" in input_:
+        params["key"] = str(input_["key"])
+    if "label_size" in input_:
+        params["label-size"] = str(input_["label_size"])
+    if "language" in input_:
+        params["lang"] = str(input_["language"])
+    if "padding" in input_:
+        params["padding"] = str(input_["padding"])
+    if "political_view" in input_:
+        params["political-view"] = str(input_["political_view"])
+    if "points_of_interests" in input_:
+        params["pois"] = str(input_["points_of_interests"])
+    if "radius" in input_:
+        params["radius"] = str(input_["radius"])
+    if "scale_bar_unit" in input_:
+        params["scale-unit"] = str(input_["scale_bar_unit"])
+    if "style" in input_:
+        params["style"] = str(input_["style"])
+    if "width" in input_:
+        params["width"] = str(input_["width"])
+    if "zoom" in input_:
+        params["zoom"] = str(input_["zoom"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_static_map(
     options: OperationOptions,
-    input: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest,
+    input_: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest,
 ) -> tuple[
     aws_sdk_geo_maps.types.get_static_map_response.GetStaticMapResponse, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -175,15 +172,16 @@ def get_static_map(
 
 async def async_get_static_map(
     options: AsyncOperationOptions,
-    input: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest,
+    input_: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest,
 ) -> tuple[
     aws_sdk_geo_maps.types.get_static_map_response.GetStaticMapResponse, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

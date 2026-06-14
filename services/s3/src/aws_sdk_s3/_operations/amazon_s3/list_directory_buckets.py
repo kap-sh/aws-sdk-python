@@ -61,7 +61,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest,
+    input_: aws_sdk_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -86,10 +86,10 @@ def build_request(
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/?x-id=ListDirectoryBuckets"
     params: dict[str, str] = {}
-    if "continuation_token" in input:
-        params["continuation-token"] = str(input["continuation_token"])
-    if "max_directory_buckets" in input:
-        params["max-directory-buckets"] = str(input["max_directory_buckets"])
+    if "continuation_token" in input_:
+        params["continuation-token"] = str(input_["continuation_token"])
+    if "max_directory_buckets" in input_:
+        params["max-directory-buckets"] = str(input_["max_directory_buckets"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -102,12 +102,12 @@ def build_request(
 
 def list_directory_buckets(
     options: OperationOptions,
-    input: aws_sdk_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest,
+    input_: aws_sdk_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest,
 ) -> tuple[
     aws_sdk_s3.types.list_directory_buckets_output.ListDirectoryBucketsOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -121,12 +121,12 @@ def list_directory_buckets(
 
 async def async_list_directory_buckets(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest,
+    input_: aws_sdk_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest,
 ) -> tuple[
     aws_sdk_s3.types.list_directory_buckets_output.ListDirectoryBucketsOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

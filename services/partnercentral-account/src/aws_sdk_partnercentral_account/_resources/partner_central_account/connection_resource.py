@@ -68,12 +68,12 @@ class ConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_account.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,19 +122,19 @@ class ConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_account.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if connection_type is not None:
-            input["connection_type"] = connection_type
+            input_["connection_type"] = connection_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if other_participant_identifiers is not None:
-            input["other_participant_identifiers"] = other_participant_identifiers
+            input_["other_participant_identifiers"] = other_participant_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -175,15 +175,15 @@ class ConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.cancel_connection_request.CancelConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["connection_type"] = connection_type
-        input["reason"] = reason
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_account.types.cancel_connection_request.CancelConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["connection_type"] = connection_type
+        input_["reason"] = reason
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,12 +224,12 @@ class AsyncConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_account.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,19 +279,19 @@ class AsyncConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_account.types.list_connections_request.ListConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if connection_type is not None:
-            input["connection_type"] = connection_type
+            input_["connection_type"] = connection_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if other_participant_identifiers is not None:
-            input["other_participant_identifiers"] = other_participant_identifiers
+            input_["other_participant_identifiers"] = other_participant_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,15 +333,15 @@ class AsyncConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.cancel_connection_request.CancelConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["connection_type"] = connection_type
-        input["reason"] = reason
-        input["client_token"] = client_token
+        input_: aws_sdk_partnercentral_account.types.cancel_connection_request.CancelConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["connection_type"] = connection_type
+        input_["reason"] = reason
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

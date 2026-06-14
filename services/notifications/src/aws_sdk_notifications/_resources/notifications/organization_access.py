@@ -52,10 +52,10 @@ class OrganizationAccess:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.enable_notifications_access_for_organization_request.EnableNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.enable_notifications_access_for_organization_request.EnableNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -81,10 +81,10 @@ class OrganizationAccess:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_notifications_access_for_organization_request.GetNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.get_notifications_access_for_organization_request.GetNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -110,10 +110,10 @@ class OrganizationAccess:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.disable_notifications_access_for_organization_request.DisableNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.disable_notifications_access_for_organization_request.DisableNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -145,10 +145,10 @@ class AsyncOrganizationAccess:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.enable_notifications_access_for_organization_request.EnableNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.enable_notifications_access_for_organization_request.EnableNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -175,10 +175,10 @@ class AsyncOrganizationAccess:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_notifications_access_for_organization_request.GetNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.get_notifications_access_for_organization_request.GetNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,10 +205,10 @@ class AsyncOrganizationAccess:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.disable_notifications_access_for_organization_request.DisableNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.disable_notifications_access_for_organization_request.DisableNotificationsAccessForOrganizationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -72,11 +72,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.create_bucket_request.CreateBucketRequest,
+    input_: aws_sdk_s3.types.create_bucket_request.CreateBucketRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -96,35 +96,35 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "acl" in input:
-        headers["x-amz-acl"] = str(input["acl"])
-    if "grant_full_control" in input:
-        headers["x-amz-grant-full-control"] = str(input["grant_full_control"])
-    if "grant_read" in input:
-        headers["x-amz-grant-read"] = str(input["grant_read"])
-    if "grant_read_acp" in input:
-        headers["x-amz-grant-read-acp"] = str(input["grant_read_acp"])
-    if "grant_write" in input:
-        headers["x-amz-grant-write"] = str(input["grant_write"])
-    if "grant_write_acp" in input:
-        headers["x-amz-grant-write-acp"] = str(input["grant_write_acp"])
-    if "object_lock_enabled_for_bucket" in input:
+    if "acl" in input_:
+        headers["x-amz-acl"] = str(input_["acl"])
+    if "grant_full_control" in input_:
+        headers["x-amz-grant-full-control"] = str(input_["grant_full_control"])
+    if "grant_read" in input_:
+        headers["x-amz-grant-read"] = str(input_["grant_read"])
+    if "grant_read_acp" in input_:
+        headers["x-amz-grant-read-acp"] = str(input_["grant_read_acp"])
+    if "grant_write" in input_:
+        headers["x-amz-grant-write"] = str(input_["grant_write"])
+    if "grant_write_acp" in input_:
+        headers["x-amz-grant-write-acp"] = str(input_["grant_write_acp"])
+    if "object_lock_enabled_for_bucket" in input_:
         headers["x-amz-bucket-object-lock-enabled"] = str(
-            input["object_lock_enabled_for_bucket"]
+            input_["object_lock_enabled_for_bucket"]
         )
-    if "object_ownership" in input:
-        headers["x-amz-object-ownership"] = str(input["object_ownership"])
-    if "bucket_namespace" in input:
-        headers["x-amz-bucket-namespace"] = str(input["bucket_namespace"])
-    if "create_bucket_configuration" in input:
+    if "object_ownership" in input_:
+        headers["x-amz-object-ownership"] = str(input_["object_ownership"])
+    if "bucket_namespace" in input_:
+        headers["x-amz-bucket-namespace"] = str(input_["bucket_namespace"])
+    if "create_bucket_configuration" in input_:
         import aws_sdk_s3.types.create_bucket_configuration
 
         payload_root = Element("_")
         aws_sdk_s3.types.create_bucket_configuration.serialize_xml(
-            input["create_bucket_configuration"],
+            input_["create_bucket_configuration"],
             payload_root,
             "CreateBucketConfiguration",
         )
@@ -142,9 +142,9 @@ def build_request(
 
 def create_bucket(
     options: OperationOptions,
-    input: aws_sdk_s3.types.create_bucket_request.CreateBucketRequest,
+    input_: aws_sdk_s3.types.create_bucket_request.CreateBucketRequest,
 ) -> tuple[aws_sdk_s3.types.create_bucket_output.CreateBucketOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -158,9 +158,9 @@ def create_bucket(
 
 async def async_create_bucket(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.create_bucket_request.CreateBucketRequest,
+    input_: aws_sdk_s3.types.create_bucket_request.CreateBucketRequest,
 ) -> tuple[aws_sdk_s3.types.create_bucket_output.CreateBucketOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

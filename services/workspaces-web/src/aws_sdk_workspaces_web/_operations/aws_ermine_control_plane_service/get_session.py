@@ -54,49 +54,38 @@ def get_signer(options: AsyncOperationOptions | OperationOptions, auth_schemes: 
             return aws_sdk_workspaces_web._auth._signers.SigV4Signer(options.credentials_provider, auth_scheme=sigv4_config)
     raise RuntimeError("Auth was not resolved")
 
-def build_request(options: OperationOptions | AsyncOperationOptions, input: aws_sdk_workspaces_web.types.get_session_request.GetSessionRequest) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
-        EndpointParams(
-            Region=options.region,
-            UseDualStack=options.use_dual_stack,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-        )
-    )
+def build_request(options: OperationOptions | AsyncOperationOptions, input_: aws_sdk_workspaces_web.types.get_session_request.GetSessionRequest) -> zapros.Request:
+    endpoint = resolve(EndpointParams(Region=options.region, UseDualStack=options.use_dual_stack, UseFIPS=options.use_fips, Endpoint=options.endpoint))  # noqa: F841
     url = endpoint.url.rstrip("/") + "/portals/{portalId}/sessions/{sessionId}"
-    url = url.replace("{portalId}", quote(str(input["portal_id"]), safe=""))
-    url = url.replace("{sessionId}", quote(str(input["session_id"]), safe=""))
+    url = url.replace("{portalId}", quote(str(input_["portal_id"]), safe=""))
+    url = url.replace("{sessionId}", quote(str(input_["session_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
-    return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
-    )
+    return zapros.Request(normalized_url, "GET", headers=headers, body=body, context={"signer": signer})
 
-def get_session(options: OperationOptions, input: aws_sdk_workspaces_web.types.get_session_request.GetSessionRequest) -> tuple[aws_sdk_workspaces_web.types.get_session_response.GetSessionResponse, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+def get_session(options: OperationOptions, input_: aws_sdk_workspaces_web.types.get_session_request.GetSessionRequest) -> tuple[aws_sdk_workspaces_web.types.get_session_response.GetSessionResponse, zapros.Response]:
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
         raise
 
-async def async_get_session(options: AsyncOperationOptions, input: aws_sdk_workspaces_web.types.get_session_request.GetSessionRequest) -> tuple[aws_sdk_workspaces_web.types.get_session_response.GetSessionResponse, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+async def async_get_session(options: AsyncOperationOptions, input_: aws_sdk_workspaces_web.types.get_session_request.GetSessionRequest) -> tuple[aws_sdk_workspaces_web.types.get_session_response.GetSessionResponse, zapros.Response]:
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

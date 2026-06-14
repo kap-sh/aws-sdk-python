@@ -13,6 +13,24 @@ from aws_sdk_nova_act._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_nova_act._auth._zapros_handler import AuthMiddleware
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.act_resource import (
+    ActResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.model_resource import (
+    ModelResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.service_linked_role_resource import (
+    ServiceLinkedRoleResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.session_resource import (
+    SessionResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.workflow_definition_resource import (
+    WorkflowDefinitionResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.workflow_run_resource import (
+    WorkflowRunResource,
+)
 from aws_sdk_nova_act._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +108,13 @@ class NovaActClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.act_resource = ActResource(self)
+        self.model_resource = ModelResource(self)
+        self.service_linked_role_resource = ServiceLinkedRoleResource(self)
+        self.session_resource = SessionResource(self)
+        self.workflow_definition_resource = WorkflowDefinitionResource(self)
+        self.workflow_run_resource = WorkflowRunResource(self)
 
     def operation_options(
         self, config_overrides: Optional[NovaActClientConfig] = None

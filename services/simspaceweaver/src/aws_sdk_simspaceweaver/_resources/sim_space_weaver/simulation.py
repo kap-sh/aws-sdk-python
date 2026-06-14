@@ -115,24 +115,24 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.start_simulation_input.StartSimulationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_simspaceweaver.types.start_simulation_input.StartSimulationInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["role_arn"] = role_arn
         if schema_s3_location is not None:
-            input["schema_s3_location"] = schema_s3_location
+            input_["schema_s3_location"] = schema_s3_location
         if maximum_duration is not None:
-            input["maximum_duration"] = maximum_duration
+            input_["maximum_duration"] = maximum_duration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if snapshot_s3_location is not None:
-            input["snapshot_s3_location"] = snapshot_s3_location
+            input_["snapshot_s3_location"] = snapshot_s3_location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -165,11 +165,11 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.describe_simulation_input.DescribeSimulationInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.describe_simulation_input.DescribeSimulationInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,11 +202,11 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.stop_simulation_input.StopSimulationInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.stop_simulation_input.StopSimulationInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,11 +239,11 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.delete_simulation_input.DeleteSimulationInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.delete_simulation_input.DeleteSimulationInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -282,14 +282,14 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.list_simulations_input.ListSimulationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_simspaceweaver.types.list_simulations_input.ListSimulationsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,12 +324,12 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.create_snapshot_input.CreateSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
-        input["destination"] = destination
+        input_: aws_sdk_simspaceweaver.types.create_snapshot_input.CreateSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
+        input_["destination"] = destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,13 +366,13 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.delete_app_input.DeleteAppInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
-        input["domain"] = domain
-        input["app"] = app
+        input_: aws_sdk_simspaceweaver.types.delete_app_input.DeleteAppInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
+        input_["domain"] = domain
+        input_["app"] = app
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -409,13 +409,13 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.describe_app_input.DescribeAppInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
-        input["domain"] = domain
-        input["app"] = app
+        input_: aws_sdk_simspaceweaver.types.describe_app_input.DescribeAppInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
+        input_["domain"] = domain
+        input_["app"] = app
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,17 +460,17 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.list_apps_input.ListAppsInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.list_apps_input.ListAppsInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,19 +518,19 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.start_app_input.StartAppInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_simspaceweaver.types.start_app_input.StartAppInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["simulation"] = simulation
-        input["domain"] = domain
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["simulation"] = simulation
+        input_["domain"] = domain
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if launch_overrides is not None:
-            input["launch_overrides"] = launch_overrides
+            input_["launch_overrides"] = launch_overrides
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -563,11 +563,11 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.start_clock_input.StartClockInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.start_clock_input.StartClockInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,13 +604,13 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.stop_app_input.StopAppInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
-        input["domain"] = domain
-        input["app"] = app
+        input_: aws_sdk_simspaceweaver.types.stop_app_input.StopAppInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
+        input_["domain"] = domain
+        input_["app"] = app
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -643,11 +643,11 @@ class Simulation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.stop_clock_input.StopClockInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.stop_clock_input.StopClockInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -710,24 +710,24 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.start_simulation_input.StartSimulationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_simspaceweaver.types.start_simulation_input.StartSimulationInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["role_arn"] = role_arn
         if schema_s3_location is not None:
-            input["schema_s3_location"] = schema_s3_location
+            input_["schema_s3_location"] = schema_s3_location
         if maximum_duration is not None:
-            input["maximum_duration"] = maximum_duration
+            input_["maximum_duration"] = maximum_duration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if snapshot_s3_location is not None:
-            input["snapshot_s3_location"] = snapshot_s3_location
+            input_["snapshot_s3_location"] = snapshot_s3_location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,11 +761,11 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.describe_simulation_input.DescribeSimulationInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.describe_simulation_input.DescribeSimulationInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -799,11 +799,11 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.stop_simulation_input.StopSimulationInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.stop_simulation_input.StopSimulationInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -837,11 +837,11 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.delete_simulation_input.DeleteSimulationInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.delete_simulation_input.DeleteSimulationInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -881,14 +881,14 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.list_simulations_input.ListSimulationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_simspaceweaver.types.list_simulations_input.ListSimulationsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -924,12 +924,12 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.create_snapshot_input.CreateSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
-        input["destination"] = destination
+        input_: aws_sdk_simspaceweaver.types.create_snapshot_input.CreateSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
+        input_["destination"] = destination
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -967,13 +967,13 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.delete_app_input.DeleteAppInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
-        input["domain"] = domain
-        input["app"] = app
+        input_: aws_sdk_simspaceweaver.types.delete_app_input.DeleteAppInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
+        input_["domain"] = domain
+        input_["app"] = app
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1011,13 +1011,13 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.describe_app_input.DescribeAppInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
-        input["domain"] = domain
-        input["app"] = app
+        input_: aws_sdk_simspaceweaver.types.describe_app_input.DescribeAppInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
+        input_["domain"] = domain
+        input_["app"] = app
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1063,17 +1063,17 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.list_apps_input.ListAppsInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.list_apps_input.ListAppsInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,19 +1122,19 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.start_app_input.StartAppInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_simspaceweaver.types.start_app_input.StartAppInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["simulation"] = simulation
-        input["domain"] = domain
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["simulation"] = simulation
+        input_["domain"] = domain
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if launch_overrides is not None:
-            input["launch_overrides"] = launch_overrides
+            input_["launch_overrides"] = launch_overrides
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,11 +1168,11 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.start_clock_input.StartClockInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.start_clock_input.StartClockInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1210,13 +1210,13 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.stop_app_input.StopAppInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
-        input["domain"] = domain
-        input["app"] = app
+        input_: aws_sdk_simspaceweaver.types.stop_app_input.StopAppInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
+        input_["domain"] = domain
+        input_["app"] = app
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1250,11 +1250,11 @@ class AsyncSimulation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_simspaceweaver.types.stop_clock_input.StopClockInput = {}  # type: ignore[typeddict-item]
-        input["simulation"] = simulation
+        input_: aws_sdk_simspaceweaver.types.stop_clock_input.StopClockInput = {}  # type: ignore[typeddict-item]
+        input_["simulation"] = simulation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

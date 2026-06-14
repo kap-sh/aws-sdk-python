@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_database_migration_service._auth._signers
+import aws_sdk_database_migration_service._auth._sigv4
 from aws_sdk_database_migration_service._auth._identity import Credentials
 from aws_sdk_database_migration_service._auth._providers import (
     CredentialsProvider,
@@ -462,12 +464,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_database_migration_service.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,13 +507,13 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
-        input["replication_instance_arn"] = replication_instance_arn
-        input["apply_action"] = apply_action
-        input["opt_in_type"] = opt_in_type
+        input_: aws_sdk_database_migration_service.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_instance_arn"] = replication_instance_arn
+        input_["apply_action"] = apply_action
+        input_["opt_in_type"] = opt_in_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -547,12 +549,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.batch_start_recommendations_request.BatchStartRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.batch_start_recommendations_request.BatchStartRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if data is not None:
-            input["data"] = data
+            input_["data"] = data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,12 +590,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.cancel_metadata_model_conversion_message.CancelMetadataModelConversionMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["request_identifier"] = request_identifier
+        input_: aws_sdk_database_migration_service.types.cancel_metadata_model_conversion_message.CancelMetadataModelConversionMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["request_identifier"] = request_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -629,12 +631,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.cancel_metadata_model_creation_message.CancelMetadataModelCreationMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["request_identifier"] = request_identifier
+        input_: aws_sdk_database_migration_service.types.cancel_metadata_model_creation_message.CancelMetadataModelCreationMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["request_identifier"] = request_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,13 +670,13 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.cancel_replication_task_assessment_run_message.CancelReplicationTaskAssessmentRunMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_assessment_run_arn"] = (
+        input_: aws_sdk_database_migration_service.types.cancel_replication_task_assessment_run_message.CancelReplicationTaskAssessmentRunMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_assessment_run_arn"] = (
             replication_task_assessment_run_arn
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -740,27 +742,27 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_data_migration_message.CreateDataMigrationMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.create_data_migration_message.CreateDataMigrationMessage = {}  # type: ignore[typeddict-item]
         if data_migration_name is not None:
-            input["data_migration_name"] = data_migration_name
-        input["migration_project_identifier"] = migration_project_identifier
-        input["data_migration_type"] = data_migration_type
-        input["service_access_role_arn"] = service_access_role_arn
+            input_["data_migration_name"] = data_migration_name
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["data_migration_type"] = data_migration_type
+        input_["service_access_role_arn"] = service_access_role_arn
         if enable_cloudwatch_logs is not None:
-            input["enable_cloudwatch_logs"] = enable_cloudwatch_logs
+            input_["enable_cloudwatch_logs"] = enable_cloudwatch_logs
         if source_data_settings is not None:
-            input["source_data_settings"] = source_data_settings
+            input_["source_data_settings"] = source_data_settings
         if target_data_settings is not None:
-            input["target_data_settings"] = target_data_settings
+            input_["target_data_settings"] = target_data_settings
         if number_of_jobs is not None:
-            input["number_of_jobs"] = number_of_jobs
+            input_["number_of_jobs"] = number_of_jobs
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if selection_rules is not None:
-            input["selection_rules"] = selection_rules
+            input_["selection_rules"] = selection_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -818,20 +820,20 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_data_provider_message.CreateDataProviderMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.create_data_provider_message.CreateDataProviderMessage = {}  # type: ignore[typeddict-item]
         if data_provider_name is not None:
-            input["data_provider_name"] = data_provider_name
+            input_["data_provider_name"] = data_provider_name
         if description is not None:
-            input["description"] = description
-        input["engine"] = engine
+            input_["description"] = description
+        input_["engine"] = engine
         if virtual is not None:
-            input["virtual"] = virtual
-        input["settings"] = settings
+            input_["virtual"] = virtual
+        input_["settings"] = settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1001,77 +1003,77 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_endpoint_message.CreateEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_identifier"] = endpoint_identifier
-        input["endpoint_type"] = endpoint_type
-        input["engine_name"] = engine_name
+        input_: aws_sdk_database_migration_service.types.create_endpoint_message.CreateEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_identifier"] = endpoint_identifier
+        input_["endpoint_type"] = endpoint_type
+        input_["engine_name"] = engine_name
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if server_name is not None:
-            input["server_name"] = server_name
+            input_["server_name"] = server_name
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if extra_connection_attributes is not None:
-            input["extra_connection_attributes"] = extra_connection_attributes
+            input_["extra_connection_attributes"] = extra_connection_attributes
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if ssl_mode is not None:
-            input["ssl_mode"] = ssl_mode
+            input_["ssl_mode"] = ssl_mode
         if service_access_role_arn is not None:
-            input["service_access_role_arn"] = service_access_role_arn
+            input_["service_access_role_arn"] = service_access_role_arn
         if external_table_definition is not None:
-            input["external_table_definition"] = external_table_definition
+            input_["external_table_definition"] = external_table_definition
         if dynamo_db_settings is not None:
-            input["dynamo_db_settings"] = dynamo_db_settings
+            input_["dynamo_db_settings"] = dynamo_db_settings
         if s3_settings is not None:
-            input["s3_settings"] = s3_settings
+            input_["s3_settings"] = s3_settings
         if dms_transfer_settings is not None:
-            input["dms_transfer_settings"] = dms_transfer_settings
+            input_["dms_transfer_settings"] = dms_transfer_settings
         if mongo_db_settings is not None:
-            input["mongo_db_settings"] = mongo_db_settings
+            input_["mongo_db_settings"] = mongo_db_settings
         if kinesis_settings is not None:
-            input["kinesis_settings"] = kinesis_settings
+            input_["kinesis_settings"] = kinesis_settings
         if kafka_settings is not None:
-            input["kafka_settings"] = kafka_settings
+            input_["kafka_settings"] = kafka_settings
         if elasticsearch_settings is not None:
-            input["elasticsearch_settings"] = elasticsearch_settings
+            input_["elasticsearch_settings"] = elasticsearch_settings
         if neptune_settings is not None:
-            input["neptune_settings"] = neptune_settings
+            input_["neptune_settings"] = neptune_settings
         if redshift_settings is not None:
-            input["redshift_settings"] = redshift_settings
+            input_["redshift_settings"] = redshift_settings
         if postgre_sql_settings is not None:
-            input["postgre_sql_settings"] = postgre_sql_settings
+            input_["postgre_sql_settings"] = postgre_sql_settings
         if my_sql_settings is not None:
-            input["my_sql_settings"] = my_sql_settings
+            input_["my_sql_settings"] = my_sql_settings
         if oracle_settings is not None:
-            input["oracle_settings"] = oracle_settings
+            input_["oracle_settings"] = oracle_settings
         if sybase_settings is not None:
-            input["sybase_settings"] = sybase_settings
+            input_["sybase_settings"] = sybase_settings
         if microsoft_sql_server_settings is not None:
-            input["microsoft_sql_server_settings"] = microsoft_sql_server_settings
+            input_["microsoft_sql_server_settings"] = microsoft_sql_server_settings
         if ibm_db2_settings is not None:
-            input["ibm_db2_settings"] = ibm_db2_settings
+            input_["ibm_db2_settings"] = ibm_db2_settings
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if doc_db_settings is not None:
-            input["doc_db_settings"] = doc_db_settings
+            input_["doc_db_settings"] = doc_db_settings
         if redis_settings is not None:
-            input["redis_settings"] = redis_settings
+            input_["redis_settings"] = redis_settings
         if gcp_my_sql_settings is not None:
-            input["gcp_my_sql_settings"] = gcp_my_sql_settings
+            input_["gcp_my_sql_settings"] = gcp_my_sql_settings
         if timestream_settings is not None:
-            input["timestream_settings"] = timestream_settings
+            input_["timestream_settings"] = timestream_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1127,22 +1129,22 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["sns_topic_arn"] = sns_topic_arn
+        input_: aws_sdk_database_migration_service.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if source_ids is not None:
-            input["source_ids"] = source_ids
+            input_["source_ids"] = source_ids
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1184,15 +1186,15 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_fleet_advisor_collector_request.CreateFleetAdvisorCollectorRequest = {}  # type: ignore[typeddict-item]
-        input["collector_name"] = collector_name
+        input_: aws_sdk_database_migration_service.types.create_fleet_advisor_collector_request.CreateFleetAdvisorCollectorRequest = {}  # type: ignore[typeddict-item]
+        input_["collector_name"] = collector_name
         if description is not None:
-            input["description"] = description
-        input["service_access_role_arn"] = service_access_role_arn
-        input["s3_bucket_name"] = s3_bucket_name
+            input_["description"] = description
+        input_["service_access_role_arn"] = service_access_role_arn
+        input_["s3_bucket_name"] = s3_bucket_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1266,28 +1268,28 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_instance_profile_message.CreateInstanceProfileMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.create_instance_profile_message.CreateInstanceProfileMessage = {}  # type: ignore[typeddict-item]
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if instance_profile_name is not None:
-            input["instance_profile_name"] = instance_profile_name
+            input_["instance_profile_name"] = instance_profile_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if subnet_group_identifier is not None:
-            input["subnet_group_identifier"] = subnet_group_identifier
+            input_["subnet_group_identifier"] = subnet_group_identifier
         if vpc_security_groups is not None:
-            input["vpc_security_groups"] = vpc_security_groups
+            input_["vpc_security_groups"] = vpc_security_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1351,25 +1353,25 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_migration_project_message.CreateMigrationProjectMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.create_migration_project_message.CreateMigrationProjectMessage = {}  # type: ignore[typeddict-item]
         if migration_project_name is not None:
-            input["migration_project_name"] = migration_project_name
-        input["source_data_provider_descriptors"] = source_data_provider_descriptors
-        input["target_data_provider_descriptors"] = target_data_provider_descriptors
-        input["instance_profile_identifier"] = instance_profile_identifier
+            input_["migration_project_name"] = migration_project_name
+        input_["source_data_provider_descriptors"] = source_data_provider_descriptors
+        input_["target_data_provider_descriptors"] = target_data_provider_descriptors
+        input_["instance_profile_identifier"] = instance_profile_identifier
         if transformation_rules is not None:
-            input["transformation_rules"] = transformation_rules
+            input_["transformation_rules"] = transformation_rules
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if schema_conversion_application_attributes is not None:
-            input["schema_conversion_application_attributes"] = (
+            input_["schema_conversion_application_attributes"] = (
                 schema_conversion_application_attributes
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1429,24 +1431,24 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_replication_config_message.CreateReplicationConfigMessage = {}  # type: ignore[typeddict-item]
-        input["replication_config_identifier"] = replication_config_identifier
-        input["source_endpoint_arn"] = source_endpoint_arn
-        input["target_endpoint_arn"] = target_endpoint_arn
-        input["compute_config"] = compute_config
-        input["replication_type"] = replication_type
-        input["table_mappings"] = table_mappings
+        input_: aws_sdk_database_migration_service.types.create_replication_config_message.CreateReplicationConfigMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_config_identifier"] = replication_config_identifier
+        input_["source_endpoint_arn"] = source_endpoint_arn
+        input_["target_endpoint_arn"] = target_endpoint_arn
+        input_["compute_config"] = compute_config
+        input_["replication_type"] = replication_type
+        input_["table_mappings"] = table_mappings
         if replication_settings is not None:
-            input["replication_settings"] = replication_settings
+            input_["replication_settings"] = replication_settings
         if supplemental_settings is not None:
-            input["supplemental_settings"] = supplemental_settings
+            input_["supplemental_settings"] = supplemental_settings
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1548,44 +1550,46 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_replication_instance_message.CreateReplicationInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["replication_instance_identifier"] = replication_instance_identifier
+        input_: aws_sdk_database_migration_service.types.create_replication_instance_message.CreateReplicationInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_instance_identifier"] = replication_instance_identifier
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
-        input["replication_instance_class"] = replication_instance_class
+            input_["allocated_storage"] = allocated_storage
+        input_["replication_instance_class"] = replication_instance_class
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if replication_subnet_group_identifier is not None:
-            input["replication_subnet_group_identifier"] = (
+            input_["replication_subnet_group_identifier"] = (
                 replication_subnet_group_identifier
             )
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if dns_name_servers is not None:
-            input["dns_name_servers"] = dns_name_servers
+            input_["dns_name_servers"] = dns_name_servers
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if kerberos_authentication_settings is not None:
-            input["kerberos_authentication_settings"] = kerberos_authentication_settings
+            input_["kerberos_authentication_settings"] = (
+                kerberos_authentication_settings
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1633,19 +1637,19 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_replication_subnet_group_message.CreateReplicationSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["replication_subnet_group_identifier"] = (
+        input_: aws_sdk_database_migration_service.types.create_replication_subnet_group_message.CreateReplicationSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_subnet_group_identifier"] = (
             replication_subnet_group_identifier
         )
-        input["replication_subnet_group_description"] = (
+        input_["replication_subnet_group_description"] = (
             replication_subnet_group_description
         )
-        input["subnet_ids"] = subnet_ids
+        input_["subnet_ids"] = subnet_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1723,30 +1727,30 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.create_replication_task_message.CreateReplicationTaskMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_identifier"] = replication_task_identifier
-        input["source_endpoint_arn"] = source_endpoint_arn
-        input["target_endpoint_arn"] = target_endpoint_arn
-        input["replication_instance_arn"] = replication_instance_arn
-        input["migration_type"] = migration_type
-        input["table_mappings"] = table_mappings
+        input_: aws_sdk_database_migration_service.types.create_replication_task_message.CreateReplicationTaskMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_identifier"] = replication_task_identifier
+        input_["source_endpoint_arn"] = source_endpoint_arn
+        input_["target_endpoint_arn"] = target_endpoint_arn
+        input_["replication_instance_arn"] = replication_instance_arn
+        input_["migration_type"] = migration_type
+        input_["table_mappings"] = table_mappings
         if replication_task_settings is not None:
-            input["replication_task_settings"] = replication_task_settings
+            input_["replication_task_settings"] = replication_task_settings
         if cdc_start_time is not None:
-            input["cdc_start_time"] = cdc_start_time
+            input_["cdc_start_time"] = cdc_start_time
         if cdc_start_position is not None:
-            input["cdc_start_position"] = cdc_start_position
+            input_["cdc_start_position"] = cdc_start_position
         if cdc_stop_position is not None:
-            input["cdc_stop_position"] = cdc_stop_position
+            input_["cdc_stop_position"] = cdc_stop_position
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if task_data is not None:
-            input["task_data"] = task_data
+            input_["task_data"] = task_data
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1786,11 +1790,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_certificate_message.DeleteCertificateMessage = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
+        input_: aws_sdk_database_migration_service.types.delete_certificate_message.DeleteCertificateMessage = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1832,12 +1836,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_connection_message.DeleteConnectionMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
-        input["replication_instance_arn"] = replication_instance_arn
+        input_: aws_sdk_database_migration_service.types.delete_connection_message.DeleteConnectionMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
+        input_["replication_instance_arn"] = replication_instance_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1871,11 +1875,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_data_migration_message.DeleteDataMigrationMessage = {}  # type: ignore[typeddict-item]
-        input["data_migration_identifier"] = data_migration_identifier
+        input_: aws_sdk_database_migration_service.types.delete_data_migration_message.DeleteDataMigrationMessage = {}  # type: ignore[typeddict-item]
+        input_["data_migration_identifier"] = data_migration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1915,11 +1919,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_data_provider_message.DeleteDataProviderMessage = {}  # type: ignore[typeddict-item]
-        input["data_provider_identifier"] = data_provider_identifier
+        input_: aws_sdk_database_migration_service.types.delete_data_provider_message.DeleteDataProviderMessage = {}  # type: ignore[typeddict-item]
+        input_["data_provider_identifier"] = data_provider_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1960,11 +1964,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_endpoint_message.DeleteEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_database_migration_service.types.delete_endpoint_message.DeleteEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1998,11 +2002,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_database_migration_service.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2034,11 +2038,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_collector_request.DeleteCollectorRequest = {}  # type: ignore[typeddict-item]
-        input["collector_referenced_id"] = collector_referenced_id
+        input_: aws_sdk_database_migration_service.types.delete_collector_request.DeleteCollectorRequest = {}  # type: ignore[typeddict-item]
+        input_["collector_referenced_id"] = collector_referenced_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2072,11 +2076,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_fleet_advisor_databases_request.DeleteFleetAdvisorDatabasesRequest = {}  # type: ignore[typeddict-item]
-        input["database_ids"] = database_ids
+        input_: aws_sdk_database_migration_service.types.delete_fleet_advisor_databases_request.DeleteFleetAdvisorDatabasesRequest = {}  # type: ignore[typeddict-item]
+        input_["database_ids"] = database_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2116,11 +2120,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_instance_profile_message.DeleteInstanceProfileMessage = {}  # type: ignore[typeddict-item]
-        input["instance_profile_identifier"] = instance_profile_identifier
+        input_: aws_sdk_database_migration_service.types.delete_instance_profile_message.DeleteInstanceProfileMessage = {}  # type: ignore[typeddict-item]
+        input_["instance_profile_identifier"] = instance_profile_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2160,11 +2164,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_migration_project_message.DeleteMigrationProjectMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.delete_migration_project_message.DeleteMigrationProjectMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2198,11 +2202,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_replication_config_message.DeleteReplicationConfigMessage = {}  # type: ignore[typeddict-item]
-        input["replication_config_arn"] = replication_config_arn
+        input_: aws_sdk_database_migration_service.types.delete_replication_config_message.DeleteReplicationConfigMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_config_arn"] = replication_config_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2244,11 +2248,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_replication_instance_message.DeleteReplicationInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["replication_instance_arn"] = replication_instance_arn
+        input_: aws_sdk_database_migration_service.types.delete_replication_instance_message.DeleteReplicationInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_instance_arn"] = replication_instance_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2288,13 +2292,13 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_replication_subnet_group_message.DeleteReplicationSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["replication_subnet_group_identifier"] = (
+        input_: aws_sdk_database_migration_service.types.delete_replication_subnet_group_message.DeleteReplicationSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_subnet_group_identifier"] = (
             replication_subnet_group_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2334,11 +2338,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_replication_task_message.DeleteReplicationTaskMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
+        input_: aws_sdk_database_migration_service.types.delete_replication_task_message.DeleteReplicationTaskMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2372,13 +2376,13 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.delete_replication_task_assessment_run_message.DeleteReplicationTaskAssessmentRunMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_assessment_run_arn"] = (
+        input_: aws_sdk_database_migration_service.types.delete_replication_task_assessment_run_message.DeleteReplicationTaskAssessmentRunMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_assessment_run_arn"] = (
             replication_task_assessment_run_arn
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2414,10 +2418,10 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_account_attributes_message.DescribeAccountAttributesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_account_attributes_message.DescribeAccountAttributesMessage = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2481,26 +2485,26 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_applicable_individual_assessments_message.DescribeApplicableIndividualAssessmentsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_applicable_individual_assessments_message.DescribeApplicableIndividualAssessmentsMessage = {}  # type: ignore[typeddict-item]
         if replication_task_arn is not None:
-            input["replication_task_arn"] = replication_task_arn
+            input_["replication_task_arn"] = replication_task_arn
         if replication_instance_arn is not None:
-            input["replication_instance_arn"] = replication_instance_arn
+            input_["replication_instance_arn"] = replication_instance_arn
         if replication_config_arn is not None:
-            input["replication_config_arn"] = replication_config_arn
+            input_["replication_config_arn"] = replication_config_arn
         if source_engine_name is not None:
-            input["source_engine_name"] = source_engine_name
+            input_["source_engine_name"] = source_engine_name
         if target_engine_name is not None:
-            input["target_engine_name"] = target_engine_name
+            input_["target_engine_name"] = target_engine_name
         if migration_type is not None:
-            input["migration_type"] = migration_type
+            input_["migration_type"] = migration_type
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2550,16 +2554,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_certificates_message.DescribeCertificatesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_certificates_message.DescribeCertificatesMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2609,16 +2613,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_connections_message.DescribeConnectionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_connections_message.DescribeConnectionsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2658,11 +2662,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_conversion_configuration_message.DescribeConversionConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.describe_conversion_configuration_message.DescribeConversionConfigurationMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2714,20 +2718,20 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_data_migrations_message.DescribeDataMigrationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_data_migrations_message.DescribeDataMigrationsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if without_settings is not None:
-            input["without_settings"] = without_settings
+            input_["without_settings"] = without_settings
         if without_statistics is not None:
-            input["without_statistics"] = without_statistics
+            input_["without_statistics"] = without_statistics
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2813,16 +2817,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_data_providers_message.DescribeDataProvidersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_data_providers_message.DescribeDataProvidersMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2872,16 +2876,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_endpoints_message.DescribeEndpointsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_endpoints_message.DescribeEndpointsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2923,15 +2927,15 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_endpoint_settings_message.DescribeEndpointSettingsMessage = {}  # type: ignore[typeddict-item]
-        input["engine_name"] = engine_name
+        input_: aws_sdk_database_migration_service.types.describe_endpoint_settings_message.DescribeEndpointSettingsMessage = {}  # type: ignore[typeddict-item]
+        input_["engine_name"] = engine_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2981,16 +2985,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_endpoint_types_message.DescribeEndpointTypesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_endpoint_types_message.DescribeEndpointTypesMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3030,14 +3034,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_engine_versions_message.DescribeEngineVersionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_engine_versions_message.DescribeEngineVersionsMessage = {}  # type: ignore[typeddict-item]
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3077,14 +3081,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3152,28 +3156,28 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
         if source_identifier is not None:
-            input["source_identifier"] = source_identifier
+            input_["source_identifier"] = source_identifier
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3221,18 +3225,18 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
         if subscription_name is not None:
-            input["subscription_name"] = subscription_name
+            input_["subscription_name"] = subscription_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3284,17 +3288,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_extension_pack_associations_message.DescribeExtensionPackAssociationsMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.describe_extension_pack_associations_message.DescribeExtensionPackAssociationsMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3338,16 +3342,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_fleet_advisor_collectors_request.DescribeFleetAdvisorCollectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_fleet_advisor_collectors_request.DescribeFleetAdvisorCollectorsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3391,16 +3395,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_fleet_advisor_databases_request.DescribeFleetAdvisorDatabasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_fleet_advisor_databases_request.DescribeFleetAdvisorDatabasesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3440,14 +3444,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_fleet_advisor_lsa_analysis_request.DescribeFleetAdvisorLsaAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_fleet_advisor_lsa_analysis_request.DescribeFleetAdvisorLsaAnalysisRequest = {}  # type: ignore[typeddict-item]
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3491,16 +3495,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_fleet_advisor_schema_object_summary_request.DescribeFleetAdvisorSchemaObjectSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_fleet_advisor_schema_object_summary_request.DescribeFleetAdvisorSchemaObjectSummaryRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3544,16 +3548,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_fleet_advisor_schemas_request.DescribeFleetAdvisorSchemasRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_fleet_advisor_schemas_request.DescribeFleetAdvisorSchemasRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3603,16 +3607,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_instance_profiles_message.DescribeInstanceProfilesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_instance_profiles_message.DescribeInstanceProfilesMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3650,13 +3654,13 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_metadata_model_message.DescribeMetadataModelMessage = {}  # type: ignore[typeddict-item]
-        input["selection_rules"] = selection_rules
-        input["migration_project_identifier"] = migration_project_identifier
-        input["origin"] = origin
+        input_: aws_sdk_database_migration_service.types.describe_metadata_model_message.DescribeMetadataModelMessage = {}  # type: ignore[typeddict-item]
+        input_["selection_rules"] = selection_rules
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["origin"] = origin
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3708,17 +3712,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_metadata_model_assessments_message.DescribeMetadataModelAssessmentsMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.describe_metadata_model_assessments_message.DescribeMetadataModelAssessmentsMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3764,17 +3768,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_metadata_model_children_message.DescribeMetadataModelChildrenMessage = {}  # type: ignore[typeddict-item]
-        input["selection_rules"] = selection_rules
-        input["migration_project_identifier"] = migration_project_identifier
-        input["origin"] = origin
+        input_: aws_sdk_database_migration_service.types.describe_metadata_model_children_message.DescribeMetadataModelChildrenMessage = {}  # type: ignore[typeddict-item]
+        input_["selection_rules"] = selection_rules
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["origin"] = origin
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3857,17 +3861,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_metadata_model_conversions_message.DescribeMetadataModelConversionsMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.describe_metadata_model_conversions_message.DescribeMetadataModelConversionsMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3913,17 +3917,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_metadata_model_creations_message.DescribeMetadataModelCreationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_metadata_model_creations_message.DescribeMetadataModelCreationsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
-        input["migration_project_identifier"] = migration_project_identifier
+            input_["max_records"] = max_records
+        input_["migration_project_identifier"] = migration_project_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4006,17 +4010,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_metadata_model_exports_as_script_message.DescribeMetadataModelExportsAsScriptMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.describe_metadata_model_exports_as_script_message.DescribeMetadataModelExportsAsScriptMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4068,17 +4072,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_metadata_model_exports_to_target_message.DescribeMetadataModelExportsToTargetMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.describe_metadata_model_exports_to_target_message.DescribeMetadataModelExportsToTargetMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4130,17 +4134,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_metadata_model_imports_message.DescribeMetadataModelImportsMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.describe_metadata_model_imports_message.DescribeMetadataModelImportsMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4190,16 +4194,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_migration_projects_message.DescribeMigrationProjectsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_migration_projects_message.DescribeMigrationProjectsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4245,14 +4249,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_orderable_replication_instances_message.DescribeOrderableReplicationInstancesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_orderable_replication_instances_message.DescribeOrderableReplicationInstancesMessage = {}  # type: ignore[typeddict-item]
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4300,18 +4304,18 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_pending_maintenance_actions_message.DescribePendingMaintenanceActionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_pending_maintenance_actions_message.DescribePendingMaintenanceActionsMessage = {}  # type: ignore[typeddict-item]
         if replication_instance_arn is not None:
-            input["replication_instance_arn"] = replication_instance_arn
+            input_["replication_instance_arn"] = replication_instance_arn
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4355,16 +4359,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_recommendation_limitations_request.DescribeRecommendationLimitationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_recommendation_limitations_request.DescribeRecommendationLimitationsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4408,16 +4412,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_recommendations_request.DescribeRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_recommendations_request.DescribeRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4457,11 +4461,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_refresh_schemas_status_message.DescribeRefreshSchemasStatusMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_database_migration_service.types.describe_refresh_schemas_status_message.DescribeRefreshSchemasStatusMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4505,16 +4509,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_configs_message.DescribeReplicationConfigsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_replication_configs_message.DescribeReplicationConfigsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4564,16 +4568,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_instances_message.DescribeReplicationInstancesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_replication_instances_message.DescribeReplicationInstancesMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4615,15 +4619,15 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_instance_task_logs_message.DescribeReplicationInstanceTaskLogsMessage = {}  # type: ignore[typeddict-item]
-        input["replication_instance_arn"] = replication_instance_arn
+        input_: aws_sdk_database_migration_service.types.describe_replication_instance_task_logs_message.DescribeReplicationInstanceTaskLogsMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_instance_arn"] = replication_instance_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4667,16 +4671,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replications_message.DescribeReplicationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_replications_message.DescribeReplicationsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4726,16 +4730,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_subnet_groups_message.DescribeReplicationSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_replication_subnet_groups_message.DescribeReplicationSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4781,17 +4785,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_table_statistics_message.DescribeReplicationTableStatisticsMessage = {}  # type: ignore[typeddict-item]
-        input["replication_config_arn"] = replication_config_arn
+        input_: aws_sdk_database_migration_service.types.describe_replication_table_statistics_message.DescribeReplicationTableStatisticsMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_config_arn"] = replication_config_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4835,16 +4839,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_task_assessment_results_message.DescribeReplicationTaskAssessmentResultsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_replication_task_assessment_results_message.DescribeReplicationTaskAssessmentResultsMessage = {}  # type: ignore[typeddict-item]
         if replication_task_arn is not None:
-            input["replication_task_arn"] = replication_task_arn
+            input_["replication_task_arn"] = replication_task_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4888,16 +4892,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_task_assessment_runs_message.DescribeReplicationTaskAssessmentRunsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_replication_task_assessment_runs_message.DescribeReplicationTaskAssessmentRunsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4941,16 +4945,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_task_individual_assessments_message.DescribeReplicationTaskIndividualAssessmentsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_replication_task_individual_assessments_message.DescribeReplicationTaskIndividualAssessmentsMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5004,18 +5008,18 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_replication_tasks_message.DescribeReplicationTasksMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.describe_replication_tasks_message.DescribeReplicationTasksMessage = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if without_settings is not None:
-            input["without_settings"] = without_settings
+            input_["without_settings"] = without_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5063,15 +5067,15 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_schemas_message.DescribeSchemasMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_database_migration_service.types.describe_schemas_message.DescribeSchemasMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5123,17 +5127,17 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.describe_table_statistics_message.DescribeTableStatisticsMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
+        input_: aws_sdk_database_migration_service.types.describe_table_statistics_message.DescribeTableStatisticsMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5183,16 +5187,16 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.export_metadata_model_assessment_message.ExportMetadataModelAssessmentMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["selection_rules"] = selection_rules
+        input_: aws_sdk_database_migration_service.types.export_metadata_model_assessment_message.ExportMetadataModelAssessmentMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["selection_rules"] = selection_rules
         if file_name is not None:
-            input["file_name"] = file_name
+            input_["file_name"] = file_name
         if assessment_report_types is not None:
-            input["assessment_report_types"] = assessment_report_types
+            input_["assessment_report_types"] = assessment_report_types
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5228,12 +5232,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.get_target_selection_rules_message.GetTargetSelectionRulesMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["selection_rules"] = selection_rules
+        input_: aws_sdk_database_migration_service.types.get_target_selection_rules_message.GetTargetSelectionRulesMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["selection_rules"] = selection_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5289,19 +5293,19 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.import_certificate_message.ImportCertificateMessage = {}  # type: ignore[typeddict-item]
-        input["certificate_identifier"] = certificate_identifier
+        input_: aws_sdk_database_migration_service.types.import_certificate_message.ImportCertificateMessage = {}  # type: ignore[typeddict-item]
+        input_["certificate_identifier"] = certificate_identifier
         if certificate_pem is not None:
-            input["certificate_pem"] = certificate_pem
+            input_["certificate_pem"] = certificate_pem
         if certificate_wallet is not None:
-            input["certificate_wallet"] = certificate_wallet
+            input_["certificate_wallet"] = certificate_wallet
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5347,14 +5351,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if resource_arn_list is not None:
-            input["resource_arn_list"] = resource_arn_list
+            input_["resource_arn_list"] = resource_arn_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5396,12 +5400,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_conversion_configuration_message.ModifyConversionConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["conversion_configuration"] = conversion_configuration
+        input_: aws_sdk_database_migration_service.types.modify_conversion_configuration_message.ModifyConversionConfigurationMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["conversion_configuration"] = conversion_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5467,27 +5471,27 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_data_migration_message.ModifyDataMigrationMessage = {}  # type: ignore[typeddict-item]
-        input["data_migration_identifier"] = data_migration_identifier
+        input_: aws_sdk_database_migration_service.types.modify_data_migration_message.ModifyDataMigrationMessage = {}  # type: ignore[typeddict-item]
+        input_["data_migration_identifier"] = data_migration_identifier
         if data_migration_name is not None:
-            input["data_migration_name"] = data_migration_name
+            input_["data_migration_name"] = data_migration_name
         if enable_cloudwatch_logs is not None:
-            input["enable_cloudwatch_logs"] = enable_cloudwatch_logs
+            input_["enable_cloudwatch_logs"] = enable_cloudwatch_logs
         if service_access_role_arn is not None:
-            input["service_access_role_arn"] = service_access_role_arn
+            input_["service_access_role_arn"] = service_access_role_arn
         if data_migration_type is not None:
-            input["data_migration_type"] = data_migration_type
+            input_["data_migration_type"] = data_migration_type
         if source_data_settings is not None:
-            input["source_data_settings"] = source_data_settings
+            input_["source_data_settings"] = source_data_settings
         if target_data_settings is not None:
-            input["target_data_settings"] = target_data_settings
+            input_["target_data_settings"] = target_data_settings
         if number_of_jobs is not None:
-            input["number_of_jobs"] = number_of_jobs
+            input_["number_of_jobs"] = number_of_jobs
         if selection_rules is not None:
-            input["selection_rules"] = selection_rules
+            input_["selection_rules"] = selection_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5551,23 +5555,23 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_data_provider_message.ModifyDataProviderMessage = {}  # type: ignore[typeddict-item]
-        input["data_provider_identifier"] = data_provider_identifier
+        input_: aws_sdk_database_migration_service.types.modify_data_provider_message.ModifyDataProviderMessage = {}  # type: ignore[typeddict-item]
+        input_["data_provider_identifier"] = data_provider_identifier
         if data_provider_name is not None:
-            input["data_provider_name"] = data_provider_name
+            input_["data_provider_name"] = data_provider_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if virtual is not None:
-            input["virtual"] = virtual
+            input_["virtual"] = virtual
         if exact_settings is not None:
-            input["exact_settings"] = exact_settings
+            input_["exact_settings"] = exact_settings
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5738,77 +5742,77 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_endpoint_message.ModifyEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_database_migration_service.types.modify_endpoint_message.ModifyEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
         if endpoint_identifier is not None:
-            input["endpoint_identifier"] = endpoint_identifier
+            input_["endpoint_identifier"] = endpoint_identifier
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if engine_name is not None:
-            input["engine_name"] = engine_name
+            input_["engine_name"] = engine_name
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if server_name is not None:
-            input["server_name"] = server_name
+            input_["server_name"] = server_name
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if extra_connection_attributes is not None:
-            input["extra_connection_attributes"] = extra_connection_attributes
+            input_["extra_connection_attributes"] = extra_connection_attributes
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if ssl_mode is not None:
-            input["ssl_mode"] = ssl_mode
+            input_["ssl_mode"] = ssl_mode
         if service_access_role_arn is not None:
-            input["service_access_role_arn"] = service_access_role_arn
+            input_["service_access_role_arn"] = service_access_role_arn
         if external_table_definition is not None:
-            input["external_table_definition"] = external_table_definition
+            input_["external_table_definition"] = external_table_definition
         if dynamo_db_settings is not None:
-            input["dynamo_db_settings"] = dynamo_db_settings
+            input_["dynamo_db_settings"] = dynamo_db_settings
         if s3_settings is not None:
-            input["s3_settings"] = s3_settings
+            input_["s3_settings"] = s3_settings
         if dms_transfer_settings is not None:
-            input["dms_transfer_settings"] = dms_transfer_settings
+            input_["dms_transfer_settings"] = dms_transfer_settings
         if mongo_db_settings is not None:
-            input["mongo_db_settings"] = mongo_db_settings
+            input_["mongo_db_settings"] = mongo_db_settings
         if kinesis_settings is not None:
-            input["kinesis_settings"] = kinesis_settings
+            input_["kinesis_settings"] = kinesis_settings
         if kafka_settings is not None:
-            input["kafka_settings"] = kafka_settings
+            input_["kafka_settings"] = kafka_settings
         if elasticsearch_settings is not None:
-            input["elasticsearch_settings"] = elasticsearch_settings
+            input_["elasticsearch_settings"] = elasticsearch_settings
         if neptune_settings is not None:
-            input["neptune_settings"] = neptune_settings
+            input_["neptune_settings"] = neptune_settings
         if redshift_settings is not None:
-            input["redshift_settings"] = redshift_settings
+            input_["redshift_settings"] = redshift_settings
         if postgre_sql_settings is not None:
-            input["postgre_sql_settings"] = postgre_sql_settings
+            input_["postgre_sql_settings"] = postgre_sql_settings
         if my_sql_settings is not None:
-            input["my_sql_settings"] = my_sql_settings
+            input_["my_sql_settings"] = my_sql_settings
         if oracle_settings is not None:
-            input["oracle_settings"] = oracle_settings
+            input_["oracle_settings"] = oracle_settings
         if sybase_settings is not None:
-            input["sybase_settings"] = sybase_settings
+            input_["sybase_settings"] = sybase_settings
         if microsoft_sql_server_settings is not None:
-            input["microsoft_sql_server_settings"] = microsoft_sql_server_settings
+            input_["microsoft_sql_server_settings"] = microsoft_sql_server_settings
         if ibm_db2_settings is not None:
-            input["ibm_db2_settings"] = ibm_db2_settings
+            input_["ibm_db2_settings"] = ibm_db2_settings
         if doc_db_settings is not None:
-            input["doc_db_settings"] = doc_db_settings
+            input_["doc_db_settings"] = doc_db_settings
         if redis_settings is not None:
-            input["redis_settings"] = redis_settings
+            input_["redis_settings"] = redis_settings
         if exact_settings is not None:
-            input["exact_settings"] = exact_settings
+            input_["exact_settings"] = exact_settings
         if gcp_my_sql_settings is not None:
-            input["gcp_my_sql_settings"] = gcp_my_sql_settings
+            input_["gcp_my_sql_settings"] = gcp_my_sql_settings
         if timestream_settings is not None:
-            input["timestream_settings"] = timestream_settings
+            input_["timestream_settings"] = timestream_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5858,19 +5862,19 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_database_migration_service.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5942,27 +5946,27 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_instance_profile_message.ModifyInstanceProfileMessage = {}  # type: ignore[typeddict-item]
-        input["instance_profile_identifier"] = instance_profile_identifier
+        input_: aws_sdk_database_migration_service.types.modify_instance_profile_message.ModifyInstanceProfileMessage = {}  # type: ignore[typeddict-item]
+        input_["instance_profile_identifier"] = instance_profile_identifier
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if instance_profile_name is not None:
-            input["instance_profile_name"] = instance_profile_name
+            input_["instance_profile_name"] = instance_profile_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if subnet_group_identifier is not None:
-            input["subnet_group_identifier"] = subnet_group_identifier
+            input_["subnet_group_identifier"] = subnet_group_identifier
         if vpc_security_groups is not None:
-            input["vpc_security_groups"] = vpc_security_groups
+            input_["vpc_security_groups"] = vpc_security_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6030,27 +6034,31 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_migration_project_message.ModifyMigrationProjectMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.modify_migration_project_message.ModifyMigrationProjectMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
         if migration_project_name is not None:
-            input["migration_project_name"] = migration_project_name
+            input_["migration_project_name"] = migration_project_name
         if source_data_provider_descriptors is not None:
-            input["source_data_provider_descriptors"] = source_data_provider_descriptors
+            input_["source_data_provider_descriptors"] = (
+                source_data_provider_descriptors
+            )
         if target_data_provider_descriptors is not None:
-            input["target_data_provider_descriptors"] = target_data_provider_descriptors
+            input_["target_data_provider_descriptors"] = (
+                target_data_provider_descriptors
+            )
         if instance_profile_identifier is not None:
-            input["instance_profile_identifier"] = instance_profile_identifier
+            input_["instance_profile_identifier"] = instance_profile_identifier
         if transformation_rules is not None:
-            input["transformation_rules"] = transformation_rules
+            input_["transformation_rules"] = transformation_rules
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if schema_conversion_application_attributes is not None:
-            input["schema_conversion_application_attributes"] = (
+            input_["schema_conversion_application_attributes"] = (
                 schema_conversion_application_attributes
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6116,27 +6124,27 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_replication_config_message.ModifyReplicationConfigMessage = {}  # type: ignore[typeddict-item]
-        input["replication_config_arn"] = replication_config_arn
+        input_: aws_sdk_database_migration_service.types.modify_replication_config_message.ModifyReplicationConfigMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_config_arn"] = replication_config_arn
         if replication_config_identifier is not None:
-            input["replication_config_identifier"] = replication_config_identifier
+            input_["replication_config_identifier"] = replication_config_identifier
         if replication_type is not None:
-            input["replication_type"] = replication_type
+            input_["replication_type"] = replication_type
         if table_mappings is not None:
-            input["table_mappings"] = table_mappings
+            input_["table_mappings"] = table_mappings
         if replication_settings is not None:
-            input["replication_settings"] = replication_settings
+            input_["replication_settings"] = replication_settings
         if supplemental_settings is not None:
-            input["supplemental_settings"] = supplemental_settings
+            input_["supplemental_settings"] = supplemental_settings
         if compute_config is not None:
-            input["compute_config"] = compute_config
+            input_["compute_config"] = compute_config
         if source_endpoint_arn is not None:
-            input["source_endpoint_arn"] = source_endpoint_arn
+            input_["source_endpoint_arn"] = source_endpoint_arn
         if target_endpoint_arn is not None:
-            input["target_endpoint_arn"] = target_endpoint_arn
+            input_["target_endpoint_arn"] = target_endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6224,35 +6232,37 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_replication_instance_message.ModifyReplicationInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["replication_instance_arn"] = replication_instance_arn
+        input_: aws_sdk_database_migration_service.types.modify_replication_instance_message.ModifyReplicationInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_instance_arn"] = replication_instance_arn
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if replication_instance_class is not None:
-            input["replication_instance_class"] = replication_instance_class
+            input_["replication_instance_class"] = replication_instance_class
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if allow_major_version_upgrade is not None:
-            input["allow_major_version_upgrade"] = allow_major_version_upgrade
+            input_["allow_major_version_upgrade"] = allow_major_version_upgrade
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if replication_instance_identifier is not None:
-            input["replication_instance_identifier"] = replication_instance_identifier
+            input_["replication_instance_identifier"] = replication_instance_identifier
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if kerberos_authentication_settings is not None:
-            input["kerberos_authentication_settings"] = kerberos_authentication_settings
+            input_["kerberos_authentication_settings"] = (
+                kerberos_authentication_settings
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6298,18 +6308,18 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_replication_subnet_group_message.ModifyReplicationSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["replication_subnet_group_identifier"] = (
+        input_: aws_sdk_database_migration_service.types.modify_replication_subnet_group_message.ModifyReplicationSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_subnet_group_identifier"] = (
             replication_subnet_group_identifier
         )
         if replication_subnet_group_description is not None:
-            input["replication_subnet_group_description"] = (
+            input_["replication_subnet_group_description"] = (
                 replication_subnet_group_description
             )
-        input["subnet_ids"] = subnet_ids
+        input_["subnet_ids"] = subnet_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6375,27 +6385,27 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.modify_replication_task_message.ModifyReplicationTaskMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
+        input_: aws_sdk_database_migration_service.types.modify_replication_task_message.ModifyReplicationTaskMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
         if replication_task_identifier is not None:
-            input["replication_task_identifier"] = replication_task_identifier
+            input_["replication_task_identifier"] = replication_task_identifier
         if migration_type is not None:
-            input["migration_type"] = migration_type
+            input_["migration_type"] = migration_type
         if table_mappings is not None:
-            input["table_mappings"] = table_mappings
+            input_["table_mappings"] = table_mappings
         if replication_task_settings is not None:
-            input["replication_task_settings"] = replication_task_settings
+            input_["replication_task_settings"] = replication_task_settings
         if cdc_start_time is not None:
-            input["cdc_start_time"] = cdc_start_time
+            input_["cdc_start_time"] = cdc_start_time
         if cdc_start_position is not None:
-            input["cdc_start_position"] = cdc_start_position
+            input_["cdc_start_position"] = cdc_start_position
         if cdc_stop_position is not None:
-            input["cdc_stop_position"] = cdc_stop_position
+            input_["cdc_stop_position"] = cdc_stop_position
         if task_data is not None:
-            input["task_data"] = task_data
+            input_["task_data"] = task_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6431,12 +6441,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.move_replication_task_message.MoveReplicationTaskMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
-        input["target_replication_instance_arn"] = target_replication_instance_arn
+        input_: aws_sdk_database_migration_service.types.move_replication_task_message.MoveReplicationTaskMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
+        input_["target_replication_instance_arn"] = target_replication_instance_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6478,15 +6488,15 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.reboot_replication_instance_message.RebootReplicationInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["replication_instance_arn"] = replication_instance_arn
+        input_: aws_sdk_database_migration_service.types.reboot_replication_instance_message.RebootReplicationInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_instance_arn"] = replication_instance_arn
         if force_failover is not None:
-            input["force_failover"] = force_failover
+            input_["force_failover"] = force_failover
         if force_planned_failover is not None:
-            input["force_planned_failover"] = force_planned_failover
+            input_["force_planned_failover"] = force_planned_failover
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6528,12 +6538,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.refresh_schemas_message.RefreshSchemasMessage = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
-        input["replication_instance_arn"] = replication_instance_arn
+        input_: aws_sdk_database_migration_service.types.refresh_schemas_message.RefreshSchemasMessage = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
+        input_["replication_instance_arn"] = replication_instance_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6573,14 +6583,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.reload_replication_tables_message.ReloadReplicationTablesMessage = {}  # type: ignore[typeddict-item]
-        input["replication_config_arn"] = replication_config_arn
-        input["tables_to_reload"] = tables_to_reload
+        input_: aws_sdk_database_migration_service.types.reload_replication_tables_message.ReloadReplicationTablesMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_config_arn"] = replication_config_arn
+        input_["tables_to_reload"] = tables_to_reload
         if reload_option is not None:
-            input["reload_option"] = reload_option
+            input_["reload_option"] = reload_option
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6620,14 +6630,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.reload_tables_message.ReloadTablesMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
-        input["tables_to_reload"] = tables_to_reload
+        input_: aws_sdk_database_migration_service.types.reload_tables_message.ReloadTablesMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
+        input_["tables_to_reload"] = tables_to_reload
         if reload_option is not None:
-            input["reload_option"] = reload_option
+            input_["reload_option"] = reload_option
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6669,12 +6679,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_database_migration_service.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6741,12 +6751,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_data_migration_message.StartDataMigrationMessage = {}  # type: ignore[typeddict-item]
-        input["data_migration_identifier"] = data_migration_identifier
-        input["start_type"] = start_type
+        input_: aws_sdk_database_migration_service.types.start_data_migration_message.StartDataMigrationMessage = {}  # type: ignore[typeddict-item]
+        input_["data_migration_identifier"] = data_migration_identifier
+        input_["start_type"] = start_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6786,11 +6796,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_extension_pack_association_message.StartExtensionPackAssociationMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
+        input_: aws_sdk_database_migration_service.types.start_extension_pack_association_message.StartExtensionPackAssociationMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6833,12 +6843,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_metadata_model_assessment_message.StartMetadataModelAssessmentMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["selection_rules"] = selection_rules
+        input_: aws_sdk_database_migration_service.types.start_metadata_model_assessment_message.StartMetadataModelAssessmentMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["selection_rules"] = selection_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6880,12 +6890,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_metadata_model_conversion_message.StartMetadataModelConversionMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["selection_rules"] = selection_rules
+        input_: aws_sdk_database_migration_service.types.start_metadata_model_conversion_message.StartMetadataModelConversionMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["selection_rules"] = selection_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6925,14 +6935,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_metadata_model_creation_message.StartMetadataModelCreationMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["selection_rules"] = selection_rules
-        input["metadata_model_name"] = metadata_model_name
-        input["properties"] = properties
+        input_: aws_sdk_database_migration_service.types.start_metadata_model_creation_message.StartMetadataModelCreationMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["selection_rules"] = selection_rules
+        input_["metadata_model_name"] = metadata_model_name
+        input_["properties"] = properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6980,15 +6990,15 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_metadata_model_export_as_script_message.StartMetadataModelExportAsScriptMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["selection_rules"] = selection_rules
-        input["origin"] = origin
+        input_: aws_sdk_database_migration_service.types.start_metadata_model_export_as_script_message.StartMetadataModelExportAsScriptMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["selection_rules"] = selection_rules
+        input_["origin"] = origin
         if file_name is not None:
-            input["file_name"] = file_name
+            input_["file_name"] = file_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7034,14 +7044,14 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_metadata_model_export_to_target_message.StartMetadataModelExportToTargetMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["selection_rules"] = selection_rules
+        input_: aws_sdk_database_migration_service.types.start_metadata_model_export_to_target_message.StartMetadataModelExportToTargetMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["selection_rules"] = selection_rules
         if overwrite_extension_pack is not None:
-            input["overwrite_extension_pack"] = overwrite_extension_pack
+            input_["overwrite_extension_pack"] = overwrite_extension_pack
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7089,15 +7099,15 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_metadata_model_import_message.StartMetadataModelImportMessage = {}  # type: ignore[typeddict-item]
-        input["migration_project_identifier"] = migration_project_identifier
-        input["selection_rules"] = selection_rules
-        input["origin"] = origin
+        input_: aws_sdk_database_migration_service.types.start_metadata_model_import_message.StartMetadataModelImportMessage = {}  # type: ignore[typeddict-item]
+        input_["migration_project_identifier"] = migration_project_identifier
+        input_["selection_rules"] = selection_rules
+        input_["origin"] = origin
         if refresh is not None:
-            input["refresh"] = refresh
+            input_["refresh"] = refresh
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7131,12 +7141,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_recommendations_request.StartRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["database_id"] = database_id
-        input["settings"] = settings
+        input_: aws_sdk_database_migration_service.types.start_recommendations_request.StartRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["database_id"] = database_id
+        input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7188,20 +7198,22 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_replication_message.StartReplicationMessage = {}  # type: ignore[typeddict-item]
-        input["replication_config_arn"] = replication_config_arn
-        input["start_replication_type"] = start_replication_type
+        input_: aws_sdk_database_migration_service.types.start_replication_message.StartReplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_config_arn"] = replication_config_arn
+        input_["start_replication_type"] = start_replication_type
         if premigration_assessment_settings is not None:
-            input["premigration_assessment_settings"] = premigration_assessment_settings
+            input_["premigration_assessment_settings"] = (
+                premigration_assessment_settings
+            )
         if cdc_start_time is not None:
-            input["cdc_start_time"] = cdc_start_time
+            input_["cdc_start_time"] = cdc_start_time
         if cdc_start_position is not None:
-            input["cdc_start_position"] = cdc_start_position
+            input_["cdc_start_position"] = cdc_start_position
         if cdc_stop_position is not None:
-            input["cdc_stop_position"] = cdc_stop_position
+            input_["cdc_stop_position"] = cdc_stop_position
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7255,18 +7267,18 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_replication_task_message.StartReplicationTaskMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
-        input["start_replication_task_type"] = start_replication_task_type
+        input_: aws_sdk_database_migration_service.types.start_replication_task_message.StartReplicationTaskMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
+        input_["start_replication_task_type"] = start_replication_task_type
         if cdc_start_time is not None:
-            input["cdc_start_time"] = cdc_start_time
+            input_["cdc_start_time"] = cdc_start_time
         if cdc_start_position is not None:
-            input["cdc_start_position"] = cdc_start_position
+            input_["cdc_start_position"] = cdc_start_position
         if cdc_stop_position is not None:
-            input["cdc_stop_position"] = cdc_stop_position
+            input_["cdc_stop_position"] = cdc_stop_position
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7300,11 +7312,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_replication_task_assessment_message.StartReplicationTaskAssessmentMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
+        input_: aws_sdk_database_migration_service.types.start_replication_task_assessment_message.StartReplicationTaskAssessmentMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7368,26 +7380,26 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.start_replication_task_assessment_run_message.StartReplicationTaskAssessmentRunMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
-        input["service_access_role_arn"] = service_access_role_arn
-        input["result_location_bucket"] = result_location_bucket
+        input_: aws_sdk_database_migration_service.types.start_replication_task_assessment_run_message.StartReplicationTaskAssessmentRunMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
+        input_["service_access_role_arn"] = service_access_role_arn
+        input_["result_location_bucket"] = result_location_bucket
         if result_location_folder is not None:
-            input["result_location_folder"] = result_location_folder
+            input_["result_location_folder"] = result_location_folder
         if result_encryption_mode is not None:
-            input["result_encryption_mode"] = result_encryption_mode
+            input_["result_encryption_mode"] = result_encryption_mode
         if result_kms_key_arn is not None:
-            input["result_kms_key_arn"] = result_kms_key_arn
-        input["assessment_run_name"] = assessment_run_name
+            input_["result_kms_key_arn"] = result_kms_key_arn
+        input_["assessment_run_name"] = assessment_run_name
         if include_only is not None:
-            input["include_only"] = include_only
+            input_["include_only"] = include_only
         if exclude is not None:
-            input["exclude"] = exclude
+            input_["exclude"] = exclude
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7421,11 +7433,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.stop_data_migration_message.StopDataMigrationMessage = {}  # type: ignore[typeddict-item]
-        input["data_migration_identifier"] = data_migration_identifier
+        input_: aws_sdk_database_migration_service.types.stop_data_migration_message.StopDataMigrationMessage = {}  # type: ignore[typeddict-item]
+        input_["data_migration_identifier"] = data_migration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7459,11 +7471,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.stop_replication_message.StopReplicationMessage = {}  # type: ignore[typeddict-item]
-        input["replication_config_arn"] = replication_config_arn
+        input_: aws_sdk_database_migration_service.types.stop_replication_message.StopReplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_config_arn"] = replication_config_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7503,11 +7515,11 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.stop_replication_task_message.StopReplicationTaskMessage = {}  # type: ignore[typeddict-item]
-        input["replication_task_arn"] = replication_task_arn
+        input_: aws_sdk_database_migration_service.types.stop_replication_task_message.StopReplicationTaskMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_task_arn"] = replication_task_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7549,12 +7561,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.test_connection_message.TestConnectionMessage = {}  # type: ignore[typeddict-item]
-        input["replication_instance_arn"] = replication_instance_arn
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_database_migration_service.types.test_connection_message.TestConnectionMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_instance_arn"] = replication_instance_arn
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7590,12 +7602,12 @@ class AsyncDatabaseMigrationServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_database_migration_service.types.update_subscriptions_to_event_bridge_message.UpdateSubscriptionsToEventBridgeMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_database_migration_service.types.update_subscriptions_to_event_bridge_message.UpdateSubscriptionsToEventBridgeMessage = {}  # type: ignore[typeddict-item]
         if force_move is not None:
-            input["force_move"] = force_move
+            input_["force_move"] = force_move
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

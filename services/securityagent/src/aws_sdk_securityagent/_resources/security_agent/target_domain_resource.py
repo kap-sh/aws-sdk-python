@@ -74,14 +74,14 @@ class TargetDomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_target_domain_input.CreateTargetDomainInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_name"] = target_domain_name
-        input["verification_method"] = verification_method
+        input_: aws_sdk_securityagent.types.create_target_domain_input.CreateTargetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_name"] = target_domain_name
+        input_["verification_method"] = verification_method
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -116,12 +116,12 @@ class TargetDomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_target_domain_input.UpdateTargetDomainInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_id"] = target_domain_id
-        input["verification_method"] = verification_method
+        input_: aws_sdk_securityagent.types.update_target_domain_input.UpdateTargetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_id"] = target_domain_id
+        input_["verification_method"] = verification_method
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -154,11 +154,11 @@ class TargetDomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_target_domain_input.DeleteTargetDomainInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_id"] = target_domain_id
+        input_: aws_sdk_securityagent.types.delete_target_domain_input.DeleteTargetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_id"] = target_domain_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,14 +197,14 @@ class TargetDomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_target_domains_input.ListTargetDomainsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_target_domains_input.ListTargetDomainsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -237,11 +237,11 @@ class TargetDomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_target_domains_input.BatchGetTargetDomainsInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_ids"] = target_domain_ids
+        input_: aws_sdk_securityagent.types.batch_get_target_domains_input.BatchGetTargetDomainsInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_ids"] = target_domain_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,14 +284,14 @@ class AsyncTargetDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_target_domain_input.CreateTargetDomainInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_name"] = target_domain_name
-        input["verification_method"] = verification_method
+        input_: aws_sdk_securityagent.types.create_target_domain_input.CreateTargetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_name"] = target_domain_name
+        input_["verification_method"] = verification_method
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,12 +327,12 @@ class AsyncTargetDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_target_domain_input.UpdateTargetDomainInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_id"] = target_domain_id
-        input["verification_method"] = verification_method
+        input_: aws_sdk_securityagent.types.update_target_domain_input.UpdateTargetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_id"] = target_domain_id
+        input_["verification_method"] = verification_method
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,11 +366,11 @@ class AsyncTargetDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_target_domain_input.DeleteTargetDomainInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_id"] = target_domain_id
+        input_: aws_sdk_securityagent.types.delete_target_domain_input.DeleteTargetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_id"] = target_domain_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,14 +410,14 @@ class AsyncTargetDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_target_domains_input.ListTargetDomainsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_target_domains_input.ListTargetDomainsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,11 +451,11 @@ class AsyncTargetDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_target_domains_input.BatchGetTargetDomainsInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_ids"] = target_domain_ids
+        input_: aws_sdk_securityagent.types.batch_get_target_domains_input.BatchGetTargetDomainsInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_ids"] = target_domain_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

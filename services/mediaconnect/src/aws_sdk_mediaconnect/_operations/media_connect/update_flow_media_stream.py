@@ -101,22 +101,22 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest,
+    input_: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/") + "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}"
     )
-    url = url.replace("{FlowArn}", quote(str(input["flow_arn"]), safe=""))
+    url = url.replace("{FlowArn}", quote(str(input_["flow_arn"]), safe=""))
     url = url.replace(
-        "{MediaStreamName}", quote(str(input["media_stream_name"]), safe="")
+        "{MediaStreamName}", quote(str(input_["media_stream_name"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -124,7 +124,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_mediaconnect.types.update_flow_media_stream_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -132,26 +132,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_flow_media_stream(
     options: OperationOptions,
-    input: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest,
+    input_: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest,
 ) -> tuple[
     aws_sdk_mediaconnect.types.update_flow_media_stream_response.UpdateFlowMediaStreamResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -160,16 +157,17 @@ def update_flow_media_stream(
 
 async def async_update_flow_media_stream(
     options: AsyncOperationOptions,
-    input: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest,
+    input_: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest,
 ) -> tuple[
     aws_sdk_mediaconnect.types.update_flow_media_stream_response.UpdateFlowMediaStreamResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

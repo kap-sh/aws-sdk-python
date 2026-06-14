@@ -427,11 +427,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.accept_inbound_connection_request.AcceptInboundConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_opensearch.types.accept_inbound_connection_request.AcceptInboundConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -472,15 +472,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.add_data_source_request.AddDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["name"] = name
-        input["data_source_type"] = data_source_type
+        input_: aws_sdk_opensearch.types.add_data_source_request.AddDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["name"] = name
+        input_["data_source_type"] = data_source_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,20 +528,20 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.add_direct_query_data_source_request.AddDirectQueryDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["data_source_name"] = data_source_name
-        input["data_source_type"] = data_source_type
+        input_: aws_sdk_opensearch.types.add_direct_query_data_source_request.AddDirectQueryDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source_name"] = data_source_name
+        input_["data_source_type"] = data_source_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if open_search_arns is not None:
-            input["open_search_arns"] = open_search_arns
+            input_["open_search_arns"] = open_search_arns
         if data_source_access_policy is not None:
-            input["data_source_access_policy"] = data_source_access_policy
+            input_["data_source_access_policy"] = data_source_access_policy
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,12 +574,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.add_tags_request.AddTagsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_list"] = tag_list
+        input_: aws_sdk_opensearch.types.add_tags_request.AddTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_list"] = tag_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -622,16 +622,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.associate_package_request.AssociatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.associate_package_request.AssociatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
+        input_["domain_name"] = domain_name
         if prerequisite_package_id_list is not None:
-            input["prerequisite_package_id_list"] = prerequisite_package_id_list
+            input_["prerequisite_package_id_list"] = prerequisite_package_id_list
         if association_configuration is not None:
-            input["association_configuration"] = association_configuration
+            input_["association_configuration"] = association_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -667,12 +667,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.associate_packages_request.AssociatePackagesRequest = {}  # type: ignore[typeddict-item]
-        input["package_list"] = package_list
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.associate_packages_request.AssociatePackagesRequest = {}  # type: ignore[typeddict-item]
+        input_["package_list"] = package_list
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,17 +715,17 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.authorize_vpc_endpoint_access_request.AuthorizeVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.authorize_vpc_endpoint_access_request.AuthorizeVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if account is not None:
-            input["account"] = account
+            input_["account"] = account
         if service is not None:
-            input["service"] = service
+            input_["service"] = service
         if service_options is not None:
-            input["service_options"] = service_options
+            input_["service_options"] = service_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,13 +759,13 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.cancel_domain_config_change_request.CancelDomainConfigChangeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.cancel_domain_config_change_request.CancelDomainConfigChangeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -798,11 +798,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.cancel_service_software_update_request.CancelServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.cancel_service_software_update_request.CancelServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -854,23 +854,23 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if data_sources is not None:
-            input["data_sources"] = data_sources
+            input_["data_sources"] = data_sources
         if iam_identity_center_options is not None:
-            input["iam_identity_center_options"] = iam_identity_center_options
+            input_["iam_identity_center_options"] = iam_identity_center_options
         if app_configs is not None:
-            input["app_configs"] = app_configs
+            input_["app_configs"] = app_configs
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -985,55 +985,57 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if cluster_config is not None:
-            input["cluster_config"] = cluster_config
+            input_["cluster_config"] = cluster_config
         if ebs_options is not None:
-            input["ebs_options"] = ebs_options
+            input_["ebs_options"] = ebs_options
         if access_policies is not None:
-            input["access_policies"] = access_policies
+            input_["access_policies"] = access_policies
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if snapshot_options is not None:
-            input["snapshot_options"] = snapshot_options
+            input_["snapshot_options"] = snapshot_options
         if vpc_options is not None:
-            input["vpc_options"] = vpc_options
+            input_["vpc_options"] = vpc_options
         if cognito_options is not None:
-            input["cognito_options"] = cognito_options
+            input_["cognito_options"] = cognito_options
         if encryption_at_rest_options is not None:
-            input["encryption_at_rest_options"] = encryption_at_rest_options
+            input_["encryption_at_rest_options"] = encryption_at_rest_options
         if node_to_node_encryption_options is not None:
-            input["node_to_node_encryption_options"] = node_to_node_encryption_options
+            input_["node_to_node_encryption_options"] = node_to_node_encryption_options
         if advanced_options is not None:
-            input["advanced_options"] = advanced_options
+            input_["advanced_options"] = advanced_options
         if log_publishing_options is not None:
-            input["log_publishing_options"] = log_publishing_options
+            input_["log_publishing_options"] = log_publishing_options
         if domain_endpoint_options is not None:
-            input["domain_endpoint_options"] = domain_endpoint_options
+            input_["domain_endpoint_options"] = domain_endpoint_options
         if advanced_security_options is not None:
-            input["advanced_security_options"] = advanced_security_options
+            input_["advanced_security_options"] = advanced_security_options
         if identity_center_options is not None:
-            input["identity_center_options"] = identity_center_options
+            input_["identity_center_options"] = identity_center_options
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
         if auto_tune_options is not None:
-            input["auto_tune_options"] = auto_tune_options
+            input_["auto_tune_options"] = auto_tune_options
         if off_peak_window_options is not None:
-            input["off_peak_window_options"] = off_peak_window_options
+            input_["off_peak_window_options"] = off_peak_window_options
         if software_update_options is not None:
-            input["software_update_options"] = software_update_options
+            input_["software_update_options"] = software_update_options
         if aiml_options is not None:
-            input["aiml_options"] = aiml_options
+            input_["aiml_options"] = aiml_options
         if deployment_strategy_options is not None:
-            input["deployment_strategy_options"] = deployment_strategy_options
+            input_["deployment_strategy_options"] = deployment_strategy_options
         if automated_snapshot_pause_options is not None:
-            input["automated_snapshot_pause_options"] = automated_snapshot_pause_options
+            input_["automated_snapshot_pause_options"] = (
+                automated_snapshot_pause_options
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,13 +1071,13 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["index_name"] = index_name
-        input["index_schema"] = index_schema
+        input_: aws_sdk_opensearch.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["index_name"] = index_name
+        input_["index_schema"] = index_schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1120,17 +1122,17 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.create_outbound_connection_request.CreateOutboundConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["local_domain_info"] = local_domain_info
-        input["remote_domain_info"] = remote_domain_info
-        input["connection_alias"] = connection_alias
+        input_: aws_sdk_opensearch.types.create_outbound_connection_request.CreateOutboundConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["local_domain_info"] = local_domain_info
+        input_["remote_domain_info"] = remote_domain_info
+        input_["connection_alias"] = connection_alias
         if connection_mode is not None:
-            input["connection_mode"] = connection_mode
+            input_["connection_mode"] = connection_mode
         if connection_properties is not None:
-            input["connection_properties"] = connection_properties
+            input_["connection_properties"] = connection_properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1187,23 +1189,23 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.create_package_request.CreatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["package_type"] = package_type
+        input_: aws_sdk_opensearch.types.create_package_request.CreatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["package_type"] = package_type
         if package_description is not None:
-            input["package_description"] = package_description
-        input["package_source"] = package_source
+            input_["package_description"] = package_description
+        input_["package_source"] = package_source
         if package_configuration is not None:
-            input["package_configuration"] = package_configuration
+            input_["package_configuration"] = package_configuration
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if package_vending_options is not None:
-            input["package_vending_options"] = package_vending_options
+            input_["package_vending_options"] = package_vending_options
         if package_encryption_options is not None:
-            input["package_encryption_options"] = package_encryption_options
+            input_["package_encryption_options"] = package_encryption_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1242,14 +1244,14 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["domain_arn"] = domain_arn
-        input["vpc_options"] = vpc_options
+        input_: aws_sdk_opensearch.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_arn"] = domain_arn
+        input_["vpc_options"] = vpc_options
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1284,11 +1286,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearch.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1325,12 +1327,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["name"] = name
+        input_: aws_sdk_opensearch.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1361,11 +1363,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_direct_query_data_source_request.DeleteDirectQueryDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["data_source_name"] = data_source_name
+        input_: aws_sdk_opensearch.types.delete_direct_query_data_source_request.DeleteDirectQueryDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source_name"] = data_source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1398,11 +1400,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1435,11 +1437,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_inbound_connection_request.DeleteInboundConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_opensearch.types.delete_inbound_connection_request.DeleteInboundConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1473,12 +1475,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_index_request.DeleteIndexRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearch.types.delete_index_request.DeleteIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["index_name"] = index_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1511,11 +1513,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_outbound_connection_request.DeleteOutboundConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_opensearch.types.delete_outbound_connection_request.DeleteOutboundConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1548,11 +1550,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
+        input_: aws_sdk_opensearch.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1585,11 +1587,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.delete_vpc_endpoint_request.DeleteVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_endpoint_id"] = vpc_endpoint_id
+        input_: aws_sdk_opensearch.types.delete_vpc_endpoint_request.DeleteVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_endpoint_id"] = vpc_endpoint_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1624,12 +1626,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.deregister_capability_request.DeregisterCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["capability_name"] = capability_name
+        input_: aws_sdk_opensearch.types.deregister_capability_request.DeregisterCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["capability_name"] = capability_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1662,11 +1664,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1703,15 +1705,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_domain_auto_tunes_request.DescribeDomainAutoTunesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.describe_domain_auto_tunes_request.DescribeDomainAutoTunesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1746,13 +1748,13 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_domain_change_progress_request.DescribeDomainChangeProgressRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.describe_domain_change_progress_request.DescribeDomainChangeProgressRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if change_id is not None:
-            input["change_id"] = change_id
+            input_["change_id"] = change_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1785,11 +1787,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_domain_config_request.DescribeDomainConfigRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.describe_domain_config_request.DescribeDomainConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1822,11 +1824,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_domain_health_request.DescribeDomainHealthRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.describe_domain_health_request.DescribeDomainHealthRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1859,11 +1861,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_domain_nodes_request.DescribeDomainNodesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.describe_domain_nodes_request.DescribeDomainNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1896,11 +1898,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_domains_request.DescribeDomainsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_names"] = domain_names
+        input_: aws_sdk_opensearch.types.describe_domains_request.DescribeDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_names"] = domain_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1939,15 +1941,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_dry_run_progress_request.DescribeDryRunProgressRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.describe_dry_run_progress_request.DescribeDryRunProgressRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if dry_run_id is not None:
-            input["dry_run_id"] = dry_run_id
+            input_["dry_run_id"] = dry_run_id
         if load_dry_run_config is not None:
-            input["load_dry_run_config"] = load_dry_run_config
+            input_["load_dry_run_config"] = load_dry_run_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1984,16 +1986,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_inbound_connections_request.DescribeInboundConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.describe_inbound_connections_request.DescribeInboundConnectionsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2030,14 +2032,14 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_insight_details_request.DescribeInsightDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["entity"] = entity
-        input["insight_id"] = insight_id
+        input_: aws_sdk_opensearch.types.describe_insight_details_request.DescribeInsightDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["entity"] = entity
+        input_["insight_id"] = insight_id
         if show_html_content is not None:
-            input["show_html_content"] = show_html_content
+            input_["show_html_content"] = show_html_content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2074,14 +2076,14 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_instance_type_limits_request.DescribeInstanceTypeLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.describe_instance_type_limits_request.DescribeInstanceTypeLimitsRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
-        input["instance_type"] = instance_type
-        input["engine_version"] = engine_version
+            input_["domain_name"] = domain_name
+        input_["instance_type"] = instance_type
+        input_["engine_version"] = engine_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2118,16 +2120,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_outbound_connections_request.DescribeOutboundConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.describe_outbound_connections_request.DescribeOutboundConnectionsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2166,16 +2168,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_packages_request.DescribePackagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.describe_packages_request.DescribePackagesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2214,16 +2216,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_reserved_instance_offerings_request.DescribeReservedInstanceOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.describe_reserved_instance_offerings_request.DescribeReservedInstanceOfferingsRequest = {}  # type: ignore[typeddict-item]
         if reserved_instance_offering_id is not None:
-            input["reserved_instance_offering_id"] = reserved_instance_offering_id
+            input_["reserved_instance_offering_id"] = reserved_instance_offering_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2260,16 +2262,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_reserved_instances_request.DescribeReservedInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.describe_reserved_instances_request.DescribeReservedInstancesRequest = {}  # type: ignore[typeddict-item]
         if reserved_instance_id is not None:
-            input["reserved_instance_id"] = reserved_instance_id
+            input_["reserved_instance_id"] = reserved_instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2302,11 +2304,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.describe_vpc_endpoints_request.DescribeVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_endpoint_ids"] = vpc_endpoint_ids
+        input_: aws_sdk_opensearch.types.describe_vpc_endpoints_request.DescribeVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_endpoint_ids"] = vpc_endpoint_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2343,12 +2345,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.dissociate_package_request.DissociatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.dissociate_package_request.DissociatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2382,12 +2384,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.dissociate_packages_request.DissociatePackagesRequest = {}  # type: ignore[typeddict-item]
-        input["package_list"] = package_list
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.dissociate_packages_request.DissociatePackagesRequest = {}  # type: ignore[typeddict-item]
+        input_["package_list"] = package_list
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2420,11 +2422,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearch.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2459,12 +2461,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_capability_request.GetCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["capability_name"] = capability_name
+        input_: aws_sdk_opensearch.types.get_capability_request.GetCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["capability_name"] = capability_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2497,12 +2499,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_compatible_versions_request.GetCompatibleVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.get_compatible_versions_request.GetCompatibleVersionsRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2537,12 +2539,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["name"] = name
+        input_: aws_sdk_opensearch.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2568,10 +2570,10 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_default_application_setting_request.GetDefaultApplicationSettingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.get_default_application_setting_request.GetDefaultApplicationSettingRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2604,11 +2606,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_direct_query_data_source_request.GetDirectQueryDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["data_source_name"] = data_source_name
+        input_: aws_sdk_opensearch.types.get_direct_query_data_source_request.GetDirectQueryDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source_name"] = data_source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2643,12 +2645,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_domain_maintenance_status_request.GetDomainMaintenanceStatusRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["maintenance_id"] = maintenance_id
+        input_: aws_sdk_opensearch.types.get_domain_maintenance_status_request.GetDomainMaintenanceStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["maintenance_id"] = maintenance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2682,12 +2684,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_index_request.GetIndexRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearch.types.get_index_request.GetIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["index_name"] = index_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2724,15 +2726,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_package_version_history_request.GetPackageVersionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
+        input_: aws_sdk_opensearch.types.get_package_version_history_request.GetPackageVersionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2769,15 +2771,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_upgrade_history_request.GetUpgradeHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.get_upgrade_history_request.GetUpgradeHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2812,11 +2814,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.get_upgrade_status_request.GetUpgradeStatusRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.get_upgrade_status_request.GetUpgradeStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2853,16 +2855,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2920,11 +2922,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2953,12 +2955,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_direct_query_data_sources_request.ListDirectQueryDataSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.list_direct_query_data_sources_request.ListDirectQueryDataSourcesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3003,19 +3005,19 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_domain_maintenances_request.ListDomainMaintenancesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.list_domain_maintenances_request.ListDomainMaintenancesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3048,12 +3050,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_domain_names_request.ListDomainNamesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.list_domain_names_request.ListDomainNamesRequest = {}  # type: ignore[typeddict-item]
         if engine_type is not None:
-            input["engine_type"] = engine_type
+            input_["engine_type"] = engine_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3090,15 +3092,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_domains_for_package_request.ListDomainsForPackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
+        input_: aws_sdk_opensearch.types.list_domains_for_package_request.ListDomainsForPackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3145,19 +3147,19 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_insights_request.ListInsightsRequest = {}  # type: ignore[typeddict-item]
-        input["entity"] = entity
+        input_: aws_sdk_opensearch.types.list_insights_request.ListInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_["entity"] = entity
         if time_range is not None:
-            input["time_range"] = time_range
+            input_["time_range"] = time_range
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3202,21 +3204,21 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_instance_type_details_request.ListInstanceTypeDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["engine_version"] = engine_version
+        input_: aws_sdk_opensearch.types.list_instance_type_details_request.ListInstanceTypeDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["engine_version"] = engine_version
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if retrieve_a_zs is not None:
-            input["retrieve_a_zs"] = retrieve_a_zs
+            input_["retrieve_a_zs"] = retrieve_a_zs
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3253,15 +3255,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_packages_for_domain_request.ListPackagesForDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.list_packages_for_domain_request.ListPackagesForDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3298,15 +3300,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_scheduled_actions_request.ListScheduledActionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.list_scheduled_actions_request.ListScheduledActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3339,11 +3341,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_opensearch.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3378,14 +3380,14 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3420,13 +3422,13 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_vpc_endpoint_access_request.ListVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.list_vpc_endpoint_access_request.ListVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3461,12 +3463,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_vpc_endpoints_request.ListVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearch.types.list_vpc_endpoints_request.ListVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3501,13 +3503,13 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.list_vpc_endpoints_for_domain_request.ListVpcEndpointsForDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.list_vpc_endpoints_for_domain_request.ListVpcEndpointsForDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3546,14 +3548,14 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.purchase_reserved_instance_offering_request.PurchaseReservedInstanceOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["reserved_instance_offering_id"] = reserved_instance_offering_id
-        input["reservation_name"] = reservation_name
+        input_: aws_sdk_opensearch.types.purchase_reserved_instance_offering_request.PurchaseReservedInstanceOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["reserved_instance_offering_id"] = reserved_instance_offering_id
+        input_["reservation_name"] = reservation_name
         if instance_count is not None:
-            input["instance_count"] = instance_count
+            input_["instance_count"] = instance_count
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3587,12 +3589,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.put_default_application_setting_request.PutDefaultApplicationSettingRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
-        input["set_as_default"] = set_as_default
+        input_: aws_sdk_opensearch.types.put_default_application_setting_request.PutDefaultApplicationSettingRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
+        input_["set_as_default"] = set_as_default
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3629,13 +3631,13 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.register_capability_request.RegisterCapabilityRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["capability_name"] = capability_name
-        input["capability_config"] = capability_config
+        input_: aws_sdk_opensearch.types.register_capability_request.RegisterCapabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["capability_name"] = capability_name
+        input_["capability_config"] = capability_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3668,11 +3670,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.reject_inbound_connection_request.RejectInboundConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_opensearch.types.reject_inbound_connection_request.RejectInboundConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3705,12 +3707,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.remove_tags_request.RemoveTagsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_opensearch.types.remove_tags_request.RemoveTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3753,17 +3755,17 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.revoke_vpc_endpoint_access_request.RevokeVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.revoke_vpc_endpoint_access_request.RevokeVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if account is not None:
-            input["account"] = account
+            input_["account"] = account
         if service is not None:
-            input["service"] = service
+            input_["service"] = service
         if service_options is not None:
-            input["service_options"] = service_options
+            input_["service_options"] = service_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3796,11 +3798,11 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.rollback_service_software_update_request.RollbackServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.rollback_service_software_update_request.RollbackServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3837,14 +3839,14 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.start_domain_maintenance_request.StartDomainMaintenanceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["action"] = action
+        input_: aws_sdk_opensearch.types.start_domain_maintenance_request.StartDomainMaintenanceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["action"] = action
         if node_id is not None:
-            input["node_id"] = node_id
+            input_["node_id"] = node_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3881,15 +3883,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.start_service_software_update_request.StartServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.start_service_software_update_request.StartServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if schedule_at is not None:
-            input["schedule_at"] = schedule_at
+            input_["schedule_at"] = schedule_at
         if desired_start_time is not None:
-            input["desired_start_time"] = desired_start_time
+            input_["desired_start_time"] = desired_start_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3930,15 +3932,15 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearch.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if data_sources is not None:
-            input["data_sources"] = data_sources
+            input_["data_sources"] = data_sources
         if app_configs is not None:
-            input["app_configs"] = app_configs
+            input_["app_configs"] = app_configs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3985,17 +3987,17 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["name"] = name
-        input["data_source_type"] = data_source_type
+        input_: aws_sdk_opensearch.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["name"] = name
+        input_["data_source_type"] = data_source_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4042,18 +4044,18 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_direct_query_data_source_request.UpdateDirectQueryDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["data_source_name"] = data_source_name
-        input["data_source_type"] = data_source_type
+        input_: aws_sdk_opensearch.types.update_direct_query_data_source_request.UpdateDirectQueryDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source_name"] = data_source_name
+        input_["data_source_type"] = data_source_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if open_search_arns is not None:
-            input["open_search_arns"] = open_search_arns
+            input_["open_search_arns"] = open_search_arns
         if data_source_access_policy is not None:
-            input["data_source_access_policy"] = data_source_access_policy
+            input_["data_source_access_policy"] = data_source_access_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4167,55 +4169,57 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_domain_config_request.UpdateDomainConfigRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_opensearch.types.update_domain_config_request.UpdateDomainConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if cluster_config is not None:
-            input["cluster_config"] = cluster_config
+            input_["cluster_config"] = cluster_config
         if ebs_options is not None:
-            input["ebs_options"] = ebs_options
+            input_["ebs_options"] = ebs_options
         if snapshot_options is not None:
-            input["snapshot_options"] = snapshot_options
+            input_["snapshot_options"] = snapshot_options
         if vpc_options is not None:
-            input["vpc_options"] = vpc_options
+            input_["vpc_options"] = vpc_options
         if cognito_options is not None:
-            input["cognito_options"] = cognito_options
+            input_["cognito_options"] = cognito_options
         if advanced_options is not None:
-            input["advanced_options"] = advanced_options
+            input_["advanced_options"] = advanced_options
         if access_policies is not None:
-            input["access_policies"] = access_policies
+            input_["access_policies"] = access_policies
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if log_publishing_options is not None:
-            input["log_publishing_options"] = log_publishing_options
+            input_["log_publishing_options"] = log_publishing_options
         if encryption_at_rest_options is not None:
-            input["encryption_at_rest_options"] = encryption_at_rest_options
+            input_["encryption_at_rest_options"] = encryption_at_rest_options
         if domain_endpoint_options is not None:
-            input["domain_endpoint_options"] = domain_endpoint_options
+            input_["domain_endpoint_options"] = domain_endpoint_options
         if node_to_node_encryption_options is not None:
-            input["node_to_node_encryption_options"] = node_to_node_encryption_options
+            input_["node_to_node_encryption_options"] = node_to_node_encryption_options
         if advanced_security_options is not None:
-            input["advanced_security_options"] = advanced_security_options
+            input_["advanced_security_options"] = advanced_security_options
         if identity_center_options is not None:
-            input["identity_center_options"] = identity_center_options
+            input_["identity_center_options"] = identity_center_options
         if auto_tune_options is not None:
-            input["auto_tune_options"] = auto_tune_options
+            input_["auto_tune_options"] = auto_tune_options
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if dry_run_mode is not None:
-            input["dry_run_mode"] = dry_run_mode
+            input_["dry_run_mode"] = dry_run_mode
         if off_peak_window_options is not None:
-            input["off_peak_window_options"] = off_peak_window_options
+            input_["off_peak_window_options"] = off_peak_window_options
         if software_update_options is not None:
-            input["software_update_options"] = software_update_options
+            input_["software_update_options"] = software_update_options
         if aiml_options is not None:
-            input["aiml_options"] = aiml_options
+            input_["aiml_options"] = aiml_options
         if deployment_strategy_options is not None:
-            input["deployment_strategy_options"] = deployment_strategy_options
+            input_["deployment_strategy_options"] = deployment_strategy_options
         if automated_snapshot_pause_options is not None:
-            input["automated_snapshot_pause_options"] = automated_snapshot_pause_options
+            input_["automated_snapshot_pause_options"] = (
+                automated_snapshot_pause_options
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4251,13 +4255,13 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_index_request.UpdateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["index_name"] = index_name
-        input["index_schema"] = index_schema
+        input_: aws_sdk_opensearch.types.update_index_request.UpdateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["index_name"] = index_name
+        input_["index_schema"] = index_schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4308,20 +4312,20 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_package_request.UpdatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
-        input["package_source"] = package_source
+        input_: aws_sdk_opensearch.types.update_package_request.UpdatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
+        input_["package_source"] = package_source
         if package_description is not None:
-            input["package_description"] = package_description
+            input_["package_description"] = package_description
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if package_configuration is not None:
-            input["package_configuration"] = package_configuration
+            input_["package_configuration"] = package_configuration
         if package_encryption_options is not None:
-            input["package_encryption_options"] = package_encryption_options
+            input_["package_encryption_options"] = package_encryption_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4358,13 +4362,13 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_package_scope_request.UpdatePackageScopeRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
-        input["operation"] = operation
-        input["package_user_list"] = package_user_list
+        input_: aws_sdk_opensearch.types.update_package_scope_request.UpdatePackageScopeRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
+        input_["operation"] = operation
+        input_["package_user_list"] = package_user_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4405,16 +4409,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_scheduled_action_request.UpdateScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["action_id"] = action_id
-        input["action_type"] = action_type
-        input["schedule_at"] = schedule_at
+        input_: aws_sdk_opensearch.types.update_scheduled_action_request.UpdateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["action_id"] = action_id
+        input_["action_type"] = action_type
+        input_["schedule_at"] = schedule_at
         if desired_start_time is not None:
-            input["desired_start_time"] = desired_start_time
+            input_["desired_start_time"] = desired_start_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4449,12 +4453,12 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.update_vpc_endpoint_request.UpdateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_endpoint_id"] = vpc_endpoint_id
-        input["vpc_options"] = vpc_options
+        input_: aws_sdk_opensearch.types.update_vpc_endpoint_request.UpdateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_endpoint_id"] = vpc_endpoint_id
+        input_["vpc_options"] = vpc_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4495,16 +4499,16 @@ class OpenSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_opensearch.types.upgrade_domain_request.UpgradeDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["target_version"] = target_version
+        input_: aws_sdk_opensearch.types.upgrade_domain_request.UpgradeDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["target_version"] = target_version
         if perform_check_only is not None:
-            input["perform_check_only"] = perform_check_only
+            input_["perform_check_only"] = perform_check_only
         if advanced_options is not None:
-            input["advanced_options"] = advanced_options
+            input_["advanced_options"] = advanced_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

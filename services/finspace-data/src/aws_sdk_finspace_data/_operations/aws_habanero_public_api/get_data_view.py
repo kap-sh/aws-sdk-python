@@ -100,19 +100,19 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_finspace_data.types.get_data_view_request.GetDataViewRequest,
+    input_: aws_sdk_finspace_data.types.get_data_view_request.GetDataViewRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/datasets/{datasetId}/dataviewsv2/{dataViewId}"
-    url = url.replace("{dataViewId}", quote(str(input["data_view_id"]), safe=""))
-    url = url.replace("{datasetId}", quote(str(input["dataset_id"]), safe=""))
+    url = url.replace("{dataViewId}", quote(str(input_["data_view_id"]), safe=""))
+    url = url.replace("{datasetId}", quote(str(input_["dataset_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -120,26 +120,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_data_view(
     options: OperationOptions,
-    input: aws_sdk_finspace_data.types.get_data_view_request.GetDataViewRequest,
+    input_: aws_sdk_finspace_data.types.get_data_view_request.GetDataViewRequest,
 ) -> tuple[
     aws_sdk_finspace_data.types.get_data_view_response.GetDataViewResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -148,16 +145,17 @@ def get_data_view(
 
 async def async_get_data_view(
     options: AsyncOperationOptions,
-    input: aws_sdk_finspace_data.types.get_data_view_request.GetDataViewRequest,
+    input_: aws_sdk_finspace_data.types.get_data_view_request.GetDataViewRequest,
 ) -> tuple[
     aws_sdk_finspace_data.types.get_data_view_response.GetDataViewResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

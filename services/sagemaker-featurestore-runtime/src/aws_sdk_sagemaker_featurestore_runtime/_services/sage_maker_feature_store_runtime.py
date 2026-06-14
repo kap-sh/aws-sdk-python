@@ -173,13 +173,13 @@ class SageMakerFeatureStoreRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_featurestore_runtime.types.batch_get_record_request.BatchGetRecordRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_sagemaker_featurestore_runtime.types.batch_get_record_request.BatchGetRecordRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
         if expiration_time_response is not None:
-            input["expiration_time_response"] = expiration_time_response
+            input_["expiration_time_response"] = expiration_time_response
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,17 +222,17 @@ class SageMakerFeatureStoreRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_featurestore_runtime.types.delete_record_request.DeleteRecordRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
-        input["record_identifier_value_as_string"] = record_identifier_value_as_string
-        input["event_time"] = event_time
+        input_: aws_sdk_sagemaker_featurestore_runtime.types.delete_record_request.DeleteRecordRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
+        input_["record_identifier_value_as_string"] = record_identifier_value_as_string
+        input_["event_time"] = event_time
         if target_stores is not None:
-            input["target_stores"] = target_stores
+            input_["target_stores"] = target_stores
         if deletion_mode is not None:
-            input["deletion_mode"] = deletion_mode
+            input_["deletion_mode"] = deletion_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -275,16 +275,16 @@ class SageMakerFeatureStoreRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_featurestore_runtime.types.get_record_request.GetRecordRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
-        input["record_identifier_value_as_string"] = record_identifier_value_as_string
+        input_: aws_sdk_sagemaker_featurestore_runtime.types.get_record_request.GetRecordRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
+        input_["record_identifier_value_as_string"] = record_identifier_value_as_string
         if feature_names is not None:
-            input["feature_names"] = feature_names
+            input_["feature_names"] = feature_names
         if expiration_time_response is not None:
-            input["expiration_time_response"] = expiration_time_response
+            input_["expiration_time_response"] = expiration_time_response
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,16 +325,16 @@ class SageMakerFeatureStoreRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_featurestore_runtime.types.put_record_request.PutRecordRequest = {}  # type: ignore[typeddict-item]
-        input["feature_group_name"] = feature_group_name
-        input["record"] = record
+        input_: aws_sdk_sagemaker_featurestore_runtime.types.put_record_request.PutRecordRequest = {}  # type: ignore[typeddict-item]
+        input_["feature_group_name"] = feature_group_name
+        input_["record"] = record
         if target_stores is not None:
-            input["target_stores"] = target_stores
+            input_["target_stores"] = target_stores
         if ttl_duration is not None:
-            input["ttl_duration"] = ttl_duration
+            input_["ttl_duration"] = ttl_duration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

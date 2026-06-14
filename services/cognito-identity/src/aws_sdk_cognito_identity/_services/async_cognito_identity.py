@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_cognito_identity._auth._signers
+import aws_sdk_cognito_identity._auth._sigv4
 from aws_sdk_cognito_identity._auth._identity import Credentials
 from aws_sdk_cognito_identity._auth._providers import (
     CredentialsProvider,
@@ -252,26 +254,26 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.create_identity_pool_input.CreateIdentityPoolInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_name"] = identity_pool_name
-        input["allow_unauthenticated_identities"] = allow_unauthenticated_identities
+        input_: aws_sdk_cognito_identity.types.create_identity_pool_input.CreateIdentityPoolInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_name"] = identity_pool_name
+        input_["allow_unauthenticated_identities"] = allow_unauthenticated_identities
         if allow_classic_flow is not None:
-            input["allow_classic_flow"] = allow_classic_flow
+            input_["allow_classic_flow"] = allow_classic_flow
         if supported_login_providers is not None:
-            input["supported_login_providers"] = supported_login_providers
+            input_["supported_login_providers"] = supported_login_providers
         if developer_provider_name is not None:
-            input["developer_provider_name"] = developer_provider_name
+            input_["developer_provider_name"] = developer_provider_name
         if open_id_connect_provider_ar_ns is not None:
-            input["open_id_connect_provider_ar_ns"] = open_id_connect_provider_ar_ns
+            input_["open_id_connect_provider_ar_ns"] = open_id_connect_provider_ar_ns
         if cognito_identity_providers is not None:
-            input["cognito_identity_providers"] = cognito_identity_providers
+            input_["cognito_identity_providers"] = cognito_identity_providers
         if saml_provider_ar_ns is not None:
-            input["saml_provider_ar_ns"] = saml_provider_ar_ns
+            input_["saml_provider_ar_ns"] = saml_provider_ar_ns
         if identity_pool_tags is not None:
-            input["identity_pool_tags"] = identity_pool_tags
+            input_["identity_pool_tags"] = identity_pool_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,11 +307,11 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.delete_identities_input.DeleteIdentitiesInput = {}  # type: ignore[typeddict-item]
-        input["identity_ids_to_delete"] = identity_ids_to_delete
+        input_: aws_sdk_cognito_identity.types.delete_identities_input.DeleteIdentitiesInput = {}  # type: ignore[typeddict-item]
+        input_["identity_ids_to_delete"] = identity_ids_to_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,11 +343,11 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.delete_identity_pool_input.DeleteIdentityPoolInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_identity.types.delete_identity_pool_input.DeleteIdentityPoolInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,11 +381,11 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.describe_identity_input.DescribeIdentityInput = {}  # type: ignore[typeddict-item]
-        input["identity_id"] = identity_id
+        input_: aws_sdk_cognito_identity.types.describe_identity_input.DescribeIdentityInput = {}  # type: ignore[typeddict-item]
+        input_["identity_id"] = identity_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,11 +419,11 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.describe_identity_pool_input.DescribeIdentityPoolInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_identity.types.describe_identity_pool_input.DescribeIdentityPoolInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,15 +463,15 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.get_credentials_for_identity_input.GetCredentialsForIdentityInput = {}  # type: ignore[typeddict-item]
-        input["identity_id"] = identity_id
+        input_: aws_sdk_cognito_identity.types.get_credentials_for_identity_input.GetCredentialsForIdentityInput = {}  # type: ignore[typeddict-item]
+        input_["identity_id"] = identity_id
         if logins is not None:
-            input["logins"] = logins
+            input_["logins"] = logins
         if custom_role_arn is not None:
-            input["custom_role_arn"] = custom_role_arn
+            input_["custom_role_arn"] = custom_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,15 +511,15 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.get_id_input.GetIdInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cognito_identity.types.get_id_input.GetIdInput = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
-        input["identity_pool_id"] = identity_pool_id
+            input_["account_id"] = account_id
+        input_["identity_pool_id"] = identity_pool_id
         if logins is not None:
-            input["logins"] = logins
+            input_["logins"] = logins
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -551,11 +553,11 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.get_identity_pool_roles_input.GetIdentityPoolRolesInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_identity.types.get_identity_pool_roles_input.GetIdentityPoolRolesInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,13 +593,13 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.get_open_id_token_input.GetOpenIdTokenInput = {}  # type: ignore[typeddict-item]
-        input["identity_id"] = identity_id
+        input_: aws_sdk_cognito_identity.types.get_open_id_token_input.GetOpenIdTokenInput = {}  # type: ignore[typeddict-item]
+        input_["identity_id"] = identity_id
         if logins is not None:
-            input["logins"] = logins
+            input_["logins"] = logins
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -645,18 +647,18 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.get_open_id_token_for_developer_identity_input.GetOpenIdTokenForDeveloperIdentityInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_identity.types.get_open_id_token_for_developer_identity_input.GetOpenIdTokenForDeveloperIdentityInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
         if identity_id is not None:
-            input["identity_id"] = identity_id
-        input["logins"] = logins
+            input_["identity_id"] = identity_id
+        input_["logins"] = logins
         if principal_tags is not None:
-            input["principal_tags"] = principal_tags
+            input_["principal_tags"] = principal_tags
         if token_duration is not None:
-            input["token_duration"] = token_duration
+            input_["token_duration"] = token_duration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -692,12 +694,12 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.get_principal_tag_attribute_map_input.GetPrincipalTagAttributeMapInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_provider_name"] = identity_provider_name
+        input_: aws_sdk_cognito_identity.types.get_principal_tag_attribute_map_input.GetPrincipalTagAttributeMapInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_provider_name"] = identity_provider_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,16 +745,16 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.list_identities_input.ListIdentitiesInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["max_results"] = max_results
+        input_: aws_sdk_cognito_identity.types.list_identities_input.ListIdentitiesInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if hide_disabled is not None:
-            input["hide_disabled"] = hide_disabled
+            input_["hide_disabled"] = hide_disabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -790,13 +792,13 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.list_identity_pools_input.ListIdentityPoolsInput = {}  # type: ignore[typeddict-item]
-        input["max_results"] = max_results
+        input_: aws_sdk_cognito_identity.types.list_identity_pools_input.ListIdentityPoolsInput = {}  # type: ignore[typeddict-item]
+        input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -853,11 +855,11 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cognito_identity.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -907,19 +909,19 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.lookup_developer_identity_input.LookupDeveloperIdentityInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_identity.types.lookup_developer_identity_input.LookupDeveloperIdentityInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
         if identity_id is not None:
-            input["identity_id"] = identity_id
+            input_["identity_id"] = identity_id
         if developer_user_identifier is not None:
-            input["developer_user_identifier"] = developer_user_identifier
+            input_["developer_user_identifier"] = developer_user_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -959,14 +961,14 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.merge_developer_identities_input.MergeDeveloperIdentitiesInput = {}  # type: ignore[typeddict-item]
-        input["source_user_identifier"] = source_user_identifier
-        input["destination_user_identifier"] = destination_user_identifier
-        input["developer_provider_name"] = developer_provider_name
-        input["identity_pool_id"] = identity_pool_id
+        input_: aws_sdk_cognito_identity.types.merge_developer_identities_input.MergeDeveloperIdentitiesInput = {}  # type: ignore[typeddict-item]
+        input_["source_user_identifier"] = source_user_identifier
+        input_["destination_user_identifier"] = destination_user_identifier
+        input_["developer_provider_name"] = developer_provider_name
+        input_["identity_pool_id"] = identity_pool_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1004,14 +1006,14 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.set_identity_pool_roles_input.SetIdentityPoolRolesInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["roles"] = roles
+        input_: aws_sdk_cognito_identity.types.set_identity_pool_roles_input.SetIdentityPoolRolesInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["roles"] = roles
         if role_mappings is not None:
-            input["role_mappings"] = role_mappings
+            input_["role_mappings"] = role_mappings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1055,16 +1057,16 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.set_principal_tag_attribute_map_input.SetPrincipalTagAttributeMapInput = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_provider_name"] = identity_provider_name
+        input_: aws_sdk_cognito_identity.types.set_principal_tag_attribute_map_input.SetPrincipalTagAttributeMapInput = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_provider_name"] = identity_provider_name
         if use_defaults is not None:
-            input["use_defaults"] = use_defaults
+            input_["use_defaults"] = use_defaults
         if principal_tags is not None:
-            input["principal_tags"] = principal_tags
+            input_["principal_tags"] = principal_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1100,12 +1102,12 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_cognito_identity.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1143,14 +1145,14 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.unlink_developer_identity_input.UnlinkDeveloperIdentityInput = {}  # type: ignore[typeddict-item]
-        input["identity_id"] = identity_id
-        input["identity_pool_id"] = identity_pool_id
-        input["developer_provider_name"] = developer_provider_name
-        input["developer_user_identifier"] = developer_user_identifier
+        input_: aws_sdk_cognito_identity.types.unlink_developer_identity_input.UnlinkDeveloperIdentityInput = {}  # type: ignore[typeddict-item]
+        input_["identity_id"] = identity_id
+        input_["identity_pool_id"] = identity_pool_id
+        input_["developer_provider_name"] = developer_provider_name
+        input_["developer_user_identifier"] = developer_user_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1186,13 +1188,13 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.unlink_identity_input.UnlinkIdentityInput = {}  # type: ignore[typeddict-item]
-        input["identity_id"] = identity_id
-        input["logins"] = logins
-        input["logins_to_remove"] = logins_to_remove
+        input_: aws_sdk_cognito_identity.types.unlink_identity_input.UnlinkIdentityInput = {}  # type: ignore[typeddict-item]
+        input_["identity_id"] = identity_id
+        input_["logins"] = logins
+        input_["logins_to_remove"] = logins_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1228,12 +1230,12 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cognito_identity.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1299,27 +1301,27 @@ class AsyncCognitoIdentityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cognito_identity.types.identity_pool.IdentityPool = {}  # type: ignore[typeddict-item]
-        input["identity_pool_id"] = identity_pool_id
-        input["identity_pool_name"] = identity_pool_name
-        input["allow_unauthenticated_identities"] = allow_unauthenticated_identities
+        input_: aws_sdk_cognito_identity.types.identity_pool.IdentityPool = {}  # type: ignore[typeddict-item]
+        input_["identity_pool_id"] = identity_pool_id
+        input_["identity_pool_name"] = identity_pool_name
+        input_["allow_unauthenticated_identities"] = allow_unauthenticated_identities
         if allow_classic_flow is not None:
-            input["allow_classic_flow"] = allow_classic_flow
+            input_["allow_classic_flow"] = allow_classic_flow
         if supported_login_providers is not None:
-            input["supported_login_providers"] = supported_login_providers
+            input_["supported_login_providers"] = supported_login_providers
         if developer_provider_name is not None:
-            input["developer_provider_name"] = developer_provider_name
+            input_["developer_provider_name"] = developer_provider_name
         if open_id_connect_provider_ar_ns is not None:
-            input["open_id_connect_provider_ar_ns"] = open_id_connect_provider_ar_ns
+            input_["open_id_connect_provider_ar_ns"] = open_id_connect_provider_ar_ns
         if cognito_identity_providers is not None:
-            input["cognito_identity_providers"] = cognito_identity_providers
+            input_["cognito_identity_providers"] = cognito_identity_providers
         if saml_provider_ar_ns is not None:
-            input["saml_provider_ar_ns"] = saml_provider_ar_ns
+            input_["saml_provider_ar_ns"] = saml_provider_ar_ns
         if identity_pool_tags is not None:
-            input["identity_pool_tags"] = identity_pool_tags
+            input_["identity_pool_tags"] = identity_pool_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

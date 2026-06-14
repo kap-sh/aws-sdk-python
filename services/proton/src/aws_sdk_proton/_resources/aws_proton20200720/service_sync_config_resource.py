@@ -69,15 +69,15 @@ class ServiceSyncConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_service_sync_config_input.CreateServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["repository_provider"] = repository_provider
-        input["repository_name"] = repository_name
-        input["branch"] = branch
-        input["file_path"] = file_path
+        input_: aws_sdk_proton.types.create_service_sync_config_input.CreateServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["repository_provider"] = repository_provider
+        input_["repository_name"] = repository_name
+        input_["branch"] = branch
+        input_["file_path"] = file_path
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -112,11 +112,11 @@ class ServiceSyncConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_sync_config_input.GetServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.get_service_sync_config_input.GetServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,15 +157,15 @@ class ServiceSyncConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_sync_config_input.UpdateServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["repository_provider"] = repository_provider
-        input["repository_name"] = repository_name
-        input["branch"] = branch
-        input["file_path"] = file_path
+        input_: aws_sdk_proton.types.update_service_sync_config_input.UpdateServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["repository_provider"] = repository_provider
+        input_["repository_name"] = repository_name
+        input_["branch"] = branch
+        input_["file_path"] = file_path
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,11 +198,11 @@ class ServiceSyncConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_service_sync_config_input.DeleteServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.delete_service_sync_config_input.DeleteServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,15 +249,15 @@ class AsyncServiceSyncConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_service_sync_config_input.CreateServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["repository_provider"] = repository_provider
-        input["repository_name"] = repository_name
-        input["branch"] = branch
-        input["file_path"] = file_path
+        input_: aws_sdk_proton.types.create_service_sync_config_input.CreateServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["repository_provider"] = repository_provider
+        input_["repository_name"] = repository_name
+        input_["branch"] = branch
+        input_["file_path"] = file_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,11 +293,11 @@ class AsyncServiceSyncConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_sync_config_input.GetServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.get_service_sync_config_input.GetServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,15 +339,15 @@ class AsyncServiceSyncConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_sync_config_input.UpdateServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["repository_provider"] = repository_provider
-        input["repository_name"] = repository_name
-        input["branch"] = branch
-        input["file_path"] = file_path
+        input_: aws_sdk_proton.types.update_service_sync_config_input.UpdateServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["repository_provider"] = repository_provider
+        input_["repository_name"] = repository_name
+        input_["branch"] = branch
+        input_["file_path"] = file_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +381,11 @@ class AsyncServiceSyncConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_service_sync_config_input.DeleteServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.delete_service_sync_config_input.DeleteServiceSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

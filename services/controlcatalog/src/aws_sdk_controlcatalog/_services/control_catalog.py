@@ -16,6 +16,18 @@ from aws_sdk_controlcatalog._auth._providers import (
 )
 from aws_sdk_controlcatalog._auth._zapros_handler import AuthMiddleware
 from aws_sdk_controlcatalog._pagination import resolve_path as _resolve_path
+from aws_sdk_controlcatalog._resources.control_catalog.common_control_resource import (
+    CommonControlResource,
+)
+from aws_sdk_controlcatalog._resources.control_catalog.control_resource import (
+    ControlResource,
+)
+from aws_sdk_controlcatalog._resources.control_catalog.domain_resource import (
+    DomainResource,
+)
+from aws_sdk_controlcatalog._resources.control_catalog.objective_resource import (
+    ObjectiveResource,
+)
 from aws_sdk_controlcatalog._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -104,6 +116,11 @@ class ControlCatalogClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.common_control_resource = CommonControlResource(self)
+        self.control_resource = ControlResource(self)
+        self.domain_resource = DomainResource(self)
+        self.objective_resource = ObjectiveResource(self)
 
     def operation_options(
         self, config_overrides: Optional[ControlCatalogClientConfig] = None
@@ -170,16 +187,16 @@ class ControlCatalogClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_controlcatalog.types.list_control_mappings_request.ListControlMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controlcatalog.types.list_control_mappings_request.ListControlMappingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

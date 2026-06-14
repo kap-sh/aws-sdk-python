@@ -233,16 +233,16 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.create_app_instance_request.CreateAppInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_chime_sdk_identity.types.create_app_instance_request.CreateAppInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if metadata is not None:
-            input["metadata"] = metadata
-        input["client_request_token"] = client_request_token
+            input_["metadata"] = metadata
+        input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,12 +277,12 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.create_app_instance_admin_request.CreateAppInstanceAdminRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_admin_arn"] = app_instance_admin_arn
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.create_app_instance_admin_request.CreateAppInstanceAdminRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_admin_arn"] = app_instance_admin_arn
+        input_["app_instance_arn"] = app_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,19 +327,19 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.create_app_instance_bot_request.CreateAppInstanceBotRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.create_app_instance_bot_request.CreateAppInstanceBotRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if metadata is not None:
-            input["metadata"] = metadata
-        input["client_request_token"] = client_request_token
+            input_["metadata"] = metadata
+        input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
-        input["configuration"] = configuration
+            input_["tags"] = tags
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,20 +386,20 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.create_app_instance_user_request.CreateAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
-        input["app_instance_user_id"] = app_instance_user_id
-        input["name"] = name
+        input_: aws_sdk_chime_sdk_identity.types.create_app_instance_user_request.CreateAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
+        input_["app_instance_user_id"] = app_instance_user_id
+        input_["name"] = name
         if metadata is not None:
-            input["metadata"] = metadata
-        input["client_request_token"] = client_request_token
+            input_["metadata"] = metadata
+        input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if expiration_settings is not None:
-            input["expiration_settings"] = expiration_settings
+            input_["expiration_settings"] = expiration_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -430,11 +430,11 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.delete_app_instance_request.DeleteAppInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.delete_app_instance_request.DeleteAppInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -467,12 +467,12 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.delete_app_instance_admin_request.DeleteAppInstanceAdminRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_admin_arn"] = app_instance_admin_arn
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.delete_app_instance_admin_request.DeleteAppInstanceAdminRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_admin_arn"] = app_instance_admin_arn
+        input_["app_instance_arn"] = app_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,11 +503,11 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.delete_app_instance_bot_request.DeleteAppInstanceBotRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_bot_arn"] = app_instance_bot_arn
+        input_: aws_sdk_chime_sdk_identity.types.delete_app_instance_bot_request.DeleteAppInstanceBotRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_bot_arn"] = app_instance_bot_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,11 +538,11 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.delete_app_instance_user_request.DeleteAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
+        input_: aws_sdk_chime_sdk_identity.types.delete_app_instance_user_request.DeleteAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,12 +575,12 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.deregister_app_instance_user_endpoint_request.DeregisterAppInstanceUserEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_chime_sdk_identity.types.deregister_app_instance_user_endpoint_request.DeregisterAppInstanceUserEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
+        input_["endpoint_id"] = endpoint_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -613,11 +613,11 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.describe_app_instance_request.DescribeAppInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.describe_app_instance_request.DescribeAppInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -652,12 +652,12 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.describe_app_instance_admin_request.DescribeAppInstanceAdminRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_admin_arn"] = app_instance_admin_arn
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.describe_app_instance_admin_request.DescribeAppInstanceAdminRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_admin_arn"] = app_instance_admin_arn
+        input_["app_instance_arn"] = app_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,11 +690,11 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.describe_app_instance_bot_request.DescribeAppInstanceBotRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_bot_arn"] = app_instance_bot_arn
+        input_: aws_sdk_chime_sdk_identity.types.describe_app_instance_bot_request.DescribeAppInstanceBotRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_bot_arn"] = app_instance_bot_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -727,11 +727,11 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.describe_app_instance_user_request.DescribeAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
+        input_: aws_sdk_chime_sdk_identity.types.describe_app_instance_user_request.DescribeAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -766,12 +766,12 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.describe_app_instance_user_endpoint_request.DescribeAppInstanceUserEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_chime_sdk_identity.types.describe_app_instance_user_endpoint_request.DescribeAppInstanceUserEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
+        input_["endpoint_id"] = endpoint_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -804,11 +804,11 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.get_app_instance_retention_settings_request.GetAppInstanceRetentionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.get_app_instance_retention_settings_request.GetAppInstanceRetentionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -849,15 +849,15 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.list_app_instance_admins_request.ListAppInstanceAdminsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.list_app_instance_admins_request.ListAppInstanceAdminsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -898,15 +898,15 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.list_app_instance_bots_request.ListAppInstanceBotsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.list_app_instance_bots_request.ListAppInstanceBotsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -945,14 +945,14 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.list_app_instances_request.ListAppInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_identity.types.list_app_instances_request.ListAppInstancesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -993,15 +993,15 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.list_app_instance_user_endpoints_request.ListAppInstanceUserEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
+        input_: aws_sdk_chime_sdk_identity.types.list_app_instance_user_endpoints_request.ListAppInstanceUserEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1042,15 +1042,15 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.list_app_instance_users_request.ListAppInstanceUsersRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_identity.types.list_app_instance_users_request.ListAppInstanceUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1083,11 +1083,11 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_chime_sdk_identity.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,12 +1122,12 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.put_app_instance_retention_settings_request.PutAppInstanceRetentionSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
-        input["app_instance_retention_settings"] = app_instance_retention_settings
+        input_: aws_sdk_chime_sdk_identity.types.put_app_instance_retention_settings_request.PutAppInstanceRetentionSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
+        input_["app_instance_retention_settings"] = app_instance_retention_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1164,13 +1164,13 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.put_app_instance_user_expiration_settings_request.PutAppInstanceUserExpirationSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
+        input_: aws_sdk_chime_sdk_identity.types.put_app_instance_user_expiration_settings_request.PutAppInstanceUserExpirationSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
         if expiration_settings is not None:
-            input["expiration_settings"] = expiration_settings
+            input_["expiration_settings"] = expiration_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1219,19 +1219,19 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.register_app_instance_user_endpoint_request.RegisterAppInstanceUserEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
+        input_: aws_sdk_chime_sdk_identity.types.register_app_instance_user_endpoint_request.RegisterAppInstanceUserEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
         if name is not None:
-            input["name"] = name
-        input["type"] = type
-        input["resource_arn"] = resource_arn
-        input["endpoint_attributes"] = endpoint_attributes
-        input["client_request_token"] = client_request_token
+            input_["name"] = name
+        input_["type"] = type
+        input_["resource_arn"] = resource_arn
+        input_["endpoint_attributes"] = endpoint_attributes
+        input_["client_request_token"] = client_request_token
         if allow_messages is not None:
-            input["allow_messages"] = allow_messages
+            input_["allow_messages"] = allow_messages
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1264,12 +1264,12 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_chime_sdk_identity.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1302,12 +1302,12 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_chime_sdk_identity.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1344,13 +1344,13 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.update_app_instance_request.UpdateAppInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
-        input["name"] = name
-        input["metadata"] = metadata
+        input_: aws_sdk_chime_sdk_identity.types.update_app_instance_request.UpdateAppInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
+        input_["name"] = name
+        input_["metadata"] = metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1391,15 +1391,15 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.update_app_instance_bot_request.UpdateAppInstanceBotRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_bot_arn"] = app_instance_bot_arn
-        input["name"] = name
-        input["metadata"] = metadata
+        input_: aws_sdk_chime_sdk_identity.types.update_app_instance_bot_request.UpdateAppInstanceBotRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_bot_arn"] = app_instance_bot_arn
+        input_["name"] = name
+        input_["metadata"] = metadata
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1436,13 +1436,13 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.update_app_instance_user_request.UpdateAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
-        input["name"] = name
-        input["metadata"] = metadata
+        input_: aws_sdk_chime_sdk_identity.types.update_app_instance_user_request.UpdateAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
+        input_["name"] = name
+        input_["metadata"] = metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1485,16 +1485,16 @@ class ChimeSDKIdentityClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_identity.types.update_app_instance_user_endpoint_request.UpdateAppInstanceUserEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_user_arn"] = app_instance_user_arn
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_chime_sdk_identity.types.update_app_instance_user_endpoint_request.UpdateAppInstanceUserEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_user_arn"] = app_instance_user_arn
+        input_["endpoint_id"] = endpoint_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if allow_messages is not None:
-            input["allow_messages"] = allow_messages
+            input_["allow_messages"] = allow_messages
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

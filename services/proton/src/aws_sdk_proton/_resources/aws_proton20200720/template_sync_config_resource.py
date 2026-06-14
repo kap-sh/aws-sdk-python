@@ -72,17 +72,17 @@ class TemplateSyncConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_template_sync_config_input.CreateTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
-        input["repository_provider"] = repository_provider
-        input["repository_name"] = repository_name
-        input["branch"] = branch
+        input_: aws_sdk_proton.types.create_template_sync_config_input.CreateTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
+        input_["repository_provider"] = repository_provider
+        input_["repository_name"] = repository_name
+        input_["branch"] = branch
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -117,12 +117,12 @@ class TemplateSyncConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_template_sync_config_input.GetTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
+        input_: aws_sdk_proton.types.get_template_sync_config_input.GetTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -165,17 +165,17 @@ class TemplateSyncConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_template_sync_config_input.UpdateTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
-        input["repository_provider"] = repository_provider
-        input["repository_name"] = repository_name
-        input["branch"] = branch
+        input_: aws_sdk_proton.types.update_template_sync_config_input.UpdateTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
+        input_["repository_provider"] = repository_provider
+        input_["repository_name"] = repository_name
+        input_["branch"] = branch
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -210,12 +210,12 @@ class TemplateSyncConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_template_sync_config_input.DeleteTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
+        input_: aws_sdk_proton.types.delete_template_sync_config_input.DeleteTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -264,17 +264,17 @@ class AsyncTemplateSyncConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_template_sync_config_input.CreateTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
-        input["repository_provider"] = repository_provider
-        input["repository_name"] = repository_name
-        input["branch"] = branch
+        input_: aws_sdk_proton.types.create_template_sync_config_input.CreateTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
+        input_["repository_provider"] = repository_provider
+        input_["repository_name"] = repository_name
+        input_["branch"] = branch
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,12 +310,12 @@ class AsyncTemplateSyncConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_template_sync_config_input.GetTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
+        input_: aws_sdk_proton.types.get_template_sync_config_input.GetTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,17 +359,17 @@ class AsyncTemplateSyncConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_template_sync_config_input.UpdateTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
-        input["repository_provider"] = repository_provider
-        input["repository_name"] = repository_name
-        input["branch"] = branch
+        input_: aws_sdk_proton.types.update_template_sync_config_input.UpdateTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
+        input_["repository_provider"] = repository_provider
+        input_["repository_name"] = repository_name
+        input_["branch"] = branch
         if subdirectory is not None:
-            input["subdirectory"] = subdirectory
+            input_["subdirectory"] = subdirectory
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,12 +405,12 @@ class AsyncTemplateSyncConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_template_sync_config_input.DeleteTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
+        input_: aws_sdk_proton.types.delete_template_sync_config_input.DeleteTemplateSyncConfigInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

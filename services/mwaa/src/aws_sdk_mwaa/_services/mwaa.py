@@ -207,11 +207,11 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.create_cli_token_request.CreateCliTokenRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mwaa.types.create_cli_token_request.CreateCliTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -322,55 +322,57 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["execution_role_arn"] = execution_role_arn
-        input["source_bucket_arn"] = source_bucket_arn
-        input["dag_s3_path"] = dag_s3_path
-        input["network_configuration"] = network_configuration
+        input_: aws_sdk_mwaa.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["execution_role_arn"] = execution_role_arn
+        input_["source_bucket_arn"] = source_bucket_arn
+        input_["dag_s3_path"] = dag_s3_path
+        input_["network_configuration"] = network_configuration
         if plugins_s3_path is not None:
-            input["plugins_s3_path"] = plugins_s3_path
+            input_["plugins_s3_path"] = plugins_s3_path
         if plugins_s3_object_version is not None:
-            input["plugins_s3_object_version"] = plugins_s3_object_version
+            input_["plugins_s3_object_version"] = plugins_s3_object_version
         if requirements_s3_path is not None:
-            input["requirements_s3_path"] = requirements_s3_path
+            input_["requirements_s3_path"] = requirements_s3_path
         if requirements_s3_object_version is not None:
-            input["requirements_s3_object_version"] = requirements_s3_object_version
+            input_["requirements_s3_object_version"] = requirements_s3_object_version
         if startup_script_s3_path is not None:
-            input["startup_script_s3_path"] = startup_script_s3_path
+            input_["startup_script_s3_path"] = startup_script_s3_path
         if startup_script_s3_object_version is not None:
-            input["startup_script_s3_object_version"] = startup_script_s3_object_version
+            input_["startup_script_s3_object_version"] = (
+                startup_script_s3_object_version
+            )
         if airflow_configuration_options is not None:
-            input["airflow_configuration_options"] = airflow_configuration_options
+            input_["airflow_configuration_options"] = airflow_configuration_options
         if environment_class is not None:
-            input["environment_class"] = environment_class
+            input_["environment_class"] = environment_class
         if max_workers is not None:
-            input["max_workers"] = max_workers
+            input_["max_workers"] = max_workers
         if kms_key is not None:
-            input["kms_key"] = kms_key
+            input_["kms_key"] = kms_key
         if airflow_version is not None:
-            input["airflow_version"] = airflow_version
+            input_["airflow_version"] = airflow_version
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if weekly_maintenance_window_start is not None:
-            input["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+            input_["weekly_maintenance_window_start"] = weekly_maintenance_window_start
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if webserver_access_mode is not None:
-            input["webserver_access_mode"] = webserver_access_mode
+            input_["webserver_access_mode"] = webserver_access_mode
         if min_workers is not None:
-            input["min_workers"] = min_workers
+            input_["min_workers"] = min_workers
         if schedulers is not None:
-            input["schedulers"] = schedulers
+            input_["schedulers"] = schedulers
         if endpoint_management is not None:
-            input["endpoint_management"] = endpoint_management
+            input_["endpoint_management"] = endpoint_management
         if min_webservers is not None:
-            input["min_webservers"] = min_webservers
+            input_["min_webservers"] = min_webservers
         if max_webservers is not None:
-            input["max_webservers"] = max_webservers
+            input_["max_webservers"] = max_webservers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,11 +407,11 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.create_web_login_token_request.CreateWebLoginTokenRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mwaa.types.create_web_login_token_request.CreateWebLoginTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,11 +444,11 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mwaa.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,11 +481,11 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mwaa.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,17 +533,17 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.invoke_rest_api_request.InvokeRestApiRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["path"] = path
-        input["method"] = method
+        input_: aws_sdk_mwaa.types.invoke_rest_api_request.InvokeRestApiRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["path"] = path
+        input_["method"] = method
         if query_parameters is not None:
-            input["query_parameters"] = query_parameters
+            input_["query_parameters"] = query_parameters
         if body is not None:
-            input["body"] = body
+            input_["body"] = body
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -576,14 +578,14 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mwaa.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -637,11 +639,11 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mwaa.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -676,12 +678,12 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.publish_metrics_input.PublishMetricsInput = {}  # type: ignore[typeddict-item]
-        input["environment_name"] = environment_name
-        input["metric_data"] = metric_data
+        input_: aws_sdk_mwaa.types.publish_metrics_input.PublishMetricsInput = {}  # type: ignore[typeddict-item]
+        input_["environment_name"] = environment_name
+        input_["metric_data"] = metric_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -716,12 +718,12 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mwaa.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -756,12 +758,12 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mwaa.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -874,55 +876,57 @@ class MWAAClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mwaa.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mwaa.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if airflow_configuration_options is not None:
-            input["airflow_configuration_options"] = airflow_configuration_options
+            input_["airflow_configuration_options"] = airflow_configuration_options
         if airflow_version is not None:
-            input["airflow_version"] = airflow_version
+            input_["airflow_version"] = airflow_version
         if dag_s3_path is not None:
-            input["dag_s3_path"] = dag_s3_path
+            input_["dag_s3_path"] = dag_s3_path
         if environment_class is not None:
-            input["environment_class"] = environment_class
+            input_["environment_class"] = environment_class
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if max_workers is not None:
-            input["max_workers"] = max_workers
+            input_["max_workers"] = max_workers
         if min_workers is not None:
-            input["min_workers"] = min_workers
+            input_["min_workers"] = min_workers
         if max_webservers is not None:
-            input["max_webservers"] = max_webservers
+            input_["max_webservers"] = max_webservers
         if min_webservers is not None:
-            input["min_webservers"] = min_webservers
+            input_["min_webservers"] = min_webservers
         if worker_replacement_strategy is not None:
-            input["worker_replacement_strategy"] = worker_replacement_strategy
+            input_["worker_replacement_strategy"] = worker_replacement_strategy
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if plugins_s3_path is not None:
-            input["plugins_s3_path"] = plugins_s3_path
+            input_["plugins_s3_path"] = plugins_s3_path
         if plugins_s3_object_version is not None:
-            input["plugins_s3_object_version"] = plugins_s3_object_version
+            input_["plugins_s3_object_version"] = plugins_s3_object_version
         if requirements_s3_path is not None:
-            input["requirements_s3_path"] = requirements_s3_path
+            input_["requirements_s3_path"] = requirements_s3_path
         if requirements_s3_object_version is not None:
-            input["requirements_s3_object_version"] = requirements_s3_object_version
+            input_["requirements_s3_object_version"] = requirements_s3_object_version
         if schedulers is not None:
-            input["schedulers"] = schedulers
+            input_["schedulers"] = schedulers
         if source_bucket_arn is not None:
-            input["source_bucket_arn"] = source_bucket_arn
+            input_["source_bucket_arn"] = source_bucket_arn
         if startup_script_s3_path is not None:
-            input["startup_script_s3_path"] = startup_script_s3_path
+            input_["startup_script_s3_path"] = startup_script_s3_path
         if startup_script_s3_object_version is not None:
-            input["startup_script_s3_object_version"] = startup_script_s3_object_version
+            input_["startup_script_s3_object_version"] = (
+                startup_script_s3_object_version
+            )
         if webserver_access_mode is not None:
-            input["webserver_access_mode"] = webserver_access_mode
+            input_["webserver_access_mode"] = webserver_access_mode
         if weekly_maintenance_window_start is not None:
-            input["weekly_maintenance_window_start"] = weekly_maintenance_window_start
+            input_["weekly_maintenance_window_start"] = weekly_maintenance_window_start
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

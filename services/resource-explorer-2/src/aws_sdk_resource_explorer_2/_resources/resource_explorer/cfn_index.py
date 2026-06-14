@@ -67,14 +67,14 @@ class CfnIndex:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.create_index_input.CreateIndexInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.create_index_input.CreateIndexInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -109,12 +109,12 @@ class CfnIndex:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.update_index_type_input.UpdateIndexTypeInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["type"] = type
+        input_: aws_sdk_resource_explorer_2.types.update_index_type_input.UpdateIndexTypeInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -147,11 +147,11 @@ class CfnIndex:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.delete_index_input.DeleteIndexInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_resource_explorer_2.types.delete_index_input.DeleteIndexInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -192,18 +192,18 @@ class CfnIndex:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_indexes_input.ListIndexesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_indexes_input.ListIndexesInput = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,14 +244,14 @@ class AsyncCfnIndex:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.create_index_input.CreateIndexInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.create_index_input.CreateIndexInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,12 +287,12 @@ class AsyncCfnIndex:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.update_index_type_input.UpdateIndexTypeInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["type"] = type
+        input_: aws_sdk_resource_explorer_2.types.update_index_type_input.UpdateIndexTypeInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,11 +326,11 @@ class AsyncCfnIndex:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.delete_index_input.DeleteIndexInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_resource_explorer_2.types.delete_index_input.DeleteIndexInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,18 +372,18 @@ class AsyncCfnIndex:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_indexes_input.ListIndexesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_indexes_input.ListIndexesInput = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

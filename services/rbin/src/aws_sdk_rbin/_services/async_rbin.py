@@ -207,22 +207,22 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["retention_period"] = retention_period
+        input_: aws_sdk_rbin.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["retention_period"] = retention_period
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
-        input["resource_type"] = resource_type
+            input_["tags"] = tags
+        input_["resource_type"] = resource_type
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if lock_configuration is not None:
-            input["lock_configuration"] = lock_configuration
+            input_["lock_configuration"] = lock_configuration
         if exclude_resource_tags is not None:
-            input["exclude_resource_tags"] = exclude_resource_tags
+            input_["exclude_resource_tags"] = exclude_resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -256,11 +256,11 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_rbin.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,11 +294,11 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.get_rule_request.GetRuleRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_rbin.types.get_rule_request.GetRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,21 +344,21 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rbin.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_type"] = resource_type
+            input_["next_token"] = next_token
+        input_["resource_type"] = resource_type
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if lock_state is not None:
-            input["lock_state"] = lock_state
+            input_["lock_state"] = lock_state
         if exclude_resource_tags is not None:
-            input["exclude_resource_tags"] = exclude_resource_tags
+            input_["exclude_resource_tags"] = exclude_resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -425,11 +425,11 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_rbin.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,12 +465,12 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.lock_rule_request.LockRuleRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["lock_configuration"] = lock_configuration
+        input_: aws_sdk_rbin.types.lock_rule_request.LockRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["lock_configuration"] = lock_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -506,12 +506,12 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_rbin.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -545,11 +545,11 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.unlock_rule_request.UnlockRuleRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_rbin.types.unlock_rule_request.UnlockRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -585,12 +585,12 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_rbin.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,21 +638,21 @@ class AsyncrbinClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rbin.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_rbin.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if exclude_resource_tags is not None:
-            input["exclude_resource_tags"] = exclude_resource_tags
+            input_["exclude_resource_tags"] = exclude_resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

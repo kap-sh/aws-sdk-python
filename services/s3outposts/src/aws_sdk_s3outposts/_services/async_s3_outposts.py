@@ -188,17 +188,17 @@ class AsyncS3OutpostsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3outposts.types.create_endpoint_request.CreateEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["outpost_id"] = outpost_id
-        input["subnet_id"] = subnet_id
-        input["security_group_id"] = security_group_id
+        input_: aws_sdk_s3outposts.types.create_endpoint_request.CreateEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["outpost_id"] = outpost_id
+        input_["subnet_id"] = subnet_id
+        input_["security_group_id"] = security_group_id
         if access_type is not None:
-            input["access_type"] = access_type
+            input_["access_type"] = access_type
         if customer_owned_ipv4_pool is not None:
-            input["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+            input_["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,12 +232,12 @@ class AsyncS3OutpostsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_id"] = endpoint_id
-        input["outpost_id"] = outpost_id
+        input_: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_id"] = endpoint_id
+        input_["outpost_id"] = outpost_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,14 +273,14 @@ class AsyncS3OutpostsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3outposts.types.list_endpoints_request.ListEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3outposts.types.list_endpoints_request.ListEndpointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,14 +339,14 @@ class AsyncS3OutpostsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3outposts.types.list_outposts_with_s3_request.ListOutpostsWithS3Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3outposts.types.list_outposts_with_s3_request.ListOutpostsWithS3Request = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,15 +405,15 @@ class AsyncS3OutpostsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3outposts.types.list_shared_endpoints_request.ListSharedEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3outposts.types.list_shared_endpoints_request.ListSharedEndpointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["outpost_id"] = outpost_id
+            input_["max_results"] = max_results
+        input_["outpost_id"] = outpost_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

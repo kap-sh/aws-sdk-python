@@ -16,6 +16,11 @@ from aws_sdk_deadline._auth._providers import (
 )
 from aws_sdk_deadline._auth._zapros_handler import AuthMiddleware
 from aws_sdk_deadline._pagination import resolve_path as _resolve_path
+from aws_sdk_deadline._resources.deadline.farm_resource import AsyncFarmResource
+from aws_sdk_deadline._resources.deadline.license_endpoint_resource import (
+    AsyncLicenseEndpointResource,
+)
+from aws_sdk_deadline._resources.deadline.monitor_resource import AsyncMonitorResource
 from aws_sdk_deadline._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -193,6 +198,10 @@ class AsyncdeadlineClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.farm_resource = AsyncFarmResource(self)
+        self.license_endpoint_resource = AsyncLicenseEndpointResource(self)
+        self.monitor_resource = AsyncMonitorResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncdeadlineClientConfig] = None
@@ -255,11 +264,11 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.batch_get_job_request.BatchGetJobRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_deadline.types.batch_get_job_request.BatchGetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,11 +307,11 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.batch_get_session_request.BatchGetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_deadline.types.batch_get_session_request.BatchGetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,11 +350,11 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.batch_get_session_action_request.BatchGetSessionActionRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_deadline.types.batch_get_session_action_request.BatchGetSessionActionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,11 +393,11 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.batch_get_step_request.BatchGetStepRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_deadline.types.batch_get_step_request.BatchGetStepRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,11 +436,11 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.batch_get_task_request.BatchGetTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_deadline.types.batch_get_task_request.BatchGetTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,11 +479,11 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.batch_get_worker_request.BatchGetWorkerRequest = {}  # type: ignore[typeddict-item]
-        input["identifiers"] = identifiers
+        input_: aws_sdk_deadline.types.batch_get_worker_request.BatchGetWorkerRequest = {}  # type: ignore[typeddict-item]
+        input_["identifiers"] = identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -517,13 +526,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.batch_update_job_request.BatchUpdateJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.batch_update_job_request.BatchUpdateJobRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["jobs"] = jobs
+            input_["client_token"] = client_token
+        input_["jobs"] = jobs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -566,13 +575,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.batch_update_task_request.BatchUpdateTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.batch_update_task_request.BatchUpdateTaskRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["tasks"] = tasks
+            input_["client_token"] = client_token
+        input_["tasks"] = tasks
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -610,13 +619,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_queue_fleet_association_request.CreateQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["queue_id"] = queue_id
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_deadline.types.create_queue_fleet_association_request.CreateQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,13 +663,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_queue_limit_association_request.CreateQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["queue_id"] = queue_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.create_queue_limit_association_request.CreateQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["limit_id"] = limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,13 +707,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_queue_fleet_association_request.DeleteQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["queue_id"] = queue_id
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_deadline.types.delete_queue_fleet_association_request.DeleteQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -742,13 +751,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_queue_limit_association_request.DeleteQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["queue_id"] = queue_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.delete_queue_limit_association_request.DeleteQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["limit_id"] = limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -786,13 +795,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_queue_fleet_association_request.GetQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["queue_id"] = queue_id
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_deadline.types.get_queue_fleet_association_request.GetQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,13 +839,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_queue_limit_association_request.GetQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["queue_id"] = queue_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.get_queue_limit_association_request.GetQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["limit_id"] = limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,16 +885,16 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_sessions_statistics_aggregation_request.GetSessionsStatisticsAggregationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.get_sessions_statistics_aggregation_request.GetSessionsStatisticsAggregationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["aggregation_id"] = aggregation_id
+            input_["max_results"] = max_results
+        input_["aggregation_id"] = aggregation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -946,14 +955,14 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_available_metered_products_request.ListAvailableMeteredProductsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.list_available_metered_products_request.ListAvailableMeteredProductsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1016,19 +1025,19 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_queue_fleet_associations_request.ListQueueFleetAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.list_queue_fleet_associations_request.ListQueueFleetAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if queue_id is not None:
-            input["queue_id"] = queue_id
+            input_["queue_id"] = queue_id
         if fleet_id is not None:
-            input["fleet_id"] = fleet_id
+            input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1097,19 +1106,19 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_queue_limit_associations_request.ListQueueLimitAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.list_queue_limit_associations_request.ListQueueLimitAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if queue_id is not None:
-            input["queue_id"] = queue_id
+            input_["queue_id"] = queue_id
         if limit_id is not None:
-            input["limit_id"] = limit_id
+            input_["limit_id"] = limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1170,11 +1179,11 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_deadline.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1222,19 +1231,19 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if filter_expressions is not None:
-            input["filter_expressions"] = filter_expressions
+            input_["filter_expressions"] = filter_expressions
         if sort_expressions is not None:
-            input["sort_expressions"] = sort_expressions
-        input["item_offset"] = item_offset
+            input_["sort_expressions"] = sort_expressions
+        input_["item_offset"] = item_offset
         if page_size is not None:
-            input["page_size"] = page_size
-        input["queue_ids"] = queue_ids
+            input_["page_size"] = page_size
+        input_["queue_ids"] = queue_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1284,21 +1293,21 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.search_steps_request.SearchStepsRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.search_steps_request.SearchStepsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if filter_expressions is not None:
-            input["filter_expressions"] = filter_expressions
+            input_["filter_expressions"] = filter_expressions
         if sort_expressions is not None:
-            input["sort_expressions"] = sort_expressions
-        input["item_offset"] = item_offset
+            input_["sort_expressions"] = sort_expressions
+        input_["item_offset"] = item_offset
         if page_size is not None:
-            input["page_size"] = page_size
-        input["queue_ids"] = queue_ids
+            input_["page_size"] = page_size
+        input_["queue_ids"] = queue_ids
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1348,21 +1357,21 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.search_tasks_request.SearchTasksRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.search_tasks_request.SearchTasksRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if filter_expressions is not None:
-            input["filter_expressions"] = filter_expressions
+            input_["filter_expressions"] = filter_expressions
         if sort_expressions is not None:
-            input["sort_expressions"] = sort_expressions
-        input["item_offset"] = item_offset
+            input_["sort_expressions"] = sort_expressions
+        input_["item_offset"] = item_offset
         if page_size is not None:
-            input["page_size"] = page_size
-        input["queue_ids"] = queue_ids
+            input_["page_size"] = page_size
+        input_["queue_ids"] = queue_ids
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1410,19 +1419,19 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.search_workers_request.SearchWorkersRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.search_workers_request.SearchWorkersRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if filter_expressions is not None:
-            input["filter_expressions"] = filter_expressions
+            input_["filter_expressions"] = filter_expressions
         if sort_expressions is not None:
-            input["sort_expressions"] = sort_expressions
-        input["item_offset"] = item_offset
+            input_["sort_expressions"] = sort_expressions
+        input_["item_offset"] = item_offset
         if page_size is not None:
-            input["page_size"] = page_size
-        input["fleet_ids"] = fleet_ids
+            input_["page_size"] = page_size
+        input_["fleet_ids"] = fleet_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1470,20 +1479,20 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.start_sessions_statistics_aggregation_request.StartSessionsStatisticsAggregationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["resource_ids"] = resource_ids
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_deadline.types.start_sessions_statistics_aggregation_request.StartSessionsStatisticsAggregationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["resource_ids"] = resource_ids
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if timezone is not None:
-            input["timezone"] = timezone
+            input_["timezone"] = timezone
         if period is not None:
-            input["period"] = period
-        input["group_by"] = group_by
-        input["statistics"] = statistics
+            input_["period"] = period
+        input_["group_by"] = group_by
+        input_["statistics"] = statistics
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1519,13 +1528,13 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_deadline.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1561,12 +1570,12 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_deadline.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1606,14 +1615,14 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_queue_fleet_association_request.UpdateQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["queue_id"] = queue_id
-        input["fleet_id"] = fleet_id
-        input["status"] = status
+        input_: aws_sdk_deadline.types.update_queue_fleet_association_request.UpdateQueueFleetAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["fleet_id"] = fleet_id
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1653,14 +1662,14 @@ class AsyncdeadlineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_queue_limit_association_request.UpdateQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["queue_id"] = queue_id
-        input["limit_id"] = limit_id
-        input["status"] = status
+        input_: aws_sdk_deadline.types.update_queue_limit_association_request.UpdateQueueLimitAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["queue_id"] = queue_id
+        input_["limit_id"] = limit_id
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

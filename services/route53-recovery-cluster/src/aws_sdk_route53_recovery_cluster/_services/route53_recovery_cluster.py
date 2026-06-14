@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_route53_recovery_cluster._auth._signers
+import aws_sdk_route53_recovery_cluster._auth._sigv4
 from aws_sdk_route53_recovery_cluster._auth._identity import Credentials
 from aws_sdk_route53_recovery_cluster._auth._providers import (
     CredentialsProvider,
@@ -167,11 +169,11 @@ class Route53RecoveryClusterClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_cluster.types.get_routing_control_state_request.GetRoutingControlStateRequest = {}  # type: ignore[typeddict-item]
-        input["routing_control_arn"] = routing_control_arn
+        input_: aws_sdk_route53_recovery_cluster.types.get_routing_control_state_request.GetRoutingControlStateRequest = {}  # type: ignore[typeddict-item]
+        input_["routing_control_arn"] = routing_control_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,16 +216,16 @@ class Route53RecoveryClusterClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_cluster.types.list_routing_controls_request.ListRoutingControlsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_cluster.types.list_routing_controls_request.ListRoutingControlsRequest = {}  # type: ignore[typeddict-item]
         if control_panel_arn is not None:
-            input["control_panel_arn"] = control_panel_arn
+            input_["control_panel_arn"] = control_panel_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,14 +293,14 @@ class Route53RecoveryClusterClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_cluster.types.update_routing_control_state_request.UpdateRoutingControlStateRequest = {}  # type: ignore[typeddict-item]
-        input["routing_control_arn"] = routing_control_arn
-        input["routing_control_state"] = routing_control_state
+        input_: aws_sdk_route53_recovery_cluster.types.update_routing_control_state_request.UpdateRoutingControlStateRequest = {}  # type: ignore[typeddict-item]
+        input_["routing_control_arn"] = routing_control_arn
+        input_["routing_control_state"] = routing_control_state
         if safety_rules_to_override is not None:
-            input["safety_rules_to_override"] = safety_rules_to_override
+            input_["safety_rules_to_override"] = safety_rules_to_override
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,15 +337,15 @@ class Route53RecoveryClusterClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_cluster.types.update_routing_control_states_request.UpdateRoutingControlStatesRequest = {}  # type: ignore[typeddict-item]
-        input["update_routing_control_state_entries"] = (
+        input_: aws_sdk_route53_recovery_cluster.types.update_routing_control_states_request.UpdateRoutingControlStatesRequest = {}  # type: ignore[typeddict-item]
+        input_["update_routing_control_state_entries"] = (
             update_routing_control_state_entries
         )
         if safety_rules_to_override is not None:
-            input["safety_rules_to_override"] = safety_rules_to_override
+            input_["safety_rules_to_override"] = safety_rules_to_override
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -88,59 +88,56 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iot_wireless.types.list_wireless_devices_request.ListWirelessDevicesRequest,
+    input_: aws_sdk_iot_wireless.types.list_wireless_devices_request.ListWirelessDevicesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/wireless-devices"
     params: dict[str, str] = {}
-    params["maxResults"] = str(input.get("max_results", 0))
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "destination_name" in input:
-        params["destinationName"] = str(input["destination_name"])
-    if "device_profile_id" in input:
-        params["deviceProfileId"] = str(input["device_profile_id"])
-    if "service_profile_id" in input:
-        params["serviceProfileId"] = str(input["service_profile_id"])
-    if "wireless_device_type" in input:
-        params["wirelessDeviceType"] = str(input["wireless_device_type"])
-    if "fuota_task_id" in input:
-        params["fuotaTaskId"] = str(input["fuota_task_id"])
-    if "multicast_group_id" in input:
-        params["multicastGroupId"] = str(input["multicast_group_id"])
+    params["maxResults"] = str(input_.get("max_results", 0))
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "destination_name" in input_:
+        params["destinationName"] = str(input_["destination_name"])
+    if "device_profile_id" in input_:
+        params["deviceProfileId"] = str(input_["device_profile_id"])
+    if "service_profile_id" in input_:
+        params["serviceProfileId"] = str(input_["service_profile_id"])
+    if "wireless_device_type" in input_:
+        params["wirelessDeviceType"] = str(input_["wireless_device_type"])
+    if "fuota_task_id" in input_:
+        params["fuotaTaskId"] = str(input_["fuota_task_id"])
+    if "multicast_group_id" in input_:
+        params["multicastGroupId"] = str(input_["multicast_group_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_wireless_devices(
     options: OperationOptions,
-    input: aws_sdk_iot_wireless.types.list_wireless_devices_request.ListWirelessDevicesRequest,
+    input_: aws_sdk_iot_wireless.types.list_wireless_devices_request.ListWirelessDevicesRequest,
 ) -> tuple[
     aws_sdk_iot_wireless.types.list_wireless_devices_response.ListWirelessDevicesResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -149,16 +146,17 @@ def list_wireless_devices(
 
 async def async_list_wireless_devices(
     options: AsyncOperationOptions,
-    input: aws_sdk_iot_wireless.types.list_wireless_devices_request.ListWirelessDevicesRequest,
+    input_: aws_sdk_iot_wireless.types.list_wireless_devices_request.ListWirelessDevicesRequest,
 ) -> tuple[
     aws_sdk_iot_wireless.types.list_wireless_devices_response.ListWirelessDevicesResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

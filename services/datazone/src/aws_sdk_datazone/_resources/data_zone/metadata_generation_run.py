@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -90,19 +91,19 @@ class MetadataGenerationRun:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.start_metadata_generation_run_input.StartMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.start_metadata_generation_run_input.StartMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if types is not None:
-            input["types"] = types
-        input["target"] = target
+            input_["types"] = types
+        input_["target"] = target
         if client_token is not None:
-            input["client_token"] = client_token
-        input["owning_project_identifier"] = owning_project_identifier
+            input_["client_token"] = client_token
+        input_["owning_project_identifier"] = owning_project_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,14 +142,14 @@ class MetadataGenerationRun:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_metadata_generation_run_input.GetMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_metadata_generation_run_input.GetMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -183,12 +184,12 @@ class MetadataGenerationRun:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.cancel_metadata_generation_run_input.CancelMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.cancel_metadata_generation_run_input.CancelMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -237,21 +238,21 @@ class MetadataGenerationRun:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_metadata_generation_runs_input.ListMetadataGenerationRunsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_metadata_generation_runs_input.ListMetadataGenerationRunsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if target_identifier is not None:
-            input["target_identifier"] = target_identifier
+            input_["target_identifier"] = target_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,19 +307,19 @@ class AsyncMetadataGenerationRun:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.start_metadata_generation_run_input.StartMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.start_metadata_generation_run_input.StartMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if types is not None:
-            input["types"] = types
-        input["target"] = target
+            input_["types"] = types
+        input_["target"] = target
         if client_token is not None:
-            input["client_token"] = client_token
-        input["owning_project_identifier"] = owning_project_identifier
+            input_["client_token"] = client_token
+        input_["owning_project_identifier"] = owning_project_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,14 +359,14 @@ class AsyncMetadataGenerationRun:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_metadata_generation_run_input.GetMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_metadata_generation_run_input.GetMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,12 +402,12 @@ class AsyncMetadataGenerationRun:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.cancel_metadata_generation_run_input.CancelMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.cancel_metadata_generation_run_input.CancelMetadataGenerationRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,21 +457,21 @@ class AsyncMetadataGenerationRun:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_metadata_generation_runs_input.ListMetadataGenerationRunsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_metadata_generation_runs_input.ListMetadataGenerationRunsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if target_identifier is not None:
-            input["target_identifier"] = target_identifier
+            input_["target_identifier"] = target_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

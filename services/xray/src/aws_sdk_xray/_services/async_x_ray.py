@@ -286,13 +286,13 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.batch_get_traces_request.BatchGetTracesRequest = {}  # type: ignore[typeddict-item]
-        input["trace_ids"] = trace_ids
+        input_: aws_sdk_xray.types.batch_get_traces_request.BatchGetTracesRequest = {}  # type: ignore[typeddict-item]
+        input_["trace_ids"] = trace_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,11 +347,11 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.cancel_trace_retrieval_request.CancelTraceRetrievalRequest = {}  # type: ignore[typeddict-item]
-        input["retrieval_token"] = retrieval_token
+        input_: aws_sdk_xray.types.cancel_trace_retrieval_request.CancelTraceRetrievalRequest = {}  # type: ignore[typeddict-item]
+        input_["retrieval_token"] = retrieval_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,17 +395,17 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_name"] = group_name
+        input_: aws_sdk_xray.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_name"] = group_name
         if filter_expression is not None:
-            input["filter_expression"] = filter_expression
+            input_["filter_expression"] = filter_expression
         if insights_configuration is not None:
-            input["insights_configuration"] = insights_configuration
+            input_["insights_configuration"] = insights_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,13 +441,13 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.create_sampling_rule_request.CreateSamplingRuleRequest = {}  # type: ignore[typeddict-item]
-        input["sampling_rule"] = sampling_rule
+        input_: aws_sdk_xray.types.create_sampling_rule_request.CreateSamplingRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["sampling_rule"] = sampling_rule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,14 +483,14 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group_arn is not None:
-            input["group_arn"] = group_arn
+            input_["group_arn"] = group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,13 +528,13 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
+        input_: aws_sdk_xray.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -570,14 +570,14 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.delete_sampling_rule_request.DeleteSamplingRuleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.delete_sampling_rule_request.DeleteSamplingRuleRequest = {}  # type: ignore[typeddict-item]
         if rule_name is not None:
-            input["rule_name"] = rule_name
+            input_["rule_name"] = rule_name
         if rule_arn is not None:
-            input["rule_arn"] = rule_arn
+            input_["rule_arn"] = rule_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,10 +604,10 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_encryption_config_request.GetEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.get_encryption_config_request.GetEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -643,14 +643,14 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group_arn is not None:
-            input["group_arn"] = group_arn
+            input_["group_arn"] = group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -686,12 +686,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_groups_request.GetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.get_groups_request.GetGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -746,12 +746,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_indexing_rules_request.GetIndexingRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.get_indexing_rules_request.GetIndexingRulesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -785,11 +785,11 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_insight_request.GetInsightRequest = {}  # type: ignore[typeddict-item]
-        input["insight_id"] = insight_id
+        input_: aws_sdk_xray.types.get_insight_request.GetInsightRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_id"] = insight_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,15 +829,15 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_insight_events_request.GetInsightEventsRequest = {}  # type: ignore[typeddict-item]
-        input["insight_id"] = insight_id
+        input_: aws_sdk_xray.types.get_insight_events_request.GetInsightEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_id"] = insight_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -879,15 +879,15 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_insight_impact_graph_request.GetInsightImpactGraphRequest = {}  # type: ignore[typeddict-item]
-        input["insight_id"] = insight_id
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_xray.types.get_insight_impact_graph_request.GetInsightImpactGraphRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_id"] = insight_id
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -937,22 +937,22 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_insight_summaries_request.GetInsightSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.get_insight_summaries_request.GetInsightSummariesRequest = {}  # type: ignore[typeddict-item]
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if group_arn is not None:
-            input["group_arn"] = group_arn
+            input_["group_arn"] = group_arn
         if group_name is not None:
-            input["group_name"] = group_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["group_name"] = group_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -988,13 +988,13 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_retrieved_traces_graph_request.GetRetrievedTracesGraphRequest = {}  # type: ignore[typeddict-item]
-        input["retrieval_token"] = retrieval_token
+        input_: aws_sdk_xray.types.get_retrieved_traces_graph_request.GetRetrievedTracesGraphRequest = {}  # type: ignore[typeddict-item]
+        input_["retrieval_token"] = retrieval_token
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1028,12 +1028,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_sampling_rules_request.GetSamplingRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.get_sampling_rules_request.GetSamplingRulesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1086,12 +1086,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_sampling_statistic_summaries_request.GetSamplingStatisticSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.get_sampling_statistic_summaries_request.GetSamplingStatisticSummariesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1148,15 +1148,15 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_sampling_targets_request.GetSamplingTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["sampling_statistics_documents"] = sampling_statistics_documents
+        input_: aws_sdk_xray.types.get_sampling_targets_request.GetSamplingTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["sampling_statistics_documents"] = sampling_statistics_documents
         if sampling_boost_statistics_documents is not None:
-            input["sampling_boost_statistics_documents"] = (
+            input_["sampling_boost_statistics_documents"] = (
                 sampling_boost_statistics_documents
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1198,18 +1198,18 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_service_graph_request.GetServiceGraphRequest = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_xray.types.get_service_graph_request.GetServiceGraphRequest = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group_arn is not None:
-            input["group_arn"] = group_arn
+            input_["group_arn"] = group_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1288,24 +1288,24 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_time_series_service_statistics_request.GetTimeSeriesServiceStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_xray.types.get_time_series_service_statistics_request.GetTimeSeriesServiceStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group_arn is not None:
-            input["group_arn"] = group_arn
+            input_["group_arn"] = group_arn
         if entity_selector_expression is not None:
-            input["entity_selector_expression"] = entity_selector_expression
+            input_["entity_selector_expression"] = entity_selector_expression
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if forecast_statistics is not None:
-            input["forecast_statistics"] = forecast_statistics
+            input_["forecast_statistics"] = forecast_statistics
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1378,13 +1378,13 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_trace_graph_request.GetTraceGraphRequest = {}  # type: ignore[typeddict-item]
-        input["trace_ids"] = trace_ids
+        input_: aws_sdk_xray.types.get_trace_graph_request.GetTraceGraphRequest = {}  # type: ignore[typeddict-item]
+        input_["trace_ids"] = trace_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1432,10 +1432,10 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_trace_segment_destination_request.GetTraceSegmentDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.get_trace_segment_destination_request.GetTraceSegmentDestinationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1489,22 +1489,22 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.get_trace_summaries_request.GetTraceSummariesRequest = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_xray.types.get_trace_summaries_request.GetTraceSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if time_range_type is not None:
-            input["time_range_type"] = time_range_type
+            input_["time_range_type"] = time_range_type
         if sampling is not None:
-            input["sampling"] = sampling
+            input_["sampling"] = sampling
         if sampling_strategy is not None:
-            input["sampling_strategy"] = sampling_strategy
+            input_["sampling_strategy"] = sampling_strategy
         if filter_expression is not None:
-            input["filter_expression"] = filter_expression
+            input_["filter_expression"] = filter_expression
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1579,12 +1579,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.list_resource_policies_request.ListResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.list_resource_policies_request.ListResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1645,15 +1645,15 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.list_retrieved_traces_request.ListRetrievedTracesRequest = {}  # type: ignore[typeddict-item]
-        input["retrieval_token"] = retrieval_token
+        input_: aws_sdk_xray.types.list_retrieved_traces_request.ListRetrievedTracesRequest = {}  # type: ignore[typeddict-item]
+        input_["retrieval_token"] = retrieval_token
         if trace_format is not None:
-            input["trace_format"] = trace_format
+            input_["trace_format"] = trace_format
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1691,13 +1691,13 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_xray.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1754,13 +1754,13 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.put_encryption_config_request.PutEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.put_encryption_config_request.PutEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
         if key_id is not None:
-            input["key_id"] = key_id
-        input["type"] = type
+            input_["key_id"] = key_id
+        input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1804,16 +1804,16 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["policy_document"] = policy_document
+        input_: aws_sdk_xray.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["policy_document"] = policy_document
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
         if bypass_policy_lockout_check is not None:
-            input["bypass_policy_lockout_check"] = bypass_policy_lockout_check
+            input_["bypass_policy_lockout_check"] = bypass_policy_lockout_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1855,17 +1855,17 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.put_telemetry_records_request.PutTelemetryRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["telemetry_records"] = telemetry_records
+        input_: aws_sdk_xray.types.put_telemetry_records_request.PutTelemetryRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["telemetry_records"] = telemetry_records
         if ec2_instance_id is not None:
-            input["ec2_instance_id"] = ec2_instance_id
+            input_["ec2_instance_id"] = ec2_instance_id
         if hostname is not None:
-            input["hostname"] = hostname
+            input_["hostname"] = hostname
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1899,11 +1899,11 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.put_trace_segments_request.PutTraceSegmentsRequest = {}  # type: ignore[typeddict-item]
-        input["trace_segment_documents"] = trace_segment_documents
+        input_: aws_sdk_xray.types.put_trace_segments_request.PutTraceSegmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["trace_segment_documents"] = trace_segment_documents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1941,13 +1941,13 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.start_trace_retrieval_request.StartTraceRetrievalRequest = {}  # type: ignore[typeddict-item]
-        input["trace_ids"] = trace_ids
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_xray.types.start_trace_retrieval_request.StartTraceRetrievalRequest = {}  # type: ignore[typeddict-item]
+        input_["trace_ids"] = trace_ids
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1983,12 +1983,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_xray.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2024,12 +2024,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_xray.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2073,18 +2073,18 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group_arn is not None:
-            input["group_arn"] = group_arn
+            input_["group_arn"] = group_arn
         if filter_expression is not None:
-            input["filter_expression"] = filter_expression
+            input_["filter_expression"] = filter_expression
         if insights_configuration is not None:
-            input["insights_configuration"] = insights_configuration
+            input_["insights_configuration"] = insights_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2120,12 +2120,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.update_indexing_rule_request.UpdateIndexingRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["rule"] = rule
+        input_: aws_sdk_xray.types.update_indexing_rule_request.UpdateIndexingRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["rule"] = rule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2159,11 +2159,11 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.update_sampling_rule_request.UpdateSamplingRuleRequest = {}  # type: ignore[typeddict-item]
-        input["sampling_rule_update"] = sampling_rule_update
+        input_: aws_sdk_xray.types.update_sampling_rule_request.UpdateSamplingRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["sampling_rule_update"] = sampling_rule_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2199,12 +2199,12 @@ class AsyncXRayClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_xray.types.update_trace_segment_destination_request.UpdateTraceSegmentDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_xray.types.update_trace_segment_destination_request.UpdateTraceSegmentDestinationRequest = {}  # type: ignore[typeddict-item]
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

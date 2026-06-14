@@ -15,6 +15,72 @@ from aws_sdk_bedrock._auth._providers import (
     StaticBearerTokenProvider,
 )
 from aws_sdk_bedrock._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.advanced_prompt_optimization_job_resource import (
+    AdvancedPromptOptimizationJobResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.allowlist_resource import (
+    AllowlistResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.automated_reasoning_policy_resource import (
+    AutomatedReasoningPolicyResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.bedrock_marketplace_resource import (
+    BedrockMarketplaceResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.custom_model_deployment_resource import (
+    CustomModelDeploymentResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.custom_model_resource import (
+    CustomModelResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.data_retention_resource import (
+    DataRetentionResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.enforced_guardrail_configuration_resource import (
+    EnforcedGuardrailConfigurationResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.evaluation_job_resource import (
+    EvaluationJobResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.guardrails_resource import (
+    GuardrailsResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.inference_profile_resource import (
+    InferenceProfileResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.logging_resource import (
+    LoggingResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.model_copy_resource import (
+    ModelCopyResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.model_import_resource import (
+    ModelImportResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.model_invocation_job_resource import (
+    ModelInvocationJobResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.model_resource import (
+    ModelResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.prompt_router_resource import (
+    PromptRouterResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.provisioned_model_throughput_resource import (
+    ProvisionedModelThroughputResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.resource_policy_resource import (
+    ResourcePolicyResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.subscription_resource import (
+    SubscriptionResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.tagging_resource import (
+    TaggingResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.training_resource import (
+    TrainingResource,
+)
 from aws_sdk_bedrock._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -104,6 +170,37 @@ class BedrockClient:
                 "bearer_provider": bearer_provider,
             }
         )
+        # resources
+        self.advanced_prompt_optimization_job_resource = (
+            AdvancedPromptOptimizationJobResource(self)
+        )
+        self.allowlist_resource = AllowlistResource(self)
+        self.automated_reasoning_policy_resource = AutomatedReasoningPolicyResource(
+            self
+        )
+        self.bedrock_marketplace_resource = BedrockMarketplaceResource(self)
+        self.custom_model_deployment_resource = CustomModelDeploymentResource(self)
+        self.custom_model_resource = CustomModelResource(self)
+        self.data_retention_resource = DataRetentionResource(self)
+        self.enforced_guardrail_configuration_resource = (
+            EnforcedGuardrailConfigurationResource(self)
+        )
+        self.evaluation_job_resource = EvaluationJobResource(self)
+        self.guardrails_resource = GuardrailsResource(self)
+        self.inference_profile_resource = InferenceProfileResource(self)
+        self.logging_resource = LoggingResource(self)
+        self.model_copy_resource = ModelCopyResource(self)
+        self.model_import_resource = ModelImportResource(self)
+        self.model_invocation_job_resource = ModelInvocationJobResource(self)
+        self.model_resource = ModelResource(self)
+        self.prompt_router_resource = PromptRouterResource(self)
+        self.provisioned_model_throughput_resource = ProvisionedModelThroughputResource(
+            self
+        )
+        self.resource_policy_resource = ResourcePolicyResource(self)
+        self.subscription_resource = SubscriptionResource(self)
+        self.tagging_resource = TaggingResource(self)
+        self.training_resource = TrainingResource(self)
 
     def operation_options(
         self, config_overrides: Optional[BedrockClientConfig] = None

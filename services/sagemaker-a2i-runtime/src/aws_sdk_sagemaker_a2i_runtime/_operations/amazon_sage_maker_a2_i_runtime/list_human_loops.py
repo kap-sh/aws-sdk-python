@@ -93,56 +93,53 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_request.ListHumanLoopsRequest,
+    input_: aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_request.ListHumanLoopsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/human-loops"
     params: dict[str, str] = {}
-    if "creation_time_after" in input:
-        params["CreationTimeAfter"] = str(input["creation_time_after"])
-    if "creation_time_before" in input:
-        params["CreationTimeBefore"] = str(input["creation_time_before"])
-    if "flow_definition_arn" in input:
-        params["FlowDefinitionArn"] = str(input["flow_definition_arn"])
-    if "sort_order" in input:
-        params["SortOrder"] = str(input["sort_order"])
-    if "next_token" in input:
-        params["NextToken"] = str(input["next_token"])
-    if "max_results" in input:
-        params["MaxResults"] = str(input["max_results"])
+    if "creation_time_after" in input_:
+        params["CreationTimeAfter"] = str(input_["creation_time_after"])
+    if "creation_time_before" in input_:
+        params["CreationTimeBefore"] = str(input_["creation_time_before"])
+    if "flow_definition_arn" in input_:
+        params["FlowDefinitionArn"] = str(input_["flow_definition_arn"])
+    if "sort_order" in input_:
+        params["SortOrder"] = str(input_["sort_order"])
+    if "next_token" in input_:
+        params["NextToken"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["MaxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_human_loops(
     options: OperationOptions,
-    input: aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_request.ListHumanLoopsRequest,
+    input_: aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_request.ListHumanLoopsRequest,
 ) -> tuple[
     aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_response.ListHumanLoopsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -151,16 +148,17 @@ def list_human_loops(
 
 async def async_list_human_loops(
     options: AsyncOperationOptions,
-    input: aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_request.ListHumanLoopsRequest,
+    input_: aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_request.ListHumanLoopsRequest,
 ) -> tuple[
     aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_response.ListHumanLoopsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

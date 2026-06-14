@@ -79,7 +79,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.describe_stream_consumer_input.DescribeStreamConsumerInput,
+    input_: aws_sdk_kinesis.types.describe_stream_consumer_input.DescribeStreamConsumerInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -87,10 +87,10 @@ def build_request(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
-            StreamId=input.get("stream_id"),
-            StreamARN=input.get("stream_arn"),
+            StreamId=input_.get("stream_id"),
+            StreamARN=input_.get("stream_arn"),
             OperationType="control",
-            ConsumerARN=input.get("consumer_arn"),
+            ConsumerARN=input_.get("consumer_arn"),
             ResourceARN=options.resource_arn,
         )
     )  # noqa: F841
@@ -102,7 +102,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_kinesis.types.describe_stream_consumer_input.serialize_aws_json_1_1(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
@@ -116,12 +116,12 @@ def build_request(
 
 def describe_stream_consumer(
     options: OperationOptions,
-    input: aws_sdk_kinesis.types.describe_stream_consumer_input.DescribeStreamConsumerInput,
+    input_: aws_sdk_kinesis.types.describe_stream_consumer_input.DescribeStreamConsumerInput,
 ) -> tuple[
     aws_sdk_kinesis.types.describe_stream_consumer_output.DescribeStreamConsumerOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -135,12 +135,12 @@ def describe_stream_consumer(
 
 async def async_describe_stream_consumer(
     options: AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.describe_stream_consumer_input.DescribeStreamConsumerInput,
+    input_: aws_sdk_kinesis.types.describe_stream_consumer_input.DescribeStreamConsumerInput,
 ) -> tuple[
     aws_sdk_kinesis.types.describe_stream_consumer_output.DescribeStreamConsumerOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

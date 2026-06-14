@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_textract._auth._signers
+import aws_sdk_textract._auth._sigv4
 from aws_sdk_textract._auth._identity import Credentials
 from aws_sdk_textract._auth._providers import (
     CredentialsProvider,
@@ -243,18 +245,18 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.analyze_document_request.AnalyzeDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["document"] = document
-        input["feature_types"] = feature_types
+        input_: aws_sdk_textract.types.analyze_document_request.AnalyzeDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["document"] = document
+        input_["feature_types"] = feature_types
         if human_loop_config is not None:
-            input["human_loop_config"] = human_loop_config
+            input_["human_loop_config"] = human_loop_config
         if queries_config is not None:
-            input["queries_config"] = queries_config
+            input_["queries_config"] = queries_config
         if adapters_config is not None:
-            input["adapters_config"] = adapters_config
+            input_["adapters_config"] = adapters_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,11 +285,11 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.analyze_expense_request.AnalyzeExpenseRequest = {}  # type: ignore[typeddict-item]
-        input["document"] = document
+        input_: aws_sdk_textract.types.analyze_expense_request.AnalyzeExpenseRequest = {}  # type: ignore[typeddict-item]
+        input_["document"] = document
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,11 +322,11 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.analyze_id_request.AnalyzeIDRequest = {}  # type: ignore[typeddict-item]
-        input["document_pages"] = document_pages
+        input_: aws_sdk_textract.types.analyze_id_request.AnalyzeIDRequest = {}  # type: ignore[typeddict-item]
+        input_["document_pages"] = document_pages
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,20 +373,20 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.create_adapter_request.CreateAdapterRequest = {}  # type: ignore[typeddict-item]
-        input["adapter_name"] = adapter_name
+        input_: aws_sdk_textract.types.create_adapter_request.CreateAdapterRequest = {}  # type: ignore[typeddict-item]
+        input_["adapter_name"] = adapter_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if description is not None:
-            input["description"] = description
-        input["feature_types"] = feature_types
+            input_["description"] = description
+        input_["feature_types"] = feature_types
         if auto_update is not None:
-            input["auto_update"] = auto_update
+            input_["auto_update"] = auto_update
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,19 +430,19 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.create_adapter_version_request.CreateAdapterVersionRequest = {}  # type: ignore[typeddict-item]
-        input["adapter_id"] = adapter_id
+        input_: aws_sdk_textract.types.create_adapter_version_request.CreateAdapterVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["adapter_id"] = adapter_id
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["dataset_config"] = dataset_config
+            input_["client_request_token"] = client_request_token
+        input_["dataset_config"] = dataset_config
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["output_config"] = output_config
+            input_["kms_key_id"] = kms_key_id
+        input_["output_config"] = output_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,11 +475,11 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.delete_adapter_request.DeleteAdapterRequest = {}  # type: ignore[typeddict-item]
-        input["adapter_id"] = adapter_id
+        input_: aws_sdk_textract.types.delete_adapter_request.DeleteAdapterRequest = {}  # type: ignore[typeddict-item]
+        input_["adapter_id"] = adapter_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -512,12 +514,12 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.delete_adapter_version_request.DeleteAdapterVersionRequest = {}  # type: ignore[typeddict-item]
-        input["adapter_id"] = adapter_id
-        input["adapter_version"] = adapter_version
+        input_: aws_sdk_textract.types.delete_adapter_version_request.DeleteAdapterVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["adapter_id"] = adapter_id
+        input_["adapter_version"] = adapter_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -550,11 +552,11 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.detect_document_text_request.DetectDocumentTextRequest = {}  # type: ignore[typeddict-item]
-        input["document"] = document
+        input_: aws_sdk_textract.types.detect_document_text_request.DetectDocumentTextRequest = {}  # type: ignore[typeddict-item]
+        input_["document"] = document
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -587,11 +589,11 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.get_adapter_request.GetAdapterRequest = {}  # type: ignore[typeddict-item]
-        input["adapter_id"] = adapter_id
+        input_: aws_sdk_textract.types.get_adapter_request.GetAdapterRequest = {}  # type: ignore[typeddict-item]
+        input_["adapter_id"] = adapter_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -628,12 +630,12 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.get_adapter_version_request.GetAdapterVersionRequest = {}  # type: ignore[typeddict-item]
-        input["adapter_id"] = adapter_id
-        input["adapter_version"] = adapter_version
+        input_: aws_sdk_textract.types.get_adapter_version_request.GetAdapterVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["adapter_id"] = adapter_id
+        input_["adapter_version"] = adapter_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -672,15 +674,15 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.get_document_analysis_request.GetDocumentAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_textract.types.get_document_analysis_request.GetDocumentAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -719,15 +721,15 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.get_document_text_detection_request.GetDocumentTextDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_textract.types.get_document_text_detection_request.GetDocumentTextDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -766,15 +768,15 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.get_expense_analysis_request.GetExpenseAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_textract.types.get_expense_analysis_request.GetExpenseAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -813,15 +815,15 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.get_lending_analysis_request.GetLendingAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_textract.types.get_lending_analysis_request.GetLendingAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -854,11 +856,11 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.get_lending_analysis_summary_request.GetLendingAnalysisSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_textract.types.get_lending_analysis_summary_request.GetLendingAnalysisSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -903,18 +905,18 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.list_adapters_request.ListAdaptersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_textract.types.list_adapters_request.ListAdaptersRequest = {}  # type: ignore[typeddict-item]
         if after_creation_time is not None:
-            input["after_creation_time"] = after_creation_time
+            input_["after_creation_time"] = after_creation_time
         if before_creation_time is not None:
-            input["before_creation_time"] = before_creation_time
+            input_["before_creation_time"] = before_creation_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -992,20 +994,20 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.list_adapter_versions_request.ListAdapterVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_textract.types.list_adapter_versions_request.ListAdapterVersionsRequest = {}  # type: ignore[typeddict-item]
         if adapter_id is not None:
-            input["adapter_id"] = adapter_id
+            input_["adapter_id"] = adapter_id
         if after_creation_time is not None:
-            input["after_creation_time"] = after_creation_time
+            input_["after_creation_time"] = after_creation_time
         if before_creation_time is not None:
-            input["before_creation_time"] = before_creation_time
+            input_["before_creation_time"] = before_creation_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1071,11 +1073,11 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_textract.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1133,26 +1135,26 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.start_document_analysis_request.StartDocumentAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["document_location"] = document_location
-        input["feature_types"] = feature_types
+        input_: aws_sdk_textract.types.start_document_analysis_request.StartDocumentAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["document_location"] = document_location
+        input_["feature_types"] = feature_types
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if queries_config is not None:
-            input["queries_config"] = queries_config
+            input_["queries_config"] = queries_config
         if adapters_config is not None:
-            input["adapters_config"] = adapters_config
+            input_["adapters_config"] = adapters_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1201,21 +1203,21 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.start_document_text_detection_request.StartDocumentTextDetectionRequest = {}  # type: ignore[typeddict-item]
-        input["document_location"] = document_location
+        input_: aws_sdk_textract.types.start_document_text_detection_request.StartDocumentTextDetectionRequest = {}  # type: ignore[typeddict-item]
+        input_["document_location"] = document_location
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1264,21 +1266,21 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.start_expense_analysis_request.StartExpenseAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["document_location"] = document_location
+        input_: aws_sdk_textract.types.start_expense_analysis_request.StartExpenseAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["document_location"] = document_location
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1324,21 +1326,21 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.start_lending_analysis_request.StartLendingAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["document_location"] = document_location
+        input_: aws_sdk_textract.types.start_lending_analysis_request.StartLendingAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["document_location"] = document_location
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if job_tag is not None:
-            input["job_tag"] = job_tag
+            input_["job_tag"] = job_tag
         if notification_channel is not None:
-            input["notification_channel"] = notification_channel
+            input_["notification_channel"] = notification_channel
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1373,12 +1375,12 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_textract.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1413,12 +1415,12 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_textract.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1461,17 +1463,17 @@ class TextractClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_textract.types.update_adapter_request.UpdateAdapterRequest = {}  # type: ignore[typeddict-item]
-        input["adapter_id"] = adapter_id
+        input_: aws_sdk_textract.types.update_adapter_request.UpdateAdapterRequest = {}  # type: ignore[typeddict-item]
+        input_["adapter_id"] = adapter_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if adapter_name is not None:
-            input["adapter_name"] = adapter_name
+            input_["adapter_name"] = adapter_name
         if auto_update is not None:
-            input["auto_update"] = auto_update
+            input_["auto_update"] = auto_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

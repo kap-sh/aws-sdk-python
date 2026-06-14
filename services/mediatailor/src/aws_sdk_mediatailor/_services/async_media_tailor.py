@@ -16,6 +16,27 @@ from aws_sdk_mediatailor._auth._providers import (
 )
 from aws_sdk_mediatailor._auth._zapros_handler import AuthMiddleware
 from aws_sdk_mediatailor._pagination import resolve_path as _resolve_path
+from aws_sdk_mediatailor._resources.media_tailor.channel_resource import (
+    AsyncChannelResource,
+)
+from aws_sdk_mediatailor._resources.media_tailor.function_resource import (
+    AsyncFunctionResource,
+)
+from aws_sdk_mediatailor._resources.media_tailor.live_source_resource import (
+    AsyncLiveSourceResource,
+)
+from aws_sdk_mediatailor._resources.media_tailor.playback_configuration_resource import (
+    AsyncPlaybackConfigurationResource,
+)
+from aws_sdk_mediatailor._resources.media_tailor.prefetch_schedule_resource import (
+    AsyncPrefetchScheduleResource,
+)
+from aws_sdk_mediatailor._resources.media_tailor.source_location_resource import (
+    AsyncSourceLocationResource,
+)
+from aws_sdk_mediatailor._resources.media_tailor.vod_source_resource import (
+    AsyncVodSourceResource,
+)
 from aws_sdk_mediatailor._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -117,6 +138,14 @@ class AsyncMediaTailorClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.channel_resource = AsyncChannelResource(self)
+        self.function_resource = AsyncFunctionResource(self)
+        self.live_source_resource = AsyncLiveSourceResource(self)
+        self.playback_configuration_resource = AsyncPlaybackConfigurationResource(self)
+        self.prefetch_schedule_resource = AsyncPrefetchScheduleResource(self)
+        self.source_location_resource = AsyncSourceLocationResource(self)
+        self.vod_source_resource = AsyncVodSourceResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncMediaTailorClientConfig] = None
@@ -188,18 +217,20 @@ class AsyncMediaTailorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.configure_logs_for_playback_configuration_request.ConfigureLogsForPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["percent_enabled"] = percent_enabled
-        input["playback_configuration_name"] = playback_configuration_name
+        input_: aws_sdk_mediatailor.types.configure_logs_for_playback_configuration_request.ConfigureLogsForPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["percent_enabled"] = percent_enabled
+        input_["playback_configuration_name"] = playback_configuration_name
         if enabled_logging_strategies is not None:
-            input["enabled_logging_strategies"] = enabled_logging_strategies
+            input_["enabled_logging_strategies"] = enabled_logging_strategies
         if ads_interaction_log is not None:
-            input["ads_interaction_log"] = ads_interaction_log
+            input_["ads_interaction_log"] = ads_interaction_log
         if manifest_service_interaction_log is not None:
-            input["manifest_service_interaction_log"] = manifest_service_interaction_log
+            input_["manifest_service_interaction_log"] = (
+                manifest_service_interaction_log
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,15 +270,15 @@ class AsyncMediaTailorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_alerts_request.ListAlertsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_alerts_request.ListAlertsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_arn"] = resource_arn
+            input_["next_token"] = next_token
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,11 +337,11 @@ class AsyncMediaTailorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mediatailor.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,12 +375,12 @@ class AsyncMediaTailorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mediatailor.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,12 +414,12 @@ class AsyncMediaTailorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mediatailor.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

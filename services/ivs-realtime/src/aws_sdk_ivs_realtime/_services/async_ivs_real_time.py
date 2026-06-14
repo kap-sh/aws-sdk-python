@@ -297,16 +297,16 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.create_encoder_configuration_request.CreateEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.create_encoder_configuration_request.CreateEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if video is not None:
-            input["video"] = video
+            input_["video"] = video
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,25 +364,25 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.create_ingest_configuration_request.CreateIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.create_ingest_configuration_request.CreateIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if stage_arn is not None:
-            input["stage_arn"] = stage_arn
+            input_["stage_arn"] = stage_arn
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if attributes is not None:
-            input["attributes"] = attributes
-        input["ingest_protocol"] = ingest_protocol
+            input_["attributes"] = attributes
+        input_["ingest_protocol"] = ingest_protocol
         if insecure_ingest is not None:
-            input["insecure_ingest"] = insecure_ingest
+            input_["insecure_ingest"] = insecure_ingest
         if redundant_ingest is not None:
-            input["redundant_ingest"] = redundant_ingest
+            input_["redundant_ingest"] = redundant_ingest
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,19 +432,19 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.create_participant_token_request.CreateParticipantTokenRequest = {}  # type: ignore[typeddict-item]
-        input["stage_arn"] = stage_arn
+        input_: aws_sdk_ivs_realtime.types.create_participant_token_request.CreateParticipantTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["stage_arn"] = stage_arn
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,20 +488,22 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.create_stage_request.CreateStageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.create_stage_request.CreateStageRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if participant_token_configurations is not None:
-            input["participant_token_configurations"] = participant_token_configurations
+            input_["participant_token_configurations"] = (
+                participant_token_configurations
+            )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if auto_participant_recording_configuration is not None:
-            input["auto_participant_recording_configuration"] = (
+            input_["auto_participant_recording_configuration"] = (
                 auto_participant_recording_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -541,15 +543,15 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.create_storage_configuration_request.CreateStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.create_storage_configuration_request.CreateStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["s3"] = s3
+            input_["name"] = name
+        input_["s3"] = s3
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -583,11 +585,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.delete_encoder_configuration_request.DeleteEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.delete_encoder_configuration_request.DeleteEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -623,13 +625,13 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.delete_ingest_configuration_request.DeleteIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.delete_ingest_configuration_request.DeleteIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -665,11 +667,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.delete_public_key_request.DeletePublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.delete_public_key_request.DeletePublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -703,11 +705,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.delete_stage_request.DeleteStageRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.delete_stage_request.DeleteStageRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -741,11 +743,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.delete_storage_configuration_request.DeleteStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.delete_storage_configuration_request.DeleteStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -785,14 +787,14 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.disconnect_participant_request.DisconnectParticipantRequest = {}  # type: ignore[typeddict-item]
-        input["stage_arn"] = stage_arn
-        input["participant_id"] = participant_id
+        input_: aws_sdk_ivs_realtime.types.disconnect_participant_request.DisconnectParticipantRequest = {}  # type: ignore[typeddict-item]
+        input_["stage_arn"] = stage_arn
+        input_["participant_id"] = participant_id
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -826,11 +828,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.get_composition_request.GetCompositionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.get_composition_request.GetCompositionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -864,11 +866,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.get_encoder_configuration_request.GetEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.get_encoder_configuration_request.GetEncoderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -902,11 +904,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.get_ingest_configuration_request.GetIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.get_ingest_configuration_request.GetIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -944,13 +946,13 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.get_participant_request.GetParticipantRequest = {}  # type: ignore[typeddict-item]
-        input["stage_arn"] = stage_arn
-        input["session_id"] = session_id
-        input["participant_id"] = participant_id
+        input_: aws_sdk_ivs_realtime.types.get_participant_request.GetParticipantRequest = {}  # type: ignore[typeddict-item]
+        input_["stage_arn"] = stage_arn
+        input_["session_id"] = session_id
+        input_["participant_id"] = participant_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -984,11 +986,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1022,11 +1024,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.get_stage_request.GetStageRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.get_stage_request.GetStageRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1064,12 +1066,12 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.get_stage_session_request.GetStageSessionRequest = {}  # type: ignore[typeddict-item]
-        input["stage_arn"] = stage_arn
-        input["session_id"] = session_id
+        input_: aws_sdk_ivs_realtime.types.get_stage_session_request.GetStageSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["stage_arn"] = stage_arn
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1103,11 +1105,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.get_storage_configuration_request.GetStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.get_storage_configuration_request.GetStorageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1149,15 +1151,15 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.import_public_key_request.ImportPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["public_key_material"] = public_key_material
+        input_: aws_sdk_ivs_realtime.types.import_public_key_request.ImportPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["public_key_material"] = public_key_material
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1207,20 +1209,20 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_compositions_request.ListCompositionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.list_compositions_request.ListCompositionsRequest = {}  # type: ignore[typeddict-item]
         if filter_by_stage_arn is not None:
-            input["filter_by_stage_arn"] = filter_by_stage_arn
+            input_["filter_by_stage_arn"] = filter_by_stage_arn
         if filter_by_encoder_configuration_arn is not None:
-            input["filter_by_encoder_configuration_arn"] = (
+            input_["filter_by_encoder_configuration_arn"] = (
                 filter_by_encoder_configuration_arn
             )
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1260,14 +1262,14 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_encoder_configurations_request.ListEncoderConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.list_encoder_configurations_request.ListEncoderConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1315,18 +1317,18 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_ingest_configurations_request.ListIngestConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.list_ingest_configurations_request.ListIngestConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if filter_by_stage_arn is not None:
-            input["filter_by_stage_arn"] = filter_by_stage_arn
+            input_["filter_by_stage_arn"] = filter_by_stage_arn
         if filter_by_state is not None:
-            input["filter_by_state"] = filter_by_state
+            input_["filter_by_state"] = filter_by_state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1405,17 +1407,17 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_participant_events_request.ListParticipantEventsRequest = {}  # type: ignore[typeddict-item]
-        input["stage_arn"] = stage_arn
-        input["session_id"] = session_id
-        input["participant_id"] = participant_id
+        input_: aws_sdk_ivs_realtime.types.list_participant_events_request.ListParticipantEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["stage_arn"] = stage_arn
+        input_["session_id"] = session_id
+        input_["participant_id"] = participant_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1459,16 +1461,16 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_participant_replicas_request.ListParticipantReplicasRequest = {}  # type: ignore[typeddict-item]
-        input["source_stage_arn"] = source_stage_arn
-        input["participant_id"] = participant_id
+        input_: aws_sdk_ivs_realtime.types.list_participant_replicas_request.ListParticipantReplicasRequest = {}  # type: ignore[typeddict-item]
+        input_["source_stage_arn"] = source_stage_arn
+        input_["participant_id"] = participant_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1557,24 +1559,24 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_participants_request.ListParticipantsRequest = {}  # type: ignore[typeddict-item]
-        input["stage_arn"] = stage_arn
-        input["session_id"] = session_id
+        input_: aws_sdk_ivs_realtime.types.list_participants_request.ListParticipantsRequest = {}  # type: ignore[typeddict-item]
+        input_["stage_arn"] = stage_arn
+        input_["session_id"] = session_id
         if filter_by_user_id is not None:
-            input["filter_by_user_id"] = filter_by_user_id
+            input_["filter_by_user_id"] = filter_by_user_id
         if filter_by_published is not None:
-            input["filter_by_published"] = filter_by_published
+            input_["filter_by_published"] = filter_by_published
         if filter_by_state is not None:
-            input["filter_by_state"] = filter_by_state
+            input_["filter_by_state"] = filter_by_state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter_by_recording_state is not None:
-            input["filter_by_recording_state"] = filter_by_recording_state
+            input_["filter_by_recording_state"] = filter_by_recording_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1614,14 +1616,14 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_public_keys_request.ListPublicKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.list_public_keys_request.ListPublicKeysRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1688,14 +1690,14 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_stages_request.ListStagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.list_stages_request.ListStagesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1737,15 +1739,15 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_stage_sessions_request.ListStageSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["stage_arn"] = stage_arn
+        input_: aws_sdk_ivs_realtime.types.list_stage_sessions_request.ListStageSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["stage_arn"] = stage_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1785,14 +1787,14 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_storage_configurations_request.ListStorageConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs_realtime.types.list_storage_configurations_request.ListStorageConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1826,11 +1828,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ivs_realtime.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1878,18 +1880,18 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.start_composition_request.StartCompositionRequest = {}  # type: ignore[typeddict-item]
-        input["stage_arn"] = stage_arn
+        input_: aws_sdk_ivs_realtime.types.start_composition_request.StartCompositionRequest = {}  # type: ignore[typeddict-item]
+        input_["stage_arn"] = stage_arn
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if layout is not None:
-            input["layout"] = layout
-        input["destinations"] = destinations
+            input_["layout"] = layout
+        input_["destinations"] = destinations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1935,17 +1937,17 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.start_participant_replication_request.StartParticipantReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_stage_arn"] = source_stage_arn
-        input["destination_stage_arn"] = destination_stage_arn
-        input["participant_id"] = participant_id
+        input_: aws_sdk_ivs_realtime.types.start_participant_replication_request.StartParticipantReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_stage_arn"] = source_stage_arn
+        input_["destination_stage_arn"] = destination_stage_arn
+        input_["participant_id"] = participant_id
         if reconnect_window_seconds is not None:
-            input["reconnect_window_seconds"] = reconnect_window_seconds
+            input_["reconnect_window_seconds"] = reconnect_window_seconds
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,11 +1981,11 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.stop_composition_request.StopCompositionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.stop_composition_request.StopCompositionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2021,13 +2023,13 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.stop_participant_replication_request.StopParticipantReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_stage_arn"] = source_stage_arn
-        input["destination_stage_arn"] = destination_stage_arn
-        input["participant_id"] = participant_id
+        input_: aws_sdk_ivs_realtime.types.stop_participant_replication_request.StopParticipantReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_stage_arn"] = source_stage_arn
+        input_["destination_stage_arn"] = destination_stage_arn
+        input_["participant_id"] = participant_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2063,12 +2065,12 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_ivs_realtime.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2104,12 +2106,12 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ivs_realtime.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2151,15 +2153,15 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.update_ingest_configuration_request.UpdateIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.update_ingest_configuration_request.UpdateIngestConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if stage_arn is not None:
-            input["stage_arn"] = stage_arn
+            input_["stage_arn"] = stage_arn
         if redundant_ingest is not None:
-            input["redundant_ingest"] = redundant_ingest
+            input_["redundant_ingest"] = redundant_ingest
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2199,17 +2201,17 @@ class AsyncIVSRealTimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs_realtime.types.update_stage_request.UpdateStageRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs_realtime.types.update_stage_request.UpdateStageRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if auto_participant_recording_configuration is not None:
-            input["auto_participant_recording_configuration"] = (
+            input_["auto_participant_recording_configuration"] = (
                 auto_participant_recording_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

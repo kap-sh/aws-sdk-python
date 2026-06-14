@@ -148,25 +148,25 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest,
+    input_: aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/streaming-distribution?WithTags"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "streaming_distribution_config_with_tags" in input:
+    if "streaming_distribution_config_with_tags" in input_:
         import aws_sdk_cloudfront.types.streaming_distribution_config_with_tags
 
         payload_root = Element("_")
         aws_sdk_cloudfront.types.streaming_distribution_config_with_tags.serialize_xml(
-            input["streaming_distribution_config_with_tags"],
+            input_["streaming_distribution_config_with_tags"],
             payload_root,
             "StreamingDistributionConfigWithTags",
         )
@@ -178,26 +178,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def create_streaming_distribution_with_tags(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest,
+    input_: aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_result.CreateStreamingDistributionWithTagsResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -206,16 +203,17 @@ def create_streaming_distribution_with_tags(
 
 async def async_create_streaming_distribution_with_tags(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest,
+    input_: aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_result.CreateStreamingDistributionWithTagsResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

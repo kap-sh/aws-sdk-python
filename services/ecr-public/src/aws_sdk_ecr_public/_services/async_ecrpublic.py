@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_ecr_public._auth._signers
+import aws_sdk_ecr_public._auth._sigv4
 from aws_sdk_ecr_public._auth._identity import Credentials
 from aws_sdk_ecr_public._auth._providers import (
     CredentialsProvider,
@@ -234,14 +236,14 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.batch_check_layer_availability_request.BatchCheckLayerAvailabilityRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.batch_check_layer_availability_request.BatchCheckLayerAvailabilityRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
-        input["layer_digests"] = layer_digests
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
+        input_["layer_digests"] = layer_digests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,14 +285,14 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.batch_delete_image_request.BatchDeleteImageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.batch_delete_image_request.BatchDeleteImageRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
-        input["image_ids"] = image_ids
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
+        input_["image_ids"] = image_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,15 +334,15 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.complete_layer_upload_request.CompleteLayerUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.complete_layer_upload_request.CompleteLayerUploadRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
-        input["upload_id"] = upload_id
-        input["layer_digests"] = layer_digests
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
+        input_["upload_id"] = upload_id
+        input_["layer_digests"] = layer_digests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,15 +382,15 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.create_repository_request.CreateRepositoryRequest = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
+        input_: aws_sdk_ecr_public.types.create_repository_request.CreateRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
         if catalog_data is not None:
-            input["catalog_data"] = catalog_data
+            input_["catalog_data"] = catalog_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,15 +428,15 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.delete_repository_request.DeleteRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.delete_repository_request.DeleteRepositoryRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,13 +472,13 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.delete_repository_policy_request.DeleteRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.delete_repository_policy_request.DeleteRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,19 +522,19 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.describe_images_request.DescribeImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.describe_images_request.DescribeImagesRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
         if image_ids is not None:
-            input["image_ids"] = image_ids
+            input_["image_ids"] = image_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -601,17 +603,17 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.describe_image_tags_request.DescribeImageTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.describe_image_tags_request.DescribeImageTagsRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -672,14 +674,14 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.describe_registries_request.DescribeRegistriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.describe_registries_request.DescribeRegistriesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -742,18 +744,18 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.describe_repositories_request.DescribeRepositoriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.describe_repositories_request.DescribeRepositoriesRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
+            input_["registry_id"] = registry_id
         if repository_names is not None:
-            input["repository_names"] = repository_names
+            input_["repository_names"] = repository_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -807,10 +809,10 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.get_authorization_token_request.GetAuthorizationTokenRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.get_authorization_token_request.GetAuthorizationTokenRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -837,10 +839,10 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.get_registry_catalog_data_request.GetRegistryCatalogDataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.get_registry_catalog_data_request.GetRegistryCatalogDataRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,13 +878,13 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.get_repository_catalog_data_request.GetRepositoryCatalogDataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.get_repository_catalog_data_request.GetRepositoryCatalogDataRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -918,13 +920,13 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.get_repository_policy_request.GetRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.get_repository_policy_request.GetRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -962,13 +964,13 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.initiate_layer_upload_request.InitiateLayerUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.initiate_layer_upload_request.InitiateLayerUploadRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1002,11 +1004,11 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ecr_public.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1056,20 +1058,20 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.put_image_request.PutImageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.put_image_request.PutImageRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
-        input["image_manifest"] = image_manifest
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
+        input_["image_manifest"] = image_manifest
         if image_manifest_media_type is not None:
-            input["image_manifest_media_type"] = image_manifest_media_type
+            input_["image_manifest_media_type"] = image_manifest_media_type
         if image_tag is not None:
-            input["image_tag"] = image_tag
+            input_["image_tag"] = image_tag
         if image_digest is not None:
-            input["image_digest"] = image_digest
+            input_["image_digest"] = image_digest
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1105,12 +1107,12 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.put_registry_catalog_data_request.PutRegistryCatalogDataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.put_registry_catalog_data_request.PutRegistryCatalogDataRequest = {}  # type: ignore[typeddict-item]
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1148,14 +1150,14 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.put_repository_catalog_data_request.PutRepositoryCatalogDataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.put_repository_catalog_data_request.PutRepositoryCatalogDataRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
-        input["catalog_data"] = catalog_data
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
+        input_["catalog_data"] = catalog_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1195,16 +1197,16 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.set_repository_policy_request.SetRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.set_repository_policy_request.SetRepositoryPolicyRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
-        input["policy_text"] = policy_text
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
+        input_["policy_text"] = policy_text
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1240,12 +1242,12 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_ecr_public.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1281,12 +1283,12 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ecr_public.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1332,17 +1334,17 @@ class AsyncECRPUBLICClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ecr_public.types.upload_layer_part_request.UploadLayerPartRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecr_public.types.upload_layer_part_request.UploadLayerPartRequest = {}  # type: ignore[typeddict-item]
         if registry_id is not None:
-            input["registry_id"] = registry_id
-        input["repository_name"] = repository_name
-        input["upload_id"] = upload_id
-        input["part_first_byte"] = part_first_byte
-        input["part_last_byte"] = part_last_byte
-        input["layer_part_blob"] = layer_part_blob
+            input_["registry_id"] = registry_id
+        input_["repository_name"] = repository_name
+        input_["upload_id"] = upload_id
+        input_["part_first_byte"] = part_first_byte
+        input_["part_last_byte"] = part_last_byte
+        input_["layer_part_blob"] = layer_part_blob
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

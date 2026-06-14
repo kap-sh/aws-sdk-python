@@ -15,6 +15,12 @@ from aws_sdk_networkmonitor._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_networkmonitor._auth._zapros_handler import AuthMiddleware
+from aws_sdk_networkmonitor._resources.network_monitor.monitor_resource import (
+    MonitorResource,
+)
+from aws_sdk_networkmonitor._resources.network_monitor.probe_resource import (
+    ProbeResource,
+)
 from aws_sdk_networkmonitor._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -106,6 +112,9 @@ class NetworkMonitorClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.monitor_resource = MonitorResource(self)
+        self.probe_resource = ProbeResource(self)
 
     def operation_options(
         self, config_overrides: Optional[NetworkMonitorClientConfig] = None
@@ -162,11 +171,11 @@ class NetworkMonitorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_networkmonitor.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,12 +210,12 @@ class NetworkMonitorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_networkmonitor.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,12 +250,12 @@ class NetworkMonitorClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_networkmonitor.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_networkmonitor.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

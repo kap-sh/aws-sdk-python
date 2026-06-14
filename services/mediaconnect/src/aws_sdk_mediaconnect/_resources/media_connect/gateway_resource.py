@@ -70,13 +70,13 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["egress_cidr_blocks"] = egress_cidr_blocks
-        input["name"] = name
-        input["networks"] = networks
+        input_: aws_sdk_mediaconnect.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["egress_cidr_blocks"] = egress_cidr_blocks
+        input_["name"] = name
+        input_["networks"] = networks
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -109,11 +109,11 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_gateway_request.DescribeGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_mediaconnect.types.describe_gateway_request.DescribeGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -146,11 +146,11 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.delete_gateway_request.DeleteGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_mediaconnect.types.delete_gateway_request.DeleteGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -187,14 +187,14 @@ class GatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_gateways_request.ListGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_gateways_request.ListGatewaysRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -237,13 +237,13 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["egress_cidr_blocks"] = egress_cidr_blocks
-        input["name"] = name
-        input["networks"] = networks
+        input_: aws_sdk_mediaconnect.types.create_gateway_request.CreateGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["egress_cidr_blocks"] = egress_cidr_blocks
+        input_["name"] = name
+        input_["networks"] = networks
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,11 +277,11 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_gateway_request.DescribeGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_mediaconnect.types.describe_gateway_request.DescribeGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,11 +315,11 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.delete_gateway_request.DeleteGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_arn"] = gateway_arn
+        input_: aws_sdk_mediaconnect.types.delete_gateway_request.DeleteGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_arn"] = gateway_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -357,14 +357,14 @@ class AsyncGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_gateways_request.ListGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_gateways_request.ListGatewaysRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

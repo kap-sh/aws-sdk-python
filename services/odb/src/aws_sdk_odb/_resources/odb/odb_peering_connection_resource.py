@@ -82,22 +82,22 @@ class OdbPeeringConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_odb_peering_connection_input.CreateOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["odb_network_id"] = odb_network_id
-        input["peer_network_id"] = peer_network_id
+        input_: aws_sdk_odb.types.create_odb_peering_connection_input.CreateOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["odb_network_id"] = odb_network_id
+        input_["peer_network_id"] = peer_network_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if peer_network_cidrs_to_be_added is not None:
-            input["peer_network_cidrs_to_be_added"] = peer_network_cidrs_to_be_added
+            input_["peer_network_cidrs_to_be_added"] = peer_network_cidrs_to_be_added
         if peer_network_route_table_ids is not None:
-            input["peer_network_route_table_ids"] = peer_network_route_table_ids
+            input_["peer_network_route_table_ids"] = peer_network_route_table_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -130,11 +130,11 @@ class OdbPeeringConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_odb_peering_connection_input.GetOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["odb_peering_connection_id"] = odb_peering_connection_id
+        input_: aws_sdk_odb.types.get_odb_peering_connection_input.GetOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["odb_peering_connection_id"] = odb_peering_connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,17 +179,19 @@ class OdbPeeringConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.update_odb_peering_connection_input.UpdateOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["odb_peering_connection_id"] = odb_peering_connection_id
+        input_: aws_sdk_odb.types.update_odb_peering_connection_input.UpdateOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["odb_peering_connection_id"] = odb_peering_connection_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if peer_network_cidrs_to_be_added is not None:
-            input["peer_network_cidrs_to_be_added"] = peer_network_cidrs_to_be_added
+            input_["peer_network_cidrs_to_be_added"] = peer_network_cidrs_to_be_added
         if peer_network_cidrs_to_be_removed is not None:
-            input["peer_network_cidrs_to_be_removed"] = peer_network_cidrs_to_be_removed
+            input_["peer_network_cidrs_to_be_removed"] = (
+                peer_network_cidrs_to_be_removed
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,11 +224,11 @@ class OdbPeeringConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_odb_peering_connection_input.DeleteOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["odb_peering_connection_id"] = odb_peering_connection_id
+        input_: aws_sdk_odb.types.delete_odb_peering_connection_input.DeleteOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["odb_peering_connection_id"] = odb_peering_connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,16 +267,16 @@ class OdbPeeringConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_odb_peering_connections_input.ListOdbPeeringConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_odb_peering_connections_input.ListOdbPeeringConnectionsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if odb_network_id is not None:
-            input["odb_network_id"] = odb_network_id
+            input_["odb_network_id"] = odb_network_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,22 +335,22 @@ class AsyncOdbPeeringConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_odb_peering_connection_input.CreateOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["odb_network_id"] = odb_network_id
-        input["peer_network_id"] = peer_network_id
+        input_: aws_sdk_odb.types.create_odb_peering_connection_input.CreateOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["odb_network_id"] = odb_network_id
+        input_["peer_network_id"] = peer_network_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if peer_network_cidrs_to_be_added is not None:
-            input["peer_network_cidrs_to_be_added"] = peer_network_cidrs_to_be_added
+            input_["peer_network_cidrs_to_be_added"] = peer_network_cidrs_to_be_added
         if peer_network_route_table_ids is not None:
-            input["peer_network_route_table_ids"] = peer_network_route_table_ids
+            input_["peer_network_route_table_ids"] = peer_network_route_table_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -382,11 +384,11 @@ class AsyncOdbPeeringConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_odb_peering_connection_input.GetOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["odb_peering_connection_id"] = odb_peering_connection_id
+        input_: aws_sdk_odb.types.get_odb_peering_connection_input.GetOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["odb_peering_connection_id"] = odb_peering_connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,17 +434,19 @@ class AsyncOdbPeeringConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.update_odb_peering_connection_input.UpdateOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["odb_peering_connection_id"] = odb_peering_connection_id
+        input_: aws_sdk_odb.types.update_odb_peering_connection_input.UpdateOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["odb_peering_connection_id"] = odb_peering_connection_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if peer_network_cidrs_to_be_added is not None:
-            input["peer_network_cidrs_to_be_added"] = peer_network_cidrs_to_be_added
+            input_["peer_network_cidrs_to_be_added"] = peer_network_cidrs_to_be_added
         if peer_network_cidrs_to_be_removed is not None:
-            input["peer_network_cidrs_to_be_removed"] = peer_network_cidrs_to_be_removed
+            input_["peer_network_cidrs_to_be_removed"] = (
+                peer_network_cidrs_to_be_removed
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,11 +480,11 @@ class AsyncOdbPeeringConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_odb_peering_connection_input.DeleteOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["odb_peering_connection_id"] = odb_peering_connection_id
+        input_: aws_sdk_odb.types.delete_odb_peering_connection_input.DeleteOdbPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["odb_peering_connection_id"] = odb_peering_connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,16 +524,16 @@ class AsyncOdbPeeringConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_odb_peering_connections_input.ListOdbPeeringConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_odb_peering_connections_input.ListOdbPeeringConnectionsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if odb_network_id is not None:
-            input["odb_network_id"] = odb_network_id
+            input_["odb_network_id"] = odb_network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -76,16 +76,16 @@ class TemplateGroupAccessControlEntryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.create_template_group_access_control_entry_request.CreateTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["group_security_identifier"] = group_security_identifier
-        input["group_display_name"] = group_display_name
-        input["access_rights"] = access_rights
+        input_: aws_sdk_pca_connector_ad.types.create_template_group_access_control_entry_request.CreateTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["group_security_identifier"] = group_security_identifier
+        input_["group_display_name"] = group_display_name
+        input_["access_rights"] = access_rights
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,12 +120,12 @@ class TemplateGroupAccessControlEntryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.get_template_group_access_control_entry_request.GetTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["group_security_identifier"] = group_security_identifier
+        input_: aws_sdk_pca_connector_ad.types.get_template_group_access_control_entry_request.GetTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["group_security_identifier"] = group_security_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,16 +166,16 @@ class TemplateGroupAccessControlEntryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.update_template_group_access_control_entry_request.UpdateTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["group_security_identifier"] = group_security_identifier
+        input_: aws_sdk_pca_connector_ad.types.update_template_group_access_control_entry_request.UpdateTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["group_security_identifier"] = group_security_identifier
         if group_display_name is not None:
-            input["group_display_name"] = group_display_name
+            input_["group_display_name"] = group_display_name
         if access_rights is not None:
-            input["access_rights"] = access_rights
+            input_["access_rights"] = access_rights
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,12 +208,12 @@ class TemplateGroupAccessControlEntryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.delete_template_group_access_control_entry_request.DeleteTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["group_security_identifier"] = group_security_identifier
+        input_: aws_sdk_pca_connector_ad.types.delete_template_group_access_control_entry_request.DeleteTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["group_security_identifier"] = group_security_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,15 +254,15 @@ class TemplateGroupAccessControlEntryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.list_template_group_access_control_entries_request.ListTemplateGroupAccessControlEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pca_connector_ad.types.list_template_group_access_control_entries_request.ListTemplateGroupAccessControlEntriesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["template_arn"] = template_arn
+            input_["next_token"] = next_token
+        input_["template_arn"] = template_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,16 +309,16 @@ class AsyncTemplateGroupAccessControlEntryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.create_template_group_access_control_entry_request.CreateTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["group_security_identifier"] = group_security_identifier
-        input["group_display_name"] = group_display_name
-        input["access_rights"] = access_rights
+        input_: aws_sdk_pca_connector_ad.types.create_template_group_access_control_entry_request.CreateTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["group_security_identifier"] = group_security_identifier
+        input_["group_display_name"] = group_display_name
+        input_["access_rights"] = access_rights
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -354,12 +354,12 @@ class AsyncTemplateGroupAccessControlEntryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.get_template_group_access_control_entry_request.GetTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["group_security_identifier"] = group_security_identifier
+        input_: aws_sdk_pca_connector_ad.types.get_template_group_access_control_entry_request.GetTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["group_security_identifier"] = group_security_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,16 +401,16 @@ class AsyncTemplateGroupAccessControlEntryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.update_template_group_access_control_entry_request.UpdateTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["group_security_identifier"] = group_security_identifier
+        input_: aws_sdk_pca_connector_ad.types.update_template_group_access_control_entry_request.UpdateTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["group_security_identifier"] = group_security_identifier
         if group_display_name is not None:
-            input["group_display_name"] = group_display_name
+            input_["group_display_name"] = group_display_name
         if access_rights is not None:
-            input["access_rights"] = access_rights
+            input_["access_rights"] = access_rights
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,12 +444,12 @@ class AsyncTemplateGroupAccessControlEntryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.delete_template_group_access_control_entry_request.DeleteTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
-        input["template_arn"] = template_arn
-        input["group_security_identifier"] = group_security_identifier
+        input_: aws_sdk_pca_connector_ad.types.delete_template_group_access_control_entry_request.DeleteTemplateGroupAccessControlEntryRequest = {}  # type: ignore[typeddict-item]
+        input_["template_arn"] = template_arn
+        input_["group_security_identifier"] = group_security_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -491,15 +491,15 @@ class AsyncTemplateGroupAccessControlEntryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.list_template_group_access_control_entries_request.ListTemplateGroupAccessControlEntriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pca_connector_ad.types.list_template_group_access_control_entries_request.ListTemplateGroupAccessControlEntriesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["template_arn"] = template_arn
+            input_["next_token"] = next_token
+        input_["template_arn"] = template_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

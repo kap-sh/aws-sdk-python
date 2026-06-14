@@ -475,12 +475,12 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.accept_administrator_invitation_request.AcceptAdministratorInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["administrator_id"] = administrator_id
-        input["invitation_id"] = invitation_id
+        input_: aws_sdk_securityhub.types.accept_administrator_invitation_request.AcceptAdministratorInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["administrator_id"] = administrator_id
+        input_["invitation_id"] = invitation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -517,12 +517,12 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["master_id"] = master_id
-        input["invitation_id"] = invitation_id
+        input_: aws_sdk_securityhub.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["master_id"] = master_id
+        input_["invitation_id"] = invitation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,11 +561,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_delete_automation_rules_request.BatchDeleteAutomationRulesRequest = {}  # type: ignore[typeddict-item]
-        input["automation_rules_arns"] = automation_rules_arns
+        input_: aws_sdk_securityhub.types.batch_delete_automation_rules_request.BatchDeleteAutomationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["automation_rules_arns"] = automation_rules_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,11 +604,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_disable_standards_request.BatchDisableStandardsRequest = {}  # type: ignore[typeddict-item]
-        input["standards_subscription_arns"] = standards_subscription_arns
+        input_: aws_sdk_securityhub.types.batch_disable_standards_request.BatchDisableStandardsRequest = {}  # type: ignore[typeddict-item]
+        input_["standards_subscription_arns"] = standards_subscription_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -647,11 +647,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_enable_standards_request.BatchEnableStandardsRequest = {}  # type: ignore[typeddict-item]
-        input["standards_subscription_requests"] = standards_subscription_requests
+        input_: aws_sdk_securityhub.types.batch_enable_standards_request.BatchEnableStandardsRequest = {}  # type: ignore[typeddict-item]
+        input_["standards_subscription_requests"] = standards_subscription_requests
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,11 +690,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_get_automation_rules_request.BatchGetAutomationRulesRequest = {}  # type: ignore[typeddict-item]
-        input["automation_rules_arns"] = automation_rules_arns
+        input_: aws_sdk_securityhub.types.batch_get_automation_rules_request.BatchGetAutomationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["automation_rules_arns"] = automation_rules_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -733,13 +733,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_get_configuration_policy_associations_request.BatchGetConfigurationPolicyAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_policy_association_identifiers"] = (
+        input_: aws_sdk_securityhub.types.batch_get_configuration_policy_associations_request.BatchGetConfigurationPolicyAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_policy_association_identifiers"] = (
             configuration_policy_association_identifiers
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -778,11 +778,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_get_security_controls_request.BatchGetSecurityControlsRequest = {}  # type: ignore[typeddict-item]
-        input["security_control_ids"] = security_control_ids
+        input_: aws_sdk_securityhub.types.batch_get_security_controls_request.BatchGetSecurityControlsRequest = {}  # type: ignore[typeddict-item]
+        input_["security_control_ids"] = security_control_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -815,11 +815,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_get_standards_control_associations_request.BatchGetStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["standards_control_association_ids"] = standards_control_association_ids
+        input_: aws_sdk_securityhub.types.batch_get_standards_control_associations_request.BatchGetStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["standards_control_association_ids"] = standards_control_association_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -858,11 +858,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_import_findings_request.BatchImportFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["findings"] = findings
+        input_: aws_sdk_securityhub.types.batch_import_findings_request.BatchImportFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["findings"] = findings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -901,13 +901,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_update_automation_rules_request.BatchUpdateAutomationRulesRequest = {}  # type: ignore[typeddict-item]
-        input["update_automation_rules_request_items"] = (
+        input_: aws_sdk_securityhub.types.batch_update_automation_rules_request.BatchUpdateAutomationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["update_automation_rules_request_items"] = (
             update_automation_rules_request_items
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -975,29 +975,29 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_update_findings_request.BatchUpdateFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["finding_identifiers"] = finding_identifiers
+        input_: aws_sdk_securityhub.types.batch_update_findings_request.BatchUpdateFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_identifiers"] = finding_identifiers
         if note is not None:
-            input["note"] = note
+            input_["note"] = note
         if severity is not None:
-            input["severity"] = severity
+            input_["severity"] = severity
         if verification_state is not None:
-            input["verification_state"] = verification_state
+            input_["verification_state"] = verification_state
         if confidence is not None:
-            input["confidence"] = confidence
+            input_["confidence"] = confidence
         if criticality is not None:
-            input["criticality"] = criticality
+            input_["criticality"] = criticality
         if types is not None:
-            input["types"] = types
+            input_["types"] = types
         if user_defined_fields is not None:
-            input["user_defined_fields"] = user_defined_fields
+            input_["user_defined_fields"] = user_defined_fields
         if workflow is not None:
-            input["workflow"] = workflow
+            input_["workflow"] = workflow
         if related_findings is not None:
-            input["related_findings"] = related_findings
+            input_["related_findings"] = related_findings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1044,20 +1044,20 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_update_findings_v2_request.BatchUpdateFindingsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.batch_update_findings_v2_request.BatchUpdateFindingsV2Request = {}  # type: ignore[typeddict-item]
         if metadata_uids is not None:
-            input["metadata_uids"] = metadata_uids
+            input_["metadata_uids"] = metadata_uids
         if finding_identifiers is not None:
-            input["finding_identifiers"] = finding_identifiers
+            input_["finding_identifiers"] = finding_identifiers
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if severity_id is not None:
-            input["severity_id"] = severity_id
+            input_["severity_id"] = severity_id
         if status_id is not None:
-            input["status_id"] = status_id
+            input_["status_id"] = status_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1096,13 +1096,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.batch_update_standards_control_associations_request.BatchUpdateStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["standards_control_association_updates"] = (
+        input_: aws_sdk_securityhub.types.batch_update_standards_control_associations_request.BatchUpdateStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["standards_control_association_updates"] = (
             standards_control_association_updates
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1145,13 +1145,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_action_target_request.CreateActionTargetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["description"] = description
-        input["id"] = id
+        input_: aws_sdk_securityhub.types.create_action_target_request.CreateActionTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["description"] = description
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1194,17 +1194,17 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_aggregator_v2_request.CreateAggregatorV2Request = {}  # type: ignore[typeddict-item]
-        input["region_linking_mode"] = region_linking_mode
+        input_: aws_sdk_securityhub.types.create_aggregator_v2_request.CreateAggregatorV2Request = {}  # type: ignore[typeddict-item]
+        input_["region_linking_mode"] = region_linking_mode
         if linked_regions is not None:
-            input["linked_regions"] = linked_regions
+            input_["linked_regions"] = linked_regions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1259,21 +1259,21 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_automation_rule_request.CreateAutomationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.create_automation_rule_request.CreateAutomationRuleRequest = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if rule_status is not None:
-            input["rule_status"] = rule_status
-        input["rule_order"] = rule_order
-        input["rule_name"] = rule_name
-        input["description"] = description
+            input_["rule_status"] = rule_status
+        input_["rule_order"] = rule_order
+        input_["rule_name"] = rule_name
+        input_["description"] = description
         if is_terminal is not None:
-            input["is_terminal"] = is_terminal
-        input["criteria"] = criteria
-        input["actions"] = actions
+            input_["is_terminal"] = is_terminal
+        input_["criteria"] = criteria
+        input_["actions"] = actions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1324,21 +1324,21 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_automation_rule_v2_request.CreateAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
+        input_: aws_sdk_securityhub.types.create_automation_rule_v2_request.CreateAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
         if rule_status is not None:
-            input["rule_status"] = rule_status
-        input["description"] = description
-        input["rule_order"] = rule_order
-        input["criteria"] = criteria
-        input["actions"] = actions
+            input_["rule_status"] = rule_status
+        input_["description"] = description
+        input_["rule_order"] = rule_order
+        input_["criteria"] = criteria
+        input_["actions"] = actions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1385,16 +1385,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_configuration_policy_request.CreateConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_securityhub.types.create_configuration_policy_request.CreateConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["configuration_policy"] = configuration_policy
+            input_["description"] = description
+        input_["configuration_policy"] = configuration_policy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1443,20 +1443,20 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_connector_v2_request.CreateConnectorV2Request = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_securityhub.types.create_connector_v2_request.CreateConnectorV2Request = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["provider"] = provider
+            input_["description"] = description
+        input_["provider"] = provider
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1497,13 +1497,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_finding_aggregator_request.CreateFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
-        input["region_linking_mode"] = region_linking_mode
+        input_: aws_sdk_securityhub.types.create_finding_aggregator_request.CreateFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
+        input_["region_linking_mode"] = region_linking_mode
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1546,13 +1546,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_insight_request.CreateInsightRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["filters"] = filters
-        input["group_by_attribute"] = group_by_attribute
+        input_: aws_sdk_securityhub.types.create_insight_request.CreateInsightRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["filters"] = filters
+        input_["group_by_attribute"] = group_by_attribute
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1591,11 +1591,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_members_request.CreateMembersRequest = {}  # type: ignore[typeddict-item]
-        input["account_details"] = account_details
+        input_: aws_sdk_securityhub.types.create_members_request.CreateMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["account_details"] = account_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1638,16 +1638,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.create_ticket_v2_request.CreateTicketV2Request = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
-        input["finding_metadata_uid"] = finding_metadata_uid
+        input_: aws_sdk_securityhub.types.create_ticket_v2_request.CreateTicketV2Request = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
+        input_["finding_metadata_uid"] = finding_metadata_uid
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1686,11 +1686,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_securityhub.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1729,11 +1729,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_action_target_request.DeleteActionTargetRequest = {}  # type: ignore[typeddict-item]
-        input["action_target_arn"] = action_target_arn
+        input_: aws_sdk_securityhub.types.delete_action_target_request.DeleteActionTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["action_target_arn"] = action_target_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1766,11 +1766,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_aggregator_v2_request.DeleteAggregatorV2Request = {}  # type: ignore[typeddict-item]
-        input["aggregator_v2_arn"] = aggregator_v2_arn
+        input_: aws_sdk_securityhub.types.delete_aggregator_v2_request.DeleteAggregatorV2Request = {}  # type: ignore[typeddict-item]
+        input_["aggregator_v2_arn"] = aggregator_v2_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1803,11 +1803,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_automation_rule_v2_request.DeleteAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_securityhub.types.delete_automation_rule_v2_request.DeleteAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1846,11 +1846,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_configuration_policy_request.DeleteConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_securityhub.types.delete_configuration_policy_request.DeleteConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1883,11 +1883,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_connector_v2_request.DeleteConnectorV2Request = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_securityhub.types.delete_connector_v2_request.DeleteConnectorV2Request = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1926,11 +1926,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_finding_aggregator_request.DeleteFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
-        input["finding_aggregator_arn"] = finding_aggregator_arn
+        input_: aws_sdk_securityhub.types.delete_finding_aggregator_request.DeleteFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_aggregator_arn"] = finding_aggregator_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1969,11 +1969,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_insight_request.DeleteInsightRequest = {}  # type: ignore[typeddict-item]
-        input["insight_arn"] = insight_arn
+        input_: aws_sdk_securityhub.types.delete_insight_request.DeleteInsightRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_arn"] = insight_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2012,11 +2012,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_securityhub.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2055,11 +2055,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.delete_members_request.DeleteMembersRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_securityhub.types.delete_members_request.DeleteMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2106,16 +2106,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.describe_action_targets_request.DescribeActionTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.describe_action_targets_request.DescribeActionTargetsRequest = {}  # type: ignore[typeddict-item]
         if action_target_arns is not None:
-            input["action_target_arns"] = action_target_arns
+            input_["action_target_arns"] = action_target_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2183,12 +2183,12 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.describe_hub_request.DescribeHubRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.describe_hub_request.DescribeHubRequest = {}  # type: ignore[typeddict-item]
         if hub_arn is not None:
-            input["hub_arn"] = hub_arn
+            input_["hub_arn"] = hub_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2221,10 +2221,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2273,16 +2273,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.describe_products_request.DescribeProductsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.describe_products_request.DescribeProductsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if product_arn is not None:
-            input["product_arn"] = product_arn
+            input_["product_arn"] = product_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2346,14 +2346,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.describe_products_v2_request.DescribeProductsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.describe_products_v2_request.DescribeProductsV2Request = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2402,10 +2402,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.describe_security_hub_v2_request.DescribeSecurityHubV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.describe_security_hub_v2_request.DescribeSecurityHubV2Request = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2448,14 +2448,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.describe_standards_request.DescribeStandardsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.describe_standards_request.DescribeStandardsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2517,15 +2517,15 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.describe_standards_controls_request.DescribeStandardsControlsRequest = {}  # type: ignore[typeddict-item]
-        input["standards_subscription_arn"] = standards_subscription_arn
+        input_: aws_sdk_securityhub.types.describe_standards_controls_request.DescribeStandardsControlsRequest = {}  # type: ignore[typeddict-item]
+        input_["standards_subscription_arn"] = standards_subscription_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2589,11 +2589,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.disable_import_findings_for_product_request.DisableImportFindingsForProductRequest = {}  # type: ignore[typeddict-item]
-        input["product_subscription_arn"] = product_subscription_arn
+        input_: aws_sdk_securityhub.types.disable_import_findings_for_product_request.DisableImportFindingsForProductRequest = {}  # type: ignore[typeddict-item]
+        input_["product_subscription_arn"] = product_subscription_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2636,13 +2636,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account_id"] = admin_account_id
+        input_: aws_sdk_securityhub.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account_id"] = admin_account_id
         if feature is not None:
-            input["feature"] = feature
+            input_["feature"] = feature
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2675,10 +2675,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.disable_security_hub_request.DisableSecurityHubRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.disable_security_hub_request.DisableSecurityHubRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2704,10 +2704,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.disable_security_hub_v2_request.DisableSecurityHubV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.disable_security_hub_v2_request.DisableSecurityHubV2Request = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2740,10 +2740,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.disassociate_from_administrator_account_request.DisassociateFromAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.disassociate_from_administrator_account_request.DisassociateFromAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2769,10 +2769,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2811,11 +2811,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.disassociate_members_request.DisassociateMembersRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_securityhub.types.disassociate_members_request.DisassociateMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2854,11 +2854,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.enable_import_findings_for_product_request.EnableImportFindingsForProductRequest = {}  # type: ignore[typeddict-item]
-        input["product_arn"] = product_arn
+        input_: aws_sdk_securityhub.types.enable_import_findings_for_product_request.EnableImportFindingsForProductRequest = {}  # type: ignore[typeddict-item]
+        input_["product_arn"] = product_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2901,13 +2901,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account_id"] = admin_account_id
+        input_: aws_sdk_securityhub.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account_id"] = admin_account_id
         if feature is not None:
-            input["feature"] = feature
+            input_["feature"] = feature
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2954,16 +2954,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.enable_security_hub_request.EnableSecurityHubRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.enable_security_hub_request.EnableSecurityHubRequest = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if enable_default_standards is not None:
-            input["enable_default_standards"] = enable_default_standards
+            input_["enable_default_standards"] = enable_default_standards
         if control_finding_generator is not None:
-            input["control_finding_generator"] = control_finding_generator
+            input_["control_finding_generator"] = control_finding_generator
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2996,12 +2996,12 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.enable_security_hub_v2_request.EnableSecurityHubV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.enable_security_hub_v2_request.EnableSecurityHubV2Request = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3034,11 +3034,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.generate_recommended_policy_v2_request.GenerateRecommendedPolicyV2Request = {}  # type: ignore[typeddict-item]
-        input["metadata_uid"] = metadata_uid
+        input_: aws_sdk_securityhub.types.generate_recommended_policy_v2_request.GenerateRecommendedPolicyV2Request = {}  # type: ignore[typeddict-item]
+        input_["metadata_uid"] = metadata_uid
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3064,10 +3064,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_administrator_account_request.GetAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_administrator_account_request.GetAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3100,11 +3100,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_aggregator_v2_request.GetAggregatorV2Request = {}  # type: ignore[typeddict-item]
-        input["aggregator_v2_arn"] = aggregator_v2_arn
+        input_: aws_sdk_securityhub.types.get_aggregator_v2_request.GetAggregatorV2Request = {}  # type: ignore[typeddict-item]
+        input_["aggregator_v2_arn"] = aggregator_v2_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3137,11 +3137,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_automation_rule_v2_request.GetAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_securityhub.types.get_automation_rule_v2_request.GetAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3180,11 +3180,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_configuration_policy_request.GetConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_securityhub.types.get_configuration_policy_request.GetConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3223,11 +3223,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_configuration_policy_association_request.GetConfigurationPolicyAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["target"] = target
+        input_: aws_sdk_securityhub.types.get_configuration_policy_association_request.GetConfigurationPolicyAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["target"] = target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3260,11 +3260,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_connector_v2_request.GetConnectorV2Request = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_securityhub.types.get_connector_v2_request.GetConnectorV2Request = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3311,16 +3311,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_enabled_standards_request.GetEnabledStandardsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_enabled_standards_request.GetEnabledStandardsRequest = {}  # type: ignore[typeddict-item]
         if standards_subscription_arns is not None:
-            input["standards_subscription_arns"] = standards_subscription_arns
+            input_["standards_subscription_arns"] = standards_subscription_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3386,11 +3386,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_finding_aggregator_request.GetFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
-        input["finding_aggregator_arn"] = finding_aggregator_arn
+        input_: aws_sdk_securityhub.types.get_finding_aggregator_request.GetFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_aggregator_arn"] = finding_aggregator_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3432,19 +3432,19 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_finding_history_request.GetFindingHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["finding_identifier"] = finding_identifier
+        input_: aws_sdk_securityhub.types.get_finding_history_request.GetFindingHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_identifier"] = finding_identifier
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3524,18 +3524,18 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3609,17 +3609,17 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_finding_statistics_v2_request.GetFindingStatisticsV2Request = {}  # type: ignore[typeddict-item]
-        input["group_by_rules"] = group_by_rules
+        input_: aws_sdk_securityhub.types.get_finding_statistics_v2_request.GetFindingStatisticsV2Request = {}  # type: ignore[typeddict-item]
+        input_["group_by_rules"] = group_by_rules
         if scopes is not None:
-            input["scopes"] = scopes
+            input_["scopes"] = scopes
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_statistic_results is not None:
-            input["max_statistic_results"] = max_statistic_results
+            input_["max_statistic_results"] = max_statistic_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3664,18 +3664,18 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_findings_trends_v2_request.GetFindingsTrendsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_findings_trends_v2_request.GetFindingsTrendsV2Request = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["filters"] = filters
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3757,20 +3757,20 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_findings_v2_request.GetFindingsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_findings_v2_request.GetFindingsV2Request = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if scopes is not None:
-            input["scopes"] = scopes
+            input_["scopes"] = scopes
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3844,11 +3844,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_insight_results_request.GetInsightResultsRequest = {}  # type: ignore[typeddict-item]
-        input["insight_arn"] = insight_arn
+        input_: aws_sdk_securityhub.types.get_insight_results_request.GetInsightResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_arn"] = insight_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3893,16 +3893,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_insights_request.GetInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_insights_request.GetInsightsRequest = {}  # type: ignore[typeddict-item]
         if insight_arns is not None:
-            input["insight_arns"] = insight_arns
+            input_["insight_arns"] = insight_arns
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3962,10 +3962,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_invitations_count_request.GetInvitationsCountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_invitations_count_request.GetInvitationsCountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3993,10 +3993,10 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_master_account_request.GetMasterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_master_account_request.GetMasterAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4029,11 +4029,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_members_request.GetMembersRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_securityhub.types.get_members_request.GetMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4072,15 +4072,15 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_recommended_policy_v2_request.GetRecommendedPolicyV2Request = {}  # type: ignore[typeddict-item]
-        input["metadata_uid"] = metadata_uid
+        input_: aws_sdk_securityhub.types.get_recommended_policy_v2_request.GetRecommendedPolicyV2Request = {}  # type: ignore[typeddict-item]
+        input_["metadata_uid"] = metadata_uid
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4148,17 +4148,17 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_resources_statistics_v2_request.GetResourcesStatisticsV2Request = {}  # type: ignore[typeddict-item]
-        input["group_by_rules"] = group_by_rules
+        input_: aws_sdk_securityhub.types.get_resources_statistics_v2_request.GetResourcesStatisticsV2Request = {}  # type: ignore[typeddict-item]
+        input_["group_by_rules"] = group_by_rules
         if scopes is not None:
-            input["scopes"] = scopes
+            input_["scopes"] = scopes
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_statistic_results is not None:
-            input["max_statistic_results"] = max_statistic_results
+            input_["max_statistic_results"] = max_statistic_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4203,18 +4203,18 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_resources_trends_v2_request.GetResourcesTrendsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_resources_trends_v2_request.GetResourcesTrendsV2Request = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["filters"] = filters
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4294,20 +4294,20 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_resources_v2_request.GetResourcesV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.get_resources_v2_request.GetResourcesV2Request = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if scopes is not None:
-            input["scopes"] = scopes
+            input_["scopes"] = scopes
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4381,11 +4381,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.get_security_control_definition_request.GetSecurityControlDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["security_control_id"] = security_control_id
+        input_: aws_sdk_securityhub.types.get_security_control_definition_request.GetSecurityControlDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["security_control_id"] = security_control_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4424,11 +4424,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.invite_members_request.InviteMembersRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_securityhub.types.invite_members_request.InviteMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4465,14 +4465,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_aggregators_v2_request.ListAggregatorsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_aggregators_v2_request.ListAggregatorsV2Request = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4538,14 +4538,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_automation_rules_request.ListAutomationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_automation_rules_request.ListAutomationRulesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4582,14 +4582,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_automation_rules_v2_request.ListAutomationRulesV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_automation_rules_v2_request.ListAutomationRulesV2Request = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4632,14 +4632,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_configuration_policies_request.ListConfigurationPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_configuration_policies_request.ListConfigurationPoliciesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4709,16 +4709,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_configuration_policy_associations_request.ListConfigurationPolicyAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_configuration_policy_associations_request.ListConfigurationPolicyAssociationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4794,18 +4794,18 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_connectors_v2_request.ListConnectorsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_connectors_v2_request.ListConnectorsV2Request = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
         if connector_status is not None:
-            input["connector_status"] = connector_status
+            input_["connector_status"] = connector_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4848,14 +4848,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_enabled_products_for_import_request.ListEnabledProductsForImportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_enabled_products_for_import_request.ListEnabledProductsForImportRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4921,14 +4921,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_finding_aggregators_request.ListFindingAggregatorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_finding_aggregators_request.ListFindingAggregatorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4988,14 +4988,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_invitations_request.ListInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_invitations_request.ListInvitationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5057,16 +5057,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
         if only_associated is not None:
-            input["only_associated"] = only_associated
+            input_["only_associated"] = only_associated
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5138,16 +5138,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_organization_admin_accounts_request.ListOrganizationAdminAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_organization_admin_accounts_request.ListOrganizationAdminAccountsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if feature is not None:
-            input["feature"] = feature
+            input_["feature"] = feature
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5221,16 +5221,16 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_security_control_definitions_request.ListSecurityControlDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.list_security_control_definitions_request.ListSecurityControlDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if standards_arn is not None:
-            input["standards_arn"] = standards_arn
+            input_["standards_arn"] = standards_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5296,15 +5296,15 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_standards_control_associations_request.ListStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["security_control_id"] = security_control_id
+        input_: aws_sdk_securityhub.types.list_standards_control_associations_request.ListStandardsControlAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["security_control_id"] = security_control_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5370,11 +5370,11 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_securityhub.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5409,12 +5409,12 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.register_connector_v2_request.RegisterConnectorV2Request = {}  # type: ignore[typeddict-item]
-        input["auth_code"] = auth_code
-        input["auth_state"] = auth_state
+        input_: aws_sdk_securityhub.types.register_connector_v2_request.RegisterConnectorV2Request = {}  # type: ignore[typeddict-item]
+        input_["auth_code"] = auth_code
+        input_["auth_state"] = auth_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5455,12 +5455,12 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.start_configuration_policy_association_request.StartConfigurationPolicyAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_policy_identifier"] = configuration_policy_identifier
-        input["target"] = target
+        input_: aws_sdk_securityhub.types.start_configuration_policy_association_request.StartConfigurationPolicyAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_policy_identifier"] = configuration_policy_identifier
+        input_["target"] = target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5501,13 +5501,13 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.start_configuration_policy_disassociation_request.StartConfigurationPolicyDisassociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.start_configuration_policy_disassociation_request.StartConfigurationPolicyDisassociationRequest = {}  # type: ignore[typeddict-item]
         if target is not None:
-            input["target"] = target
-        input["configuration_policy_identifier"] = configuration_policy_identifier
+            input_["target"] = target
+        input_["configuration_policy_identifier"] = configuration_policy_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5548,12 +5548,12 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_securityhub.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5594,12 +5594,12 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_securityhub.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5646,15 +5646,15 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_action_target_request.UpdateActionTargetRequest = {}  # type: ignore[typeddict-item]
-        input["action_target_arn"] = action_target_arn
+        input_: aws_sdk_securityhub.types.update_action_target_request.UpdateActionTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["action_target_arn"] = action_target_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5693,14 +5693,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_aggregator_v2_request.UpdateAggregatorV2Request = {}  # type: ignore[typeddict-item]
-        input["aggregator_v2_arn"] = aggregator_v2_arn
-        input["region_linking_mode"] = region_linking_mode
+        input_: aws_sdk_securityhub.types.update_aggregator_v2_request.UpdateAggregatorV2Request = {}  # type: ignore[typeddict-item]
+        input_["aggregator_v2_arn"] = aggregator_v2_arn
+        input_["region_linking_mode"] = region_linking_mode
         if linked_regions is not None:
-            input["linked_regions"] = linked_regions
+            input_["linked_regions"] = linked_regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5755,23 +5755,23 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_automation_rule_v2_request.UpdateAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_securityhub.types.update_automation_rule_v2_request.UpdateAutomationRuleV2Request = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if rule_status is not None:
-            input["rule_status"] = rule_status
+            input_["rule_status"] = rule_status
         if rule_order is not None:
-            input["rule_order"] = rule_order
+            input_["rule_order"] = rule_order
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rule_name is not None:
-            input["rule_name"] = rule_name
+            input_["rule_name"] = rule_name
         if criteria is not None:
-            input["criteria"] = criteria
+            input_["criteria"] = criteria
         if actions is not None:
-            input["actions"] = actions
+            input_["actions"] = actions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5826,19 +5826,19 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_configuration_policy_request.UpdateConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_securityhub.types.update_configuration_policy_request.UpdateConfigurationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if updated_reason is not None:
-            input["updated_reason"] = updated_reason
+            input_["updated_reason"] = updated_reason
         if configuration_policy is not None:
-            input["configuration_policy"] = configuration_policy
+            input_["configuration_policy"] = configuration_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5879,15 +5879,15 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_connector_v2_request.UpdateConnectorV2Request = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_securityhub.types.update_connector_v2_request.UpdateConnectorV2Request = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5930,14 +5930,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_finding_aggregator_request.UpdateFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
-        input["finding_aggregator_arn"] = finding_aggregator_arn
-        input["region_linking_mode"] = region_linking_mode
+        input_: aws_sdk_securityhub.types.update_finding_aggregator_request.UpdateFindingAggregatorRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_aggregator_arn"] = finding_aggregator_arn
+        input_["region_linking_mode"] = region_linking_mode
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5976,15 +5976,15 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_findings_request.UpdateFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["filters"] = filters
+        input_: aws_sdk_securityhub.types.update_findings_request.UpdateFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["filters"] = filters
         if note is not None:
-            input["note"] = note
+            input_["note"] = note
         if record_state is not None:
-            input["record_state"] = record_state
+            input_["record_state"] = record_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6035,17 +6035,17 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_insight_request.UpdateInsightRequest = {}  # type: ignore[typeddict-item]
-        input["insight_arn"] = insight_arn
+        input_: aws_sdk_securityhub.types.update_insight_request.UpdateInsightRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_arn"] = insight_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if group_by_attribute is not None:
-            input["group_by_attribute"] = group_by_attribute
+            input_["group_by_attribute"] = group_by_attribute
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6091,15 +6091,15 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["auto_enable"] = auto_enable
+        input_: aws_sdk_securityhub.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_enable"] = auto_enable
         if auto_enable_standards is not None:
-            input["auto_enable_standards"] = auto_enable_standards
+            input_["auto_enable_standards"] = auto_enable_standards
         if organization_configuration is not None:
-            input["organization_configuration"] = organization_configuration
+            input_["organization_configuration"] = organization_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6144,14 +6144,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_security_control_request.UpdateSecurityControlRequest = {}  # type: ignore[typeddict-item]
-        input["security_control_id"] = security_control_id
-        input["parameters"] = parameters
+        input_: aws_sdk_securityhub.types.update_security_control_request.UpdateSecurityControlRequest = {}  # type: ignore[typeddict-item]
+        input_["security_control_id"] = security_control_id
+        input_["parameters"] = parameters
         if last_update_reason is not None:
-            input["last_update_reason"] = last_update_reason
+            input_["last_update_reason"] = last_update_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6196,14 +6196,14 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_security_hub_configuration_request.UpdateSecurityHubConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityhub.types.update_security_hub_configuration_request.UpdateSecurityHubConfigurationRequest = {}  # type: ignore[typeddict-item]
         if auto_enable_controls is not None:
-            input["auto_enable_controls"] = auto_enable_controls
+            input_["auto_enable_controls"] = auto_enable_controls
         if control_finding_generator is not None:
-            input["control_finding_generator"] = control_finding_generator
+            input_["control_finding_generator"] = control_finding_generator
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6250,15 +6250,15 @@ class SecurityHubClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityhub.types.update_standards_control_request.UpdateStandardsControlRequest = {}  # type: ignore[typeddict-item]
-        input["standards_control_arn"] = standards_control_arn
+        input_: aws_sdk_securityhub.types.update_standards_control_request.UpdateStandardsControlRequest = {}  # type: ignore[typeddict-item]
+        input_["standards_control_arn"] = standards_control_arn
         if control_status is not None:
-            input["control_status"] = control_status
+            input_["control_status"] = control_status
         if disabled_reason is not None:
-            input["disabled_reason"] = disabled_reason
+            input_["disabled_reason"] = disabled_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

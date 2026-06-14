@@ -76,17 +76,17 @@ class PrivateGraphEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.create_private_graph_endpoint_input.CreatePrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
+        input_: aws_sdk_neptune_graph.types.create_private_graph_endpoint_input.CreatePrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,12 +121,12 @@ class PrivateGraphEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["vpc_id"] = vpc_id
+        input_: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -161,12 +161,12 @@ class PrivateGraphEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_private_graph_endpoint_input.GetPrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["vpc_id"] = vpc_id
+        input_: aws_sdk_neptune_graph.types.get_private_graph_endpoint_input.GetPrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["vpc_id"] = vpc_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -207,15 +207,15 @@ class PrivateGraphEndpointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_private_graph_endpoints_input.ListPrivateGraphEndpointsInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
+        input_: aws_sdk_neptune_graph.types.list_private_graph_endpoints_input.ListPrivateGraphEndpointsInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,17 +262,17 @@ class AsyncPrivateGraphEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.create_private_graph_endpoint_input.CreatePrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
+        input_: aws_sdk_neptune_graph.types.create_private_graph_endpoint_input.CreatePrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,12 +308,12 @@ class AsyncPrivateGraphEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["vpc_id"] = vpc_id
+        input_: aws_sdk_neptune_graph.types.delete_private_graph_endpoint_input.DeletePrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["vpc_id"] = vpc_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,12 +349,12 @@ class AsyncPrivateGraphEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_private_graph_endpoint_input.GetPrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["vpc_id"] = vpc_id
+        input_: aws_sdk_neptune_graph.types.get_private_graph_endpoint_input.GetPrivateGraphEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["vpc_id"] = vpc_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,15 +396,15 @@ class AsyncPrivateGraphEndpointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_private_graph_endpoints_input.ListPrivateGraphEndpointsInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
+        input_: aws_sdk_neptune_graph.types.list_private_graph_endpoints_input.ListPrivateGraphEndpointsInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -166,12 +166,12 @@ class PersonalizeEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_personalize_events.types.put_action_interactions_request.PutActionInteractionsRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_id"] = tracking_id
-        input["action_interactions"] = action_interactions
+        input_: aws_sdk_personalize_events.types.put_action_interactions_request.PutActionInteractionsRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_id"] = tracking_id
+        input_["action_interactions"] = action_interactions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,12 +204,12 @@ class PersonalizeEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_personalize_events.types.put_actions_request.PutActionsRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
-        input["actions"] = actions
+        input_: aws_sdk_personalize_events.types.put_actions_request.PutActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
+        input_["actions"] = actions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,15 +246,15 @@ class PersonalizeEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_personalize_events.types.put_events_request.PutEventsRequest = {}  # type: ignore[typeddict-item]
-        input["tracking_id"] = tracking_id
+        input_: aws_sdk_personalize_events.types.put_events_request.PutEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["tracking_id"] = tracking_id
         if user_id is not None:
-            input["user_id"] = user_id
-        input["session_id"] = session_id
-        input["event_list"] = event_list
+            input_["user_id"] = user_id
+        input_["session_id"] = session_id
+        input_["event_list"] = event_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,12 +287,12 @@ class PersonalizeEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_personalize_events.types.put_items_request.PutItemsRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
-        input["items"] = items
+        input_: aws_sdk_personalize_events.types.put_items_request.PutItemsRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
+        input_["items"] = items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,12 +325,12 @@ class PersonalizeEventsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_personalize_events.types.put_users_request.PutUsersRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
-        input["users"] = users
+        input_: aws_sdk_personalize_events.types.put_users_request.PutUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
+        input_["users"] = users
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

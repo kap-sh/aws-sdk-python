@@ -76,23 +76,23 @@ class RunGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_run_group_request.CreateRunGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.create_run_group_request.CreateRunGroupRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if max_cpus is not None:
-            input["max_cpus"] = max_cpus
+            input_["max_cpus"] = max_cpus
         if max_runs is not None:
-            input["max_runs"] = max_runs
+            input_["max_runs"] = max_runs
         if max_duration is not None:
-            input["max_duration"] = max_duration
+            input_["max_duration"] = max_duration
         if tags is not None:
-            input["tags"] = tags
-        input["request_id"] = request_id
+            input_["tags"] = tags
+        input_["request_id"] = request_id
         if max_gpus is not None:
-            input["max_gpus"] = max_gpus
+            input_["max_gpus"] = max_gpus
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -125,11 +125,11 @@ class RunGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_run_group_request.GetRunGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_run_group_request.GetRunGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -170,21 +170,21 @@ class RunGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_run_group_request.UpdateRunGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.update_run_group_request.UpdateRunGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if max_cpus is not None:
-            input["max_cpus"] = max_cpus
+            input_["max_cpus"] = max_cpus
         if max_runs is not None:
-            input["max_runs"] = max_runs
+            input_["max_runs"] = max_runs
         if max_duration is not None:
-            input["max_duration"] = max_duration
+            input_["max_duration"] = max_duration
         if max_gpus is not None:
-            input["max_gpus"] = max_gpus
+            input_["max_gpus"] = max_gpus
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,11 +215,11 @@ class RunGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_run_group_request.DeleteRunGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_run_group_request.DeleteRunGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,16 +258,16 @@ class RunGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_run_groups_request.ListRunGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_run_groups_request.ListRunGroupsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,23 +318,23 @@ class AsyncRunGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_run_group_request.CreateRunGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.create_run_group_request.CreateRunGroupRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if max_cpus is not None:
-            input["max_cpus"] = max_cpus
+            input_["max_cpus"] = max_cpus
         if max_runs is not None:
-            input["max_runs"] = max_runs
+            input_["max_runs"] = max_runs
         if max_duration is not None:
-            input["max_duration"] = max_duration
+            input_["max_duration"] = max_duration
         if tags is not None:
-            input["tags"] = tags
-        input["request_id"] = request_id
+            input_["tags"] = tags
+        input_["request_id"] = request_id
         if max_gpus is not None:
-            input["max_gpus"] = max_gpus
+            input_["max_gpus"] = max_gpus
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -368,11 +368,11 @@ class AsyncRunGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_run_group_request.GetRunGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_run_group_request.GetRunGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,21 +414,21 @@ class AsyncRunGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_run_group_request.UpdateRunGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.update_run_group_request.UpdateRunGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if max_cpus is not None:
-            input["max_cpus"] = max_cpus
+            input_["max_cpus"] = max_cpus
         if max_runs is not None:
-            input["max_runs"] = max_runs
+            input_["max_runs"] = max_runs
         if max_duration is not None:
-            input["max_duration"] = max_duration
+            input_["max_duration"] = max_duration
         if max_gpus is not None:
-            input["max_gpus"] = max_gpus
+            input_["max_gpus"] = max_gpus
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,11 +460,11 @@ class AsyncRunGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_run_group_request.DeleteRunGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_run_group_request.DeleteRunGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -504,16 +504,16 @@ class AsyncRunGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_run_groups_request.ListRunGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_run_groups_request.ListRunGroupsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

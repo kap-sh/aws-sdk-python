@@ -16,6 +16,31 @@ from aws_sdk_odb._auth._providers import (
 )
 from aws_sdk_odb._auth._zapros_handler import AuthMiddleware
 from aws_sdk_odb._pagination import resolve_path as _resolve_path
+from aws_sdk_odb._resources.odb.autonomous_database_backup_resource import (
+    AutonomousDatabaseBackupResource,
+)
+from aws_sdk_odb._resources.odb.autonomous_database_resource import (
+    AutonomousDatabaseResource,
+)
+from aws_sdk_odb._resources.odb.cloud_autonomous_vm_cluster_resource import (
+    CloudAutonomousVmClusterResource,
+)
+from aws_sdk_odb._resources.odb.cloud_exadata_infrastructure_resource import (
+    CloudExadataInfrastructureResource,
+)
+from aws_sdk_odb._resources.odb.cloud_vm_cluster_resource import CloudVmClusterResource
+from aws_sdk_odb._resources.odb.db_node_resource import DbNodeResource
+from aws_sdk_odb._resources.odb.exadb_vm_cluster_resource import ExadbVmClusterResource
+from aws_sdk_odb._resources.odb.exascale_db_storage_vault_resource import (
+    ExascaleDbStorageVaultResource,
+)
+from aws_sdk_odb._resources.odb.exascale_vm_cluster_resource import (
+    ExascaleVmClusterResource,
+)
+from aws_sdk_odb._resources.odb.odb_network_resource import OdbNetworkResource
+from aws_sdk_odb._resources.odb.odb_peering_connection_resource import (
+    OdbPeeringConnectionResource,
+)
 from aws_sdk_odb._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -137,6 +162,24 @@ class odbClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.autonomous_database_backup_resource = AutonomousDatabaseBackupResource(
+            self
+        )
+        self.autonomous_database_resource = AutonomousDatabaseResource(self)
+        self.cloud_autonomous_vm_cluster_resource = CloudAutonomousVmClusterResource(
+            self
+        )
+        self.cloud_exadata_infrastructure_resource = CloudExadataInfrastructureResource(
+            self
+        )
+        self.cloud_vm_cluster_resource = CloudVmClusterResource(self)
+        self.db_node_resource = DbNodeResource(self)
+        self.exadb_vm_cluster_resource = ExadbVmClusterResource(self)
+        self.exascale_db_storage_vault_resource = ExascaleDbStorageVaultResource(self)
+        self.exascale_vm_cluster_resource = ExascaleVmClusterResource(self)
+        self.odb_network_resource = OdbNetworkResource(self)
+        self.odb_peering_connection_resource = OdbPeeringConnectionResource(self)
 
     def operation_options(
         self, config_overrides: Optional[odbClientConfig] = None
@@ -193,11 +236,11 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.accept_marketplace_registration_input.AcceptMarketplaceRegistrationInput = {}  # type: ignore[typeddict-item]
-        input["marketplace_registration_token"] = marketplace_registration_token
+        input_: aws_sdk_odb.types.accept_marketplace_registration_input.AcceptMarketplaceRegistrationInput = {}  # type: ignore[typeddict-item]
+        input_["marketplace_registration_token"] = marketplace_registration_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -234,13 +277,13 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.associate_iam_role_to_resource_input.AssociateIamRoleToResourceInput = {}  # type: ignore[typeddict-item]
-        input["iam_role_arn"] = iam_role_arn
-        input["aws_integration"] = aws_integration
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_odb.types.associate_iam_role_to_resource_input.AssociateIamRoleToResourceInput = {}  # type: ignore[typeddict-item]
+        input_["iam_role_arn"] = iam_role_arn
+        input_["aws_integration"] = aws_integration
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,13 +320,13 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.disassociate_iam_role_from_resource_input.DisassociateIamRoleFromResourceInput = {}  # type: ignore[typeddict-item]
-        input["iam_role_arn"] = iam_role_arn
-        input["aws_integration"] = aws_integration
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_odb.types.disassociate_iam_role_from_resource_input.DisassociateIamRoleFromResourceInput = {}  # type: ignore[typeddict-item]
+        input_["iam_role_arn"] = iam_role_arn
+        input_["aws_integration"] = aws_integration
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,10 +352,10 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_oci_onboarding_status_input.GetOciOnboardingStatusInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.get_oci_onboarding_status_input.GetOciOnboardingStatusInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,12 +388,12 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.initialize_service_input.InitializeServiceInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.initialize_service_input.InitializeServiceInput = {}  # type: ignore[typeddict-item]
         if oci_identity_domain is not None:
-            input["oci_identity_domain"] = oci_identity_domain
+            input_["oci_identity_domain"] = oci_identity_domain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -389,16 +432,16 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_database_character_sets_input.ListAutonomousDatabaseCharacterSetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_database_character_sets_input.ListAutonomousDatabaseCharacterSetsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if character_set_type is not None:
-            input["character_set_type"] = character_set_type
+            input_["character_set_type"] = character_set_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,16 +503,16 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_database_versions_input.ListAutonomousDatabaseVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_database_versions_input.ListAutonomousDatabaseVersionsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if db_workload is not None:
-            input["db_workload"] = db_workload
+            input_["db_workload"] = db_workload
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,18 +574,18 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_db_system_shapes_input.ListDbSystemShapesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_db_system_shapes_input.ListDbSystemShapesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if availability_zone_id is not None:
-            input["availability_zone_id"] = availability_zone_id
+            input_["availability_zone_id"] = availability_zone_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,16 +647,16 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_gi_versions_input.ListGiVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_gi_versions_input.ListGiVersionsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if shape is not None:
-            input["shape"] = shape
+            input_["shape"] = shape
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -675,16 +718,16 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_system_versions_input.ListSystemVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_system_versions_input.ListSystemVersionsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["gi_version"] = gi_version
-        input["shape"] = shape
+            input_["next_token"] = next_token
+        input_["gi_version"] = gi_version
+        input_["shape"] = shape
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -744,11 +787,11 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_odb.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -783,12 +826,12 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_odb.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -823,12 +866,12 @@ class odbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_odb.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_odb.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

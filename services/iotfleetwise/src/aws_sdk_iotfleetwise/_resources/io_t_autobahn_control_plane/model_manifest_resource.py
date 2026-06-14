@@ -85,17 +85,17 @@ class ModelManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_model_manifest_request.CreateModelManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_model_manifest_request.CreateModelManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["nodes"] = nodes
-        input["signal_catalog_arn"] = signal_catalog_arn
+            input_["description"] = description
+        input_["nodes"] = nodes
+        input_["signal_catalog_arn"] = signal_catalog_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -128,11 +128,11 @@ class ModelManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_model_manifest_request.GetModelManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.get_model_manifest_request.GetModelManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,19 +181,19 @@ class ModelManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_model_manifest_request.UpdateModelManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.update_model_manifest_request.UpdateModelManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if nodes_to_add is not None:
-            input["nodes_to_add"] = nodes_to_add
+            input_["nodes_to_add"] = nodes_to_add
         if nodes_to_remove is not None:
-            input["nodes_to_remove"] = nodes_to_remove
+            input_["nodes_to_remove"] = nodes_to_remove
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,11 +226,11 @@ class ModelManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_model_manifest_request.DeleteModelManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.delete_model_manifest_request.DeleteModelManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,18 +273,18 @@ class ModelManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_model_manifests_request.ListModelManifestsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_model_manifests_request.ListModelManifestsRequest = {}  # type: ignore[typeddict-item]
         if signal_catalog_arn is not None:
-            input["signal_catalog_arn"] = signal_catalog_arn
+            input_["signal_catalog_arn"] = signal_catalog_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -323,15 +323,15 @@ class ModelManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_model_manifest_nodes_request.ListModelManifestNodesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.list_model_manifest_nodes_request.ListModelManifestNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,17 +380,17 @@ class AsyncModelManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_model_manifest_request.CreateModelManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_model_manifest_request.CreateModelManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["nodes"] = nodes
-        input["signal_catalog_arn"] = signal_catalog_arn
+            input_["description"] = description
+        input_["nodes"] = nodes
+        input_["signal_catalog_arn"] = signal_catalog_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,11 +424,11 @@ class AsyncModelManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_model_manifest_request.GetModelManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.get_model_manifest_request.GetModelManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,19 +478,19 @@ class AsyncModelManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_model_manifest_request.UpdateModelManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.update_model_manifest_request.UpdateModelManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if nodes_to_add is not None:
-            input["nodes_to_add"] = nodes_to_add
+            input_["nodes_to_add"] = nodes_to_add
         if nodes_to_remove is not None:
-            input["nodes_to_remove"] = nodes_to_remove
+            input_["nodes_to_remove"] = nodes_to_remove
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -524,11 +524,11 @@ class AsyncModelManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_model_manifest_request.DeleteModelManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.delete_model_manifest_request.DeleteModelManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,18 +572,18 @@ class AsyncModelManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_model_manifests_request.ListModelManifestsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_model_manifests_request.ListModelManifestsRequest = {}  # type: ignore[typeddict-item]
         if signal_catalog_arn is not None:
-            input["signal_catalog_arn"] = signal_catalog_arn
+            input_["signal_catalog_arn"] = signal_catalog_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -623,15 +623,15 @@ class AsyncModelManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_model_manifest_nodes_request.ListModelManifestNodesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.list_model_manifest_nodes_request.ListModelManifestNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

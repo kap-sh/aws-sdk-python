@@ -104,18 +104,17 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_notifications.types.deregister_notification_hub_request.DeregisterNotificationHubRequest,
+    input_: aws_sdk_notifications.types.deregister_notification_hub_request.DeregisterNotificationHubRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-            Region=options.region,
+            UseFIPS=options.use_fips, Endpoint=options.endpoint, Region=options.region
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/notification-hubs/{notificationHubRegion}"
     url = url.replace(
-        "{notificationHubRegion}", quote(str(input["notification_hub_region"]), safe="")
+        "{notificationHubRegion}",
+        quote(str(input_["notification_hub_region"]), safe=""),
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -124,26 +123,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def deregister_notification_hub(
     options: OperationOptions,
-    input: aws_sdk_notifications.types.deregister_notification_hub_request.DeregisterNotificationHubRequest,
+    input_: aws_sdk_notifications.types.deregister_notification_hub_request.DeregisterNotificationHubRequest,
 ) -> tuple[
     aws_sdk_notifications.types.deregister_notification_hub_response.DeregisterNotificationHubResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -152,16 +148,17 @@ def deregister_notification_hub(
 
 async def async_deregister_notification_hub(
     options: AsyncOperationOptions,
-    input: aws_sdk_notifications.types.deregister_notification_hub_request.DeregisterNotificationHubRequest,
+    input_: aws_sdk_notifications.types.deregister_notification_hub_request.DeregisterNotificationHubRequest,
 ) -> tuple[
     aws_sdk_notifications.types.deregister_notification_hub_response.DeregisterNotificationHubResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

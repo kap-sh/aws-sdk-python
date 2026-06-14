@@ -168,15 +168,15 @@ class KinesisVideoMediaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_media.types.get_media_input.GetMediaInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video_media.types.get_media_input.GetMediaInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["start_selector"] = start_selector
+            input_["stream_arn"] = stream_arn
+        input_["start_selector"] = start_selector
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

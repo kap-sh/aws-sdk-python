@@ -15,6 +15,9 @@ from aws_sdk_s3vectors._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_s3vectors._auth._zapros_handler import AuthMiddleware
+from aws_sdk_s3vectors._resources.s3_vectors.vector_bucket_resource import (
+    AsyncVectorBucketResource,
+)
 from aws_sdk_s3vectors._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -104,6 +107,8 @@ class AsyncS3VectorsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.vector_bucket_resource = AsyncVectorBucketResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncS3VectorsClientConfig] = None
@@ -158,11 +163,11 @@ class AsyncS3VectorsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_s3vectors.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,12 +203,12 @@ class AsyncS3VectorsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_s3vectors.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,12 +244,12 @@ class AsyncS3VectorsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_s3vectors.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

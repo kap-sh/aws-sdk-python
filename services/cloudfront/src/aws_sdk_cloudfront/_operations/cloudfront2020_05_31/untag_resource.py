@@ -74,27 +74,27 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.untag_resource_request.UntagResourceRequest,
+    input_: aws_sdk_cloudfront.types.untag_resource_request.UntagResourceRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/tagging?Operation=Untag"
     params: dict[str, str] = {}
-    if "resource" in input:
-        params["Resource"] = str(input["resource"])
+    if "resource" in input_:
+        params["Resource"] = str(input_["resource"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "tag_keys" in input:
+    if "tag_keys" in input_:
         import aws_sdk_cloudfront.types.tag_keys
 
         payload_root = Element("_")
         aws_sdk_cloudfront.types.tag_keys.serialize_xml(
-            input["tag_keys"], payload_root, "TagKeys"
+            input_["tag_keys"], payload_root, "TagKeys"
         )
         body: bytes | None = tostring(payload_root[0])
         headers["content-type"] = "application/xml"
@@ -104,23 +104,20 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def untag_resource(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.untag_resource_request.UntagResourceRequest,
+    input_: aws_sdk_cloudfront.types.untag_resource_request.UntagResourceRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -129,13 +126,14 @@ def untag_resource(
 
 async def async_untag_resource(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.untag_resource_request.UntagResourceRequest,
+    input_: aws_sdk_cloudfront.types.untag_resource_request.UntagResourceRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -80,18 +81,18 @@ class FormType:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_form_type_input.CreateFormTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
-        input["model"] = model
-        input["owning_project_identifier"] = owning_project_identifier
+        input_: aws_sdk_datazone.types.create_form_type_input.CreateFormTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
+        input_["model"] = model
+        input_["owning_project_identifier"] = owning_project_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -126,12 +127,12 @@ class FormType:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_form_type_input.DeleteFormTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["form_type_identifier"] = form_type_identifier
+        input_: aws_sdk_datazone.types.delete_form_type_input.DeleteFormTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["form_type_identifier"] = form_type_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,14 +169,14 @@ class FormType:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["form_type_identifier"] = form_type_identifier
+        input_: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["form_type_identifier"] = form_type_identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,18 +227,18 @@ class AsyncFormType:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_form_type_input.CreateFormTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
-        input["model"] = model
-        input["owning_project_identifier"] = owning_project_identifier
+        input_: aws_sdk_datazone.types.create_form_type_input.CreateFormTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
+        input_["model"] = model
+        input_["owning_project_identifier"] = owning_project_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,12 +274,12 @@ class AsyncFormType:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_form_type_input.DeleteFormTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["form_type_identifier"] = form_type_identifier
+        input_: aws_sdk_datazone.types.delete_form_type_input.DeleteFormTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["form_type_identifier"] = form_type_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -316,14 +317,14 @@ class AsyncFormType:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["form_type_identifier"] = form_type_identifier
+        input_: aws_sdk_datazone.types.get_form_type_input.GetFormTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["form_type_identifier"] = form_type_identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

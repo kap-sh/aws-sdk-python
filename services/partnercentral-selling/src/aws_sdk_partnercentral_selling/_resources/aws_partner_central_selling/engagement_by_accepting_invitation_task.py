@@ -71,15 +71,15 @@ class EngagementByAcceptingInvitationTask:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.start_engagement_by_accepting_invitation_task_request.StartEngagementByAcceptingInvitationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.start_engagement_by_accepting_invitation_task_request.StartEngagementByAcceptingInvitationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["identifier"] = identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,25 +136,27 @@ class EngagementByAcceptingInvitationTask:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagement_by_accepting_invitation_tasks_request.ListEngagementByAcceptingInvitationTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_partnercentral_selling.types.list_engagement_by_accepting_invitation_tasks_request.ListEngagementByAcceptingInvitationTasksRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
-        input["catalog"] = catalog
+            input_["sort"] = sort
+        input_["catalog"] = catalog
         if task_status is not None:
-            input["task_status"] = task_status
+            input_["task_status"] = task_status
         if opportunity_identifier is not None:
-            input["opportunity_identifier"] = opportunity_identifier
+            input_["opportunity_identifier"] = opportunity_identifier
         if engagement_invitation_identifier is not None:
-            input["engagement_invitation_identifier"] = engagement_invitation_identifier
+            input_["engagement_invitation_identifier"] = (
+                engagement_invitation_identifier
+            )
         if task_identifier is not None:
-            input["task_identifier"] = task_identifier
+            input_["task_identifier"] = task_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -199,15 +201,15 @@ class AsyncEngagementByAcceptingInvitationTask:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.start_engagement_by_accepting_invitation_task_request.StartEngagementByAcceptingInvitationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.start_engagement_by_accepting_invitation_task_request.StartEngagementByAcceptingInvitationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["identifier"] = identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,25 +267,27 @@ class AsyncEngagementByAcceptingInvitationTask:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagement_by_accepting_invitation_tasks_request.ListEngagementByAcceptingInvitationTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_partnercentral_selling.types.list_engagement_by_accepting_invitation_tasks_request.ListEngagementByAcceptingInvitationTasksRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
-        input["catalog"] = catalog
+            input_["sort"] = sort
+        input_["catalog"] = catalog
         if task_status is not None:
-            input["task_status"] = task_status
+            input_["task_status"] = task_status
         if opportunity_identifier is not None:
-            input["opportunity_identifier"] = opportunity_identifier
+            input_["opportunity_identifier"] = opportunity_identifier
         if engagement_invitation_identifier is not None:
-            input["engagement_invitation_identifier"] = engagement_invitation_identifier
+            input_["engagement_invitation_identifier"] = (
+                engagement_invitation_identifier
+            )
         if task_identifier is not None:
-            input["task_identifier"] = task_identifier
+            input_["task_identifier"] = task_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

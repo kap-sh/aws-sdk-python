@@ -126,39 +126,39 @@ class TrainedModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_trained_model_request.CreateTrainedModelRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["name"] = name
-        input["configured_model_algorithm_association_arn"] = (
+        input_: aws_sdk_cleanroomsml.types.create_trained_model_request.CreateTrainedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["name"] = name
+        input_["configured_model_algorithm_association_arn"] = (
             configured_model_algorithm_association_arn
         )
         if hyperparameters is not None:
-            input["hyperparameters"] = hyperparameters
+            input_["hyperparameters"] = hyperparameters
         if environment is not None:
-            input["environment"] = environment
-        input["resource_config"] = resource_config
+            input_["environment"] = environment
+        input_["resource_config"] = resource_config
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
+            input_["stopping_condition"] = stopping_condition
         if incremental_training_data_channels is not None:
-            input["incremental_training_data_channels"] = (
+            input_["incremental_training_data_channels"] = (
                 incremental_training_data_channels
             )
-        input["data_channels"] = data_channels
+        input_["data_channels"] = data_channels
         if training_input_mode is not None:
-            input["training_input_mode"] = training_input_mode
+            input_["training_input_mode"] = training_input_mode
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if ml_model_training_payer_account_id is not None:
-            input["ml_model_training_payer_account_id"] = (
+            input_["ml_model_training_payer_account_id"] = (
                 ml_model_training_payer_account_id
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,14 +197,14 @@ class TrainedModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_trained_model_request.GetTrainedModelRequest = {}  # type: ignore[typeddict-item]
-        input["trained_model_arn"] = trained_model_arn
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.get_trained_model_request.GetTrainedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["trained_model_arn"] = trained_model_arn
+        input_["membership_identifier"] = membership_identifier
         if version_identifier is not None:
-            input["version_identifier"] = version_identifier
+            input_["version_identifier"] = version_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,14 +239,14 @@ class TrainedModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_trained_model_output_request.DeleteTrainedModelOutputRequest = {}  # type: ignore[typeddict-item]
-        input["trained_model_arn"] = trained_model_arn
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.delete_trained_model_output_request.DeleteTrainedModelOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["trained_model_arn"] = trained_model_arn
+        input_["membership_identifier"] = membership_identifier
         if version_identifier is not None:
-            input["version_identifier"] = version_identifier
+            input_["version_identifier"] = version_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,15 +285,15 @@ class TrainedModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_trained_models_request.ListTrainedModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_trained_models_request.ListTrainedModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,14 +328,14 @@ class TrainedModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.cancel_trained_model_request.CancelTrainedModelRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["trained_model_arn"] = trained_model_arn
+        input_: aws_sdk_cleanroomsml.types.cancel_trained_model_request.CancelTrainedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["trained_model_arn"] = trained_model_arn
         if version_identifier is not None:
-            input["version_identifier"] = version_identifier
+            input_["version_identifier"] = version_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,14 +372,14 @@ class TrainedModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_collaboration_trained_model_request.GetCollaborationTrainedModelRequest = {}  # type: ignore[typeddict-item]
-        input["trained_model_arn"] = trained_model_arn
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanroomsml.types.get_collaboration_trained_model_request.GetCollaborationTrainedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["trained_model_arn"] = trained_model_arn
+        input_["collaboration_identifier"] = collaboration_identifier
         if version_identifier is not None:
-            input["version_identifier"] = version_identifier
+            input_["version_identifier"] = version_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,18 +424,18 @@ class TrainedModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_trained_model_versions_request.ListTrainedModelVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_trained_model_versions_request.ListTrainedModelVersionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
-        input["trained_model_arn"] = trained_model_arn
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
+        input_["trained_model_arn"] = trained_model_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,39 +516,39 @@ class AsyncTrainedModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_trained_model_request.CreateTrainedModelRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["name"] = name
-        input["configured_model_algorithm_association_arn"] = (
+        input_: aws_sdk_cleanroomsml.types.create_trained_model_request.CreateTrainedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["name"] = name
+        input_["configured_model_algorithm_association_arn"] = (
             configured_model_algorithm_association_arn
         )
         if hyperparameters is not None:
-            input["hyperparameters"] = hyperparameters
+            input_["hyperparameters"] = hyperparameters
         if environment is not None:
-            input["environment"] = environment
-        input["resource_config"] = resource_config
+            input_["environment"] = environment
+        input_["resource_config"] = resource_config
         if stopping_condition is not None:
-            input["stopping_condition"] = stopping_condition
+            input_["stopping_condition"] = stopping_condition
         if incremental_training_data_channels is not None:
-            input["incremental_training_data_channels"] = (
+            input_["incremental_training_data_channels"] = (
                 incremental_training_data_channels
             )
-        input["data_channels"] = data_channels
+        input_["data_channels"] = data_channels
         if training_input_mode is not None:
-            input["training_input_mode"] = training_input_mode
+            input_["training_input_mode"] = training_input_mode
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if ml_model_training_payer_account_id is not None:
-            input["ml_model_training_payer_account_id"] = (
+            input_["ml_model_training_payer_account_id"] = (
                 ml_model_training_payer_account_id
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,14 +588,14 @@ class AsyncTrainedModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_trained_model_request.GetTrainedModelRequest = {}  # type: ignore[typeddict-item]
-        input["trained_model_arn"] = trained_model_arn
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.get_trained_model_request.GetTrainedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["trained_model_arn"] = trained_model_arn
+        input_["membership_identifier"] = membership_identifier
         if version_identifier is not None:
-            input["version_identifier"] = version_identifier
+            input_["version_identifier"] = version_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -631,14 +631,14 @@ class AsyncTrainedModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_trained_model_output_request.DeleteTrainedModelOutputRequest = {}  # type: ignore[typeddict-item]
-        input["trained_model_arn"] = trained_model_arn
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.delete_trained_model_output_request.DeleteTrainedModelOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["trained_model_arn"] = trained_model_arn
+        input_["membership_identifier"] = membership_identifier
         if version_identifier is not None:
-            input["version_identifier"] = version_identifier
+            input_["version_identifier"] = version_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,15 +678,15 @@ class AsyncTrainedModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_trained_models_request.ListTrainedModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_trained_models_request.ListTrainedModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,14 +722,14 @@ class AsyncTrainedModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.cancel_trained_model_request.CancelTrainedModelRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["trained_model_arn"] = trained_model_arn
+        input_: aws_sdk_cleanroomsml.types.cancel_trained_model_request.CancelTrainedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["trained_model_arn"] = trained_model_arn
         if version_identifier is not None:
-            input["version_identifier"] = version_identifier
+            input_["version_identifier"] = version_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -767,14 +767,14 @@ class AsyncTrainedModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_collaboration_trained_model_request.GetCollaborationTrainedModelRequest = {}  # type: ignore[typeddict-item]
-        input["trained_model_arn"] = trained_model_arn
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanroomsml.types.get_collaboration_trained_model_request.GetCollaborationTrainedModelRequest = {}  # type: ignore[typeddict-item]
+        input_["trained_model_arn"] = trained_model_arn
+        input_["collaboration_identifier"] = collaboration_identifier
         if version_identifier is not None:
-            input["version_identifier"] = version_identifier
+            input_["version_identifier"] = version_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -820,18 +820,18 @@ class AsyncTrainedModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_trained_model_versions_request.ListTrainedModelVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_trained_model_versions_request.ListTrainedModelVersionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
-        input["trained_model_arn"] = trained_model_arn
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
+        input_["trained_model_arn"] = trained_model_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

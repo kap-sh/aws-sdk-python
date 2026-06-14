@@ -99,64 +99,61 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput,
+    input_: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/tile/{z}/{x}/{y}"
-    url = url.replace("{x}", quote(str(input["x"]), safe=""))
-    url = url.replace("{y}", quote(str(input["y"]), safe=""))
-    url = url.replace("{z}", quote(str(input["z"]), safe=""))
+    url = url.replace("{x}", quote(str(input_["x"]), safe=""))
+    url = url.replace("{y}", quote(str(input_["y"]), safe=""))
+    url = url.replace("{z}", quote(str(input_["z"]), safe=""))
     params: dict[str, str] = {}
-    if "image_assets" in input:
-        params["ImageAssets"] = str(input["image_assets"])
-    if "target" in input:
-        params["Target"] = str(input["target"])
-    if "arn" in input:
-        params["Arn"] = str(input["arn"])
-    if "image_mask" in input:
-        params["ImageMask"] = str(input["image_mask"])
-    if "output_format" in input:
-        params["OutputFormat"] = str(input["output_format"])
-    if "time_range_filter" in input:
-        params["TimeRangeFilter"] = str(input["time_range_filter"])
-    if "property_filters" in input:
-        params["PropertyFilters"] = str(input["property_filters"])
-    if "output_data_type" in input:
-        params["OutputDataType"] = str(input["output_data_type"])
-    if "execution_role_arn" in input:
-        params["ExecutionRoleArn"] = str(input["execution_role_arn"])
+    if "image_assets" in input_:
+        params["ImageAssets"] = str(input_["image_assets"])
+    if "target" in input_:
+        params["Target"] = str(input_["target"])
+    if "arn" in input_:
+        params["Arn"] = str(input_["arn"])
+    if "image_mask" in input_:
+        params["ImageMask"] = str(input_["image_mask"])
+    if "output_format" in input_:
+        params["OutputFormat"] = str(input_["output_format"])
+    if "time_range_filter" in input_:
+        params["TimeRangeFilter"] = str(input_["time_range_filter"])
+    if "property_filters" in input_:
+        params["PropertyFilters"] = str(input_["property_filters"])
+    if "output_data_type" in input_:
+        params["OutputDataType"] = str(input_["output_data_type"])
+    if "execution_role_arn" in input_:
+        params["ExecutionRoleArn"] = str(input_["execution_role_arn"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_tile(
     options: OperationOptions,
-    input: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput,
+    input_: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput,
 ) -> tuple[
     aws_sdk_sagemaker_geospatial.types.get_tile_output.GetTileOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -165,15 +162,16 @@ def get_tile(
 
 async def async_get_tile(
     options: AsyncOperationOptions,
-    input: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput,
+    input_: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput,
 ) -> tuple[
     aws_sdk_sagemaker_geospatial.types.get_tile_output.GetTileOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

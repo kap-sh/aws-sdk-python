@@ -185,71 +185,71 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
         if event_source_arn is not None:
-            input["event_source_arn"] = event_source_arn
-        input["function_name"] = function_name
+            input_["event_source_arn"] = event_source_arn
+        input_["function_name"] = function_name
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if batch_size is not None:
-            input["batch_size"] = batch_size
+            input_["batch_size"] = batch_size
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if maximum_batching_window_in_seconds is not None:
-            input["maximum_batching_window_in_seconds"] = (
+            input_["maximum_batching_window_in_seconds"] = (
                 maximum_batching_window_in_seconds
             )
         if parallelization_factor is not None:
-            input["parallelization_factor"] = parallelization_factor
+            input_["parallelization_factor"] = parallelization_factor
         if starting_position is not None:
-            input["starting_position"] = starting_position
+            input_["starting_position"] = starting_position
         if starting_position_timestamp is not None:
-            input["starting_position_timestamp"] = starting_position_timestamp
+            input_["starting_position_timestamp"] = starting_position_timestamp
         if destination_config is not None:
-            input["destination_config"] = destination_config
+            input_["destination_config"] = destination_config
         if maximum_record_age_in_seconds is not None:
-            input["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+            input_["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
         if bisect_batch_on_function_error is not None:
-            input["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+            input_["bisect_batch_on_function_error"] = bisect_batch_on_function_error
         if maximum_retry_attempts is not None:
-            input["maximum_retry_attempts"] = maximum_retry_attempts
+            input_["maximum_retry_attempts"] = maximum_retry_attempts
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tumbling_window_in_seconds is not None:
-            input["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+            input_["tumbling_window_in_seconds"] = tumbling_window_in_seconds
         if topics is not None:
-            input["topics"] = topics
+            input_["topics"] = topics
         if queues is not None:
-            input["queues"] = queues
+            input_["queues"] = queues
         if source_access_configurations is not None:
-            input["source_access_configurations"] = source_access_configurations
+            input_["source_access_configurations"] = source_access_configurations
         if self_managed_event_source is not None:
-            input["self_managed_event_source"] = self_managed_event_source
+            input_["self_managed_event_source"] = self_managed_event_source
         if function_response_types is not None:
-            input["function_response_types"] = function_response_types
+            input_["function_response_types"] = function_response_types
         if amazon_managed_kafka_event_source_config is not None:
-            input["amazon_managed_kafka_event_source_config"] = (
+            input_["amazon_managed_kafka_event_source_config"] = (
                 amazon_managed_kafka_event_source_config
             )
         if self_managed_kafka_event_source_config is not None:
-            input["self_managed_kafka_event_source_config"] = (
+            input_["self_managed_kafka_event_source_config"] = (
                 self_managed_kafka_event_source_config
             )
         if scaling_config is not None:
-            input["scaling_config"] = scaling_config
+            input_["scaling_config"] = scaling_config
         if document_db_event_source_config is not None:
-            input["document_db_event_source_config"] = document_db_event_source_config
+            input_["document_db_event_source_config"] = document_db_event_source_config
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if provisioned_poller_config is not None:
-            input["provisioned_poller_config"] = provisioned_poller_config
+            input_["provisioned_poller_config"] = provisioned_poller_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,11 +288,11 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input["uuid"] = uuid
+        input_: aws_sdk_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["uuid"] = uuid
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -406,59 +406,59 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input["uuid"] = uuid
+        input_: aws_sdk_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["uuid"] = uuid
         if function_name is not None:
-            input["function_name"] = function_name
+            input_["function_name"] = function_name
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if batch_size is not None:
-            input["batch_size"] = batch_size
+            input_["batch_size"] = batch_size
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if maximum_batching_window_in_seconds is not None:
-            input["maximum_batching_window_in_seconds"] = (
+            input_["maximum_batching_window_in_seconds"] = (
                 maximum_batching_window_in_seconds
             )
         if destination_config is not None:
-            input["destination_config"] = destination_config
+            input_["destination_config"] = destination_config
         if maximum_record_age_in_seconds is not None:
-            input["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+            input_["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
         if bisect_batch_on_function_error is not None:
-            input["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+            input_["bisect_batch_on_function_error"] = bisect_batch_on_function_error
         if maximum_retry_attempts is not None:
-            input["maximum_retry_attempts"] = maximum_retry_attempts
+            input_["maximum_retry_attempts"] = maximum_retry_attempts
         if parallelization_factor is not None:
-            input["parallelization_factor"] = parallelization_factor
+            input_["parallelization_factor"] = parallelization_factor
         if source_access_configurations is not None:
-            input["source_access_configurations"] = source_access_configurations
+            input_["source_access_configurations"] = source_access_configurations
         if tumbling_window_in_seconds is not None:
-            input["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+            input_["tumbling_window_in_seconds"] = tumbling_window_in_seconds
         if function_response_types is not None:
-            input["function_response_types"] = function_response_types
+            input_["function_response_types"] = function_response_types
         if scaling_config is not None:
-            input["scaling_config"] = scaling_config
+            input_["scaling_config"] = scaling_config
         if amazon_managed_kafka_event_source_config is not None:
-            input["amazon_managed_kafka_event_source_config"] = (
+            input_["amazon_managed_kafka_event_source_config"] = (
                 amazon_managed_kafka_event_source_config
             )
         if self_managed_kafka_event_source_config is not None:
-            input["self_managed_kafka_event_source_config"] = (
+            input_["self_managed_kafka_event_source_config"] = (
                 self_managed_kafka_event_source_config
             )
         if document_db_event_source_config is not None:
-            input["document_db_event_source_config"] = document_db_event_source_config
+            input_["document_db_event_source_config"] = document_db_event_source_config
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if provisioned_poller_config is not None:
-            input["provisioned_poller_config"] = provisioned_poller_config
+            input_["provisioned_poller_config"] = provisioned_poller_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -497,11 +497,11 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input["uuid"] = uuid
+        input_: aws_sdk_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["uuid"] = uuid
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -548,18 +548,18 @@ class EventSourceMapping:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}  # type: ignore[typeddict-item]
         if event_source_arn is not None:
-            input["event_source_arn"] = event_source_arn
+            input_["event_source_arn"] = event_source_arn
         if function_name is not None:
-            input["function_name"] = function_name
+            input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,71 +696,71 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.create_event_source_mapping_request.CreateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
         if event_source_arn is not None:
-            input["event_source_arn"] = event_source_arn
-        input["function_name"] = function_name
+            input_["event_source_arn"] = event_source_arn
+        input_["function_name"] = function_name
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if batch_size is not None:
-            input["batch_size"] = batch_size
+            input_["batch_size"] = batch_size
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if maximum_batching_window_in_seconds is not None:
-            input["maximum_batching_window_in_seconds"] = (
+            input_["maximum_batching_window_in_seconds"] = (
                 maximum_batching_window_in_seconds
             )
         if parallelization_factor is not None:
-            input["parallelization_factor"] = parallelization_factor
+            input_["parallelization_factor"] = parallelization_factor
         if starting_position is not None:
-            input["starting_position"] = starting_position
+            input_["starting_position"] = starting_position
         if starting_position_timestamp is not None:
-            input["starting_position_timestamp"] = starting_position_timestamp
+            input_["starting_position_timestamp"] = starting_position_timestamp
         if destination_config is not None:
-            input["destination_config"] = destination_config
+            input_["destination_config"] = destination_config
         if maximum_record_age_in_seconds is not None:
-            input["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+            input_["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
         if bisect_batch_on_function_error is not None:
-            input["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+            input_["bisect_batch_on_function_error"] = bisect_batch_on_function_error
         if maximum_retry_attempts is not None:
-            input["maximum_retry_attempts"] = maximum_retry_attempts
+            input_["maximum_retry_attempts"] = maximum_retry_attempts
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tumbling_window_in_seconds is not None:
-            input["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+            input_["tumbling_window_in_seconds"] = tumbling_window_in_seconds
         if topics is not None:
-            input["topics"] = topics
+            input_["topics"] = topics
         if queues is not None:
-            input["queues"] = queues
+            input_["queues"] = queues
         if source_access_configurations is not None:
-            input["source_access_configurations"] = source_access_configurations
+            input_["source_access_configurations"] = source_access_configurations
         if self_managed_event_source is not None:
-            input["self_managed_event_source"] = self_managed_event_source
+            input_["self_managed_event_source"] = self_managed_event_source
         if function_response_types is not None:
-            input["function_response_types"] = function_response_types
+            input_["function_response_types"] = function_response_types
         if amazon_managed_kafka_event_source_config is not None:
-            input["amazon_managed_kafka_event_source_config"] = (
+            input_["amazon_managed_kafka_event_source_config"] = (
                 amazon_managed_kafka_event_source_config
             )
         if self_managed_kafka_event_source_config is not None:
-            input["self_managed_kafka_event_source_config"] = (
+            input_["self_managed_kafka_event_source_config"] = (
                 self_managed_kafka_event_source_config
             )
         if scaling_config is not None:
-            input["scaling_config"] = scaling_config
+            input_["scaling_config"] = scaling_config
         if document_db_event_source_config is not None:
-            input["document_db_event_source_config"] = document_db_event_source_config
+            input_["document_db_event_source_config"] = document_db_event_source_config
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if provisioned_poller_config is not None:
-            input["provisioned_poller_config"] = provisioned_poller_config
+            input_["provisioned_poller_config"] = provisioned_poller_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -800,11 +800,11 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input["uuid"] = uuid
+        input_: aws_sdk_lambda.types.get_event_source_mapping_request.GetEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["uuid"] = uuid
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,59 +919,59 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input["uuid"] = uuid
+        input_: aws_sdk_lambda.types.update_event_source_mapping_request.UpdateEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["uuid"] = uuid
         if function_name is not None:
-            input["function_name"] = function_name
+            input_["function_name"] = function_name
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if batch_size is not None:
-            input["batch_size"] = batch_size
+            input_["batch_size"] = batch_size
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if maximum_batching_window_in_seconds is not None:
-            input["maximum_batching_window_in_seconds"] = (
+            input_["maximum_batching_window_in_seconds"] = (
                 maximum_batching_window_in_seconds
             )
         if destination_config is not None:
-            input["destination_config"] = destination_config
+            input_["destination_config"] = destination_config
         if maximum_record_age_in_seconds is not None:
-            input["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
+            input_["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
         if bisect_batch_on_function_error is not None:
-            input["bisect_batch_on_function_error"] = bisect_batch_on_function_error
+            input_["bisect_batch_on_function_error"] = bisect_batch_on_function_error
         if maximum_retry_attempts is not None:
-            input["maximum_retry_attempts"] = maximum_retry_attempts
+            input_["maximum_retry_attempts"] = maximum_retry_attempts
         if parallelization_factor is not None:
-            input["parallelization_factor"] = parallelization_factor
+            input_["parallelization_factor"] = parallelization_factor
         if source_access_configurations is not None:
-            input["source_access_configurations"] = source_access_configurations
+            input_["source_access_configurations"] = source_access_configurations
         if tumbling_window_in_seconds is not None:
-            input["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+            input_["tumbling_window_in_seconds"] = tumbling_window_in_seconds
         if function_response_types is not None:
-            input["function_response_types"] = function_response_types
+            input_["function_response_types"] = function_response_types
         if scaling_config is not None:
-            input["scaling_config"] = scaling_config
+            input_["scaling_config"] = scaling_config
         if amazon_managed_kafka_event_source_config is not None:
-            input["amazon_managed_kafka_event_source_config"] = (
+            input_["amazon_managed_kafka_event_source_config"] = (
                 amazon_managed_kafka_event_source_config
             )
         if self_managed_kafka_event_source_config is not None:
-            input["self_managed_kafka_event_source_config"] = (
+            input_["self_managed_kafka_event_source_config"] = (
                 self_managed_kafka_event_source_config
             )
         if document_db_event_source_config is not None:
-            input["document_db_event_source_config"] = document_db_event_source_config
+            input_["document_db_event_source_config"] = document_db_event_source_config
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if metrics_config is not None:
-            input["metrics_config"] = metrics_config
+            input_["metrics_config"] = metrics_config
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if provisioned_poller_config is not None:
-            input["provisioned_poller_config"] = provisioned_poller_config
+            input_["provisioned_poller_config"] = provisioned_poller_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1011,11 +1011,11 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
-        input["uuid"] = uuid
+        input_: aws_sdk_lambda.types.delete_event_source_mapping_request.DeleteEventSourceMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["uuid"] = uuid
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1063,18 +1063,18 @@ class AsyncEventSourceMapping:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_event_source_mappings_request.ListEventSourceMappingsRequest = {}  # type: ignore[typeddict-item]
         if event_source_arn is not None:
-            input["event_source_arn"] = event_source_arn
+            input_["event_source_arn"] = event_source_arn
         if function_name is not None:
-            input["function_name"] = function_name
+            input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

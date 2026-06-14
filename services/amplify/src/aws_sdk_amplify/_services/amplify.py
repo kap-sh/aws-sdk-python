@@ -359,53 +359,53 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_amplify.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if repository is not None:
-            input["repository"] = repository
+            input_["repository"] = repository
         if platform is not None:
-            input["platform"] = platform
+            input_["platform"] = platform
         if compute_role_arn is not None:
-            input["compute_role_arn"] = compute_role_arn
+            input_["compute_role_arn"] = compute_role_arn
         if iam_service_role_arn is not None:
-            input["iam_service_role_arn"] = iam_service_role_arn
+            input_["iam_service_role_arn"] = iam_service_role_arn
         if oauth_token is not None:
-            input["oauth_token"] = oauth_token
+            input_["oauth_token"] = oauth_token
         if access_token is not None:
-            input["access_token"] = access_token
+            input_["access_token"] = access_token
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if enable_branch_auto_build is not None:
-            input["enable_branch_auto_build"] = enable_branch_auto_build
+            input_["enable_branch_auto_build"] = enable_branch_auto_build
         if enable_branch_auto_deletion is not None:
-            input["enable_branch_auto_deletion"] = enable_branch_auto_deletion
+            input_["enable_branch_auto_deletion"] = enable_branch_auto_deletion
         if enable_basic_auth is not None:
-            input["enable_basic_auth"] = enable_basic_auth
+            input_["enable_basic_auth"] = enable_basic_auth
         if basic_auth_credentials is not None:
-            input["basic_auth_credentials"] = basic_auth_credentials
+            input_["basic_auth_credentials"] = basic_auth_credentials
         if custom_rules is not None:
-            input["custom_rules"] = custom_rules
+            input_["custom_rules"] = custom_rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if build_spec is not None:
-            input["build_spec"] = build_spec
+            input_["build_spec"] = build_spec
         if custom_headers is not None:
-            input["custom_headers"] = custom_headers
+            input_["custom_headers"] = custom_headers
         if enable_auto_branch_creation is not None:
-            input["enable_auto_branch_creation"] = enable_auto_branch_creation
+            input_["enable_auto_branch_creation"] = enable_auto_branch_creation
         if auto_branch_creation_patterns is not None:
-            input["auto_branch_creation_patterns"] = auto_branch_creation_patterns
+            input_["auto_branch_creation_patterns"] = auto_branch_creation_patterns
         if auto_branch_creation_config is not None:
-            input["auto_branch_creation_config"] = auto_branch_creation_config
+            input_["auto_branch_creation_config"] = auto_branch_creation_config
         if job_config is not None:
-            input["job_config"] = job_config
+            input_["job_config"] = job_config
         if cache_config is not None:
-            input["cache_config"] = cache_config
+            input_["cache_config"] = cache_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,16 +446,16 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.create_backend_environment_request.CreateBackendEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplify.types.create_backend_environment_request.CreateBackendEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if stack_name is not None:
-            input["stack_name"] = stack_name
+            input_["stack_name"] = stack_name
         if deployment_artifacts is not None:
-            input["deployment_artifacts"] = deployment_artifacts
+            input_["deployment_artifacts"] = deployment_artifacts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -550,50 +550,50 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.create_branch_request.CreateBranchRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.create_branch_request.CreateBranchRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
         if framework is not None:
-            input["framework"] = framework
+            input_["framework"] = framework
         if enable_notification is not None:
-            input["enable_notification"] = enable_notification
+            input_["enable_notification"] = enable_notification
         if enable_auto_build is not None:
-            input["enable_auto_build"] = enable_auto_build
+            input_["enable_auto_build"] = enable_auto_build
         if enable_skew_protection is not None:
-            input["enable_skew_protection"] = enable_skew_protection
+            input_["enable_skew_protection"] = enable_skew_protection
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if basic_auth_credentials is not None:
-            input["basic_auth_credentials"] = basic_auth_credentials
+            input_["basic_auth_credentials"] = basic_auth_credentials
         if enable_basic_auth is not None:
-            input["enable_basic_auth"] = enable_basic_auth
+            input_["enable_basic_auth"] = enable_basic_auth
         if enable_performance_mode is not None:
-            input["enable_performance_mode"] = enable_performance_mode
+            input_["enable_performance_mode"] = enable_performance_mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if build_spec is not None:
-            input["build_spec"] = build_spec
+            input_["build_spec"] = build_spec
         if ttl is not None:
-            input["ttl"] = ttl
+            input_["ttl"] = ttl
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if enable_pull_request_preview is not None:
-            input["enable_pull_request_preview"] = enable_pull_request_preview
+            input_["enable_pull_request_preview"] = enable_pull_request_preview
         if pull_request_environment_name is not None:
-            input["pull_request_environment_name"] = pull_request_environment_name
+            input_["pull_request_environment_name"] = pull_request_environment_name
         if backend_environment_arn is not None:
-            input["backend_environment_arn"] = backend_environment_arn
+            input_["backend_environment_arn"] = backend_environment_arn
         if backend is not None:
-            input["backend"] = backend
+            input_["backend"] = backend
         if compute_role_arn is not None:
-            input["compute_role_arn"] = compute_role_arn
+            input_["compute_role_arn"] = compute_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,14 +630,14 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
         if file_map is not None:
-            input["file_map"] = file_map
+            input_["file_map"] = file_map
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,23 +690,23 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.create_domain_association_request.CreateDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_amplify.types.create_domain_association_request.CreateDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["domain_name"] = domain_name
         if enable_auto_sub_domain is not None:
-            input["enable_auto_sub_domain"] = enable_auto_sub_domain
-        input["sub_domain_settings"] = sub_domain_settings
+            input_["enable_auto_sub_domain"] = enable_auto_sub_domain
+        input_["sub_domain_settings"] = sub_domain_settings
         if auto_sub_domain_creation_patterns is not None:
-            input["auto_sub_domain_creation_patterns"] = (
+            input_["auto_sub_domain_creation_patterns"] = (
                 auto_sub_domain_creation_patterns
             )
         if auto_sub_domain_iam_role is not None:
-            input["auto_sub_domain_iam_role"] = auto_sub_domain_iam_role
+            input_["auto_sub_domain_iam_role"] = auto_sub_domain_iam_role
         if certificate_settings is not None:
-            input["certificate_settings"] = certificate_settings
+            input_["certificate_settings"] = certificate_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,14 +743,14 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.create_webhook_request.CreateWebhookRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.create_webhook_request.CreateWebhookRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -783,11 +783,11 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplify.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -822,12 +822,12 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.delete_backend_environment_request.DeleteBackendEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplify.types.delete_backend_environment_request.DeleteBackendEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -862,12 +862,12 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.delete_branch_request.DeleteBranchRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.delete_branch_request.DeleteBranchRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -902,12 +902,12 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.delete_domain_association_request.DeleteDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_amplify.types.delete_domain_association_request.DeleteDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -944,13 +944,13 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
-        input["job_id"] = job_id
+        input_: aws_sdk_amplify.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -983,11 +983,11 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.delete_webhook_request.DeleteWebhookRequest = {}  # type: ignore[typeddict-item]
-        input["webhook_id"] = webhook_id
+        input_: aws_sdk_amplify.types.delete_webhook_request.DeleteWebhookRequest = {}  # type: ignore[typeddict-item]
+        input_["webhook_id"] = webhook_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1026,16 +1026,16 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.generate_access_logs_request.GenerateAccessLogsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amplify.types.generate_access_logs_request.GenerateAccessLogsRequest = {}  # type: ignore[typeddict-item]
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
-        input["domain_name"] = domain_name
-        input["app_id"] = app_id
+            input_["end_time"] = end_time
+        input_["domain_name"] = domain_name
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1064,11 +1064,11 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.get_app_request.GetAppRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplify.types.get_app_request.GetAppRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1101,11 +1101,11 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.get_artifact_url_request.GetArtifactUrlRequest = {}  # type: ignore[typeddict-item]
-        input["artifact_id"] = artifact_id
+        input_: aws_sdk_amplify.types.get_artifact_url_request.GetArtifactUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["artifact_id"] = artifact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1140,12 +1140,12 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.get_backend_environment_request.GetBackendEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplify.types.get_backend_environment_request.GetBackendEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1180,12 +1180,12 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.get_branch_request.GetBranchRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.get_branch_request.GetBranchRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1222,12 +1222,12 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.get_domain_association_request.GetDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_amplify.types.get_domain_association_request.GetDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1260,13 +1260,13 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
-        input["job_id"] = job_id
+        input_: aws_sdk_amplify.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1299,11 +1299,11 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.get_webhook_request.GetWebhookRequest = {}  # type: ignore[typeddict-item]
-        input["webhook_id"] = webhook_id
+        input_: aws_sdk_amplify.types.get_webhook_request.GetWebhookRequest = {}  # type: ignore[typeddict-item]
+        input_["webhook_id"] = webhook_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1338,14 +1338,14 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.list_apps_request.ListAppsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amplify.types.list_apps_request.ListAppsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1409,17 +1409,17 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.list_artifacts_request.ListArtifactsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
-        input["job_id"] = job_id
+        input_: aws_sdk_amplify.types.list_artifacts_request.ListArtifactsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
+        input_["job_id"] = job_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1460,17 +1460,17 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.list_backend_environments_request.ListBackendEnvironmentsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplify.types.list_backend_environments_request.ListBackendEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1507,15 +1507,15 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.list_branches_request.ListBranchesRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplify.types.list_branches_request.ListBranchesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1575,15 +1575,15 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.list_domain_associations_request.ListDomainAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplify.types.list_domain_associations_request.ListDomainAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1643,16 +1643,16 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1710,11 +1710,11 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_amplify.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1751,15 +1751,15 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.list_webhooks_request.ListWebhooksRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplify.types.list_webhooks_request.ListWebhooksRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1802,18 +1802,18 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.start_deployment_request.StartDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.start_deployment_request.StartDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
         if source_url is not None:
-            input["source_url"] = source_url
+            input_["source_url"] = source_url
         if source_url_type is not None:
-            input["source_url_type"] = source_url_type
+            input_["source_url_type"] = source_url_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1860,23 +1860,23 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.start_job_request.StartJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.start_job_request.StartJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
         if job_id is not None:
-            input["job_id"] = job_id
-        input["job_type"] = job_type
+            input_["job_id"] = job_id
+        input_["job_type"] = job_type
         if job_reason is not None:
-            input["job_reason"] = job_reason
+            input_["job_reason"] = job_reason
         if commit_id is not None:
-            input["commit_id"] = commit_id
+            input_["commit_id"] = commit_id
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
         if commit_time is not None:
-            input["commit_time"] = commit_time
+            input_["commit_time"] = commit_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1911,13 +1911,13 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.stop_job_request.StopJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
-        input["job_id"] = job_id
+        input_: aws_sdk_amplify.types.stop_job_request.StopJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1952,12 +1952,12 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_amplify.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1992,12 +1992,12 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_amplify.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2094,53 +2094,53 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.update_app_request.UpdateAppRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplify.types.update_app_request.UpdateAppRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if platform is not None:
-            input["platform"] = platform
+            input_["platform"] = platform
         if compute_role_arn is not None:
-            input["compute_role_arn"] = compute_role_arn
+            input_["compute_role_arn"] = compute_role_arn
         if iam_service_role_arn is not None:
-            input["iam_service_role_arn"] = iam_service_role_arn
+            input_["iam_service_role_arn"] = iam_service_role_arn
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if enable_branch_auto_build is not None:
-            input["enable_branch_auto_build"] = enable_branch_auto_build
+            input_["enable_branch_auto_build"] = enable_branch_auto_build
         if enable_branch_auto_deletion is not None:
-            input["enable_branch_auto_deletion"] = enable_branch_auto_deletion
+            input_["enable_branch_auto_deletion"] = enable_branch_auto_deletion
         if enable_basic_auth is not None:
-            input["enable_basic_auth"] = enable_basic_auth
+            input_["enable_basic_auth"] = enable_basic_auth
         if basic_auth_credentials is not None:
-            input["basic_auth_credentials"] = basic_auth_credentials
+            input_["basic_auth_credentials"] = basic_auth_credentials
         if custom_rules is not None:
-            input["custom_rules"] = custom_rules
+            input_["custom_rules"] = custom_rules
         if build_spec is not None:
-            input["build_spec"] = build_spec
+            input_["build_spec"] = build_spec
         if custom_headers is not None:
-            input["custom_headers"] = custom_headers
+            input_["custom_headers"] = custom_headers
         if enable_auto_branch_creation is not None:
-            input["enable_auto_branch_creation"] = enable_auto_branch_creation
+            input_["enable_auto_branch_creation"] = enable_auto_branch_creation
         if auto_branch_creation_patterns is not None:
-            input["auto_branch_creation_patterns"] = auto_branch_creation_patterns
+            input_["auto_branch_creation_patterns"] = auto_branch_creation_patterns
         if auto_branch_creation_config is not None:
-            input["auto_branch_creation_config"] = auto_branch_creation_config
+            input_["auto_branch_creation_config"] = auto_branch_creation_config
         if repository is not None:
-            input["repository"] = repository
+            input_["repository"] = repository
         if oauth_token is not None:
-            input["oauth_token"] = oauth_token
+            input_["oauth_token"] = oauth_token
         if access_token is not None:
-            input["access_token"] = access_token
+            input_["access_token"] = access_token
         if job_config is not None:
-            input["job_config"] = job_config
+            input_["job_config"] = job_config
         if cache_config is not None:
-            input["cache_config"] = cache_config
+            input_["cache_config"] = cache_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2233,48 +2233,48 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.update_branch_request.UpdateBranchRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["branch_name"] = branch_name
+        input_: aws_sdk_amplify.types.update_branch_request.UpdateBranchRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["branch_name"] = branch_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if framework is not None:
-            input["framework"] = framework
+            input_["framework"] = framework
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
         if enable_notification is not None:
-            input["enable_notification"] = enable_notification
+            input_["enable_notification"] = enable_notification
         if enable_auto_build is not None:
-            input["enable_auto_build"] = enable_auto_build
+            input_["enable_auto_build"] = enable_auto_build
         if enable_skew_protection is not None:
-            input["enable_skew_protection"] = enable_skew_protection
+            input_["enable_skew_protection"] = enable_skew_protection
         if environment_variables is not None:
-            input["environment_variables"] = environment_variables
+            input_["environment_variables"] = environment_variables
         if basic_auth_credentials is not None:
-            input["basic_auth_credentials"] = basic_auth_credentials
+            input_["basic_auth_credentials"] = basic_auth_credentials
         if enable_basic_auth is not None:
-            input["enable_basic_auth"] = enable_basic_auth
+            input_["enable_basic_auth"] = enable_basic_auth
         if enable_performance_mode is not None:
-            input["enable_performance_mode"] = enable_performance_mode
+            input_["enable_performance_mode"] = enable_performance_mode
         if build_spec is not None:
-            input["build_spec"] = build_spec
+            input_["build_spec"] = build_spec
         if ttl is not None:
-            input["ttl"] = ttl
+            input_["ttl"] = ttl
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if enable_pull_request_preview is not None:
-            input["enable_pull_request_preview"] = enable_pull_request_preview
+            input_["enable_pull_request_preview"] = enable_pull_request_preview
         if pull_request_environment_name is not None:
-            input["pull_request_environment_name"] = pull_request_environment_name
+            input_["pull_request_environment_name"] = pull_request_environment_name
         if backend_environment_arn is not None:
-            input["backend_environment_arn"] = backend_environment_arn
+            input_["backend_environment_arn"] = backend_environment_arn
         if backend is not None:
-            input["backend"] = backend
+            input_["backend"] = backend
         if compute_role_arn is not None:
-            input["compute_role_arn"] = compute_role_arn
+            input_["compute_role_arn"] = compute_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2329,24 +2329,24 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.update_domain_association_request.UpdateDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_amplify.types.update_domain_association_request.UpdateDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["domain_name"] = domain_name
         if enable_auto_sub_domain is not None:
-            input["enable_auto_sub_domain"] = enable_auto_sub_domain
+            input_["enable_auto_sub_domain"] = enable_auto_sub_domain
         if sub_domain_settings is not None:
-            input["sub_domain_settings"] = sub_domain_settings
+            input_["sub_domain_settings"] = sub_domain_settings
         if auto_sub_domain_creation_patterns is not None:
-            input["auto_sub_domain_creation_patterns"] = (
+            input_["auto_sub_domain_creation_patterns"] = (
                 auto_sub_domain_creation_patterns
             )
         if auto_sub_domain_iam_role is not None:
-            input["auto_sub_domain_iam_role"] = auto_sub_domain_iam_role
+            input_["auto_sub_domain_iam_role"] = auto_sub_domain_iam_role
         if certificate_settings is not None:
-            input["certificate_settings"] = certificate_settings
+            input_["certificate_settings"] = certificate_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2383,15 +2383,15 @@ class AmplifyClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplify.types.update_webhook_request.UpdateWebhookRequest = {}  # type: ignore[typeddict-item]
-        input["webhook_id"] = webhook_id
+        input_: aws_sdk_amplify.types.update_webhook_request.UpdateWebhookRequest = {}  # type: ignore[typeddict-item]
+        input_["webhook_id"] = webhook_id
         if branch_name is not None:
-            input["branch_name"] = branch_name
+            input_["branch_name"] = branch_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

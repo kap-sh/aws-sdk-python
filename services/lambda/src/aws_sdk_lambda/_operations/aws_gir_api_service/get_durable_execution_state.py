@@ -80,55 +80,52 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest,
+    input_: aws_sdk_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/2025-12-01/durable-executions/{DurableExecutionArn}/state"
     )
     url = url.replace(
-        "{DurableExecutionArn}", quote(str(input["durable_execution_arn"]), safe="")
+        "{DurableExecutionArn}", quote(str(input_["durable_execution_arn"]), safe="")
     )
     params: dict[str, str] = {}
-    if "checkpoint_token" in input:
-        params["CheckpointToken"] = str(input["checkpoint_token"])
-    if "marker" in input:
-        params["Marker"] = str(input["marker"])
-    params["MaxItems"] = str(input.get("max_items", 0))
+    if "checkpoint_token" in input_:
+        params["CheckpointToken"] = str(input_["checkpoint_token"])
+    if "marker" in input_:
+        params["Marker"] = str(input_["marker"])
+    params["MaxItems"] = str(input_.get("max_items", 0))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_durable_execution_state(
     options: OperationOptions,
-    input: aws_sdk_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest,
+    input_: aws_sdk_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest,
 ) -> tuple[
     aws_sdk_lambda.types.get_durable_execution_state_response.GetDurableExecutionStateResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -137,16 +134,17 @@ def get_durable_execution_state(
 
 async def async_get_durable_execution_state(
     options: AsyncOperationOptions,
-    input: aws_sdk_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest,
+    input_: aws_sdk_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest,
 ) -> tuple[
     aws_sdk_lambda.types.get_durable_execution_state_response.GetDurableExecutionStateResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -16,6 +16,11 @@ from aws_sdk_resource_explorer_2._auth._providers import (
 )
 from aws_sdk_resource_explorer_2._auth._zapros_handler import AuthMiddleware
 from aws_sdk_resource_explorer_2._pagination import resolve_path as _resolve_path
+from aws_sdk_resource_explorer_2._resources.resource_explorer.cfn_index import CfnIndex
+from aws_sdk_resource_explorer_2._resources.resource_explorer.cfn_view import CfnView
+from aws_sdk_resource_explorer_2._resources.resource_explorer.default_view_association import (
+    DefaultViewAssociation,
+)
 from aws_sdk_resource_explorer_2._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -149,6 +154,10 @@ class ResourceExplorer2Client:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.cfn_index = CfnIndex(self)
+        self.cfn_view = CfnView(self)
+        self.default_view_association = DefaultViewAssociation(self)
 
     def operation_options(
         self, config_overrides: Optional[ResourceExplorer2ClientConfig] = None
@@ -207,12 +216,12 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.batch_get_view_input.BatchGetViewInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.batch_get_view_input.BatchGetViewInput = {}  # type: ignore[typeddict-item]
         if view_arns is not None:
-            input["view_arns"] = view_arns
+            input_["view_arns"] = view_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,14 +260,14 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.create_resource_explorer_setup_input.CreateResourceExplorerSetupInput = {}  # type: ignore[typeddict-item]
-        input["region_list"] = region_list
+        input_: aws_sdk_resource_explorer_2.types.create_resource_explorer_setup_input.CreateResourceExplorerSetupInput = {}  # type: ignore[typeddict-item]
+        input_["region_list"] = region_list
         if aggregator_regions is not None:
-            input["aggregator_regions"] = aggregator_regions
-        input["view_name"] = view_name
+            input_["aggregator_regions"] = aggregator_regions
+        input_["view_name"] = view_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,14 +304,14 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.delete_resource_explorer_setup_input.DeleteResourceExplorerSetupInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.delete_resource_explorer_setup_input.DeleteResourceExplorerSetupInput = {}  # type: ignore[typeddict-item]
         if region_list is not None:
-            input["region_list"] = region_list
+            input_["region_list"] = region_list
         if delete_in_all_regions is not None:
-            input["delete_in_all_regions"] = delete_in_all_regions
+            input_["delete_in_all_regions"] = delete_in_all_regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,11 +456,11 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.get_managed_view_input.GetManagedViewInput = {}  # type: ignore[typeddict-item]
-        input["managed_view_arn"] = managed_view_arn
+        input_: aws_sdk_resource_explorer_2.types.get_managed_view_input.GetManagedViewInput = {}  # type: ignore[typeddict-item]
+        input_["managed_view_arn"] = managed_view_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,15 +497,15 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.get_resource_explorer_setup_input.GetResourceExplorerSetupInput = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_resource_explorer_2.types.get_resource_explorer_setup_input.GetResourceExplorerSetupInput = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,11 +591,11 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.get_service_view_input.GetServiceViewInput = {}  # type: ignore[typeddict-item]
-        input["service_view_arn"] = service_view_arn
+        input_: aws_sdk_resource_explorer_2.types.get_service_view_input.GetServiceViewInput = {}  # type: ignore[typeddict-item]
+        input_["service_view_arn"] = service_view_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -623,15 +632,15 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_indexes_for_members_input.ListIndexesForMembersInput = {}  # type: ignore[typeddict-item]
-        input["account_id_list"] = account_id_list
+        input_: aws_sdk_resource_explorer_2.types.list_indexes_for_members_input.ListIndexesForMembersInput = {}  # type: ignore[typeddict-item]
+        input_["account_id_list"] = account_id_list
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -691,16 +700,16 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_managed_views_input.ListManagedViewsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_managed_views_input.ListManagedViewsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if service_principal is not None:
-            input["service_principal"] = service_principal
+            input_["service_principal"] = service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -764,18 +773,18 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_resources_input.ListResourcesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_resources_input.ListResourcesInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if view_arn is not None:
-            input["view_arn"] = view_arn
+            input_["view_arn"] = view_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -841,16 +850,16 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_service_indexes_input.ListServiceIndexesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_service_indexes_input.ListServiceIndexesInput = {}  # type: ignore[typeddict-item]
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -910,14 +919,14 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_service_views_input.ListServiceViewsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_service_views_input.ListServiceViewsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -973,14 +982,14 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_streaming_access_for_services_input.ListStreamingAccessForServicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_streaming_access_for_services_input.ListStreamingAccessForServicesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1036,14 +1045,14 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_supported_resource_types_input.ListSupportedResourceTypesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_supported_resource_types_input.ListSupportedResourceTypesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1097,11 +1106,11 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_resource_explorer_2.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1140,17 +1149,17 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.search_input.SearchInput = {}  # type: ignore[typeddict-item]
-        input["query_string"] = query_string
+        input_: aws_sdk_resource_explorer_2.types.search_input.SearchInput = {}  # type: ignore[typeddict-item]
+        input_["query_string"] = query_string
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if view_arn is not None:
-            input["view_arn"] = view_arn
+            input_["view_arn"] = view_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1210,13 +1219,13 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_resource_explorer_2.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1251,12 +1260,12 @@ class ResourceExplorer2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_resource_explorer_2.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

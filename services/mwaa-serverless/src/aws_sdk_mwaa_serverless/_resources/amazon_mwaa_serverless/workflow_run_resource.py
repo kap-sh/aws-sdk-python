@@ -77,17 +77,17 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.start_workflow_run_request.StartWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
+        input_: aws_sdk_mwaa_serverless.types.start_workflow_run_request.StartWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if override_parameters is not None:
-            input["override_parameters"] = override_parameters
+            input_["override_parameters"] = override_parameters
         if workflow_version is not None:
-            input["workflow_version"] = workflow_version
+            input_["workflow_version"] = workflow_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,12 +124,12 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["run_id"] = run_id
+        input_: aws_sdk_mwaa_serverless.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["run_id"] = run_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -164,12 +164,12 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.stop_workflow_run_request.StopWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["run_id"] = run_id
+        input_: aws_sdk_mwaa_serverless.types.stop_workflow_run_request.StopWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["run_id"] = run_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -210,17 +210,17 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.list_workflow_runs_request.ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mwaa_serverless.types.list_workflow_runs_request.ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["workflow_arn"] = workflow_arn
+            input_["next_token"] = next_token
+        input_["workflow_arn"] = workflow_arn
         if workflow_version is not None:
-            input["workflow_version"] = workflow_version
+            input_["workflow_version"] = workflow_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,17 +271,17 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.start_workflow_run_request.StartWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
+        input_: aws_sdk_mwaa_serverless.types.start_workflow_run_request.StartWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if override_parameters is not None:
-            input["override_parameters"] = override_parameters
+            input_["override_parameters"] = override_parameters
         if workflow_version is not None:
-            input["workflow_version"] = workflow_version
+            input_["workflow_version"] = workflow_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,12 +319,12 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["run_id"] = run_id
+        input_: aws_sdk_mwaa_serverless.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,12 +360,12 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.stop_workflow_run_request.StopWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["run_id"] = run_id
+        input_: aws_sdk_mwaa_serverless.types.stop_workflow_run_request.StopWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,17 +407,17 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.list_workflow_runs_request.ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mwaa_serverless.types.list_workflow_runs_request.ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["workflow_arn"] = workflow_arn
+            input_["next_token"] = next_token
+        input_["workflow_arn"] = workflow_arn
         if workflow_version is not None:
-            input["workflow_version"] = workflow_version
+            input_["workflow_version"] = workflow_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -93,25 +93,25 @@ class AutomationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.InvokeDataAutomationAsyncRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.InvokeDataAutomationAsyncRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["input_configuration"] = input_configuration
-        input["output_configuration"] = output_configuration
+            input_["client_token"] = client_token
+        input_["input_configuration"] = input_configuration
+        input_["output_configuration"] = output_configuration
         if data_automation_configuration is not None:
-            input["data_automation_configuration"] = data_automation_configuration
+            input_["data_automation_configuration"] = data_automation_configuration
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if notification_configuration is not None:
-            input["notification_configuration"] = notification_configuration
+            input_["notification_configuration"] = notification_configuration
         if blueprints is not None:
-            input["blueprints"] = blueprints
-        input["data_automation_profile_arn"] = data_automation_profile_arn
+            input_["blueprints"] = blueprints
+        input_["data_automation_profile_arn"] = data_automation_profile_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -144,11 +144,11 @@ class AutomationJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation_runtime.types.get_data_automation_status_request.GetDataAutomationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["invocation_arn"] = invocation_arn
+        input_: aws_sdk_bedrock_data_automation_runtime.types.get_data_automation_status_request.GetDataAutomationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["invocation_arn"] = invocation_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,25 +217,25 @@ class AsyncAutomationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.InvokeDataAutomationAsyncRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_data_automation_runtime.types.invoke_data_automation_async_request.InvokeDataAutomationAsyncRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["input_configuration"] = input_configuration
-        input["output_configuration"] = output_configuration
+            input_["client_token"] = client_token
+        input_["input_configuration"] = input_configuration
+        input_["output_configuration"] = output_configuration
         if data_automation_configuration is not None:
-            input["data_automation_configuration"] = data_automation_configuration
+            input_["data_automation_configuration"] = data_automation_configuration
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if notification_configuration is not None:
-            input["notification_configuration"] = notification_configuration
+            input_["notification_configuration"] = notification_configuration
         if blueprints is not None:
-            input["blueprints"] = blueprints
-        input["data_automation_profile_arn"] = data_automation_profile_arn
+            input_["blueprints"] = blueprints
+        input_["data_automation_profile_arn"] = data_automation_profile_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,11 +271,11 @@ class AsyncAutomationJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation_runtime.types.get_data_automation_status_request.GetDataAutomationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["invocation_arn"] = invocation_arn
+        input_: aws_sdk_bedrock_data_automation_runtime.types.get_data_automation_status_request.GetDataAutomationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["invocation_arn"] = invocation_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

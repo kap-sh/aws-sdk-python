@@ -15,6 +15,9 @@ from aws_sdk_mediapackagev2._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_mediapackagev2._auth._zapros_handler import AuthMiddleware
+from aws_sdk_mediapackagev2._resources.mediapackagev2.channel_group_resource import (
+    AsyncChannelGroupResource,
+)
 from aws_sdk_mediapackagev2._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -106,6 +109,8 @@ class AsyncMediaPackageV2Client:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.channel_group_resource = AsyncChannelGroupResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncMediaPackageV2ClientConfig] = None
@@ -168,11 +173,11 @@ class AsyncMediaPackageV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mediapackagev2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,12 +216,12 @@ class AsyncMediaPackageV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mediapackagev2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -255,12 +260,12 @@ class AsyncMediaPackageV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mediapackagev2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

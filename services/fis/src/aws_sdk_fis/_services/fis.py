@@ -273,25 +273,25 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.create_experiment_template_request.CreateExperimentTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["description"] = description
-        input["stop_conditions"] = stop_conditions
+        input_: aws_sdk_fis.types.create_experiment_template_request.CreateExperimentTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["description"] = description
+        input_["stop_conditions"] = stop_conditions
         if targets is not None:
-            input["targets"] = targets
-        input["actions"] = actions
-        input["role_arn"] = role_arn
+            input_["targets"] = targets
+        input_["actions"] = actions
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if log_configuration is not None:
-            input["log_configuration"] = log_configuration
+            input_["log_configuration"] = log_configuration
         if experiment_options is not None:
-            input["experiment_options"] = experiment_options
+            input_["experiment_options"] = experiment_options
         if experiment_report_configuration is not None:
-            input["experiment_report_configuration"] = experiment_report_configuration
+            input_["experiment_report_configuration"] = experiment_report_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,17 +334,17 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.create_target_account_configuration_request.CreateTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fis.types.create_target_account_configuration_request.CreateTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["experiment_template_id"] = experiment_template_id
-        input["account_id"] = account_id
-        input["role_arn"] = role_arn
+            input_["client_token"] = client_token
+        input_["experiment_template_id"] = experiment_template_id
+        input_["account_id"] = account_id
+        input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,11 +377,11 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.delete_experiment_template_request.DeleteExperimentTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_fis.types.delete_experiment_template_request.DeleteExperimentTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,12 +416,12 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.delete_target_account_configuration_request.DeleteTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_template_id"] = experiment_template_id
-        input["account_id"] = account_id
+        input_: aws_sdk_fis.types.delete_target_account_configuration_request.DeleteTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_template_id"] = experiment_template_id
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,11 +454,11 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.get_action_request.GetActionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_fis.types.get_action_request.GetActionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -491,11 +491,11 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.get_experiment_request.GetExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_fis.types.get_experiment_request.GetExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,12 +530,12 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.get_experiment_target_account_configuration_request.GetExperimentTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_id"] = experiment_id
-        input["account_id"] = account_id
+        input_: aws_sdk_fis.types.get_experiment_target_account_configuration_request.GetExperimentTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_id"] = experiment_id
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -568,11 +568,11 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.get_experiment_template_request.GetExperimentTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_fis.types.get_experiment_template_request.GetExperimentTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -605,11 +605,11 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.get_safety_lever_request.GetSafetyLeverRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_fis.types.get_safety_lever_request.GetSafetyLeverRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -644,12 +644,12 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.get_target_account_configuration_request.GetTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_template_id"] = experiment_template_id
-        input["account_id"] = account_id
+        input_: aws_sdk_fis.types.get_target_account_configuration_request.GetTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_template_id"] = experiment_template_id
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -682,11 +682,11 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.get_target_resource_type_request.GetTargetResourceTypeRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
+        input_: aws_sdk_fis.types.get_target_resource_type_request.GetTargetResourceTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -723,14 +723,14 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.list_actions_request.ListActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fis.types.list_actions_request.ListActionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,17 +794,17 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.list_experiment_resolved_targets_request.ListExperimentResolvedTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_id"] = experiment_id
+        input_: aws_sdk_fis.types.list_experiment_resolved_targets_request.ListExperimentResolvedTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_id"] = experiment_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if target_name is not None:
-            input["target_name"] = target_name
+            input_["target_name"] = target_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -872,16 +872,16 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.list_experiments_request.ListExperimentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fis.types.list_experiments_request.ListExperimentsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if experiment_template_id is not None:
-            input["experiment_template_id"] = experiment_template_id
+            input_["experiment_template_id"] = experiment_template_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -943,13 +943,13 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.list_experiment_target_account_configurations_request.ListExperimentTargetAccountConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_id"] = experiment_id
+        input_: aws_sdk_fis.types.list_experiment_target_account_configurations_request.ListExperimentTargetAccountConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_id"] = experiment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -986,14 +986,14 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.list_experiment_templates_request.ListExperimentTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fis.types.list_experiment_templates_request.ListExperimentTemplatesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1051,11 +1051,11 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_fis.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1094,15 +1094,15 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.list_target_account_configurations_request.ListTargetAccountConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_template_id"] = experiment_template_id
+        input_: aws_sdk_fis.types.list_target_account_configurations_request.ListTargetAccountConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_template_id"] = experiment_template_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1164,14 +1164,14 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.list_target_resource_types_request.ListTargetResourceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fis.types.list_target_resource_types_request.ListTargetResourceTypesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1235,16 +1235,16 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.start_experiment_request.StartExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["experiment_template_id"] = experiment_template_id
+        input_: aws_sdk_fis.types.start_experiment_request.StartExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["experiment_template_id"] = experiment_template_id
         if experiment_options is not None:
-            input["experiment_options"] = experiment_options
+            input_["experiment_options"] = experiment_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1277,11 +1277,11 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.stop_experiment_request.StopExperimentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_fis.types.stop_experiment_request.StopExperimentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1316,12 +1316,12 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_fis.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1356,13 +1356,13 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_fis.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1425,27 +1425,27 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.update_experiment_template_request.UpdateExperimentTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_fis.types.update_experiment_template_request.UpdateExperimentTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if stop_conditions is not None:
-            input["stop_conditions"] = stop_conditions
+            input_["stop_conditions"] = stop_conditions
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if actions is not None:
-            input["actions"] = actions
+            input_["actions"] = actions
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if log_configuration is not None:
-            input["log_configuration"] = log_configuration
+            input_["log_configuration"] = log_configuration
         if experiment_options is not None:
-            input["experiment_options"] = experiment_options
+            input_["experiment_options"] = experiment_options
         if experiment_report_configuration is not None:
-            input["experiment_report_configuration"] = experiment_report_configuration
+            input_["experiment_report_configuration"] = experiment_report_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1480,12 +1480,12 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.update_safety_lever_state_request.UpdateSafetyLeverStateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["state"] = state
+        input_: aws_sdk_fis.types.update_safety_lever_state_request.UpdateSafetyLeverStateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["state"] = state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1526,16 +1526,16 @@ class fisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fis.types.update_target_account_configuration_request.UpdateTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["experiment_template_id"] = experiment_template_id
-        input["account_id"] = account_id
+        input_: aws_sdk_fis.types.update_target_account_configuration_request.UpdateTargetAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["experiment_template_id"] = experiment_template_id
+        input_["account_id"] = account_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

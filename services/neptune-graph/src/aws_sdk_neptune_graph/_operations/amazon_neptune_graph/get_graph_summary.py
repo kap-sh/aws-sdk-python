@@ -99,9 +99,9 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_neptune_graph.types.get_graph_summary_input.GetGraphSummaryInput,
+    input_: aws_sdk_neptune_graph.types.get_graph_summary_input.GetGraphSummaryInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseFIPS=options.use_fips,
@@ -109,39 +109,36 @@ def build_request(
             Endpoint=options.endpoint,
             ApiType="DataPlane",
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/summary"
     params: dict[str, str] = {}
-    if "mode" in input:
-        params["mode"] = str(input["mode"])
+    if "mode" in input_:
+        params["mode"] = str(input_["mode"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "graph_identifier" in input:
-        headers["graphIdentifier"] = str(input["graph_identifier"])
+    if "graph_identifier" in input_:
+        headers["graphIdentifier"] = str(input_["graph_identifier"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_graph_summary(
     options: OperationOptions,
-    input: aws_sdk_neptune_graph.types.get_graph_summary_input.GetGraphSummaryInput,
+    input_: aws_sdk_neptune_graph.types.get_graph_summary_input.GetGraphSummaryInput,
 ) -> tuple[
     aws_sdk_neptune_graph.types.get_graph_summary_output.GetGraphSummaryOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -150,16 +147,17 @@ def get_graph_summary(
 
 async def async_get_graph_summary(
     options: AsyncOperationOptions,
-    input: aws_sdk_neptune_graph.types.get_graph_summary_input.GetGraphSummaryInput,
+    input_: aws_sdk_neptune_graph.types.get_graph_summary_input.GetGraphSummaryInput,
 ) -> tuple[
     aws_sdk_neptune_graph.types.get_graph_summary_output.GetGraphSummaryOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

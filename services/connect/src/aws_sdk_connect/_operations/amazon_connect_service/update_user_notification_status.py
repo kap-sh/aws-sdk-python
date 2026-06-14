@@ -94,34 +94,36 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_connect.types.update_user_notification_status_request.UpdateUserNotificationStatusRequest,
+    input_: aws_sdk_connect.types.update_user_notification_status_request.UpdateUserNotificationStatusRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/users/{InstanceId}/{UserId}/notifications/{NotificationId}"
     )
-    url = url.replace("{InstanceId}", quote(str(input["instance_id"]), safe=""))
-    url = url.replace("{NotificationId}", quote(str(input["notification_id"]), safe=""))
-    url = url.replace("{UserId}", quote(str(input["user_id"]), safe=""))
+    url = url.replace("{InstanceId}", quote(str(input_["instance_id"]), safe=""))
+    url = url.replace(
+        "{NotificationId}", quote(str(input_["notification_id"]), safe="")
+    )
+    url = url.replace("{UserId}", quote(str(input_["user_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "last_modified_time" in input:
-        headers["x-amz-last-modified-time"] = str(input["last_modified_time"])
-    if "last_modified_region" in input:
-        headers["x-amz-last-modified-region"] = str(input["last_modified_region"])
+    if "last_modified_time" in input_:
+        headers["x-amz-last-modified-time"] = str(input_["last_modified_time"])
+    if "last_modified_region" in input_:
+        headers["x-amz-last-modified-region"] = str(input_["last_modified_region"])
     import aws_sdk_connect.types.update_user_notification_status_request
 
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.update_user_notification_status_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -129,26 +131,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_user_notification_status(
     options: OperationOptions,
-    input: aws_sdk_connect.types.update_user_notification_status_request.UpdateUserNotificationStatusRequest,
+    input_: aws_sdk_connect.types.update_user_notification_status_request.UpdateUserNotificationStatusRequest,
 ) -> tuple[
     aws_sdk_connect.types.update_user_notification_status_response.UpdateUserNotificationStatusResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -157,16 +156,17 @@ def update_user_notification_status(
 
 async def async_update_user_notification_status(
     options: AsyncOperationOptions,
-    input: aws_sdk_connect.types.update_user_notification_status_request.UpdateUserNotificationStatusRequest,
+    input_: aws_sdk_connect.types.update_user_notification_status_request.UpdateUserNotificationStatusRequest,
 ) -> tuple[
     aws_sdk_connect.types.update_user_notification_status_response.UpdateUserNotificationStatusResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

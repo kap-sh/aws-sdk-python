@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_rds._auth._signers
+import aws_sdk_rds._auth._sigv4
 from aws_sdk_rds._auth._identity import Credentials
 from aws_sdk_rds._auth._providers import (
     CredentialsProvider,
@@ -583,14 +585,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.add_role_to_db_cluster_message.AddRoleToDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["role_arn"] = role_arn
+        input_: aws_sdk_rds.types.add_role_to_db_cluster_message.AddRoleToDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["role_arn"] = role_arn
         if feature_name is not None:
-            input["feature_name"] = feature_name
+            input_["feature_name"] = feature_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -631,13 +633,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.add_role_to_db_instance_message.AddRoleToDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
-        input["role_arn"] = role_arn
-        input["feature_name"] = feature_name
+        input_: aws_sdk_rds.types.add_role_to_db_instance_message.AddRoleToDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
+        input_["role_arn"] = role_arn
+        input_["feature_name"] = feature_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,12 +680,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["source_identifier"] = source_identifier
+        input_: aws_sdk_rds.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,12 +724,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tags"] = tags
+        input_: aws_sdk_rds.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -770,13 +772,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["apply_action"] = apply_action
-        input["opt_in_type"] = opt_in_type
+        input_: aws_sdk_rds.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["apply_action"] = apply_action
+        input_["opt_in_type"] = opt_in_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -823,19 +825,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.authorize_db_security_group_ingress_message.AuthorizeDBSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input["db_security_group_name"] = db_security_group_name
+        input_: aws_sdk_rds.types.authorize_db_security_group_ingress_message.AuthorizeDBSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
+        input_["db_security_group_name"] = db_security_group_name
         if cidrip is not None:
-            input["cidrip"] = cidrip
+            input_["cidrip"] = cidrip
         if ec2_security_group_name is not None:
-            input["ec2_security_group_name"] = ec2_security_group_name
+            input_["ec2_security_group_name"] = ec2_security_group_name
         if ec2_security_group_id is not None:
-            input["ec2_security_group_id"] = ec2_security_group_id
+            input_["ec2_security_group_id"] = ec2_security_group_id
         if ec2_security_group_owner_id is not None:
-            input["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+            input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,18 +878,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.backtrack_db_cluster_message.BacktrackDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["backtrack_to"] = backtrack_to
+        input_: aws_sdk_rds.types.backtrack_db_cluster_message.BacktrackDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["backtrack_to"] = backtrack_to
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
         if use_earliest_time_on_point_in_time_unavailable is not None:
-            input["use_earliest_time_on_point_in_time_unavailable"] = (
+            input_["use_earliest_time_on_point_in_time_unavailable"] = (
                 use_earliest_time_on_point_in_time_unavailable
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -924,11 +926,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.cancel_export_task_message.CancelExportTaskMessage = {}  # type: ignore[typeddict-item]
-        input["export_task_identifier"] = export_task_identifier
+        input_: aws_sdk_rds.types.cancel_export_task_message.CancelExportTaskMessage = {}  # type: ignore[typeddict-item]
+        input_["export_task_identifier"] = export_task_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -972,21 +974,21 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_cluster_parameter_group_identifier"] = (
+        input_: aws_sdk_rds.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_cluster_parameter_group_identifier"] = (
             source_db_cluster_parameter_group_identifier
         )
-        input["target_db_cluster_parameter_group_identifier"] = (
+        input_["target_db_cluster_parameter_group_identifier"] = (
             target_db_cluster_parameter_group_identifier
         )
-        input["target_db_cluster_parameter_group_description"] = (
+        input_["target_db_cluster_parameter_group_description"] = (
             target_db_cluster_parameter_group_description
         )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1040,24 +1042,24 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_cluster_snapshot_identifier"] = (
+        input_: aws_sdk_rds.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_cluster_snapshot_identifier"] = (
             source_db_cluster_snapshot_identifier
         )
-        input["target_db_cluster_snapshot_identifier"] = (
+        input_["target_db_cluster_snapshot_identifier"] = (
             target_db_cluster_snapshot_identifier
         )
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1101,21 +1103,21 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.copy_db_parameter_group_message.CopyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_parameter_group_identifier"] = (
+        input_: aws_sdk_rds.types.copy_db_parameter_group_message.CopyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_parameter_group_identifier"] = (
             source_db_parameter_group_identifier
         )
-        input["target_db_parameter_group_identifier"] = (
+        input_["target_db_parameter_group_identifier"] = (
             target_db_parameter_group_identifier
         )
-        input["target_db_parameter_group_description"] = (
+        input_["target_db_parameter_group_description"] = (
             target_db_parameter_group_description
         )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1181,30 +1183,30 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.copy_db_snapshot_message.CopyDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_snapshot_identifier"] = source_db_snapshot_identifier
-        input["target_db_snapshot_identifier"] = target_db_snapshot_identifier
+        input_: aws_sdk_rds.types.copy_db_snapshot_message.CopyDBSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_snapshot_identifier"] = source_db_snapshot_identifier
+        input_["target_db_snapshot_identifier"] = target_db_snapshot_identifier
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if target_custom_availability_zone is not None:
-            input["target_custom_availability_zone"] = target_custom_availability_zone
+            input_["target_custom_availability_zone"] = target_custom_availability_zone
         if snapshot_target is not None:
-            input["snapshot_target"] = snapshot_target
+            input_["snapshot_target"] = snapshot_target
         if copy_option_group is not None:
-            input["copy_option_group"] = copy_option_group
+            input_["copy_option_group"] = copy_option_group
         if snapshot_availability_zone is not None:
-            input["snapshot_availability_zone"] = snapshot_availability_zone
+            input_["snapshot_availability_zone"] = snapshot_availability_zone
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1248,15 +1250,15 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.copy_option_group_message.CopyOptionGroupMessage = {}  # type: ignore[typeddict-item]
-        input["source_option_group_identifier"] = source_option_group_identifier
-        input["target_option_group_identifier"] = target_option_group_identifier
-        input["target_option_group_description"] = target_option_group_description
+        input_: aws_sdk_rds.types.copy_option_group_message.CopyOptionGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["source_option_group_identifier"] = source_option_group_identifier
+        input_["target_option_group_identifier"] = target_option_group_identifier
+        input_["target_option_group_description"] = target_option_group_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1339,34 +1341,34 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_blue_green_deployment_request.CreateBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["blue_green_deployment_name"] = blue_green_deployment_name
-        input["source"] = source
+        input_: aws_sdk_rds.types.create_blue_green_deployment_request.CreateBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["blue_green_deployment_name"] = blue_green_deployment_name
+        input_["source"] = source
         if target_engine_version is not None:
-            input["target_engine_version"] = target_engine_version
+            input_["target_engine_version"] = target_engine_version
         if target_db_parameter_group_name is not None:
-            input["target_db_parameter_group_name"] = target_db_parameter_group_name
+            input_["target_db_parameter_group_name"] = target_db_parameter_group_name
         if target_db_cluster_parameter_group_name is not None:
-            input["target_db_cluster_parameter_group_name"] = (
+            input_["target_db_cluster_parameter_group_name"] = (
                 target_db_cluster_parameter_group_name
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if target_db_instance_class is not None:
-            input["target_db_instance_class"] = target_db_instance_class
+            input_["target_db_instance_class"] = target_db_instance_class
         if upgrade_target_storage_config is not None:
-            input["upgrade_target_storage_config"] = upgrade_target_storage_config
+            input_["upgrade_target_storage_config"] = upgrade_target_storage_config
         if target_iops is not None:
-            input["target_iops"] = target_iops
+            input_["target_iops"] = target_iops
         if target_storage_type is not None:
-            input["target_storage_type"] = target_storage_type
+            input_["target_storage_type"] = target_storage_type
         if target_allocated_storage is not None:
-            input["target_allocated_storage"] = target_allocated_storage
+            input_["target_allocated_storage"] = target_allocated_storage
         if target_storage_throughput is not None:
-            input["target_storage_throughput"] = target_storage_throughput
+            input_["target_storage_throughput"] = target_storage_throughput
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1432,38 +1434,38 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_custom_db_engine_version_message.CreateCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
-        input["engine"] = engine
-        input["engine_version"] = engine_version
+        input_: aws_sdk_rds.types.create_custom_db_engine_version_message.CreateCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
+        input_["engine"] = engine
+        input_["engine_version"] = engine_version
         if database_installation_files_s3_bucket_name is not None:
-            input["database_installation_files_s3_bucket_name"] = (
+            input_["database_installation_files_s3_bucket_name"] = (
                 database_installation_files_s3_bucket_name
             )
         if database_installation_files_s3_prefix is not None:
-            input["database_installation_files_s3_prefix"] = (
+            input_["database_installation_files_s3_prefix"] = (
                 database_installation_files_s3_prefix
             )
         if database_installation_files is not None:
-            input["database_installation_files"] = database_installation_files
+            input_["database_installation_files"] = database_installation_files
         if image_id is not None:
-            input["image_id"] = image_id
+            input_["image_id"] = image_id
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if source_custom_db_engine_version_identifier is not None:
-            input["source_custom_db_engine_version_identifier"] = (
+            input_["source_custom_db_engine_version_identifier"] = (
                 source_custom_db_engine_version_identifier
             )
         if use_aws_provided_latest_image is not None:
-            input["use_aws_provided_latest_image"] = use_aws_provided_latest_image
+            input_["use_aws_provided_latest_image"] = use_aws_provided_latest_image
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if manifest is not None:
-            input["manifest"] = manifest
+            input_["manifest"] = manifest
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1697,132 +1699,134 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_cluster_message.CreateDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.create_db_cluster_message.CreateDBClusterMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if character_set_name is not None:
-            input["character_set_name"] = character_set_name
+            input_["character_set_name"] = character_set_name
         if database_name is not None:
-            input["database_name"] = database_name
-        input["db_cluster_identifier"] = db_cluster_identifier
+            input_["database_name"] = database_name
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
-        input["engine"] = engine
+            input_["db_subnet_group_name"] = db_subnet_group_name
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if master_username is not None:
-            input["master_username"] = master_username
+            input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if replication_source_identifier is not None:
-            input["replication_source_identifier"] = replication_source_identifier
+            input_["replication_source_identifier"] = replication_source_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if backtrack_window is not None:
-            input["backtrack_window"] = backtrack_window
+            input_["backtrack_window"] = backtrack_window
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if engine_mode is not None:
-            input["engine_mode"] = engine_mode
+            input_["engine_mode"] = engine_mode
         if scaling_configuration is not None:
-            input["scaling_configuration"] = scaling_configuration
+            input_["scaling_configuration"] = scaling_configuration
         if rds_custom_cluster_configuration is not None:
-            input["rds_custom_cluster_configuration"] = rds_custom_cluster_configuration
+            input_["rds_custom_cluster_configuration"] = (
+                rds_custom_cluster_configuration
+            )
         if db_cluster_instance_class is not None:
-            input["db_cluster_instance_class"] = db_cluster_instance_class
+            input_["db_cluster_instance_class"] = db_cluster_instance_class
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if global_cluster_identifier is not None:
-            input["global_cluster_identifier"] = global_cluster_identifier
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if enable_http_endpoint is not None:
-            input["enable_http_endpoint"] = enable_http_endpoint
+            input_["enable_http_endpoint"] = enable_http_endpoint
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if enable_global_write_forwarding is not None:
-            input["enable_global_write_forwarding"] = enable_global_write_forwarding
+            input_["enable_global_write_forwarding"] = enable_global_write_forwarding
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if database_insights_mode is not None:
-            input["database_insights_mode"] = database_insights_mode
+            input_["database_insights_mode"] = database_insights_mode
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if performance_insights_retention_period is not None:
-            input["performance_insights_retention_period"] = (
+            input_["performance_insights_retention_period"] = (
                 performance_insights_retention_period
             )
         if enable_limitless_database is not None:
-            input["enable_limitless_database"] = enable_limitless_database
+            input_["enable_limitless_database"] = enable_limitless_database
         if cluster_scalability_type is not None:
-            input["cluster_scalability_type"] = cluster_scalability_type
+            input_["cluster_scalability_type"] = cluster_scalability_type
         if db_system_id is not None:
-            input["db_system_id"] = db_system_id
+            input_["db_system_id"] = db_system_id
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if enable_local_write_forwarding is not None:
-            input["enable_local_write_forwarding"] = enable_local_write_forwarding
+            input_["enable_local_write_forwarding"] = enable_local_write_forwarding
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if master_user_authentication_type is not None:
-            input["master_user_authentication_type"] = master_user_authentication_type
+            input_["master_user_authentication_type"] = master_user_authentication_type
         if with_express_configuration is not None:
-            input["with_express_configuration"] = with_express_configuration
+            input_["with_express_configuration"] = with_express_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1871,19 +1875,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_cluster_endpoint_message.CreateDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
-        input["endpoint_type"] = endpoint_type
+        input_: aws_sdk_rds.types.create_db_cluster_endpoint_message.CreateDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        input_["endpoint_type"] = endpoint_type
         if static_members is not None:
-            input["static_members"] = static_members
+            input_["static_members"] = static_members
         if excluded_members is not None:
-            input["excluded_members"] = excluded_members
+            input_["excluded_members"] = excluded_members
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1928,15 +1932,15 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input["db_parameter_group_family"] = db_parameter_group_family
-        input["description"] = description
+        input_: aws_sdk_rds.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_["db_parameter_group_family"] = db_parameter_group_family
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,14 +1983,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2219,145 +2223,145 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
         if db_name is not None:
-            input["db_name"] = db_name
-        input["db_instance_identifier"] = db_instance_identifier
+            input_["db_name"] = db_name
+        input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
-        input["db_instance_class"] = db_instance_class
-        input["engine"] = engine
+            input_["allocated_storage"] = allocated_storage
+        input_["db_instance_class"] = db_instance_class
+        input_["engine"] = engine
         if master_username is not None:
-            input["master_username"] = master_username
+            input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if db_security_groups is not None:
-            input["db_security_groups"] = db_security_groups
+            input_["db_security_groups"] = db_security_groups
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if storage_throughput is not None:
-            input["storage_throughput"] = storage_throughput
+            input_["storage_throughput"] = storage_throughput
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if character_set_name is not None:
-            input["character_set_name"] = character_set_name
+            input_["character_set_name"] = character_set_name
         if nchar_character_set_name is not None:
-            input["nchar_character_set_name"] = nchar_character_set_name
+            input_["nchar_character_set_name"] = nchar_character_set_name
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if tde_credential_arn is not None:
-            input["tde_credential_arn"] = tde_credential_arn
+            input_["tde_credential_arn"] = tde_credential_arn
         if tde_credential_password is not None:
-            input["tde_credential_password"] = tde_credential_password
+            input_["tde_credential_password"] = tde_credential_password
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_fqdn is not None:
-            input["domain_fqdn"] = domain_fqdn
+            input_["domain_fqdn"] = domain_fqdn
         if domain_ou is not None:
-            input["domain_ou"] = domain_ou
+            input_["domain_ou"] = domain_ou
         if domain_auth_secret_arn is not None:
-            input["domain_auth_secret_arn"] = domain_auth_secret_arn
+            input_["domain_auth_secret_arn"] = domain_auth_secret_arn
         if domain_dns_ips is not None:
-            input["domain_dns_ips"] = domain_dns_ips
+            input_["domain_dns_ips"] = domain_dns_ips
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if promotion_tier is not None:
-            input["promotion_tier"] = promotion_tier
+            input_["promotion_tier"] = promotion_tier
         if timezone is not None:
-            input["timezone"] = timezone
+            input_["timezone"] = timezone
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if database_insights_mode is not None:
-            input["database_insights_mode"] = database_insights_mode
+            input_["database_insights_mode"] = database_insights_mode
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if performance_insights_retention_period is not None:
-            input["performance_insights_retention_period"] = (
+            input_["performance_insights_retention_period"] = (
                 performance_insights_retention_period
             )
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if processor_features is not None:
-            input["processor_features"] = processor_features
+            input_["processor_features"] = processor_features
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if max_allocated_storage is not None:
-            input["max_allocated_storage"] = max_allocated_storage
+            input_["max_allocated_storage"] = max_allocated_storage
         if enable_customer_owned_ip is not None:
-            input["enable_customer_owned_ip"] = enable_customer_owned_ip
+            input_["enable_customer_owned_ip"] = enable_customer_owned_ip
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if backup_target is not None:
-            input["backup_target"] = backup_target
+            input_["backup_target"] = backup_target
         if custom_iam_instance_profile is not None:
-            input["custom_iam_instance_profile"] = custom_iam_instance_profile
+            input_["custom_iam_instance_profile"] = custom_iam_instance_profile
         if db_system_id is not None:
-            input["db_system_id"] = db_system_id
+            input_["db_system_id"] = db_system_id
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if multi_tenant is not None:
-            input["multi_tenant"] = multi_tenant
+            input_["multi_tenant"] = multi_tenant
         if dedicated_log_volume is not None:
-            input["dedicated_log_volume"] = dedicated_log_volume
+            input_["dedicated_log_volume"] = dedicated_log_volume
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if additional_storage_volumes is not None:
-            input["additional_storage_volumes"] = additional_storage_volumes
+            input_["additional_storage_volumes"] = additional_storage_volumes
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if master_user_authentication_type is not None:
-            input["master_user_authentication_type"] = master_user_authentication_type
+            input_["master_user_authentication_type"] = master_user_authentication_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2541,111 +2545,111 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_instance_read_replica_message.CreateDBInstanceReadReplicaMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.create_db_instance_read_replica_message.CreateDBInstanceReadReplicaMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if source_db_instance_identifier is not None:
-            input["source_db_instance_identifier"] = source_db_instance_identifier
+            input_["source_db_instance_identifier"] = source_db_instance_identifier
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if storage_throughput is not None:
-            input["storage_throughput"] = storage_throughput
+            input_["storage_throughput"] = storage_throughput
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if database_insights_mode is not None:
-            input["database_insights_mode"] = database_insights_mode
+            input_["database_insights_mode"] = database_insights_mode
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if performance_insights_retention_period is not None:
-            input["performance_insights_retention_period"] = (
+            input_["performance_insights_retention_period"] = (
                 performance_insights_retention_period
             )
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if processor_features is not None:
-            input["processor_features"] = processor_features
+            input_["processor_features"] = processor_features
         if use_default_processor_features is not None:
-            input["use_default_processor_features"] = use_default_processor_features
+            input_["use_default_processor_features"] = use_default_processor_features
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if domain_fqdn is not None:
-            input["domain_fqdn"] = domain_fqdn
+            input_["domain_fqdn"] = domain_fqdn
         if domain_ou is not None:
-            input["domain_ou"] = domain_ou
+            input_["domain_ou"] = domain_ou
         if domain_auth_secret_arn is not None:
-            input["domain_auth_secret_arn"] = domain_auth_secret_arn
+            input_["domain_auth_secret_arn"] = domain_auth_secret_arn
         if domain_dns_ips is not None:
-            input["domain_dns_ips"] = domain_dns_ips
+            input_["domain_dns_ips"] = domain_dns_ips
         if replica_mode is not None:
-            input["replica_mode"] = replica_mode
+            input_["replica_mode"] = replica_mode
         if enable_customer_owned_ip is not None:
-            input["enable_customer_owned_ip"] = enable_customer_owned_ip
+            input_["enable_customer_owned_ip"] = enable_customer_owned_ip
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if max_allocated_storage is not None:
-            input["max_allocated_storage"] = max_allocated_storage
+            input_["max_allocated_storage"] = max_allocated_storage
         if backup_target is not None:
-            input["backup_target"] = backup_target
+            input_["backup_target"] = backup_target
         if custom_iam_instance_profile is not None:
-            input["custom_iam_instance_profile"] = custom_iam_instance_profile
+            input_["custom_iam_instance_profile"] = custom_iam_instance_profile
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if source_db_cluster_identifier is not None:
-            input["source_db_cluster_identifier"] = source_db_cluster_identifier
+            input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if dedicated_log_volume is not None:
-            input["dedicated_log_volume"] = dedicated_log_volume
+            input_["dedicated_log_volume"] = dedicated_log_volume
         if upgrade_storage_config is not None:
-            input["upgrade_storage_config"] = upgrade_storage_config
+            input_["upgrade_storage_config"] = upgrade_storage_config
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if additional_storage_volumes is not None:
-            input["additional_storage_volumes"] = additional_storage_volumes
+            input_["additional_storage_volumes"] = additional_storage_volumes
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2690,15 +2694,15 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_parameter_group_message.CreateDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
-        input["db_parameter_group_family"] = db_parameter_group_family
-        input["description"] = description
+        input_: aws_sdk_rds.types.create_db_parameter_group_message.CreateDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
+        input_["db_parameter_group_family"] = db_parameter_group_family
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2767,32 +2771,32 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_proxy_request.CreateDBProxyRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_name"] = db_proxy_name
-        input["engine_family"] = engine_family
+        input_: aws_sdk_rds.types.create_db_proxy_request.CreateDBProxyRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_name"] = db_proxy_name
+        input_["engine_family"] = engine_family
         if default_auth_scheme is not None:
-            input["default_auth_scheme"] = default_auth_scheme
+            input_["default_auth_scheme"] = default_auth_scheme
         if auth is not None:
-            input["auth"] = auth
-        input["role_arn"] = role_arn
-        input["vpc_subnet_ids"] = vpc_subnet_ids
+            input_["auth"] = auth
+        input_["role_arn"] = role_arn
+        input_["vpc_subnet_ids"] = vpc_subnet_ids
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if require_tls is not None:
-            input["require_tls"] = require_tls
+            input_["require_tls"] = require_tls
         if idle_client_timeout is not None:
-            input["idle_client_timeout"] = idle_client_timeout
+            input_["idle_client_timeout"] = idle_client_timeout
         if debug_logging is not None:
-            input["debug_logging"] = debug_logging
+            input_["debug_logging"] = debug_logging
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if endpoint_network_type is not None:
-            input["endpoint_network_type"] = endpoint_network_type
+            input_["endpoint_network_type"] = endpoint_network_type
         if target_connection_network_type is not None:
-            input["target_connection_network_type"] = target_connection_network_type
+            input_["target_connection_network_type"] = target_connection_network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2842,21 +2846,21 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_proxy_endpoint_request.CreateDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_name"] = db_proxy_name
-        input["db_proxy_endpoint_name"] = db_proxy_endpoint_name
-        input["vpc_subnet_ids"] = vpc_subnet_ids
+        input_: aws_sdk_rds.types.create_db_proxy_endpoint_request.CreateDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_name"] = db_proxy_name
+        input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
+        input_["vpc_subnet_ids"] = vpc_subnet_ids
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if target_role is not None:
-            input["target_role"] = target_role
+            input_["target_role"] = target_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if endpoint_network_type is not None:
-            input["endpoint_network_type"] = endpoint_network_type
+            input_["endpoint_network_type"] = endpoint_network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2901,14 +2905,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_security_group_message.CreateDBSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_security_group_name"] = db_security_group_name
-        input["db_security_group_description"] = db_security_group_description
+        input_: aws_sdk_rds.types.create_db_security_group_message.CreateDBSecurityGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_security_group_name"] = db_security_group_name
+        input_["db_security_group_description"] = db_security_group_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2954,21 +2958,21 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_shard_group_message.CreateDBShardGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_shard_group_identifier"] = db_shard_group_identifier
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.create_db_shard_group_message.CreateDBShardGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_shard_group_identifier"] = db_shard_group_identifier
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if compute_redundancy is not None:
-            input["compute_redundancy"] = compute_redundancy
-        input["max_acu"] = max_acu
+            input_["compute_redundancy"] = compute_redundancy
+        input_["max_acu"] = max_acu
         if min_acu is not None:
-            input["min_acu"] = min_acu
+            input_["min_acu"] = min_acu
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3010,14 +3014,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_snapshot_message.CreateDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_snapshot_identifier"] = db_snapshot_identifier
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.create_db_snapshot_message.CreateDBSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_snapshot_identifier"] = db_snapshot_identifier
+        input_["db_instance_identifier"] = db_instance_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3062,15 +3066,15 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
-        input["db_subnet_group_description"] = db_subnet_group_description
-        input["subnet_ids"] = subnet_ids
+        input_: aws_sdk_rds.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
+        input_["db_subnet_group_description"] = db_subnet_group_description
+        input_["subnet_ids"] = subnet_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3122,22 +3126,22 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["sns_topic_arn"] = sns_topic_arn
+        input_: aws_sdk_rds.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if source_ids is not None:
-            input["source_ids"] = source_ids
+            input_["source_ids"] = source_ids
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3198,27 +3202,27 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_rds.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
         if source_db_cluster_identifier is not None:
-            input["source_db_cluster_identifier"] = source_db_cluster_identifier
+            input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3272,23 +3276,23 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_integration_message.CreateIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input["source_arn"] = source_arn
-        input["target_arn"] = target_arn
-        input["integration_name"] = integration_name
+        input_: aws_sdk_rds.types.create_integration_message.CreateIntegrationMessage = {}  # type: ignore[typeddict-item]
+        input_["source_arn"] = source_arn
+        input_["target_arn"] = target_arn
+        input_["integration_name"] = integration_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if additional_encryption_context is not None:
-            input["additional_encryption_context"] = additional_encryption_context
+            input_["additional_encryption_context"] = additional_encryption_context
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if data_filter is not None:
-            input["data_filter"] = data_filter
+            input_["data_filter"] = data_filter
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3335,16 +3339,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_option_group_message.CreateOptionGroupMessage = {}  # type: ignore[typeddict-item]
-        input["option_group_name"] = option_group_name
-        input["engine_name"] = engine_name
-        input["major_engine_version"] = major_engine_version
-        input["option_group_description"] = option_group_description
+        input_: aws_sdk_rds.types.create_option_group_message.CreateOptionGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["option_group_name"] = option_group_name
+        input_["engine_name"] = engine_name
+        input_["major_engine_version"] = major_engine_version
+        input_["option_group_description"] = option_group_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3398,25 +3402,25 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.create_tenant_database_message.CreateTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
-        input["tenant_db_name"] = tenant_db_name
-        input["master_username"] = master_username
+        input_: aws_sdk_rds.types.create_tenant_database_message.CreateTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
+        input_["tenant_db_name"] = tenant_db_name
+        input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if character_set_name is not None:
-            input["character_set_name"] = character_set_name
+            input_["character_set_name"] = character_set_name
         if nchar_character_set_name is not None:
-            input["nchar_character_set_name"] = nchar_character_set_name
+            input_["nchar_character_set_name"] = nchar_character_set_name
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3463,13 +3467,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_blue_green_deployment_request.DeleteBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["blue_green_deployment_identifier"] = blue_green_deployment_identifier
+        input_: aws_sdk_rds.types.delete_blue_green_deployment_request.DeleteBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["blue_green_deployment_identifier"] = blue_green_deployment_identifier
         if delete_target is not None:
-            input["delete_target"] = delete_target
+            input_["delete_target"] = delete_target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3502,12 +3506,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_custom_db_engine_version_message.DeleteCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
-        input["engine"] = engine
-        input["engine_version"] = engine_version
+        input_: aws_sdk_rds.types.delete_custom_db_engine_version_message.DeleteCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
+        input_["engine"] = engine
+        input_["engine_version"] = engine_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3556,17 +3560,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if skip_final_snapshot is not None:
-            input["skip_final_snapshot"] = skip_final_snapshot
+            input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
-            input["final_db_snapshot_identifier"] = final_db_snapshot_identifier
+            input_["final_db_snapshot_identifier"] = final_db_snapshot_identifier
         if delete_automated_backups is not None:
-            input["delete_automated_backups"] = delete_automated_backups
+            input_["delete_automated_backups"] = delete_automated_backups
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3599,11 +3603,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_cluster_automated_backup_message.DeleteDBClusterAutomatedBackupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_resource_id"] = db_cluster_resource_id
+        input_: aws_sdk_rds.types.delete_db_cluster_automated_backup_message.DeleteDBClusterAutomatedBackupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_resource_id"] = db_cluster_resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3642,11 +3646,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_cluster_endpoint_message.DeleteDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        input_: aws_sdk_rds.types.delete_db_cluster_endpoint_message.DeleteDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3683,11 +3687,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_rds.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3725,11 +3729,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_: aws_sdk_rds.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3778,17 +3782,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if skip_final_snapshot is not None:
-            input["skip_final_snapshot"] = skip_final_snapshot
+            input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
-            input["final_db_snapshot_identifier"] = final_db_snapshot_identifier
+            input_["final_db_snapshot_identifier"] = final_db_snapshot_identifier
         if delete_automated_backups is not None:
-            input["delete_automated_backups"] = delete_automated_backups
+            input_["delete_automated_backups"] = delete_automated_backups
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3831,16 +3835,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_instance_automated_backup_message.DeleteDBInstanceAutomatedBackupMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.delete_db_instance_automated_backup_message.DeleteDBInstanceAutomatedBackupMessage = {}  # type: ignore[typeddict-item]
         if dbi_resource_id is not None:
-            input["dbi_resource_id"] = dbi_resource_id
+            input_["dbi_resource_id"] = dbi_resource_id
         if db_instance_automated_backups_arn is not None:
-            input["db_instance_automated_backups_arn"] = (
+            input_["db_instance_automated_backups_arn"] = (
                 db_instance_automated_backups_arn
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3877,11 +3881,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_parameter_group_message.DeleteDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
+        input_: aws_sdk_rds.types.delete_db_parameter_group_message.DeleteDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3914,11 +3918,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_proxy_request.DeleteDBProxyRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_name"] = db_proxy_name
+        input_: aws_sdk_rds.types.delete_db_proxy_request.DeleteDBProxyRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_name"] = db_proxy_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3951,11 +3955,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_proxy_endpoint_request.DeleteDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_endpoint_name"] = db_proxy_endpoint_name
+        input_: aws_sdk_rds.types.delete_db_proxy_endpoint_request.DeleteDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3992,11 +3996,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_security_group_message.DeleteDBSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_security_group_name"] = db_security_group_name
+        input_: aws_sdk_rds.types.delete_db_security_group_message.DeleteDBSecurityGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_security_group_name"] = db_security_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4027,11 +4031,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_shard_group_message.DeleteDBShardGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_shard_group_identifier"] = db_shard_group_identifier
+        input_: aws_sdk_rds.types.delete_db_shard_group_message.DeleteDBShardGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_shard_group_identifier"] = db_shard_group_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4070,11 +4074,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_snapshot_message.DeleteDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_snapshot_identifier"] = db_snapshot_identifier
+        input_: aws_sdk_rds.types.delete_db_snapshot_message.DeleteDBSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_snapshot_identifier"] = db_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4111,11 +4115,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
+        input_: aws_sdk_rds.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4154,11 +4158,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_rds.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4197,11 +4201,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_rds.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4238,11 +4242,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_integration_message.DeleteIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input["integration_identifier"] = integration_identifier
+        input_: aws_sdk_rds.types.delete_integration_message.DeleteIntegrationMessage = {}  # type: ignore[typeddict-item]
+        input_["integration_identifier"] = integration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4279,11 +4283,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_option_group_message.DeleteOptionGroupMessage = {}  # type: ignore[typeddict-item]
-        input["option_group_name"] = option_group_name
+        input_: aws_sdk_rds.types.delete_option_group_message.DeleteOptionGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["option_group_name"] = option_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4324,16 +4328,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.delete_tenant_database_message.DeleteTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
-        input["tenant_db_name"] = tenant_db_name
+        input_: aws_sdk_rds.types.delete_tenant_database_message.DeleteTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
+        input_["tenant_db_name"] = tenant_db_name
         if skip_final_snapshot is not None:
-            input["skip_final_snapshot"] = skip_final_snapshot
+            input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
-            input["final_db_snapshot_identifier"] = final_db_snapshot_identifier
+            input_["final_db_snapshot_identifier"] = final_db_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4378,17 +4382,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.deregister_db_proxy_targets_request.DeregisterDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_name"] = db_proxy_name
+        input_: aws_sdk_rds.types.deregister_db_proxy_targets_request.DeregisterDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_name"] = db_proxy_name
         if target_group_name is not None:
-            input["target_group_name"] = target_group_name
+            input_["target_group_name"] = target_group_name
         if db_instance_identifiers is not None:
-            input["db_instance_identifiers"] = db_instance_identifiers
+            input_["db_instance_identifiers"] = db_instance_identifiers
         if db_cluster_identifiers is not None:
-            input["db_cluster_identifiers"] = db_cluster_identifiers
+            input_["db_cluster_identifiers"] = db_cluster_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4421,10 +4425,10 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_account_attributes_message.DescribeAccountAttributesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_account_attributes_message.DescribeAccountAttributesMessage = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4479,18 +4483,20 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_blue_green_deployments_request.DescribeBlueGreenDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_blue_green_deployments_request.DescribeBlueGreenDeploymentsRequest = {}  # type: ignore[typeddict-item]
         if blue_green_deployment_identifier is not None:
-            input["blue_green_deployment_identifier"] = blue_green_deployment_identifier
+            input_["blue_green_deployment_identifier"] = (
+                blue_green_deployment_identifier
+            )
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4564,18 +4570,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_certificates_message.DescribeCertificatesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_certificates_message.DescribeCertificatesMessage = {}  # type: ignore[typeddict-item]
         if certificate_identifier is not None:
-            input["certificate_identifier"] = certificate_identifier
+            input_["certificate_identifier"] = certificate_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4645,20 +4651,20 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_cluster_automated_backups_message.DescribeDBClusterAutomatedBackupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_cluster_automated_backups_message.DescribeDBClusterAutomatedBackupsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_resource_id is not None:
-            input["db_cluster_resource_id"] = db_cluster_resource_id
+            input_["db_cluster_resource_id"] = db_cluster_resource_id
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4736,19 +4742,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_cluster_backtracks_message.DescribeDBClusterBacktracksMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.describe_db_cluster_backtracks_message.DescribeDBClusterBacktracksMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if backtrack_identifier is not None:
-            input["backtrack_identifier"] = backtrack_identifier
+            input_["backtrack_identifier"] = backtrack_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4832,20 +4838,20 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_cluster_endpoints_message.DescribeDBClusterEndpointsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_cluster_endpoints_message.DescribeDBClusterEndpointsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_endpoint_identifier is not None:
-            input["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+            input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4925,18 +4931,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_cluster_parameter_groups_message.DescribeDBClusterParameterGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_cluster_parameter_groups_message.DescribeDBClusterParameterGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5016,19 +5022,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_rds.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5108,20 +5114,20 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_clusters_message.DescribeDBClustersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_clusters_message.DescribeDBClustersMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if include_shared is not None:
-            input["include_shared"] = include_shared
+            input_["include_shared"] = include_shared
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5189,11 +5195,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_: aws_sdk_rds.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5252,28 +5258,28 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_cluster_snapshots_message.DescribeDBClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_cluster_snapshots_message.DescribeDBClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_snapshot_identifier is not None:
-            input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
         if snapshot_type is not None:
-            input["snapshot_type"] = snapshot_type
+            input_["snapshot_type"] = snapshot_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if include_shared is not None:
-            input["include_shared"] = include_shared
+            input_["include_shared"] = include_shared
         if include_public is not None:
-            input["include_public"] = include_public
+            input_["include_public"] = include_public
         if db_cluster_resource_id is not None:
-            input["db_cluster_resource_id"] = db_cluster_resource_id
+            input_["db_cluster_resource_id"] = db_cluster_resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5377,30 +5383,30 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_engine_versions_message.DescribeDBEngineVersionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_engine_versions_message.DescribeDBEngineVersionsMessage = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if db_parameter_group_family is not None:
-            input["db_parameter_group_family"] = db_parameter_group_family
+            input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if default_only is not None:
-            input["default_only"] = default_only
+            input_["default_only"] = default_only
         if list_supported_character_sets is not None:
-            input["list_supported_character_sets"] = list_supported_character_sets
+            input_["list_supported_character_sets"] = list_supported_character_sets
         if list_supported_timezones is not None:
-            input["list_supported_timezones"] = list_supported_timezones
+            input_["list_supported_timezones"] = list_supported_timezones
         if include_all is not None:
-            input["include_all"] = include_all
+            input_["include_all"] = include_all
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5498,24 +5504,24 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_instance_automated_backups_message.DescribeDBInstanceAutomatedBackupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_instance_automated_backups_message.DescribeDBInstanceAutomatedBackupsMessage = {}  # type: ignore[typeddict-item]
         if dbi_resource_id is not None:
-            input["dbi_resource_id"] = dbi_resource_id
+            input_["dbi_resource_id"] = dbi_resource_id
         if db_instance_identifier is not None:
-            input["db_instance_identifier"] = db_instance_identifier
+            input_["db_instance_identifier"] = db_instance_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if db_instance_automated_backups_arn is not None:
-            input["db_instance_automated_backups_arn"] = (
+            input_["db_instance_automated_backups_arn"] = (
                 db_instance_automated_backups_arn
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5595,18 +5601,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_instances_message.DescribeDBInstancesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_instances_message.DescribeDBInstancesMessage = {}  # type: ignore[typeddict-item]
         if db_instance_identifier is not None:
-            input["db_instance_identifier"] = db_instance_identifier
+            input_["db_instance_identifier"] = db_instance_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5686,23 +5692,23 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_log_files_message.DescribeDBLogFilesMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.describe_db_log_files_message.DescribeDBLogFilesMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if filename_contains is not None:
-            input["filename_contains"] = filename_contains
+            input_["filename_contains"] = filename_contains
         if file_last_written is not None:
-            input["file_last_written"] = file_last_written
+            input_["file_last_written"] = file_last_written
         if file_size is not None:
-            input["file_size"] = file_size
+            input_["file_size"] = file_size
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5776,18 +5782,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_major_engine_versions_request.DescribeDBMajorEngineVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_major_engine_versions_request.DescribeDBMajorEngineVersionsRequest = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if major_engine_version is not None:
-            input["major_engine_version"] = major_engine_version
+            input_["major_engine_version"] = major_engine_version
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5861,18 +5867,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_parameter_groups_message.DescribeDBParameterGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_parameter_groups_message.DescribeDBParameterGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5948,19 +5954,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_parameters_message.DescribeDBParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
+        input_: aws_sdk_rds.types.describe_db_parameters_message.DescribeDBParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6028,18 +6034,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_proxies_request.DescribeDBProxiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_proxies_request.DescribeDBProxiesRequest = {}  # type: ignore[typeddict-item]
         if db_proxy_name is not None:
-            input["db_proxy_name"] = db_proxy_name
+            input_["db_proxy_name"] = db_proxy_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6107,20 +6113,20 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_proxy_endpoints_request.DescribeDBProxyEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_proxy_endpoints_request.DescribeDBProxyEndpointsRequest = {}  # type: ignore[typeddict-item]
         if db_proxy_name is not None:
-            input["db_proxy_name"] = db_proxy_name
+            input_["db_proxy_name"] = db_proxy_name
         if db_proxy_endpoint_name is not None:
-            input["db_proxy_endpoint_name"] = db_proxy_endpoint_name
+            input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6192,19 +6198,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_proxy_target_groups_request.DescribeDBProxyTargetGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_name"] = db_proxy_name
+        input_: aws_sdk_rds.types.describe_db_proxy_target_groups_request.DescribeDBProxyTargetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_name"] = db_proxy_name
         if target_group_name is not None:
-            input["target_group_name"] = target_group_name
+            input_["target_group_name"] = target_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6276,19 +6282,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_proxy_targets_request.DescribeDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_name"] = db_proxy_name
+        input_: aws_sdk_rds.types.describe_db_proxy_targets_request.DescribeDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_name"] = db_proxy_name
         if target_group_name is not None:
-            input["target_group_name"] = target_group_name
+            input_["target_group_name"] = target_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6362,22 +6368,22 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_recommendations_message.DescribeDBRecommendationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_recommendations_message.DescribeDBRecommendationsMessage = {}  # type: ignore[typeddict-item]
         if last_updated_after is not None:
-            input["last_updated_after"] = last_updated_after
+            input_["last_updated_after"] = last_updated_after
         if last_updated_before is not None:
-            input["last_updated_before"] = last_updated_before
+            input_["last_updated_before"] = last_updated_before
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6455,18 +6461,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_security_groups_message.DescribeDBSecurityGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_security_groups_message.DescribeDBSecurityGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_security_group_name is not None:
-            input["db_security_group_name"] = db_security_group_name
+            input_["db_security_group_name"] = db_security_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6534,18 +6540,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_shard_groups_message.DescribeDBShardGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_shard_groups_message.DescribeDBShardGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_shard_group_identifier is not None:
-            input["db_shard_group_identifier"] = db_shard_group_identifier
+            input_["db_shard_group_identifier"] = db_shard_group_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6584,11 +6590,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_snapshot_attributes_message.DescribeDBSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
-        input["db_snapshot_identifier"] = db_snapshot_identifier
+        input_: aws_sdk_rds.types.describe_db_snapshot_attributes_message.DescribeDBSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
+        input_["db_snapshot_identifier"] = db_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6645,28 +6651,28 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_snapshots_message.DescribeDBSnapshotsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_snapshots_message.DescribeDBSnapshotsMessage = {}  # type: ignore[typeddict-item]
         if db_instance_identifier is not None:
-            input["db_instance_identifier"] = db_instance_identifier
+            input_["db_instance_identifier"] = db_instance_identifier
         if db_snapshot_identifier is not None:
-            input["db_snapshot_identifier"] = db_snapshot_identifier
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
         if snapshot_type is not None:
-            input["snapshot_type"] = snapshot_type
+            input_["snapshot_type"] = snapshot_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if include_shared is not None:
-            input["include_shared"] = include_shared
+            input_["include_shared"] = include_shared
         if include_public is not None:
-            input["include_public"] = include_public
+            input_["include_public"] = include_public
         if dbi_resource_id is not None:
-            input["dbi_resource_id"] = dbi_resource_id
+            input_["dbi_resource_id"] = dbi_resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6750,24 +6756,24 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_snapshot_tenant_databases_message.DescribeDBSnapshotTenantDatabasesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_snapshot_tenant_databases_message.DescribeDBSnapshotTenantDatabasesMessage = {}  # type: ignore[typeddict-item]
         if db_instance_identifier is not None:
-            input["db_instance_identifier"] = db_instance_identifier
+            input_["db_instance_identifier"] = db_instance_identifier
         if db_snapshot_identifier is not None:
-            input["db_snapshot_identifier"] = db_snapshot_identifier
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
         if snapshot_type is not None:
-            input["snapshot_type"] = snapshot_type
+            input_["snapshot_type"] = snapshot_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if dbi_resource_id is not None:
-            input["dbi_resource_id"] = dbi_resource_id
+            input_["dbi_resource_id"] = dbi_resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6847,18 +6853,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_db_subnet_groups_message.DescribeDBSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_db_subnet_groups_message.DescribeDBSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6932,17 +6938,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_family"] = db_parameter_group_family
+        input_: aws_sdk_rds.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7016,17 +7022,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_family"] = db_parameter_group_family
+        input_: aws_sdk_rds.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7094,14 +7100,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7158,28 +7164,28 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
         if source_identifier is not None:
-            input["source_identifier"] = source_identifier
+            input_["source_identifier"] = source_identifier
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7265,18 +7271,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
         if subscription_name is not None:
-            input["subscription_name"] = subscription_name
+            input_["subscription_name"] = subscription_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7354,22 +7360,22 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_export_tasks_message.DescribeExportTasksMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_export_tasks_message.DescribeExportTasksMessage = {}  # type: ignore[typeddict-item]
         if export_task_identifier is not None:
-            input["export_task_identifier"] = export_task_identifier
+            input_["export_task_identifier"] = export_task_identifier
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7449,18 +7455,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_global_clusters_message.DescribeGlobalClustersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_global_clusters_message.DescribeGlobalClustersMessage = {}  # type: ignore[typeddict-item]
         if global_cluster_identifier is not None:
-            input["global_cluster_identifier"] = global_cluster_identifier
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7540,18 +7546,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_integrations_message.DescribeIntegrationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_integrations_message.DescribeIntegrationsMessage = {}  # type: ignore[typeddict-item]
         if integration_identifier is not None:
-            input["integration_identifier"] = integration_identifier
+            input_["integration_identifier"] = integration_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7629,19 +7635,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_option_group_options_message.DescribeOptionGroupOptionsMessage = {}  # type: ignore[typeddict-item]
-        input["engine_name"] = engine_name
+        input_: aws_sdk_rds.types.describe_option_group_options_message.DescribeOptionGroupOptionsMessage = {}  # type: ignore[typeddict-item]
+        input_["engine_name"] = engine_name
         if major_engine_version is not None:
-            input["major_engine_version"] = major_engine_version
+            input_["major_engine_version"] = major_engine_version
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7719,22 +7725,22 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_option_groups_message.DescribeOptionGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_option_groups_message.DescribeOptionGroupsMessage = {}  # type: ignore[typeddict-item]
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if engine_name is not None:
-            input["engine_name"] = engine_name
+            input_["engine_name"] = engine_name
         if major_engine_version is not None:
-            input["major_engine_version"] = major_engine_version
+            input_["major_engine_version"] = major_engine_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7822,27 +7828,27 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
-        input["engine"] = engine
+        input_: aws_sdk_rds.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if availability_zone_group is not None:
-            input["availability_zone_group"] = availability_zone_group
+            input_["availability_zone_group"] = availability_zone_group
         if vpc is not None:
-            input["vpc"] = vpc
+            input_["vpc"] = vpc
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7926,18 +7932,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_pending_maintenance_actions_message.DescribePendingMaintenanceActionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_pending_maintenance_actions_message.DescribePendingMaintenanceActionsMessage = {}  # type: ignore[typeddict-item]
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8027,34 +8033,34 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_reserved_db_instances_message.DescribeReservedDBInstancesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_reserved_db_instances_message.DescribeReservedDBInstancesMessage = {}  # type: ignore[typeddict-item]
         if reserved_db_instance_id is not None:
-            input["reserved_db_instance_id"] = reserved_db_instance_id
+            input_["reserved_db_instance_id"] = reserved_db_instance_id
         if reserved_db_instances_offering_id is not None:
-            input["reserved_db_instances_offering_id"] = (
+            input_["reserved_db_instances_offering_id"] = (
                 reserved_db_instances_offering_id
             )
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if product_description is not None:
-            input["product_description"] = product_description
+            input_["product_description"] = product_description
         if offering_type is not None:
-            input["offering_type"] = offering_type
+            input_["offering_type"] = offering_type
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if lease_id is not None:
-            input["lease_id"] = lease_id
+            input_["lease_id"] = lease_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8156,30 +8162,30 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_reserved_db_instances_offerings_message.DescribeReservedDBInstancesOfferingsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_reserved_db_instances_offerings_message.DescribeReservedDBInstancesOfferingsMessage = {}  # type: ignore[typeddict-item]
         if reserved_db_instances_offering_id is not None:
-            input["reserved_db_instances_offering_id"] = (
+            input_["reserved_db_instances_offering_id"] = (
                 reserved_db_instances_offering_id
             )
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if product_description is not None:
-            input["product_description"] = product_description
+            input_["product_description"] = product_description
         if offering_type is not None:
-            input["offering_type"] = offering_type
+            input_["offering_type"] = offering_type
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8277,24 +8283,24 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_serverless_v2_platform_versions_message.DescribeServerlessV2PlatformVersionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_serverless_v2_platform_versions_message.DescribeServerlessV2PlatformVersionsMessage = {}  # type: ignore[typeddict-item]
         if serverless_v2_platform_version is not None:
-            input["serverless_v2_platform_version"] = serverless_v2_platform_version
+            input_["serverless_v2_platform_version"] = serverless_v2_platform_version
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if default_only is not None:
-            input["default_only"] = default_only
+            input_["default_only"] = default_only
         if include_all is not None:
-            input["include_all"] = include_all
+            input_["include_all"] = include_all
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8380,18 +8386,18 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_source_regions_message.DescribeSourceRegionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_source_regions_message.DescribeSourceRegionsMessage = {}  # type: ignore[typeddict-item]
         if region_name is not None:
-            input["region_name"] = region_name
+            input_["region_name"] = region_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8461,20 +8467,20 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_tenant_databases_message.DescribeTenantDatabasesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.describe_tenant_databases_message.DescribeTenantDatabasesMessage = {}  # type: ignore[typeddict-item]
         if db_instance_identifier is not None:
-            input["db_instance_identifier"] = db_instance_identifier
+            input_["db_instance_identifier"] = db_instance_identifier
         if tenant_db_name is not None:
-            input["tenant_db_name"] = tenant_db_name
+            input_["tenant_db_name"] = tenant_db_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8542,11 +8548,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.describe_valid_db_instance_modifications_message.DescribeValidDBInstanceModificationsMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.describe_valid_db_instance_modifications_message.DescribeValidDBInstanceModificationsMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8579,11 +8585,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.disable_http_endpoint_request.DisableHttpEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_rds.types.disable_http_endpoint_request.DisableHttpEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8628,16 +8634,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.download_db_log_file_portion_message.DownloadDBLogFilePortionMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
-        input["log_file_name"] = log_file_name
+        input_: aws_sdk_rds.types.download_db_log_file_portion_message.DownloadDBLogFilePortionMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
+        input_["log_file_name"] = log_file_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if number_of_lines is not None:
-            input["number_of_lines"] = number_of_lines
+            input_["number_of_lines"] = number_of_lines
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8670,11 +8676,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.enable_http_endpoint_request.EnableHttpEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_rds.types.enable_http_endpoint_request.EnableHttpEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8717,13 +8723,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.failover_db_cluster_message.FailoverDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.failover_db_cluster_message.FailoverDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if target_db_instance_identifier is not None:
-            input["target_db_instance_identifier"] = target_db_instance_identifier
+            input_["target_db_instance_identifier"] = target_db_instance_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8766,16 +8772,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["target_db_cluster_identifier"] = target_db_cluster_identifier
+        input_: aws_sdk_rds.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
         if allow_data_loss is not None:
-            input["allow_data_loss"] = allow_data_loss
+            input_["allow_data_loss"] = allow_data_loss
         if switchover is not None:
-            input["switchover"] = switchover
+            input_["switchover"] = switchover
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8814,13 +8820,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_rds.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8859,14 +8865,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_activity_stream_request.ModifyActivityStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.modify_activity_stream_request.ModifyActivityStreamRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if audit_policy_state is not None:
-            input["audit_policy_state"] = audit_policy_state
+            input_["audit_policy_state"] = audit_policy_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8909,14 +8915,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_certificates_message.ModifyCertificatesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.modify_certificates_message.ModifyCertificatesMessage = {}  # type: ignore[typeddict-item]
         if certificate_identifier is not None:
-            input["certificate_identifier"] = certificate_identifier
+            input_["certificate_identifier"] = certificate_identifier
         if remove_customer_override is not None:
-            input["remove_customer_override"] = remove_customer_override
+            input_["remove_customer_override"] = remove_customer_override
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8963,17 +8969,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_current_db_cluster_capacity_message.ModifyCurrentDBClusterCapacityMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.modify_current_db_cluster_capacity_message.ModifyCurrentDBClusterCapacityMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if capacity is not None:
-            input["capacity"] = capacity
+            input_["capacity"] = capacity
         if seconds_before_timeout is not None:
-            input["seconds_before_timeout"] = seconds_before_timeout
+            input_["seconds_before_timeout"] = seconds_before_timeout
         if timeout_action is not None:
-            input["timeout_action"] = timeout_action
+            input_["timeout_action"] = timeout_action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9012,16 +9018,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_custom_db_engine_version_message.ModifyCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
-        input["engine"] = engine
-        input["engine_version"] = engine_version
+        input_: aws_sdk_rds.types.modify_custom_db_engine_version_message.ModifyCustomDBEngineVersionMessage = {}  # type: ignore[typeddict-item]
+        input_["engine"] = engine
+        input_["engine_version"] = engine_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9211,111 +9217,113 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if new_db_cluster_identifier is not None:
-            input["new_db_cluster_identifier"] = new_db_cluster_identifier
+            input_["new_db_cluster_identifier"] = new_db_cluster_identifier
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if backtrack_window is not None:
-            input["backtrack_window"] = backtrack_window
+            input_["backtrack_window"] = backtrack_window
         if cloudwatch_logs_export_configuration is not None:
-            input["cloudwatch_logs_export_configuration"] = (
+            input_["cloudwatch_logs_export_configuration"] = (
                 cloudwatch_logs_export_configuration
             )
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if allow_major_version_upgrade is not None:
-            input["allow_major_version_upgrade"] = allow_major_version_upgrade
+            input_["allow_major_version_upgrade"] = allow_major_version_upgrade
         if db_instance_parameter_group_name is not None:
-            input["db_instance_parameter_group_name"] = db_instance_parameter_group_name
+            input_["db_instance_parameter_group_name"] = (
+                db_instance_parameter_group_name
+            )
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if scaling_configuration is not None:
-            input["scaling_configuration"] = scaling_configuration
+            input_["scaling_configuration"] = scaling_configuration
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if enable_http_endpoint is not None:
-            input["enable_http_endpoint"] = enable_http_endpoint
+            input_["enable_http_endpoint"] = enable_http_endpoint
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if enable_global_write_forwarding is not None:
-            input["enable_global_write_forwarding"] = enable_global_write_forwarding
+            input_["enable_global_write_forwarding"] = enable_global_write_forwarding
         if db_cluster_instance_class is not None:
-            input["db_cluster_instance_class"] = db_cluster_instance_class
+            input_["db_cluster_instance_class"] = db_cluster_instance_class
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if database_insights_mode is not None:
-            input["database_insights_mode"] = database_insights_mode
+            input_["database_insights_mode"] = database_insights_mode
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if performance_insights_retention_period is not None:
-            input["performance_insights_retention_period"] = (
+            input_["performance_insights_retention_period"] = (
                 performance_insights_retention_period
             )
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if rotate_master_user_password is not None:
-            input["rotate_master_user_password"] = rotate_master_user_password
+            input_["rotate_master_user_password"] = rotate_master_user_password
         if enable_local_write_forwarding is not None:
-            input["enable_local_write_forwarding"] = enable_local_write_forwarding
+            input_["enable_local_write_forwarding"] = enable_local_write_forwarding
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if engine_mode is not None:
-            input["engine_mode"] = engine_mode
+            input_["engine_mode"] = engine_mode
         if allow_engine_mode_change is not None:
-            input["allow_engine_mode_change"] = allow_engine_mode_change
+            input_["allow_engine_mode_change"] = allow_engine_mode_change
         if aws_backup_recovery_point_arn is not None:
-            input["aws_backup_recovery_point_arn"] = aws_backup_recovery_point_arn
+            input_["aws_backup_recovery_point_arn"] = aws_backup_recovery_point_arn
         if enable_limitless_database is not None:
-            input["enable_limitless_database"] = enable_limitless_database
+            input_["enable_limitless_database"] = enable_limitless_database
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if master_user_authentication_type is not None:
-            input["master_user_authentication_type"] = master_user_authentication_type
+            input_["master_user_authentication_type"] = master_user_authentication_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9360,17 +9368,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_cluster_endpoint_message.ModifyDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        input_: aws_sdk_rds.types.modify_db_cluster_endpoint_message.ModifyDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if static_members is not None:
-            input["static_members"] = static_members
+            input_["static_members"] = static_members
         if excluded_members is not None:
-            input["excluded_members"] = excluded_members
+            input_["excluded_members"] = excluded_members
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9411,12 +9419,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input["parameters"] = parameters
+        input_: aws_sdk_rds.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9465,16 +9473,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_rds.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_["attribute_name"] = attribute_name
         if values_to_add is not None:
-            input["values_to_add"] = values_to_add
+            input_["values_to_add"] = values_to_add
         if values_to_remove is not None:
-            input["values_to_remove"] = values_to_remove
+            input_["values_to_remove"] = values_to_remove
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9717,145 +9725,145 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if db_security_groups is not None:
-            input["db_security_groups"] = db_security_groups
+            input_["db_security_groups"] = db_security_groups
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if allow_major_version_upgrade is not None:
-            input["allow_major_version_upgrade"] = allow_major_version_upgrade
+            input_["allow_major_version_upgrade"] = allow_major_version_upgrade
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if storage_throughput is not None:
-            input["storage_throughput"] = storage_throughput
+            input_["storage_throughput"] = storage_throughput
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if new_db_instance_identifier is not None:
-            input["new_db_instance_identifier"] = new_db_instance_identifier
+            input_["new_db_instance_identifier"] = new_db_instance_identifier
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if tde_credential_arn is not None:
-            input["tde_credential_arn"] = tde_credential_arn
+            input_["tde_credential_arn"] = tde_credential_arn
         if tde_credential_password is not None:
-            input["tde_credential_password"] = tde_credential_password
+            input_["tde_credential_password"] = tde_credential_password
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_fqdn is not None:
-            input["domain_fqdn"] = domain_fqdn
+            input_["domain_fqdn"] = domain_fqdn
         if domain_ou is not None:
-            input["domain_ou"] = domain_ou
+            input_["domain_ou"] = domain_ou
         if domain_auth_secret_arn is not None:
-            input["domain_auth_secret_arn"] = domain_auth_secret_arn
+            input_["domain_auth_secret_arn"] = domain_auth_secret_arn
         if domain_dns_ips is not None:
-            input["domain_dns_ips"] = domain_dns_ips
+            input_["domain_dns_ips"] = domain_dns_ips
         if disable_domain is not None:
-            input["disable_domain"] = disable_domain
+            input_["disable_domain"] = disable_domain
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if db_port_number is not None:
-            input["db_port_number"] = db_port_number
+            input_["db_port_number"] = db_port_number
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if promotion_tier is not None:
-            input["promotion_tier"] = promotion_tier
+            input_["promotion_tier"] = promotion_tier
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if database_insights_mode is not None:
-            input["database_insights_mode"] = database_insights_mode
+            input_["database_insights_mode"] = database_insights_mode
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if performance_insights_retention_period is not None:
-            input["performance_insights_retention_period"] = (
+            input_["performance_insights_retention_period"] = (
                 performance_insights_retention_period
             )
         if cloudwatch_logs_export_configuration is not None:
-            input["cloudwatch_logs_export_configuration"] = (
+            input_["cloudwatch_logs_export_configuration"] = (
                 cloudwatch_logs_export_configuration
             )
         if processor_features is not None:
-            input["processor_features"] = processor_features
+            input_["processor_features"] = processor_features
         if use_default_processor_features is not None:
-            input["use_default_processor_features"] = use_default_processor_features
+            input_["use_default_processor_features"] = use_default_processor_features
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if max_allocated_storage is not None:
-            input["max_allocated_storage"] = max_allocated_storage
+            input_["max_allocated_storage"] = max_allocated_storage
         if certificate_rotation_restart is not None:
-            input["certificate_rotation_restart"] = certificate_rotation_restart
+            input_["certificate_rotation_restart"] = certificate_rotation_restart
         if replica_mode is not None:
-            input["replica_mode"] = replica_mode
+            input_["replica_mode"] = replica_mode
         if automation_mode is not None:
-            input["automation_mode"] = automation_mode
+            input_["automation_mode"] = automation_mode
         if resume_full_automation_mode_minutes is not None:
-            input["resume_full_automation_mode_minutes"] = (
+            input_["resume_full_automation_mode_minutes"] = (
                 resume_full_automation_mode_minutes
             )
         if enable_customer_owned_ip is not None:
-            input["enable_customer_owned_ip"] = enable_customer_owned_ip
+            input_["enable_customer_owned_ip"] = enable_customer_owned_ip
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if aws_backup_recovery_point_arn is not None:
-            input["aws_backup_recovery_point_arn"] = aws_backup_recovery_point_arn
+            input_["aws_backup_recovery_point_arn"] = aws_backup_recovery_point_arn
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if rotate_master_user_password is not None:
-            input["rotate_master_user_password"] = rotate_master_user_password
+            input_["rotate_master_user_password"] = rotate_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if multi_tenant is not None:
-            input["multi_tenant"] = multi_tenant
+            input_["multi_tenant"] = multi_tenant
         if dedicated_log_volume is not None:
-            input["dedicated_log_volume"] = dedicated_log_volume
+            input_["dedicated_log_volume"] = dedicated_log_volume
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if additional_storage_volumes is not None:
-            input["additional_storage_volumes"] = additional_storage_volumes
+            input_["additional_storage_volumes"] = additional_storage_volumes
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if master_user_authentication_type is not None:
-            input["master_user_authentication_type"] = master_user_authentication_type
+            input_["master_user_authentication_type"] = master_user_authentication_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9898,12 +9906,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_parameter_group_message.ModifyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
-        input["parameters"] = parameters
+        input_: aws_sdk_rds.types.modify_db_parameter_group_message.ModifyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
+        input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9964,27 +9972,27 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_proxy_request.ModifyDBProxyRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_name"] = db_proxy_name
+        input_: aws_sdk_rds.types.modify_db_proxy_request.ModifyDBProxyRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_name"] = db_proxy_name
         if new_db_proxy_name is not None:
-            input["new_db_proxy_name"] = new_db_proxy_name
+            input_["new_db_proxy_name"] = new_db_proxy_name
         if default_auth_scheme is not None:
-            input["default_auth_scheme"] = default_auth_scheme
+            input_["default_auth_scheme"] = default_auth_scheme
         if auth is not None:
-            input["auth"] = auth
+            input_["auth"] = auth
         if require_tls is not None:
-            input["require_tls"] = require_tls
+            input_["require_tls"] = require_tls
         if idle_client_timeout is not None:
-            input["idle_client_timeout"] = idle_client_timeout
+            input_["idle_client_timeout"] = idle_client_timeout
         if debug_logging is not None:
-            input["debug_logging"] = debug_logging
+            input_["debug_logging"] = debug_logging
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10025,15 +10033,15 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_proxy_endpoint_request.ModifyDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_endpoint_name"] = db_proxy_endpoint_name
+        input_: aws_sdk_rds.types.modify_db_proxy_endpoint_request.ModifyDBProxyEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_endpoint_name"] = db_proxy_endpoint_name
         if new_db_proxy_endpoint_name is not None:
-            input["new_db_proxy_endpoint_name"] = new_db_proxy_endpoint_name
+            input_["new_db_proxy_endpoint_name"] = new_db_proxy_endpoint_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10074,16 +10082,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_proxy_target_group_request.ModifyDBProxyTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_name"] = target_group_name
-        input["db_proxy_name"] = db_proxy_name
+        input_: aws_sdk_rds.types.modify_db_proxy_target_group_request.ModifyDBProxyTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_name"] = target_group_name
+        input_["db_proxy_name"] = db_proxy_name
         if connection_pool_config is not None:
-            input["connection_pool_config"] = connection_pool_config
+            input_["connection_pool_config"] = connection_pool_config
         if new_name is not None:
-            input["new_name"] = new_name
+            input_["new_name"] = new_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10124,17 +10132,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_recommendation_message.ModifyDBRecommendationMessage = {}  # type: ignore[typeddict-item]
-        input["recommendation_id"] = recommendation_id
+        input_: aws_sdk_rds.types.modify_db_recommendation_message.ModifyDBRecommendationMessage = {}  # type: ignore[typeddict-item]
+        input_["recommendation_id"] = recommendation_id
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if recommended_action_updates is not None:
-            input["recommended_action_updates"] = recommended_action_updates
+            input_["recommended_action_updates"] = recommended_action_updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10173,17 +10181,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_shard_group_message.ModifyDBShardGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_shard_group_identifier"] = db_shard_group_identifier
+        input_: aws_sdk_rds.types.modify_db_shard_group_message.ModifyDBShardGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_shard_group_identifier"] = db_shard_group_identifier
         if max_acu is not None:
-            input["max_acu"] = max_acu
+            input_["max_acu"] = max_acu
         if min_acu is not None:
-            input["min_acu"] = min_acu
+            input_["min_acu"] = min_acu
         if compute_redundancy is not None:
-            input["compute_redundancy"] = compute_redundancy
+            input_["compute_redundancy"] = compute_redundancy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10226,15 +10234,15 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_snapshot_message.ModifyDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_snapshot_identifier"] = db_snapshot_identifier
+        input_: aws_sdk_rds.types.modify_db_snapshot_message.ModifyDBSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_snapshot_identifier"] = db_snapshot_identifier
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10287,16 +10295,16 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_snapshot_attribute_message.ModifyDBSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
-        input["db_snapshot_identifier"] = db_snapshot_identifier
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_rds.types.modify_db_snapshot_attribute_message.ModifyDBSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
+        input_["db_snapshot_identifier"] = db_snapshot_identifier
+        input_["attribute_name"] = attribute_name
         if values_to_add is not None:
-            input["values_to_add"] = values_to_add
+            input_["values_to_add"] = values_to_add
         if values_to_remove is not None:
-            input["values_to_remove"] = values_to_remove
+            input_["values_to_remove"] = values_to_remove
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10339,14 +10347,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
+        input_: aws_sdk_rds.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
         if db_subnet_group_description is not None:
-            input["db_subnet_group_description"] = db_subnet_group_description
-        input["subnet_ids"] = subnet_ids
+            input_["db_subnet_group_description"] = db_subnet_group_description
+        input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10395,19 +10403,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_rds.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10460,19 +10468,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_rds.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
         if new_global_cluster_identifier is not None:
-            input["new_global_cluster_identifier"] = new_global_cluster_identifier
+            input_["new_global_cluster_identifier"] = new_global_cluster_identifier
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if allow_major_version_upgrade is not None:
-            input["allow_major_version_upgrade"] = allow_major_version_upgrade
+            input_["allow_major_version_upgrade"] = allow_major_version_upgrade
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10519,17 +10527,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_integration_message.ModifyIntegrationMessage = {}  # type: ignore[typeddict-item]
-        input["integration_identifier"] = integration_identifier
+        input_: aws_sdk_rds.types.modify_integration_message.ModifyIntegrationMessage = {}  # type: ignore[typeddict-item]
+        input_["integration_identifier"] = integration_identifier
         if integration_name is not None:
-            input["integration_name"] = integration_name
+            input_["integration_name"] = integration_name
         if data_filter is not None:
-            input["data_filter"] = data_filter
+            input_["data_filter"] = data_filter
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10578,17 +10586,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_option_group_message.ModifyOptionGroupMessage = {}  # type: ignore[typeddict-item]
-        input["option_group_name"] = option_group_name
+        input_: aws_sdk_rds.types.modify_option_group_message.ModifyOptionGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["option_group_name"] = option_group_name
         if options_to_include is not None:
-            input["options_to_include"] = options_to_include
+            input_["options_to_include"] = options_to_include
         if options_to_remove is not None:
-            input["options_to_remove"] = options_to_remove
+            input_["options_to_remove"] = options_to_remove
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10641,22 +10649,22 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.modify_tenant_database_message.ModifyTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
-        input["tenant_db_name"] = tenant_db_name
+        input_: aws_sdk_rds.types.modify_tenant_database_message.ModifyTenantDatabaseMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
+        input_["tenant_db_name"] = tenant_db_name
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if new_tenant_db_name is not None:
-            input["new_tenant_db_name"] = new_tenant_db_name
+            input_["new_tenant_db_name"] = new_tenant_db_name
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if rotate_master_user_password is not None:
-            input["rotate_master_user_password"] = rotate_master_user_password
+            input_["rotate_master_user_password"] = rotate_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10705,17 +10713,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.promote_read_replica_message.PromoteReadReplicaMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.promote_read_replica_message.PromoteReadReplicaMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10748,11 +10756,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.promote_read_replica_db_cluster_message.PromoteReadReplicaDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.promote_read_replica_db_cluster_message.PromoteReadReplicaDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10798,17 +10806,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.purchase_reserved_db_instances_offering_message.PurchaseReservedDBInstancesOfferingMessage = {}  # type: ignore[typeddict-item]
-        input["reserved_db_instances_offering_id"] = reserved_db_instances_offering_id
+        input_: aws_sdk_rds.types.purchase_reserved_db_instances_offering_message.PurchaseReservedDBInstancesOfferingMessage = {}  # type: ignore[typeddict-item]
+        input_["reserved_db_instances_offering_id"] = reserved_db_instances_offering_id
         if reserved_db_instance_id is not None:
-            input["reserved_db_instance_id"] = reserved_db_instance_id
+            input_["reserved_db_instance_id"] = reserved_db_instance_id
         if db_instance_count is not None:
-            input["db_instance_count"] = db_instance_count
+            input_["db_instance_count"] = db_instance_count
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10841,11 +10849,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.reboot_db_cluster_message.RebootDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.reboot_db_cluster_message.RebootDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10888,13 +10896,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if force_failover is not None:
-            input["force_failover"] = force_failover
+            input_["force_failover"] = force_failover
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10925,11 +10933,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.reboot_db_shard_group_message.RebootDBShardGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_shard_group_identifier"] = db_shard_group_identifier
+        input_: aws_sdk_rds.types.reboot_db_shard_group_message.RebootDBShardGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_shard_group_identifier"] = db_shard_group_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10974,17 +10982,17 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.register_db_proxy_targets_request.RegisterDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["db_proxy_name"] = db_proxy_name
+        input_: aws_sdk_rds.types.register_db_proxy_targets_request.RegisterDBProxyTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["db_proxy_name"] = db_proxy_name
         if target_group_name is not None:
-            input["target_group_name"] = target_group_name
+            input_["target_group_name"] = target_group_name
         if db_instance_identifiers is not None:
-            input["db_instance_identifiers"] = db_instance_identifiers
+            input_["db_instance_identifiers"] = db_instance_identifiers
         if db_cluster_identifiers is not None:
-            input["db_cluster_identifiers"] = db_cluster_identifiers
+            input_["db_cluster_identifiers"] = db_cluster_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11025,12 +11033,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11071,14 +11079,14 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.remove_role_from_db_cluster_message.RemoveRoleFromDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["role_arn"] = role_arn
+        input_: aws_sdk_rds.types.remove_role_from_db_cluster_message.RemoveRoleFromDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["role_arn"] = role_arn
         if feature_name is not None:
-            input["feature_name"] = feature_name
+            input_["feature_name"] = feature_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11113,13 +11121,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.remove_role_from_db_instance_message.RemoveRoleFromDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
-        input["role_arn"] = role_arn
-        input["feature_name"] = feature_name
+        input_: aws_sdk_rds.types.remove_role_from_db_instance_message.RemoveRoleFromDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
+        input_["role_arn"] = role_arn
+        input_["feature_name"] = feature_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11160,12 +11168,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["source_identifier"] = source_identifier
+        input_: aws_sdk_rds.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11204,12 +11212,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_rds.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11252,15 +11260,15 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_rds.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if reset_all_parameters is not None:
-            input["reset_all_parameters"] = reset_all_parameters
+            input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11305,15 +11313,15 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.reset_db_parameter_group_message.ResetDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
+        input_: aws_sdk_rds.types.reset_db_parameter_group_message.ResetDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
         if reset_all_parameters is not None:
-            input["reset_all_parameters"] = reset_all_parameters
+            input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11456,83 +11464,83 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.restore_db_cluster_from_s3_message.RestoreDBClusterFromS3Message = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.restore_db_cluster_from_s3_message.RestoreDBClusterFromS3Message = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if character_set_name is not None:
-            input["character_set_name"] = character_set_name
+            input_["character_set_name"] = character_set_name
         if database_name is not None:
-            input["database_name"] = database_name
-        input["db_cluster_identifier"] = db_cluster_identifier
+            input_["database_name"] = database_name
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
-        input["engine"] = engine
+            input_["db_subnet_group_name"] = db_subnet_group_name
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if port is not None:
-            input["port"] = port
-        input["master_username"] = master_username
+            input_["port"] = port
+        input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
-        input["source_engine"] = source_engine
-        input["source_engine_version"] = source_engine_version
-        input["s3_bucket_name"] = s3_bucket_name
+        input_["source_engine"] = source_engine
+        input_["source_engine_version"] = source_engine_version
+        input_["s3_bucket_name"] = s3_bucket_name
         if s3_prefix is not None:
-            input["s3_prefix"] = s3_prefix
-        input["s3_ingestion_role_arn"] = s3_ingestion_role_arn
+            input_["s3_prefix"] = s3_prefix
+        input_["s3_ingestion_role_arn"] = s3_ingestion_role_arn
         if backtrack_window is not None:
-            input["backtrack_window"] = backtrack_window
+            input_["backtrack_window"] = backtrack_window
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11692,93 +11700,95 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["snapshot_identifier"] = snapshot_identifier
-        input["engine"] = engine
+            input_["availability_zones"] = availability_zones
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["snapshot_identifier"] = snapshot_identifier
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if backtrack_window is not None:
-            input["backtrack_window"] = backtrack_window
+            input_["backtrack_window"] = backtrack_window
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if engine_mode is not None:
-            input["engine_mode"] = engine_mode
+            input_["engine_mode"] = engine_mode
         if scaling_configuration is not None:
-            input["scaling_configuration"] = scaling_configuration
+            input_["scaling_configuration"] = scaling_configuration
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if db_cluster_instance_class is not None:
-            input["db_cluster_instance_class"] = db_cluster_instance_class
+            input_["db_cluster_instance_class"] = db_cluster_instance_class
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if rds_custom_cluster_configuration is not None:
-            input["rds_custom_cluster_configuration"] = rds_custom_cluster_configuration
+            input_["rds_custom_cluster_configuration"] = (
+                rds_custom_cluster_configuration
+            )
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if performance_insights_retention_period is not None:
-            input["performance_insights_retention_period"] = (
+            input_["performance_insights_retention_period"] = (
                 performance_insights_retention_period
             )
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if enable_vpc_networking is not None:
-            input["enable_vpc_networking"] = enable_vpc_networking
+            input_["enable_vpc_networking"] = enable_vpc_networking
         if enable_internet_access_gateway is not None:
-            input["enable_internet_access_gateway"] = enable_internet_access_gateway
+            input_["enable_internet_access_gateway"] = enable_internet_access_gateway
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11941,95 +11951,97 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if restore_type is not None:
-            input["restore_type"] = restore_type
+            input_["restore_type"] = restore_type
         if source_db_cluster_identifier is not None:
-            input["source_db_cluster_identifier"] = source_db_cluster_identifier
+            input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if restore_to_time is not None:
-            input["restore_to_time"] = restore_to_time
+            input_["restore_to_time"] = restore_to_time
         if use_latest_restorable_time is not None:
-            input["use_latest_restorable_time"] = use_latest_restorable_time
+            input_["use_latest_restorable_time"] = use_latest_restorable_time
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if backtrack_window is not None:
-            input["backtrack_window"] = backtrack_window
+            input_["backtrack_window"] = backtrack_window
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if db_cluster_instance_class is not None:
-            input["db_cluster_instance_class"] = db_cluster_instance_class
+            input_["db_cluster_instance_class"] = db_cluster_instance_class
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if source_db_cluster_resource_id is not None:
-            input["source_db_cluster_resource_id"] = source_db_cluster_resource_id
+            input_["source_db_cluster_resource_id"] = source_db_cluster_resource_id
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if scaling_configuration is not None:
-            input["scaling_configuration"] = scaling_configuration
+            input_["scaling_configuration"] = scaling_configuration
         if engine_mode is not None:
-            input["engine_mode"] = engine_mode
+            input_["engine_mode"] = engine_mode
         if rds_custom_cluster_configuration is not None:
-            input["rds_custom_cluster_configuration"] = rds_custom_cluster_configuration
+            input_["rds_custom_cluster_configuration"] = (
+                rds_custom_cluster_configuration
+            )
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if performance_insights_retention_period is not None:
-            input["performance_insights_retention_period"] = (
+            input_["performance_insights_retention_period"] = (
                 performance_insights_retention_period
             )
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if enable_vpc_networking is not None:
-            input["enable_vpc_networking"] = enable_vpc_networking
+            input_["enable_vpc_networking"] = enable_vpc_networking
         if enable_internet_access_gateway is not None:
-            input["enable_internet_access_gateway"] = enable_internet_access_gateway
+            input_["enable_internet_access_gateway"] = enable_internet_access_gateway
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12201,107 +12213,107 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.restore_db_instance_from_db_snapshot_message.RestoreDBInstanceFromDBSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.restore_db_instance_from_db_snapshot_message.RestoreDBInstanceFromDBSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if db_snapshot_identifier is not None:
-            input["db_snapshot_identifier"] = db_snapshot_identifier
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if storage_throughput is not None:
-            input["storage_throughput"] = storage_throughput
+            input_["storage_throughput"] = storage_throughput
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if tde_credential_arn is not None:
-            input["tde_credential_arn"] = tde_credential_arn
+            input_["tde_credential_arn"] = tde_credential_arn
         if tde_credential_password is not None:
-            input["tde_credential_password"] = tde_credential_password
+            input_["tde_credential_password"] = tde_credential_password
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_fqdn is not None:
-            input["domain_fqdn"] = domain_fqdn
+            input_["domain_fqdn"] = domain_fqdn
         if domain_ou is not None:
-            input["domain_ou"] = domain_ou
+            input_["domain_ou"] = domain_ou
         if domain_auth_secret_arn is not None:
-            input["domain_auth_secret_arn"] = domain_auth_secret_arn
+            input_["domain_auth_secret_arn"] = domain_auth_secret_arn
         if domain_dns_ips is not None:
-            input["domain_dns_ips"] = domain_dns_ips
+            input_["domain_dns_ips"] = domain_dns_ips
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if processor_features is not None:
-            input["processor_features"] = processor_features
+            input_["processor_features"] = processor_features
         if use_default_processor_features is not None:
-            input["use_default_processor_features"] = use_default_processor_features
+            input_["use_default_processor_features"] = use_default_processor_features
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if enable_customer_owned_ip is not None:
-            input["enable_customer_owned_ip"] = enable_customer_owned_ip
+            input_["enable_customer_owned_ip"] = enable_customer_owned_ip
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if backup_target is not None:
-            input["backup_target"] = backup_target
+            input_["backup_target"] = backup_target
         if custom_iam_instance_profile is not None:
-            input["custom_iam_instance_profile"] = custom_iam_instance_profile
+            input_["custom_iam_instance_profile"] = custom_iam_instance_profile
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if db_cluster_snapshot_identifier is not None:
-            input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if dedicated_log_volume is not None:
-            input["dedicated_log_volume"] = dedicated_log_volume
+            input_["dedicated_log_volume"] = dedicated_log_volume
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if additional_storage_volumes is not None:
-            input["additional_storage_volumes"] = additional_storage_volumes
+            input_["additional_storage_volumes"] = additional_storage_volumes
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12494,115 +12506,115 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.restore_db_instance_from_s3_message.RestoreDBInstanceFromS3Message = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.restore_db_instance_from_s3_message.RestoreDBInstanceFromS3Message = {}  # type: ignore[typeddict-item]
         if db_name is not None:
-            input["db_name"] = db_name
-        input["db_instance_identifier"] = db_instance_identifier
+            input_["db_name"] = db_name
+        input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
-        input["db_instance_class"] = db_instance_class
-        input["engine"] = engine
+            input_["allocated_storage"] = allocated_storage
+        input_["db_instance_class"] = db_instance_class
+        input_["engine"] = engine
         if master_username is not None:
-            input["master_username"] = master_username
+            input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if db_security_groups is not None:
-            input["db_security_groups"] = db_security_groups
+            input_["db_security_groups"] = db_security_groups
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if storage_throughput is not None:
-            input["storage_throughput"] = storage_throughput
+            input_["storage_throughput"] = storage_throughput
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
-        input["source_engine"] = source_engine
-        input["source_engine_version"] = source_engine_version
-        input["s3_bucket_name"] = s3_bucket_name
+        input_["source_engine"] = source_engine
+        input_["source_engine_version"] = source_engine_version
+        input_["s3_bucket_name"] = s3_bucket_name
         if s3_prefix is not None:
-            input["s3_prefix"] = s3_prefix
-        input["s3_ingestion_role_arn"] = s3_ingestion_role_arn
+            input_["s3_prefix"] = s3_prefix
+        input_["s3_ingestion_role_arn"] = s3_ingestion_role_arn
         if database_insights_mode is not None:
-            input["database_insights_mode"] = database_insights_mode
+            input_["database_insights_mode"] = database_insights_mode
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if performance_insights_retention_period is not None:
-            input["performance_insights_retention_period"] = (
+            input_["performance_insights_retention_period"] = (
                 performance_insights_retention_period
             )
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if processor_features is not None:
-            input["processor_features"] = processor_features
+            input_["processor_features"] = processor_features
         if use_default_processor_features is not None:
-            input["use_default_processor_features"] = use_default_processor_features
+            input_["use_default_processor_features"] = use_default_processor_features
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if max_allocated_storage is not None:
-            input["max_allocated_storage"] = max_allocated_storage
+            input_["max_allocated_storage"] = max_allocated_storage
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if dedicated_log_volume is not None:
-            input["dedicated_log_volume"] = dedicated_log_volume
+            input_["dedicated_log_volume"] = dedicated_log_volume
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if additional_storage_volumes is not None:
-            input["additional_storage_volumes"] = additional_storage_volumes
+            input_["additional_storage_volumes"] = additional_storage_volumes
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12788,117 +12800,117 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.restore_db_instance_to_point_in_time_message.RestoreDBInstanceToPointInTimeMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rds.types.restore_db_instance_to_point_in_time_message.RestoreDBInstanceToPointInTimeMessage = {}  # type: ignore[typeddict-item]
         if source_db_instance_identifier is not None:
-            input["source_db_instance_identifier"] = source_db_instance_identifier
-        input["target_db_instance_identifier"] = target_db_instance_identifier
+            input_["source_db_instance_identifier"] = source_db_instance_identifier
+        input_["target_db_instance_identifier"] = target_db_instance_identifier
         if restore_time is not None:
-            input["restore_time"] = restore_time
+            input_["restore_time"] = restore_time
         if use_latest_restorable_time is not None:
-            input["use_latest_restorable_time"] = use_latest_restorable_time
+            input_["use_latest_restorable_time"] = use_latest_restorable_time
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if storage_throughput is not None:
-            input["storage_throughput"] = storage_throughput
+            input_["storage_throughput"] = storage_throughput
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if tde_credential_arn is not None:
-            input["tde_credential_arn"] = tde_credential_arn
+            input_["tde_credential_arn"] = tde_credential_arn
         if tde_credential_password is not None:
-            input["tde_credential_password"] = tde_credential_password
+            input_["tde_credential_password"] = tde_credential_password
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if domain_fqdn is not None:
-            input["domain_fqdn"] = domain_fqdn
+            input_["domain_fqdn"] = domain_fqdn
         if domain_ou is not None:
-            input["domain_ou"] = domain_ou
+            input_["domain_ou"] = domain_ou
         if domain_auth_secret_arn is not None:
-            input["domain_auth_secret_arn"] = domain_auth_secret_arn
+            input_["domain_auth_secret_arn"] = domain_auth_secret_arn
         if domain_dns_ips is not None:
-            input["domain_dns_ips"] = domain_dns_ips
+            input_["domain_dns_ips"] = domain_dns_ips
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if processor_features is not None:
-            input["processor_features"] = processor_features
+            input_["processor_features"] = processor_features
         if use_default_processor_features is not None:
-            input["use_default_processor_features"] = use_default_processor_features
+            input_["use_default_processor_features"] = use_default_processor_features
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if source_dbi_resource_id is not None:
-            input["source_dbi_resource_id"] = source_dbi_resource_id
+            input_["source_dbi_resource_id"] = source_dbi_resource_id
         if max_allocated_storage is not None:
-            input["max_allocated_storage"] = max_allocated_storage
+            input_["max_allocated_storage"] = max_allocated_storage
         if enable_customer_owned_ip is not None:
-            input["enable_customer_owned_ip"] = enable_customer_owned_ip
+            input_["enable_customer_owned_ip"] = enable_customer_owned_ip
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if source_db_instance_automated_backups_arn is not None:
-            input["source_db_instance_automated_backups_arn"] = (
+            input_["source_db_instance_automated_backups_arn"] = (
                 source_db_instance_automated_backups_arn
             )
         if backup_target is not None:
-            input["backup_target"] = backup_target
+            input_["backup_target"] = backup_target
         if custom_iam_instance_profile is not None:
-            input["custom_iam_instance_profile"] = custom_iam_instance_profile
+            input_["custom_iam_instance_profile"] = custom_iam_instance_profile
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if dedicated_log_volume is not None:
-            input["dedicated_log_volume"] = dedicated_log_volume
+            input_["dedicated_log_volume"] = dedicated_log_volume
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if engine_lifecycle_support is not None:
-            input["engine_lifecycle_support"] = engine_lifecycle_support
+            input_["engine_lifecycle_support"] = engine_lifecycle_support
         if additional_storage_volumes is not None:
-            input["additional_storage_volumes"] = additional_storage_volumes
+            input_["additional_storage_volumes"] = additional_storage_volumes
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12945,19 +12957,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.revoke_db_security_group_ingress_message.RevokeDBSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input["db_security_group_name"] = db_security_group_name
+        input_: aws_sdk_rds.types.revoke_db_security_group_ingress_message.RevokeDBSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
+        input_["db_security_group_name"] = db_security_group_name
         if cidrip is not None:
-            input["cidrip"] = cidrip
+            input_["cidrip"] = cidrip
         if ec2_security_group_name is not None:
-            input["ec2_security_group_name"] = ec2_security_group_name
+            input_["ec2_security_group_name"] = ec2_security_group_name
         if ec2_security_group_id is not None:
-            input["ec2_security_group_id"] = ec2_security_group_id
+            input_["ec2_security_group_id"] = ec2_security_group_id
         if ec2_security_group_owner_id is not None:
-            input["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+            input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13008,19 +13020,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.start_activity_stream_request.StartActivityStreamRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["mode"] = mode
-        input["kms_key_id"] = kms_key_id
+        input_: aws_sdk_rds.types.start_activity_stream_request.StartActivityStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["mode"] = mode
+        input_["kms_key_id"] = kms_key_id
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if engine_native_audit_fields_included is not None:
-            input["engine_native_audit_fields_included"] = (
+            input_["engine_native_audit_fields_included"] = (
                 engine_native_audit_fields_included
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13059,11 +13071,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13102,11 +13114,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.start_db_instance_message.StartDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.start_db_instance_message.StartDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13157,19 +13169,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.start_db_instance_automated_backups_replication_message.StartDBInstanceAutomatedBackupsReplicationMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_instance_arn"] = source_db_instance_arn
+        input_: aws_sdk_rds.types.start_db_instance_automated_backups_replication_message.StartDBInstanceAutomatedBackupsReplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_instance_arn"] = source_db_instance_arn
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13218,19 +13230,19 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.start_export_task_message.StartExportTaskMessage = {}  # type: ignore[typeddict-item]
-        input["export_task_identifier"] = export_task_identifier
-        input["source_arn"] = source_arn
-        input["s3_bucket_name"] = s3_bucket_name
-        input["iam_role_arn"] = iam_role_arn
-        input["kms_key_id"] = kms_key_id
+        input_: aws_sdk_rds.types.start_export_task_message.StartExportTaskMessage = {}  # type: ignore[typeddict-item]
+        input_["export_task_identifier"] = export_task_identifier
+        input_["source_arn"] = source_arn
+        input_["s3_bucket_name"] = s3_bucket_name
+        input_["iam_role_arn"] = iam_role_arn
+        input_["kms_key_id"] = kms_key_id
         if s3_prefix is not None:
-            input["s3_prefix"] = s3_prefix
+            input_["s3_prefix"] = s3_prefix
         if export_only is not None:
-            input["export_only"] = export_only
+            input_["export_only"] = export_only
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13273,13 +13285,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.stop_activity_stream_request.StopActivityStreamRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_rds.types.stop_activity_stream_request.StopActivityStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13318,11 +13330,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_rds.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13363,13 +13375,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.stop_db_instance_message.StopDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.stop_db_instance_message.StopDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if db_snapshot_identifier is not None:
-            input["db_snapshot_identifier"] = db_snapshot_identifier
+            input_["db_snapshot_identifier"] = db_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13408,11 +13420,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.stop_db_instance_automated_backups_replication_message.StopDBInstanceAutomatedBackupsReplicationMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_instance_arn"] = source_db_instance_arn
+        input_: aws_sdk_rds.types.stop_db_instance_automated_backups_replication_message.StopDBInstanceAutomatedBackupsReplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_instance_arn"] = source_db_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13459,13 +13471,13 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.switchover_blue_green_deployment_request.SwitchoverBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["blue_green_deployment_identifier"] = blue_green_deployment_identifier
+        input_: aws_sdk_rds.types.switchover_blue_green_deployment_request.SwitchoverBlueGreenDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["blue_green_deployment_identifier"] = blue_green_deployment_identifier
         if switchover_timeout is not None:
-            input["switchover_timeout"] = switchover_timeout
+            input_["switchover_timeout"] = switchover_timeout
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13500,12 +13512,12 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["target_db_cluster_identifier"] = target_db_cluster_identifier
+        input_: aws_sdk_rds.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13538,11 +13550,11 @@ class RDSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds.types.switchover_read_replica_message.SwitchoverReadReplicaMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_rds.types.switchover_read_replica_message.SwitchoverReadReplicaMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

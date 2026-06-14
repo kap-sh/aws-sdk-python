@@ -94,53 +94,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest,
+    input_: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/maps/v0/maps/{MapName}/glyphs/{FontStack}/{FontUnicodeRange}"
     )
-    url = url.replace("{MapName}", quote(str(input["map_name"]), safe=""))
-    url = url.replace("{FontStack}", quote(str(input["font_stack"]), safe=""))
+    url = url.replace("{MapName}", quote(str(input_["map_name"]), safe=""))
+    url = url.replace("{FontStack}", quote(str(input_["font_stack"]), safe=""))
     url = url.replace(
-        "{FontUnicodeRange}", quote(str(input["font_unicode_range"]), safe="")
+        "{FontUnicodeRange}", quote(str(input_["font_unicode_range"]), safe="")
     )
     params: dict[str, str] = {}
-    if "key" in input:
-        params["key"] = str(input["key"])
+    if "key" in input_:
+        params["key"] = str(input_["key"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_map_glyphs(
     options: OperationOptions,
-    input: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest,
+    input_: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest,
 ) -> tuple[
     aws_sdk_location.types.get_map_glyphs_response.GetMapGlyphsResponse, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -149,15 +146,16 @@ def get_map_glyphs(
 
 async def async_get_map_glyphs(
     options: AsyncOperationOptions,
-    input: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest,
+    input_: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest,
 ) -> tuple[
     aws_sdk_location.types.get_map_glyphs_response.GetMapGlyphsResponse, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

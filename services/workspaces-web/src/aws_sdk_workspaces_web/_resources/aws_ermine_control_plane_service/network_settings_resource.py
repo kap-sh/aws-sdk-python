@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_workspaces_web._services.async_work_spaces_web import ensure_async_iterator
 from aws_sdk_workspaces_web._services.work_spaces_web import ensure_sync_iterator
+import datetime
 from aws_sdk_workspaces_web._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_workspaces_web._auth._signers
 import aws_sdk_workspaces_web._auth._sigv4
@@ -45,16 +46,16 @@ class NetworkSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_network_settings_request.CreateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
+        input_: aws_sdk_workspaces_web.types.create_network_settings_request.CreateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def read(self, network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_network_settings_response.GetNetworkSettingsResponse":
         """<p>Gets the network settings.</p>
@@ -68,10 +69,10 @@ class NetworkSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_network_settings_request.GetNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["network_settings_arn"] = network_settings_arn
+        input_: aws_sdk_workspaces_web.types.get_network_settings_request.GetNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["network_settings_arn"] = network_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update(self, network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, vpc_id: Optional["aws_sdk_workspaces_web.types.vpc_id.VpcId"] = None, subnet_ids: Optional["aws_sdk_workspaces_web.types.subnet_id_list.SubnetIdList"] = None, security_group_ids: Optional["aws_sdk_workspaces_web.types.security_group_id_list.SecurityGroupIdList"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_network_settings_response.UpdateNetworkSettingsResponse":
         """<p>Updates network settings.</p>
@@ -89,18 +90,18 @@ class NetworkSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_network_settings_request.UpdateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["network_settings_arn"] = network_settings_arn
+        input_: aws_sdk_workspaces_web.types.update_network_settings_request.UpdateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["network_settings_arn"] = network_settings_arn
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete(self, network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_network_settings_response.DeleteNetworkSettingsResponse":
         """<p>Deletes network settings.</p>
@@ -114,10 +115,10 @@ class NetworkSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_network_settings_request.DeleteNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["network_settings_arn"] = network_settings_arn
+        input_: aws_sdk_workspaces_web.types.delete_network_settings_request.DeleteNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["network_settings_arn"] = network_settings_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list(self, *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_network_settings_response.ListNetworkSettingsResponse":
         """<p>Retrieves a list of network settings.</p>
@@ -132,13 +133,13 @@ class NetworkSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_network_settings_request.ListNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_network_settings_request.ListNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncNetworkSettingsResource:
@@ -160,16 +161,16 @@ class AsyncNetworkSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.create_network_settings_request.CreateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
+        input_: aws_sdk_workspaces_web.types.create_network_settings_request.CreateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def read(self, network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_network_settings_response.GetNetworkSettingsResponse":
         """<p>Gets the network settings.</p>
@@ -183,10 +184,10 @@ class AsyncNetworkSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_network_settings_request.GetNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["network_settings_arn"] = network_settings_arn
+        input_: aws_sdk_workspaces_web.types.get_network_settings_request.GetNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["network_settings_arn"] = network_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def update(self, network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, vpc_id: Optional["aws_sdk_workspaces_web.types.vpc_id.VpcId"] = None, subnet_ids: Optional["aws_sdk_workspaces_web.types.subnet_id_list.SubnetIdList"] = None, security_group_ids: Optional["aws_sdk_workspaces_web.types.security_group_id_list.SecurityGroupIdList"] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.update_network_settings_response.UpdateNetworkSettingsResponse":
         """<p>Updates network settings.</p>
@@ -204,18 +205,18 @@ class AsyncNetworkSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.update_network_settings_request.UpdateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["network_settings_arn"] = network_settings_arn
+        input_: aws_sdk_workspaces_web.types.update_network_settings_request.UpdateNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["network_settings_arn"] = network_settings_arn
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def delete(self, network_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN", *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.delete_network_settings_response.DeleteNetworkSettingsResponse":
         """<p>Deletes network settings.</p>
@@ -229,10 +230,10 @@ class AsyncNetworkSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.delete_network_settings_request.DeleteNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["network_settings_arn"] = network_settings_arn
+        input_: aws_sdk_workspaces_web.types.delete_network_settings_request.DeleteNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["network_settings_arn"] = network_settings_arn
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list(self, *, config_overrides: Optional[AsyncWorkSpacesWebClientConfig] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None) -> "aws_sdk_workspaces_web.types.list_network_settings_response.ListNetworkSettingsResponse":
         """<p>Retrieves a list of network settings.</p>
@@ -247,11 +248,11 @@ class AsyncNetworkSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_network_settings_request.ListNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_web.types.list_network_settings_request.ListNetworkSettingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

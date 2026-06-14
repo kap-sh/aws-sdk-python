@@ -47,10 +47,10 @@ class AccountSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -95,20 +95,22 @@ class AccountSettingsResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_account_settings_input.UpdateAccountSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.update_account_settings_input.UpdateAccountSettingsInput = {}  # type: ignore[typeddict-item]
         if pipeline_service_role_arn is not None:
-            input["pipeline_service_role_arn"] = pipeline_service_role_arn
+            input_["pipeline_service_role_arn"] = pipeline_service_role_arn
         if pipeline_provisioning_repository is not None:
-            input["pipeline_provisioning_repository"] = pipeline_provisioning_repository
+            input_["pipeline_provisioning_repository"] = (
+                pipeline_provisioning_repository
+            )
         if delete_pipeline_provisioning_repository is not None:
-            input["delete_pipeline_provisioning_repository"] = (
+            input_["delete_pipeline_provisioning_repository"] = (
                 delete_pipeline_provisioning_repository
             )
         if pipeline_codebuild_role_arn is not None:
-            input["pipeline_codebuild_role_arn"] = pipeline_codebuild_role_arn
+            input_["pipeline_codebuild_role_arn"] = pipeline_codebuild_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -140,10 +142,10 @@ class AsyncAccountSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.get_account_settings_input.GetAccountSettingsInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,20 +191,22 @@ class AsyncAccountSettingsResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_account_settings_input.UpdateAccountSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.update_account_settings_input.UpdateAccountSettingsInput = {}  # type: ignore[typeddict-item]
         if pipeline_service_role_arn is not None:
-            input["pipeline_service_role_arn"] = pipeline_service_role_arn
+            input_["pipeline_service_role_arn"] = pipeline_service_role_arn
         if pipeline_provisioning_repository is not None:
-            input["pipeline_provisioning_repository"] = pipeline_provisioning_repository
+            input_["pipeline_provisioning_repository"] = (
+                pipeline_provisioning_repository
+            )
         if delete_pipeline_provisioning_repository is not None:
-            input["delete_pipeline_provisioning_repository"] = (
+            input_["delete_pipeline_provisioning_repository"] = (
                 delete_pipeline_provisioning_repository
             )
         if pipeline_codebuild_role_arn is not None:
-            input["pipeline_codebuild_role_arn"] = pipeline_codebuild_role_arn
+            input_["pipeline_codebuild_role_arn"] = pipeline_codebuild_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

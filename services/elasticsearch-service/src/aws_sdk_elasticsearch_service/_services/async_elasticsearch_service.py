@@ -301,11 +301,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.accept_inbound_cross_cluster_search_connection_request.AcceptInboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["cross_cluster_search_connection_id"] = cross_cluster_search_connection_id
+        input_: aws_sdk_elasticsearch_service.types.accept_inbound_cross_cluster_search_connection_request.AcceptInboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cross_cluster_search_connection_id"] = (
+            cross_cluster_search_connection_id
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,12 +341,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.add_tags_request.AddTagsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_list"] = tag_list
+        input_: aws_sdk_elasticsearch_service.types.add_tags_request.AddTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_list"] = tag_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,12 +382,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.associate_package_request.AssociatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.associate_package_request.AssociatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,12 +423,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.authorize_vpc_endpoint_access_request.AuthorizeVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["account"] = account
+        input_: aws_sdk_elasticsearch_service.types.authorize_vpc_endpoint_access_request.AuthorizeVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["account"] = account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,13 +464,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.cancel_domain_config_change_request.CancelDomainConfigChangeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.cancel_domain_config_change_request.CancelDomainConfigChangeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,11 +504,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.cancel_elasticsearch_service_software_update_request.CancelElasticsearchServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.cancel_elasticsearch_service_software_update_request.CancelElasticsearchServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -608,45 +610,47 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.create_elasticsearch_domain_request.CreateElasticsearchDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.create_elasticsearch_domain_request.CreateElasticsearchDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if elasticsearch_version is not None:
-            input["elasticsearch_version"] = elasticsearch_version
+            input_["elasticsearch_version"] = elasticsearch_version
         if elasticsearch_cluster_config is not None:
-            input["elasticsearch_cluster_config"] = elasticsearch_cluster_config
+            input_["elasticsearch_cluster_config"] = elasticsearch_cluster_config
         if ebs_options is not None:
-            input["ebs_options"] = ebs_options
+            input_["ebs_options"] = ebs_options
         if access_policies is not None:
-            input["access_policies"] = access_policies
+            input_["access_policies"] = access_policies
         if snapshot_options is not None:
-            input["snapshot_options"] = snapshot_options
+            input_["snapshot_options"] = snapshot_options
         if vpc_options is not None:
-            input["vpc_options"] = vpc_options
+            input_["vpc_options"] = vpc_options
         if cognito_options is not None:
-            input["cognito_options"] = cognito_options
+            input_["cognito_options"] = cognito_options
         if encryption_at_rest_options is not None:
-            input["encryption_at_rest_options"] = encryption_at_rest_options
+            input_["encryption_at_rest_options"] = encryption_at_rest_options
         if node_to_node_encryption_options is not None:
-            input["node_to_node_encryption_options"] = node_to_node_encryption_options
+            input_["node_to_node_encryption_options"] = node_to_node_encryption_options
         if advanced_options is not None:
-            input["advanced_options"] = advanced_options
+            input_["advanced_options"] = advanced_options
         if log_publishing_options is not None:
-            input["log_publishing_options"] = log_publishing_options
+            input_["log_publishing_options"] = log_publishing_options
         if domain_endpoint_options is not None:
-            input["domain_endpoint_options"] = domain_endpoint_options
+            input_["domain_endpoint_options"] = domain_endpoint_options
         if advanced_security_options is not None:
-            input["advanced_security_options"] = advanced_security_options
+            input_["advanced_security_options"] = advanced_security_options
         if auto_tune_options is not None:
-            input["auto_tune_options"] = auto_tune_options
+            input_["auto_tune_options"] = auto_tune_options
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
         if deployment_strategy_options is not None:
-            input["deployment_strategy_options"] = deployment_strategy_options
+            input_["deployment_strategy_options"] = deployment_strategy_options
         if automated_snapshot_pause_options is not None:
-            input["automated_snapshot_pause_options"] = automated_snapshot_pause_options
+            input_["automated_snapshot_pause_options"] = (
+                automated_snapshot_pause_options
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -684,13 +688,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.create_outbound_cross_cluster_search_connection_request.CreateOutboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["source_domain_info"] = source_domain_info
-        input["destination_domain_info"] = destination_domain_info
-        input["connection_alias"] = connection_alias
+        input_: aws_sdk_elasticsearch_service.types.create_outbound_cross_cluster_search_connection_request.CreateOutboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["source_domain_info"] = source_domain_info
+        input_["destination_domain_info"] = destination_domain_info
+        input_["connection_alias"] = connection_alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -732,15 +736,15 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.create_package_request.CreatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["package_type"] = package_type
+        input_: aws_sdk_elasticsearch_service.types.create_package_request.CreatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["package_type"] = package_type
         if package_description is not None:
-            input["package_description"] = package_description
-        input["package_source"] = package_source
+            input_["package_description"] = package_description
+        input_["package_source"] = package_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -780,14 +784,14 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["domain_arn"] = domain_arn
-        input["vpc_options"] = vpc_options
+        input_: aws_sdk_elasticsearch_service.types.create_vpc_endpoint_request.CreateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_arn"] = domain_arn
+        input_["vpc_options"] = vpc_options
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -821,11 +825,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.delete_elasticsearch_domain_request.DeleteElasticsearchDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.delete_elasticsearch_domain_request.DeleteElasticsearchDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -888,11 +892,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.delete_inbound_cross_cluster_search_connection_request.DeleteInboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["cross_cluster_search_connection_id"] = cross_cluster_search_connection_id
+        input_: aws_sdk_elasticsearch_service.types.delete_inbound_cross_cluster_search_connection_request.DeleteInboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cross_cluster_search_connection_id"] = (
+            cross_cluster_search_connection_id
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -926,11 +932,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.delete_outbound_cross_cluster_search_connection_request.DeleteOutboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["cross_cluster_search_connection_id"] = cross_cluster_search_connection_id
+        input_: aws_sdk_elasticsearch_service.types.delete_outbound_cross_cluster_search_connection_request.DeleteOutboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cross_cluster_search_connection_id"] = (
+            cross_cluster_search_connection_id
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -964,11 +972,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
+        input_: aws_sdk_elasticsearch_service.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1002,11 +1010,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.delete_vpc_endpoint_request.DeleteVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_endpoint_id"] = vpc_endpoint_id
+        input_: aws_sdk_elasticsearch_service.types.delete_vpc_endpoint_request.DeleteVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_endpoint_id"] = vpc_endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1048,15 +1056,15 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_domain_auto_tunes_request.DescribeDomainAutoTunesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.describe_domain_auto_tunes_request.DescribeDomainAutoTunesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1092,13 +1100,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_domain_change_progress_request.DescribeDomainChangeProgressRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.describe_domain_change_progress_request.DescribeDomainChangeProgressRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if change_id is not None:
-            input["change_id"] = change_id
+            input_["change_id"] = change_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1132,11 +1140,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_elasticsearch_domain_request.DescribeElasticsearchDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.describe_elasticsearch_domain_request.DescribeElasticsearchDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1170,11 +1178,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_elasticsearch_domain_config_request.DescribeElasticsearchDomainConfigRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.describe_elasticsearch_domain_config_request.DescribeElasticsearchDomainConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1208,11 +1216,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_elasticsearch_domains_request.DescribeElasticsearchDomainsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_names"] = domain_names
+        input_: aws_sdk_elasticsearch_service.types.describe_elasticsearch_domains_request.DescribeElasticsearchDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_names"] = domain_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1252,14 +1260,14 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_elasticsearch_instance_type_limits_request.DescribeElasticsearchInstanceTypeLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.describe_elasticsearch_instance_type_limits_request.DescribeElasticsearchInstanceTypeLimitsRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
-        input["instance_type"] = instance_type
-        input["elasticsearch_version"] = elasticsearch_version
+            input_["domain_name"] = domain_name
+        input_["instance_type"] = instance_type
+        input_["elasticsearch_version"] = elasticsearch_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1303,16 +1311,16 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_inbound_cross_cluster_search_connections_request.DescribeInboundCrossClusterSearchConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.describe_inbound_cross_cluster_search_connections_request.DescribeInboundCrossClusterSearchConnectionsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1356,16 +1364,16 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_outbound_cross_cluster_search_connections_request.DescribeOutboundCrossClusterSearchConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.describe_outbound_cross_cluster_search_connections_request.DescribeOutboundCrossClusterSearchConnectionsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1409,16 +1417,16 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_packages_request.DescribePackagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.describe_packages_request.DescribePackagesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1462,18 +1470,18 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_reserved_elasticsearch_instance_offerings_request.DescribeReservedElasticsearchInstanceOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.describe_reserved_elasticsearch_instance_offerings_request.DescribeReservedElasticsearchInstanceOfferingsRequest = {}  # type: ignore[typeddict-item]
         if reserved_elasticsearch_instance_offering_id is not None:
-            input["reserved_elasticsearch_instance_offering_id"] = (
+            input_["reserved_elasticsearch_instance_offering_id"] = (
                 reserved_elasticsearch_instance_offering_id
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1517,18 +1525,18 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_reserved_elasticsearch_instances_request.DescribeReservedElasticsearchInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.describe_reserved_elasticsearch_instances_request.DescribeReservedElasticsearchInstancesRequest = {}  # type: ignore[typeddict-item]
         if reserved_elasticsearch_instance_id is not None:
-            input["reserved_elasticsearch_instance_id"] = (
+            input_["reserved_elasticsearch_instance_id"] = (
                 reserved_elasticsearch_instance_id
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1562,11 +1570,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.describe_vpc_endpoints_request.DescribeVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_endpoint_ids"] = vpc_endpoint_ids
+        input_: aws_sdk_elasticsearch_service.types.describe_vpc_endpoints_request.DescribeVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_endpoint_ids"] = vpc_endpoint_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1602,12 +1610,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.dissociate_package_request.DissociatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.dissociate_package_request.DissociatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1639,12 +1647,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.get_compatible_elasticsearch_versions_request.GetCompatibleElasticsearchVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.get_compatible_elasticsearch_versions_request.GetCompatibleElasticsearchVersionsRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1686,15 +1694,15 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.get_package_version_history_request.GetPackageVersionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
+        input_: aws_sdk_elasticsearch_service.types.get_package_version_history_request.GetPackageVersionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1730,15 +1738,15 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.get_upgrade_history_request.GetUpgradeHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.get_upgrade_history_request.GetUpgradeHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1768,11 +1776,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.get_upgrade_status_request.GetUpgradeStatusRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.get_upgrade_status_request.GetUpgradeStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1808,12 +1816,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_domain_names_request.ListDomainNamesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.list_domain_names_request.ListDomainNamesRequest = {}  # type: ignore[typeddict-item]
         if engine_type is not None:
-            input["engine_type"] = engine_type
+            input_["engine_type"] = engine_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1855,15 +1863,15 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_domains_for_package_request.ListDomainsForPackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
+        input_: aws_sdk_elasticsearch_service.types.list_domains_for_package_request.ListDomainsForPackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1909,17 +1917,17 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_elasticsearch_instance_types_request.ListElasticsearchInstanceTypesRequest = {}  # type: ignore[typeddict-item]
-        input["elasticsearch_version"] = elasticsearch_version
+        input_: aws_sdk_elasticsearch_service.types.list_elasticsearch_instance_types_request.ListElasticsearchInstanceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["elasticsearch_version"] = elasticsearch_version
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1958,14 +1966,14 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_elasticsearch_versions_request.ListElasticsearchVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.list_elasticsearch_versions_request.ListElasticsearchVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2007,15 +2015,15 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_packages_for_domain_request.ListPackagesForDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.list_packages_for_domain_request.ListPackagesForDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2049,11 +2057,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_elasticsearch_service.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2091,13 +2099,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_vpc_endpoint_access_request.ListVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.list_vpc_endpoint_access_request.ListVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2133,12 +2141,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_vpc_endpoints_request.ListVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticsearch_service.types.list_vpc_endpoints_request.ListVpcEndpointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2176,13 +2184,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.list_vpc_endpoints_for_domain_request.ListVpcEndpointsForDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.list_vpc_endpoints_for_domain_request.ListVpcEndpointsForDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2222,16 +2230,16 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.purchase_reserved_elasticsearch_instance_offering_request.PurchaseReservedElasticsearchInstanceOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["reserved_elasticsearch_instance_offering_id"] = (
+        input_: aws_sdk_elasticsearch_service.types.purchase_reserved_elasticsearch_instance_offering_request.PurchaseReservedElasticsearchInstanceOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["reserved_elasticsearch_instance_offering_id"] = (
             reserved_elasticsearch_instance_offering_id
         )
-        input["reservation_name"] = reservation_name
+        input_["reservation_name"] = reservation_name
         if instance_count is not None:
-            input["instance_count"] = instance_count
+            input_["instance_count"] = instance_count
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2265,11 +2273,13 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.reject_inbound_cross_cluster_search_connection_request.RejectInboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["cross_cluster_search_connection_id"] = cross_cluster_search_connection_id
+        input_: aws_sdk_elasticsearch_service.types.reject_inbound_cross_cluster_search_connection_request.RejectInboundCrossClusterSearchConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cross_cluster_search_connection_id"] = (
+            cross_cluster_search_connection_id
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2303,12 +2313,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.remove_tags_request.RemoveTagsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_elasticsearch_service.types.remove_tags_request.RemoveTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2344,12 +2354,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.revoke_vpc_endpoint_access_request.RevokeVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["account"] = account
+        input_: aws_sdk_elasticsearch_service.types.revoke_vpc_endpoint_access_request.RevokeVpcEndpointAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["account"] = account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2383,11 +2393,11 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.start_elasticsearch_service_software_update_request.StartElasticsearchServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.start_elasticsearch_service_software_update_request.StartElasticsearchServiceSoftwareUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2483,43 +2493,45 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.update_elasticsearch_domain_config_request.UpdateElasticsearchDomainConfigRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_elasticsearch_service.types.update_elasticsearch_domain_config_request.UpdateElasticsearchDomainConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if elasticsearch_cluster_config is not None:
-            input["elasticsearch_cluster_config"] = elasticsearch_cluster_config
+            input_["elasticsearch_cluster_config"] = elasticsearch_cluster_config
         if ebs_options is not None:
-            input["ebs_options"] = ebs_options
+            input_["ebs_options"] = ebs_options
         if snapshot_options is not None:
-            input["snapshot_options"] = snapshot_options
+            input_["snapshot_options"] = snapshot_options
         if vpc_options is not None:
-            input["vpc_options"] = vpc_options
+            input_["vpc_options"] = vpc_options
         if cognito_options is not None:
-            input["cognito_options"] = cognito_options
+            input_["cognito_options"] = cognito_options
         if advanced_options is not None:
-            input["advanced_options"] = advanced_options
+            input_["advanced_options"] = advanced_options
         if access_policies is not None:
-            input["access_policies"] = access_policies
+            input_["access_policies"] = access_policies
         if log_publishing_options is not None:
-            input["log_publishing_options"] = log_publishing_options
+            input_["log_publishing_options"] = log_publishing_options
         if domain_endpoint_options is not None:
-            input["domain_endpoint_options"] = domain_endpoint_options
+            input_["domain_endpoint_options"] = domain_endpoint_options
         if advanced_security_options is not None:
-            input["advanced_security_options"] = advanced_security_options
+            input_["advanced_security_options"] = advanced_security_options
         if node_to_node_encryption_options is not None:
-            input["node_to_node_encryption_options"] = node_to_node_encryption_options
+            input_["node_to_node_encryption_options"] = node_to_node_encryption_options
         if encryption_at_rest_options is not None:
-            input["encryption_at_rest_options"] = encryption_at_rest_options
+            input_["encryption_at_rest_options"] = encryption_at_rest_options
         if auto_tune_options is not None:
-            input["auto_tune_options"] = auto_tune_options
+            input_["auto_tune_options"] = auto_tune_options
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if deployment_strategy_options is not None:
-            input["deployment_strategy_options"] = deployment_strategy_options
+            input_["deployment_strategy_options"] = deployment_strategy_options
         if automated_snapshot_pause_options is not None:
-            input["automated_snapshot_pause_options"] = automated_snapshot_pause_options
+            input_["automated_snapshot_pause_options"] = (
+                automated_snapshot_pause_options
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2562,16 +2574,16 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.update_package_request.UpdatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
-        input["package_source"] = package_source
+        input_: aws_sdk_elasticsearch_service.types.update_package_request.UpdatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
+        input_["package_source"] = package_source
         if package_description is not None:
-            input["package_description"] = package_description
+            input_["package_description"] = package_description
         if commit_message is not None:
-            input["commit_message"] = commit_message
+            input_["commit_message"] = commit_message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2607,12 +2619,12 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.update_vpc_endpoint_request.UpdateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_endpoint_id"] = vpc_endpoint_id
-        input["vpc_options"] = vpc_options
+        input_: aws_sdk_elasticsearch_service.types.update_vpc_endpoint_request.UpdateVpcEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_endpoint_id"] = vpc_endpoint_id
+        input_["vpc_options"] = vpc_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2651,14 +2663,14 @@ class AsyncElasticsearchServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticsearch_service.types.upgrade_elasticsearch_domain_request.UpgradeElasticsearchDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["target_version"] = target_version
+        input_: aws_sdk_elasticsearch_service.types.upgrade_elasticsearch_domain_request.UpgradeElasticsearchDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["target_version"] = target_version
         if perform_check_only is not None:
-            input["perform_check_only"] = perform_check_only
+            input_["perform_check_only"] = perform_check_only
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

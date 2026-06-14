@@ -181,39 +181,39 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if entitlements is not None:
-            input["entitlements"] = entitlements
+            input_["entitlements"] = entitlements
         if media_streams is not None:
-            input["media_streams"] = media_streams
-        input["name"] = name
+            input_["media_streams"] = media_streams
+        input_["name"] = name
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if source_failover_config is not None:
-            input["source_failover_config"] = source_failover_config
+            input_["source_failover_config"] = source_failover_config
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if vpc_interfaces is not None:
-            input["vpc_interfaces"] = vpc_interfaces
+            input_["vpc_interfaces"] = vpc_interfaces
         if maintenance is not None:
-            input["maintenance"] = maintenance
+            input_["maintenance"] = maintenance
         if source_monitoring_config is not None:
-            input["source_monitoring_config"] = source_monitoring_config
+            input_["source_monitoring_config"] = source_monitoring_config
         if flow_size is not None:
-            input["flow_size"] = flow_size
+            input_["flow_size"] = flow_size
         if ndi_config is not None:
-            input["ndi_config"] = ndi_config
+            input_["ndi_config"] = ndi_config
         if encoding_config is not None:
-            input["encoding_config"] = encoding_config
+            input_["encoding_config"] = encoding_config
         if flow_tags is not None:
-            input["flow_tags"] = flow_tags
+            input_["flow_tags"] = flow_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,11 +246,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_flow_request.DescribeFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.describe_flow_request.DescribeFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,23 +302,23 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
         if source_failover_config is not None:
-            input["source_failover_config"] = source_failover_config
+            input_["source_failover_config"] = source_failover_config
         if maintenance is not None:
-            input["maintenance"] = maintenance
+            input_["maintenance"] = maintenance
         if source_monitoring_config is not None:
-            input["source_monitoring_config"] = source_monitoring_config
+            input_["source_monitoring_config"] = source_monitoring_config
         if ndi_config is not None:
-            input["ndi_config"] = ndi_config
+            input_["ndi_config"] = ndi_config
         if flow_size is not None:
-            input["flow_size"] = flow_size
+            input_["flow_size"] = flow_size
         if encoding_config is not None:
-            input["encoding_config"] = encoding_config
+            input_["encoding_config"] = encoding_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -351,11 +351,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,14 +392,14 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,12 +434,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_flow_media_streams_request.AddFlowMediaStreamsRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["media_streams"] = media_streams
+        input_: aws_sdk_mediaconnect.types.add_flow_media_streams_request.AddFlowMediaStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["media_streams"] = media_streams
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,12 +474,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_flow_outputs_request.AddFlowOutputsRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["outputs"] = outputs
+        input_: aws_sdk_mediaconnect.types.add_flow_outputs_request.AddFlowOutputsRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["outputs"] = outputs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,12 +514,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_flow_sources_request.AddFlowSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["sources"] = sources
+        input_: aws_sdk_mediaconnect.types.add_flow_sources_request.AddFlowSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,12 +554,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_flow_vpc_interfaces_request.AddFlowVpcInterfacesRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["vpc_interfaces"] = vpc_interfaces
+        input_: aws_sdk_mediaconnect.types.add_flow_vpc_interfaces_request.AddFlowVpcInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["vpc_interfaces"] = vpc_interfaces
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,11 +592,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_flow_source_metadata_request.DescribeFlowSourceMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.describe_flow_source_metadata_request.DescribeFlowSourceMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -629,11 +629,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_flow_source_thumbnail_request.DescribeFlowSourceThumbnailRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.describe_flow_source_thumbnail_request.DescribeFlowSourceThumbnailRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,12 +668,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.grant_flow_entitlements_request.GrantFlowEntitlementsRequest = {}  # type: ignore[typeddict-item]
-        input["entitlements"] = entitlements
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.grant_flow_entitlements_request.GrantFlowEntitlementsRequest = {}  # type: ignore[typeddict-item]
+        input_["entitlements"] = entitlements
+        input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -708,12 +708,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_flow_media_stream_request.RemoveFlowMediaStreamRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["media_stream_name"] = media_stream_name
+        input_: aws_sdk_mediaconnect.types.remove_flow_media_stream_request.RemoveFlowMediaStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["media_stream_name"] = media_stream_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -748,12 +748,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_flow_output_request.RemoveFlowOutputRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["output_arn"] = output_arn
+        input_: aws_sdk_mediaconnect.types.remove_flow_output_request.RemoveFlowOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["output_arn"] = output_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,12 +788,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_flow_source_request.RemoveFlowSourceRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["source_arn"] = source_arn
+        input_: aws_sdk_mediaconnect.types.remove_flow_source_request.RemoveFlowSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["source_arn"] = source_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -828,12 +828,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_flow_vpc_interface_request.RemoveFlowVpcInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["vpc_interface_name"] = vpc_interface_name
+        input_: aws_sdk_mediaconnect.types.remove_flow_vpc_interface_request.RemoveFlowVpcInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["vpc_interface_name"] = vpc_interface_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -868,12 +868,12 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.revoke_flow_entitlement_request.RevokeFlowEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input["entitlement_arn"] = entitlement_arn
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.revoke_flow_entitlement_request.RevokeFlowEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_["entitlement_arn"] = entitlement_arn
+        input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -906,11 +906,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.start_flow_request.StartFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.start_flow_request.StartFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -943,11 +943,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.stop_flow_request.StopFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.stop_flow_request.StopFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,20 +996,20 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_entitlement_request.UpdateFlowEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_flow_entitlement_request.UpdateFlowEntitlementRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption is not None:
-            input["encryption"] = encryption
-        input["entitlement_arn"] = entitlement_arn
+            input_["encryption"] = encryption
+        input_["entitlement_arn"] = entitlement_arn
         if entitlement_status is not None:
-            input["entitlement_status"] = entitlement_status
-        input["flow_arn"] = flow_arn
+            input_["entitlement_status"] = entitlement_status
+        input_["flow_arn"] = flow_arn
         if subscribers is not None:
-            input["subscribers"] = subscribers
+            input_["subscribers"] = subscribers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1058,22 +1058,22 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest = {}  # type: ignore[typeddict-item]
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if clock_rate is not None:
-            input["clock_rate"] = clock_rate
+            input_["clock_rate"] = clock_rate
         if description is not None:
-            input["description"] = description
-        input["flow_arn"] = flow_arn
-        input["media_stream_name"] = media_stream_name
+            input_["description"] = description
+        input_["flow_arn"] = flow_arn
+        input_["media_stream_name"] = media_stream_name
         if media_stream_type is not None:
-            input["media_stream_type"] = media_stream_type
+            input_["media_stream_type"] = media_stream_type
         if video_format is not None:
-            input["video_format"] = video_format
+            input_["video_format"] = video_format
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1165,58 +1165,58 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_output_request.UpdateFlowOutputRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_flow_output_request.UpdateFlowOutputRequest = {}  # type: ignore[typeddict-item]
         if cidr_allow_list is not None:
-            input["cidr_allow_list"] = cidr_allow_list
+            input_["cidr_allow_list"] = cidr_allow_list
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if encryption is not None:
-            input["encryption"] = encryption
-        input["flow_arn"] = flow_arn
+            input_["encryption"] = encryption
+        input_["flow_arn"] = flow_arn
         if max_latency is not None:
-            input["max_latency"] = max_latency
+            input_["max_latency"] = max_latency
         if media_stream_output_configurations is not None:
-            input["media_stream_output_configurations"] = (
+            input_["media_stream_output_configurations"] = (
                 media_stream_output_configurations
             )
         if min_latency is not None:
-            input["min_latency"] = min_latency
-        input["output_arn"] = output_arn
+            input_["min_latency"] = min_latency
+        input_["output_arn"] = output_arn
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if remote_id is not None:
-            input["remote_id"] = remote_id
+            input_["remote_id"] = remote_id
         if sender_control_port is not None:
-            input["sender_control_port"] = sender_control_port
+            input_["sender_control_port"] = sender_control_port
         if sender_ip_address is not None:
-            input["sender_ip_address"] = sender_ip_address
+            input_["sender_ip_address"] = sender_ip_address
         if smoothing_latency is not None:
-            input["smoothing_latency"] = smoothing_latency
+            input_["smoothing_latency"] = smoothing_latency
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
         if vpc_interface_attachment is not None:
-            input["vpc_interface_attachment"] = vpc_interface_attachment
+            input_["vpc_interface_attachment"] = vpc_interface_attachment
         if output_status is not None:
-            input["output_status"] = output_status
+            input_["output_status"] = output_status
         if ndi_program_name is not None:
-            input["ndi_program_name"] = ndi_program_name
+            input_["ndi_program_name"] = ndi_program_name
         if ndi_speed_hq_quality is not None:
-            input["ndi_speed_hq_quality"] = ndi_speed_hq_quality
+            input_["ndi_speed_hq_quality"] = ndi_speed_hq_quality
         if router_integration_state is not None:
-            input["router_integration_state"] = router_integration_state
+            input_["router_integration_state"] = router_integration_state
         if router_integration_transit_encryption is not None:
-            input["router_integration_transit_encryption"] = (
+            input_["router_integration_transit_encryption"] = (
                 router_integration_transit_encryption
             )
         if ndi_output_timecode_source is not None:
-            input["ndi_output_timecode_source"] = ndi_output_timecode_source
+            input_["ndi_output_timecode_source"] = ndi_output_timecode_source
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1305,58 +1305,58 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_source_request.UpdateFlowSourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_flow_source_request.UpdateFlowSourceRequest = {}  # type: ignore[typeddict-item]
         if decryption is not None:
-            input["decryption"] = decryption
+            input_["decryption"] = decryption
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if entitlement_arn is not None:
-            input["entitlement_arn"] = entitlement_arn
-        input["flow_arn"] = flow_arn
+            input_["entitlement_arn"] = entitlement_arn
+        input_["flow_arn"] = flow_arn
         if ingest_port is not None:
-            input["ingest_port"] = ingest_port
+            input_["ingest_port"] = ingest_port
         if max_bitrate is not None:
-            input["max_bitrate"] = max_bitrate
+            input_["max_bitrate"] = max_bitrate
         if max_latency is not None:
-            input["max_latency"] = max_latency
+            input_["max_latency"] = max_latency
         if max_sync_buffer is not None:
-            input["max_sync_buffer"] = max_sync_buffer
+            input_["max_sync_buffer"] = max_sync_buffer
         if media_stream_source_configurations is not None:
-            input["media_stream_source_configurations"] = (
+            input_["media_stream_source_configurations"] = (
                 media_stream_source_configurations
             )
         if min_latency is not None:
-            input["min_latency"] = min_latency
+            input_["min_latency"] = min_latency
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if sender_control_port is not None:
-            input["sender_control_port"] = sender_control_port
+            input_["sender_control_port"] = sender_control_port
         if sender_ip_address is not None:
-            input["sender_ip_address"] = sender_ip_address
-        input["source_arn"] = source_arn
+            input_["sender_ip_address"] = sender_ip_address
+        input_["source_arn"] = source_arn
         if source_listener_address is not None:
-            input["source_listener_address"] = source_listener_address
+            input_["source_listener_address"] = source_listener_address
         if source_listener_port is not None:
-            input["source_listener_port"] = source_listener_port
+            input_["source_listener_port"] = source_listener_port
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
         if vpc_interface_name is not None:
-            input["vpc_interface_name"] = vpc_interface_name
+            input_["vpc_interface_name"] = vpc_interface_name
         if whitelist_cidr is not None:
-            input["whitelist_cidr"] = whitelist_cidr
+            input_["whitelist_cidr"] = whitelist_cidr
         if gateway_bridge_source is not None:
-            input["gateway_bridge_source"] = gateway_bridge_source
+            input_["gateway_bridge_source"] = gateway_bridge_source
         if ndi_source_settings is not None:
-            input["ndi_source_settings"] = ndi_source_settings
+            input_["ndi_source_settings"] = ndi_source_settings
         if router_integration_state is not None:
-            input["router_integration_state"] = router_integration_state
+            input_["router_integration_state"] = router_integration_state
         if router_integration_transit_decryption is not None:
-            input["router_integration_transit_decryption"] = (
+            input_["router_integration_transit_decryption"] = (
                 router_integration_transit_decryption
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1444,39 +1444,39 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if entitlements is not None:
-            input["entitlements"] = entitlements
+            input_["entitlements"] = entitlements
         if media_streams is not None:
-            input["media_streams"] = media_streams
-        input["name"] = name
+            input_["media_streams"] = media_streams
+        input_["name"] = name
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if source_failover_config is not None:
-            input["source_failover_config"] = source_failover_config
+            input_["source_failover_config"] = source_failover_config
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if vpc_interfaces is not None:
-            input["vpc_interfaces"] = vpc_interfaces
+            input_["vpc_interfaces"] = vpc_interfaces
         if maintenance is not None:
-            input["maintenance"] = maintenance
+            input_["maintenance"] = maintenance
         if source_monitoring_config is not None:
-            input["source_monitoring_config"] = source_monitoring_config
+            input_["source_monitoring_config"] = source_monitoring_config
         if flow_size is not None:
-            input["flow_size"] = flow_size
+            input_["flow_size"] = flow_size
         if ndi_config is not None:
-            input["ndi_config"] = ndi_config
+            input_["ndi_config"] = ndi_config
         if encoding_config is not None:
-            input["encoding_config"] = encoding_config
+            input_["encoding_config"] = encoding_config
         if flow_tags is not None:
-            input["flow_tags"] = flow_tags
+            input_["flow_tags"] = flow_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1510,11 +1510,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_flow_request.DescribeFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.describe_flow_request.DescribeFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1567,23 +1567,23 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
         if source_failover_config is not None:
-            input["source_failover_config"] = source_failover_config
+            input_["source_failover_config"] = source_failover_config
         if maintenance is not None:
-            input["maintenance"] = maintenance
+            input_["maintenance"] = maintenance
         if source_monitoring_config is not None:
-            input["source_monitoring_config"] = source_monitoring_config
+            input_["source_monitoring_config"] = source_monitoring_config
         if ndi_config is not None:
-            input["ndi_config"] = ndi_config
+            input_["ndi_config"] = ndi_config
         if flow_size is not None:
-            input["flow_size"] = flow_size
+            input_["flow_size"] = flow_size
         if encoding_config is not None:
-            input["encoding_config"] = encoding_config
+            input_["encoding_config"] = encoding_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1617,11 +1617,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1659,14 +1659,14 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1702,12 +1702,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_flow_media_streams_request.AddFlowMediaStreamsRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["media_streams"] = media_streams
+        input_: aws_sdk_mediaconnect.types.add_flow_media_streams_request.AddFlowMediaStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["media_streams"] = media_streams
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,12 +1743,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_flow_outputs_request.AddFlowOutputsRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["outputs"] = outputs
+        input_: aws_sdk_mediaconnect.types.add_flow_outputs_request.AddFlowOutputsRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["outputs"] = outputs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1784,12 +1784,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_flow_sources_request.AddFlowSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["sources"] = sources
+        input_: aws_sdk_mediaconnect.types.add_flow_sources_request.AddFlowSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1825,12 +1825,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_flow_vpc_interfaces_request.AddFlowVpcInterfacesRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["vpc_interfaces"] = vpc_interfaces
+        input_: aws_sdk_mediaconnect.types.add_flow_vpc_interfaces_request.AddFlowVpcInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["vpc_interfaces"] = vpc_interfaces
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1864,11 +1864,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_flow_source_metadata_request.DescribeFlowSourceMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.describe_flow_source_metadata_request.DescribeFlowSourceMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1902,11 +1902,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_flow_source_thumbnail_request.DescribeFlowSourceThumbnailRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.describe_flow_source_thumbnail_request.DescribeFlowSourceThumbnailRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1942,12 +1942,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.grant_flow_entitlements_request.GrantFlowEntitlementsRequest = {}  # type: ignore[typeddict-item]
-        input["entitlements"] = entitlements
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.grant_flow_entitlements_request.GrantFlowEntitlementsRequest = {}  # type: ignore[typeddict-item]
+        input_["entitlements"] = entitlements
+        input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1983,12 +1983,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_flow_media_stream_request.RemoveFlowMediaStreamRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["media_stream_name"] = media_stream_name
+        input_: aws_sdk_mediaconnect.types.remove_flow_media_stream_request.RemoveFlowMediaStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["media_stream_name"] = media_stream_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2024,12 +2024,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_flow_output_request.RemoveFlowOutputRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["output_arn"] = output_arn
+        input_: aws_sdk_mediaconnect.types.remove_flow_output_request.RemoveFlowOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["output_arn"] = output_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2065,12 +2065,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_flow_source_request.RemoveFlowSourceRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["source_arn"] = source_arn
+        input_: aws_sdk_mediaconnect.types.remove_flow_source_request.RemoveFlowSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["source_arn"] = source_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2106,12 +2106,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_flow_vpc_interface_request.RemoveFlowVpcInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
-        input["vpc_interface_name"] = vpc_interface_name
+        input_: aws_sdk_mediaconnect.types.remove_flow_vpc_interface_request.RemoveFlowVpcInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
+        input_["vpc_interface_name"] = vpc_interface_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2147,12 +2147,12 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.revoke_flow_entitlement_request.RevokeFlowEntitlementRequest = {}  # type: ignore[typeddict-item]
-        input["entitlement_arn"] = entitlement_arn
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.revoke_flow_entitlement_request.RevokeFlowEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_["entitlement_arn"] = entitlement_arn
+        input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2186,11 +2186,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.start_flow_request.StartFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.start_flow_request.StartFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2224,11 +2224,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.stop_flow_request.StopFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_arn"] = flow_arn
+        input_: aws_sdk_mediaconnect.types.stop_flow_request.StopFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_arn"] = flow_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2278,20 +2278,20 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_entitlement_request.UpdateFlowEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_flow_entitlement_request.UpdateFlowEntitlementRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption is not None:
-            input["encryption"] = encryption
-        input["entitlement_arn"] = entitlement_arn
+            input_["encryption"] = encryption
+        input_["entitlement_arn"] = entitlement_arn
         if entitlement_status is not None:
-            input["entitlement_status"] = entitlement_status
-        input["flow_arn"] = flow_arn
+            input_["entitlement_status"] = entitlement_status
+        input_["flow_arn"] = flow_arn
         if subscribers is not None:
-            input["subscribers"] = subscribers
+            input_["subscribers"] = subscribers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2341,22 +2341,22 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_flow_media_stream_request.UpdateFlowMediaStreamRequest = {}  # type: ignore[typeddict-item]
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if clock_rate is not None:
-            input["clock_rate"] = clock_rate
+            input_["clock_rate"] = clock_rate
         if description is not None:
-            input["description"] = description
-        input["flow_arn"] = flow_arn
-        input["media_stream_name"] = media_stream_name
+            input_["description"] = description
+        input_["flow_arn"] = flow_arn
+        input_["media_stream_name"] = media_stream_name
         if media_stream_type is not None:
-            input["media_stream_type"] = media_stream_type
+            input_["media_stream_type"] = media_stream_type
         if video_format is not None:
-            input["video_format"] = video_format
+            input_["video_format"] = video_format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2449,58 +2449,58 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_output_request.UpdateFlowOutputRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_flow_output_request.UpdateFlowOutputRequest = {}  # type: ignore[typeddict-item]
         if cidr_allow_list is not None:
-            input["cidr_allow_list"] = cidr_allow_list
+            input_["cidr_allow_list"] = cidr_allow_list
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if encryption is not None:
-            input["encryption"] = encryption
-        input["flow_arn"] = flow_arn
+            input_["encryption"] = encryption
+        input_["flow_arn"] = flow_arn
         if max_latency is not None:
-            input["max_latency"] = max_latency
+            input_["max_latency"] = max_latency
         if media_stream_output_configurations is not None:
-            input["media_stream_output_configurations"] = (
+            input_["media_stream_output_configurations"] = (
                 media_stream_output_configurations
             )
         if min_latency is not None:
-            input["min_latency"] = min_latency
-        input["output_arn"] = output_arn
+            input_["min_latency"] = min_latency
+        input_["output_arn"] = output_arn
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if remote_id is not None:
-            input["remote_id"] = remote_id
+            input_["remote_id"] = remote_id
         if sender_control_port is not None:
-            input["sender_control_port"] = sender_control_port
+            input_["sender_control_port"] = sender_control_port
         if sender_ip_address is not None:
-            input["sender_ip_address"] = sender_ip_address
+            input_["sender_ip_address"] = sender_ip_address
         if smoothing_latency is not None:
-            input["smoothing_latency"] = smoothing_latency
+            input_["smoothing_latency"] = smoothing_latency
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
         if vpc_interface_attachment is not None:
-            input["vpc_interface_attachment"] = vpc_interface_attachment
+            input_["vpc_interface_attachment"] = vpc_interface_attachment
         if output_status is not None:
-            input["output_status"] = output_status
+            input_["output_status"] = output_status
         if ndi_program_name is not None:
-            input["ndi_program_name"] = ndi_program_name
+            input_["ndi_program_name"] = ndi_program_name
         if ndi_speed_hq_quality is not None:
-            input["ndi_speed_hq_quality"] = ndi_speed_hq_quality
+            input_["ndi_speed_hq_quality"] = ndi_speed_hq_quality
         if router_integration_state is not None:
-            input["router_integration_state"] = router_integration_state
+            input_["router_integration_state"] = router_integration_state
         if router_integration_transit_encryption is not None:
-            input["router_integration_transit_encryption"] = (
+            input_["router_integration_transit_encryption"] = (
                 router_integration_transit_encryption
             )
         if ndi_output_timecode_source is not None:
-            input["ndi_output_timecode_source"] = ndi_output_timecode_source
+            input_["ndi_output_timecode_source"] = ndi_output_timecode_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2590,58 +2590,58 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_flow_source_request.UpdateFlowSourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.update_flow_source_request.UpdateFlowSourceRequest = {}  # type: ignore[typeddict-item]
         if decryption is not None:
-            input["decryption"] = decryption
+            input_["decryption"] = decryption
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if entitlement_arn is not None:
-            input["entitlement_arn"] = entitlement_arn
-        input["flow_arn"] = flow_arn
+            input_["entitlement_arn"] = entitlement_arn
+        input_["flow_arn"] = flow_arn
         if ingest_port is not None:
-            input["ingest_port"] = ingest_port
+            input_["ingest_port"] = ingest_port
         if max_bitrate is not None:
-            input["max_bitrate"] = max_bitrate
+            input_["max_bitrate"] = max_bitrate
         if max_latency is not None:
-            input["max_latency"] = max_latency
+            input_["max_latency"] = max_latency
         if max_sync_buffer is not None:
-            input["max_sync_buffer"] = max_sync_buffer
+            input_["max_sync_buffer"] = max_sync_buffer
         if media_stream_source_configurations is not None:
-            input["media_stream_source_configurations"] = (
+            input_["media_stream_source_configurations"] = (
                 media_stream_source_configurations
             )
         if min_latency is not None:
-            input["min_latency"] = min_latency
+            input_["min_latency"] = min_latency
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if sender_control_port is not None:
-            input["sender_control_port"] = sender_control_port
+            input_["sender_control_port"] = sender_control_port
         if sender_ip_address is not None:
-            input["sender_ip_address"] = sender_ip_address
-        input["source_arn"] = source_arn
+            input_["sender_ip_address"] = sender_ip_address
+        input_["source_arn"] = source_arn
         if source_listener_address is not None:
-            input["source_listener_address"] = source_listener_address
+            input_["source_listener_address"] = source_listener_address
         if source_listener_port is not None:
-            input["source_listener_port"] = source_listener_port
+            input_["source_listener_port"] = source_listener_port
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
         if vpc_interface_name is not None:
-            input["vpc_interface_name"] = vpc_interface_name
+            input_["vpc_interface_name"] = vpc_interface_name
         if whitelist_cidr is not None:
-            input["whitelist_cidr"] = whitelist_cidr
+            input_["whitelist_cidr"] = whitelist_cidr
         if gateway_bridge_source is not None:
-            input["gateway_bridge_source"] = gateway_bridge_source
+            input_["gateway_bridge_source"] = gateway_bridge_source
         if ndi_source_settings is not None:
-            input["ndi_source_settings"] = ndi_source_settings
+            input_["ndi_source_settings"] = ndi_source_settings
         if router_integration_state is not None:
-            input["router_integration_state"] = router_integration_state
+            input_["router_integration_state"] = router_integration_state
         if router_integration_transit_decryption is not None:
-            input["router_integration_transit_decryption"] = (
+            input_["router_integration_transit_decryption"] = (
                 router_integration_transit_decryption
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

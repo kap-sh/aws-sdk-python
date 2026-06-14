@@ -89,20 +89,20 @@ class DestinationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_destination_request.CreateDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_destination_arn"] = delivery_destination_arn
-        input["delivery_destination_type"] = delivery_destination_type
-        input["name"] = name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_iot_managed_integrations.types.create_destination_request.CreateDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_destination_arn"] = delivery_destination_arn
+        input_["delivery_destination_type"] = delivery_destination_type
+        input_["name"] = name
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,11 +133,11 @@ class DestinationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_managed_integrations.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -170,11 +170,11 @@ class DestinationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_destination_request.GetDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_managed_integrations.types.get_destination_request.GetDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,14 +213,14 @@ class DestinationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_destinations_request.ListDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_destinations_request.ListDestinationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,19 +267,19 @@ class DestinationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_destination_request.UpdateDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_managed_integrations.types.update_destination_request.UpdateDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if delivery_destination_arn is not None:
-            input["delivery_destination_arn"] = delivery_destination_arn
+            input_["delivery_destination_arn"] = delivery_destination_arn
         if delivery_destination_type is not None:
-            input["delivery_destination_type"] = delivery_destination_type
+            input_["delivery_destination_type"] = delivery_destination_type
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -336,20 +336,20 @@ class AsyncDestinationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_destination_request.CreateDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_destination_arn"] = delivery_destination_arn
-        input["delivery_destination_type"] = delivery_destination_type
-        input["name"] = name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_iot_managed_integrations.types.create_destination_request.CreateDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_destination_arn"] = delivery_destination_arn
+        input_["delivery_destination_type"] = delivery_destination_type
+        input_["name"] = name
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +381,11 @@ class AsyncDestinationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_managed_integrations.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,11 +419,11 @@ class AsyncDestinationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_destination_request.GetDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_managed_integrations.types.get_destination_request.GetDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,14 +463,14 @@ class AsyncDestinationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_destinations_request.ListDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_destinations_request.ListDestinationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,19 +518,19 @@ class AsyncDestinationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_destination_request.UpdateDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot_managed_integrations.types.update_destination_request.UpdateDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if delivery_destination_arn is not None:
-            input["delivery_destination_arn"] = delivery_destination_arn
+            input_["delivery_destination_arn"] = delivery_destination_arn
         if delivery_destination_type is not None:
-            input["delivery_destination_type"] = delivery_destination_type
+            input_["delivery_destination_type"] = delivery_destination_type
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

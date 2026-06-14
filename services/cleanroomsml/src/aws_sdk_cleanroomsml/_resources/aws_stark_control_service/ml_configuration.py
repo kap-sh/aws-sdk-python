@@ -59,12 +59,12 @@ class MLConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.put_ml_configuration_request.PutMLConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["default_output_location"] = default_output_location
+        input_: aws_sdk_cleanroomsml.types.put_ml_configuration_request.PutMLConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["default_output_location"] = default_output_location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -97,11 +97,11 @@ class MLConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_ml_configuration_request.GetMLConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.get_ml_configuration_request.GetMLConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,11 +132,11 @@ class MLConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_ml_configuration_request.DeleteMLConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.delete_ml_configuration_request.DeleteMLConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -175,12 +175,12 @@ class AsyncMLConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.put_ml_configuration_request.PutMLConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["default_output_location"] = default_output_location
+        input_: aws_sdk_cleanroomsml.types.put_ml_configuration_request.PutMLConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["default_output_location"] = default_output_location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,11 +214,11 @@ class AsyncMLConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_ml_configuration_request.GetMLConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.get_ml_configuration_request.GetMLConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,11 +250,11 @@ class AsyncMLConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_ml_configuration_request.DeleteMLConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.delete_ml_configuration_request.DeleteMLConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

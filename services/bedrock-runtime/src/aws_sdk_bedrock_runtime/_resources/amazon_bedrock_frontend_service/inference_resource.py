@@ -135,37 +135,37 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.converse_request.ConverseRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
+        input_: aws_sdk_bedrock_runtime.types.converse_request.ConverseRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
         if messages is not None:
-            input["messages"] = messages
+            input_["messages"] = messages
         if system is not None:
-            input["system"] = system
+            input_["system"] = system
         if inference_config is not None:
-            input["inference_config"] = inference_config
+            input_["inference_config"] = inference_config
         if tool_config is not None:
-            input["tool_config"] = tool_config
+            input_["tool_config"] = tool_config
         if guardrail_config is not None:
-            input["guardrail_config"] = guardrail_config
+            input_["guardrail_config"] = guardrail_config
         if additional_model_request_fields is not None:
-            input["additional_model_request_fields"] = additional_model_request_fields
+            input_["additional_model_request_fields"] = additional_model_request_fields
         if prompt_variables is not None:
-            input["prompt_variables"] = prompt_variables
+            input_["prompt_variables"] = prompt_variables
         if additional_model_response_field_paths is not None:
-            input["additional_model_response_field_paths"] = (
+            input_["additional_model_response_field_paths"] = (
                 additional_model_response_field_paths
             )
         if request_metadata is not None:
-            input["request_metadata"] = request_metadata
+            input_["request_metadata"] = request_metadata
         if performance_config is not None:
-            input["performance_config"] = performance_config
+            input_["performance_config"] = performance_config
         if service_tier is not None:
-            input["service_tier"] = service_tier
+            input_["service_tier"] = service_tier
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,37 +244,37 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
+        input_: aws_sdk_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
         if messages is not None:
-            input["messages"] = messages
+            input_["messages"] = messages
         if system is not None:
-            input["system"] = system
+            input_["system"] = system
         if inference_config is not None:
-            input["inference_config"] = inference_config
+            input_["inference_config"] = inference_config
         if tool_config is not None:
-            input["tool_config"] = tool_config
+            input_["tool_config"] = tool_config
         if guardrail_config is not None:
-            input["guardrail_config"] = guardrail_config
+            input_["guardrail_config"] = guardrail_config
         if additional_model_request_fields is not None:
-            input["additional_model_request_fields"] = additional_model_request_fields
+            input_["additional_model_request_fields"] = additional_model_request_fields
         if prompt_variables is not None:
-            input["prompt_variables"] = prompt_variables
+            input_["prompt_variables"] = prompt_variables
         if additional_model_response_field_paths is not None:
-            input["additional_model_response_field_paths"] = (
+            input_["additional_model_response_field_paths"] = (
                 additional_model_response_field_paths
             )
         if request_metadata is not None:
-            input["request_metadata"] = request_metadata
+            input_["request_metadata"] = request_metadata
         if performance_config is not None:
-            input["performance_config"] = performance_config
+            input_["performance_config"] = performance_config
         if service_tier is not None:
-            input["service_tier"] = service_tier
+            input_["service_tier"] = service_tier
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,29 +337,29 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.invoke_model_request.InvokeModelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_runtime.types.invoke_model_request.InvokeModelRequest = {}  # type: ignore[typeddict-item]
         if body is not None:
-            input["body"] = body
+            input_["body"] = body
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
-        input["model_id"] = model_id
+            input_["accept"] = accept
+        input_["model_id"] = model_id
         if trace is not None:
-            input["trace"] = trace
+            input_["trace"] = trace
         if guardrail_identifier is not None:
-            input["guardrail_identifier"] = guardrail_identifier
+            input_["guardrail_identifier"] = guardrail_identifier
         if guardrail_version is not None:
-            input["guardrail_version"] = guardrail_version
+            input_["guardrail_version"] = guardrail_version
         if performance_config_latency is not None:
-            input["performance_config_latency"] = performance_config_latency
+            input_["performance_config_latency"] = performance_config_latency
         if service_tier is not None:
-            input["service_tier"] = service_tier
+            input_["service_tier"] = service_tier
         if request_metadata is not None:
-            input["request_metadata"] = request_metadata
+            input_["request_metadata"] = request_metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,12 +394,12 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["body"] = ensure_sync_iterator(body)  # type: ignore
+        input_: aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["body"] = ensure_sync_iterator(body)  # type: ignore
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,29 +462,29 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
         if body is not None:
-            input["body"] = body
+            input_["body"] = body
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
-        input["model_id"] = model_id
+            input_["accept"] = accept
+        input_["model_id"] = model_id
         if trace is not None:
-            input["trace"] = trace
+            input_["trace"] = trace
         if guardrail_identifier is not None:
-            input["guardrail_identifier"] = guardrail_identifier
+            input_["guardrail_identifier"] = guardrail_identifier
         if guardrail_version is not None:
-            input["guardrail_version"] = guardrail_version
+            input_["guardrail_version"] = guardrail_version
         if performance_config_latency is not None:
-            input["performance_config_latency"] = performance_config_latency
+            input_["performance_config_latency"] = performance_config_latency
         if service_tier is not None:
-            input["service_tier"] = service_tier
+            input_["service_tier"] = service_tier
         if request_metadata is not None:
-            input["request_metadata"] = request_metadata
+            input_["request_metadata"] = request_metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,37 +567,37 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.converse_request.ConverseRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
+        input_: aws_sdk_bedrock_runtime.types.converse_request.ConverseRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
         if messages is not None:
-            input["messages"] = messages
+            input_["messages"] = messages
         if system is not None:
-            input["system"] = system
+            input_["system"] = system
         if inference_config is not None:
-            input["inference_config"] = inference_config
+            input_["inference_config"] = inference_config
         if tool_config is not None:
-            input["tool_config"] = tool_config
+            input_["tool_config"] = tool_config
         if guardrail_config is not None:
-            input["guardrail_config"] = guardrail_config
+            input_["guardrail_config"] = guardrail_config
         if additional_model_request_fields is not None:
-            input["additional_model_request_fields"] = additional_model_request_fields
+            input_["additional_model_request_fields"] = additional_model_request_fields
         if prompt_variables is not None:
-            input["prompt_variables"] = prompt_variables
+            input_["prompt_variables"] = prompt_variables
         if additional_model_response_field_paths is not None:
-            input["additional_model_response_field_paths"] = (
+            input_["additional_model_response_field_paths"] = (
                 additional_model_response_field_paths
             )
         if request_metadata is not None:
-            input["request_metadata"] = request_metadata
+            input_["request_metadata"] = request_metadata
         if performance_config is not None:
-            input["performance_config"] = performance_config
+            input_["performance_config"] = performance_config
         if service_tier is not None:
-            input["service_tier"] = service_tier
+            input_["service_tier"] = service_tier
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -677,37 +677,37 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
+        input_: aws_sdk_bedrock_runtime.types.converse_stream_request.ConverseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
         if messages is not None:
-            input["messages"] = messages
+            input_["messages"] = messages
         if system is not None:
-            input["system"] = system
+            input_["system"] = system
         if inference_config is not None:
-            input["inference_config"] = inference_config
+            input_["inference_config"] = inference_config
         if tool_config is not None:
-            input["tool_config"] = tool_config
+            input_["tool_config"] = tool_config
         if guardrail_config is not None:
-            input["guardrail_config"] = guardrail_config
+            input_["guardrail_config"] = guardrail_config
         if additional_model_request_fields is not None:
-            input["additional_model_request_fields"] = additional_model_request_fields
+            input_["additional_model_request_fields"] = additional_model_request_fields
         if prompt_variables is not None:
-            input["prompt_variables"] = prompt_variables
+            input_["prompt_variables"] = prompt_variables
         if additional_model_response_field_paths is not None:
-            input["additional_model_response_field_paths"] = (
+            input_["additional_model_response_field_paths"] = (
                 additional_model_response_field_paths
             )
         if request_metadata is not None:
-            input["request_metadata"] = request_metadata
+            input_["request_metadata"] = request_metadata
         if performance_config is not None:
-            input["performance_config"] = performance_config
+            input_["performance_config"] = performance_config
         if service_tier is not None:
-            input["service_tier"] = service_tier
+            input_["service_tier"] = service_tier
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,29 +771,29 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.invoke_model_request.InvokeModelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_runtime.types.invoke_model_request.InvokeModelRequest = {}  # type: ignore[typeddict-item]
         if body is not None:
-            input["body"] = body
+            input_["body"] = body
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
-        input["model_id"] = model_id
+            input_["accept"] = accept
+        input_["model_id"] = model_id
         if trace is not None:
-            input["trace"] = trace
+            input_["trace"] = trace
         if guardrail_identifier is not None:
-            input["guardrail_identifier"] = guardrail_identifier
+            input_["guardrail_identifier"] = guardrail_identifier
         if guardrail_version is not None:
-            input["guardrail_version"] = guardrail_version
+            input_["guardrail_version"] = guardrail_version
         if performance_config_latency is not None:
-            input["performance_config_latency"] = performance_config_latency
+            input_["performance_config_latency"] = performance_config_latency
         if service_tier is not None:
-            input["service_tier"] = service_tier
+            input_["service_tier"] = service_tier
         if request_metadata is not None:
-            input["request_metadata"] = request_metadata
+            input_["request_metadata"] = request_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,12 +829,12 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["body"] = ensure_async_iterator(body)  # type: ignore
+        input_: aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_request.InvokeModelWithBidirectionalStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["body"] = ensure_async_iterator(body)  # type: ignore
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -898,29 +898,29 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_runtime.types.invoke_model_with_response_stream_request.InvokeModelWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
         if body is not None:
-            input["body"] = body
+            input_["body"] = body
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
-        input["model_id"] = model_id
+            input_["accept"] = accept
+        input_["model_id"] = model_id
         if trace is not None:
-            input["trace"] = trace
+            input_["trace"] = trace
         if guardrail_identifier is not None:
-            input["guardrail_identifier"] = guardrail_identifier
+            input_["guardrail_identifier"] = guardrail_identifier
         if guardrail_version is not None:
-            input["guardrail_version"] = guardrail_version
+            input_["guardrail_version"] = guardrail_version
         if performance_config_latency is not None:
-            input["performance_config_latency"] = performance_config_latency
+            input_["performance_config_latency"] = performance_config_latency
         if service_tier is not None:
-            input["service_tier"] = service_tier
+            input_["service_tier"] = service_tier
         if request_metadata is not None:
-            input["request_metadata"] = request_metadata
+            input_["request_metadata"] = request_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

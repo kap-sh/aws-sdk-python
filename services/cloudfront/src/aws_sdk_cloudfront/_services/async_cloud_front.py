@@ -532,12 +532,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.associate_alias_request.AssociateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["target_distribution_id"] = target_distribution_id
-        input["alias"] = alias
+        input_: aws_sdk_cloudfront.types.associate_alias_request.AssociateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["target_distribution_id"] = target_distribution_id
+        input_["alias"] = alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,14 +575,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.associate_distribution_tenant_web_acl_request.AssociateDistributionTenantWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["web_acl_arn"] = web_acl_arn
+        input_: aws_sdk_cloudfront.types.associate_distribution_tenant_web_acl_request.AssociateDistributionTenantWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["web_acl_arn"] = web_acl_arn
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,14 +620,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.associate_distribution_web_acl_request.AssociateDistributionWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["web_acl_arn"] = web_acl_arn
+        input_: aws_sdk_cloudfront.types.associate_distribution_web_acl_request.AssociateDistributionWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["web_acl_arn"] = web_acl_arn
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -669,18 +669,18 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.copy_distribution_request.CopyDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["primary_distribution_id"] = primary_distribution_id
+        input_: aws_sdk_cloudfront.types.copy_distribution_request.CopyDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["primary_distribution_id"] = primary_distribution_id
         if staging is not None:
-            input["staging"] = staging
+            input_["staging"] = staging
         if if_match is not None:
-            input["if_match"] = if_match
-        input["caller_reference"] = caller_reference
+            input_["if_match"] = if_match
+        input_["caller_reference"] = caller_reference
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -725,18 +725,18 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_anycast_ip_list_request.CreateAnycastIpListRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["ip_count"] = ip_count
+        input_: aws_sdk_cloudfront.types.create_anycast_ip_list_request.CreateAnycastIpListRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["ip_count"] = ip_count
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if ipam_cidr_configs is not None:
-            input["ipam_cidr_configs"] = ipam_cidr_configs
+            input_["ipam_cidr_configs"] = ipam_cidr_configs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -770,11 +770,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_cache_policy_request.CreateCachePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["cache_policy_config"] = cache_policy_config
+        input_: aws_sdk_cloudfront.types.create_cache_policy_request.CreateCachePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["cache_policy_config"] = cache_policy_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -808,13 +808,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_cloud_front_origin_access_identity_request.CreateCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["cloud_front_origin_access_identity_config"] = (
+        input_: aws_sdk_cloudfront.types.create_cloud_front_origin_access_identity_request.CreateCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["cloud_front_origin_access_identity_config"] = (
             cloud_front_origin_access_identity_config
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -852,15 +852,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_connection_function_request.CreateConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["connection_function_config"] = connection_function_config
-        input["connection_function_code"] = connection_function_code
+        input_: aws_sdk_cloudfront.types.create_connection_function_request.CreateConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["connection_function_config"] = connection_function_config
+        input_["connection_function_code"] = connection_function_code
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -901,19 +901,19 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_connection_group_request.CreateConnectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudfront.types.create_connection_group_request.CreateConnectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if ipv6_enabled is not None:
-            input["ipv6_enabled"] = ipv6_enabled
+            input_["ipv6_enabled"] = ipv6_enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if anycast_ip_list_id is not None:
-            input["anycast_ip_list_id"] = anycast_ip_list_id
+            input_["anycast_ip_list_id"] = anycast_ip_list_id
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -947,13 +947,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_continuous_deployment_policy_request.CreateContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["continuous_deployment_policy_config"] = (
+        input_: aws_sdk_cloudfront.types.create_continuous_deployment_policy_request.CreateContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["continuous_deployment_policy_config"] = (
             continuous_deployment_policy_config
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,11 +987,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_distribution_request.CreateDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_config"] = distribution_config
+        input_: aws_sdk_cloudfront.types.create_distribution_request.CreateDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_config"] = distribution_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1044,25 +1044,25 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_distribution_tenant_request.CreateDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_id"] = distribution_id
-        input["name"] = name
-        input["domains"] = domains
+        input_: aws_sdk_cloudfront.types.create_distribution_tenant_request.CreateDistributionTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_id"] = distribution_id
+        input_["name"] = name
+        input_["domains"] = domains
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if customizations is not None:
-            input["customizations"] = customizations
+            input_["customizations"] = customizations
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if connection_group_id is not None:
-            input["connection_group_id"] = connection_group_id
+            input_["connection_group_id"] = connection_group_id
         if managed_certificate_request is not None:
-            input["managed_certificate_request"] = managed_certificate_request
+            input_["managed_certificate_request"] = managed_certificate_request
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1096,11 +1096,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_distribution_with_tags_request.CreateDistributionWithTagsRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_config_with_tags"] = distribution_config_with_tags
+        input_: aws_sdk_cloudfront.types.create_distribution_with_tags_request.CreateDistributionWithTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_config_with_tags"] = distribution_config_with_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1134,11 +1134,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_field_level_encryption_config_request.CreateFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["field_level_encryption_config"] = field_level_encryption_config
+        input_: aws_sdk_cloudfront.types.create_field_level_encryption_config_request.CreateFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["field_level_encryption_config"] = field_level_encryption_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1172,13 +1172,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_field_level_encryption_profile_request.CreateFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["field_level_encryption_profile_config"] = (
+        input_: aws_sdk_cloudfront.types.create_field_level_encryption_profile_request.CreateFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["field_level_encryption_profile_config"] = (
             field_level_encryption_profile_config
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1223,15 +1223,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["function_config"] = function_config
-        input["function_code"] = function_code
+        input_: aws_sdk_cloudfront.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["function_config"] = function_config
+        input_["function_code"] = function_code
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1267,12 +1267,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_invalidation_request.CreateInvalidationRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_id"] = distribution_id
-        input["invalidation_batch"] = invalidation_batch
+        input_: aws_sdk_cloudfront.types.create_invalidation_request.CreateInvalidationRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_id"] = distribution_id
+        input_["invalidation_batch"] = invalidation_batch
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1307,12 +1307,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_request.CreateInvalidationForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["invalidation_batch"] = invalidation_batch
+        input_: aws_sdk_cloudfront.types.create_invalidation_for_distribution_tenant_request.CreateInvalidationForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["invalidation_batch"] = invalidation_batch
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1346,11 +1346,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_key_group_request.CreateKeyGroupRequest = {}  # type: ignore[typeddict-item]
-        input["key_group_config"] = key_group_config
+        input_: aws_sdk_cloudfront.types.create_key_group_request.CreateKeyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["key_group_config"] = key_group_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1399,17 +1399,17 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if import_source is not None:
-            input["import_source"] = import_source
+            input_["import_source"] = import_source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1445,12 +1445,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_monitoring_subscription_request.CreateMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_id"] = distribution_id
-        input["monitoring_subscription"] = monitoring_subscription
+        input_: aws_sdk_cloudfront.types.create_monitoring_subscription_request.CreateMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_id"] = distribution_id
+        input_["monitoring_subscription"] = monitoring_subscription
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1484,11 +1484,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_origin_access_control_request.CreateOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
-        input["origin_access_control_config"] = origin_access_control_config
+        input_: aws_sdk_cloudfront.types.create_origin_access_control_request.CreateOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
+        input_["origin_access_control_config"] = origin_access_control_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1522,11 +1522,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_origin_request_policy_request.CreateOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["origin_request_policy_config"] = origin_request_policy_config
+        input_: aws_sdk_cloudfront.types.create_origin_request_policy_request.CreateOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["origin_request_policy_config"] = origin_request_policy_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1560,11 +1560,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_public_key_request.CreatePublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["public_key_config"] = public_key_config
+        input_: aws_sdk_cloudfront.types.create_public_key_request.CreatePublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["public_key_config"] = public_key_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1604,14 +1604,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_realtime_log_config_request.CreateRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
-        input["end_points"] = end_points
-        input["fields"] = fields
-        input["name"] = name
-        input["sampling_rate"] = sampling_rate
+        input_: aws_sdk_cloudfront.types.create_realtime_log_config_request.CreateRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["end_points"] = end_points
+        input_["fields"] = fields
+        input_["name"] = name
+        input_["sampling_rate"] = sampling_rate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1645,11 +1645,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_response_headers_policy_request.CreateResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["response_headers_policy_config"] = response_headers_policy_config
+        input_: aws_sdk_cloudfront.types.create_response_headers_policy_request.CreateResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["response_headers_policy_config"] = response_headers_policy_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1683,11 +1683,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_streaming_distribution_request.CreateStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["streaming_distribution_config"] = streaming_distribution_config
+        input_: aws_sdk_cloudfront.types.create_streaming_distribution_request.CreateStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["streaming_distribution_config"] = streaming_distribution_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1721,13 +1721,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest = {}  # type: ignore[typeddict-item]
-        input["streaming_distribution_config_with_tags"] = (
+        input_: aws_sdk_cloudfront.types.create_streaming_distribution_with_tags_request.CreateStreamingDistributionWithTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["streaming_distribution_config_with_tags"] = (
             streaming_distribution_config_with_tags
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1768,18 +1768,18 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_trust_store_request.CreateTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["ca_certificates_bundle_source"] = ca_certificates_bundle_source
+        input_: aws_sdk_cloudfront.types.create_trust_store_request.CreateTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["ca_certificates_bundle_source"] = ca_certificates_bundle_source
         if use_client_certificate_ocsp_endpoint is not None:
-            input["use_client_certificate_ocsp_endpoint"] = (
+            input_["use_client_certificate_ocsp_endpoint"] = (
                 use_client_certificate_ocsp_endpoint
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1820,13 +1820,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.create_vpc_origin_request.CreateVpcOriginRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
+        input_: aws_sdk_cloudfront.types.create_vpc_origin_request.CreateVpcOriginRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1860,12 +1860,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_anycast_ip_list_request.DeleteAnycastIpListRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.delete_anycast_ip_list_request.DeleteAnycastIpListRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1899,13 +1899,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_cache_policy_request.DeleteCachePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_cache_policy_request.DeleteCachePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1939,13 +1939,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_cloud_front_origin_access_identity_request.DeleteCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_cloud_front_origin_access_identity_request.DeleteCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,12 +1979,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_connection_function_request.DeleteConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.delete_connection_function_request.DeleteConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2018,12 +2018,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_connection_group_request.DeleteConnectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.delete_connection_group_request.DeleteConnectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2057,13 +2057,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_continuous_deployment_policy_request.DeleteContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_continuous_deployment_policy_request.DeleteContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2097,13 +2097,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_distribution_request.DeleteDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_distribution_request.DeleteDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2137,12 +2137,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_distribution_tenant_request.DeleteDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.delete_distribution_tenant_request.DeleteDistributionTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2176,13 +2176,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_field_level_encryption_config_request.DeleteFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_field_level_encryption_config_request.DeleteFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2216,13 +2216,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_field_level_encryption_profile_request.DeleteFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_field_level_encryption_profile_request.DeleteFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2256,12 +2256,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2295,13 +2295,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_key_group_request.DeleteKeyGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_key_group_request.DeleteKeyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2341,12 +2341,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_key_value_store_request.DeleteKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.delete_key_value_store_request.DeleteKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2380,11 +2380,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_monitoring_subscription_request.DeleteMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_id"] = distribution_id
+        input_: aws_sdk_cloudfront.types.delete_monitoring_subscription_request.DeleteMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_id"] = distribution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2418,13 +2418,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_origin_access_control_request.DeleteOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_origin_access_control_request.DeleteOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2458,13 +2458,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_origin_request_policy_request.DeleteOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_origin_request_policy_request.DeleteOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2498,13 +2498,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_public_key_request.DeletePublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_public_key_request.DeletePublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2538,14 +2538,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_realtime_log_config_request.DeleteRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.delete_realtime_log_config_request.DeleteRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2577,11 +2577,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudfront.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2615,13 +2615,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_response_headers_policy_request.DeleteResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_response_headers_policy_request.DeleteResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2655,13 +2655,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_streaming_distribution_request.DeleteStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.delete_streaming_distribution_request.DeleteStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2695,12 +2695,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_trust_store_request.DeleteTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.delete_trust_store_request.DeleteTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2742,12 +2742,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.delete_vpc_origin_request.DeleteVpcOriginRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.delete_vpc_origin_request.DeleteVpcOriginRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2783,13 +2783,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.describe_connection_function_request.DescribeConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudfront.types.describe_connection_function_request.DescribeConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2825,13 +2825,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.describe_function_request.DescribeFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudfront.types.describe_function_request.DescribeFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2871,11 +2871,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.describe_key_value_store_request.DescribeKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudfront.types.describe_key_value_store_request.DescribeKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2911,13 +2911,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.disassociate_distribution_tenant_web_acl_request.DisassociateDistributionTenantWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.disassociate_distribution_tenant_web_acl_request.DisassociateDistributionTenantWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2953,13 +2953,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.disassociate_distribution_web_acl_request.DisassociateDistributionWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.disassociate_distribution_web_acl_request.DisassociateDistributionWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2993,11 +2993,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_anycast_ip_list_request.GetAnycastIpListRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_anycast_ip_list_request.GetAnycastIpListRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3031,11 +3031,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_cache_policy_request.GetCachePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_cache_policy_request.GetCachePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3069,11 +3069,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_cache_policy_config_request.GetCachePolicyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_cache_policy_config_request.GetCachePolicyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3107,11 +3107,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_cloud_front_origin_access_identity_request.GetCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_cloud_front_origin_access_identity_request.GetCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3145,11 +3145,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_cloud_front_origin_access_identity_config_request.GetCloudFrontOriginAccessIdentityConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_cloud_front_origin_access_identity_config_request.GetCloudFrontOriginAccessIdentityConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3185,13 +3185,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_connection_function_request.GetConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudfront.types.get_connection_function_request.GetConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3227,11 +3227,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_connection_group_request.GetConnectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudfront.types.get_connection_group_request.GetConnectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3265,11 +3265,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_connection_group_by_routing_endpoint_request.GetConnectionGroupByRoutingEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["routing_endpoint"] = routing_endpoint
+        input_: aws_sdk_cloudfront.types.get_connection_group_by_routing_endpoint_request.GetConnectionGroupByRoutingEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["routing_endpoint"] = routing_endpoint
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3303,11 +3303,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_continuous_deployment_policy_request.GetContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_continuous_deployment_policy_request.GetContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3341,11 +3341,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_continuous_deployment_policy_config_request.GetContinuousDeploymentPolicyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_continuous_deployment_policy_config_request.GetContinuousDeploymentPolicyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3379,11 +3379,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_distribution_request.GetDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_distribution_request.GetDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3417,11 +3417,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_distribution_config_request.GetDistributionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_distribution_config_request.GetDistributionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3455,11 +3455,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_distribution_tenant_request.GetDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudfront.types.get_distribution_tenant_request.GetDistributionTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3493,11 +3493,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_distribution_tenant_by_domain_request.GetDistributionTenantByDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_cloudfront.types.get_distribution_tenant_by_domain_request.GetDistributionTenantByDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3531,11 +3531,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_field_level_encryption_request.GetFieldLevelEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_field_level_encryption_request.GetFieldLevelEncryptionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3569,11 +3569,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_field_level_encryption_config_request.GetFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_field_level_encryption_config_request.GetFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3607,11 +3607,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_field_level_encryption_profile_request.GetFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_field_level_encryption_profile_request.GetFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3645,11 +3645,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_field_level_encryption_profile_config_request.GetFieldLevelEncryptionProfileConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_field_level_encryption_profile_config_request.GetFieldLevelEncryptionProfileConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3685,13 +3685,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudfront.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3727,12 +3727,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_invalidation_request.GetInvalidationRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_id"] = distribution_id
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_invalidation_request.GetInvalidationRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_id"] = distribution_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3768,12 +3768,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_invalidation_for_distribution_tenant_request.GetInvalidationForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_tenant_id"] = distribution_tenant_id
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_invalidation_for_distribution_tenant_request.GetInvalidationForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_tenant_id"] = distribution_tenant_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3807,11 +3807,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_key_group_request.GetKeyGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_key_group_request.GetKeyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3845,11 +3845,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_key_group_config_request.GetKeyGroupConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_key_group_config_request.GetKeyGroupConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3883,11 +3883,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_managed_certificate_details_request.GetManagedCertificateDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudfront.types.get_managed_certificate_details_request.GetManagedCertificateDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3921,11 +3921,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_monitoring_subscription_request.GetMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_id"] = distribution_id
+        input_: aws_sdk_cloudfront.types.get_monitoring_subscription_request.GetMonitoringSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_id"] = distribution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3959,11 +3959,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_origin_access_control_request.GetOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_origin_access_control_request.GetOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3997,11 +3997,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_origin_access_control_config_request.GetOriginAccessControlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_origin_access_control_config_request.GetOriginAccessControlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4035,11 +4035,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_origin_request_policy_request.GetOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_origin_request_policy_request.GetOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4073,11 +4073,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_origin_request_policy_config_request.GetOriginRequestPolicyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_origin_request_policy_config_request.GetOriginRequestPolicyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4111,11 +4111,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_public_key_request.GetPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4151,11 +4151,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_public_key_config_request.GetPublicKeyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_public_key_config_request.GetPublicKeyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4191,14 +4191,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_realtime_log_config_request.GetRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.get_realtime_log_config_request.GetRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4232,11 +4232,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudfront.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4270,11 +4270,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_response_headers_policy_request.GetResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_response_headers_policy_request.GetResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4308,11 +4308,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_response_headers_policy_config_request.GetResponseHeadersPolicyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_response_headers_policy_config_request.GetResponseHeadersPolicyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4346,11 +4346,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_streaming_distribution_request.GetStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_streaming_distribution_request.GetStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4384,11 +4384,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_streaming_distribution_config_request.GetStreamingDistributionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_streaming_distribution_config_request.GetStreamingDistributionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4422,11 +4422,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_trust_store_request.GetTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudfront.types.get_trust_store_request.GetTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4466,11 +4466,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.get_vpc_origin_request.GetVpcOriginRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.get_vpc_origin_request.GetVpcOriginRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4508,14 +4508,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_anycast_ip_lists_request.ListAnycastIpListsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_anycast_ip_lists_request.ListAnycastIpListsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4555,16 +4555,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_cache_policies_request.ListCachePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_cache_policies_request.ListCachePoliciesRequest = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4600,14 +4600,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_cloud_front_origin_access_identities_request.ListCloudFrontOriginAccessIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_cloud_front_origin_access_identities_request.ListCloudFrontOriginAccessIdentitiesRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4674,16 +4674,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_conflicting_aliases_request.ListConflictingAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_id"] = distribution_id
-        input["alias"] = alias
+        input_: aws_sdk_cloudfront.types.list_conflicting_aliases_request.ListConflictingAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_id"] = distribution_id
+        input_["alias"] = alias
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4721,16 +4721,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_connection_functions_request.ListConnectionFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_connection_functions_request.ListConnectionFunctionsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4793,16 +4793,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_connection_groups_request.ListConnectionGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_connection_groups_request.ListConnectionGroupsRequest = {}  # type: ignore[typeddict-item]
         if association_filter is not None:
-            input["association_filter"] = association_filter
+            input_["association_filter"] = association_filter
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4863,14 +4863,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_continuous_deployment_policies_request.ListContinuousDeploymentPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_continuous_deployment_policies_request.ListContinuousDeploymentPoliciesRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4906,14 +4906,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_request.ListDistributionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_request.ListDistributionsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4972,15 +4972,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_request.ListDistributionsByAnycastIpListIdRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_anycast_ip_list_id_request.ListDistributionsByAnycastIpListIdRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["anycast_ip_list_id"] = anycast_ip_list_id
+            input_["max_items"] = max_items
+        input_["anycast_ip_list_id"] = anycast_ip_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5018,15 +5018,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_cache_policy_id_request.ListDistributionsByCachePolicyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_cache_policy_id_request.ListDistributionsByCachePolicyIdRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["cache_policy_id"] = cache_policy_id
+            input_["max_items"] = max_items
+        input_["cache_policy_id"] = cache_policy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5064,15 +5064,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_connection_function_request.ListDistributionsByConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_connection_function_request.ListDistributionsByConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["connection_function_identifier"] = connection_function_identifier
+            input_["max_items"] = max_items
+        input_["connection_function_identifier"] = connection_function_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5133,15 +5133,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_connection_mode_request.ListDistributionsByConnectionModeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_connection_mode_request.ListDistributionsByConnectionModeRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["connection_mode"] = connection_mode
+            input_["max_items"] = max_items
+        input_["connection_mode"] = connection_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5202,15 +5202,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_key_group_request.ListDistributionsByKeyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_key_group_request.ListDistributionsByKeyGroupRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["key_group_id"] = key_group_id
+            input_["max_items"] = max_items
+        input_["key_group_id"] = key_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5248,15 +5248,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_origin_request_policy_id_request.ListDistributionsByOriginRequestPolicyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_origin_request_policy_id_request.ListDistributionsByOriginRequestPolicyIdRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["origin_request_policy_id"] = origin_request_policy_id
+            input_["max_items"] = max_items
+        input_["origin_request_policy_id"] = origin_request_policy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5294,15 +5294,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_owned_resource_request.ListDistributionsByOwnedResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudfront.types.list_distributions_by_owned_resource_request.ListDistributionsByOwnedResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5346,18 +5346,18 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_realtime_log_config_request.ListDistributionsByRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_realtime_log_config_request.ListDistributionsByRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if realtime_log_config_name is not None:
-            input["realtime_log_config_name"] = realtime_log_config_name
+            input_["realtime_log_config_name"] = realtime_log_config_name
         if realtime_log_config_arn is not None:
-            input["realtime_log_config_arn"] = realtime_log_config_arn
+            input_["realtime_log_config_arn"] = realtime_log_config_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5395,15 +5395,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_response_headers_policy_id_request.ListDistributionsByResponseHeadersPolicyIdRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_response_headers_policy_id_request.ListDistributionsByResponseHeadersPolicyIdRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["response_headers_policy_id"] = response_headers_policy_id
+            input_["max_items"] = max_items
+        input_["response_headers_policy_id"] = response_headers_policy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5441,15 +5441,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_trust_store_request.ListDistributionsByTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["trust_store_identifier"] = trust_store_identifier
+        input_: aws_sdk_cloudfront.types.list_distributions_by_trust_store_request.ListDistributionsByTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_store_identifier"] = trust_store_identifier
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5516,15 +5516,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_vpc_origin_id_request.ListDistributionsByVpcOriginIdRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_vpc_origin_id_request.ListDistributionsByVpcOriginIdRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["vpc_origin_id"] = vpc_origin_id
+            input_["max_items"] = max_items
+        input_["vpc_origin_id"] = vpc_origin_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5562,15 +5562,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distributions_by_web_acl_id_request.ListDistributionsByWebACLIdRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
-        input["web_acl_id"] = web_acl_id
+            input_["max_items"] = max_items
+        input_["web_acl_id"] = web_acl_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5609,16 +5609,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distribution_tenants_request.ListDistributionTenantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distribution_tenants_request.ListDistributionTenantsRequest = {}  # type: ignore[typeddict-item]
         if association_filter is not None:
-            input["association_filter"] = association_filter
+            input_["association_filter"] = association_filter
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5683,18 +5683,18 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_distribution_tenants_by_customization_request.ListDistributionTenantsByCustomizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_distribution_tenants_by_customization_request.ListDistributionTenantsByCustomizationRequest = {}  # type: ignore[typeddict-item]
         if web_acl_arn is not None:
-            input["web_acl_arn"] = web_acl_arn
+            input_["web_acl_arn"] = web_acl_arn
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5759,16 +5759,18 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_domain_conflicts_request.ListDomainConflictsRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["domain_control_validation_resource"] = domain_control_validation_resource
+        input_: aws_sdk_cloudfront.types.list_domain_conflicts_request.ListDomainConflictsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["domain_control_validation_resource"] = (
+            domain_control_validation_resource
+        )
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5829,14 +5831,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_field_level_encryption_configs_request.ListFieldLevelEncryptionConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_field_level_encryption_configs_request.ListFieldLevelEncryptionConfigsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5872,14 +5874,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_field_level_encryption_profiles_request.ListFieldLevelEncryptionProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_field_level_encryption_profiles_request.ListFieldLevelEncryptionProfilesRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5917,16 +5919,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if stage is not None:
-            input["stage"] = stage
+            input_["stage"] = stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5964,15 +5966,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_invalidations_request.ListInvalidationsRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_id"] = distribution_id
+        input_: aws_sdk_cloudfront.types.list_invalidations_request.ListInvalidationsRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_id"] = distribution_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6033,15 +6035,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_invalidations_for_distribution_tenant_request.ListInvalidationsForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.list_invalidations_for_distribution_tenant_request.ListInvalidationsForDistributionTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6100,14 +6102,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_key_groups_request.ListKeyGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_key_groups_request.ListKeyGroupsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6153,16 +6155,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_key_value_stores_request.ListKeyValueStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_key_value_stores_request.ListKeyValueStoresRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6221,14 +6223,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_origin_access_controls_request.ListOriginAccessControlsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_origin_access_controls_request.ListOriginAccessControlsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6291,16 +6293,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_origin_request_policies_request.ListOriginRequestPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_origin_request_policies_request.ListOriginRequestPoliciesRequest = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6336,14 +6338,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_public_keys_request.ListPublicKeysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_public_keys_request.ListPublicKeysRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6400,14 +6402,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_realtime_log_configs_request.ListRealtimeLogConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_realtime_log_configs_request.ListRealtimeLogConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6447,16 +6449,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6492,14 +6494,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_streaming_distributions_request.ListStreamingDistributionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_streaming_distributions_request.ListStreamingDistributionsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6556,11 +6558,11 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
+        input_: aws_sdk_cloudfront.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6596,14 +6598,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6668,14 +6670,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.list_vpc_origins_request.ListVpcOriginsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.list_vpc_origins_request.ListVpcOriginsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6711,12 +6713,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.publish_connection_function_request.PublishConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.publish_connection_function_request.PublishConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6752,12 +6754,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.publish_function_request.PublishFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.publish_function_request.PublishFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6793,12 +6795,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy_document"] = policy_document
+        input_: aws_sdk_cloudfront.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy_document"] = policy_document
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6832,12 +6834,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["tags"] = tags
+        input_: aws_sdk_cloudfront.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6877,15 +6879,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.test_connection_function_request.TestConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.test_connection_function_request.TestConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
         if stage is not None:
-            input["stage"] = stage
-        input["connection_object"] = connection_object
+            input_["stage"] = stage
+        input_["connection_object"] = connection_object
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6925,15 +6927,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.test_function_request.TestFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.test_function_request.TestFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["if_match"] = if_match
         if stage is not None:
-            input["stage"] = stage
-        input["event_object"] = event_object
+            input_["stage"] = stage
+        input_["event_object"] = event_object
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6967,12 +6969,12 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cloudfront.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7016,16 +7018,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_anycast_ip_list_request.UpdateAnycastIpListRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_anycast_ip_list_request.UpdateAnycastIpListRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if ipam_cidr_configs is not None:
-            input["ipam_cidr_configs"] = ipam_cidr_configs
-        input["if_match"] = if_match
+            input_["ipam_cidr_configs"] = ipam_cidr_configs
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7063,14 +7065,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_cache_policy_request.UpdateCachePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["cache_policy_config"] = cache_policy_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_cache_policy_request.UpdateCachePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["cache_policy_config"] = cache_policy_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7108,16 +7110,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_cloud_front_origin_access_identity_request.UpdateCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["cloud_front_origin_access_identity_config"] = (
+        input_: aws_sdk_cloudfront.types.update_cloud_front_origin_access_identity_request.UpdateCloudFrontOriginAccessIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["cloud_front_origin_access_identity_config"] = (
             cloud_front_origin_access_identity_config
         )
-        input["id"] = id
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7156,14 +7158,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_connection_function_request.UpdateConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["if_match"] = if_match
-        input["connection_function_config"] = connection_function_config
-        input["connection_function_code"] = connection_function_code
+        input_: aws_sdk_cloudfront.types.update_connection_function_request.UpdateConnectionFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["if_match"] = if_match
+        input_["connection_function_config"] = connection_function_config
+        input_["connection_function_code"] = connection_function_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7205,18 +7207,18 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_connection_group_request.UpdateConnectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if ipv6_enabled is not None:
-            input["ipv6_enabled"] = ipv6_enabled
-        input["if_match"] = if_match
+            input_["ipv6_enabled"] = ipv6_enabled
+        input_["if_match"] = if_match
         if anycast_ip_list_id is not None:
-            input["anycast_ip_list_id"] = anycast_ip_list_id
+            input_["anycast_ip_list_id"] = anycast_ip_list_id
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7254,16 +7256,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_continuous_deployment_policy_request.UpdateContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["continuous_deployment_policy_config"] = (
+        input_: aws_sdk_cloudfront.types.update_continuous_deployment_policy_request.UpdateContinuousDeploymentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["continuous_deployment_policy_config"] = (
             continuous_deployment_policy_config
         )
-        input["id"] = id
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7301,14 +7303,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_distribution_request.UpdateDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_config"] = distribution_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_distribution_request.UpdateDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_config"] = distribution_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7362,26 +7364,26 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_distribution_tenant_request.UpdateDistributionTenantRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_distribution_tenant_request.UpdateDistributionTenantRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if distribution_id is not None:
-            input["distribution_id"] = distribution_id
+            input_["distribution_id"] = distribution_id
         if domains is not None:
-            input["domains"] = domains
+            input_["domains"] = domains
         if customizations is not None:
-            input["customizations"] = customizations
+            input_["customizations"] = customizations
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if connection_group_id is not None:
-            input["connection_group_id"] = connection_group_id
-        input["if_match"] = if_match
+            input_["connection_group_id"] = connection_group_id
+        input_["if_match"] = if_match
         if managed_certificate_request is not None:
-            input["managed_certificate_request"] = managed_certificate_request
+            input_["managed_certificate_request"] = managed_certificate_request
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7421,15 +7423,15 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_distribution_with_staging_config_request.UpdateDistributionWithStagingConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_distribution_with_staging_config_request.UpdateDistributionWithStagingConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if staging_distribution_id is not None:
-            input["staging_distribution_id"] = staging_distribution_id
+            input_["staging_distribution_id"] = staging_distribution_id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7467,14 +7469,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_domain_association_request.UpdateDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["target_resource"] = target_resource
+        input_: aws_sdk_cloudfront.types.update_domain_association_request.UpdateDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["target_resource"] = target_resource
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7512,14 +7514,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_field_level_encryption_config_request.UpdateFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["field_level_encryption_config"] = field_level_encryption_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_field_level_encryption_config_request.UpdateFieldLevelEncryptionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["field_level_encryption_config"] = field_level_encryption_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7557,16 +7559,16 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_field_level_encryption_profile_request.UpdateFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
-        input["field_level_encryption_profile_config"] = (
+        input_: aws_sdk_cloudfront.types.update_field_level_encryption_profile_request.UpdateFieldLevelEncryptionProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["field_level_encryption_profile_config"] = (
             field_level_encryption_profile_config
         )
-        input["id"] = id
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7612,14 +7614,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_function_request.UpdateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["if_match"] = if_match
-        input["function_config"] = function_config
-        input["function_code"] = function_code
+        input_: aws_sdk_cloudfront.types.update_function_request.UpdateFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["if_match"] = if_match
+        input_["function_config"] = function_config
+        input_["function_code"] = function_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7657,14 +7659,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_key_group_request.UpdateKeyGroupRequest = {}  # type: ignore[typeddict-item]
-        input["key_group_config"] = key_group_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_key_group_request.UpdateKeyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["key_group_config"] = key_group_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7708,13 +7710,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_key_value_store_request.UpdateKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["comment"] = comment
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.update_key_value_store_request.UpdateKeyValueStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["comment"] = comment
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7752,14 +7754,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_origin_access_control_request.UpdateOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
-        input["origin_access_control_config"] = origin_access_control_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_origin_access_control_request.UpdateOriginAccessControlRequest = {}  # type: ignore[typeddict-item]
+        input_["origin_access_control_config"] = origin_access_control_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7797,14 +7799,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_origin_request_policy_request.UpdateOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["origin_request_policy_config"] = origin_request_policy_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_origin_request_policy_request.UpdateOriginRequestPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["origin_request_policy_config"] = origin_request_policy_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7842,14 +7844,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_public_key_request.UpdatePublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["public_key_config"] = public_key_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_public_key_request.UpdatePublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["public_key_config"] = public_key_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7893,20 +7895,20 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.update_realtime_log_config_request.UpdateRealtimeLogConfigRequest = {}  # type: ignore[typeddict-item]
         if end_points is not None:
-            input["end_points"] = end_points
+            input_["end_points"] = end_points
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if sampling_rate is not None:
-            input["sampling_rate"] = sampling_rate
+            input_["sampling_rate"] = sampling_rate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7944,14 +7946,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_response_headers_policy_request.UpdateResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["response_headers_policy_config"] = response_headers_policy_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_response_headers_policy_request.UpdateResponseHeadersPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["response_headers_policy_config"] = response_headers_policy_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7989,14 +7991,14 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_streaming_distribution_request.UpdateStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["streaming_distribution_config"] = streaming_distribution_config
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_streaming_distribution_request.UpdateStreamingDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["streaming_distribution_config"] = streaming_distribution_config
+        input_["id"] = id
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8040,18 +8042,18 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_trust_store_request.UpdateTrustStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudfront.types.update_trust_store_request.UpdateTrustStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if ca_certificates_bundle_source is not None:
-            input["ca_certificates_bundle_source"] = ca_certificates_bundle_source
+            input_["ca_certificates_bundle_source"] = ca_certificates_bundle_source
         if use_client_certificate_ocsp_endpoint is not None:
-            input["use_client_certificate_ocsp_endpoint"] = (
+            input_["use_client_certificate_ocsp_endpoint"] = (
                 use_client_certificate_ocsp_endpoint
             )
-        input["if_match"] = if_match
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8095,13 +8097,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.update_vpc_origin_request.UpdateVpcOriginRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
-        input["id"] = id
-        input["if_match"] = if_match
+        input_: aws_sdk_cloudfront.types.update_vpc_origin_request.UpdateVpcOriginRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
+        input_["id"] = id
+        input_["if_match"] = if_match
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8137,13 +8139,13 @@ class AsyncCloudFrontClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudfront.types.verify_dns_configuration_request.VerifyDnsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudfront.types.verify_dns_configuration_request.VerifyDnsConfigurationRequest = {}  # type: ignore[typeddict-item]
         if domain is not None:
-            input["domain"] = domain
-        input["identifier"] = identifier
+            input_["domain"] = domain
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

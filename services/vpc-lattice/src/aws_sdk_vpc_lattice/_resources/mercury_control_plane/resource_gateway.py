@@ -102,27 +102,27 @@ class ResourceGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_resource_gateway_request.CreateResourceGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.create_resource_gateway_request.CreateResourceGatewayRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if vpc_identifier is not None:
-            input["vpc_identifier"] = vpc_identifier
+            input_["vpc_identifier"] = vpc_identifier
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if ipv4_addresses_per_eni is not None:
-            input["ipv4_addresses_per_eni"] = ipv4_addresses_per_eni
+            input_["ipv4_addresses_per_eni"] = ipv4_addresses_per_eni
         if resource_config_dns_resolution is not None:
-            input["resource_config_dns_resolution"] = resource_config_dns_resolution
+            input_["resource_config_dns_resolution"] = resource_config_dns_resolution
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -155,11 +155,11 @@ class ResourceGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_resource_gateway_request.GetResourceGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["resource_gateway_identifier"] = resource_gateway_identifier
+        input_: aws_sdk_vpc_lattice.types.get_resource_gateway_request.GetResourceGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_gateway_identifier"] = resource_gateway_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,13 +196,13 @@ class ResourceGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_resource_gateway_request.UpdateResourceGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["resource_gateway_identifier"] = resource_gateway_identifier
+        input_: aws_sdk_vpc_lattice.types.update_resource_gateway_request.UpdateResourceGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_gateway_identifier"] = resource_gateway_identifier
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,11 +235,11 @@ class ResourceGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_resource_gateway_request.DeleteResourceGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["resource_gateway_identifier"] = resource_gateway_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_resource_gateway_request.DeleteResourceGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_gateway_identifier"] = resource_gateway_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,14 +276,14 @@ class ResourceGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_resource_gateways_request.ListResourceGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_resource_gateways_request.ListResourceGatewaysRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,27 +348,27 @@ class AsyncResourceGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_resource_gateway_request.CreateResourceGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.create_resource_gateway_request.CreateResourceGatewayRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if vpc_identifier is not None:
-            input["vpc_identifier"] = vpc_identifier
+            input_["vpc_identifier"] = vpc_identifier
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if ipv4_addresses_per_eni is not None:
-            input["ipv4_addresses_per_eni"] = ipv4_addresses_per_eni
+            input_["ipv4_addresses_per_eni"] = ipv4_addresses_per_eni
         if resource_config_dns_resolution is not None:
-            input["resource_config_dns_resolution"] = resource_config_dns_resolution
+            input_["resource_config_dns_resolution"] = resource_config_dns_resolution
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,11 +402,11 @@ class AsyncResourceGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_resource_gateway_request.GetResourceGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["resource_gateway_identifier"] = resource_gateway_identifier
+        input_: aws_sdk_vpc_lattice.types.get_resource_gateway_request.GetResourceGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_gateway_identifier"] = resource_gateway_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,13 +444,13 @@ class AsyncResourceGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_resource_gateway_request.UpdateResourceGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["resource_gateway_identifier"] = resource_gateway_identifier
+        input_: aws_sdk_vpc_lattice.types.update_resource_gateway_request.UpdateResourceGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_gateway_identifier"] = resource_gateway_identifier
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,11 +484,11 @@ class AsyncResourceGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_resource_gateway_request.DeleteResourceGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["resource_gateway_identifier"] = resource_gateway_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_resource_gateway_request.DeleteResourceGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_gateway_identifier"] = resource_gateway_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,14 +526,14 @@ class AsyncResourceGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_resource_gateways_request.ListResourceGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_resource_gateways_request.ListResourceGatewaysRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

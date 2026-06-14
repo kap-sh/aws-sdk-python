@@ -76,19 +76,19 @@ class FunctionVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.publish_version_request.PublishVersionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.publish_version_request.PublishVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if code_sha256 is not None:
-            input["code_sha256"] = code_sha256
+            input_["code_sha256"] = code_sha256
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if publish_to is not None:
-            input["publish_to"] = publish_to
+            input_["publish_to"] = publish_to
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,15 +131,15 @@ class FunctionVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_versions_by_function_request.ListVersionsByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_versions_by_function_request.ListVersionsByFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -194,19 +194,19 @@ class AsyncFunctionVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.publish_version_request.PublishVersionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.publish_version_request.PublishVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if code_sha256 is not None:
-            input["code_sha256"] = code_sha256
+            input_["code_sha256"] = code_sha256
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if publish_to is not None:
-            input["publish_to"] = publish_to
+            input_["publish_to"] = publish_to
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,15 +250,15 @@ class AsyncFunctionVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_versions_by_function_request.ListVersionsByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_versions_by_function_request.ListVersionsByFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -104,21 +104,19 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_route53globalresolver.types.disassociate_hosted_zone_input.DisassociateHostedZoneInput,
+    input_: aws_sdk_route53globalresolver.types.disassociate_hosted_zone_input.DisassociateHostedZoneInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-            Region=options.region,
+            UseFIPS=options.use_fips, Endpoint=options.endpoint, Region=options.region
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/hosted-zone-associations/hosted-zone/{hostedZoneId}/resource-arn/{resourceArn+}"
     )
-    url = url.replace("{hostedZoneId}", quote(str(input["hosted_zone_id"]), safe=""))
-    url = url.replace("{resourceArn+}", quote(str(input["resource_arn"]), safe="/"))
+    url = url.replace("{hostedZoneId}", quote(str(input_["hosted_zone_id"]), safe=""))
+    url = url.replace("{resourceArn+}", quote(str(input_["resource_arn"]), safe="/"))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -126,26 +124,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def disassociate_hosted_zone(
     options: OperationOptions,
-    input: aws_sdk_route53globalresolver.types.disassociate_hosted_zone_input.DisassociateHostedZoneInput,
+    input_: aws_sdk_route53globalresolver.types.disassociate_hosted_zone_input.DisassociateHostedZoneInput,
 ) -> tuple[
     aws_sdk_route53globalresolver.types.disassociate_hosted_zone_output.DisassociateHostedZoneOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -154,16 +149,17 @@ def disassociate_hosted_zone(
 
 async def async_disassociate_hosted_zone(
     options: AsyncOperationOptions,
-    input: aws_sdk_route53globalresolver.types.disassociate_hosted_zone_input.DisassociateHostedZoneInput,
+    input_: aws_sdk_route53globalresolver.types.disassociate_hosted_zone_input.DisassociateHostedZoneInput,
 ) -> tuple[
     aws_sdk_route53globalresolver.types.disassociate_hosted_zone_output.DisassociateHostedZoneOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

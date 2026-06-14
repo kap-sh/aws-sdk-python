@@ -51,10 +51,10 @@ class HubConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_hub_configuration_request.GetHubConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.get_hub_configuration_request.GetHubConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -87,13 +87,13 @@ class HubConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.put_hub_configuration_request.PutHubConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["hub_token_timer_expiry_setting_in_seconds"] = (
+        input_: aws_sdk_iot_managed_integrations.types.put_hub_configuration_request.PutHubConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_token_timer_expiry_setting_in_seconds"] = (
             hub_token_timer_expiry_setting_in_seconds
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -127,10 +127,10 @@ class AsyncHubConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_hub_configuration_request.GetHubConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.get_hub_configuration_request.GetHubConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -164,13 +164,13 @@ class AsyncHubConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.put_hub_configuration_request.PutHubConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["hub_token_timer_expiry_setting_in_seconds"] = (
+        input_: aws_sdk_iot_managed_integrations.types.put_hub_configuration_request.PutHubConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["hub_token_timer_expiry_setting_in_seconds"] = (
             hub_token_timer_expiry_setting_in_seconds
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_iotfleetwise._auth._signers
+import aws_sdk_iotfleetwise._auth._sigv4
 from aws_sdk_iotfleetwise._auth._identity import Credentials
 from aws_sdk_iotfleetwise._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,27 @@ from aws_sdk_iotfleetwise._auth._providers import (
 )
 from aws_sdk_iotfleetwise._auth._zapros_handler import AuthMiddleware
 from aws_sdk_iotfleetwise._pagination import resolve_path as _resolve_path
+from aws_sdk_iotfleetwise._resources.io_t_autobahn_control_plane.campaign_resource import (
+    CampaignResource,
+)
+from aws_sdk_iotfleetwise._resources.io_t_autobahn_control_plane.decoder_manifest_resource import (
+    DecoderManifestResource,
+)
+from aws_sdk_iotfleetwise._resources.io_t_autobahn_control_plane.fleet_resource import (
+    FleetResource,
+)
+from aws_sdk_iotfleetwise._resources.io_t_autobahn_control_plane.model_manifest_resource import (
+    ModelManifestResource,
+)
+from aws_sdk_iotfleetwise._resources.io_t_autobahn_control_plane.signal_catalog_resource import (
+    SignalCatalogResource,
+)
+from aws_sdk_iotfleetwise._resources.io_t_autobahn_control_plane.state_template_resource import (
+    StateTemplateResource,
+)
+from aws_sdk_iotfleetwise._resources.io_t_autobahn_control_plane.vehicle_resource import (
+    VehicleResource,
+)
 from aws_sdk_iotfleetwise._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -133,6 +156,14 @@ class IoTFleetWiseClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.campaign_resource = CampaignResource(self)
+        self.decoder_manifest_resource = DecoderManifestResource(self)
+        self.fleet_resource = FleetResource(self)
+        self.model_manifest_resource = ModelManifestResource(self)
+        self.signal_catalog_resource = SignalCatalogResource(self)
+        self.state_template_resource = StateTemplateResource(self)
+        self.vehicle_resource = VehicleResource(self)
 
     def operation_options(
         self, config_overrides: Optional[IoTFleetWiseClientConfig] = None
@@ -189,11 +220,11 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.batch_create_vehicle_request.BatchCreateVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicles"] = vehicles
+        input_: aws_sdk_iotfleetwise.types.batch_create_vehicle_request.BatchCreateVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicles"] = vehicles
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,11 +257,11 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.batch_update_vehicle_request.BatchUpdateVehicleRequest = {}  # type: ignore[typeddict-item]
-        input["vehicles"] = vehicles
+        input_: aws_sdk_iotfleetwise.types.batch_update_vehicle_request.BatchUpdateVehicleRequest = {}  # type: ignore[typeddict-item]
+        input_["vehicles"] = vehicles
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -256,10 +287,10 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_encryption_configuration_request.GetEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.get_encryption_configuration_request.GetEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,10 +316,10 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_logging_options_request.GetLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.get_logging_options_request.GetLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,10 +345,10 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_register_account_status_request.GetRegisterAccountStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.get_register_account_status_request.GetRegisterAccountStatusRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,15 +387,15 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_vehicle_status_request.GetVehicleStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.get_vehicle_status_request.GetVehicleStatusRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["vehicle_name"] = vehicle_name
+            input_["max_results"] = max_results
+        input_["vehicle_name"] = vehicle_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,11 +453,11 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iotfleetwise.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,13 +492,13 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.put_encryption_configuration_request.PutEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.put_encryption_configuration_request.PutEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["encryption_type"] = encryption_type
+            input_["kms_key_id"] = kms_key_id
+        input_["encryption_type"] = encryption_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,11 +531,11 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.put_logging_options_request.PutLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["cloud_watch_log_delivery"] = cloud_watch_log_delivery
+        input_: aws_sdk_iotfleetwise.types.put_logging_options_request.PutLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["cloud_watch_log_delivery"] = cloud_watch_log_delivery
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,14 +573,14 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.register_account_request.RegisterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.register_account_request.RegisterAccountRequest = {}  # type: ignore[typeddict-item]
         if timestream_resources is not None:
-            input["timestream_resources"] = timestream_resources
+            input_["timestream_resources"] = timestream_resources
         if iam_resources is not None:
-            input["iam_resources"] = iam_resources
+            input_["iam_resources"] = iam_resources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,12 +615,12 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iotfleetwise.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,12 +655,12 @@ class IoTFleetWiseClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iotfleetwise.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

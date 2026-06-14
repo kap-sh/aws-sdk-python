@@ -55,13 +55,13 @@ class ContactInformationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.put_contact_information_request.PutContactInformationRequest = {}  # type: ignore[typeddict-item]
-        input["contact_information"] = contact_information
+        input_: aws_sdk_account.types.put_contact_information_request.PutContactInformationRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_information"] = contact_information
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -94,12 +94,12 @@ class ContactInformationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_contact_information_request.GetContactInformationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_account.types.get_contact_information_request.GetContactInformationRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -138,13 +138,13 @@ class AsyncContactInformationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.put_contact_information_request.PutContactInformationRequest = {}  # type: ignore[typeddict-item]
-        input["contact_information"] = contact_information
+        input_: aws_sdk_account.types.put_contact_information_request.PutContactInformationRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_information"] = contact_information
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -178,12 +178,12 @@ class AsyncContactInformationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_contact_information_request.GetContactInformationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_account.types.get_contact_information_request.GetContactInformationRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

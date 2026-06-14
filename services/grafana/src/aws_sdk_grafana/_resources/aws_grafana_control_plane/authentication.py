@@ -57,11 +57,11 @@ class Authentication:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.describe_workspace_authentication_request.DescribeWorkspaceAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.describe_workspace_authentication_request.DescribeWorkspaceAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -100,14 +100,14 @@ class Authentication:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.update_workspace_authentication_request.UpdateWorkspaceAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["authentication_providers"] = authentication_providers
+        input_: aws_sdk_grafana.types.update_workspace_authentication_request.UpdateWorkspaceAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["authentication_providers"] = authentication_providers
         if saml_configuration is not None:
-            input["saml_configuration"] = saml_configuration
+            input_["saml_configuration"] = saml_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -146,11 +146,11 @@ class AsyncAuthentication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.describe_workspace_authentication_request.DescribeWorkspaceAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.describe_workspace_authentication_request.DescribeWorkspaceAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -190,14 +190,14 @@ class AsyncAuthentication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.update_workspace_authentication_request.UpdateWorkspaceAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["authentication_providers"] = authentication_providers
+        input_: aws_sdk_grafana.types.update_workspace_authentication_request.UpdateWorkspaceAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["authentication_providers"] = authentication_providers
         if saml_configuration is not None:
-            input["saml_configuration"] = saml_configuration
+            input_["saml_configuration"] = saml_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

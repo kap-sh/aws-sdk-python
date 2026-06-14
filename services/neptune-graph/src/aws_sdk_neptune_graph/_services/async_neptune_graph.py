@@ -16,6 +16,18 @@ from aws_sdk_neptune_graph._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_neptune_graph._auth._zapros_handler import AuthMiddleware
+from aws_sdk_neptune_graph._resources.amazon_neptune_graph.graph_resource import (
+    AsyncGraphResource,
+)
+from aws_sdk_neptune_graph._resources.amazon_neptune_graph.private_graph_endpoint_resource import (
+    AsyncPrivateGraphEndpointResource,
+)
+from aws_sdk_neptune_graph._resources.amazon_neptune_graph.snapshot_resource import (
+    AsyncSnapshotResource,
+)
+from aws_sdk_neptune_graph._resources.amazon_neptune_graph.task_resource import (
+    AsyncTaskResource,
+)
 from aws_sdk_neptune_graph._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -125,6 +137,11 @@ class AsyncNeptuneGraphClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.graph_resource = AsyncGraphResource(self)
+        self.private_graph_endpoint_resource = AsyncPrivateGraphEndpointResource(self)
+        self.snapshot_resource = AsyncSnapshotResource(self)
+        self.task_resource = AsyncTaskResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncNeptuneGraphClientConfig] = None
@@ -182,12 +199,12 @@ class AsyncNeptuneGraphClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.cancel_query_input.CancelQueryInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["query_id"] = query_id
+        input_: aws_sdk_neptune_graph.types.cancel_query_input.CancelQueryInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -240,21 +257,21 @@ class AsyncNeptuneGraphClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.execute_query_input.ExecuteQueryInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["query_string"] = query_string
-        input["language"] = language
+        input_: aws_sdk_neptune_graph.types.execute_query_input.ExecuteQueryInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["query_string"] = query_string
+        input_["language"] = language
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if plan_cache is not None:
-            input["plan_cache"] = plan_cache
+            input_["plan_cache"] = plan_cache
         if explain_mode is not None:
-            input["explain_mode"] = explain_mode
+            input_["explain_mode"] = explain_mode
         if query_timeout_milliseconds is not None:
-            input["query_timeout_milliseconds"] = query_timeout_milliseconds
+            input_["query_timeout_milliseconds"] = query_timeout_milliseconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,13 +309,13 @@ class AsyncNeptuneGraphClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_graph_summary_input.GetGraphSummaryInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
+        input_: aws_sdk_neptune_graph.types.get_graph_summary_input.GetGraphSummaryInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,12 +351,12 @@ class AsyncNeptuneGraphClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_query_input.GetQueryInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["query_id"] = query_id
+        input_: aws_sdk_neptune_graph.types.get_query_input.GetQueryInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,14 +396,14 @@ class AsyncNeptuneGraphClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_queries_input.ListQueriesInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["max_results"] = max_results
+        input_: aws_sdk_neptune_graph.types.list_queries_input.ListQueriesInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["max_results"] = max_results
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,11 +437,11 @@ class AsyncNeptuneGraphClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_neptune_graph.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,12 +477,12 @@ class AsyncNeptuneGraphClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_neptune_graph.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,12 +518,12 @@ class AsyncNeptuneGraphClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_neptune_graph.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

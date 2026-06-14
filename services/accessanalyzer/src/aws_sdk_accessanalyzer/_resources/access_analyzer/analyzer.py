@@ -83,20 +83,20 @@ class Analyzer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.create_analyzer_request.CreateAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
-        input["type"] = type
+        input_: aws_sdk_accessanalyzer.types.create_analyzer_request.CreateAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
+        input_["type"] = type
         if archive_rules is not None:
-            input["archive_rules"] = archive_rules
+            input_["archive_rules"] = archive_rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -129,11 +129,11 @@ class Analyzer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_analyzer_request.GetAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
+        input_: aws_sdk_accessanalyzer.types.get_analyzer_request.GetAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -169,13 +169,13 @@ class Analyzer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.update_analyzer_request.UpdateAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
+        input_: aws_sdk_accessanalyzer.types.update_analyzer_request.UpdateAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,13 +208,13 @@ class Analyzer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.delete_analyzer_request.DeleteAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
+        input_: aws_sdk_accessanalyzer.types.delete_analyzer_request.DeleteAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,16 +251,16 @@ class Analyzer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_analyzers_request.ListAnalyzersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_accessanalyzer.types.list_analyzers_request.ListAnalyzersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,13 +293,13 @@ class Analyzer:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.delete_service_linked_analyzer_request.DeleteServiceLinkedAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
+        input_: aws_sdk_accessanalyzer.types.delete_service_linked_analyzer_request.DeleteServiceLinkedAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,20 +352,20 @@ class AsyncAnalyzer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.create_analyzer_request.CreateAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
-        input["type"] = type
+        input_: aws_sdk_accessanalyzer.types.create_analyzer_request.CreateAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
+        input_["type"] = type
         if archive_rules is not None:
-            input["archive_rules"] = archive_rules
+            input_["archive_rules"] = archive_rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -399,11 +399,11 @@ class AsyncAnalyzer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_analyzer_request.GetAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
+        input_: aws_sdk_accessanalyzer.types.get_analyzer_request.GetAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,13 +440,13 @@ class AsyncAnalyzer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.update_analyzer_request.UpdateAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
+        input_: aws_sdk_accessanalyzer.types.update_analyzer_request.UpdateAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,13 +480,13 @@ class AsyncAnalyzer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.delete_analyzer_request.DeleteAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
+        input_: aws_sdk_accessanalyzer.types.delete_analyzer_request.DeleteAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -524,16 +524,16 @@ class AsyncAnalyzer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_analyzers_request.ListAnalyzersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_accessanalyzer.types.list_analyzers_request.ListAnalyzersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,13 +567,13 @@ class AsyncAnalyzer:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.delete_service_linked_analyzer_request.DeleteServiceLinkedAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_name"] = analyzer_name
+        input_: aws_sdk_accessanalyzer.types.delete_service_linked_analyzer_request.DeleteServiceLinkedAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_name"] = analyzer_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

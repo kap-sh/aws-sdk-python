@@ -72,15 +72,15 @@ class AddonInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_addon_instance_request.CreateAddonInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_addon_instance_request.CreateAddonInstanceRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["addon_subscription_id"] = addon_subscription_id
+            input_["client_token"] = client_token
+        input_["addon_subscription_id"] = addon_subscription_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,11 +115,11 @@ class AddonInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_addon_instance_request.GetAddonInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["addon_instance_id"] = addon_instance_id
+        input_: aws_sdk_mailmanager.types.get_addon_instance_request.GetAddonInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["addon_instance_id"] = addon_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,11 +152,11 @@ class AddonInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_addon_instance_request.DeleteAddonInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["addon_instance_id"] = addon_instance_id
+        input_: aws_sdk_mailmanager.types.delete_addon_instance_request.DeleteAddonInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["addon_instance_id"] = addon_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -193,14 +193,14 @@ class AddonInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_addon_instances_request.ListAddonInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_addon_instances_request.ListAddonInstancesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,15 +245,15 @@ class AsyncAddonInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_addon_instance_request.CreateAddonInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_addon_instance_request.CreateAddonInstanceRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["addon_subscription_id"] = addon_subscription_id
+            input_["client_token"] = client_token
+        input_["addon_subscription_id"] = addon_subscription_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -289,11 +289,11 @@ class AsyncAddonInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_addon_instance_request.GetAddonInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["addon_instance_id"] = addon_instance_id
+        input_: aws_sdk_mailmanager.types.get_addon_instance_request.GetAddonInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["addon_instance_id"] = addon_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,11 +327,11 @@ class AsyncAddonInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_addon_instance_request.DeleteAddonInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["addon_instance_id"] = addon_instance_id
+        input_: aws_sdk_mailmanager.types.delete_addon_instance_request.DeleteAddonInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["addon_instance_id"] = addon_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -369,14 +369,14 @@ class AsyncAddonInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_addon_instances_request.ListAddonInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_addon_instances_request.ListAddonInstancesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

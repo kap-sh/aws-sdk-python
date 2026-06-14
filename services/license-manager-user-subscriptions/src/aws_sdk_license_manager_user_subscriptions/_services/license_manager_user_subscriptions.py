@@ -219,17 +219,17 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.associate_user_request.AssociateUserRequest = {}  # type: ignore[typeddict-item]
-        input["username"] = username
-        input["instance_id"] = instance_id
-        input["identity_provider"] = identity_provider
+        input_: aws_sdk_license_manager_user_subscriptions.types.associate_user_request.AssociateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["username"] = username
+        input_["instance_id"] = instance_id
+        input_["identity_provider"] = identity_provider
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -268,14 +268,14 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.create_license_server_endpoint_request.CreateLicenseServerEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider_arn"] = identity_provider_arn
-        input["license_server_settings"] = license_server_settings
+        input_: aws_sdk_license_manager_user_subscriptions.types.create_license_server_endpoint_request.CreateLicenseServerEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider_arn"] = identity_provider_arn
+        input_["license_server_settings"] = license_server_settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,12 +310,12 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.delete_license_server_endpoint_request.DeleteLicenseServerEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["license_server_endpoint_arn"] = license_server_endpoint_arn
-        input["server_type"] = server_type
+        input_: aws_sdk_license_manager_user_subscriptions.types.delete_license_server_endpoint_request.DeleteLicenseServerEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["license_server_endpoint_arn"] = license_server_endpoint_arn
+        input_["server_type"] = server_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,16 +356,16 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.deregister_identity_provider_request.DeregisterIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_user_subscriptions.types.deregister_identity_provider_request.DeregisterIdentityProviderRequest = {}  # type: ignore[typeddict-item]
         if identity_provider is not None:
-            input["identity_provider"] = identity_provider
+            input_["identity_provider"] = identity_provider
         if product is not None:
-            input["product"] = product
+            input_["product"] = product
         if identity_provider_arn is not None:
-            input["identity_provider_arn"] = identity_provider_arn
+            input_["identity_provider_arn"] = identity_provider_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,20 +410,20 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.disassociate_user_request.DisassociateUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_user_subscriptions.types.disassociate_user_request.DisassociateUserRequest = {}  # type: ignore[typeddict-item]
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if identity_provider is not None:
-            input["identity_provider"] = identity_provider
+            input_["identity_provider"] = identity_provider
         if instance_user_arn is not None:
-            input["instance_user_arn"] = instance_user_arn
+            input_["instance_user_arn"] = instance_user_arn
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,16 +464,16 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.list_identity_providers_request.ListIdentityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_user_subscriptions.types.list_identity_providers_request.ListIdentityProvidersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -541,16 +541,16 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_user_subscriptions.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -618,16 +618,16 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.list_license_server_endpoints_request.ListLicenseServerEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_user_subscriptions.types.list_license_server_endpoints_request.ListLicenseServerEndpointsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -699,19 +699,19 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.list_product_subscriptions_request.ListProductSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_user_subscriptions.types.list_product_subscriptions_request.ListProductSubscriptionsRequest = {}  # type: ignore[typeddict-item]
         if product is not None:
-            input["product"] = product
-        input["identity_provider"] = identity_provider
+            input_["product"] = product
+        input_["identity_provider"] = identity_provider
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -775,11 +775,11 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_license_manager_user_subscriptions.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -824,18 +824,18 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.list_user_associations_request.ListUserAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["identity_provider"] = identity_provider
+        input_: aws_sdk_license_manager_user_subscriptions.types.list_user_associations_request.ListUserAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["identity_provider"] = identity_provider
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -909,16 +909,16 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.register_identity_provider_request.RegisterIdentityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["identity_provider"] = identity_provider
-        input["product"] = product
+        input_: aws_sdk_license_manager_user_subscriptions.types.register_identity_provider_request.RegisterIdentityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_provider"] = identity_provider
+        input_["product"] = product
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -961,17 +961,17 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.start_product_subscription_request.StartProductSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["username"] = username
-        input["identity_provider"] = identity_provider
-        input["product"] = product
+        input_: aws_sdk_license_manager_user_subscriptions.types.start_product_subscription_request.StartProductSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["username"] = username
+        input_["identity_provider"] = identity_provider
+        input_["product"] = product
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1016,20 +1016,20 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.stop_product_subscription_request.StopProductSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_user_subscriptions.types.stop_product_subscription_request.StopProductSubscriptionRequest = {}  # type: ignore[typeddict-item]
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if identity_provider is not None:
-            input["identity_provider"] = identity_provider
+            input_["identity_provider"] = identity_provider
         if product is not None:
-            input["product"] = product
+            input_["product"] = product
         if product_user_arn is not None:
-            input["product_user_arn"] = product_user_arn
+            input_["product_user_arn"] = product_user_arn
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1064,12 +1064,12 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_license_manager_user_subscriptions.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1104,12 +1104,12 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_license_manager_user_subscriptions.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1151,17 +1151,17 @@ class LicenseManagerUserSubscriptionsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_request.UpdateIdentityProviderSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager_user_subscriptions.types.update_identity_provider_settings_request.UpdateIdentityProviderSettingsRequest = {}  # type: ignore[typeddict-item]
         if identity_provider is not None:
-            input["identity_provider"] = identity_provider
+            input_["identity_provider"] = identity_provider
         if product is not None:
-            input["product"] = product
+            input_["product"] = product
         if identity_provider_arn is not None:
-            input["identity_provider_arn"] = identity_provider_arn
-        input["update_settings"] = update_settings
+            input_["identity_provider_arn"] = identity_provider_arn
+        input_["update_settings"] = update_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

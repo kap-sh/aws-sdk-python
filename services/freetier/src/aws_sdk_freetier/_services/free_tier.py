@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_freetier._auth._signers
+import aws_sdk_freetier._auth._sigv4
 from aws_sdk_freetier._auth._identity import Credentials
 from aws_sdk_freetier._auth._providers import (
     CredentialsProvider,
@@ -173,13 +175,13 @@ class FreeTierClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_freetier.types.get_account_activity_request.GetAccountActivityRequest = {}  # type: ignore[typeddict-item]
-        input["activity_id"] = activity_id
+        input_: aws_sdk_freetier.types.get_account_activity_request.GetAccountActivityRequest = {}  # type: ignore[typeddict-item]
+        input_["activity_id"] = activity_id
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,10 +225,10 @@ class FreeTierClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_freetier.types.get_account_plan_state_request.GetAccountPlanStateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_freetier.types.get_account_plan_state_request.GetAccountPlanStateRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,16 +267,16 @@ class FreeTierClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_freetier.types.get_free_tier_usage_request.GetFreeTierUsageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_freetier.types.get_free_tier_usage_request.GetFreeTierUsageRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,18 +351,18 @@ class FreeTierClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_freetier.types.list_account_activities_request.ListAccountActivitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_freetier.types.list_account_activities_request.ListAccountActivitiesRequest = {}  # type: ignore[typeddict-item]
         if filter_activity_statuses is not None:
-            input["filter_activity_statuses"] = filter_activity_statuses
+            input_["filter_activity_statuses"] = filter_activity_statuses
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,11 +446,11 @@ class FreeTierClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_freetier.types.upgrade_account_plan_request.UpgradeAccountPlanRequest = {}  # type: ignore[typeddict-item]
-        input["account_plan_type"] = account_plan_type
+        input_: aws_sdk_freetier.types.upgrade_account_plan_request.UpgradeAccountPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["account_plan_type"] = account_plan_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

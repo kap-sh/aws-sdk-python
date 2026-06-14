@@ -55,12 +55,12 @@ class CommercialToGovCloudGatewayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_gov_cloud_account_information_request.GetGovCloudAccountInformationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_account.types.get_gov_cloud_account_information_request.GetGovCloudAccountInformationRequest = {}  # type: ignore[typeddict-item]
         if standard_account_id is not None:
-            input["standard_account_id"] = standard_account_id
+            input_["standard_account_id"] = standard_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -101,12 +101,12 @@ class AsyncCommercialToGovCloudGatewayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_gov_cloud_account_information_request.GetGovCloudAccountInformationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_account.types.get_gov_cloud_account_information_request.GetGovCloudAccountInformationRequest = {}  # type: ignore[typeddict-item]
         if standard_account_id is not None:
-            input["standard_account_id"] = standard_account_id
+            input_["standard_account_id"] = standard_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

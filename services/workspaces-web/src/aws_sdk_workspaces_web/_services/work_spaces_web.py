@@ -23,6 +23,16 @@ from aws_sdk_workspaces_web._auth._providers import CredentialsProvider, StaticA
 from aws_sdk_workspaces_web._auth._providers import BearerTokenProvider, StaticBearerTokenProvider
 from aws_sdk_workspaces_web._auth._providers import BasicCredentialsProvider, StaticBasicCredentialsProvider
 from aws_sdk_workspaces_web._auth._providers import ApiKeyProvider, StaticApiKeyProvider
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.browser_settings_resource import BrowserSettingsResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.data_protection_settings_resource import DataProtectionSettingsResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.identity_provider_resource import IdentityProviderResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.ip_access_settings_resource import IpAccessSettingsResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.network_settings_resource import NetworkSettingsResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.portal_resource import PortalResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.session_logger_resource import SessionLoggerResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.trust_store_resource import TrustStoreResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.user_access_logging_settings_resource import UserAccessLoggingSettingsResource
+from aws_sdk_workspaces_web._resources.aws_ermine_control_plane_service.user_settings_resource import UserSettingsResource
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
     import aws_sdk_workspaces_web.types.client_token
@@ -88,6 +98,17 @@ class WorkSpacesWebClient:
         if credentials_provider is None and credentials is not None:
             credentials_provider = StaticAwsCredentialsProvider(credentials)
         self.config = WorkSpacesWebClientConfig({"operation_interceptors": operation_interceptors or [], "retry_max_attempts": DEFAULT_RETRY_MAX_ATTEMPTS if retry_max_attempts is None else retry_max_attempts, "region": region, "use_dual_stack": use_dual_stack, "use_fips": use_fips, "endpoint": endpoint, "credentials_provider": credentials_provider})
+        # resources
+        self.browser_settings_resource = BrowserSettingsResource(self)
+        self.data_protection_settings_resource = DataProtectionSettingsResource(self)
+        self.identity_provider_resource = IdentityProviderResource(self)
+        self.ip_access_settings_resource = IpAccessSettingsResource(self)
+        self.network_settings_resource = NetworkSettingsResource(self)
+        self.portal_resource = PortalResource(self)
+        self.session_logger_resource = SessionLoggerResource(self)
+        self.trust_store_resource = TrustStoreResource(self)
+        self.user_access_logging_settings_resource = UserAccessLoggingSettingsResource(self)
+        self.user_settings_resource = UserSettingsResource(self)
     def operation_options(self, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> tuple[Iterable[Interceptor[Any, Any]], OperationOptions]:
         overrides: WorkSpacesWebClientConfig = config_overrides or {}
         interceptors_: list[Interceptor[Any, Any]] = [*overrides.get("operation_interceptors", self.config.get("operation_interceptors", [])), retry()]
@@ -106,11 +127,11 @@ class WorkSpacesWebClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.expire_session_request.ExpireSessionRequest = {}  # type: ignore[typeddict-item]
-        input["portal_id"] = portal_id
-        input["session_id"] = session_id
+        input_: aws_sdk_workspaces_web.types.expire_session_request.ExpireSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_id"] = portal_id
+        input_["session_id"] = session_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def get_session(self, portal_id: "aws_sdk_workspaces_web.types.portal_id.PortalId", session_id: "aws_sdk_workspaces_web.types.session_id.SessionId", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.get_session_response.GetSessionResponse":
         """<p>Gets information for a secure browser session.</p>
@@ -125,11 +146,11 @@ class WorkSpacesWebClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["portal_id"] = portal_id
-        input["session_id"] = session_id
+        input_: aws_sdk_workspaces_web.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_id"] = portal_id
+        input_["session_id"] = session_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_sessions(self, portal_id: "aws_sdk_workspaces_web.types.portal_id.PortalId", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, username: Optional["aws_sdk_workspaces_web.types.username.Username"] = None, session_id: Optional["aws_sdk_workspaces_web.types.session_id.SessionId"] = None, sort_by: Optional["aws_sdk_workspaces_web.types.session_sort_by.SessionSortBy"] = None, status: Optional["aws_sdk_workspaces_web.types.session_status.SessionStatus"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces_web.types.list_sessions_response.ListSessionsResponse":
         """<p>Lists information for multiple secure browser sessions from a specific portal.</p>
@@ -149,22 +170,22 @@ class WorkSpacesWebClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["portal_id"] = portal_id
+        input_: aws_sdk_workspaces_web.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["portal_id"] = portal_id
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def iter_list_sessions(self, portal_id: "aws_sdk_workspaces_web.types.portal_id.PortalId", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, username: Optional["aws_sdk_workspaces_web.types.username.Username"] = None, session_id: Optional["aws_sdk_workspaces_web.types.session_id.SessionId"] = None, sort_by: Optional["aws_sdk_workspaces_web.types.session_sort_by.SessionSortBy"] = None, status: Optional["aws_sdk_workspaces_web.types.session_status.SessionStatus"] = None, max_results: Optional["aws_sdk_workspaces_web.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_workspaces_web.types.pagination_token.PaginationToken"] = None) -> "Iterator[aws_sdk_workspaces_web.types.session_summary.SessionSummary]":
         _token = next_token
@@ -197,10 +218,10 @@ class WorkSpacesWebClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_workspaces_web.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def tag_resource(self, resource_arn: "aws_sdk_workspaces_web.types.arn.ARN", tags: "aws_sdk_workspaces_web.types.tag_list.TagList", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None, client_token: Optional["aws_sdk_workspaces_web.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces_web.types.tag_resource_response.TagResourceResponse":
         """<p>Adds or overwrites one or more tags for the specified resource.</p>
@@ -216,13 +237,13 @@ class WorkSpacesWebClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_workspaces_web.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def untag_resource(self, resource_arn: "aws_sdk_workspaces_web.types.arn.ARN", tag_keys: "aws_sdk_workspaces_web.types.tag_key_list.TagKeyList", *, config_overrides: Optional[WorkSpacesWebClientConfig] = None) -> "aws_sdk_workspaces_web.types.untag_resource_response.UntagResourceResponse":
         """<p>Removes one or more tags from the specified resource.</p>
@@ -237,11 +258,11 @@ class WorkSpacesWebClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_web.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_workspaces_web.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def __enter__(self) -> Self:
         return self

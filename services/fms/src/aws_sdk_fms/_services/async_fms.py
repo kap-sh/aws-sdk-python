@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_fms._auth._signers
+import aws_sdk_fms._auth._sigv4
 from aws_sdk_fms._auth._identity import Credentials
 from aws_sdk_fms._auth._providers import (
     CredentialsProvider,
@@ -256,11 +258,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.associate_admin_account_request.AssociateAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account"] = admin_account
+        input_: aws_sdk_fms.types.associate_admin_account_request.AssociateAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account"] = admin_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,11 +296,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.associate_third_party_firewall_request.AssociateThirdPartyFirewallRequest = {}  # type: ignore[typeddict-item]
-        input["third_party_firewall"] = third_party_firewall
+        input_: aws_sdk_fms.types.associate_third_party_firewall_request.AssociateThirdPartyFirewallRequest = {}  # type: ignore[typeddict-item]
+        input_["third_party_firewall"] = third_party_firewall
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,12 +336,12 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.batch_associate_resource_request.BatchAssociateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_set_identifier"] = resource_set_identifier
-        input["items"] = items
+        input_: aws_sdk_fms.types.batch_associate_resource_request.BatchAssociateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_set_identifier"] = resource_set_identifier
+        input_["items"] = items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,12 +377,12 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.batch_disassociate_resource_request.BatchDisassociateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_set_identifier"] = resource_set_identifier
-        input["items"] = items
+        input_: aws_sdk_fms.types.batch_disassociate_resource_request.BatchDisassociateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_set_identifier"] = resource_set_identifier
+        input_["items"] = items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,11 +414,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.delete_apps_list_request.DeleteAppsListRequest = {}  # type: ignore[typeddict-item]
-        input["list_id"] = list_id
+        input_: aws_sdk_fms.types.delete_apps_list_request.DeleteAppsListRequest = {}  # type: ignore[typeddict-item]
+        input_["list_id"] = list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,10 +443,10 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.delete_notification_channel_request.DeleteNotificationChannelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.delete_notification_channel_request.DeleteNotificationChannelRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,13 +482,13 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_fms.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
         if delete_all_policy_resources is not None:
-            input["delete_all_policy_resources"] = delete_all_policy_resources
+            input_["delete_all_policy_resources"] = delete_all_policy_resources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,11 +520,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.delete_protocols_list_request.DeleteProtocolsListRequest = {}  # type: ignore[typeddict-item]
-        input["list_id"] = list_id
+        input_: aws_sdk_fms.types.delete_protocols_list_request.DeleteProtocolsListRequest = {}  # type: ignore[typeddict-item]
+        input_["list_id"] = list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,11 +556,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.delete_resource_set_request.DeleteResourceSetRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_fms.types.delete_resource_set_request.DeleteResourceSetRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -583,10 +585,10 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.disassociate_admin_account_request.DisassociateAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.disassociate_admin_account_request.DisassociateAdminAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,11 +622,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.disassociate_third_party_firewall_request.DisassociateThirdPartyFirewallRequest = {}  # type: ignore[typeddict-item]
-        input["third_party_firewall"] = third_party_firewall
+        input_: aws_sdk_fms.types.disassociate_third_party_firewall_request.DisassociateThirdPartyFirewallRequest = {}  # type: ignore[typeddict-item]
+        input_["third_party_firewall"] = third_party_firewall
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,10 +653,10 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_admin_account_request.GetAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.get_admin_account_request.GetAdminAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -688,11 +690,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_admin_scope_request.GetAdminScopeRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account"] = admin_account
+        input_: aws_sdk_fms.types.get_admin_scope_request.GetAdminScopeRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account"] = admin_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -728,13 +730,13 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_apps_list_request.GetAppsListRequest = {}  # type: ignore[typeddict-item]
-        input["list_id"] = list_id
+        input_: aws_sdk_fms.types.get_apps_list_request.GetAppsListRequest = {}  # type: ignore[typeddict-item]
+        input_["list_id"] = list_id
         if default_list is not None:
-            input["default_list"] = default_list
+            input_["default_list"] = default_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -770,12 +772,12 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_compliance_detail_request.GetComplianceDetailRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
-        input["member_account"] = member_account
+        input_: aws_sdk_fms.types.get_compliance_detail_request.GetComplianceDetailRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
+        input_["member_account"] = member_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -802,10 +804,10 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_notification_channel_request.GetNotificationChannelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.get_notification_channel_request.GetNotificationChannelRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -839,11 +841,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_fms.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -893,21 +895,21 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_protection_status_request.GetProtectionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_fms.types.get_protection_status_request.GetProtectionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
         if member_account_id is not None:
-            input["member_account_id"] = member_account_id
+            input_["member_account_id"] = member_account_id
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -943,13 +945,13 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_protocols_list_request.GetProtocolsListRequest = {}  # type: ignore[typeddict-item]
-        input["list_id"] = list_id
+        input_: aws_sdk_fms.types.get_protocols_list_request.GetProtocolsListRequest = {}  # type: ignore[typeddict-item]
+        input_["list_id"] = list_id
         if default_list is not None:
-            input["default_list"] = default_list
+            input_["default_list"] = default_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -983,11 +985,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_resource_set_request.GetResourceSetRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_fms.types.get_resource_set_request.GetResourceSetRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1021,11 +1023,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_third_party_firewall_association_status_request.GetThirdPartyFirewallAssociationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["third_party_firewall"] = third_party_firewall
+        input_: aws_sdk_fms.types.get_third_party_firewall_association_status_request.GetThirdPartyFirewallAssociationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["third_party_firewall"] = third_party_firewall
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1065,14 +1067,14 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.get_violation_details_request.GetViolationDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
-        input["member_account"] = member_account
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_fms.types.get_violation_details_request.GetViolationDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
+        input_["member_account"] = member_account
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1112,14 +1114,14 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_admin_accounts_for_organization_request.ListAdminAccountsForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.list_admin_accounts_for_organization_request.ListAdminAccountsForOrganizationRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1184,14 +1186,14 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_admins_managing_account_request.ListAdminsManagingAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.list_admins_managing_account_request.ListAdminsManagingAccountRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1256,15 +1258,15 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_apps_lists_request.ListAppsListsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.list_apps_lists_request.ListAppsListsRequest = {}  # type: ignore[typeddict-item]
         if default_lists is not None:
-            input["default_lists"] = default_lists
+            input_["default_lists"] = default_lists
         if next_token is not None:
-            input["next_token"] = next_token
-        input["max_results"] = max_results
+            input_["next_token"] = next_token
+        input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1333,15 +1335,15 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_compliance_status_request.ListComplianceStatusRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_fms.types.list_compliance_status_request.ListComplianceStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1412,16 +1414,16 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_discovered_resources_request.ListDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["member_account_ids"] = member_account_ids
-        input["resource_type"] = resource_type
+        input_: aws_sdk_fms.types.list_discovered_resources_request.ListDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["member_account_ids"] = member_account_ids
+        input_["resource_type"] = resource_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1461,14 +1463,14 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_member_accounts_request.ListMemberAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.list_member_accounts_request.ListMemberAccountsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,14 +1535,14 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1605,15 +1607,15 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_protocols_lists_request.ListProtocolsListsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.list_protocols_lists_request.ListProtocolsListsRequest = {}  # type: ignore[typeddict-item]
         if default_lists is not None:
-            input["default_lists"] = default_lists
+            input_["default_lists"] = default_lists
         if next_token is not None:
-            input["next_token"] = next_token
-        input["max_results"] = max_results
+            input_["next_token"] = next_token
+        input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1680,15 +1682,15 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_resource_set_resources_request.ListResourceSetResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_fms.types.list_resource_set_resources_request.ListResourceSetResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1728,14 +1730,14 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_resource_sets_request.ListResourceSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_fms.types.list_resource_sets_request.ListResourceSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1771,11 +1773,11 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_fms.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1815,14 +1817,14 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.list_third_party_firewall_firewall_policies_request.ListThirdPartyFirewallFirewallPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["third_party_firewall"] = third_party_firewall
+        input_: aws_sdk_fms.types.list_third_party_firewall_firewall_policies_request.ListThirdPartyFirewallFirewallPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["third_party_firewall"] = third_party_firewall
         if next_token is not None:
-            input["next_token"] = next_token
-        input["max_results"] = max_results
+            input_["next_token"] = next_token
+        input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1883,13 +1885,13 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.put_admin_account_request.PutAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account"] = admin_account
+        input_: aws_sdk_fms.types.put_admin_account_request.PutAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account"] = admin_account
         if admin_scope is not None:
-            input["admin_scope"] = admin_scope
+            input_["admin_scope"] = admin_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1925,13 +1927,13 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.put_apps_list_request.PutAppsListRequest = {}  # type: ignore[typeddict-item]
-        input["apps_list"] = apps_list
+        input_: aws_sdk_fms.types.put_apps_list_request.PutAppsListRequest = {}  # type: ignore[typeddict-item]
+        input_["apps_list"] = apps_list
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1965,12 +1967,12 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.put_notification_channel_request.PutNotificationChannelRequest = {}  # type: ignore[typeddict-item]
-        input["sns_topic_arn"] = sns_topic_arn
-        input["sns_role_name"] = sns_role_name
+        input_: aws_sdk_fms.types.put_notification_channel_request.PutNotificationChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["sns_topic_arn"] = sns_topic_arn
+        input_["sns_role_name"] = sns_role_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2006,13 +2008,13 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.put_policy_request.PutPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy"] = policy
+        input_: aws_sdk_fms.types.put_policy_request.PutPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy"] = policy
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2048,13 +2050,13 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.put_protocols_list_request.PutProtocolsListRequest = {}  # type: ignore[typeddict-item]
-        input["protocols_list"] = protocols_list
+        input_: aws_sdk_fms.types.put_protocols_list_request.PutProtocolsListRequest = {}  # type: ignore[typeddict-item]
+        input_["protocols_list"] = protocols_list
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2090,13 +2092,13 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.put_resource_set_request.PutResourceSetRequest = {}  # type: ignore[typeddict-item]
-        input["resource_set"] = resource_set
+        input_: aws_sdk_fms.types.put_resource_set_request.PutResourceSetRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_set"] = resource_set
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2132,12 +2134,12 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_list"] = tag_list
+        input_: aws_sdk_fms.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_list"] = tag_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2173,12 +2175,12 @@ class AsyncFMSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_fms.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_fms.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

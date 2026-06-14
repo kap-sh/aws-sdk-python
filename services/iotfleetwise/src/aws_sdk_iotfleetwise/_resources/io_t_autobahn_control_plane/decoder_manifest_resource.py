@@ -104,22 +104,22 @@ class DecoderManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_decoder_manifest_request.CreateDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_decoder_manifest_request.CreateDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["model_manifest_arn"] = model_manifest_arn
+            input_["description"] = description
+        input_["model_manifest_arn"] = model_manifest_arn
         if signal_decoders is not None:
-            input["signal_decoders"] = signal_decoders
+            input_["signal_decoders"] = signal_decoders
         if network_interfaces is not None:
-            input["network_interfaces"] = network_interfaces
+            input_["network_interfaces"] = network_interfaces
         if default_for_unmapped_signals is not None:
-            input["default_for_unmapped_signals"] = default_for_unmapped_signals
+            input_["default_for_unmapped_signals"] = default_for_unmapped_signals
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,11 +152,11 @@ class DecoderManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_decoder_manifest_request.GetDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.get_decoder_manifest_request.GetDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -225,29 +225,29 @@ class DecoderManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_decoder_manifest_request.UpdateDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.update_decoder_manifest_request.UpdateDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if signal_decoders_to_add is not None:
-            input["signal_decoders_to_add"] = signal_decoders_to_add
+            input_["signal_decoders_to_add"] = signal_decoders_to_add
         if signal_decoders_to_update is not None:
-            input["signal_decoders_to_update"] = signal_decoders_to_update
+            input_["signal_decoders_to_update"] = signal_decoders_to_update
         if signal_decoders_to_remove is not None:
-            input["signal_decoders_to_remove"] = signal_decoders_to_remove
+            input_["signal_decoders_to_remove"] = signal_decoders_to_remove
         if network_interfaces_to_add is not None:
-            input["network_interfaces_to_add"] = network_interfaces_to_add
+            input_["network_interfaces_to_add"] = network_interfaces_to_add
         if network_interfaces_to_update is not None:
-            input["network_interfaces_to_update"] = network_interfaces_to_update
+            input_["network_interfaces_to_update"] = network_interfaces_to_update
         if network_interfaces_to_remove is not None:
-            input["network_interfaces_to_remove"] = network_interfaces_to_remove
+            input_["network_interfaces_to_remove"] = network_interfaces_to_remove
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if default_for_unmapped_signals is not None:
-            input["default_for_unmapped_signals"] = default_for_unmapped_signals
+            input_["default_for_unmapped_signals"] = default_for_unmapped_signals
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,11 +280,11 @@ class DecoderManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_decoder_manifest_request.DeleteDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.delete_decoder_manifest_request.DeleteDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,18 +327,18 @@ class DecoderManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_decoder_manifests_request.ListDecoderManifestsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_decoder_manifests_request.ListDecoderManifestsRequest = {}  # type: ignore[typeddict-item]
         if model_manifest_arn is not None:
-            input["model_manifest_arn"] = model_manifest_arn
+            input_["model_manifest_arn"] = model_manifest_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,12 +373,12 @@ class DecoderManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.import_decoder_manifest_request.ImportDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["network_file_definitions"] = network_file_definitions
+        input_: aws_sdk_iotfleetwise.types.import_decoder_manifest_request.ImportDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["network_file_definitions"] = network_file_definitions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,15 +417,15 @@ class DecoderManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_decoder_manifest_network_interfaces_request.ListDecoderManifestNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.list_decoder_manifest_network_interfaces_request.ListDecoderManifestNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,15 +464,15 @@ class DecoderManifestResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_decoder_manifest_signals_request.ListDecoderManifestSignalsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.list_decoder_manifest_signals_request.ListDecoderManifestSignalsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,22 +531,22 @@ class AsyncDecoderManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_decoder_manifest_request.CreateDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_decoder_manifest_request.CreateDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["model_manifest_arn"] = model_manifest_arn
+            input_["description"] = description
+        input_["model_manifest_arn"] = model_manifest_arn
         if signal_decoders is not None:
-            input["signal_decoders"] = signal_decoders
+            input_["signal_decoders"] = signal_decoders
         if network_interfaces is not None:
-            input["network_interfaces"] = network_interfaces
+            input_["network_interfaces"] = network_interfaces
         if default_for_unmapped_signals is not None:
-            input["default_for_unmapped_signals"] = default_for_unmapped_signals
+            input_["default_for_unmapped_signals"] = default_for_unmapped_signals
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -580,11 +580,11 @@ class AsyncDecoderManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_decoder_manifest_request.GetDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.get_decoder_manifest_request.GetDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,29 +654,29 @@ class AsyncDecoderManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_decoder_manifest_request.UpdateDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.update_decoder_manifest_request.UpdateDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if signal_decoders_to_add is not None:
-            input["signal_decoders_to_add"] = signal_decoders_to_add
+            input_["signal_decoders_to_add"] = signal_decoders_to_add
         if signal_decoders_to_update is not None:
-            input["signal_decoders_to_update"] = signal_decoders_to_update
+            input_["signal_decoders_to_update"] = signal_decoders_to_update
         if signal_decoders_to_remove is not None:
-            input["signal_decoders_to_remove"] = signal_decoders_to_remove
+            input_["signal_decoders_to_remove"] = signal_decoders_to_remove
         if network_interfaces_to_add is not None:
-            input["network_interfaces_to_add"] = network_interfaces_to_add
+            input_["network_interfaces_to_add"] = network_interfaces_to_add
         if network_interfaces_to_update is not None:
-            input["network_interfaces_to_update"] = network_interfaces_to_update
+            input_["network_interfaces_to_update"] = network_interfaces_to_update
         if network_interfaces_to_remove is not None:
-            input["network_interfaces_to_remove"] = network_interfaces_to_remove
+            input_["network_interfaces_to_remove"] = network_interfaces_to_remove
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if default_for_unmapped_signals is not None:
-            input["default_for_unmapped_signals"] = default_for_unmapped_signals
+            input_["default_for_unmapped_signals"] = default_for_unmapped_signals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -710,11 +710,11 @@ class AsyncDecoderManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_decoder_manifest_request.DeleteDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.delete_decoder_manifest_request.DeleteDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -758,18 +758,18 @@ class AsyncDecoderManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_decoder_manifests_request.ListDecoderManifestsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_decoder_manifests_request.ListDecoderManifestsRequest = {}  # type: ignore[typeddict-item]
         if model_manifest_arn is not None:
-            input["model_manifest_arn"] = model_manifest_arn
+            input_["model_manifest_arn"] = model_manifest_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -805,12 +805,12 @@ class AsyncDecoderManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.import_decoder_manifest_request.ImportDecoderManifestRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["network_file_definitions"] = network_file_definitions
+        input_: aws_sdk_iotfleetwise.types.import_decoder_manifest_request.ImportDecoderManifestRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["network_file_definitions"] = network_file_definitions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -850,15 +850,15 @@ class AsyncDecoderManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_decoder_manifest_network_interfaces_request.ListDecoderManifestNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.list_decoder_manifest_network_interfaces_request.ListDecoderManifestNetworkInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -898,15 +898,15 @@ class AsyncDecoderManifestResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_decoder_manifest_signals_request.ListDecoderManifestSignalsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.list_decoder_manifest_signals_request.ListDecoderManifestSignalsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -79,7 +79,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput,
+    input_: aws_sdk_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -101,7 +101,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb.types.batch_execute_statement_input.serialize_aws_json_1_0(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
@@ -115,12 +115,12 @@ def build_request(
 
 def batch_execute_statement(
     options: OperationOptions,
-    input: aws_sdk_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput,
+    input_: aws_sdk_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.batch_execute_statement_output.BatchExecuteStatementOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -134,12 +134,12 @@ def batch_execute_statement(
 
 async def async_batch_execute_statement(
     options: AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput,
+    input_: aws_sdk_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.batch_execute_statement_output.BatchExecuteStatementOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -169,16 +169,16 @@ class ConnectContactLensClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect_contact_lens.types.list_realtime_contact_analysis_segments_request.ListRealtimeContactAnalysisSegmentsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect_contact_lens.types.list_realtime_contact_analysis_segments_request.ListRealtimeContactAnalysisSegmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

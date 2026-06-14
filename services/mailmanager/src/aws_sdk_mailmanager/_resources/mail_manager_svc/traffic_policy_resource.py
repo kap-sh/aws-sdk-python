@@ -90,19 +90,19 @@ class TrafficPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_traffic_policy_request.CreateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_traffic_policy_request.CreateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["traffic_policy_name"] = traffic_policy_name
-        input["policy_statements"] = policy_statements
-        input["default_action"] = default_action
+            input_["client_token"] = client_token
+        input_["traffic_policy_name"] = traffic_policy_name
+        input_["policy_statements"] = policy_statements
+        input_["default_action"] = default_action
         if max_message_size_bytes is not None:
-            input["max_message_size_bytes"] = max_message_size_bytes
+            input_["max_message_size_bytes"] = max_message_size_bytes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,11 +142,11 @@ class TrafficPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_traffic_policy_request.GetTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_policy_id"] = traffic_policy_id
+        input_: aws_sdk_mailmanager.types.get_traffic_policy_request.GetTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_policy_id"] = traffic_policy_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,19 +206,19 @@ class TrafficPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_traffic_policy_request.UpdateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_policy_id"] = traffic_policy_id
+        input_: aws_sdk_mailmanager.types.update_traffic_policy_request.UpdateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_policy_id"] = traffic_policy_id
         if traffic_policy_name is not None:
-            input["traffic_policy_name"] = traffic_policy_name
+            input_["traffic_policy_name"] = traffic_policy_name
         if policy_statements is not None:
-            input["policy_statements"] = policy_statements
+            input_["policy_statements"] = policy_statements
         if default_action is not None:
-            input["default_action"] = default_action
+            input_["default_action"] = default_action
         if max_message_size_bytes is not None:
-            input["max_message_size_bytes"] = max_message_size_bytes
+            input_["max_message_size_bytes"] = max_message_size_bytes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -256,11 +256,11 @@ class TrafficPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_traffic_policy_request.DeleteTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_policy_id"] = traffic_policy_id
+        input_: aws_sdk_mailmanager.types.delete_traffic_policy_request.DeleteTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_policy_id"] = traffic_policy_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,14 +308,14 @@ class TrafficPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_traffic_policies_request.ListTrafficPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_traffic_policies_request.ListTrafficPoliciesRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,19 +373,19 @@ class AsyncTrafficPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_traffic_policy_request.CreateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_traffic_policy_request.CreateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["traffic_policy_name"] = traffic_policy_name
-        input["policy_statements"] = policy_statements
-        input["default_action"] = default_action
+            input_["client_token"] = client_token
+        input_["traffic_policy_name"] = traffic_policy_name
+        input_["policy_statements"] = policy_statements
+        input_["default_action"] = default_action
         if max_message_size_bytes is not None:
-            input["max_message_size_bytes"] = max_message_size_bytes
+            input_["max_message_size_bytes"] = max_message_size_bytes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,11 +426,11 @@ class AsyncTrafficPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_traffic_policy_request.GetTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_policy_id"] = traffic_policy_id
+        input_: aws_sdk_mailmanager.types.get_traffic_policy_request.GetTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_policy_id"] = traffic_policy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -491,19 +491,19 @@ class AsyncTrafficPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_traffic_policy_request.UpdateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_policy_id"] = traffic_policy_id
+        input_: aws_sdk_mailmanager.types.update_traffic_policy_request.UpdateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_policy_id"] = traffic_policy_id
         if traffic_policy_name is not None:
-            input["traffic_policy_name"] = traffic_policy_name
+            input_["traffic_policy_name"] = traffic_policy_name
         if policy_statements is not None:
-            input["policy_statements"] = policy_statements
+            input_["policy_statements"] = policy_statements
         if default_action is not None:
-            input["default_action"] = default_action
+            input_["default_action"] = default_action
         if max_message_size_bytes is not None:
-            input["max_message_size_bytes"] = max_message_size_bytes
+            input_["max_message_size_bytes"] = max_message_size_bytes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,11 +542,11 @@ class AsyncTrafficPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_traffic_policy_request.DeleteTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_policy_id"] = traffic_policy_id
+        input_: aws_sdk_mailmanager.types.delete_traffic_policy_request.DeleteTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_policy_id"] = traffic_policy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,14 +595,14 @@ class AsyncTrafficPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_traffic_policies_request.ListTrafficPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_traffic_policies_request.ListTrafficPoliciesRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

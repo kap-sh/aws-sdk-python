@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_marketplace_commerce_analytics._auth._signers
+import aws_sdk_marketplace_commerce_analytics._auth._sigv4
 from aws_sdk_marketplace_commerce_analytics._auth._identity import Credentials
 from aws_sdk_marketplace_commerce_analytics._auth._providers import (
     CredentialsProvider,
@@ -190,19 +192,19 @@ class AsyncMarketplaceCommerceAnalyticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_commerce_analytics.types.generate_data_set_request.GenerateDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_type"] = data_set_type
-        input["data_set_publication_date"] = data_set_publication_date
-        input["role_name_arn"] = role_name_arn
-        input["destination_s3_bucket_name"] = destination_s3_bucket_name
+        input_: aws_sdk_marketplace_commerce_analytics.types.generate_data_set_request.GenerateDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_type"] = data_set_type
+        input_["data_set_publication_date"] = data_set_publication_date
+        input_["role_name_arn"] = role_name_arn
+        input_["destination_s3_bucket_name"] = destination_s3_bucket_name
         if destination_s3_prefix is not None:
-            input["destination_s3_prefix"] = destination_s3_prefix
-        input["sns_topic_arn"] = sns_topic_arn
+            input_["destination_s3_prefix"] = destination_s3_prefix
+        input_["sns_topic_arn"] = sns_topic_arn
         if customer_defined_values is not None:
-            input["customer_defined_values"] = customer_defined_values
+            input_["customer_defined_values"] = customer_defined_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,19 +256,19 @@ class AsyncMarketplaceCommerceAnalyticsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_commerce_analytics.types.start_support_data_export_request.StartSupportDataExportRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_type"] = data_set_type
-        input["from_date"] = from_date
-        input["role_name_arn"] = role_name_arn
-        input["destination_s3_bucket_name"] = destination_s3_bucket_name
+        input_: aws_sdk_marketplace_commerce_analytics.types.start_support_data_export_request.StartSupportDataExportRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_type"] = data_set_type
+        input_["from_date"] = from_date
+        input_["role_name_arn"] = role_name_arn
+        input_["destination_s3_bucket_name"] = destination_s3_bucket_name
         if destination_s3_prefix is not None:
-            input["destination_s3_prefix"] = destination_s3_prefix
-        input["sns_topic_arn"] = sns_topic_arn
+            input_["destination_s3_prefix"] = destination_s3_prefix
+        input_["sns_topic_arn"] = sns_topic_arn
         if customer_defined_values is not None:
-            input["customer_defined_values"] = customer_defined_values
+            input_["customer_defined_values"] = customer_defined_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

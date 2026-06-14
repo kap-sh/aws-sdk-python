@@ -86,24 +86,24 @@ class CertificateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.import_certificate_request.ImportCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["usage"] = usage
-        input["certificate"] = certificate
+        input_: aws_sdk_transfer.types.import_certificate_request.ImportCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["usage"] = usage
+        input_["certificate"] = certificate
         if certificate_chain is not None:
-            input["certificate_chain"] = certificate_chain
+            input_["certificate_chain"] = certificate_chain
         if private_key is not None:
-            input["private_key"] = private_key
+            input_["private_key"] = private_key
         if active_date is not None:
-            input["active_date"] = active_date
+            input_["active_date"] = active_date
         if inactive_date is not None:
-            input["inactive_date"] = inactive_date
+            input_["inactive_date"] = inactive_date
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,11 +136,11 @@ class CertificateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_transfer.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,17 +179,17 @@ class CertificateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_certificate_request.UpdateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_transfer.types.update_certificate_request.UpdateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
         if active_date is not None:
-            input["active_date"] = active_date
+            input_["active_date"] = active_date
         if inactive_date is not None:
-            input["inactive_date"] = inactive_date
+            input_["inactive_date"] = inactive_date
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,11 +220,11 @@ class CertificateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_transfer.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,14 +259,14 @@ class CertificateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -323,24 +323,24 @@ class AsyncCertificateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.import_certificate_request.ImportCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["usage"] = usage
-        input["certificate"] = certificate
+        input_: aws_sdk_transfer.types.import_certificate_request.ImportCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["usage"] = usage
+        input_["certificate"] = certificate
         if certificate_chain is not None:
-            input["certificate_chain"] = certificate_chain
+            input_["certificate_chain"] = certificate_chain
         if private_key is not None:
-            input["private_key"] = private_key
+            input_["private_key"] = private_key
         if active_date is not None:
-            input["active_date"] = active_date
+            input_["active_date"] = active_date
         if inactive_date is not None:
-            input["inactive_date"] = inactive_date
+            input_["inactive_date"] = inactive_date
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,11 +374,11 @@ class AsyncCertificateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_transfer.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,17 +418,17 @@ class AsyncCertificateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_certificate_request.UpdateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_transfer.types.update_certificate_request.UpdateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
         if active_date is not None:
-            input["active_date"] = active_date
+            input_["active_date"] = active_date
         if inactive_date is not None:
-            input["inactive_date"] = inactive_date
+            input_["inactive_date"] = inactive_date
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,11 +460,11 @@ class AsyncCertificateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_transfer.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,14 +500,14 @@ class AsyncCertificateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

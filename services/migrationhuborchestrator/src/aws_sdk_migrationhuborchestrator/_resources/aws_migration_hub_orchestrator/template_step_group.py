@@ -59,12 +59,12 @@ class TemplateStepGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.get_template_step_group_request.GetTemplateStepGroupRequest = {}  # type: ignore[typeddict-item]
-        input["template_id"] = template_id
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.get_template_step_group_request.GetTemplateStepGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["template_id"] = template_id
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -105,12 +105,12 @@ class AsyncTemplateStepGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.get_template_step_group_request.GetTemplateStepGroupRequest = {}  # type: ignore[typeddict-item]
-        input["template_id"] = template_id
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.get_template_step_group_request.GetTemplateStepGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["template_id"] = template_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

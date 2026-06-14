@@ -96,22 +96,22 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.create_key_input.CreateKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_attributes"] = key_attributes
+        input_: aws_sdk_payment_cryptography.types.create_key_input.CreateKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_attributes"] = key_attributes
         if key_check_value_algorithm is not None:
-            input["key_check_value_algorithm"] = key_check_value_algorithm
-        input["exportable"] = exportable
+            input_["key_check_value_algorithm"] = key_check_value_algorithm
+        input_["exportable"] = exportable
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if derive_key_usage is not None:
-            input["derive_key_usage"] = derive_key_usage
+            input_["derive_key_usage"] = derive_key_usage
         if replication_regions is not None:
-            input["replication_regions"] = replication_regions
+            input_["replication_regions"] = replication_regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -144,11 +144,11 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_key_input.GetKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.get_key_input.GetKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -183,13 +183,13 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.delete_key_input.DeleteKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.delete_key_input.DeleteKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
         if delete_key_in_days is not None:
-            input["delete_key_in_days"] = delete_key_in_days
+            input_["delete_key_in_days"] = delete_key_in_days
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,16 +232,16 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.list_keys_input.ListKeysInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_payment_cryptography.types.list_keys_input.ListKeysInput = {}  # type: ignore[typeddict-item]
         if key_state is not None:
-            input["key_state"] = key_state
+            input_["key_state"] = key_state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,12 +276,12 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.add_key_replication_regions_input.AddKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["replication_regions"] = replication_regions
+        input_: aws_sdk_payment_cryptography.types.add_key_replication_regions_input.AddKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["replication_regions"] = replication_regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -316,12 +316,12 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.remove_key_replication_regions_input.RemoveKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["replication_regions"] = replication_regions
+        input_: aws_sdk_payment_cryptography.types.remove_key_replication_regions_input.RemoveKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["replication_regions"] = replication_regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -354,11 +354,11 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.restore_key_input.RestoreKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.restore_key_input.RestoreKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,11 +393,11 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.start_key_usage_input.StartKeyUsageInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.start_key_usage_input.StartKeyUsageInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -430,11 +430,11 @@ class KeyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.stop_key_usage_input.StopKeyUsageInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.stop_key_usage_input.StopKeyUsageInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -490,22 +490,22 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.create_key_input.CreateKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_attributes"] = key_attributes
+        input_: aws_sdk_payment_cryptography.types.create_key_input.CreateKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_attributes"] = key_attributes
         if key_check_value_algorithm is not None:
-            input["key_check_value_algorithm"] = key_check_value_algorithm
-        input["exportable"] = exportable
+            input_["key_check_value_algorithm"] = key_check_value_algorithm
+        input_["exportable"] = exportable
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if derive_key_usage is not None:
-            input["derive_key_usage"] = derive_key_usage
+            input_["derive_key_usage"] = derive_key_usage
         if replication_regions is not None:
-            input["replication_regions"] = replication_regions
+            input_["replication_regions"] = replication_regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,11 +539,11 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.get_key_input.GetKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.get_key_input.GetKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,13 +579,13 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.delete_key_input.DeleteKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.delete_key_input.DeleteKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
         if delete_key_in_days is not None:
-            input["delete_key_in_days"] = delete_key_in_days
+            input_["delete_key_in_days"] = delete_key_in_days
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -629,16 +629,16 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.list_keys_input.ListKeysInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_payment_cryptography.types.list_keys_input.ListKeysInput = {}  # type: ignore[typeddict-item]
         if key_state is not None:
-            input["key_state"] = key_state
+            input_["key_state"] = key_state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,12 +674,12 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.add_key_replication_regions_input.AddKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["replication_regions"] = replication_regions
+        input_: aws_sdk_payment_cryptography.types.add_key_replication_regions_input.AddKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["replication_regions"] = replication_regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,12 +715,12 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.remove_key_replication_regions_input.RemoveKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["replication_regions"] = replication_regions
+        input_: aws_sdk_payment_cryptography.types.remove_key_replication_regions_input.RemoveKeyReplicationRegionsInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["replication_regions"] = replication_regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,11 +754,11 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.restore_key_input.RestoreKeyInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.restore_key_input.RestoreKeyInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,11 +794,11 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.start_key_usage_input.StartKeyUsageInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.start_key_usage_input.StartKeyUsageInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -832,11 +832,11 @@ class AsyncKeyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography.types.stop_key_usage_input.StopKeyUsageInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
+        input_: aws_sdk_payment_cryptography.types.stop_key_usage_input.StopKeyUsageInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

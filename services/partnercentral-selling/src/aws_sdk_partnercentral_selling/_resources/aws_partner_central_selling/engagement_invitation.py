@@ -79,14 +79,14 @@ class EngagementInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_engagement_invitation_request.CreateEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["engagement_identifier"] = engagement_identifier
-        input["invitation"] = invitation
+        input_: aws_sdk_partnercentral_selling.types.create_engagement_invitation_request.CreateEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["engagement_identifier"] = engagement_identifier
+        input_["invitation"] = invitation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,12 +121,12 @@ class EngagementInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_engagement_invitation_request.GetEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.get_engagement_invitation_request.GetEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -187,26 +187,26 @@ class EngagementInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagement_invitations_request.ListEngagementInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_engagement_invitations_request.ListEngagementInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if payload_type is not None:
-            input["payload_type"] = payload_type
-        input["participant_type"] = participant_type
+            input_["payload_type"] = payload_type
+        input_["participant_type"] = participant_type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if engagement_identifier is not None:
-            input["engagement_identifier"] = engagement_identifier
+            input_["engagement_identifier"] = engagement_identifier
         if sender_aws_account_id is not None:
-            input["sender_aws_account_id"] = sender_aws_account_id
+            input_["sender_aws_account_id"] = sender_aws_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,12 +239,12 @@ class EngagementInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request.AcceptEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request.AcceptEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,14 +281,14 @@ class EngagementInvitation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request.RejectEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request.RejectEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
         if rejection_reason is not None:
-            input["rejection_reason"] = rejection_reason
+            input_["rejection_reason"] = rejection_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,14 +333,14 @@ class AsyncEngagementInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_engagement_invitation_request.CreateEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["client_token"] = client_token
-        input["engagement_identifier"] = engagement_identifier
-        input["invitation"] = invitation
+        input_: aws_sdk_partnercentral_selling.types.create_engagement_invitation_request.CreateEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["client_token"] = client_token
+        input_["engagement_identifier"] = engagement_identifier
+        input_["invitation"] = invitation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,12 +376,12 @@ class AsyncEngagementInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_engagement_invitation_request.GetEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.get_engagement_invitation_request.GetEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,26 +443,26 @@ class AsyncEngagementInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_engagement_invitations_request.ListEngagementInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_engagement_invitations_request.ListEngagementInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if payload_type is not None:
-            input["payload_type"] = payload_type
-        input["participant_type"] = participant_type
+            input_["payload_type"] = payload_type
+        input_["participant_type"] = participant_type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if engagement_identifier is not None:
-            input["engagement_identifier"] = engagement_identifier
+            input_["engagement_identifier"] = engagement_identifier
         if sender_aws_account_id is not None:
-            input["sender_aws_account_id"] = sender_aws_account_id
+            input_["sender_aws_account_id"] = sender_aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,12 +496,12 @@ class AsyncEngagementInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request.AcceptEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.accept_engagement_invitation_request.AcceptEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,14 +539,14 @@ class AsyncEngagementInvitation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request.RejectEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
+        input_: aws_sdk_partnercentral_selling.types.reject_engagement_invitation_request.RejectEngagementInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
         if rejection_reason is not None:
-            input["rejection_reason"] = rejection_reason
+            input_["rejection_reason"] = rejection_reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

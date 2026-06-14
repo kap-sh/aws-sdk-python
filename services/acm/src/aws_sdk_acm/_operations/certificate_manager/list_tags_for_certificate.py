@@ -73,7 +73,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_acm.types.list_tags_for_certificate_request.ListTagsForCertificateRequest,
+    input_: aws_sdk_acm.types.list_tags_for_certificate_request.ListTagsForCertificateRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -91,7 +91,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_acm.types.list_tags_for_certificate_request.serialize_aws_json_1_1(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
@@ -105,12 +105,12 @@ def build_request(
 
 def list_tags_for_certificate(
     options: OperationOptions,
-    input: aws_sdk_acm.types.list_tags_for_certificate_request.ListTagsForCertificateRequest,
+    input_: aws_sdk_acm.types.list_tags_for_certificate_request.ListTagsForCertificateRequest,
 ) -> tuple[
     aws_sdk_acm.types.list_tags_for_certificate_response.ListTagsForCertificateResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -124,12 +124,12 @@ def list_tags_for_certificate(
 
 async def async_list_tags_for_certificate(
     options: AsyncOperationOptions,
-    input: aws_sdk_acm.types.list_tags_for_certificate_request.ListTagsForCertificateRequest,
+    input_: aws_sdk_acm.types.list_tags_for_certificate_request.ListTagsForCertificateRequest,
 ) -> tuple[
     aws_sdk_acm.types.list_tags_for_certificate_response.ListTagsForCertificateResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

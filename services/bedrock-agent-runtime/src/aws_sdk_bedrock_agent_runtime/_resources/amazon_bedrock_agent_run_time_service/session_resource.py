@@ -80,16 +80,16 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
         if session_metadata is not None:
-            input["session_metadata"] = session_metadata
+            input_["session_metadata"] = session_metadata
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,11 +122,11 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_identifier"] = session_identifier
+        input_: aws_sdk_bedrock_agent_runtime.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_identifier"] = session_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -163,13 +163,13 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.update_session_request.UpdateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.update_session_request.UpdateSessionRequest = {}  # type: ignore[typeddict-item]
         if session_metadata is not None:
-            input["session_metadata"] = session_metadata
-        input["session_identifier"] = session_identifier
+            input_["session_metadata"] = session_metadata
+        input_["session_identifier"] = session_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,11 +202,11 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_identifier"] = session_identifier
+        input_: aws_sdk_bedrock_agent_runtime.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_identifier"] = session_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,14 +245,14 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,11 +285,11 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.end_session_request.EndSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_identifier"] = session_identifier
+        input_: aws_sdk_bedrock_agent_runtime.types.end_session_request.EndSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_identifier"] = session_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -336,16 +336,16 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
         if session_metadata is not None:
-            input["session_metadata"] = session_metadata
+            input_["session_metadata"] = session_metadata
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,11 +379,11 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_identifier"] = session_identifier
+        input_: aws_sdk_bedrock_agent_runtime.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_identifier"] = session_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,13 +421,13 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.update_session_request.UpdateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.update_session_request.UpdateSessionRequest = {}  # type: ignore[typeddict-item]
         if session_metadata is not None:
-            input["session_metadata"] = session_metadata
-        input["session_identifier"] = session_identifier
+            input_["session_metadata"] = session_metadata
+        input_["session_identifier"] = session_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,11 +461,11 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_identifier"] = session_identifier
+        input_: aws_sdk_bedrock_agent_runtime.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_identifier"] = session_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,14 +505,14 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,11 +546,11 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.end_session_request.EndSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_identifier"] = session_identifier
+        input_: aws_sdk_bedrock_agent_runtime.types.end_session_request.EndSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_identifier"] = session_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

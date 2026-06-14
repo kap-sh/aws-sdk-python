@@ -238,12 +238,12 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.cancel_job_run_request.CancelJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["virtual_cluster_id"] = virtual_cluster_id
+        input_: aws_sdk_emr_containers.types.cancel_job_run_request.CancelJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["virtual_cluster_id"] = virtual_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,17 +286,17 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.create_job_template_request.CreateJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["client_token"] = client_token
-        input["job_template_data"] = job_template_data
+        input_: aws_sdk_emr_containers.types.create_job_template_request.CreateJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["client_token"] = client_token
+        input_["job_template_data"] = job_template_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,22 +349,22 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.create_managed_endpoint_request.CreateManagedEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["virtual_cluster_id"] = virtual_cluster_id
-        input["type"] = type
-        input["release_label"] = release_label
-        input["execution_role_arn"] = execution_role_arn
+        input_: aws_sdk_emr_containers.types.create_managed_endpoint_request.CreateManagedEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["virtual_cluster_id"] = virtual_cluster_id
+        input_["type"] = type
+        input_["release_label"] = release_label
+        input_["execution_role_arn"] = execution_role_arn
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if configuration_overrides is not None:
-            input["configuration_overrides"] = configuration_overrides
-        input["client_token"] = client_token
+            input_["configuration_overrides"] = configuration_overrides
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,17 +407,17 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.create_security_configuration_request.CreateSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["name"] = name
+        input_: aws_sdk_emr_containers.types.create_security_configuration_request.CreateSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["name"] = name
         if container_provider is not None:
-            input["container_provider"] = container_provider
-        input["security_configuration_data"] = security_configuration_data
+            input_["container_provider"] = container_provider
+        input_["security_configuration_data"] = security_configuration_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,17 +460,17 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.create_virtual_cluster_request.CreateVirtualClusterRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["container_provider"] = container_provider
-        input["client_token"] = client_token
+        input_: aws_sdk_emr_containers.types.create_virtual_cluster_request.CreateVirtualClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["container_provider"] = container_provider
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if security_configuration_id is not None:
-            input["security_configuration_id"] = security_configuration_id
+            input_["security_configuration_id"] = security_configuration_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,11 +503,11 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.delete_job_template_request.DeleteJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_emr_containers.types.delete_job_template_request.DeleteJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,12 +542,12 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.delete_managed_endpoint_request.DeleteManagedEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["virtual_cluster_id"] = virtual_cluster_id
+        input_: aws_sdk_emr_containers.types.delete_managed_endpoint_request.DeleteManagedEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["virtual_cluster_id"] = virtual_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -580,11 +580,11 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.delete_virtual_cluster_request.DeleteVirtualClusterRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_emr_containers.types.delete_virtual_cluster_request.DeleteVirtualClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -621,12 +621,12 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.describe_job_run_request.DescribeJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["virtual_cluster_id"] = virtual_cluster_id
+        input_: aws_sdk_emr_containers.types.describe_job_run_request.DescribeJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["virtual_cluster_id"] = virtual_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -659,11 +659,11 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.describe_job_template_request.DescribeJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_emr_containers.types.describe_job_template_request.DescribeJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,12 +698,12 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.describe_managed_endpoint_request.DescribeManagedEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["virtual_cluster_id"] = virtual_cluster_id
+        input_: aws_sdk_emr_containers.types.describe_managed_endpoint_request.DescribeManagedEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["virtual_cluster_id"] = virtual_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -736,11 +736,11 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.describe_security_configuration_request.DescribeSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_emr_containers.types.describe_security_configuration_request.DescribeSecurityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -773,11 +773,11 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.describe_virtual_cluster_request.DescribeVirtualClusterRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_emr_containers.types.describe_virtual_cluster_request.DescribeVirtualClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -828,20 +828,20 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.get_managed_endpoint_session_credentials_request.GetManagedEndpointSessionCredentialsRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_identifier"] = endpoint_identifier
-        input["virtual_cluster_identifier"] = virtual_cluster_identifier
-        input["execution_role_arn"] = execution_role_arn
-        input["credential_type"] = credential_type
+        input_: aws_sdk_emr_containers.types.get_managed_endpoint_session_credentials_request.GetManagedEndpointSessionCredentialsRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_identifier"] = endpoint_identifier
+        input_["virtual_cluster_identifier"] = virtual_cluster_identifier
+        input_["execution_role_arn"] = execution_role_arn
+        input_["credential_type"] = credential_type
         if duration_in_seconds is not None:
-            input["duration_in_seconds"] = duration_in_seconds
+            input_["duration_in_seconds"] = duration_in_seconds
         if log_context is not None:
-            input["log_context"] = log_context
+            input_["log_context"] = log_context
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -894,23 +894,23 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.list_job_runs_request.ListJobRunsRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_cluster_id"] = virtual_cluster_id
+        input_: aws_sdk_emr_containers.types.list_job_runs_request.ListJobRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_cluster_id"] = virtual_cluster_id
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -992,18 +992,18 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.list_job_templates_request.ListJobTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr_containers.types.list_job_templates_request.ListJobTemplatesRequest = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1085,23 +1085,23 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.list_managed_endpoints_request.ListManagedEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_cluster_id"] = virtual_cluster_id
+        input_: aws_sdk_emr_containers.types.list_managed_endpoints_request.ListManagedEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_cluster_id"] = virtual_cluster_id
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if types is not None:
-            input["types"] = types
+            input_["types"] = types
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1183,18 +1183,18 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.list_security_configurations_request.ListSecurityConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr_containers.types.list_security_configurations_request.ListSecurityConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1256,11 +1256,11 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_emr_containers.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1319,26 +1319,26 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.list_virtual_clusters_request.ListVirtualClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr_containers.types.list_virtual_clusters_request.ListVirtualClustersRequest = {}  # type: ignore[typeddict-item]
         if container_provider_id is not None:
-            input["container_provider_id"] = container_provider_id
+            input_["container_provider_id"] = container_provider_id
         if container_provider_type is not None:
-            input["container_provider_type"] = container_provider_type
+            input_["container_provider_type"] = container_provider_type
         if created_after is not None:
-            input["created_after"] = created_after
+            input_["created_after"] = created_after
         if created_before is not None:
-            input["created_before"] = created_before
+            input_["created_before"] = created_before
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if eks_access_entry_integrated is not None:
-            input["eks_access_entry_integrated"] = eks_access_entry_integrated
+            input_["eks_access_entry_integrated"] = eks_access_entry_integrated
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1452,30 +1452,30 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr_containers.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["virtual_cluster_id"] = virtual_cluster_id
-        input["client_token"] = client_token
+            input_["name"] = name
+        input_["virtual_cluster_id"] = virtual_cluster_id
+        input_["client_token"] = client_token
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if release_label is not None:
-            input["release_label"] = release_label
+            input_["release_label"] = release_label
         if job_driver is not None:
-            input["job_driver"] = job_driver
+            input_["job_driver"] = job_driver
         if configuration_overrides is not None:
-            input["configuration_overrides"] = configuration_overrides
+            input_["configuration_overrides"] = configuration_overrides
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if job_template_id is not None:
-            input["job_template_id"] = job_template_id
+            input_["job_template_id"] = job_template_id
         if job_template_parameters is not None:
-            input["job_template_parameters"] = job_template_parameters
+            input_["job_template_parameters"] = job_template_parameters
         if retry_policy_configuration is not None:
-            input["retry_policy_configuration"] = retry_policy_configuration
+            input_["retry_policy_configuration"] = retry_policy_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1510,12 +1510,12 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_emr_containers.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1550,12 +1550,12 @@ class EMRcontainersClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_emr_containers.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_emr_containers.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

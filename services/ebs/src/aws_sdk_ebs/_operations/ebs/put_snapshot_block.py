@@ -100,54 +100,51 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest,
+    input_: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/snapshots/{SnapshotId}/blocks/{BlockIndex}"
-    url = url.replace("{SnapshotId}", quote(str(input["snapshot_id"]), safe=""))
-    url = url.replace("{BlockIndex}", quote(str(input["block_index"]), safe=""))
+    url = url.replace("{SnapshotId}", quote(str(input_["snapshot_id"]), safe=""))
+    url = url.replace("{BlockIndex}", quote(str(input_["block_index"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "data_length" in input:
-        headers["x-amz-Data-Length"] = str(input["data_length"])
-    if "progress" in input:
-        headers["x-amz-Progress"] = str(input["progress"])
-    if "checksum" in input:
-        headers["x-amz-Checksum"] = str(input["checksum"])
-    if "checksum_algorithm" in input:
-        headers["x-amz-Checksum-Algorithm"] = str(input["checksum_algorithm"])
-    body = input["block_data"]
+    if "data_length" in input_:
+        headers["x-amz-Data-Length"] = str(input_["data_length"])
+    if "progress" in input_:
+        headers["x-amz-Progress"] = str(input_["progress"])
+    if "checksum" in input_:
+        headers["x-amz-Checksum"] = str(input_["checksum"])
+    if "checksum_algorithm" in input_:
+        headers["x-amz-Checksum-Algorithm"] = str(input_["checksum_algorithm"])
+    body = input_["block_data"]
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def put_snapshot_block(
     options: OperationOptions,
-    input: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest,
+    input_: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest,
 ) -> tuple[
     aws_sdk_ebs.types.put_snapshot_block_response.PutSnapshotBlockResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -156,16 +153,17 @@ def put_snapshot_block(
 
 async def async_put_snapshot_block(
     options: AsyncOperationOptions,
-    input: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest,
+    input_: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest,
 ) -> tuple[
     aws_sdk_ebs.types.put_snapshot_block_response.PutSnapshotBlockResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

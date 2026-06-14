@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_timestream_write._auth._signers
+import aws_sdk_timestream_write._auth._sigv4
 from aws_sdk_timestream_write._auth._identity import Credentials
 from aws_sdk_timestream_write._auth._providers import (
     CredentialsProvider,
@@ -224,20 +226,20 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.create_batch_load_task_request.CreateBatchLoadTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_write.types.create_batch_load_task_request.CreateBatchLoadTaskRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if data_model_configuration is not None:
-            input["data_model_configuration"] = data_model_configuration
-        input["data_source_configuration"] = data_source_configuration
-        input["report_configuration"] = report_configuration
-        input["target_database_name"] = target_database_name
-        input["target_table_name"] = target_table_name
+            input_["data_model_configuration"] = data_model_configuration
+        input_["data_source_configuration"] = data_source_configuration
+        input_["report_configuration"] = report_configuration
+        input_["target_database_name"] = target_database_name
+        input_["target_table_name"] = target_table_name
         if record_version is not None:
-            input["record_version"] = record_version
+            input_["record_version"] = record_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,15 +280,15 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.create_database_request.CreateDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
+        input_: aws_sdk_timestream_write.types.create_database_request.CreateDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,20 +335,20 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_timestream_write.types.create_table_request.CreateTableRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if retention_properties is not None:
-            input["retention_properties"] = retention_properties
+            input_["retention_properties"] = retention_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if magnetic_store_write_properties is not None:
-            input["magnetic_store_write_properties"] = magnetic_store_write_properties
+            input_["magnetic_store_write_properties"] = magnetic_store_write_properties
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,11 +379,11 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.delete_database_request.DeleteDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
+        input_: aws_sdk_timestream_write.types.delete_database_request.DeleteDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,12 +416,12 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_timestream_write.types.delete_table_request.DeleteTableRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -452,11 +454,11 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.describe_batch_load_task_request.DescribeBatchLoadTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_timestream_write.types.describe_batch_load_task_request.DescribeBatchLoadTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,11 +491,11 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.describe_database_request.DescribeDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
+        input_: aws_sdk_timestream_write.types.describe_database_request.DescribeDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -519,10 +521,10 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_write.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,12 +559,12 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.describe_table_request.DescribeTableRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_timestream_write.types.describe_table_request.DescribeTableRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,16 +605,16 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.list_batch_load_tasks_request.ListBatchLoadTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_write.types.list_batch_load_tasks_request.ListBatchLoadTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if task_status is not None:
-            input["task_status"] = task_status
+            input_["task_status"] = task_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -649,14 +651,14 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.list_databases_request.ListDatabasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_write.types.list_databases_request.ListDatabasesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -697,16 +699,16 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_write.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -739,11 +741,11 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_timestream_write.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -776,11 +778,11 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.resume_batch_load_task_request.ResumeBatchLoadTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_timestream_write.types.resume_batch_load_task_request.ResumeBatchLoadTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -815,12 +817,12 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_timestream_write.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -855,12 +857,12 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_timestream_write.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -897,12 +899,12 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.update_database_request.UpdateDatabaseRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["kms_key_id"] = kms_key_id
+        input_: aws_sdk_timestream_write.types.update_database_request.UpdateDatabaseRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -947,18 +949,18 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.update_table_request.UpdateTableRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_timestream_write.types.update_table_request.UpdateTableRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if retention_properties is not None:
-            input["retention_properties"] = retention_properties
+            input_["retention_properties"] = retention_properties
         if magnetic_store_write_properties is not None:
-            input["magnetic_store_write_properties"] = magnetic_store_write_properties
+            input_["magnetic_store_write_properties"] = magnetic_store_write_properties
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -999,15 +1001,15 @@ class TimestreamWriteClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_write.types.write_records_request.WriteRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["database_name"] = database_name
-        input["table_name"] = table_name
+        input_: aws_sdk_timestream_write.types.write_records_request.WriteRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["database_name"] = database_name
+        input_["table_name"] = table_name
         if common_attributes is not None:
-            input["common_attributes"] = common_attributes
-        input["records"] = records
+            input_["common_attributes"] = common_attributes
+        input_["records"] = records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

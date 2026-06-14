@@ -79,16 +79,16 @@ class EnabledControlResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.enable_control_input.EnableControlInput = {}  # type: ignore[typeddict-item]
-        input["control_identifier"] = control_identifier
-        input["target_identifier"] = target_identifier
+        input_: aws_sdk_controltower.types.enable_control_input.EnableControlInput = {}  # type: ignore[typeddict-item]
+        input_["control_identifier"] = control_identifier
+        input_["target_identifier"] = target_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -123,11 +123,11 @@ class EnabledControlResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_enabled_control_input.GetEnabledControlInput = {}  # type: ignore[typeddict-item]
-        input["enabled_control_identifier"] = enabled_control_identifier
+        input_: aws_sdk_controltower.types.get_enabled_control_input.GetEnabledControlInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_control_identifier"] = enabled_control_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -162,12 +162,12 @@ class EnabledControlResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.update_enabled_control_input.UpdateEnabledControlInput = {}  # type: ignore[typeddict-item]
-        input["parameters"] = parameters
-        input["enabled_control_identifier"] = enabled_control_identifier
+        input_: aws_sdk_controltower.types.update_enabled_control_input.UpdateEnabledControlInput = {}  # type: ignore[typeddict-item]
+        input_["parameters"] = parameters
+        input_["enabled_control_identifier"] = enabled_control_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,20 +214,20 @@ class EnabledControlResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_enabled_controls_input.ListEnabledControlsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_enabled_controls_input.ListEnabledControlsInput = {}  # type: ignore[typeddict-item]
         if target_identifier is not None:
-            input["target_identifier"] = target_identifier
+            input_["target_identifier"] = target_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if include_children is not None:
-            input["include_children"] = include_children
+            input_["include_children"] = include_children
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,11 +260,11 @@ class EnabledControlResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.reset_enabled_control_input.ResetEnabledControlInput = {}  # type: ignore[typeddict-item]
-        input["enabled_control_identifier"] = enabled_control_identifier
+        input_: aws_sdk_controltower.types.reset_enabled_control_input.ResetEnabledControlInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_control_identifier"] = enabled_control_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,16 +311,16 @@ class AsyncEnabledControlResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.enable_control_input.EnableControlInput = {}  # type: ignore[typeddict-item]
-        input["control_identifier"] = control_identifier
-        input["target_identifier"] = target_identifier
+        input_: aws_sdk_controltower.types.enable_control_input.EnableControlInput = {}  # type: ignore[typeddict-item]
+        input_["control_identifier"] = control_identifier
+        input_["target_identifier"] = target_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,11 +356,11 @@ class AsyncEnabledControlResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_enabled_control_input.GetEnabledControlInput = {}  # type: ignore[typeddict-item]
-        input["enabled_control_identifier"] = enabled_control_identifier
+        input_: aws_sdk_controltower.types.get_enabled_control_input.GetEnabledControlInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_control_identifier"] = enabled_control_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,12 +396,12 @@ class AsyncEnabledControlResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.update_enabled_control_input.UpdateEnabledControlInput = {}  # type: ignore[typeddict-item]
-        input["parameters"] = parameters
-        input["enabled_control_identifier"] = enabled_control_identifier
+        input_: aws_sdk_controltower.types.update_enabled_control_input.UpdateEnabledControlInput = {}  # type: ignore[typeddict-item]
+        input_["parameters"] = parameters
+        input_["enabled_control_identifier"] = enabled_control_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,20 +449,20 @@ class AsyncEnabledControlResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_enabled_controls_input.ListEnabledControlsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_enabled_controls_input.ListEnabledControlsInput = {}  # type: ignore[typeddict-item]
         if target_identifier is not None:
-            input["target_identifier"] = target_identifier
+            input_["target_identifier"] = target_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if include_children is not None:
-            input["include_children"] = include_children
+            input_["include_children"] = include_children
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,11 +496,11 @@ class AsyncEnabledControlResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.reset_enabled_control_input.ResetEnabledControlInput = {}  # type: ignore[typeddict-item]
-        input["enabled_control_identifier"] = enabled_control_identifier
+        input_: aws_sdk_controltower.types.reset_enabled_control_input.ResetEnabledControlInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_control_identifier"] = enabled_control_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -173,11 +173,11 @@ class SageMakerA2IRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_a2i_runtime.types.delete_human_loop_request.DeleteHumanLoopRequest = {}  # type: ignore[typeddict-item]
-        input["human_loop_name"] = human_loop_name
+        input_: aws_sdk_sagemaker_a2i_runtime.types.delete_human_loop_request.DeleteHumanLoopRequest = {}  # type: ignore[typeddict-item]
+        input_["human_loop_name"] = human_loop_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -210,11 +210,11 @@ class SageMakerA2IRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_a2i_runtime.types.describe_human_loop_request.DescribeHumanLoopRequest = {}  # type: ignore[typeddict-item]
-        input["human_loop_name"] = human_loop_name
+        input_: aws_sdk_sagemaker_a2i_runtime.types.describe_human_loop_request.DescribeHumanLoopRequest = {}  # type: ignore[typeddict-item]
+        input_["human_loop_name"] = human_loop_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,21 +267,21 @@ class SageMakerA2IRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_request.ListHumanLoopsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker_a2i_runtime.types.list_human_loops_request.ListHumanLoopsRequest = {}  # type: ignore[typeddict-item]
         if creation_time_after is not None:
-            input["creation_time_after"] = creation_time_after
+            input_["creation_time_after"] = creation_time_after
         if creation_time_before is not None:
-            input["creation_time_before"] = creation_time_before
-        input["flow_definition_arn"] = flow_definition_arn
+            input_["creation_time_before"] = creation_time_before
+        input_["flow_definition_arn"] = flow_definition_arn
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -361,15 +361,15 @@ class SageMakerA2IRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_a2i_runtime.types.start_human_loop_request.StartHumanLoopRequest = {}  # type: ignore[typeddict-item]
-        input["human_loop_name"] = human_loop_name
-        input["flow_definition_arn"] = flow_definition_arn
-        input["human_loop_input"] = human_loop_input
+        input_: aws_sdk_sagemaker_a2i_runtime.types.start_human_loop_request.StartHumanLoopRequest = {}  # type: ignore[typeddict-item]
+        input_["human_loop_name"] = human_loop_name
+        input_["flow_definition_arn"] = flow_definition_arn
+        input_["human_loop_input"] = human_loop_input
         if data_attributes is not None:
-            input["data_attributes"] = data_attributes
+            input_["data_attributes"] = data_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,11 +402,11 @@ class SageMakerA2IRuntimeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_a2i_runtime.types.stop_human_loop_request.StopHumanLoopRequest = {}  # type: ignore[typeddict-item]
-        input["human_loop_name"] = human_loop_name
+        input_: aws_sdk_sagemaker_a2i_runtime.types.stop_human_loop_request.StopHumanLoopRequest = {}  # type: ignore[typeddict-item]
+        input_["human_loop_name"] = human_loop_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

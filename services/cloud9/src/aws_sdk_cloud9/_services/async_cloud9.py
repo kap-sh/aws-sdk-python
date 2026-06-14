@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_cloud9._auth._signers
+import aws_sdk_cloud9._auth._sigv4
 from aws_sdk_cloud9._auth._identity import Credentials
 from aws_sdk_cloud9._auth._providers import (
     CredentialsProvider,
@@ -237,29 +239,29 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.create_environment_ec2_request.CreateEnvironmentEC2Request = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloud9.types.create_environment_ec2_request.CreateEnvironmentEC2Request = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["instance_type"] = instance_type
+            input_["client_request_token"] = client_request_token
+        input_["instance_type"] = instance_type
         if subnet_id is not None:
-            input["subnet_id"] = subnet_id
-        input["image_id"] = image_id
+            input_["subnet_id"] = subnet_id
+        input_["image_id"] = image_id
         if automatic_stop_time_minutes is not None:
-            input["automatic_stop_time_minutes"] = automatic_stop_time_minutes
+            input_["automatic_stop_time_minutes"] = automatic_stop_time_minutes
         if owner_arn is not None:
-            input["owner_arn"] = owner_arn
+            input_["owner_arn"] = owner_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if connection_type is not None:
-            input["connection_type"] = connection_type
+            input_["connection_type"] = connection_type
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,13 +304,13 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.create_environment_membership_request.CreateEnvironmentMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["user_arn"] = user_arn
-        input["permissions"] = permissions
+        input_: aws_sdk_cloud9.types.create_environment_membership_request.CreateEnvironmentMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["user_arn"] = user_arn
+        input_["permissions"] = permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,11 +349,11 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_cloud9.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,12 +394,12 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.delete_environment_membership_request.DeleteEnvironmentMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["user_arn"] = user_arn
+        input_: aws_sdk_cloud9.types.delete_environment_membership_request.DeleteEnvironmentMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["user_arn"] = user_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,20 +459,20 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.describe_environment_memberships_request.DescribeEnvironmentMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloud9.types.describe_environment_memberships_request.DescribeEnvironmentMembershipsRequest = {}  # type: ignore[typeddict-item]
         if user_arn is not None:
-            input["user_arn"] = user_arn
+            input_["user_arn"] = user_arn
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,11 +511,11 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.describe_environments_request.DescribeEnvironmentsRequest = {}  # type: ignore[typeddict-item]
-        input["environment_ids"] = environment_ids
+        input_: aws_sdk_cloud9.types.describe_environments_request.DescribeEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_ids"] = environment_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,11 +554,11 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.describe_environment_status_request.DescribeEnvironmentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_cloud9.types.describe_environment_status_request.DescribeEnvironmentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,14 +599,14 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloud9.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,11 +640,11 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloud9.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,12 +680,12 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_cloud9.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -719,12 +721,12 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cloud9.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -773,17 +775,17 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_cloud9.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if managed_credentials_action is not None:
-            input["managed_credentials_action"] = managed_credentials_action
+            input_["managed_credentials_action"] = managed_credentials_action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -826,13 +828,13 @@ class AsyncCloud9Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloud9.types.update_environment_membership_request.UpdateEnvironmentMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["user_arn"] = user_arn
-        input["permissions"] = permissions
+        input_: aws_sdk_cloud9.types.update_environment_membership_request.UpdateEnvironmentMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["user_arn"] = user_arn
+        input_["permissions"] = permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

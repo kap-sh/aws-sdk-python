@@ -502,14 +502,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.batch_create_custom_vocabulary_item_request.BatchCreateCustomVocabularyItemRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["custom_vocabulary_item_list"] = custom_vocabulary_item_list
+        input_: aws_sdk_lex_models_v2.types.batch_create_custom_vocabulary_item_request.BatchCreateCustomVocabularyItemRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["custom_vocabulary_item_list"] = custom_vocabulary_item_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -548,14 +548,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.batch_delete_custom_vocabulary_item_request.BatchDeleteCustomVocabularyItemRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["custom_vocabulary_item_list"] = custom_vocabulary_item_list
+        input_: aws_sdk_lex_models_v2.types.batch_delete_custom_vocabulary_item_request.BatchDeleteCustomVocabularyItemRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["custom_vocabulary_item_list"] = custom_vocabulary_item_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -594,14 +594,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.batch_update_custom_vocabulary_item_request.BatchUpdateCustomVocabularyItemRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["custom_vocabulary_item_list"] = custom_vocabulary_item_list
+        input_: aws_sdk_lex_models_v2.types.batch_update_custom_vocabulary_item_request.BatchUpdateCustomVocabularyItemRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["custom_vocabulary_item_list"] = custom_vocabulary_item_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,13 +638,13 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.build_bot_locale_request.BuildBotLocaleRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.build_bot_locale_request.BuildBotLocaleRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -703,26 +703,26 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_bot_request.CreateBotRequest = {}  # type: ignore[typeddict-item]
-        input["bot_name"] = bot_name
+        input_: aws_sdk_lex_models_v2.types.create_bot_request.CreateBotRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_name"] = bot_name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
-        input["data_privacy"] = data_privacy
-        input["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
+            input_["description"] = description
+        input_["role_arn"] = role_arn
+        input_["data_privacy"] = data_privacy
+        input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         if bot_tags is not None:
-            input["bot_tags"] = bot_tags
+            input_["bot_tags"] = bot_tags
         if test_bot_alias_tags is not None:
-            input["test_bot_alias_tags"] = test_bot_alias_tags
+            input_["test_bot_alias_tags"] = test_bot_alias_tags
         if bot_type is not None:
-            input["bot_type"] = bot_type
+            input_["bot_type"] = bot_type
         if bot_members is not None:
-            input["bot_members"] = bot_members
+            input_["bot_members"] = bot_members
         if error_log_settings is not None:
-            input["error_log_settings"] = error_log_settings
+            input_["error_log_settings"] = error_log_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -778,24 +778,24 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_bot_alias_request.CreateBotAliasRequest = {}  # type: ignore[typeddict-item]
-        input["bot_alias_name"] = bot_alias_name
+        input_: aws_sdk_lex_models_v2.types.create_bot_alias_request.CreateBotAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_alias_name"] = bot_alias_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if bot_version is not None:
-            input["bot_version"] = bot_version
+            input_["bot_version"] = bot_version
         if bot_alias_locale_settings is not None:
-            input["bot_alias_locale_settings"] = bot_alias_locale_settings
+            input_["bot_alias_locale_settings"] = bot_alias_locale_settings
         if conversation_log_settings is not None:
-            input["conversation_log_settings"] = conversation_log_settings
+            input_["conversation_log_settings"] = conversation_log_settings
         if sentiment_analysis_settings is not None:
-            input["sentiment_analysis_settings"] = sentiment_analysis_settings
-        input["bot_id"] = bot_id
+            input_["sentiment_analysis_settings"] = sentiment_analysis_settings
+        input_["bot_id"] = bot_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -863,28 +863,28 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_bot_locale_request.CreateBotLocaleRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.create_bot_locale_request.CreateBotLocaleRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if description is not None:
-            input["description"] = description
-        input["nlu_intent_confidence_threshold"] = nlu_intent_confidence_threshold
+            input_["description"] = description
+        input_["nlu_intent_confidence_threshold"] = nlu_intent_confidence_threshold
         if voice_settings is not None:
-            input["voice_settings"] = voice_settings
+            input_["voice_settings"] = voice_settings
         if unified_speech_settings is not None:
-            input["unified_speech_settings"] = unified_speech_settings
+            input_["unified_speech_settings"] = unified_speech_settings
         if audio_filler_settings is not None:
-            input["audio_filler_settings"] = audio_filler_settings
+            input_["audio_filler_settings"] = audio_filler_settings
         if speech_recognition_settings is not None:
-            input["speech_recognition_settings"] = speech_recognition_settings
+            input_["speech_recognition_settings"] = speech_recognition_settings
         if generative_ai_settings is not None:
-            input["generative_ai_settings"] = generative_ai_settings
+            input_["generative_ai_settings"] = generative_ai_settings
         if speech_detection_sensitivity is not None:
-            input["speech_detection_sensitivity"] = speech_detection_sensitivity
+            input_["speech_detection_sensitivity"] = speech_detection_sensitivity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,12 +919,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_bot_replica_request.CreateBotReplicaRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["replica_region"] = replica_region
+        input_: aws_sdk_lex_models_v2.types.create_bot_replica_request.CreateBotReplicaRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["replica_region"] = replica_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -963,14 +963,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_bot_version_request.CreateBotVersionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.create_bot_version_request.CreateBotVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
         if description is not None:
-            input["description"] = description
-        input["bot_version_locale_specification"] = bot_version_locale_specification
+            input_["description"] = description
+        input_["bot_version_locale_specification"] = bot_version_locale_specification
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1009,14 +1009,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_export_request.CreateExportRequest = {}  # type: ignore[typeddict-item]
-        input["resource_specification"] = resource_specification
-        input["file_format"] = file_format
+        input_: aws_sdk_lex_models_v2.types.create_export_request.CreateExportRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_specification"] = resource_specification
+        input_["file_format"] = file_format
         if file_password is not None:
-            input["file_password"] = file_password
+            input_["file_password"] = file_password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1111,44 +1111,44 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_intent_request.CreateIntentRequest = {}  # type: ignore[typeddict-item]
-        input["intent_name"] = intent_name
+        input_: aws_sdk_lex_models_v2.types.create_intent_request.CreateIntentRequest = {}  # type: ignore[typeddict-item]
+        input_["intent_name"] = intent_name
         if intent_display_name is not None:
-            input["intent_display_name"] = intent_display_name
+            input_["intent_display_name"] = intent_display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parent_intent_signature is not None:
-            input["parent_intent_signature"] = parent_intent_signature
+            input_["parent_intent_signature"] = parent_intent_signature
         if sample_utterances is not None:
-            input["sample_utterances"] = sample_utterances
+            input_["sample_utterances"] = sample_utterances
         if dialog_code_hook is not None:
-            input["dialog_code_hook"] = dialog_code_hook
+            input_["dialog_code_hook"] = dialog_code_hook
         if fulfillment_code_hook is not None:
-            input["fulfillment_code_hook"] = fulfillment_code_hook
+            input_["fulfillment_code_hook"] = fulfillment_code_hook
         if intent_confirmation_setting is not None:
-            input["intent_confirmation_setting"] = intent_confirmation_setting
+            input_["intent_confirmation_setting"] = intent_confirmation_setting
         if intent_closing_setting is not None:
-            input["intent_closing_setting"] = intent_closing_setting
+            input_["intent_closing_setting"] = intent_closing_setting
         if input_contexts is not None:
-            input["input_contexts"] = input_contexts
+            input_["input_contexts"] = input_contexts
         if output_contexts is not None:
-            input["output_contexts"] = output_contexts
+            input_["output_contexts"] = output_contexts
         if kendra_configuration is not None:
-            input["kendra_configuration"] = kendra_configuration
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+            input_["kendra_configuration"] = kendra_configuration
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if initial_response_setting is not None:
-            input["initial_response_setting"] = initial_response_setting
+            input_["initial_response_setting"] = initial_response_setting
         if qn_a_intent_configuration is not None:
-            input["qn_a_intent_configuration"] = qn_a_intent_configuration
+            input_["qn_a_intent_configuration"] = qn_a_intent_configuration
         if q_in_connect_intent_configuration is not None:
-            input["q_in_connect_intent_configuration"] = (
+            input_["q_in_connect_intent_configuration"] = (
                 q_in_connect_intent_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1183,12 +1183,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_resource_policy_request.CreateResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_lex_models_v2.types.create_resource_policy_request.CreateResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1237,19 +1237,19 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_resource_policy_statement_request.CreateResourcePolicyStatementRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["statement_id"] = statement_id
-        input["effect"] = effect
-        input["principal"] = principal
-        input["action"] = action
+        input_: aws_sdk_lex_models_v2.types.create_resource_policy_statement_request.CreateResourcePolicyStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["statement_id"] = statement_id
+        input_["effect"] = effect
+        input_["principal"] = principal
+        input_["action"] = action
         if condition is not None:
-            input["condition"] = condition
+            input_["condition"] = condition
         if expected_revision_id is not None:
-            input["expected_revision_id"] = expected_revision_id
+            input_["expected_revision_id"] = expected_revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1312,26 +1312,26 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_slot_request.CreateSlotRequest = {}  # type: ignore[typeddict-item]
-        input["slot_name"] = slot_name
+        input_: aws_sdk_lex_models_v2.types.create_slot_request.CreateSlotRequest = {}  # type: ignore[typeddict-item]
+        input_["slot_name"] = slot_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if slot_type_id is not None:
-            input["slot_type_id"] = slot_type_id
-        input["value_elicitation_setting"] = value_elicitation_setting
+            input_["slot_type_id"] = slot_type_id
+        input_["value_elicitation_setting"] = value_elicitation_setting
         if obfuscation_setting is not None:
-            input["obfuscation_setting"] = obfuscation_setting
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["intent_id"] = intent_id
+            input_["obfuscation_setting"] = obfuscation_setting
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["intent_id"] = intent_id
         if multiple_values_setting is not None:
-            input["multiple_values_setting"] = multiple_values_setting
+            input_["multiple_values_setting"] = multiple_values_setting
         if sub_slot_setting is not None:
-            input["sub_slot_setting"] = sub_slot_setting
+            input_["sub_slot_setting"] = sub_slot_setting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1394,26 +1394,26 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_slot_type_request.CreateSlotTypeRequest = {}  # type: ignore[typeddict-item]
-        input["slot_type_name"] = slot_type_name
+        input_: aws_sdk_lex_models_v2.types.create_slot_type_request.CreateSlotTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["slot_type_name"] = slot_type_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if slot_type_values is not None:
-            input["slot_type_values"] = slot_type_values
+            input_["slot_type_values"] = slot_type_values
         if value_selection_setting is not None:
-            input["value_selection_setting"] = value_selection_setting
+            input_["value_selection_setting"] = value_selection_setting
         if parent_slot_type_signature is not None:
-            input["parent_slot_type_signature"] = parent_slot_type_signature
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+            input_["parent_slot_type_signature"] = parent_slot_type_signature
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if external_source_setting is not None:
-            input["external_source_setting"] = external_source_setting
+            input_["external_source_setting"] = external_source_setting
         if composite_slot_type_setting is not None:
-            input["composite_slot_type_setting"] = composite_slot_type_setting
+            input_["composite_slot_type_setting"] = composite_slot_type_setting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1448,12 +1448,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_test_set_discrepancy_report_request.CreateTestSetDiscrepancyReportRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_id"] = test_set_id
-        input["target"] = target
+        input_: aws_sdk_lex_models_v2.types.create_test_set_discrepancy_report_request.CreateTestSetDiscrepancyReportRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_id"] = test_set_id
+        input_["target"] = target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1481,10 +1481,10 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.create_upload_url_request.CreateUploadUrlRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lex_models_v2.types.create_upload_url_request.CreateUploadUrlRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1521,13 +1521,13 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_bot_request.DeleteBotRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.delete_bot_request.DeleteBotRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1566,14 +1566,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_bot_alias_request.DeleteBotAliasRequest = {}  # type: ignore[typeddict-item]
-        input["bot_alias_id"] = bot_alias_id
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.delete_bot_alias_request.DeleteBotAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_alias_id"] = bot_alias_id
+        input_["bot_id"] = bot_id
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1608,12 +1608,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_bot_analyzer_recommendation_request.DeleteBotAnalyzerRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_analyzer_request_id"] = bot_analyzer_request_id
+        input_: aws_sdk_lex_models_v2.types.delete_bot_analyzer_recommendation_request.DeleteBotAnalyzerRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_analyzer_request_id"] = bot_analyzer_request_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1652,13 +1652,13 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_bot_locale_request.DeleteBotLocaleRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.delete_bot_locale_request.DeleteBotLocaleRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1693,12 +1693,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_bot_replica_request.DeleteBotReplicaRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["replica_region"] = replica_region
+        input_: aws_sdk_lex_models_v2.types.delete_bot_replica_request.DeleteBotReplicaRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["replica_region"] = replica_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1737,14 +1737,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_bot_version_request.DeleteBotVersionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
+        input_: aws_sdk_lex_models_v2.types.delete_bot_version_request.DeleteBotVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1781,13 +1781,13 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_custom_vocabulary_request.DeleteCustomVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.delete_custom_vocabulary_request.DeleteCustomVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1820,11 +1820,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_export_request.DeleteExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_id"] = export_id
+        input_: aws_sdk_lex_models_v2.types.delete_export_request.DeleteExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_id"] = export_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1857,11 +1857,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_import_request.DeleteImportRequest = {}  # type: ignore[typeddict-item]
-        input["import_id"] = import_id
+        input_: aws_sdk_lex_models_v2.types.delete_import_request.DeleteImportRequest = {}  # type: ignore[typeddict-item]
+        input_["import_id"] = import_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1898,14 +1898,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_intent_request.DeleteIntentRequest = {}  # type: ignore[typeddict-item]
-        input["intent_id"] = intent_id
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.delete_intent_request.DeleteIntentRequest = {}  # type: ignore[typeddict-item]
+        input_["intent_id"] = intent_id
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1942,13 +1942,13 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_lex_models_v2.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if expected_revision_id is not None:
-            input["expected_revision_id"] = expected_revision_id
+            input_["expected_revision_id"] = expected_revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1987,14 +1987,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_resource_policy_statement_request.DeleteResourcePolicyStatementRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["statement_id"] = statement_id
+        input_: aws_sdk_lex_models_v2.types.delete_resource_policy_statement_request.DeleteResourcePolicyStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["statement_id"] = statement_id
         if expected_revision_id is not None:
-            input["expected_revision_id"] = expected_revision_id
+            input_["expected_revision_id"] = expected_revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2033,15 +2033,15 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_slot_request.DeleteSlotRequest = {}  # type: ignore[typeddict-item]
-        input["slot_id"] = slot_id
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["intent_id"] = intent_id
+        input_: aws_sdk_lex_models_v2.types.delete_slot_request.DeleteSlotRequest = {}  # type: ignore[typeddict-item]
+        input_["slot_id"] = slot_id
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["intent_id"] = intent_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2082,16 +2082,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_slot_type_request.DeleteSlotTypeRequest = {}  # type: ignore[typeddict-item]
-        input["slot_type_id"] = slot_type_id
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.delete_slot_type_request.DeleteSlotTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["slot_type_id"] = slot_type_id
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2122,11 +2122,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_test_set_request.DeleteTestSetRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_id"] = test_set_id
+        input_: aws_sdk_lex_models_v2.types.delete_test_set_request.DeleteTestSetRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_id"] = test_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2163,15 +2163,15 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.delete_utterances_request.DeleteUtterancesRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.delete_utterances_request.DeleteUtterancesRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
         if locale_id is not None:
-            input["locale_id"] = locale_id
+            input_["locale_id"] = locale_id
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2204,11 +2204,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_bot_request.DescribeBotRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.describe_bot_request.DescribeBotRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2243,12 +2243,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_bot_alias_request.DescribeBotAliasRequest = {}  # type: ignore[typeddict-item]
-        input["bot_alias_id"] = bot_alias_id
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.describe_bot_alias_request.DescribeBotAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_alias_id"] = bot_alias_id
+        input_["bot_id"] = bot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2289,16 +2289,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_bot_analyzer_recommendation_request.DescribeBotAnalyzerRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_analyzer_request_id"] = bot_analyzer_request_id
+        input_: aws_sdk_lex_models_v2.types.describe_bot_analyzer_recommendation_request.DescribeBotAnalyzerRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_analyzer_request_id"] = bot_analyzer_request_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2362,13 +2362,13 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_bot_locale_request.DescribeBotLocaleRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.describe_bot_locale_request.DescribeBotLocaleRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2407,14 +2407,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_bot_recommendation_request.DescribeBotRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["bot_recommendation_id"] = bot_recommendation_id
+        input_: aws_sdk_lex_models_v2.types.describe_bot_recommendation_request.DescribeBotRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["bot_recommendation_id"] = bot_recommendation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2449,12 +2449,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_bot_replica_request.DescribeBotReplicaRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["replica_region"] = replica_region
+        input_: aws_sdk_lex_models_v2.types.describe_bot_replica_request.DescribeBotReplicaRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["replica_region"] = replica_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2493,14 +2493,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_bot_resource_generation_request.DescribeBotResourceGenerationRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["generation_id"] = generation_id
+        input_: aws_sdk_lex_models_v2.types.describe_bot_resource_generation_request.DescribeBotResourceGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["generation_id"] = generation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2535,12 +2535,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_bot_version_request.DescribeBotVersionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
+        input_: aws_sdk_lex_models_v2.types.describe_bot_version_request.DescribeBotVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2577,13 +2577,13 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_custom_vocabulary_metadata_request.DescribeCustomVocabularyMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.describe_custom_vocabulary_metadata_request.DescribeCustomVocabularyMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2616,11 +2616,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_export_request.DescribeExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_id"] = export_id
+        input_: aws_sdk_lex_models_v2.types.describe_export_request.DescribeExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_id"] = export_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2653,11 +2653,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_import_request.DescribeImportRequest = {}  # type: ignore[typeddict-item]
-        input["import_id"] = import_id
+        input_: aws_sdk_lex_models_v2.types.describe_import_request.DescribeImportRequest = {}  # type: ignore[typeddict-item]
+        input_["import_id"] = import_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2696,14 +2696,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_intent_request.DescribeIntentRequest = {}  # type: ignore[typeddict-item]
-        input["intent_id"] = intent_id
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.describe_intent_request.DescribeIntentRequest = {}  # type: ignore[typeddict-item]
+        input_["intent_id"] = intent_id
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2736,11 +2736,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_resource_policy_request.DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_lex_models_v2.types.describe_resource_policy_request.DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2781,15 +2781,15 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_slot_request.DescribeSlotRequest = {}  # type: ignore[typeddict-item]
-        input["slot_id"] = slot_id
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["intent_id"] = intent_id
+        input_: aws_sdk_lex_models_v2.types.describe_slot_request.DescribeSlotRequest = {}  # type: ignore[typeddict-item]
+        input_["slot_id"] = slot_id
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["intent_id"] = intent_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2828,14 +2828,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_slot_type_request.DescribeSlotTypeRequest = {}  # type: ignore[typeddict-item]
-        input["slot_type_id"] = slot_type_id
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.describe_slot_type_request.DescribeSlotTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["slot_type_id"] = slot_type_id
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2868,11 +2868,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_test_execution_request.DescribeTestExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["test_execution_id"] = test_execution_id
+        input_: aws_sdk_lex_models_v2.types.describe_test_execution_request.DescribeTestExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["test_execution_id"] = test_execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2907,11 +2907,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_test_set_request.DescribeTestSetRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_id"] = test_set_id
+        input_: aws_sdk_lex_models_v2.types.describe_test_set_request.DescribeTestSetRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_id"] = test_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2944,11 +2944,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_test_set_discrepancy_report_request.DescribeTestSetDiscrepancyReportRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_discrepancy_report_id"] = test_set_discrepancy_report_id
+        input_: aws_sdk_lex_models_v2.types.describe_test_set_discrepancy_report_request.DescribeTestSetDiscrepancyReportRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_discrepancy_report_id"] = test_set_discrepancy_report_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2981,11 +2981,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.describe_test_set_generation_request.DescribeTestSetGenerationRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_generation_id"] = test_set_generation_id
+        input_: aws_sdk_lex_models_v2.types.describe_test_set_generation_request.DescribeTestSetGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_generation_id"] = test_set_generation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3024,14 +3024,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.generate_bot_element_request.GenerateBotElementRequest = {}  # type: ignore[typeddict-item]
-        input["intent_id"] = intent_id
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.generate_bot_element_request.GenerateBotElementRequest = {}  # type: ignore[typeddict-item]
+        input_["intent_id"] = intent_id
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3064,11 +3064,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.get_test_execution_artifacts_url_request.GetTestExecutionArtifactsUrlRequest = {}  # type: ignore[typeddict-item]
-        input["test_execution_id"] = test_execution_id
+        input_: aws_sdk_lex_models_v2.types.get_test_execution_artifacts_url_request.GetTestExecutionArtifactsUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["test_execution_id"] = test_execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3127,25 +3127,25 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_aggregated_utterances_request.ListAggregatedUtterancesRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.list_aggregated_utterances_request.ListAggregatedUtterancesRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
         if bot_alias_id is not None:
-            input["bot_alias_id"] = bot_alias_id
+            input_["bot_alias_id"] = bot_alias_id
         if bot_version is not None:
-            input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["aggregation_duration"] = aggregation_duration
+            input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["aggregation_duration"] = aggregation_duration
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3184,15 +3184,15 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_aliases_request.ListBotAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.list_bot_aliases_request.ListBotAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3233,16 +3233,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_alias_replicas_request.ListBotAliasReplicasRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["replica_region"] = replica_region
+        input_: aws_sdk_lex_models_v2.types.list_bot_alias_replicas_request.ListBotAliasReplicasRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["replica_region"] = replica_region
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3287,19 +3287,19 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_analyzer_history_request.ListBotAnalyzerHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.list_bot_analyzer_history_request.ListBotAnalyzerHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
         if locale_id is not None:
-            input["locale_id"] = locale_id
+            input_["locale_id"] = locale_id
         if bot_version is not None:
-            input["bot_version"] = bot_version
+            input_["bot_version"] = bot_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3379,20 +3379,20 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_locales_request.ListBotLocalesRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
+        input_: aws_sdk_lex_models_v2.types.list_bot_locales_request.ListBotLocalesRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3435,17 +3435,17 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_recommendations_request.ListBotRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.list_bot_recommendations_request.ListBotRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3480,11 +3480,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_replicas_request.ListBotReplicasRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.list_bot_replicas_request.ListBotReplicasRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3531,19 +3531,19 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_resource_generations_request.ListBotResourceGenerationsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.list_bot_resource_generations_request.ListBotResourceGenerationsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3584,18 +3584,18 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bots_request.ListBotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lex_models_v2.types.list_bots_request.ListBotsRequest = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3640,18 +3640,18 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_version_replicas_request.ListBotVersionReplicasRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["replica_region"] = replica_region
+        input_: aws_sdk_lex_models_v2.types.list_bot_version_replicas_request.ListBotVersionReplicasRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["replica_region"] = replica_region
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3696,17 +3696,17 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_bot_versions_request.ListBotVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
+        input_: aws_sdk_lex_models_v2.types.list_bot_versions_request.ListBotVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3749,17 +3749,17 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_built_in_intents_request.ListBuiltInIntentsRequest = {}  # type: ignore[typeddict-item]
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.list_built_in_intents_request.ListBuiltInIntentsRequest = {}  # type: ignore[typeddict-item]
+        input_["locale_id"] = locale_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3802,17 +3802,17 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_built_in_slot_types_request.ListBuiltInSlotTypesRequest = {}  # type: ignore[typeddict-item]
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.list_built_in_slot_types_request.ListBuiltInSlotTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["locale_id"] = locale_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3855,17 +3855,17 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_custom_vocabulary_items_request.ListCustomVocabularyItemsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.list_custom_vocabulary_items_request.ListCustomVocabularyItemsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3918,24 +3918,24 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lex_models_v2.types.list_exports_request.ListExportsRequest = {}  # type: ignore[typeddict-item]
         if bot_id is not None:
-            input["bot_id"] = bot_id
+            input_["bot_id"] = bot_id
         if bot_version is not None:
-            input["bot_version"] = bot_version
+            input_["bot_version"] = bot_version
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if locale_id is not None:
-            input["locale_id"] = locale_id
+            input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3988,24 +3988,24 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_imports_request.ListImportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lex_models_v2.types.list_imports_request.ListImportsRequest = {}  # type: ignore[typeddict-item]
         if bot_id is not None:
-            input["bot_id"] = bot_id
+            input_["bot_id"] = bot_id
         if bot_version is not None:
-            input["bot_version"] = bot_version
+            input_["bot_version"] = bot_version
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if locale_id is not None:
-            input["locale_id"] = locale_id
+            input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4062,24 +4062,24 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_intent_metrics_request.ListIntentMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["start_date_time"] = start_date_time
-        input["end_date_time"] = end_date_time
-        input["metrics"] = metrics
+        input_: aws_sdk_lex_models_v2.types.list_intent_metrics_request.ListIntentMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["start_date_time"] = start_date_time
+        input_["end_date_time"] = end_date_time
+        input_["metrics"] = metrics
         if bin_by is not None:
-            input["bin_by"] = bin_by
+            input_["bin_by"] = bin_by
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4124,16 +4124,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_intent_paths_request.ListIntentPathsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["start_date_time"] = start_date_time
-        input["end_date_time"] = end_date_time
-        input["intent_path"] = intent_path
+        input_: aws_sdk_lex_models_v2.types.list_intent_paths_request.ListIntentPathsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["start_date_time"] = start_date_time
+        input_["end_date_time"] = end_date_time
+        input_["intent_path"] = intent_path
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4184,21 +4184,21 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_intents_request.ListIntentsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.list_intents_request.ListIntentsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4255,24 +4255,24 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_intent_stage_metrics_request.ListIntentStageMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["start_date_time"] = start_date_time
-        input["end_date_time"] = end_date_time
-        input["metrics"] = metrics
+        input_: aws_sdk_lex_models_v2.types.list_intent_stage_metrics_request.ListIntentStageMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["start_date_time"] = start_date_time
+        input_["end_date_time"] = end_date_time
+        input_["metrics"] = metrics
         if bin_by is not None:
-            input["bin_by"] = bin_by
+            input_["bin_by"] = bin_by
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4317,18 +4317,18 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_recommended_intents_request.ListRecommendedIntentsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["bot_recommendation_id"] = bot_recommendation_id
+        input_: aws_sdk_lex_models_v2.types.list_recommended_intents_request.ListRecommendedIntentsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["bot_recommendation_id"] = bot_recommendation_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4379,21 +4379,21 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_session_analytics_data_request.ListSessionAnalyticsDataRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["start_date_time"] = start_date_time
-        input["end_date_time"] = end_date_time
+        input_: aws_sdk_lex_models_v2.types.list_session_analytics_data_request.ListSessionAnalyticsDataRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["start_date_time"] = start_date_time
+        input_["end_date_time"] = end_date_time
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4450,24 +4450,24 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_session_metrics_request.ListSessionMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["start_date_time"] = start_date_time
-        input["end_date_time"] = end_date_time
-        input["metrics"] = metrics
+        input_: aws_sdk_lex_models_v2.types.list_session_metrics_request.ListSessionMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["start_date_time"] = start_date_time
+        input_["end_date_time"] = end_date_time
+        input_["metrics"] = metrics
         if bin_by is not None:
-            input["bin_by"] = bin_by
+            input_["bin_by"] = bin_by
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4518,22 +4518,22 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_slots_request.ListSlotsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["intent_id"] = intent_id
+        input_: aws_sdk_lex_models_v2.types.list_slots_request.ListSlotsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["intent_id"] = intent_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4584,21 +4584,21 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_slot_types_request.ListSlotTypesRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.list_slot_types_request.ListSlotTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4631,11 +4631,11 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_lex_models_v2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4676,16 +4676,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_test_execution_result_items_request.ListTestExecutionResultItemsRequest = {}  # type: ignore[typeddict-item]
-        input["test_execution_id"] = test_execution_id
-        input["result_filter_by"] = result_filter_by
+        input_: aws_sdk_lex_models_v2.types.list_test_execution_result_items_request.ListTestExecutionResultItemsRequest = {}  # type: ignore[typeddict-item]
+        input_["test_execution_id"] = test_execution_id
+        input_["result_filter_by"] = result_filter_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4726,16 +4726,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_test_executions_request.ListTestExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lex_models_v2.types.list_test_executions_request.ListTestExecutionsRequest = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4774,15 +4774,15 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_test_set_records_request.ListTestSetRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_id"] = test_set_id
+        input_: aws_sdk_lex_models_v2.types.list_test_set_records_request.ListTestSetRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_id"] = test_set_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4823,16 +4823,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_test_sets_request.ListTestSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lex_models_v2.types.list_test_sets_request.ListTestSetsRequest = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4883,21 +4883,21 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_utterance_analytics_data_request.ListUtteranceAnalyticsDataRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["start_date_time"] = start_date_time
-        input["end_date_time"] = end_date_time
+        input_: aws_sdk_lex_models_v2.types.list_utterance_analytics_data_request.ListUtteranceAnalyticsDataRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["start_date_time"] = start_date_time
+        input_["end_date_time"] = end_date_time
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4958,26 +4958,26 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.list_utterance_metrics_request.ListUtteranceMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["start_date_time"] = start_date_time
-        input["end_date_time"] = end_date_time
-        input["metrics"] = metrics
+        input_: aws_sdk_lex_models_v2.types.list_utterance_metrics_request.ListUtteranceMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["start_date_time"] = start_date_time
+        input_["end_date_time"] = end_date_time
+        input_["metrics"] = metrics
         if bin_by is not None:
-            input["bin_by"] = bin_by
+            input_["bin_by"] = bin_by
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5028,21 +5028,21 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.search_associated_transcripts_request.SearchAssociatedTranscriptsRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["bot_recommendation_id"] = bot_recommendation_id
+        input_: aws_sdk_lex_models_v2.types.search_associated_transcripts_request.SearchAssociatedTranscriptsRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["bot_recommendation_id"] = bot_recommendation_id
         if search_order is not None:
-            input["search_order"] = search_order
-        input["filters"] = filters
+            input_["search_order"] = search_order
+        input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_index is not None:
-            input["next_index"] = next_index
+            input_["next_index"] = next_index
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5083,16 +5083,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.start_bot_analyzer_request.StartBotAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["analysis_scope"] = analysis_scope
+        input_: aws_sdk_lex_models_v2.types.start_bot_analyzer_request.StartBotAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["analysis_scope"] = analysis_scope
         if locale_id is not None:
-            input["locale_id"] = locale_id
+            input_["locale_id"] = locale_id
         if bot_version is not None:
-            input["bot_version"] = bot_version
+            input_["bot_version"] = bot_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5135,16 +5135,16 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.start_bot_recommendation_request.StartBotRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["transcript_source_setting"] = transcript_source_setting
+        input_: aws_sdk_lex_models_v2.types.start_bot_recommendation_request.StartBotRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["transcript_source_setting"] = transcript_source_setting
         if encryption_setting is not None:
-            input["encryption_setting"] = encryption_setting
+            input_["encryption_setting"] = encryption_setting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5183,14 +5183,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.start_bot_resource_generation_request.StartBotResourceGenerationRequest = {}  # type: ignore[typeddict-item]
-        input["generation_input_prompt"] = generation_input_prompt
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.start_bot_resource_generation_request.StartBotResourceGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_["generation_input_prompt"] = generation_input_prompt
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5231,15 +5231,15 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.start_import_request.StartImportRequest = {}  # type: ignore[typeddict-item]
-        input["import_id"] = import_id
-        input["resource_specification"] = resource_specification
-        input["merge_strategy"] = merge_strategy
+        input_: aws_sdk_lex_models_v2.types.start_import_request.StartImportRequest = {}  # type: ignore[typeddict-item]
+        input_["import_id"] = import_id
+        input_["resource_specification"] = resource_specification
+        input_["merge_strategy"] = merge_strategy
         if file_password is not None:
-            input["file_password"] = file_password
+            input_["file_password"] = file_password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5280,15 +5280,15 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.start_test_execution_request.StartTestExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_id"] = test_set_id
-        input["target"] = target
-        input["api_mode"] = api_mode
+        input_: aws_sdk_lex_models_v2.types.start_test_execution_request.StartTestExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_id"] = test_set_id
+        input_["target"] = target
+        input_["api_mode"] = api_mode
         if test_execution_modality is not None:
-            input["test_execution_modality"] = test_execution_modality
+            input_["test_execution_modality"] = test_execution_modality
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5333,18 +5333,18 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.start_test_set_generation_request.StartTestSetGenerationRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_name"] = test_set_name
+        input_: aws_sdk_lex_models_v2.types.start_test_set_generation_request.StartTestSetGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_name"] = test_set_name
         if description is not None:
-            input["description"] = description
-        input["storage_location"] = storage_location
-        input["generation_data_source"] = generation_data_source
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["storage_location"] = storage_location
+        input_["generation_data_source"] = generation_data_source
+        input_["role_arn"] = role_arn
         if test_set_tags is not None:
-            input["test_set_tags"] = test_set_tags
+            input_["test_set_tags"] = test_set_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5381,12 +5381,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.stop_bot_analyzer_request.StopBotAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_analyzer_request_id"] = bot_analyzer_request_id
+        input_: aws_sdk_lex_models_v2.types.stop_bot_analyzer_request.StopBotAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_analyzer_request_id"] = bot_analyzer_request_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5425,14 +5425,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.stop_bot_recommendation_request.StopBotRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["bot_recommendation_id"] = bot_recommendation_id
+        input_: aws_sdk_lex_models_v2.types.stop_bot_recommendation_request.StopBotRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["bot_recommendation_id"] = bot_recommendation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5467,12 +5467,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_lex_models_v2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5507,12 +5507,12 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_lex_models_v2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5567,23 +5567,23 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_bot_request.UpdateBotRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_name"] = bot_name
+        input_: aws_sdk_lex_models_v2.types.update_bot_request.UpdateBotRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_name"] = bot_name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
-        input["data_privacy"] = data_privacy
-        input["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
+            input_["description"] = description
+        input_["role_arn"] = role_arn
+        input_["data_privacy"] = data_privacy
+        input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         if bot_type is not None:
-            input["bot_type"] = bot_type
+            input_["bot_type"] = bot_type
         if bot_members is not None:
-            input["bot_members"] = bot_members
+            input_["bot_members"] = bot_members
         if error_log_settings is not None:
-            input["error_log_settings"] = error_log_settings
+            input_["error_log_settings"] = error_log_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5639,23 +5639,23 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_bot_alias_request.UpdateBotAliasRequest = {}  # type: ignore[typeddict-item]
-        input["bot_alias_id"] = bot_alias_id
-        input["bot_alias_name"] = bot_alias_name
+        input_: aws_sdk_lex_models_v2.types.update_bot_alias_request.UpdateBotAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_alias_id"] = bot_alias_id
+        input_["bot_alias_name"] = bot_alias_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if bot_version is not None:
-            input["bot_version"] = bot_version
+            input_["bot_version"] = bot_version
         if bot_alias_locale_settings is not None:
-            input["bot_alias_locale_settings"] = bot_alias_locale_settings
+            input_["bot_alias_locale_settings"] = bot_alias_locale_settings
         if conversation_log_settings is not None:
-            input["conversation_log_settings"] = conversation_log_settings
+            input_["conversation_log_settings"] = conversation_log_settings
         if sentiment_analysis_settings is not None:
-            input["sentiment_analysis_settings"] = sentiment_analysis_settings
-        input["bot_id"] = bot_id
+            input_["sentiment_analysis_settings"] = sentiment_analysis_settings
+        input_["bot_id"] = bot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5724,28 +5724,28 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_bot_locale_request.UpdateBotLocaleRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+        input_: aws_sdk_lex_models_v2.types.update_bot_locale_request.UpdateBotLocaleRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if description is not None:
-            input["description"] = description
-        input["nlu_intent_confidence_threshold"] = nlu_intent_confidence_threshold
+            input_["description"] = description
+        input_["nlu_intent_confidence_threshold"] = nlu_intent_confidence_threshold
         if voice_settings is not None:
-            input["voice_settings"] = voice_settings
+            input_["voice_settings"] = voice_settings
         if unified_speech_settings is not None:
-            input["unified_speech_settings"] = unified_speech_settings
+            input_["unified_speech_settings"] = unified_speech_settings
         if audio_filler_settings is not None:
-            input["audio_filler_settings"] = audio_filler_settings
+            input_["audio_filler_settings"] = audio_filler_settings
         if speech_recognition_settings is not None:
-            input["speech_recognition_settings"] = speech_recognition_settings
+            input_["speech_recognition_settings"] = speech_recognition_settings
         if generative_ai_settings is not None:
-            input["generative_ai_settings"] = generative_ai_settings
+            input_["generative_ai_settings"] = generative_ai_settings
         if speech_detection_sensitivity is not None:
-            input["speech_detection_sensitivity"] = speech_detection_sensitivity
+            input_["speech_detection_sensitivity"] = speech_detection_sensitivity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5786,15 +5786,15 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_bot_recommendation_request.UpdateBotRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["bot_recommendation_id"] = bot_recommendation_id
-        input["encryption_setting"] = encryption_setting
+        input_: aws_sdk_lex_models_v2.types.update_bot_recommendation_request.UpdateBotRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["bot_recommendation_id"] = bot_recommendation_id
+        input_["encryption_setting"] = encryption_setting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5831,13 +5831,13 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_export_request.UpdateExportRequest = {}  # type: ignore[typeddict-item]
-        input["export_id"] = export_id
+        input_: aws_sdk_lex_models_v2.types.update_export_request.UpdateExportRequest = {}  # type: ignore[typeddict-item]
+        input_["export_id"] = export_id
         if file_password is not None:
-            input["file_password"] = file_password
+            input_["file_password"] = file_password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5938,47 +5938,47 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_intent_request.UpdateIntentRequest = {}  # type: ignore[typeddict-item]
-        input["intent_id"] = intent_id
-        input["intent_name"] = intent_name
+        input_: aws_sdk_lex_models_v2.types.update_intent_request.UpdateIntentRequest = {}  # type: ignore[typeddict-item]
+        input_["intent_id"] = intent_id
+        input_["intent_name"] = intent_name
         if intent_display_name is not None:
-            input["intent_display_name"] = intent_display_name
+            input_["intent_display_name"] = intent_display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parent_intent_signature is not None:
-            input["parent_intent_signature"] = parent_intent_signature
+            input_["parent_intent_signature"] = parent_intent_signature
         if sample_utterances is not None:
-            input["sample_utterances"] = sample_utterances
+            input_["sample_utterances"] = sample_utterances
         if dialog_code_hook is not None:
-            input["dialog_code_hook"] = dialog_code_hook
+            input_["dialog_code_hook"] = dialog_code_hook
         if fulfillment_code_hook is not None:
-            input["fulfillment_code_hook"] = fulfillment_code_hook
+            input_["fulfillment_code_hook"] = fulfillment_code_hook
         if slot_priorities is not None:
-            input["slot_priorities"] = slot_priorities
+            input_["slot_priorities"] = slot_priorities
         if intent_confirmation_setting is not None:
-            input["intent_confirmation_setting"] = intent_confirmation_setting
+            input_["intent_confirmation_setting"] = intent_confirmation_setting
         if intent_closing_setting is not None:
-            input["intent_closing_setting"] = intent_closing_setting
+            input_["intent_closing_setting"] = intent_closing_setting
         if input_contexts is not None:
-            input["input_contexts"] = input_contexts
+            input_["input_contexts"] = input_contexts
         if output_contexts is not None:
-            input["output_contexts"] = output_contexts
+            input_["output_contexts"] = output_contexts
         if kendra_configuration is not None:
-            input["kendra_configuration"] = kendra_configuration
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+            input_["kendra_configuration"] = kendra_configuration
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if initial_response_setting is not None:
-            input["initial_response_setting"] = initial_response_setting
+            input_["initial_response_setting"] = initial_response_setting
         if qn_a_intent_configuration is not None:
-            input["qn_a_intent_configuration"] = qn_a_intent_configuration
+            input_["qn_a_intent_configuration"] = qn_a_intent_configuration
         if q_in_connect_intent_configuration is not None:
-            input["q_in_connect_intent_configuration"] = (
+            input_["q_in_connect_intent_configuration"] = (
                 q_in_connect_intent_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6017,14 +6017,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_resource_policy_request.UpdateResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_lex_models_v2.types.update_resource_policy_request.UpdateResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
         if expected_revision_id is not None:
-            input["expected_revision_id"] = expected_revision_id
+            input_["expected_revision_id"] = expected_revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6089,27 +6089,27 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_slot_request.UpdateSlotRequest = {}  # type: ignore[typeddict-item]
-        input["slot_id"] = slot_id
-        input["slot_name"] = slot_name
+        input_: aws_sdk_lex_models_v2.types.update_slot_request.UpdateSlotRequest = {}  # type: ignore[typeddict-item]
+        input_["slot_id"] = slot_id
+        input_["slot_name"] = slot_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if slot_type_id is not None:
-            input["slot_type_id"] = slot_type_id
-        input["value_elicitation_setting"] = value_elicitation_setting
+            input_["slot_type_id"] = slot_type_id
+        input_["value_elicitation_setting"] = value_elicitation_setting
         if obfuscation_setting is not None:
-            input["obfuscation_setting"] = obfuscation_setting
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
-        input["intent_id"] = intent_id
+            input_["obfuscation_setting"] = obfuscation_setting
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
+        input_["intent_id"] = intent_id
         if multiple_values_setting is not None:
-            input["multiple_values_setting"] = multiple_values_setting
+            input_["multiple_values_setting"] = multiple_values_setting
         if sub_slot_setting is not None:
-            input["sub_slot_setting"] = sub_slot_setting
+            input_["sub_slot_setting"] = sub_slot_setting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6173,27 +6173,27 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_slot_type_request.UpdateSlotTypeRequest = {}  # type: ignore[typeddict-item]
-        input["slot_type_id"] = slot_type_id
-        input["slot_type_name"] = slot_type_name
+        input_: aws_sdk_lex_models_v2.types.update_slot_type_request.UpdateSlotTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["slot_type_id"] = slot_type_id
+        input_["slot_type_name"] = slot_type_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if slot_type_values is not None:
-            input["slot_type_values"] = slot_type_values
+            input_["slot_type_values"] = slot_type_values
         if value_selection_setting is not None:
-            input["value_selection_setting"] = value_selection_setting
+            input_["value_selection_setting"] = value_selection_setting
         if parent_slot_type_signature is not None:
-            input["parent_slot_type_signature"] = parent_slot_type_signature
-        input["bot_id"] = bot_id
-        input["bot_version"] = bot_version
-        input["locale_id"] = locale_id
+            input_["parent_slot_type_signature"] = parent_slot_type_signature
+        input_["bot_id"] = bot_id
+        input_["bot_version"] = bot_version
+        input_["locale_id"] = locale_id
         if external_source_setting is not None:
-            input["external_source_setting"] = external_source_setting
+            input_["external_source_setting"] = external_source_setting
         if composite_slot_type_setting is not None:
-            input["composite_slot_type_setting"] = composite_slot_type_setting
+            input_["composite_slot_type_setting"] = composite_slot_type_setting
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6232,14 +6232,14 @@ class LexModelsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_models_v2.types.update_test_set_request.UpdateTestSetRequest = {}  # type: ignore[typeddict-item]
-        input["test_set_id"] = test_set_id
-        input["test_set_name"] = test_set_name
+        input_: aws_sdk_lex_models_v2.types.update_test_set_request.UpdateTestSetRequest = {}  # type: ignore[typeddict-item]
+        input_["test_set_id"] = test_set_id
+        input_["test_set_name"] = test_set_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

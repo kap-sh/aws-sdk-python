@@ -75,18 +75,18 @@ class RetrieveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.retrieve_request.RetrieveRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["retrieval_query"] = retrieval_query
+        input_: aws_sdk_bedrock_agent_runtime.types.retrieve_request.RetrieveRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["retrieval_query"] = retrieval_query
         if retrieval_configuration is not None:
-            input["retrieval_configuration"] = retrieval_configuration
+            input_["retrieval_configuration"] = retrieval_configuration
         if guardrail_configuration is not None:
-            input["guardrail_configuration"] = guardrail_configuration
+            input_["guardrail_configuration"] = guardrail_configuration
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -139,18 +139,18 @@ class AsyncRetrieveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.retrieve_request.RetrieveRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["retrieval_query"] = retrieval_query
+        input_: aws_sdk_bedrock_agent_runtime.types.retrieve_request.RetrieveRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["retrieval_query"] = retrieval_query
         if retrieval_configuration is not None:
-            input["retrieval_configuration"] = retrieval_configuration
+            input_["retrieval_configuration"] = retrieval_configuration
         if guardrail_configuration is not None:
-            input["guardrail_configuration"] = guardrail_configuration
+            input_["guardrail_configuration"] = guardrail_configuration
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

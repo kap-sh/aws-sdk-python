@@ -372,12 +372,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.activate_key_signing_key_request.ActivateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["name"] = name
+        input_: aws_sdk_route_53.types.activate_key_signing_key_request.ActivateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,14 +422,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.associate_vpc_with_hosted_zone_request.AssociateVPCWithHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["vpc"] = vpc
+        input_: aws_sdk_route_53.types.associate_vpc_with_hosted_zone_request.AssociateVPCWithHostedZoneRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["vpc"] = vpc
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,14 +468,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.change_cidr_collection_request.ChangeCidrCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.change_cidr_collection_request.ChangeCidrCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if collection_version is not None:
-            input["collection_version"] = collection_version
-        input["changes"] = changes
+            input_["collection_version"] = collection_version
+        input_["changes"] = changes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,12 +552,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["change_batch"] = change_batch
+        input_: aws_sdk_route_53.types.change_resource_record_sets_request.ChangeResourceRecordSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["change_batch"] = change_batch
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,16 +604,16 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.change_tags_for_resource_request.ChangeTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_id"] = resource_id
+        input_: aws_sdk_route_53.types.change_tags_for_resource_request.ChangeTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_id"] = resource_id
         if add_tags is not None:
-            input["add_tags"] = add_tags
+            input_["add_tags"] = add_tags
         if remove_tag_keys is not None:
-            input["remove_tag_keys"] = remove_tag_keys
+            input_["remove_tag_keys"] = remove_tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -648,12 +648,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_cidr_collection_request.CreateCidrCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["caller_reference"] = caller_reference
+        input_: aws_sdk_route_53.types.create_cidr_collection_request.CreateCidrCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["caller_reference"] = caller_reference
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,12 +690,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_health_check_request.CreateHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input["caller_reference"] = caller_reference
-        input["health_check_config"] = health_check_config
+        input_: aws_sdk_route_53.types.create_health_check_request.CreateHealthCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["caller_reference"] = caller_reference
+        input_["health_check_config"] = health_check_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -740,18 +740,18 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_hosted_zone_request.CreateHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_route_53.types.create_hosted_zone_request.CreateHostedZoneRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if vpc is not None:
-            input["vpc"] = vpc
-        input["caller_reference"] = caller_reference
+            input_["vpc"] = vpc
+        input_["caller_reference"] = caller_reference
         if hosted_zone_config is not None:
-            input["hosted_zone_config"] = hosted_zone_config
+            input_["hosted_zone_config"] = hosted_zone_config
         if delegation_set_id is not None:
-            input["delegation_set_id"] = delegation_set_id
+            input_["delegation_set_id"] = delegation_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -792,15 +792,15 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_key_signing_key_request.CreateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
-        input["caller_reference"] = caller_reference
-        input["hosted_zone_id"] = hosted_zone_id
-        input["key_management_service_arn"] = key_management_service_arn
-        input["name"] = name
-        input["status"] = status
+        input_: aws_sdk_route_53.types.create_key_signing_key_request.CreateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["caller_reference"] = caller_reference
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["key_management_service_arn"] = key_management_service_arn
+        input_["name"] = name
+        input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -835,12 +835,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_query_logging_config_request.CreateQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
+        input_: aws_sdk_route_53.types.create_query_logging_config_request.CreateQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -877,13 +877,13 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_reusable_delegation_set_request.CreateReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
-        input["caller_reference"] = caller_reference
+        input_: aws_sdk_route_53.types.create_reusable_delegation_set_request.CreateReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["caller_reference"] = caller_reference
         if hosted_zone_id is not None:
-            input["hosted_zone_id"] = hosted_zone_id
+            input_["hosted_zone_id"] = hosted_zone_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -922,14 +922,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_traffic_policy_request.CreateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["document"] = document
+        input_: aws_sdk_route_53.types.create_traffic_policy_request.CreateTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["document"] = document
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -970,15 +970,15 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_traffic_policy_instance_request.CreateTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["name"] = name
-        input["ttl"] = ttl
-        input["traffic_policy_id"] = traffic_policy_id
-        input["traffic_policy_version"] = traffic_policy_version
+        input_: aws_sdk_route_53.types.create_traffic_policy_instance_request.CreateTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["name"] = name
+        input_["ttl"] = ttl
+        input_["traffic_policy_id"] = traffic_policy_id
+        input_["traffic_policy_version"] = traffic_policy_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1017,14 +1017,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_traffic_policy_version_request.CreateTrafficPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["document"] = document
+        input_: aws_sdk_route_53.types.create_traffic_policy_version_request.CreateTrafficPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["document"] = document
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1059,12 +1059,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.create_vpc_association_authorization_request.CreateVPCAssociationAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["vpc"] = vpc
+        input_: aws_sdk_route_53.types.create_vpc_association_authorization_request.CreateVPCAssociationAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["vpc"] = vpc
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1099,12 +1099,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.deactivate_key_signing_key_request.DeactivateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["name"] = name
+        input_: aws_sdk_route_53.types.deactivate_key_signing_key_request.DeactivateKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1137,11 +1137,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_cidr_collection_request.DeleteCidrCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.delete_cidr_collection_request.DeleteCidrCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1176,11 +1176,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_health_check_request.DeleteHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input["health_check_id"] = health_check_id
+        input_: aws_sdk_route_53.types.delete_health_check_request.DeleteHealthCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["health_check_id"] = health_check_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1213,11 +1213,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_hosted_zone_request.DeleteHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.delete_hosted_zone_request.DeleteHostedZoneRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1252,12 +1252,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_key_signing_key_request.DeleteKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["name"] = name
+        input_: aws_sdk_route_53.types.delete_key_signing_key_request.DeleteKeySigningKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1290,11 +1290,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_query_logging_config_request.DeleteQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.delete_query_logging_config_request.DeleteQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1327,11 +1327,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_reusable_delegation_set_request.DeleteReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.delete_reusable_delegation_set_request.DeleteReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1366,12 +1366,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_traffic_policy_request.DeleteTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["version"] = version
+        input_: aws_sdk_route_53.types.delete_traffic_policy_request.DeleteTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["version"] = version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1404,11 +1404,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_traffic_policy_instance_request.DeleteTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.delete_traffic_policy_instance_request.DeleteTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1443,12 +1443,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.delete_vpc_association_authorization_request.DeleteVPCAssociationAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["vpc"] = vpc
+        input_: aws_sdk_route_53.types.delete_vpc_association_authorization_request.DeleteVPCAssociationAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["vpc"] = vpc
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1481,11 +1481,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.disable_hosted_zone_dnssec_request.DisableHostedZoneDNSSECRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
+        input_: aws_sdk_route_53.types.disable_hosted_zone_dnssec_request.DisableHostedZoneDNSSECRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1524,14 +1524,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.disassociate_vpc_from_hosted_zone_request.DisassociateVPCFromHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["vpc"] = vpc
+        input_: aws_sdk_route_53.types.disassociate_vpc_from_hosted_zone_request.DisassociateVPCFromHostedZoneRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["vpc"] = vpc
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1564,11 +1564,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.enable_hosted_zone_dnssec_request.EnableHostedZoneDNSSECRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
+        input_: aws_sdk_route_53.types.enable_hosted_zone_dnssec_request.EnableHostedZoneDNSSECRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1601,11 +1601,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_account_limit_request.GetAccountLimitRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_route_53.types.get_account_limit_request.GetAccountLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1638,11 +1638,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_change_request.GetChangeRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.get_change_request.GetChangeRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1668,10 +1668,10 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_checker_ip_ranges_request.GetCheckerIpRangesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.get_checker_ip_ranges_request.GetCheckerIpRangesRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1704,11 +1704,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_dnssec_request.GetDNSSECRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
+        input_: aws_sdk_route_53.types.get_dnssec_request.GetDNSSECRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1751,16 +1751,16 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_geo_location_request.GetGeoLocationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.get_geo_location_request.GetGeoLocationRequest = {}  # type: ignore[typeddict-item]
         if continent_code is not None:
-            input["continent_code"] = continent_code
+            input_["continent_code"] = continent_code
         if country_code is not None:
-            input["country_code"] = country_code
+            input_["country_code"] = country_code
         if subdivision_code is not None:
-            input["subdivision_code"] = subdivision_code
+            input_["subdivision_code"] = subdivision_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1793,11 +1793,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_health_check_request.GetHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input["health_check_id"] = health_check_id
+        input_: aws_sdk_route_53.types.get_health_check_request.GetHealthCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["health_check_id"] = health_check_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1823,10 +1823,10 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_health_check_count_request.GetHealthCheckCountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.get_health_check_count_request.GetHealthCheckCountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1859,11 +1859,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_health_check_last_failure_reason_request.GetHealthCheckLastFailureReasonRequest = {}  # type: ignore[typeddict-item]
-        input["health_check_id"] = health_check_id
+        input_: aws_sdk_route_53.types.get_health_check_last_failure_reason_request.GetHealthCheckLastFailureReasonRequest = {}  # type: ignore[typeddict-item]
+        input_["health_check_id"] = health_check_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1896,11 +1896,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_health_check_status_request.GetHealthCheckStatusRequest = {}  # type: ignore[typeddict-item]
-        input["health_check_id"] = health_check_id
+        input_: aws_sdk_route_53.types.get_health_check_status_request.GetHealthCheckStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["health_check_id"] = health_check_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1939,11 +1939,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_hosted_zone_request.GetHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.get_hosted_zone_request.GetHostedZoneRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1969,10 +1969,10 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_hosted_zone_count_request.GetHostedZoneCountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.get_hosted_zone_count_request.GetHostedZoneCountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2007,12 +2007,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_hosted_zone_limit_request.GetHostedZoneLimitRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["hosted_zone_id"] = hosted_zone_id
+        input_: aws_sdk_route_53.types.get_hosted_zone_limit_request.GetHostedZoneLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["hosted_zone_id"] = hosted_zone_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2045,11 +2045,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_query_logging_config_request.GetQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.get_query_logging_config_request.GetQueryLoggingConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2082,11 +2082,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_reusable_delegation_set_request.GetReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.get_reusable_delegation_set_request.GetReusableDelegationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2121,12 +2121,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_reusable_delegation_set_limit_request.GetReusableDelegationSetLimitRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["delegation_set_id"] = delegation_set_id
+        input_: aws_sdk_route_53.types.get_reusable_delegation_set_limit_request.GetReusableDelegationSetLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["delegation_set_id"] = delegation_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2161,12 +2161,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_traffic_policy_request.GetTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["version"] = version
+        input_: aws_sdk_route_53.types.get_traffic_policy_request.GetTrafficPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["version"] = version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2199,11 +2199,11 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_traffic_policy_instance_request.GetTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.get_traffic_policy_instance_request.GetTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2229,10 +2229,10 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.get_traffic_policy_instance_count_request.GetTrafficPolicyInstanceCountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.get_traffic_policy_instance_count_request.GetTrafficPolicyInstanceCountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2275,17 +2275,17 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_cidr_blocks_request.ListCidrBlocksRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
+        input_: aws_sdk_route_53.types.list_cidr_blocks_request.ListCidrBlocksRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
         if location_name is not None:
-            input["location_name"] = location_name
+            input_["location_name"] = location_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2351,14 +2351,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_cidr_collections_request.ListCidrCollectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_cidr_collections_request.ListCidrCollectionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2422,15 +2422,15 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_cidr_locations_request.ListCidrLocationsRequest = {}  # type: ignore[typeddict-item]
-        input["collection_id"] = collection_id
+        input_: aws_sdk_route_53.types.list_cidr_locations_request.ListCidrLocationsRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_id"] = collection_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2500,18 +2500,18 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_geo_locations_request.ListGeoLocationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_geo_locations_request.ListGeoLocationsRequest = {}  # type: ignore[typeddict-item]
         if start_continent_code is not None:
-            input["start_continent_code"] = start_continent_code
+            input_["start_continent_code"] = start_continent_code
         if start_country_code is not None:
-            input["start_country_code"] = start_country_code
+            input_["start_country_code"] = start_country_code
         if start_subdivision_code is not None:
-            input["start_subdivision_code"] = start_subdivision_code
+            input_["start_subdivision_code"] = start_subdivision_code
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2546,14 +2546,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_health_checks_request.ListHealthChecksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_health_checks_request.ListHealthChecksRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2617,18 +2617,18 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_hosted_zones_request.ListHostedZonesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_hosted_zones_request.ListHostedZonesRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if delegation_set_id is not None:
-            input["delegation_set_id"] = delegation_set_id
+            input_["delegation_set_id"] = delegation_set_id
         if hosted_zone_type is not None:
-            input["hosted_zone_type"] = hosted_zone_type
+            input_["hosted_zone_type"] = hosted_zone_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2696,16 +2696,16 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_hosted_zones_by_name_request.ListHostedZonesByNameRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_hosted_zones_by_name_request.ListHostedZonesByNameRequest = {}  # type: ignore[typeddict-item]
         if dns_name is not None:
-            input["dns_name"] = dns_name
+            input_["dns_name"] = dns_name
         if hosted_zone_id is not None:
-            input["hosted_zone_id"] = hosted_zone_id
+            input_["hosted_zone_id"] = hosted_zone_id
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2746,16 +2746,16 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_hosted_zones_by_vpc_request.ListHostedZonesByVPCRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["vpc_region"] = vpc_region
+        input_: aws_sdk_route_53.types.list_hosted_zones_by_vpc_request.ListHostedZonesByVPCRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["vpc_region"] = vpc_region
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2796,16 +2796,16 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_query_logging_configs_request.ListQueryLoggingConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_query_logging_configs_request.ListQueryLoggingConfigsRequest = {}  # type: ignore[typeddict-item]
         if hosted_zone_id is not None:
-            input["hosted_zone_id"] = hosted_zone_id
+            input_["hosted_zone_id"] = hosted_zone_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2875,19 +2875,19 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
+        input_: aws_sdk_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
         if start_record_name is not None:
-            input["start_record_name"] = start_record_name
+            input_["start_record_name"] = start_record_name
         if start_record_type is not None:
-            input["start_record_type"] = start_record_type
+            input_["start_record_type"] = start_record_type
         if start_record_identifier is not None:
-            input["start_record_identifier"] = start_record_identifier
+            input_["start_record_identifier"] = start_record_identifier
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2922,14 +2922,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_reusable_delegation_sets_request.ListReusableDelegationSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_reusable_delegation_sets_request.ListReusableDelegationSetsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2964,12 +2964,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_id"] = resource_id
+        input_: aws_sdk_route_53.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_id"] = resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3004,12 +3004,12 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_tags_for_resources_request.ListTagsForResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_ids"] = resource_ids
+        input_: aws_sdk_route_53.types.list_tags_for_resources_request.ListTagsForResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_ids"] = resource_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3046,14 +3046,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_traffic_policies_request.ListTrafficPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_traffic_policies_request.ListTrafficPoliciesRequest = {}  # type: ignore[typeddict-item]
         if traffic_policy_id_marker is not None:
-            input["traffic_policy_id_marker"] = traffic_policy_id_marker
+            input_["traffic_policy_id_marker"] = traffic_policy_id_marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3098,22 +3098,22 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_traffic_policy_instances_request.ListTrafficPolicyInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53.types.list_traffic_policy_instances_request.ListTrafficPolicyInstancesRequest = {}  # type: ignore[typeddict-item]
         if hosted_zone_id_marker is not None:
-            input["hosted_zone_id_marker"] = hosted_zone_id_marker
+            input_["hosted_zone_id_marker"] = hosted_zone_id_marker
         if traffic_policy_instance_name_marker is not None:
-            input["traffic_policy_instance_name_marker"] = (
+            input_["traffic_policy_instance_name_marker"] = (
                 traffic_policy_instance_name_marker
             )
         if traffic_policy_instance_type_marker is not None:
-            input["traffic_policy_instance_type_marker"] = (
+            input_["traffic_policy_instance_type_marker"] = (
                 traffic_policy_instance_type_marker
             )
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3156,21 +3156,21 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_traffic_policy_instances_by_hosted_zone_request.ListTrafficPolicyInstancesByHostedZoneRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
+        input_: aws_sdk_route_53.types.list_traffic_policy_instances_by_hosted_zone_request.ListTrafficPolicyInstancesByHostedZoneRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
         if traffic_policy_instance_name_marker is not None:
-            input["traffic_policy_instance_name_marker"] = (
+            input_["traffic_policy_instance_name_marker"] = (
                 traffic_policy_instance_name_marker
             )
         if traffic_policy_instance_type_marker is not None:
-            input["traffic_policy_instance_type_marker"] = (
+            input_["traffic_policy_instance_type_marker"] = (
                 traffic_policy_instance_type_marker
             )
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3219,24 +3219,24 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_request.ListTrafficPolicyInstancesByPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_policy_id"] = traffic_policy_id
-        input["traffic_policy_version"] = traffic_policy_version
+        input_: aws_sdk_route_53.types.list_traffic_policy_instances_by_policy_request.ListTrafficPolicyInstancesByPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_policy_id"] = traffic_policy_id
+        input_["traffic_policy_version"] = traffic_policy_version
         if hosted_zone_id_marker is not None:
-            input["hosted_zone_id_marker"] = hosted_zone_id_marker
+            input_["hosted_zone_id_marker"] = hosted_zone_id_marker
         if traffic_policy_instance_name_marker is not None:
-            input["traffic_policy_instance_name_marker"] = (
+            input_["traffic_policy_instance_name_marker"] = (
                 traffic_policy_instance_name_marker
             )
         if traffic_policy_instance_type_marker is not None:
-            input["traffic_policy_instance_type_marker"] = (
+            input_["traffic_policy_instance_type_marker"] = (
                 traffic_policy_instance_type_marker
             )
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3275,15 +3275,15 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_traffic_policy_versions_request.ListTrafficPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.list_traffic_policy_versions_request.ListTrafficPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if traffic_policy_version_marker is not None:
-            input["traffic_policy_version_marker"] = traffic_policy_version_marker
+            input_["traffic_policy_version_marker"] = traffic_policy_version_marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3322,15 +3322,15 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.list_vpc_association_authorizations_request.ListVPCAssociationAuthorizationsRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
+        input_: aws_sdk_route_53.types.list_vpc_association_authorizations_request.ListVPCAssociationAuthorizationsRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3377,19 +3377,19 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.test_dns_answer_request.TestDNSAnswerRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["record_name"] = record_name
-        input["record_type"] = record_type
+        input_: aws_sdk_route_53.types.test_dns_answer_request.TestDNSAnswerRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["record_name"] = record_name
+        input_["record_type"] = record_type
         if resolver_ip is not None:
-            input["resolver_ip"] = resolver_ip
+            input_["resolver_ip"] = resolver_ip
         if edns0_client_subnet_ip is not None:
-            input["edns0_client_subnet_ip"] = edns0_client_subnet_ip
+            input_["edns0_client_subnet_ip"] = edns0_client_subnet_ip
         if edns0_client_subnet_mask is not None:
-            input["edns0_client_subnet_mask"] = edns0_client_subnet_mask
+            input_["edns0_client_subnet_mask"] = edns0_client_subnet_mask
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3478,43 +3478,43 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.update_health_check_request.UpdateHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input["health_check_id"] = health_check_id
+        input_: aws_sdk_route_53.types.update_health_check_request.UpdateHealthCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["health_check_id"] = health_check_id
         if health_check_version is not None:
-            input["health_check_version"] = health_check_version
+            input_["health_check_version"] = health_check_version
         if ip_address is not None:
-            input["ip_address"] = ip_address
+            input_["ip_address"] = ip_address
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if resource_path is not None:
-            input["resource_path"] = resource_path
+            input_["resource_path"] = resource_path
         if fully_qualified_domain_name is not None:
-            input["fully_qualified_domain_name"] = fully_qualified_domain_name
+            input_["fully_qualified_domain_name"] = fully_qualified_domain_name
         if search_string is not None:
-            input["search_string"] = search_string
+            input_["search_string"] = search_string
         if failure_threshold is not None:
-            input["failure_threshold"] = failure_threshold
+            input_["failure_threshold"] = failure_threshold
         if inverted is not None:
-            input["inverted"] = inverted
+            input_["inverted"] = inverted
         if disabled is not None:
-            input["disabled"] = disabled
+            input_["disabled"] = disabled
         if health_threshold is not None:
-            input["health_threshold"] = health_threshold
+            input_["health_threshold"] = health_threshold
         if child_health_checks is not None:
-            input["child_health_checks"] = child_health_checks
+            input_["child_health_checks"] = child_health_checks
         if enable_sni is not None:
-            input["enable_sni"] = enable_sni
+            input_["enable_sni"] = enable_sni
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if alarm_identifier is not None:
-            input["alarm_identifier"] = alarm_identifier
+            input_["alarm_identifier"] = alarm_identifier
         if insufficient_data_health_status is not None:
-            input["insufficient_data_health_status"] = insufficient_data_health_status
+            input_["insufficient_data_health_status"] = insufficient_data_health_status
         if reset_elements is not None:
-            input["reset_elements"] = reset_elements
+            input_["reset_elements"] = reset_elements
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3551,13 +3551,13 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3594,13 +3594,13 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.update_hosted_zone_features_request.UpdateHostedZoneFeaturesRequest = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
+        input_: aws_sdk_route_53.types.update_hosted_zone_features_request.UpdateHostedZoneFeaturesRequest = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
         if enable_accelerated_recovery is not None:
-            input["enable_accelerated_recovery"] = enable_accelerated_recovery
+            input_["enable_accelerated_recovery"] = enable_accelerated_recovery
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3637,13 +3637,13 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.update_traffic_policy_comment_request.UpdateTrafficPolicyCommentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["version"] = version
-        input["comment"] = comment
+        input_: aws_sdk_route_53.types.update_traffic_policy_comment_request.UpdateTrafficPolicyCommentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["version"] = version
+        input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3682,14 +3682,14 @@ class Route53Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53.types.update_traffic_policy_instance_request.UpdateTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["ttl"] = ttl
-        input["traffic_policy_id"] = traffic_policy_id
-        input["traffic_policy_version"] = traffic_policy_version
+        input_: aws_sdk_route_53.types.update_traffic_policy_instance_request.UpdateTrafficPolicyInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["ttl"] = ttl
+        input_["traffic_policy_id"] = traffic_policy_id
+        input_["traffic_policy_version"] = traffic_policy_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -165,49 +165,49 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr_serverless.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["release_label"] = release_label
-        input["type"] = type
-        input["client_token"] = client_token
+            input_["name"] = name
+        input_["release_label"] = release_label
+        input_["type"] = type
+        input_["client_token"] = client_token
         if initial_capacity is not None:
-            input["initial_capacity"] = initial_capacity
+            input_["initial_capacity"] = initial_capacity
         if maximum_capacity is not None:
-            input["maximum_capacity"] = maximum_capacity
+            input_["maximum_capacity"] = maximum_capacity
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if auto_start_configuration is not None:
-            input["auto_start_configuration"] = auto_start_configuration
+            input_["auto_start_configuration"] = auto_start_configuration
         if auto_stop_configuration is not None:
-            input["auto_stop_configuration"] = auto_stop_configuration
+            input_["auto_stop_configuration"] = auto_stop_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if architecture is not None:
-            input["architecture"] = architecture
+            input_["architecture"] = architecture
         if image_configuration is not None:
-            input["image_configuration"] = image_configuration
+            input_["image_configuration"] = image_configuration
         if worker_type_specifications is not None:
-            input["worker_type_specifications"] = worker_type_specifications
+            input_["worker_type_specifications"] = worker_type_specifications
         if runtime_configuration is not None:
-            input["runtime_configuration"] = runtime_configuration
+            input_["runtime_configuration"] = runtime_configuration
         if monitoring_configuration is not None:
-            input["monitoring_configuration"] = monitoring_configuration
+            input_["monitoring_configuration"] = monitoring_configuration
         if disk_encryption_configuration is not None:
-            input["disk_encryption_configuration"] = disk_encryption_configuration
+            input_["disk_encryption_configuration"] = disk_encryption_configuration
         if interactive_configuration is not None:
-            input["interactive_configuration"] = interactive_configuration
+            input_["interactive_configuration"] = interactive_configuration
         if scheduler_configuration is not None:
-            input["scheduler_configuration"] = scheduler_configuration
+            input_["scheduler_configuration"] = scheduler_configuration
         if identity_center_configuration is not None:
-            input["identity_center_configuration"] = identity_center_configuration
+            input_["identity_center_configuration"] = identity_center_configuration
         if job_level_cost_allocation_configuration is not None:
-            input["job_level_cost_allocation_configuration"] = (
+            input_["job_level_cost_allocation_configuration"] = (
                 job_level_cost_allocation_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -240,11 +240,11 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,46 +342,46 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["client_token"] = client_token
+        input_: aws_sdk_emr_serverless.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["client_token"] = client_token
         if initial_capacity is not None:
-            input["initial_capacity"] = initial_capacity
+            input_["initial_capacity"] = initial_capacity
         if maximum_capacity is not None:
-            input["maximum_capacity"] = maximum_capacity
+            input_["maximum_capacity"] = maximum_capacity
         if auto_start_configuration is not None:
-            input["auto_start_configuration"] = auto_start_configuration
+            input_["auto_start_configuration"] = auto_start_configuration
         if auto_stop_configuration is not None:
-            input["auto_stop_configuration"] = auto_stop_configuration
+            input_["auto_stop_configuration"] = auto_stop_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if architecture is not None:
-            input["architecture"] = architecture
+            input_["architecture"] = architecture
         if image_configuration is not None:
-            input["image_configuration"] = image_configuration
+            input_["image_configuration"] = image_configuration
         if worker_type_specifications is not None:
-            input["worker_type_specifications"] = worker_type_specifications
+            input_["worker_type_specifications"] = worker_type_specifications
         if interactive_configuration is not None:
-            input["interactive_configuration"] = interactive_configuration
+            input_["interactive_configuration"] = interactive_configuration
         if release_label is not None:
-            input["release_label"] = release_label
+            input_["release_label"] = release_label
         if runtime_configuration is not None:
-            input["runtime_configuration"] = runtime_configuration
+            input_["runtime_configuration"] = runtime_configuration
         if monitoring_configuration is not None:
-            input["monitoring_configuration"] = monitoring_configuration
+            input_["monitoring_configuration"] = monitoring_configuration
         if disk_encryption_configuration is not None:
-            input["disk_encryption_configuration"] = disk_encryption_configuration
+            input_["disk_encryption_configuration"] = disk_encryption_configuration
         if scheduler_configuration is not None:
-            input["scheduler_configuration"] = scheduler_configuration
+            input_["scheduler_configuration"] = scheduler_configuration
         if identity_center_configuration is not None:
-            input["identity_center_configuration"] = identity_center_configuration
+            input_["identity_center_configuration"] = identity_center_configuration
         if job_level_cost_allocation_configuration is not None:
-            input["job_level_cost_allocation_configuration"] = (
+            input_["job_level_cost_allocation_configuration"] = (
                 job_level_cost_allocation_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,11 +414,11 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,16 +459,16 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr_serverless.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,13 +505,13 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_resource_dashboard_request.GetResourceDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_emr_serverless.types.get_resource_dashboard_request.GetResourceDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,11 +544,11 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -583,11 +583,11 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,49 +696,49 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr_serverless.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["release_label"] = release_label
-        input["type"] = type
-        input["client_token"] = client_token
+            input_["name"] = name
+        input_["release_label"] = release_label
+        input_["type"] = type
+        input_["client_token"] = client_token
         if initial_capacity is not None:
-            input["initial_capacity"] = initial_capacity
+            input_["initial_capacity"] = initial_capacity
         if maximum_capacity is not None:
-            input["maximum_capacity"] = maximum_capacity
+            input_["maximum_capacity"] = maximum_capacity
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if auto_start_configuration is not None:
-            input["auto_start_configuration"] = auto_start_configuration
+            input_["auto_start_configuration"] = auto_start_configuration
         if auto_stop_configuration is not None:
-            input["auto_stop_configuration"] = auto_stop_configuration
+            input_["auto_stop_configuration"] = auto_stop_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if architecture is not None:
-            input["architecture"] = architecture
+            input_["architecture"] = architecture
         if image_configuration is not None:
-            input["image_configuration"] = image_configuration
+            input_["image_configuration"] = image_configuration
         if worker_type_specifications is not None:
-            input["worker_type_specifications"] = worker_type_specifications
+            input_["worker_type_specifications"] = worker_type_specifications
         if runtime_configuration is not None:
-            input["runtime_configuration"] = runtime_configuration
+            input_["runtime_configuration"] = runtime_configuration
         if monitoring_configuration is not None:
-            input["monitoring_configuration"] = monitoring_configuration
+            input_["monitoring_configuration"] = monitoring_configuration
         if disk_encryption_configuration is not None:
-            input["disk_encryption_configuration"] = disk_encryption_configuration
+            input_["disk_encryption_configuration"] = disk_encryption_configuration
         if interactive_configuration is not None:
-            input["interactive_configuration"] = interactive_configuration
+            input_["interactive_configuration"] = interactive_configuration
         if scheduler_configuration is not None:
-            input["scheduler_configuration"] = scheduler_configuration
+            input_["scheduler_configuration"] = scheduler_configuration
         if identity_center_configuration is not None:
-            input["identity_center_configuration"] = identity_center_configuration
+            input_["identity_center_configuration"] = identity_center_configuration
         if job_level_cost_allocation_configuration is not None:
-            input["job_level_cost_allocation_configuration"] = (
+            input_["job_level_cost_allocation_configuration"] = (
                 job_level_cost_allocation_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,11 +772,11 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -875,46 +875,46 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["client_token"] = client_token
+        input_: aws_sdk_emr_serverless.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["client_token"] = client_token
         if initial_capacity is not None:
-            input["initial_capacity"] = initial_capacity
+            input_["initial_capacity"] = initial_capacity
         if maximum_capacity is not None:
-            input["maximum_capacity"] = maximum_capacity
+            input_["maximum_capacity"] = maximum_capacity
         if auto_start_configuration is not None:
-            input["auto_start_configuration"] = auto_start_configuration
+            input_["auto_start_configuration"] = auto_start_configuration
         if auto_stop_configuration is not None:
-            input["auto_stop_configuration"] = auto_stop_configuration
+            input_["auto_stop_configuration"] = auto_stop_configuration
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if architecture is not None:
-            input["architecture"] = architecture
+            input_["architecture"] = architecture
         if image_configuration is not None:
-            input["image_configuration"] = image_configuration
+            input_["image_configuration"] = image_configuration
         if worker_type_specifications is not None:
-            input["worker_type_specifications"] = worker_type_specifications
+            input_["worker_type_specifications"] = worker_type_specifications
         if interactive_configuration is not None:
-            input["interactive_configuration"] = interactive_configuration
+            input_["interactive_configuration"] = interactive_configuration
         if release_label is not None:
-            input["release_label"] = release_label
+            input_["release_label"] = release_label
         if runtime_configuration is not None:
-            input["runtime_configuration"] = runtime_configuration
+            input_["runtime_configuration"] = runtime_configuration
         if monitoring_configuration is not None:
-            input["monitoring_configuration"] = monitoring_configuration
+            input_["monitoring_configuration"] = monitoring_configuration
         if disk_encryption_configuration is not None:
-            input["disk_encryption_configuration"] = disk_encryption_configuration
+            input_["disk_encryption_configuration"] = disk_encryption_configuration
         if scheduler_configuration is not None:
-            input["scheduler_configuration"] = scheduler_configuration
+            input_["scheduler_configuration"] = scheduler_configuration
         if identity_center_configuration is not None:
-            input["identity_center_configuration"] = identity_center_configuration
+            input_["identity_center_configuration"] = identity_center_configuration
         if job_level_cost_allocation_configuration is not None:
-            input["job_level_cost_allocation_configuration"] = (
+            input_["job_level_cost_allocation_configuration"] = (
                 job_level_cost_allocation_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -948,11 +948,11 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -994,16 +994,16 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_emr_serverless.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1041,13 +1041,13 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_resource_dashboard_request.GetResourceDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_emr_serverless.types.get_resource_dashboard_request.GetResourceDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1081,11 +1081,11 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1121,11 +1121,11 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

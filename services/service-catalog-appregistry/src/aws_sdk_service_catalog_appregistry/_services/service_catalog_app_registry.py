@@ -225,12 +225,12 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.associate_attribute_group_request.AssociateAttributeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
-        input["attribute_group"] = attribute_group
+        input_: aws_sdk_service_catalog_appregistry.types.associate_attribute_group_request.AssociateAttributeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
+        input_["attribute_group"] = attribute_group
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,15 +271,15 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.associate_resource_request.AssociateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
-        input["resource_type"] = resource_type
-        input["resource"] = resource
+        input_: aws_sdk_service_catalog_appregistry.types.associate_resource_request.AssociateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
+        input_["resource_type"] = resource_type
+        input_["resource"] = resource
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,16 +320,16 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_service_catalog_appregistry.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,17 +372,17 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.create_attribute_group_request.CreateAttributeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_service_catalog_appregistry.types.create_attribute_group_request.CreateAttributeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["attributes"] = attributes
+            input_["description"] = description
+        input_["attributes"] = attributes
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,11 +415,11 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
+        input_: aws_sdk_service_catalog_appregistry.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -452,11 +452,11 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.delete_attribute_group_request.DeleteAttributeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["attribute_group"] = attribute_group
+        input_: aws_sdk_service_catalog_appregistry.types.delete_attribute_group_request.DeleteAttributeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["attribute_group"] = attribute_group
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -491,12 +491,12 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.disassociate_attribute_group_request.DisassociateAttributeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
-        input["attribute_group"] = attribute_group
+        input_: aws_sdk_service_catalog_appregistry.types.disassociate_attribute_group_request.DisassociateAttributeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
+        input_["attribute_group"] = attribute_group
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -533,13 +533,13 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.disassociate_resource_request.DisassociateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
-        input["resource_type"] = resource_type
-        input["resource"] = resource
+        input_: aws_sdk_service_catalog_appregistry.types.disassociate_resource_request.DisassociateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
+        input_["resource_type"] = resource_type
+        input_["resource"] = resource
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,11 +572,11 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
+        input_: aws_sdk_service_catalog_appregistry.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,19 +625,19 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.get_associated_resource_request.GetAssociatedResourceRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
-        input["resource_type"] = resource_type
-        input["resource"] = resource
+        input_: aws_sdk_service_catalog_appregistry.types.get_associated_resource_request.GetAssociatedResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
+        input_["resource_type"] = resource_type
+        input_["resource"] = resource
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if resource_tag_status is not None:
-            input["resource_tag_status"] = resource_tag_status
+            input_["resource_tag_status"] = resource_tag_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -670,11 +670,11 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.get_attribute_group_request.GetAttributeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["attribute_group"] = attribute_group
+        input_: aws_sdk_service_catalog_appregistry.types.get_attribute_group_request.GetAttributeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["attribute_group"] = attribute_group
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,14 +743,14 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog_appregistry.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -816,15 +816,15 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.list_associated_attribute_groups_request.ListAssociatedAttributeGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
+        input_: aws_sdk_service_catalog_appregistry.types.list_associated_attribute_groups_request.ListAssociatedAttributeGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -892,15 +892,15 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.list_associated_resources_request.ListAssociatedResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
+        input_: aws_sdk_service_catalog_appregistry.types.list_associated_resources_request.ListAssociatedResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -968,14 +968,14 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.list_attribute_groups_request.ListAttributeGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog_appregistry.types.list_attribute_groups_request.ListAttributeGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1041,15 +1041,15 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.list_attribute_groups_for_application_request.ListAttributeGroupsForApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
+        input_: aws_sdk_service_catalog_appregistry.types.list_attribute_groups_for_application_request.ListAttributeGroupsForApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1109,11 +1109,11 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_service_catalog_appregistry.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1144,11 +1144,11 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.put_configuration_request.PutConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration"] = configuration
+        input_: aws_sdk_service_catalog_appregistry.types.put_configuration_request.PutConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1183,12 +1183,12 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.sync_resource_request.SyncResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource"] = resource
+        input_: aws_sdk_service_catalog_appregistry.types.sync_resource_request.SyncResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource"] = resource
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1223,12 +1223,12 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_service_catalog_appregistry.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1263,12 +1263,12 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_service_catalog_appregistry.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1307,15 +1307,15 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
+        input_: aws_sdk_service_catalog_appregistry.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1358,17 +1358,17 @@ class ServiceCatalogAppRegistryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog_appregistry.types.update_attribute_group_request.UpdateAttributeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["attribute_group"] = attribute_group
+        input_: aws_sdk_service_catalog_appregistry.types.update_attribute_group_request.UpdateAttributeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["attribute_group"] = attribute_group
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

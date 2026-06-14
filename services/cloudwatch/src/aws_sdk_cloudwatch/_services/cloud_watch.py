@@ -341,12 +341,12 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.associate_dataset_kms_key_input.AssociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
-        input["dataset_identifier"] = dataset_identifier
-        input["kms_key_arn"] = kms_key_arn
+        input_: aws_sdk_cloudwatch.types.associate_dataset_kms_key_input.AssociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
+        input_["dataset_identifier"] = dataset_identifier
+        input_["kms_key_arn"] = kms_key_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,11 +377,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.delete_alarm_mute_rule_input.DeleteAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
-        input["alarm_mute_rule_name"] = alarm_mute_rule_name
+        input_: aws_sdk_cloudwatch.types.delete_alarm_mute_rule_input.DeleteAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
+        input_["alarm_mute_rule_name"] = alarm_mute_rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,11 +412,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.delete_alarms_input.DeleteAlarmsInput = {}  # type: ignore[typeddict-item]
-        input["alarm_names"] = alarm_names
+        input_: aws_sdk_cloudwatch.types.delete_alarms_input.DeleteAlarmsInput = {}  # type: ignore[typeddict-item]
+        input_["alarm_names"] = alarm_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,22 +465,22 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.delete_anomaly_detector_input.DeleteAnomalyDetectorInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.delete_anomaly_detector_input.DeleteAnomalyDetectorInput = {}  # type: ignore[typeddict-item]
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if metric_name is not None:
-            input["metric_name"] = metric_name
+            input_["metric_name"] = metric_name
         if dimensions is not None:
-            input["dimensions"] = dimensions
+            input_["dimensions"] = dimensions
         if stat is not None:
-            input["stat"] = stat
+            input_["stat"] = stat
         if single_metric_anomaly_detector is not None:
-            input["single_metric_anomaly_detector"] = single_metric_anomaly_detector
+            input_["single_metric_anomaly_detector"] = single_metric_anomaly_detector
         if metric_math_anomaly_detector is not None:
-            input["metric_math_anomaly_detector"] = metric_math_anomaly_detector
+            input_["metric_math_anomaly_detector"] = metric_math_anomaly_detector
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,11 +513,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.delete_dashboards_input.DeleteDashboardsInput = {}  # type: ignore[typeddict-item]
-        input["dashboard_names"] = dashboard_names
+        input_: aws_sdk_cloudwatch.types.delete_dashboards_input.DeleteDashboardsInput = {}  # type: ignore[typeddict-item]
+        input_["dashboard_names"] = dashboard_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,11 +552,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.delete_insight_rules_input.DeleteInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input["rule_names"] = rule_names
+        input_: aws_sdk_cloudwatch.types.delete_insight_rules_input.DeleteInsightRulesInput = {}  # type: ignore[typeddict-item]
+        input_["rule_names"] = rule_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,11 +591,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.delete_metric_stream_input.DeleteMetricStreamInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch.types.delete_metric_stream_input.DeleteMetricStreamInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,13 +630,13 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.describe_alarm_contributors_input.DescribeAlarmContributorsInput = {}  # type: ignore[typeddict-item]
-        input["alarm_name"] = alarm_name
+        input_: aws_sdk_cloudwatch.types.describe_alarm_contributors_input.DescribeAlarmContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["alarm_name"] = alarm_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,28 +689,28 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.describe_alarm_history_input.DescribeAlarmHistoryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.describe_alarm_history_input.DescribeAlarmHistoryInput = {}  # type: ignore[typeddict-item]
         if alarm_name is not None:
-            input["alarm_name"] = alarm_name
+            input_["alarm_name"] = alarm_name
         if alarm_contributor_id is not None:
-            input["alarm_contributor_id"] = alarm_contributor_id
+            input_["alarm_contributor_id"] = alarm_contributor_id
         if alarm_types is not None:
-            input["alarm_types"] = alarm_types
+            input_["alarm_types"] = alarm_types
         if history_item_type is not None:
-            input["history_item_type"] = history_item_type
+            input_["history_item_type"] = history_item_type
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
+            input_["end_date"] = end_date
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if scan_by is not None:
-            input["scan_by"] = scan_by
+            input_["scan_by"] = scan_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,28 +806,28 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.describe_alarms_input.DescribeAlarmsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.describe_alarms_input.DescribeAlarmsInput = {}  # type: ignore[typeddict-item]
         if alarm_names is not None:
-            input["alarm_names"] = alarm_names
+            input_["alarm_names"] = alarm_names
         if alarm_name_prefix is not None:
-            input["alarm_name_prefix"] = alarm_name_prefix
+            input_["alarm_name_prefix"] = alarm_name_prefix
         if alarm_types is not None:
-            input["alarm_types"] = alarm_types
+            input_["alarm_types"] = alarm_types
         if children_of_alarm_name is not None:
-            input["children_of_alarm_name"] = children_of_alarm_name
+            input_["children_of_alarm_name"] = children_of_alarm_name
         if parents_of_alarm_name is not None:
-            input["parents_of_alarm_name"] = parents_of_alarm_name
+            input_["parents_of_alarm_name"] = parents_of_alarm_name
         if state_value is not None:
-            input["state_value"] = state_value
+            input_["state_value"] = state_value
         if action_prefix is not None:
-            input["action_prefix"] = action_prefix
+            input_["action_prefix"] = action_prefix
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -874,22 +874,22 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.describe_alarms_for_metric_input.DescribeAlarmsForMetricInput = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
-        input["namespace"] = namespace
+        input_: aws_sdk_cloudwatch.types.describe_alarms_for_metric_input.DescribeAlarmsForMetricInput = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
+        input_["namespace"] = namespace
         if statistic is not None:
-            input["statistic"] = statistic
+            input_["statistic"] = statistic
         if extended_statistic is not None:
-            input["extended_statistic"] = extended_statistic
+            input_["extended_statistic"] = extended_statistic
         if dimensions is not None:
-            input["dimensions"] = dimensions
+            input_["dimensions"] = dimensions
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if unit is not None:
-            input["unit"] = unit
+            input_["unit"] = unit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -936,22 +936,22 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.describe_anomaly_detectors_input.DescribeAnomalyDetectorsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.describe_anomaly_detectors_input.DescribeAnomalyDetectorsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if metric_name is not None:
-            input["metric_name"] = metric_name
+            input_["metric_name"] = metric_name
         if dimensions is not None:
-            input["dimensions"] = dimensions
+            input_["dimensions"] = dimensions
         if anomaly_detector_types is not None:
-            input["anomaly_detector_types"] = anomaly_detector_types
+            input_["anomaly_detector_types"] = anomaly_detector_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1021,14 +1021,14 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.describe_insight_rules_input.DescribeInsightRulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.describe_insight_rules_input.DescribeInsightRulesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1059,11 +1059,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.disable_alarm_actions_input.DisableAlarmActionsInput = {}  # type: ignore[typeddict-item]
-        input["alarm_names"] = alarm_names
+        input_: aws_sdk_cloudwatch.types.disable_alarm_actions_input.DisableAlarmActionsInput = {}  # type: ignore[typeddict-item]
+        input_["alarm_names"] = alarm_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1096,11 +1096,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.disable_insight_rules_input.DisableInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input["rule_names"] = rule_names
+        input_: aws_sdk_cloudwatch.types.disable_insight_rules_input.DisableInsightRulesInput = {}  # type: ignore[typeddict-item]
+        input_["rule_names"] = rule_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1133,11 +1133,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.disassociate_dataset_kms_key_input.DisassociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
-        input["dataset_identifier"] = dataset_identifier
+        input_: aws_sdk_cloudwatch.types.disassociate_dataset_kms_key_input.DisassociateDatasetKmsKeyInput = {}  # type: ignore[typeddict-item]
+        input_["dataset_identifier"] = dataset_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,11 +1168,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.enable_alarm_actions_input.EnableAlarmActionsInput = {}  # type: ignore[typeddict-item]
-        input["alarm_names"] = alarm_names
+        input_: aws_sdk_cloudwatch.types.enable_alarm_actions_input.EnableAlarmActionsInput = {}  # type: ignore[typeddict-item]
+        input_["alarm_names"] = alarm_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1207,11 +1207,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.enable_insight_rules_input.EnableInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input["rule_names"] = rule_names
+        input_: aws_sdk_cloudwatch.types.enable_insight_rules_input.EnableInsightRulesInput = {}  # type: ignore[typeddict-item]
+        input_["rule_names"] = rule_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1244,11 +1244,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_alarm_mute_rule_input.GetAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
-        input["alarm_mute_rule_name"] = alarm_mute_rule_name
+        input_: aws_sdk_cloudwatch.types.get_alarm_mute_rule_input.GetAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
+        input_["alarm_mute_rule_name"] = alarm_mute_rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1323,11 +1323,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_dashboard_input.GetDashboardInput = {}  # type: ignore[typeddict-item]
-        input["dashboard_name"] = dashboard_name
+        input_: aws_sdk_cloudwatch.types.get_dashboard_input.GetDashboardInput = {}  # type: ignore[typeddict-item]
+        input_["dashboard_name"] = dashboard_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1360,11 +1360,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_dataset_input.GetDatasetInput = {}  # type: ignore[typeddict-item]
-        input["dataset_identifier"] = dataset_identifier
+        input_: aws_sdk_cloudwatch.types.get_dataset_input.GetDatasetInput = {}  # type: ignore[typeddict-item]
+        input_["dataset_identifier"] = dataset_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1415,20 +1415,20 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_insight_rule_report_input.GetInsightRuleReportInput = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["period"] = period
+        input_: aws_sdk_cloudwatch.types.get_insight_rule_report_input.GetInsightRuleReportInput = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["period"] = period
         if max_contributor_count is not None:
-            input["max_contributor_count"] = max_contributor_count
+            input_["max_contributor_count"] = max_contributor_count
         if metrics is not None:
-            input["metrics"] = metrics
+            input_["metrics"] = metrics
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1477,21 +1477,21 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_metric_data_input.GetMetricDataInput = {}  # type: ignore[typeddict-item]
-        input["metric_data_queries"] = metric_data_queries
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_cloudwatch.types.get_metric_data_input.GetMetricDataInput = {}  # type: ignore[typeddict-item]
+        input_["metric_data_queries"] = metric_data_queries
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if scan_by is not None:
-            input["scan_by"] = scan_by
+            input_["scan_by"] = scan_by
         if max_datapoints is not None:
-            input["max_datapoints"] = max_datapoints
+            input_["max_datapoints"] = max_datapoints
         if label_options is not None:
-            input["label_options"] = label_options
+            input_["label_options"] = label_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1542,23 +1542,23 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_metric_statistics_input.GetMetricStatisticsInput = {}  # type: ignore[typeddict-item]
-        input["namespace"] = namespace
-        input["metric_name"] = metric_name
+        input_: aws_sdk_cloudwatch.types.get_metric_statistics_input.GetMetricStatisticsInput = {}  # type: ignore[typeddict-item]
+        input_["namespace"] = namespace
+        input_["metric_name"] = metric_name
         if dimensions is not None:
-            input["dimensions"] = dimensions
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["period"] = period
+            input_["dimensions"] = dimensions
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["period"] = period
         if statistics is not None:
-            input["statistics"] = statistics
+            input_["statistics"] = statistics
         if extended_statistics is not None:
-            input["extended_statistics"] = extended_statistics
+            input_["extended_statistics"] = extended_statistics
         if unit is not None:
-            input["unit"] = unit
+            input_["unit"] = unit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1591,11 +1591,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_metric_stream_input.GetMetricStreamInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch.types.get_metric_stream_input.GetMetricStreamInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1632,13 +1632,13 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_metric_widget_image_input.GetMetricWidgetImageInput = {}  # type: ignore[typeddict-item]
-        input["metric_widget"] = metric_widget
+        input_: aws_sdk_cloudwatch.types.get_metric_widget_image_input.GetMetricWidgetImageInput = {}  # type: ignore[typeddict-item]
+        input_["metric_widget"] = metric_widget
         if output_format is not None:
-            input["output_format"] = output_format
+            input_["output_format"] = output_format
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1664,10 +1664,10 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.get_o_tel_enrichment_input.GetOTelEnrichmentInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.get_o_tel_enrichment_input.GetOTelEnrichmentInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1710,18 +1710,18 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.list_alarm_mute_rules_input.ListAlarmMuteRulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.list_alarm_mute_rules_input.ListAlarmMuteRulesInput = {}  # type: ignore[typeddict-item]
         if alarm_name is not None:
-            input["alarm_name"] = alarm_name
+            input_["alarm_name"] = alarm_name
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1785,14 +1785,14 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.list_dashboards_input.ListDashboardsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.list_dashboards_input.ListDashboardsInput = {}  # type: ignore[typeddict-item]
         if dashboard_name_prefix is not None:
-            input["dashboard_name_prefix"] = dashboard_name_prefix
+            input_["dashboard_name_prefix"] = dashboard_name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1854,15 +1854,15 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.list_managed_insight_rules_input.ListManagedInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudwatch.types.list_managed_insight_rules_input.ListManagedInsightRulesInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1915,24 +1915,24 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.list_metrics_input.ListMetricsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.list_metrics_input.ListMetricsInput = {}  # type: ignore[typeddict-item]
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if metric_name is not None:
-            input["metric_name"] = metric_name
+            input_["metric_name"] = metric_name
         if dimensions is not None:
-            input["dimensions"] = dimensions
+            input_["dimensions"] = dimensions
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if recently_active is not None:
-            input["recently_active"] = recently_active
+            input_["recently_active"] = recently_active
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
         if owning_account is not None:
-            input["owning_account"] = owning_account
+            input_["owning_account"] = owning_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1969,14 +1969,14 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.list_metric_streams_input.ListMetricStreamsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.list_metric_streams_input.ListMetricStreamsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2009,11 +2009,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudwatch.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2060,22 +2060,22 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_alarm_mute_rule_input.PutAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch.types.put_alarm_mute_rule_input.PutAlarmMuteRuleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["rule"] = rule
+            input_["description"] = description
+        input_["rule"] = rule
         if mute_targets is not None:
-            input["mute_targets"] = mute_targets
+            input_["mute_targets"] = mute_targets
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if expire_date is not None:
-            input["expire_date"] = expire_date
+            input_["expire_date"] = expire_date
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2134,26 +2134,26 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_anomaly_detector_input.PutAnomalyDetectorInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.put_anomaly_detector_input.PutAnomalyDetectorInput = {}  # type: ignore[typeddict-item]
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if metric_name is not None:
-            input["metric_name"] = metric_name
+            input_["metric_name"] = metric_name
         if dimensions is not None:
-            input["dimensions"] = dimensions
+            input_["dimensions"] = dimensions
         if stat is not None:
-            input["stat"] = stat
+            input_["stat"] = stat
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if metric_characteristics is not None:
-            input["metric_characteristics"] = metric_characteristics
+            input_["metric_characteristics"] = metric_characteristics
         if single_metric_anomaly_detector is not None:
-            input["single_metric_anomaly_detector"] = single_metric_anomaly_detector
+            input_["single_metric_anomaly_detector"] = single_metric_anomaly_detector
         if metric_math_anomaly_detector is not None:
-            input["metric_math_anomaly_detector"] = metric_math_anomaly_detector
+            input_["metric_math_anomaly_detector"] = metric_math_anomaly_detector
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2220,32 +2220,32 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_composite_alarm_input.PutCompositeAlarmInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.put_composite_alarm_input.PutCompositeAlarmInput = {}  # type: ignore[typeddict-item]
         if actions_enabled is not None:
-            input["actions_enabled"] = actions_enabled
+            input_["actions_enabled"] = actions_enabled
         if alarm_actions is not None:
-            input["alarm_actions"] = alarm_actions
+            input_["alarm_actions"] = alarm_actions
         if alarm_description is not None:
-            input["alarm_description"] = alarm_description
-        input["alarm_name"] = alarm_name
-        input["alarm_rule"] = alarm_rule
+            input_["alarm_description"] = alarm_description
+        input_["alarm_name"] = alarm_name
+        input_["alarm_rule"] = alarm_rule
         if insufficient_data_actions is not None:
-            input["insufficient_data_actions"] = insufficient_data_actions
+            input_["insufficient_data_actions"] = insufficient_data_actions
         if ok_actions is not None:
-            input["ok_actions"] = ok_actions
+            input_["ok_actions"] = ok_actions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if actions_suppressor is not None:
-            input["actions_suppressor"] = actions_suppressor
+            input_["actions_suppressor"] = actions_suppressor
         if actions_suppressor_wait_period is not None:
-            input["actions_suppressor_wait_period"] = actions_suppressor_wait_period
+            input_["actions_suppressor_wait_period"] = actions_suppressor_wait_period
         if actions_suppressor_extension_period is not None:
-            input["actions_suppressor_extension_period"] = (
+            input_["actions_suppressor_extension_period"] = (
                 actions_suppressor_extension_period
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2282,14 +2282,14 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_dashboard_input.PutDashboardInput = {}  # type: ignore[typeddict-item]
-        input["dashboard_name"] = dashboard_name
-        input["dashboard_body"] = dashboard_body
+        input_: aws_sdk_cloudwatch.types.put_dashboard_input.PutDashboardInput = {}  # type: ignore[typeddict-item]
+        input_["dashboard_name"] = dashboard_name
+        input_["dashboard_body"] = dashboard_body
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2334,18 +2334,18 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_insight_rule_input.PutInsightRuleInput = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
+        input_: aws_sdk_cloudwatch.types.put_insight_rule_input.PutInsightRuleInput = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
         if rule_state is not None:
-            input["rule_state"] = rule_state
-        input["rule_definition"] = rule_definition
+            input_["rule_state"] = rule_state
+        input_["rule_definition"] = rule_definition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if apply_on_transformed_logs is not None:
-            input["apply_on_transformed_logs"] = apply_on_transformed_logs
+            input_["apply_on_transformed_logs"] = apply_on_transformed_logs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2378,11 +2378,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_managed_insight_rules_input.PutManagedInsightRulesInput = {}  # type: ignore[typeddict-item]
-        input["managed_rules"] = managed_rules
+        input_: aws_sdk_cloudwatch.types.put_managed_insight_rules_input.PutManagedInsightRulesInput = {}  # type: ignore[typeddict-item]
+        input_["managed_rules"] = managed_rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2489,59 +2489,59 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_metric_alarm_input.PutMetricAlarmInput = {}  # type: ignore[typeddict-item]
-        input["alarm_name"] = alarm_name
+        input_: aws_sdk_cloudwatch.types.put_metric_alarm_input.PutMetricAlarmInput = {}  # type: ignore[typeddict-item]
+        input_["alarm_name"] = alarm_name
         if alarm_description is not None:
-            input["alarm_description"] = alarm_description
+            input_["alarm_description"] = alarm_description
         if actions_enabled is not None:
-            input["actions_enabled"] = actions_enabled
+            input_["actions_enabled"] = actions_enabled
         if ok_actions is not None:
-            input["ok_actions"] = ok_actions
+            input_["ok_actions"] = ok_actions
         if alarm_actions is not None:
-            input["alarm_actions"] = alarm_actions
+            input_["alarm_actions"] = alarm_actions
         if insufficient_data_actions is not None:
-            input["insufficient_data_actions"] = insufficient_data_actions
+            input_["insufficient_data_actions"] = insufficient_data_actions
         if metric_name is not None:
-            input["metric_name"] = metric_name
+            input_["metric_name"] = metric_name
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if statistic is not None:
-            input["statistic"] = statistic
+            input_["statistic"] = statistic
         if extended_statistic is not None:
-            input["extended_statistic"] = extended_statistic
+            input_["extended_statistic"] = extended_statistic
         if dimensions is not None:
-            input["dimensions"] = dimensions
+            input_["dimensions"] = dimensions
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if unit is not None:
-            input["unit"] = unit
+            input_["unit"] = unit
         if evaluation_periods is not None:
-            input["evaluation_periods"] = evaluation_periods
+            input_["evaluation_periods"] = evaluation_periods
         if datapoints_to_alarm is not None:
-            input["datapoints_to_alarm"] = datapoints_to_alarm
+            input_["datapoints_to_alarm"] = datapoints_to_alarm
         if threshold is not None:
-            input["threshold"] = threshold
+            input_["threshold"] = threshold
         if comparison_operator is not None:
-            input["comparison_operator"] = comparison_operator
+            input_["comparison_operator"] = comparison_operator
         if treat_missing_data is not None:
-            input["treat_missing_data"] = treat_missing_data
+            input_["treat_missing_data"] = treat_missing_data
         if evaluate_low_sample_count_percentile is not None:
-            input["evaluate_low_sample_count_percentile"] = (
+            input_["evaluate_low_sample_count_percentile"] = (
                 evaluate_low_sample_count_percentile
             )
         if metrics is not None:
-            input["metrics"] = metrics
+            input_["metrics"] = metrics
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if threshold_metric_id is not None:
-            input["threshold_metric_id"] = threshold_metric_id
+            input_["threshold_metric_id"] = threshold_metric_id
         if evaluation_criteria is not None:
-            input["evaluation_criteria"] = evaluation_criteria
+            input_["evaluation_criteria"] = evaluation_criteria
         if evaluation_interval is not None:
-            input["evaluation_interval"] = evaluation_interval
+            input_["evaluation_interval"] = evaluation_interval
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2582,17 +2582,17 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_metric_data_input.PutMetricDataInput = {}  # type: ignore[typeddict-item]
-        input["namespace"] = namespace
+        input_: aws_sdk_cloudwatch.types.put_metric_data_input.PutMetricDataInput = {}  # type: ignore[typeddict-item]
+        input_["namespace"] = namespace
         if metric_data is not None:
-            input["metric_data"] = metric_data
+            input_["metric_data"] = metric_data
         if entity_metric_data is not None:
-            input["entity_metric_data"] = entity_metric_data
+            input_["entity_metric_data"] = entity_metric_data
         if strict_entity_validation is not None:
-            input["strict_entity_validation"] = strict_entity_validation
+            input_["strict_entity_validation"] = strict_entity_validation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2649,24 +2649,24 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.put_metric_stream_input.PutMetricStreamInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch.types.put_metric_stream_input.PutMetricStreamInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if include_filters is not None:
-            input["include_filters"] = include_filters
+            input_["include_filters"] = include_filters
         if exclude_filters is not None:
-            input["exclude_filters"] = exclude_filters
-        input["firehose_arn"] = firehose_arn
-        input["role_arn"] = role_arn
-        input["output_format"] = output_format
+            input_["exclude_filters"] = exclude_filters
+        input_["firehose_arn"] = firehose_arn
+        input_["role_arn"] = role_arn
+        input_["output_format"] = output_format
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if statistics_configurations is not None:
-            input["statistics_configurations"] = statistics_configurations
+            input_["statistics_configurations"] = statistics_configurations
         if include_linked_accounts_metrics is not None:
-            input["include_linked_accounts_metrics"] = include_linked_accounts_metrics
+            input_["include_linked_accounts_metrics"] = include_linked_accounts_metrics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2705,15 +2705,15 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.set_alarm_state_input.SetAlarmStateInput = {}  # type: ignore[typeddict-item]
-        input["alarm_name"] = alarm_name
-        input["state_value"] = state_value
-        input["state_reason"] = state_reason
+        input_: aws_sdk_cloudwatch.types.set_alarm_state_input.SetAlarmStateInput = {}  # type: ignore[typeddict-item]
+        input_["alarm_name"] = alarm_name
+        input_["state_value"] = state_value
+        input_["state_reason"] = state_reason
         if state_reason_data is not None:
-            input["state_reason_data"] = state_reason_data
+            input_["state_reason_data"] = state_reason_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2748,11 +2748,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.start_metric_streams_input.StartMetricStreamsInput = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_cloudwatch.types.start_metric_streams_input.StartMetricStreamsInput = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2778,10 +2778,10 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.start_o_tel_enrichment_input.StartOTelEnrichmentInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.start_o_tel_enrichment_input.StartOTelEnrichmentInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2814,11 +2814,11 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.stop_metric_streams_input.StopMetricStreamsInput = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_cloudwatch.types.stop_metric_streams_input.StopMetricStreamsInput = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2846,10 +2846,10 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.stop_o_tel_enrichment_input.StopOTelEnrichmentInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch.types.stop_o_tel_enrichment_input.StopOTelEnrichmentInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2884,12 +2884,12 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_cloudwatch.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2924,12 +2924,12 @@ class CloudWatchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cloudwatch.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

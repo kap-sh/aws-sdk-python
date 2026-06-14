@@ -82,16 +82,16 @@ class NotificationConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.create_notification_configuration_request.CreateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["description"] = description
+        input_: aws_sdk_notifications.types.create_notification_configuration_request.CreateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["description"] = description
         if aggregation_duration is not None:
-            input["aggregation_duration"] = aggregation_duration
+            input_["aggregation_duration"] = aggregation_duration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,17 +136,17 @@ class NotificationConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.update_notification_configuration_request.UpdateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.update_notification_configuration_request.UpdateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if aggregation_duration is not None:
-            input["aggregation_duration"] = aggregation_duration
+            input_["aggregation_duration"] = aggregation_duration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,11 +179,11 @@ class NotificationConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,11 +216,11 @@ class NotificationConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.delete_notification_configuration_request.DeleteNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.delete_notification_configuration_request.DeleteNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,22 +269,22 @@ class NotificationConfiguration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_notification_configurations_request.ListNotificationConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.list_notification_configurations_request.ListNotificationConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if event_rule_source is not None:
-            input["event_rule_source"] = event_rule_source
+            input_["event_rule_source"] = event_rule_source
         if channel_arn is not None:
-            input["channel_arn"] = channel_arn
+            input_["channel_arn"] = channel_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if subtype is not None:
-            input["subtype"] = subtype
+            input_["subtype"] = subtype
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -331,16 +331,16 @@ class AsyncNotificationConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.create_notification_configuration_request.CreateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["description"] = description
+        input_: aws_sdk_notifications.types.create_notification_configuration_request.CreateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["description"] = description
         if aggregation_duration is not None:
-            input["aggregation_duration"] = aggregation_duration
+            input_["aggregation_duration"] = aggregation_duration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,17 +386,17 @@ class AsyncNotificationConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.update_notification_configuration_request.UpdateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.update_notification_configuration_request.UpdateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if aggregation_duration is not None:
-            input["aggregation_duration"] = aggregation_duration
+            input_["aggregation_duration"] = aggregation_duration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -430,11 +430,11 @@ class AsyncNotificationConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,11 +468,11 @@ class AsyncNotificationConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.delete_notification_configuration_request.DeleteNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.delete_notification_configuration_request.DeleteNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,22 +522,22 @@ class AsyncNotificationConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_notification_configurations_request.ListNotificationConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_notifications.types.list_notification_configurations_request.ListNotificationConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if event_rule_source is not None:
-            input["event_rule_source"] = event_rule_source
+            input_["event_rule_source"] = event_rule_source
         if channel_arn is not None:
-            input["channel_arn"] = channel_arn
+            input_["channel_arn"] = channel_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if subtype is not None:
-            input["subtype"] = subtype
+            input_["subtype"] = subtype
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

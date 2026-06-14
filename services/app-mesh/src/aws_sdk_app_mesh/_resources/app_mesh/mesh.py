@@ -72,17 +72,17 @@ class Mesh:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.create_mesh_input.CreateMeshInput = {}  # type: ignore[typeddict-item]
-        input["mesh_name"] = mesh_name
+        input_: aws_sdk_app_mesh.types.create_mesh_input.CreateMeshInput = {}  # type: ignore[typeddict-item]
+        input_["mesh_name"] = mesh_name
         if spec is not None:
-            input["spec"] = spec
+            input_["spec"] = spec
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -117,13 +117,13 @@ class Mesh:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.describe_mesh_input.DescribeMeshInput = {}  # type: ignore[typeddict-item]
-        input["mesh_name"] = mesh_name
+        input_: aws_sdk_app_mesh.types.describe_mesh_input.DescribeMeshInput = {}  # type: ignore[typeddict-item]
+        input_["mesh_name"] = mesh_name
         if mesh_owner is not None:
-            input["mesh_owner"] = mesh_owner
+            input_["mesh_owner"] = mesh_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -160,15 +160,15 @@ class Mesh:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.update_mesh_input.UpdateMeshInput = {}  # type: ignore[typeddict-item]
-        input["mesh_name"] = mesh_name
+        input_: aws_sdk_app_mesh.types.update_mesh_input.UpdateMeshInput = {}  # type: ignore[typeddict-item]
+        input_["mesh_name"] = mesh_name
         if spec is not None:
-            input["spec"] = spec
+            input_["spec"] = spec
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,11 +201,11 @@ class Mesh:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.delete_mesh_input.DeleteMeshInput = {}  # type: ignore[typeddict-item]
-        input["mesh_name"] = mesh_name
+        input_: aws_sdk_app_mesh.types.delete_mesh_input.DeleteMeshInput = {}  # type: ignore[typeddict-item]
+        input_["mesh_name"] = mesh_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -242,14 +242,14 @@ class Mesh:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.list_meshes_input.ListMeshesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_app_mesh.types.list_meshes_input.ListMeshesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,17 +294,17 @@ class AsyncMesh:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.create_mesh_input.CreateMeshInput = {}  # type: ignore[typeddict-item]
-        input["mesh_name"] = mesh_name
+        input_: aws_sdk_app_mesh.types.create_mesh_input.CreateMeshInput = {}  # type: ignore[typeddict-item]
+        input_["mesh_name"] = mesh_name
         if spec is not None:
-            input["spec"] = spec
+            input_["spec"] = spec
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,13 +340,13 @@ class AsyncMesh:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.describe_mesh_input.DescribeMeshInput = {}  # type: ignore[typeddict-item]
-        input["mesh_name"] = mesh_name
+        input_: aws_sdk_app_mesh.types.describe_mesh_input.DescribeMeshInput = {}  # type: ignore[typeddict-item]
+        input_["mesh_name"] = mesh_name
         if mesh_owner is not None:
-            input["mesh_owner"] = mesh_owner
+            input_["mesh_owner"] = mesh_owner
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,15 +384,15 @@ class AsyncMesh:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.update_mesh_input.UpdateMeshInput = {}  # type: ignore[typeddict-item]
-        input["mesh_name"] = mesh_name
+        input_: aws_sdk_app_mesh.types.update_mesh_input.UpdateMeshInput = {}  # type: ignore[typeddict-item]
+        input_["mesh_name"] = mesh_name
         if spec is not None:
-            input["spec"] = spec
+            input_["spec"] = spec
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,11 +426,11 @@ class AsyncMesh:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.delete_mesh_input.DeleteMeshInput = {}  # type: ignore[typeddict-item]
-        input["mesh_name"] = mesh_name
+        input_: aws_sdk_app_mesh.types.delete_mesh_input.DeleteMeshInput = {}  # type: ignore[typeddict-item]
+        input_["mesh_name"] = mesh_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,14 +468,14 @@ class AsyncMesh:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_app_mesh.types.list_meshes_input.ListMeshesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_app_mesh.types.list_meshes_input.ListMeshesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

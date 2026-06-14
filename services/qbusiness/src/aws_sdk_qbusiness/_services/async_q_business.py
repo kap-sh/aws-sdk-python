@@ -16,6 +16,9 @@ from aws_sdk_qbusiness._auth._providers import (
 )
 from aws_sdk_qbusiness._auth._zapros_handler import AuthMiddleware
 from aws_sdk_qbusiness._pagination import resolve_path as _resolve_path
+from aws_sdk_qbusiness._resources.expert_q.application_resource import (
+    AsyncApplicationResource,
+)
 from aws_sdk_qbusiness._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -276,6 +279,8 @@ class AsyncQBusinessClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.application_resource = AsyncApplicationResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncQBusinessClientConfig] = None
@@ -340,16 +345,16 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.associate_permission_request.AssociatePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["statement_id"] = statement_id
-        input["actions"] = actions
+        input_: aws_sdk_qbusiness.types.associate_permission_request.AssociatePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["statement_id"] = statement_id
+        input_["actions"] = actions
         if conditions is not None:
-            input["conditions"] = conditions
-        input["principal"] = principal
+            input_["conditions"] = conditions
+        input_["principal"] = principal
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,15 +396,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.batch_delete_document_request.BatchDeleteDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
-        input["documents"] = documents
+        input_: aws_sdk_qbusiness.types.batch_delete_document_request.BatchDeleteDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
+        input_["documents"] = documents
         if data_source_sync_id is not None:
-            input["data_source_sync_id"] = data_source_sync_id
+            input_["data_source_sync_id"] = data_source_sync_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,17 +448,17 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.batch_put_document_request.BatchPutDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
-        input["documents"] = documents
+        input_: aws_sdk_qbusiness.types.batch_put_document_request.BatchPutDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
+        input_["documents"] = documents
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if data_source_sync_id is not None:
-            input["data_source_sync_id"] = data_source_sync_id
+            input_["data_source_sync_id"] = data_source_sync_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,12 +494,12 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.cancel_subscription_request.CancelSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["subscription_id"] = subscription_id
+        input_: aws_sdk_qbusiness.types.cancel_subscription_request.CancelSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["subscription_id"] = subscription_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,23 +549,23 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.chat_input.ChatInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.chat_input.ChatInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if user_groups is not None:
-            input["user_groups"] = user_groups
+            input_["user_groups"] = user_groups
         if conversation_id is not None:
-            input["conversation_id"] = conversation_id
+            input_["conversation_id"] = conversation_id
         if parent_message_id is not None:
-            input["parent_message_id"] = parent_message_id
+            input_["parent_message_id"] = parent_message_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if input_stream is not None:
-            input["input_stream"] = ensure_async_iterator(input_stream)  # type: ignore
+            input_["input_stream"] = ensure_async_iterator(input_stream)  # type: ignore
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,35 +641,35 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.chat_sync_input.ChatSyncInput = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.chat_sync_input.ChatSyncInput = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if user_groups is not None:
-            input["user_groups"] = user_groups
+            input_["user_groups"] = user_groups
         if user_message is not None:
-            input["user_message"] = user_message
+            input_["user_message"] = user_message
         if attachments is not None:
-            input["attachments"] = attachments
+            input_["attachments"] = attachments
         if action_execution is not None:
-            input["action_execution"] = action_execution
+            input_["action_execution"] = action_execution
         if auth_challenge_response is not None:
-            input["auth_challenge_response"] = auth_challenge_response
+            input_["auth_challenge_response"] = auth_challenge_response
         if conversation_id is not None:
-            input["conversation_id"] = conversation_id
+            input_["conversation_id"] = conversation_id
         if parent_message_id is not None:
-            input["parent_message_id"] = parent_message_id
+            input_["parent_message_id"] = parent_message_id
         if attribute_filter is not None:
-            input["attribute_filter"] = attribute_filter
+            input_["attribute_filter"] = attribute_filter
         if chat_mode is not None:
-            input["chat_mode"] = chat_mode
+            input_["chat_mode"] = chat_mode
         if chat_mode_configuration is not None:
-            input["chat_mode_configuration"] = chat_mode_configuration
+            input_["chat_mode_configuration"] = chat_mode_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -708,16 +713,16 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.check_document_access_request.CheckDocumentAccessRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
-        input["user_id"] = user_id
-        input["document_id"] = document_id
+        input_: aws_sdk_qbusiness.types.check_document_access_request.CheckDocumentAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
+        input_["user_id"] = user_id
+        input_["document_id"] = document_id
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
+            input_["data_source_id"] = data_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -757,14 +762,14 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.create_anonymous_web_experience_url_request.CreateAnonymousWebExperienceUrlRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["web_experience_id"] = web_experience_id
+        input_: aws_sdk_qbusiness.types.create_anonymous_web_experience_url_request.CreateAnonymousWebExperienceUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["web_experience_id"] = web_experience_id
         if session_duration_in_minutes is not None:
-            input["session_duration_in_minutes"] = session_duration_in_minutes
+            input_["session_duration_in_minutes"] = session_duration_in_minutes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,17 +811,17 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.create_chat_response_configuration_request.CreateChatResponseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["display_name"] = display_name
+        input_: aws_sdk_qbusiness.types.create_chat_response_configuration_request.CreateChatResponseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["display_name"] = display_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["response_configurations"] = response_configurations
+            input_["client_token"] = client_token
+        input_["response_configurations"] = response_configurations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -858,15 +863,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.create_subscription_request.CreateSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["principal"] = principal
-        input["type"] = type
+        input_: aws_sdk_qbusiness.types.create_subscription_request.CreateSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["principal"] = principal
+        input_["type"] = type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -910,16 +915,16 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["user_id"] = user_id
+        input_: aws_sdk_qbusiness.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["user_id"] = user_id
         if user_aliases is not None:
-            input["user_aliases"] = user_aliases
+            input_["user_aliases"] = user_aliases
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -959,15 +964,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.delete_attachment_request.DeleteAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["conversation_id"] = conversation_id
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_qbusiness.types.delete_attachment_request.DeleteAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["conversation_id"] = conversation_id
+        input_["attachment_id"] = attachment_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1001,11 +1006,11 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.delete_chat_controls_configuration_request.DeleteChatControlsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.delete_chat_controls_configuration_request.DeleteChatControlsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1041,12 +1046,12 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.delete_chat_response_configuration_request.DeleteChatResponseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["chat_response_configuration_id"] = chat_response_configuration_id
+        input_: aws_sdk_qbusiness.types.delete_chat_response_configuration_request.DeleteChatResponseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["chat_response_configuration_id"] = chat_response_configuration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1084,14 +1089,14 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.delete_conversation_request.DeleteConversationRequest = {}  # type: ignore[typeddict-item]
-        input["conversation_id"] = conversation_id
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.delete_conversation_request.DeleteConversationRequest = {}  # type: ignore[typeddict-item]
+        input_["conversation_id"] = conversation_id
+        input_["application_id"] = application_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1133,15 +1138,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
-        input["group_name"] = group_name
+        input_: aws_sdk_qbusiness.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
+        input_["group_name"] = group_name
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
+            input_["data_source_id"] = data_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1177,12 +1182,12 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["user_id"] = user_id
+        input_: aws_sdk_qbusiness.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1218,12 +1223,12 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.disassociate_permission_request.DisassociatePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["statement_id"] = statement_id
+        input_: aws_sdk_qbusiness.types.disassociate_permission_request.DisassociatePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["statement_id"] = statement_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1263,15 +1268,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_chat_controls_configuration_request.GetChatControlsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.get_chat_controls_configuration_request.GetChatControlsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1334,12 +1339,12 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_chat_response_configuration_request.GetChatResponseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["chat_response_configuration_id"] = chat_response_configuration_id
+        input_: aws_sdk_qbusiness.types.get_chat_response_configuration_request.GetChatResponseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["chat_response_configuration_id"] = chat_response_configuration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1385,17 +1390,17 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_document_content_request.GetDocumentContentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
+        input_: aws_sdk_qbusiness.types.get_document_content_request.GetDocumentContentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
-        input["document_id"] = document_id
+            input_["data_source_id"] = data_source_id
+        input_["document_id"] = document_id
         if output_format is not None:
-            input["output_format"] = output_format
+            input_["output_format"] = output_format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1437,15 +1442,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
-        input["group_name"] = group_name
+        input_: aws_sdk_qbusiness.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
+        input_["group_name"] = group_name
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
+            input_["data_source_id"] = data_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1485,14 +1490,14 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_media_request.GetMediaRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["conversation_id"] = conversation_id
-        input["message_id"] = message_id
-        input["media_id"] = media_id
+        input_: aws_sdk_qbusiness.types.get_media_request.GetMediaRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["conversation_id"] = conversation_id
+        input_["message_id"] = message_id
+        input_["media_id"] = media_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1526,11 +1531,11 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1566,12 +1571,12 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_user_request.GetUserRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["user_id"] = user_id
+        input_: aws_sdk_qbusiness.types.get_user_request.GetUserRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1617,19 +1622,19 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_attachments_request.ListAttachmentsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.list_attachments_request.ListAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if conversation_id is not None:
-            input["conversation_id"] = conversation_id
+            input_["conversation_id"] = conversation_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1698,15 +1703,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_chat_response_configurations_request.ListChatResponseConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.list_chat_response_configurations_request.ListChatResponseConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1773,17 +1778,17 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_conversations_request.ListConversationsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.list_conversations_request.ListConversationsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1862,23 +1867,23 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_data_source_sync_jobs_request.ListDataSourceSyncJobsRequest = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
-        input["application_id"] = application_id
-        input["index_id"] = index_id
+        input_: aws_sdk_qbusiness.types.list_data_source_sync_jobs_request.ListDataSourceSyncJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1963,18 +1968,18 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_documents_request.ListDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
+        input_: aws_sdk_qbusiness.types.list_documents_request.ListDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
         if data_source_ids is not None:
-            input["data_source_ids"] = data_source_ids
+            input_["data_source_ids"] = data_source_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2053,19 +2058,19 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
-        input["updated_earlier_than"] = updated_earlier_than
+        input_: aws_sdk_qbusiness.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
+        input_["updated_earlier_than"] = updated_earlier_than
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
+            input_["data_source_id"] = data_source_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2142,18 +2147,18 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_messages_request.ListMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["conversation_id"] = conversation_id
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.list_messages_request.ListMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["conversation_id"] = conversation_id
+        input_["application_id"] = application_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2226,16 +2231,16 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_plugin_actions_request.ListPluginActionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["plugin_id"] = plugin_id
+        input_: aws_sdk_qbusiness.types.list_plugin_actions_request.ListPluginActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["plugin_id"] = plugin_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2302,15 +2307,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_plugin_type_actions_request.ListPluginTypeActionsRequest = {}  # type: ignore[typeddict-item]
-        input["plugin_type"] = plugin_type
+        input_: aws_sdk_qbusiness.types.list_plugin_type_actions_request.ListPluginTypeActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["plugin_type"] = plugin_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2373,14 +2378,14 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_plugin_type_metadata_request.ListPluginTypeMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_qbusiness.types.list_plugin_type_metadata_request.ListPluginTypeMetadataRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2445,15 +2450,15 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_subscriptions_request.ListSubscriptionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.list_subscriptions_request.ListSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2512,11 +2517,11 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_qbusiness.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2562,19 +2567,19 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.put_feedback_request.PutFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.put_feedback_request.PutFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if user_id is not None:
-            input["user_id"] = user_id
-        input["conversation_id"] = conversation_id
-        input["message_id"] = message_id
+            input_["user_id"] = user_id
+        input_["conversation_id"] = conversation_id
+        input_["message_id"] = message_id
         if message_copied_at is not None:
-            input["message_copied_at"] = message_copied_at
+            input_["message_copied_at"] = message_copied_at
         if message_usefulness is not None:
-            input["message_usefulness"] = message_usefulness
+            input_["message_usefulness"] = message_usefulness
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2621,19 +2626,19 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.put_group_request.PutGroupRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["index_id"] = index_id
-        input["group_name"] = group_name
+        input_: aws_sdk_qbusiness.types.put_group_request.PutGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
+        input_["group_name"] = group_name
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
-        input["type"] = type
-        input["group_members"] = group_members
+            input_["data_source_id"] = data_source_id
+        input_["type"] = type
+        input_["group_members"] = group_members
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2678,19 +2683,19 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.search_relevant_content_request.SearchRelevantContentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["query_text"] = query_text
-        input["content_source"] = content_source
+        input_: aws_sdk_qbusiness.types.search_relevant_content_request.SearchRelevantContentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["query_text"] = query_text
+        input_["content_source"] = content_source
         if attribute_filter is not None:
-            input["attribute_filter"] = attribute_filter
+            input_["attribute_filter"] = attribute_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2759,13 +2764,13 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.start_data_source_sync_job_request.StartDataSourceSyncJobRequest = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
-        input["application_id"] = application_id
-        input["index_id"] = index_id
+        input_: aws_sdk_qbusiness.types.start_data_source_sync_job_request.StartDataSourceSyncJobRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2803,13 +2808,13 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.stop_data_source_sync_job_request.StopDataSourceSyncJobRequest = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
-        input["application_id"] = application_id
-        input["index_id"] = index_id
+        input_: aws_sdk_qbusiness.types.stop_data_source_sync_job_request.StopDataSourceSyncJobRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
+        input_["application_id"] = application_id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2845,12 +2850,12 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_qbusiness.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2886,12 +2891,12 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_qbusiness.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2957,33 +2962,33 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.update_chat_controls_configuration_request.UpdateChatControlsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.update_chat_controls_configuration_request.UpdateChatControlsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if response_scope is not None:
-            input["response_scope"] = response_scope
+            input_["response_scope"] = response_scope
         if orchestration_configuration is not None:
-            input["orchestration_configuration"] = orchestration_configuration
+            input_["orchestration_configuration"] = orchestration_configuration
         if blocked_phrases_configuration_update is not None:
-            input["blocked_phrases_configuration_update"] = (
+            input_["blocked_phrases_configuration_update"] = (
                 blocked_phrases_configuration_update
             )
         if topic_configurations_to_create_or_update is not None:
-            input["topic_configurations_to_create_or_update"] = (
+            input_["topic_configurations_to_create_or_update"] = (
                 topic_configurations_to_create_or_update
             )
         if topic_configurations_to_delete is not None:
-            input["topic_configurations_to_delete"] = topic_configurations_to_delete
+            input_["topic_configurations_to_delete"] = topic_configurations_to_delete
         if creator_mode_configuration is not None:
-            input["creator_mode_configuration"] = creator_mode_configuration
+            input_["creator_mode_configuration"] = creator_mode_configuration
         if hallucination_reduction_configuration is not None:
-            input["hallucination_reduction_configuration"] = (
+            input_["hallucination_reduction_configuration"] = (
                 hallucination_reduction_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3027,17 +3032,17 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.update_chat_response_configuration_request.UpdateChatResponseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["chat_response_configuration_id"] = chat_response_configuration_id
+        input_: aws_sdk_qbusiness.types.update_chat_response_configuration_request.UpdateChatResponseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["chat_response_configuration_id"] = chat_response_configuration_id
         if display_name is not None:
-            input["display_name"] = display_name
-        input["response_configurations"] = response_configurations
+            input_["display_name"] = display_name
+        input_["response_configurations"] = response_configurations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3075,13 +3080,13 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.update_subscription_request.UpdateSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["subscription_id"] = subscription_id
-        input["type"] = type
+        input_: aws_sdk_qbusiness.types.update_subscription_request.UpdateSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["subscription_id"] = subscription_id
+        input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3125,16 +3130,16 @@ class AsyncQBusinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["user_id"] = user_id
+        input_: aws_sdk_qbusiness.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["user_id"] = user_id
         if user_aliases_to_update is not None:
-            input["user_aliases_to_update"] = user_aliases_to_update
+            input_["user_aliases_to_update"] = user_aliases_to_update
         if user_aliases_to_delete is not None:
-            input["user_aliases_to_delete"] = user_aliases_to_delete
+            input_["user_aliases_to_delete"] = user_aliases_to_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

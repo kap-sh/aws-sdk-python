@@ -149,44 +149,44 @@ class DbClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.create_db_cluster_input.CreateDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_timestream_influxdb.types.create_db_cluster_input.CreateDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if organization is not None:
-            input["organization"] = organization
+            input_["organization"] = organization
         if bucket is not None:
-            input["bucket"] = bucket
+            input_["bucket"] = bucket
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_parameter_group_identifier is not None:
-            input["db_parameter_group_identifier"] = db_parameter_group_identifier
-        input["db_instance_type"] = db_instance_type
+            input_["db_parameter_group_identifier"] = db_parameter_group_identifier
+        input_["db_instance_type"] = db_instance_type
         if db_storage_type is not None:
-            input["db_storage_type"] = db_storage_type
+            input_["db_storage_type"] = db_storage_type
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
-        input["vpc_subnet_ids"] = vpc_subnet_ids
-        input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["publicly_accessible"] = publicly_accessible
+        input_["vpc_subnet_ids"] = vpc_subnet_ids
+        input_["vpc_security_group_ids"] = vpc_security_group_ids
         if deployment_type is not None:
-            input["deployment_type"] = deployment_type
+            input_["deployment_type"] = deployment_type
         if failover_mode is not None:
-            input["failover_mode"] = failover_mode
+            input_["failover_mode"] = failover_mode
         if log_delivery_configuration is not None:
-            input["log_delivery_configuration"] = log_delivery_configuration
+            input_["log_delivery_configuration"] = log_delivery_configuration
         if maintenance_schedule is not None:
-            input["maintenance_schedule"] = maintenance_schedule
+            input_["maintenance_schedule"] = maintenance_schedule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,11 +219,11 @@ class DbClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.get_db_cluster_input.GetDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.get_db_cluster_input.GetDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,23 +278,23 @@ class DbClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.update_db_cluster_input.UpdateDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.update_db_cluster_input.UpdateDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
         if log_delivery_configuration is not None:
-            input["log_delivery_configuration"] = log_delivery_configuration
+            input_["log_delivery_configuration"] = log_delivery_configuration
         if db_parameter_group_identifier is not None:
-            input["db_parameter_group_identifier"] = db_parameter_group_identifier
+            input_["db_parameter_group_identifier"] = db_parameter_group_identifier
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_instance_type is not None:
-            input["db_instance_type"] = db_instance_type
+            input_["db_instance_type"] = db_instance_type
         if failover_mode is not None:
-            input["failover_mode"] = failover_mode
+            input_["failover_mode"] = failover_mode
         if maintenance_schedule is not None:
-            input["maintenance_schedule"] = maintenance_schedule
+            input_["maintenance_schedule"] = maintenance_schedule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,11 +327,11 @@ class DbClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.delete_db_cluster_input.DeleteDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.delete_db_cluster_input.DeleteDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,14 +372,14 @@ class DbClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.list_db_clusters_input.ListDbClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_influxdb.types.list_db_clusters_input.ListDbClustersInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,15 +420,15 @@ class DbClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.list_db_instances_for_cluster_input.ListDbInstancesForClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.list_db_instances_for_cluster_input.ListDbInstancesForClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,13 +465,13 @@ class DbClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.reboot_db_cluster_input.RebootDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.reboot_db_cluster_input.RebootDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
+            input_["instance_ids"] = instance_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -570,44 +570,44 @@ class AsyncDbClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.create_db_cluster_input.CreateDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_timestream_influxdb.types.create_db_cluster_input.CreateDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if username is not None:
-            input["username"] = username
+            input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if organization is not None:
-            input["organization"] = organization
+            input_["organization"] = organization
         if bucket is not None:
-            input["bucket"] = bucket
+            input_["bucket"] = bucket
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_parameter_group_identifier is not None:
-            input["db_parameter_group_identifier"] = db_parameter_group_identifier
-        input["db_instance_type"] = db_instance_type
+            input_["db_parameter_group_identifier"] = db_parameter_group_identifier
+        input_["db_instance_type"] = db_instance_type
         if db_storage_type is not None:
-            input["db_storage_type"] = db_storage_type
+            input_["db_storage_type"] = db_storage_type
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
-        input["vpc_subnet_ids"] = vpc_subnet_ids
-        input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["publicly_accessible"] = publicly_accessible
+        input_["vpc_subnet_ids"] = vpc_subnet_ids
+        input_["vpc_security_group_ids"] = vpc_security_group_ids
         if deployment_type is not None:
-            input["deployment_type"] = deployment_type
+            input_["deployment_type"] = deployment_type
         if failover_mode is not None:
-            input["failover_mode"] = failover_mode
+            input_["failover_mode"] = failover_mode
         if log_delivery_configuration is not None:
-            input["log_delivery_configuration"] = log_delivery_configuration
+            input_["log_delivery_configuration"] = log_delivery_configuration
         if maintenance_schedule is not None:
-            input["maintenance_schedule"] = maintenance_schedule
+            input_["maintenance_schedule"] = maintenance_schedule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -641,11 +641,11 @@ class AsyncDbClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.get_db_cluster_input.GetDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.get_db_cluster_input.GetDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -701,23 +701,23 @@ class AsyncDbClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.update_db_cluster_input.UpdateDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.update_db_cluster_input.UpdateDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
         if log_delivery_configuration is not None:
-            input["log_delivery_configuration"] = log_delivery_configuration
+            input_["log_delivery_configuration"] = log_delivery_configuration
         if db_parameter_group_identifier is not None:
-            input["db_parameter_group_identifier"] = db_parameter_group_identifier
+            input_["db_parameter_group_identifier"] = db_parameter_group_identifier
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_instance_type is not None:
-            input["db_instance_type"] = db_instance_type
+            input_["db_instance_type"] = db_instance_type
         if failover_mode is not None:
-            input["failover_mode"] = failover_mode
+            input_["failover_mode"] = failover_mode
         if maintenance_schedule is not None:
-            input["maintenance_schedule"] = maintenance_schedule
+            input_["maintenance_schedule"] = maintenance_schedule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -751,11 +751,11 @@ class AsyncDbClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.delete_db_cluster_input.DeleteDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.delete_db_cluster_input.DeleteDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -797,14 +797,14 @@ class AsyncDbClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.list_db_clusters_input.ListDbClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_influxdb.types.list_db_clusters_input.ListDbClustersInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,15 +846,15 @@ class AsyncDbClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.list_db_instances_for_cluster_input.ListDbInstancesForClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.list_db_instances_for_cluster_input.ListDbInstancesForClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -892,13 +892,13 @@ class AsyncDbClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_timestream_influxdb.types.reboot_db_cluster_input.RebootDbClusterInput = {}  # type: ignore[typeddict-item]
-        input["db_cluster_id"] = db_cluster_id
+        input_: aws_sdk_timestream_influxdb.types.reboot_db_cluster_input.RebootDbClusterInput = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_id"] = db_cluster_id
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
+            input_["instance_ids"] = instance_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

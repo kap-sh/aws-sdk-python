@@ -226,31 +226,31 @@ class DLMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dlm.types.create_lifecycle_policy_request.CreateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["execution_role_arn"] = execution_role_arn
-        input["description"] = description
-        input["state"] = state
+        input_: aws_sdk_dlm.types.create_lifecycle_policy_request.CreateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["execution_role_arn"] = execution_role_arn
+        input_["description"] = description
+        input_["state"] = state
         if policy_details is not None:
-            input["policy_details"] = policy_details
+            input_["policy_details"] = policy_details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if default_policy is not None:
-            input["default_policy"] = default_policy
+            input_["default_policy"] = default_policy
         if create_interval is not None:
-            input["create_interval"] = create_interval
+            input_["create_interval"] = create_interval
         if retain_interval is not None:
-            input["retain_interval"] = retain_interval
+            input_["retain_interval"] = retain_interval
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if extend_deletion is not None:
-            input["extend_deletion"] = extend_deletion
+            input_["extend_deletion"] = extend_deletion
         if cross_region_copy_targets is not None:
-            input["cross_region_copy_targets"] = cross_region_copy_targets
+            input_["cross_region_copy_targets"] = cross_region_copy_targets
         if exclusions is not None:
-            input["exclusions"] = exclusions
+            input_["exclusions"] = exclusions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,11 +283,11 @@ class DLMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dlm.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_dlm.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,22 +342,22 @@ class DLMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dlm.types.get_lifecycle_policies_request.GetLifecyclePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dlm.types.get_lifecycle_policies_request.GetLifecyclePoliciesRequest = {}  # type: ignore[typeddict-item]
         if policy_ids is not None:
-            input["policy_ids"] = policy_ids
+            input_["policy_ids"] = policy_ids
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if target_tags is not None:
-            input["target_tags"] = target_tags
+            input_["target_tags"] = target_tags
         if tags_to_add is not None:
-            input["tags_to_add"] = tags_to_add
+            input_["tags_to_add"] = tags_to_add
         if default_policy_type is not None:
-            input["default_policy_type"] = default_policy_type
+            input_["default_policy_type"] = default_policy_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -390,11 +390,11 @@ class DLMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dlm.types.get_lifecycle_policy_request.GetLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_dlm.types.get_lifecycle_policy_request.GetLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,11 +429,11 @@ class DLMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dlm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_dlm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,12 +468,12 @@ class DLMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dlm.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_dlm.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -508,12 +508,12 @@ class DLMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dlm.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_dlm.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,31 +584,31 @@ class DLMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dlm.types.update_lifecycle_policy_request.UpdateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_id"] = policy_id
+        input_: aws_sdk_dlm.types.update_lifecycle_policy_request.UpdateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_id"] = policy_id
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy_details is not None:
-            input["policy_details"] = policy_details
+            input_["policy_details"] = policy_details
         if create_interval is not None:
-            input["create_interval"] = create_interval
+            input_["create_interval"] = create_interval
         if retain_interval is not None:
-            input["retain_interval"] = retain_interval
+            input_["retain_interval"] = retain_interval
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if extend_deletion is not None:
-            input["extend_deletion"] = extend_deletion
+            input_["extend_deletion"] = extend_deletion
         if cross_region_copy_targets is not None:
-            input["cross_region_copy_targets"] = cross_region_copy_targets
+            input_["cross_region_copy_targets"] = cross_region_copy_targets
         if exclusions is not None:
-            input["exclusions"] = exclusions
+            input_["exclusions"] = exclusions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

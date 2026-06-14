@@ -105,52 +105,51 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest,
+    input_: aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            KvsARN=input.get("kvs_arn"),
+            KvsARN=input_.get("kvs_arn"),
             Region=options.region,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/key-value-stores/{KvsARN}/keys"
-    url = apply_label(url, "{KvsARN}", str(input["kvs_arn"]))
+    url = apply_label(url, "{KvsARN}", str(input_["kvs_arn"]))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "if_match" in input:
-        headers["If-Match"] = str(input["if_match"])
+    if "if_match" in input_:
+        headers["If-Match"] = str(input_["if_match"])
     import aws_sdk_cloudfront_keyvaluestore.types.update_keys_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.serialize_json(input)
+        aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.serialize_json(
+            input_
+        )
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_keys(
     options: OperationOptions,
-    input: aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest,
+    input_: aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest,
 ) -> tuple[
     aws_sdk_cloudfront_keyvaluestore.types.update_keys_response.UpdateKeysResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -159,16 +158,17 @@ def update_keys(
 
 async def async_update_keys(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest,
+    input_: aws_sdk_cloudfront_keyvaluestore.types.update_keys_request.UpdateKeysRequest,
 ) -> tuple[
     aws_sdk_cloudfront_keyvaluestore.types.update_keys_response.UpdateKeysResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

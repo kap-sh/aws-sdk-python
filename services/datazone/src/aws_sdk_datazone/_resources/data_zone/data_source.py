@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -114,34 +115,34 @@ class DataSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_data_source_input.CreateDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_data_source_input.CreateDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["domain_identifier"] = domain_identifier
-        input["project_identifier"] = project_identifier
+            input_["description"] = description
+        input_["domain_identifier"] = domain_identifier
+        input_["project_identifier"] = project_identifier
         if environment_identifier is not None:
-            input["environment_identifier"] = environment_identifier
+            input_["environment_identifier"] = environment_identifier
         if connection_identifier is not None:
-            input["connection_identifier"] = connection_identifier
-        input["type"] = type
+            input_["connection_identifier"] = connection_identifier
+        input_["type"] = type
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if recommendation is not None:
-            input["recommendation"] = recommendation
+            input_["recommendation"] = recommendation
         if enable_setting is not None:
-            input["enable_setting"] = enable_setting
+            input_["enable_setting"] = enable_setting
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if publish_on_import is not None:
-            input["publish_on_import"] = publish_on_import
+            input_["publish_on_import"] = publish_on_import
         if asset_forms_input is not None:
-            input["asset_forms_input"] = asset_forms_input
+            input_["asset_forms_input"] = asset_forms_input
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,12 +177,12 @@ class DataSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_data_source_input.GetDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_data_source_input.GetDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,32 +245,32 @@ class DataSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_data_source_input.UpdateDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_data_source_input.UpdateDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if enable_setting is not None:
-            input["enable_setting"] = enable_setting
+            input_["enable_setting"] = enable_setting
         if publish_on_import is not None:
-            input["publish_on_import"] = publish_on_import
+            input_["publish_on_import"] = publish_on_import
         if asset_forms_input is not None:
-            input["asset_forms_input"] = asset_forms_input
+            input_["asset_forms_input"] = asset_forms_input
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if recommendation is not None:
-            input["recommendation"] = recommendation
+            input_["recommendation"] = recommendation
         if retain_permissions_on_revoke_failure is not None:
-            input["retain_permissions_on_revoke_failure"] = (
+            input_["retain_permissions_on_revoke_failure"] = (
                 retain_permissions_on_revoke_failure
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,18 +309,18 @@ class DataSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_data_source_input.DeleteDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_data_source_input.DeleteDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if retain_permissions_on_revoke_failure is not None:
-            input["retain_permissions_on_revoke_failure"] = (
+            input_["retain_permissions_on_revoke_failure"] = (
                 retain_permissions_on_revoke_failure
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,26 +373,26 @@ class DataSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_data_sources_input.ListDataSourcesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["project_identifier"] = project_identifier
+        input_: aws_sdk_datazone.types.list_data_sources_input.ListDataSourcesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["project_identifier"] = project_identifier
         if environment_identifier is not None:
-            input["environment_identifier"] = environment_identifier
+            input_["environment_identifier"] = environment_identifier
         if connection_identifier is not None:
-            input["connection_identifier"] = connection_identifier
+            input_["connection_identifier"] = connection_identifier
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,34 +467,34 @@ class AsyncDataSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_data_source_input.CreateDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_data_source_input.CreateDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["domain_identifier"] = domain_identifier
-        input["project_identifier"] = project_identifier
+            input_["description"] = description
+        input_["domain_identifier"] = domain_identifier
+        input_["project_identifier"] = project_identifier
         if environment_identifier is not None:
-            input["environment_identifier"] = environment_identifier
+            input_["environment_identifier"] = environment_identifier
         if connection_identifier is not None:
-            input["connection_identifier"] = connection_identifier
-        input["type"] = type
+            input_["connection_identifier"] = connection_identifier
+        input_["type"] = type
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if recommendation is not None:
-            input["recommendation"] = recommendation
+            input_["recommendation"] = recommendation
         if enable_setting is not None:
-            input["enable_setting"] = enable_setting
+            input_["enable_setting"] = enable_setting
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if publish_on_import is not None:
-            input["publish_on_import"] = publish_on_import
+            input_["publish_on_import"] = publish_on_import
         if asset_forms_input is not None:
-            input["asset_forms_input"] = asset_forms_input
+            input_["asset_forms_input"] = asset_forms_input
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,12 +530,12 @@ class AsyncDataSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_data_source_input.GetDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_data_source_input.GetDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -598,32 +599,32 @@ class AsyncDataSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_data_source_input.UpdateDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_data_source_input.UpdateDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if enable_setting is not None:
-            input["enable_setting"] = enable_setting
+            input_["enable_setting"] = enable_setting
         if publish_on_import is not None:
-            input["publish_on_import"] = publish_on_import
+            input_["publish_on_import"] = publish_on_import
         if asset_forms_input is not None:
-            input["asset_forms_input"] = asset_forms_input
+            input_["asset_forms_input"] = asset_forms_input
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if recommendation is not None:
-            input["recommendation"] = recommendation
+            input_["recommendation"] = recommendation
         if retain_permissions_on_revoke_failure is not None:
-            input["retain_permissions_on_revoke_failure"] = (
+            input_["retain_permissions_on_revoke_failure"] = (
                 retain_permissions_on_revoke_failure
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -663,18 +664,18 @@ class AsyncDataSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_data_source_input.DeleteDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_data_source_input.DeleteDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if retain_permissions_on_revoke_failure is not None:
-            input["retain_permissions_on_revoke_failure"] = (
+            input_["retain_permissions_on_revoke_failure"] = (
                 retain_permissions_on_revoke_failure
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -728,26 +729,26 @@ class AsyncDataSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_data_sources_input.ListDataSourcesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["project_identifier"] = project_identifier
+        input_: aws_sdk_datazone.types.list_data_sources_input.ListDataSourcesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["project_identifier"] = project_identifier
         if environment_identifier is not None:
-            input["environment_identifier"] = environment_identifier
+            input_["environment_identifier"] = environment_identifier
         if connection_identifier is not None:
-            input["connection_identifier"] = connection_identifier
+            input_["connection_identifier"] = connection_identifier
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

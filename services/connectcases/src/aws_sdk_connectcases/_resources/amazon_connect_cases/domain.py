@@ -75,11 +75,11 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_connectcases.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -112,11 +112,11 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.get_domain_request.GetDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.get_domain_request.GetDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -149,11 +149,11 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -190,14 +190,14 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connectcases.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,11 +230,11 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.get_case_event_configuration_request.GetCaseEventConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.get_case_event_configuration_request.GetCaseEventConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,12 +269,12 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.put_case_event_configuration_request.PutCaseEventConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["event_bridge"] = event_bridge
+        input_: aws_sdk_connectcases.types.put_case_event_configuration_request.PutCaseEventConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["event_bridge"] = event_bridge
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,19 +319,19 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.search_all_related_items_request.SearchAllRelatedItemsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.search_all_related_items_request.SearchAllRelatedItemsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sorts is not None:
-            input["sorts"] = sorts
+            input_["sorts"] = sorts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,11 +370,11 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_connectcases.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,11 +408,11 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.get_domain_request.GetDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.get_domain_request.GetDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,11 +446,11 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,14 +488,14 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connectcases.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,11 +529,11 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.get_case_event_configuration_request.GetCaseEventConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.get_case_event_configuration_request.GetCaseEventConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -569,12 +569,12 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.put_case_event_configuration_request.PutCaseEventConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["event_bridge"] = event_bridge
+        input_: aws_sdk_connectcases.types.put_case_event_configuration_request.PutCaseEventConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["event_bridge"] = event_bridge
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,19 +620,19 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.search_all_related_items_request.SearchAllRelatedItemsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.search_all_related_items_request.SearchAllRelatedItemsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sorts is not None:
-            input["sorts"] = sorts
+            input_["sorts"] = sorts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

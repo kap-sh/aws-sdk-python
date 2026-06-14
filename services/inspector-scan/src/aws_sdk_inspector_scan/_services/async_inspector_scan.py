@@ -169,13 +169,13 @@ class AsyncInspectorScanClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector_scan.types.scan_sbom_request.ScanSbomRequest = {}  # type: ignore[typeddict-item]
-        input["sbom"] = sbom
+        input_: aws_sdk_inspector_scan.types.scan_sbom_request.ScanSbomRequest = {}  # type: ignore[typeddict-item]
+        input_["sbom"] = sbom
         if output_format is not None:
-            input["output_format"] = output_format
+            input_["output_format"] = output_format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

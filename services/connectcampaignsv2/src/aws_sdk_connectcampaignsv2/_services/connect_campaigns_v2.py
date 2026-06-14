@@ -251,30 +251,30 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["connect_instance_id"] = connect_instance_id
+        input_: aws_sdk_connectcampaignsv2.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["connect_instance_id"] = connect_instance_id
         if channel_subtype_config is not None:
-            input["channel_subtype_config"] = channel_subtype_config
+            input_["channel_subtype_config"] = channel_subtype_config
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if connect_campaign_flow_arn is not None:
-            input["connect_campaign_flow_arn"] = connect_campaign_flow_arn
+            input_["connect_campaign_flow_arn"] = connect_campaign_flow_arn
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if entry_limits_config is not None:
-            input["entry_limits_config"] = entry_limits_config
+            input_["entry_limits_config"] = entry_limits_config
         if communication_time_config is not None:
-            input["communication_time_config"] = communication_time_config
+            input_["communication_time_config"] = communication_time_config
         if communication_limits_override is not None:
-            input["communication_limits_override"] = communication_limits_override
+            input_["communication_limits_override"] = communication_limits_override
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,11 +301,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.delete_campaign_request.DeleteCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connectcampaignsv2.types.delete_campaign_request.DeleteCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,12 +333,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.delete_campaign_channel_subtype_config_request.DeleteCampaignChannelSubtypeConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["channel_subtype"] = channel_subtype
+        input_: aws_sdk_connectcampaignsv2.types.delete_campaign_channel_subtype_config_request.DeleteCampaignChannelSubtypeConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["channel_subtype"] = channel_subtype
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,12 +366,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.delete_campaign_communication_limits_request.DeleteCampaignCommunicationLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["config"] = config
+        input_: aws_sdk_connectcampaignsv2.types.delete_campaign_communication_limits_request.DeleteCampaignCommunicationLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["config"] = config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -399,12 +399,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.delete_campaign_communication_time_request.DeleteCampaignCommunicationTimeRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["config"] = config
+        input_: aws_sdk_connectcampaignsv2.types.delete_campaign_communication_time_request.DeleteCampaignCommunicationTimeRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["config"] = config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -431,11 +431,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.delete_campaign_entry_limits_request.DeleteCampaignEntryLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connectcampaignsv2.types.delete_campaign_entry_limits_request.DeleteCampaignEntryLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,13 +465,13 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.delete_connect_instance_config_request.DeleteConnectInstanceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
+        input_: aws_sdk_connectcampaignsv2.types.delete_connect_instance_config_request.DeleteConnectInstanceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
         if campaign_deletion_policy is not None:
-            input["campaign_deletion_policy"] = campaign_deletion_policy
+            input_["campaign_deletion_policy"] = campaign_deletion_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,12 +499,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.delete_connect_instance_integration_request.DeleteConnectInstanceIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
-        input["integration_identifier"] = integration_identifier
+        input_: aws_sdk_connectcampaignsv2.types.delete_connect_instance_integration_request.DeleteConnectInstanceIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
+        input_["integration_identifier"] = integration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,11 +531,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.delete_instance_onboarding_job_request.DeleteInstanceOnboardingJobRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
+        input_: aws_sdk_connectcampaignsv2.types.delete_instance_onboarding_job_request.DeleteInstanceOnboardingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -564,11 +564,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.describe_campaign_request.DescribeCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connectcampaignsv2.types.describe_campaign_request.DescribeCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,11 +597,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.get_campaign_state_request.GetCampaignStateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connectcampaignsv2.types.get_campaign_state_request.GetCampaignStateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,11 +630,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.get_campaign_state_batch_request.GetCampaignStateBatchRequest = {}  # type: ignore[typeddict-item]
-        input["campaign_ids"] = campaign_ids
+        input_: aws_sdk_connectcampaignsv2.types.get_campaign_state_batch_request.GetCampaignStateBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["campaign_ids"] = campaign_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -663,11 +663,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.get_connect_instance_config_request.GetConnectInstanceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
+        input_: aws_sdk_connectcampaignsv2.types.get_connect_instance_config_request.GetConnectInstanceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,11 +696,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.get_instance_communication_limits_request.GetInstanceCommunicationLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
+        input_: aws_sdk_connectcampaignsv2.types.get_instance_communication_limits_request.GetInstanceCommunicationLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -729,11 +729,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.get_instance_onboarding_job_status_request.GetInstanceOnboardingJobStatusRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
+        input_: aws_sdk_connectcampaignsv2.types.get_instance_onboarding_job_status_request.GetInstanceOnboardingJobStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,16 +772,16 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.list_campaigns_request.ListCampaignsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connectcampaignsv2.types.list_campaigns_request.ListCampaignsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -845,15 +845,15 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.list_connect_instance_integrations_request.ListConnectInstanceIntegrationsRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
+        input_: aws_sdk_connectcampaignsv2.types.list_connect_instance_integrations_request.ListConnectInstanceIntegrationsRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -909,11 +909,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_connectcampaignsv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -940,11 +940,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.pause_campaign_request.PauseCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connectcampaignsv2.types.pause_campaign_request.PauseCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -972,12 +972,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.put_connect_instance_integration_request.PutConnectInstanceIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
-        input["integration_config"] = integration_config
+        input_: aws_sdk_connectcampaignsv2.types.put_connect_instance_integration_request.PutConnectInstanceIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
+        input_["integration_config"] = integration_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1005,12 +1005,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.put_instance_communication_limits_request.PutInstanceCommunicationLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
-        input["communication_limits_config"] = communication_limits_config
+        input_: aws_sdk_connectcampaignsv2.types.put_instance_communication_limits_request.PutInstanceCommunicationLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
+        input_["communication_limits_config"] = communication_limits_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1040,12 +1040,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.put_outbound_request_batch_request.PutOutboundRequestBatchRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["outbound_requests"] = outbound_requests
+        input_: aws_sdk_connectcampaignsv2.types.put_outbound_request_batch_request.PutOutboundRequestBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["outbound_requests"] = outbound_requests
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1075,12 +1075,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.put_profile_outbound_request_batch_request.PutProfileOutboundRequestBatchRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["profile_outbound_requests"] = profile_outbound_requests
+        input_: aws_sdk_connectcampaignsv2.types.put_profile_outbound_request_batch_request.PutProfileOutboundRequestBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["profile_outbound_requests"] = profile_outbound_requests
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1107,11 +1107,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.resume_campaign_request.ResumeCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connectcampaignsv2.types.resume_campaign_request.ResumeCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1138,11 +1138,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.start_campaign_request.StartCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connectcampaignsv2.types.start_campaign_request.StartCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1172,12 +1172,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.start_instance_onboarding_job_request.StartInstanceOnboardingJobRequest = {}  # type: ignore[typeddict-item]
-        input["connect_instance_id"] = connect_instance_id
-        input["encryption_config"] = encryption_config
+        input_: aws_sdk_connectcampaignsv2.types.start_instance_onboarding_job_request.StartInstanceOnboardingJobRequest = {}  # type: ignore[typeddict-item]
+        input_["connect_instance_id"] = connect_instance_id
+        input_["encryption_config"] = encryption_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1204,11 +1204,11 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.stop_campaign_request.StopCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connectcampaignsv2.types.stop_campaign_request.StopCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1236,12 +1236,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_connectcampaignsv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1269,12 +1269,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_connectcampaignsv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1302,12 +1302,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.update_campaign_channel_subtype_config_request.UpdateCampaignChannelSubtypeConfigRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["channel_subtype_config"] = channel_subtype_config
+        input_: aws_sdk_connectcampaignsv2.types.update_campaign_channel_subtype_config_request.UpdateCampaignChannelSubtypeConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["channel_subtype_config"] = channel_subtype_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1335,12 +1335,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.update_campaign_communication_limits_request.UpdateCampaignCommunicationLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["communication_limits_override"] = communication_limits_override
+        input_: aws_sdk_connectcampaignsv2.types.update_campaign_communication_limits_request.UpdateCampaignCommunicationLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["communication_limits_override"] = communication_limits_override
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1368,12 +1368,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.update_campaign_communication_time_request.UpdateCampaignCommunicationTimeRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["communication_time_config"] = communication_time_config
+        input_: aws_sdk_connectcampaignsv2.types.update_campaign_communication_time_request.UpdateCampaignCommunicationTimeRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["communication_time_config"] = communication_time_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1401,12 +1401,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.update_campaign_entry_limits_request.UpdateCampaignEntryLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["entry_limits_config"] = entry_limits_config
+        input_: aws_sdk_connectcampaignsv2.types.update_campaign_entry_limits_request.UpdateCampaignEntryLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["entry_limits_config"] = entry_limits_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1434,12 +1434,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.update_campaign_flow_association_request.UpdateCampaignFlowAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["connect_campaign_flow_arn"] = connect_campaign_flow_arn
+        input_: aws_sdk_connectcampaignsv2.types.update_campaign_flow_association_request.UpdateCampaignFlowAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["connect_campaign_flow_arn"] = connect_campaign_flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1467,12 +1467,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.update_campaign_name_request.UpdateCampaignNameRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["name"] = name
+        input_: aws_sdk_connectcampaignsv2.types.update_campaign_name_request.UpdateCampaignNameRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1500,12 +1500,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.update_campaign_schedule_request.UpdateCampaignScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["schedule"] = schedule
+        input_: aws_sdk_connectcampaignsv2.types.update_campaign_schedule_request.UpdateCampaignScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["schedule"] = schedule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,12 +1533,12 @@ class ConnectCampaignsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connectcampaignsv2.types.update_campaign_source_request.UpdateCampaignSourceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["source"] = source
+        input_: aws_sdk_connectcampaignsv2.types.update_campaign_source_request.UpdateCampaignSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["source"] = source
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

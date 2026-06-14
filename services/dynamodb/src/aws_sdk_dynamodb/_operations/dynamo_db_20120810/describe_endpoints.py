@@ -61,7 +61,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest,
+    input_: aws_sdk_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -90,12 +90,12 @@ def build_request(
 
 def describe_endpoints(
     options: OperationOptions,
-    input: aws_sdk_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest,
+    input_: aws_sdk_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest,
 ) -> tuple[
     aws_sdk_dynamodb.types.describe_endpoints_response.DescribeEndpointsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -109,12 +109,12 @@ def describe_endpoints(
 
 async def async_describe_endpoints(
     options: AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest,
+    input_: aws_sdk_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest,
 ) -> tuple[
     aws_sdk_dynamodb.types.describe_endpoints_response.DescribeEndpointsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

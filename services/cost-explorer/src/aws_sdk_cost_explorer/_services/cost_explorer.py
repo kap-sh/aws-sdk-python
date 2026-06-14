@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_cost_explorer._auth._signers
+import aws_sdk_cost_explorer._auth._sigv4
 from aws_sdk_cost_explorer._auth._identity import Credentials
 from aws_sdk_cost_explorer._auth._providers import (
     CredentialsProvider,
@@ -327,13 +329,13 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.create_anomaly_monitor_request.CreateAnomalyMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["anomaly_monitor"] = anomaly_monitor
+        input_: aws_sdk_cost_explorer.types.create_anomaly_monitor_request.CreateAnomalyMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["anomaly_monitor"] = anomaly_monitor
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,13 +372,13 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.create_anomaly_subscription_request.CreateAnomalySubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["anomaly_subscription"] = anomaly_subscription
+        input_: aws_sdk_cost_explorer.types.create_anomaly_subscription_request.CreateAnomalySubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["anomaly_subscription"] = anomaly_subscription
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,21 +428,21 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.create_cost_category_definition_request.CreateCostCategoryDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cost_explorer.types.create_cost_category_definition_request.CreateCostCategoryDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if effective_start is not None:
-            input["effective_start"] = effective_start
-        input["rule_version"] = rule_version
-        input["rules"] = rules
+            input_["effective_start"] = effective_start
+        input_["rule_version"] = rule_version
+        input_["rules"] = rules
         if default_value is not None:
-            input["default_value"] = default_value
+            input_["default_value"] = default_value
         if split_charge_rules is not None:
-            input["split_charge_rules"] = split_charge_rules
+            input_["split_charge_rules"] = split_charge_rules
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,11 +475,11 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.delete_anomaly_monitor_request.DeleteAnomalyMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_arn"] = monitor_arn
+        input_: aws_sdk_cost_explorer.types.delete_anomaly_monitor_request.DeleteAnomalyMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_arn"] = monitor_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,11 +512,11 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.delete_anomaly_subscription_request.DeleteAnomalySubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_arn"] = subscription_arn
+        input_: aws_sdk_cost_explorer.types.delete_anomaly_subscription_request.DeleteAnomalySubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_arn"] = subscription_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -547,11 +549,11 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.delete_cost_category_definition_request.DeleteCostCategoryDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["cost_category_arn"] = cost_category_arn
+        input_: aws_sdk_cost_explorer.types.delete_cost_category_definition_request.DeleteCostCategoryDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["cost_category_arn"] = cost_category_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,13 +590,13 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.describe_cost_category_definition_request.DescribeCostCategoryDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["cost_category_arn"] = cost_category_arn
+        input_: aws_sdk_cost_explorer.types.describe_cost_category_definition_request.DescribeCostCategoryDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["cost_category_arn"] = cost_category_arn
         if effective_on is not None:
-            input["effective_on"] = effective_on
+            input_["effective_on"] = effective_on
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -645,21 +647,21 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_anomalies_request.GetAnomaliesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_anomalies_request.GetAnomaliesRequest = {}  # type: ignore[typeddict-item]
         if monitor_arn is not None:
-            input["monitor_arn"] = monitor_arn
-        input["date_interval"] = date_interval
+            input_["monitor_arn"] = monitor_arn
+        input_["date_interval"] = date_interval
         if feedback is not None:
-            input["feedback"] = feedback
+            input_["feedback"] = feedback
         if total_impact is not None:
-            input["total_impact"] = total_impact
+            input_["total_impact"] = total_impact
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -735,16 +737,16 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_anomaly_monitors_request.GetAnomalyMonitorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_anomaly_monitors_request.GetAnomalyMonitorsRequest = {}  # type: ignore[typeddict-item]
         if monitor_arn_list is not None:
-            input["monitor_arn_list"] = monitor_arn_list
+            input_["monitor_arn_list"] = monitor_arn_list
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -814,18 +816,18 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_anomaly_subscriptions_request.GetAnomalySubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_anomaly_subscriptions_request.GetAnomalySubscriptionsRequest = {}  # type: ignore[typeddict-item]
         if subscription_arn_list is not None:
-            input["subscription_arn_list"] = subscription_arn_list
+            input_["subscription_arn_list"] = subscription_arn_list
         if monitor_arn is not None:
-            input["monitor_arn"] = monitor_arn
+            input_["monitor_arn"] = monitor_arn
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -897,14 +899,14 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_approximate_usage_records_request.GetApproximateUsageRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["granularity"] = granularity
+        input_: aws_sdk_cost_explorer.types.get_approximate_usage_records_request.GetApproximateUsageRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["granularity"] = granularity
         if services is not None:
-            input["services"] = services
-        input["approximation_dimension"] = approximation_dimension
+            input_["services"] = services
+        input_["approximation_dimension"] = approximation_dimension
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -937,11 +939,11 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_commitment_purchase_analysis_request.GetCommitmentPurchaseAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["analysis_id"] = analysis_id
+        input_: aws_sdk_cost_explorer.types.get_commitment_purchase_analysis_request.GetCommitmentPurchaseAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["analysis_id"] = analysis_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -992,21 +994,21 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_cost_and_usage_request.GetCostAndUsageRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
-        input["granularity"] = granularity
+        input_: aws_sdk_cost_explorer.types.get_cost_and_usage_request.GetCostAndUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
+        input_["granularity"] = granularity
         if filter is not None:
-            input["filter"] = filter
-        input["metrics"] = metrics
+            input_["filter"] = filter
+        input_["metrics"] = metrics
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
+            input_["billing_view_arn"] = billing_view_arn
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1060,23 +1062,23 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_cost_and_usage_comparisons_request.GetCostAndUsageComparisonsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_cost_and_usage_comparisons_request.GetCostAndUsageComparisonsRequest = {}  # type: ignore[typeddict-item]
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
-        input["baseline_time_period"] = baseline_time_period
-        input["comparison_time_period"] = comparison_time_period
-        input["metric_for_comparison"] = metric_for_comparison
+            input_["billing_view_arn"] = billing_view_arn
+        input_["baseline_time_period"] = baseline_time_period
+        input_["comparison_time_period"] = comparison_time_period
+        input_["metric_for_comparison"] = metric_for_comparison
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1170,21 +1172,21 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_cost_and_usage_with_resources_request.GetCostAndUsageWithResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
-        input["granularity"] = granularity
-        input["filter"] = filter
+        input_: aws_sdk_cost_explorer.types.get_cost_and_usage_with_resources_request.GetCostAndUsageWithResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
+        input_["granularity"] = granularity
+        input_["filter"] = filter
         if metrics is not None:
-            input["metrics"] = metrics
+            input_["metrics"] = metrics
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
+            input_["billing_view_arn"] = billing_view_arn
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1240,25 +1242,25 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_cost_categories_request.GetCostCategoriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_cost_categories_request.GetCostCategoriesRequest = {}  # type: ignore[typeddict-item]
         if search_string is not None:
-            input["search_string"] = search_string
-        input["time_period"] = time_period
+            input_["search_string"] = search_string
+        input_["time_period"] = time_period
         if cost_category_name is not None:
-            input["cost_category_name"] = cost_category_name
+            input_["cost_category_name"] = cost_category_name
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
+            input_["billing_view_arn"] = billing_view_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1312,23 +1314,23 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_cost_comparison_drivers_request.GetCostComparisonDriversRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_cost_comparison_drivers_request.GetCostComparisonDriversRequest = {}  # type: ignore[typeddict-item]
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
-        input["baseline_time_period"] = baseline_time_period
-        input["comparison_time_period"] = comparison_time_period
-        input["metric_for_comparison"] = metric_for_comparison
+            input_["billing_view_arn"] = billing_view_arn
+        input_["baseline_time_period"] = baseline_time_period
+        input_["comparison_time_period"] = comparison_time_period
+        input_["metric_for_comparison"] = metric_for_comparison
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1418,19 +1420,19 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_cost_forecast_request.GetCostForecastRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
-        input["metric"] = metric
-        input["granularity"] = granularity
+        input_: aws_sdk_cost_explorer.types.get_cost_forecast_request.GetCostForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
+        input_["metric"] = metric
+        input_["granularity"] = granularity
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
+            input_["billing_view_arn"] = billing_view_arn
         if prediction_interval_level is not None:
-            input["prediction_interval_level"] = prediction_interval_level
+            input_["prediction_interval_level"] = prediction_interval_level
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1488,26 +1490,26 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_dimension_values_request.GetDimensionValuesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_dimension_values_request.GetDimensionValuesRequest = {}  # type: ignore[typeddict-item]
         if search_string is not None:
-            input["search_string"] = search_string
-        input["time_period"] = time_period
-        input["dimension"] = dimension
+            input_["search_string"] = search_string
+        input_["time_period"] = time_period
+        input_["dimension"] = dimension
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
+            input_["billing_view_arn"] = billing_view_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1566,25 +1568,25 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_reservation_coverage_request.GetReservationCoverageRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
+        input_: aws_sdk_cost_explorer.types.get_reservation_coverage_request.GetReservationCoverageRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if granularity is not None:
-            input["granularity"] = granularity
+            input_["granularity"] = granularity
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if metrics is not None:
-            input["metrics"] = metrics
+            input_["metrics"] = metrics
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1650,29 +1652,29 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_reservation_purchase_recommendation_request.GetReservationPurchaseRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_reservation_purchase_recommendation_request.GetReservationPurchaseRecommendationRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
-        input["service"] = service
+            input_["account_id"] = account_id
+        input_["service"] = service
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if account_scope is not None:
-            input["account_scope"] = account_scope
+            input_["account_scope"] = account_scope
         if lookback_period_in_days is not None:
-            input["lookback_period_in_days"] = lookback_period_in_days
+            input_["lookback_period_in_days"] = lookback_period_in_days
         if term_in_years is not None:
-            input["term_in_years"] = term_in_years
+            input_["term_in_years"] = term_in_years
         if payment_option is not None:
-            input["payment_option"] = payment_option
+            input_["payment_option"] = payment_option
         if service_specification is not None:
-            input["service_specification"] = service_specification
+            input_["service_specification"] = service_specification
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1780,23 +1782,23 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_reservation_utilization_request.GetReservationUtilizationRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
+        input_: aws_sdk_cost_explorer.types.get_reservation_utilization_request.GetReservationUtilizationRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if granularity is not None:
-            input["granularity"] = granularity
+            input_["granularity"] = granularity
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1842,19 +1844,19 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_rightsizing_recommendation_request.GetRightsizingRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_rightsizing_recommendation_request.GetRightsizingRecommendationRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if configuration is not None:
-            input["configuration"] = configuration
-        input["service"] = service
+            input_["configuration"] = configuration
+        input_["service"] = service
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1920,11 +1922,11 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_savings_plan_purchase_recommendation_details_request.GetSavingsPlanPurchaseRecommendationDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["recommendation_detail_id"] = recommendation_detail_id
+        input_: aws_sdk_cost_explorer.types.get_savings_plan_purchase_recommendation_details_request.GetSavingsPlanPurchaseRecommendationDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["recommendation_detail_id"] = recommendation_detail_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1983,25 +1985,25 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_savings_plans_coverage_request.GetSavingsPlansCoverageRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
+        input_: aws_sdk_cost_explorer.types.get_savings_plans_coverage_request.GetSavingsPlansCoverageRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if granularity is not None:
-            input["granularity"] = granularity
+            input_["granularity"] = granularity
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if metrics is not None:
-            input["metrics"] = metrics
+            input_["metrics"] = metrics
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2054,22 +2056,22 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_savings_plans_purchase_recommendation_request.GetSavingsPlansPurchaseRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["savings_plans_type"] = savings_plans_type
-        input["term_in_years"] = term_in_years
-        input["payment_option"] = payment_option
+        input_: aws_sdk_cost_explorer.types.get_savings_plans_purchase_recommendation_request.GetSavingsPlansPurchaseRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["savings_plans_type"] = savings_plans_type
+        input_["term_in_years"] = term_in_years
+        input_["payment_option"] = payment_option
         if account_scope is not None:
-            input["account_scope"] = account_scope
+            input_["account_scope"] = account_scope
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if page_size is not None:
-            input["page_size"] = page_size
-        input["lookback_period_in_days"] = lookback_period_in_days
+            input_["page_size"] = page_size
+        input_["lookback_period_in_days"] = lookback_period_in_days
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2112,17 +2114,17 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_savings_plans_utilization_request.GetSavingsPlansUtilizationRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
+        input_: aws_sdk_cost_explorer.types.get_savings_plans_utilization_request.GetSavingsPlansUtilizationRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
         if granularity is not None:
-            input["granularity"] = granularity
+            input_["granularity"] = granularity
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2173,21 +2175,21 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_savings_plans_utilization_details_request.GetSavingsPlansUtilizationDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
+        input_: aws_sdk_cost_explorer.types.get_savings_plans_utilization_details_request.GetSavingsPlansUtilizationDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if data_type is not None:
-            input["data_type"] = data_type
+            input_["data_type"] = data_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2243,25 +2245,25 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_tags_request.GetTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.get_tags_request.GetTagsRequest = {}  # type: ignore[typeddict-item]
         if search_string is not None:
-            input["search_string"] = search_string
-        input["time_period"] = time_period
+            input_["search_string"] = search_string
+        input_["time_period"] = time_period
         if tag_key is not None:
-            input["tag_key"] = tag_key
+            input_["tag_key"] = tag_key
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
+            input_["billing_view_arn"] = billing_view_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2308,19 +2310,19 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.get_usage_forecast_request.GetUsageForecastRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
-        input["metric"] = metric
-        input["granularity"] = granularity
+        input_: aws_sdk_cost_explorer.types.get_usage_forecast_request.GetUsageForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
+        input_["metric"] = metric
+        input_["granularity"] = granularity
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if billing_view_arn is not None:
-            input["billing_view_arn"] = billing_view_arn
+            input_["billing_view_arn"] = billing_view_arn
         if prediction_interval_level is not None:
-            input["prediction_interval_level"] = prediction_interval_level
+            input_["prediction_interval_level"] = prediction_interval_level
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2367,18 +2369,18 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.list_commitment_purchase_analyses_request.ListCommitmentPurchaseAnalysesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.list_commitment_purchase_analyses_request.ListCommitmentPurchaseAnalysesRequest = {}  # type: ignore[typeddict-item]
         if analysis_status is not None:
-            input["analysis_status"] = analysis_status
+            input_["analysis_status"] = analysis_status
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if analysis_ids is not None:
-            input["analysis_ids"] = analysis_ids
+            input_["analysis_ids"] = analysis_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2450,14 +2452,14 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.list_cost_allocation_tag_backfill_history_request.ListCostAllocationTagBackfillHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.list_cost_allocation_tag_backfill_history_request.ListCostAllocationTagBackfillHistoryRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2533,20 +2535,20 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.list_cost_allocation_tags_request.ListCostAllocationTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.list_cost_allocation_tags_request.ListCostAllocationTagsRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2630,18 +2632,18 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.list_cost_category_definitions_request.ListCostCategoryDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.list_cost_category_definitions_request.ListCostCategoryDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if effective_on is not None:
-            input["effective_on"] = effective_on
+            input_["effective_on"] = effective_on
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if supported_resource_types is not None:
-            input["supported_resource_types"] = supported_resource_types
+            input_["supported_resource_types"] = supported_resource_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2715,16 +2717,16 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.list_cost_category_resource_associations_request.ListCostCategoryResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.list_cost_category_resource_associations_request.ListCostCategoryResourceAssociationsRequest = {}  # type: ignore[typeddict-item]
         if cost_category_arn is not None:
-            input["cost_category_arn"] = cost_category_arn
+            input_["cost_category_arn"] = cost_category_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2798,18 +2800,18 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.list_savings_plans_purchase_recommendation_generation_request.ListSavingsPlansPurchaseRecommendationGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.list_savings_plans_purchase_recommendation_generation_request.ListSavingsPlansPurchaseRecommendationGenerationRequest = {}  # type: ignore[typeddict-item]
         if generation_status is not None:
-            input["generation_status"] = generation_status
+            input_["generation_status"] = generation_status
         if recommendation_ids is not None:
-            input["recommendation_ids"] = recommendation_ids
+            input_["recommendation_ids"] = recommendation_ids
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2875,11 +2877,11 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cost_explorer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2914,12 +2916,12 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.provide_anomaly_feedback_request.ProvideAnomalyFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["anomaly_id"] = anomaly_id
-        input["feedback"] = feedback
+        input_: aws_sdk_cost_explorer.types.provide_anomaly_feedback_request.ProvideAnomalyFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["anomaly_id"] = anomaly_id
+        input_["feedback"] = feedback
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2952,13 +2954,13 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.start_commitment_purchase_analysis_request.StartCommitmentPurchaseAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["commitment_purchase_analysis_configuration"] = (
+        input_: aws_sdk_cost_explorer.types.start_commitment_purchase_analysis_request.StartCommitmentPurchaseAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["commitment_purchase_analysis_configuration"] = (
             commitment_purchase_analysis_configuration
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2991,11 +2993,11 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.start_cost_allocation_tag_backfill_request.StartCostAllocationTagBackfillRequest = {}  # type: ignore[typeddict-item]
-        input["backfill_from"] = backfill_from
+        input_: aws_sdk_cost_explorer.types.start_cost_allocation_tag_backfill_request.StartCostAllocationTagBackfillRequest = {}  # type: ignore[typeddict-item]
+        input_["backfill_from"] = backfill_from
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3021,10 +3023,10 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.start_savings_plans_purchase_recommendation_generation_request.StartSavingsPlansPurchaseRecommendationGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_explorer.types.start_savings_plans_purchase_recommendation_generation_request.StartSavingsPlansPurchaseRecommendationGenerationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3059,12 +3061,12 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tags"] = resource_tags
+        input_: aws_sdk_cost_explorer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tags"] = resource_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3099,12 +3101,12 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tag_keys"] = resource_tag_keys
+        input_: aws_sdk_cost_explorer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tag_keys"] = resource_tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3141,13 +3143,13 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.update_anomaly_monitor_request.UpdateAnomalyMonitorRequest = {}  # type: ignore[typeddict-item]
-        input["monitor_arn"] = monitor_arn
+        input_: aws_sdk_cost_explorer.types.update_anomaly_monitor_request.UpdateAnomalyMonitorRequest = {}  # type: ignore[typeddict-item]
+        input_["monitor_arn"] = monitor_arn
         if monitor_name is not None:
-            input["monitor_name"] = monitor_name
+            input_["monitor_name"] = monitor_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3204,23 +3206,23 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.update_anomaly_subscription_request.UpdateAnomalySubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_arn"] = subscription_arn
+        input_: aws_sdk_cost_explorer.types.update_anomaly_subscription_request.UpdateAnomalySubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_arn"] = subscription_arn
         if threshold is not None:
-            input["threshold"] = threshold
+            input_["threshold"] = threshold
         if frequency is not None:
-            input["frequency"] = frequency
+            input_["frequency"] = frequency
         if monitor_arn_list is not None:
-            input["monitor_arn_list"] = monitor_arn_list
+            input_["monitor_arn_list"] = monitor_arn_list
         if subscribers is not None:
-            input["subscribers"] = subscribers
+            input_["subscribers"] = subscribers
         if subscription_name is not None:
-            input["subscription_name"] = subscription_name
+            input_["subscription_name"] = subscription_name
         if threshold_expression is not None:
-            input["threshold_expression"] = threshold_expression
+            input_["threshold_expression"] = threshold_expression
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3253,11 +3255,11 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.update_cost_allocation_tags_status_request.UpdateCostAllocationTagsStatusRequest = {}  # type: ignore[typeddict-item]
-        input["cost_allocation_tags_status"] = cost_allocation_tags_status
+        input_: aws_sdk_cost_explorer.types.update_cost_allocation_tags_status_request.UpdateCostAllocationTagsStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["cost_allocation_tags_status"] = cost_allocation_tags_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3304,19 +3306,19 @@ class CostExplorerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_explorer.types.update_cost_category_definition_request.UpdateCostCategoryDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["cost_category_arn"] = cost_category_arn
+        input_: aws_sdk_cost_explorer.types.update_cost_category_definition_request.UpdateCostCategoryDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["cost_category_arn"] = cost_category_arn
         if effective_start is not None:
-            input["effective_start"] = effective_start
-        input["rule_version"] = rule_version
-        input["rules"] = rules
+            input_["effective_start"] = effective_start
+        input_["rule_version"] = rule_version
+        input_["rules"] = rules
         if default_value is not None:
-            input["default_value"] = default_value
+            input_["default_value"] = default_value
         if split_charge_rules is not None:
-            input["split_charge_rules"] = split_charge_rules
+            input_["split_charge_rules"] = split_charge_rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

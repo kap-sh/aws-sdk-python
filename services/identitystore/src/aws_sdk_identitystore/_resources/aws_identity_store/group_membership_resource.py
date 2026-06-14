@@ -69,13 +69,13 @@ class GroupMembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.create_group_membership_request.CreateGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
-        input["member_id"] = member_id
+        input_: aws_sdk_identitystore.types.create_group_membership_request.CreateGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
+        input_["member_id"] = member_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -110,12 +110,12 @@ class GroupMembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.describe_group_membership_request.DescribeGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["membership_id"] = membership_id
+        input_: aws_sdk_identitystore.types.describe_group_membership_request.DescribeGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["membership_id"] = membership_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -150,12 +150,12 @@ class GroupMembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.delete_group_membership_request.DeleteGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["membership_id"] = membership_id
+        input_: aws_sdk_identitystore.types.delete_group_membership_request.DeleteGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["membership_id"] = membership_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,16 +196,16 @@ class GroupMembershipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.list_group_memberships_request.ListGroupMembershipsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
+        input_: aws_sdk_identitystore.types.list_group_memberships_request.ListGroupMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,13 +248,13 @@ class AsyncGroupMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.create_group_membership_request.CreateGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
-        input["member_id"] = member_id
+        input_: aws_sdk_identitystore.types.create_group_membership_request.CreateGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
+        input_["member_id"] = member_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -290,12 +290,12 @@ class AsyncGroupMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.describe_group_membership_request.DescribeGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["membership_id"] = membership_id
+        input_: aws_sdk_identitystore.types.describe_group_membership_request.DescribeGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["membership_id"] = membership_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -331,12 +331,12 @@ class AsyncGroupMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.delete_group_membership_request.DeleteGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["membership_id"] = membership_id
+        input_: aws_sdk_identitystore.types.delete_group_membership_request.DeleteGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["membership_id"] = membership_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,16 +378,16 @@ class AsyncGroupMembershipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.list_group_memberships_request.ListGroupMembershipsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
+        input_: aws_sdk_identitystore.types.list_group_memberships_request.ListGroupMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

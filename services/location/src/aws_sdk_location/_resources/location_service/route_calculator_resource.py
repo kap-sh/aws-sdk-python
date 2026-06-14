@@ -93,18 +93,18 @@ class RouteCalculatorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_route_calculator_request.CreateRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
-        input["data_source"] = data_source
+        input_: aws_sdk_location.types.create_route_calculator_request.CreateRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
+        input_["data_source"] = data_source
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -137,11 +137,11 @@ class RouteCalculatorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_route_calculator_request.DescribeRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
+        input_: aws_sdk_location.types.describe_route_calculator_request.DescribeRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -182,15 +182,15 @@ class RouteCalculatorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_route_calculator_request.UpdateRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
+        input_: aws_sdk_location.types.update_route_calculator_request.UpdateRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,11 +223,11 @@ class RouteCalculatorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_route_calculator_request.DeleteRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
+        input_: aws_sdk_location.types.delete_route_calculator_request.DeleteRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,14 +262,14 @@ class RouteCalculatorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_route_calculators_request.ListRouteCalculatorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_route_calculators_request.ListRouteCalculatorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,35 +342,35 @@ class RouteCalculatorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.calculate_route_request.CalculateRouteRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
-        input["departure_position"] = departure_position
-        input["destination_position"] = destination_position
+        input_: aws_sdk_location.types.calculate_route_request.CalculateRouteRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
+        input_["departure_position"] = departure_position
+        input_["destination_position"] = destination_position
         if waypoint_positions is not None:
-            input["waypoint_positions"] = waypoint_positions
+            input_["waypoint_positions"] = waypoint_positions
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if departure_time is not None:
-            input["departure_time"] = departure_time
+            input_["departure_time"] = departure_time
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if distance_unit is not None:
-            input["distance_unit"] = distance_unit
+            input_["distance_unit"] = distance_unit
         if include_leg_geometry is not None:
-            input["include_leg_geometry"] = include_leg_geometry
+            input_["include_leg_geometry"] = include_leg_geometry
         if car_mode_options is not None:
-            input["car_mode_options"] = car_mode_options
+            input_["car_mode_options"] = car_mode_options
         if truck_mode_options is not None:
-            input["truck_mode_options"] = truck_mode_options
+            input_["truck_mode_options"] = truck_mode_options
         if arrival_time is not None:
-            input["arrival_time"] = arrival_time
+            input_["arrival_time"] = arrival_time
         if optimize_for is not None:
-            input["optimize_for"] = optimize_for
+            input_["optimize_for"] = optimize_for
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,27 +429,27 @@ class RouteCalculatorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.calculate_route_matrix_request.CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
-        input["departure_positions"] = departure_positions
-        input["destination_positions"] = destination_positions
+        input_: aws_sdk_location.types.calculate_route_matrix_request.CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
+        input_["departure_positions"] = departure_positions
+        input_["destination_positions"] = destination_positions
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if departure_time is not None:
-            input["departure_time"] = departure_time
+            input_["departure_time"] = departure_time
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if distance_unit is not None:
-            input["distance_unit"] = distance_unit
+            input_["distance_unit"] = distance_unit
         if car_mode_options is not None:
-            input["car_mode_options"] = car_mode_options
+            input_["car_mode_options"] = car_mode_options
         if truck_mode_options is not None:
-            input["truck_mode_options"] = truck_mode_options
+            input_["truck_mode_options"] = truck_mode_options
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,18 +500,18 @@ class AsyncRouteCalculatorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_route_calculator_request.CreateRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
-        input["data_source"] = data_source
+        input_: aws_sdk_location.types.create_route_calculator_request.CreateRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
+        input_["data_source"] = data_source
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -545,11 +545,11 @@ class AsyncRouteCalculatorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_route_calculator_request.DescribeRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
+        input_: aws_sdk_location.types.describe_route_calculator_request.DescribeRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,15 +591,15 @@ class AsyncRouteCalculatorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_route_calculator_request.UpdateRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
+        input_: aws_sdk_location.types.update_route_calculator_request.UpdateRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -633,11 +633,11 @@ class AsyncRouteCalculatorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_route_calculator_request.DeleteRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
+        input_: aws_sdk_location.types.delete_route_calculator_request.DeleteRouteCalculatorRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -673,14 +673,14 @@ class AsyncRouteCalculatorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_route_calculators_request.ListRouteCalculatorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_route_calculators_request.ListRouteCalculatorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,35 +754,35 @@ class AsyncRouteCalculatorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.calculate_route_request.CalculateRouteRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
-        input["departure_position"] = departure_position
-        input["destination_position"] = destination_position
+        input_: aws_sdk_location.types.calculate_route_request.CalculateRouteRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
+        input_["departure_position"] = departure_position
+        input_["destination_position"] = destination_position
         if waypoint_positions is not None:
-            input["waypoint_positions"] = waypoint_positions
+            input_["waypoint_positions"] = waypoint_positions
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if departure_time is not None:
-            input["departure_time"] = departure_time
+            input_["departure_time"] = departure_time
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if distance_unit is not None:
-            input["distance_unit"] = distance_unit
+            input_["distance_unit"] = distance_unit
         if include_leg_geometry is not None:
-            input["include_leg_geometry"] = include_leg_geometry
+            input_["include_leg_geometry"] = include_leg_geometry
         if car_mode_options is not None:
-            input["car_mode_options"] = car_mode_options
+            input_["car_mode_options"] = car_mode_options
         if truck_mode_options is not None:
-            input["truck_mode_options"] = truck_mode_options
+            input_["truck_mode_options"] = truck_mode_options
         if arrival_time is not None:
-            input["arrival_time"] = arrival_time
+            input_["arrival_time"] = arrival_time
         if optimize_for is not None:
-            input["optimize_for"] = optimize_for
+            input_["optimize_for"] = optimize_for
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -842,27 +842,27 @@ class AsyncRouteCalculatorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.calculate_route_matrix_request.CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
-        input["calculator_name"] = calculator_name
-        input["departure_positions"] = departure_positions
-        input["destination_positions"] = destination_positions
+        input_: aws_sdk_location.types.calculate_route_matrix_request.CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
+        input_["calculator_name"] = calculator_name
+        input_["departure_positions"] = departure_positions
+        input_["destination_positions"] = destination_positions
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if departure_time is not None:
-            input["departure_time"] = departure_time
+            input_["departure_time"] = departure_time
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if distance_unit is not None:
-            input["distance_unit"] = distance_unit
+            input_["distance_unit"] = distance_unit
         if car_mode_options is not None:
-            input["car_mode_options"] = car_mode_options
+            input_["car_mode_options"] = car_mode_options
         if truck_mode_options is not None:
-            input["truck_mode_options"] = truck_mode_options
+            input_["truck_mode_options"] = truck_mode_options
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

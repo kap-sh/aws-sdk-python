@@ -138,39 +138,39 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_name"] = agent_name
+        input_: aws_sdk_bedrock_agent.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_name"] = agent_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if instruction is not None:
-            input["instruction"] = instruction
+            input_["instruction"] = instruction
         if foundation_model is not None:
-            input["foundation_model"] = foundation_model
+            input_["foundation_model"] = foundation_model
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if orchestration_type is not None:
-            input["orchestration_type"] = orchestration_type
+            input_["orchestration_type"] = orchestration_type
         if custom_orchestration is not None:
-            input["custom_orchestration"] = custom_orchestration
+            input_["custom_orchestration"] = custom_orchestration
         if idle_session_ttl_in_seconds is not None:
-            input["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
+            input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         if agent_resource_role_arn is not None:
-            input["agent_resource_role_arn"] = agent_resource_role_arn
+            input_["agent_resource_role_arn"] = agent_resource_role_arn
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if prompt_override_configuration is not None:
-            input["prompt_override_configuration"] = prompt_override_configuration
+            input_["prompt_override_configuration"] = prompt_override_configuration
         if guardrail_configuration is not None:
-            input["guardrail_configuration"] = guardrail_configuration
+            input_["guardrail_configuration"] = guardrail_configuration
         if memory_configuration is not None:
-            input["memory_configuration"] = memory_configuration
+            input_["memory_configuration"] = memory_configuration
         if agent_collaboration is not None:
-            input["agent_collaboration"] = agent_collaboration
+            input_["agent_collaboration"] = agent_collaboration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,13 +205,13 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,11 +244,11 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_request.GetAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_request.GetAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,14 +285,14 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,11 +325,11 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.prepare_agent_request.PrepareAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.prepare_agent_request.PrepareAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,34 +408,34 @@ class AgentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_name"] = agent_name
+        input_: aws_sdk_bedrock_agent.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_name"] = agent_name
         if instruction is not None:
-            input["instruction"] = instruction
-        input["foundation_model"] = foundation_model
+            input_["instruction"] = instruction
+        input_["foundation_model"] = foundation_model
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if orchestration_type is not None:
-            input["orchestration_type"] = orchestration_type
+            input_["orchestration_type"] = orchestration_type
         if custom_orchestration is not None:
-            input["custom_orchestration"] = custom_orchestration
+            input_["custom_orchestration"] = custom_orchestration
         if idle_session_ttl_in_seconds is not None:
-            input["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
-        input["agent_resource_role_arn"] = agent_resource_role_arn
+            input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
+        input_["agent_resource_role_arn"] = agent_resource_role_arn
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if prompt_override_configuration is not None:
-            input["prompt_override_configuration"] = prompt_override_configuration
+            input_["prompt_override_configuration"] = prompt_override_configuration
         if guardrail_configuration is not None:
-            input["guardrail_configuration"] = guardrail_configuration
+            input_["guardrail_configuration"] = guardrail_configuration
         if memory_configuration is not None:
-            input["memory_configuration"] = memory_configuration
+            input_["memory_configuration"] = memory_configuration
         if agent_collaboration is not None:
-            input["agent_collaboration"] = agent_collaboration
+            input_["agent_collaboration"] = agent_collaboration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,39 +528,39 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_name"] = agent_name
+        input_: aws_sdk_bedrock_agent.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_name"] = agent_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if instruction is not None:
-            input["instruction"] = instruction
+            input_["instruction"] = instruction
         if foundation_model is not None:
-            input["foundation_model"] = foundation_model
+            input_["foundation_model"] = foundation_model
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if orchestration_type is not None:
-            input["orchestration_type"] = orchestration_type
+            input_["orchestration_type"] = orchestration_type
         if custom_orchestration is not None:
-            input["custom_orchestration"] = custom_orchestration
+            input_["custom_orchestration"] = custom_orchestration
         if idle_session_ttl_in_seconds is not None:
-            input["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
+            input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         if agent_resource_role_arn is not None:
-            input["agent_resource_role_arn"] = agent_resource_role_arn
+            input_["agent_resource_role_arn"] = agent_resource_role_arn
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if prompt_override_configuration is not None:
-            input["prompt_override_configuration"] = prompt_override_configuration
+            input_["prompt_override_configuration"] = prompt_override_configuration
         if guardrail_configuration is not None:
-            input["guardrail_configuration"] = guardrail_configuration
+            input_["guardrail_configuration"] = guardrail_configuration
         if memory_configuration is not None:
-            input["memory_configuration"] = memory_configuration
+            input_["memory_configuration"] = memory_configuration
         if agent_collaboration is not None:
-            input["agent_collaboration"] = agent_collaboration
+            input_["agent_collaboration"] = agent_collaboration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -596,13 +596,13 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,11 +636,11 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_request.GetAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_request.GetAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,14 +678,14 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -719,11 +719,11 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.prepare_agent_request.PrepareAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.prepare_agent_request.PrepareAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,34 +803,34 @@ class AsyncAgentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_name"] = agent_name
+        input_: aws_sdk_bedrock_agent.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_name"] = agent_name
         if instruction is not None:
-            input["instruction"] = instruction
-        input["foundation_model"] = foundation_model
+            input_["instruction"] = instruction
+        input_["foundation_model"] = foundation_model
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if orchestration_type is not None:
-            input["orchestration_type"] = orchestration_type
+            input_["orchestration_type"] = orchestration_type
         if custom_orchestration is not None:
-            input["custom_orchestration"] = custom_orchestration
+            input_["custom_orchestration"] = custom_orchestration
         if idle_session_ttl_in_seconds is not None:
-            input["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
-        input["agent_resource_role_arn"] = agent_resource_role_arn
+            input_["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
+        input_["agent_resource_role_arn"] = agent_resource_role_arn
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if prompt_override_configuration is not None:
-            input["prompt_override_configuration"] = prompt_override_configuration
+            input_["prompt_override_configuration"] = prompt_override_configuration
         if guardrail_configuration is not None:
-            input["guardrail_configuration"] = guardrail_configuration
+            input_["guardrail_configuration"] = guardrail_configuration
         if memory_configuration is not None:
-            input["memory_configuration"] = memory_configuration
+            input_["memory_configuration"] = memory_configuration
         if agent_collaboration is not None:
-            input["agent_collaboration"] = agent_collaboration
+            input_["agent_collaboration"] = agent_collaboration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

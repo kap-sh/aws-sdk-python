@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_dynamodb_streams._auth._signers
+import aws_sdk_dynamodb_streams._auth._sigv4
 from aws_sdk_dynamodb_streams._auth._identity import Credentials
 from aws_sdk_dynamodb_streams._auth._providers import (
     CredentialsProvider,
@@ -182,17 +184,17 @@ class AsyncDynamoDBStreamsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb_streams.types.describe_stream_input.DescribeStreamInput = {}  # type: ignore[typeddict-item]
-        input["stream_arn"] = stream_arn
+        input_: aws_sdk_dynamodb_streams.types.describe_stream_input.DescribeStreamInput = {}  # type: ignore[typeddict-item]
+        input_["stream_arn"] = stream_arn
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if exclusive_start_shard_id is not None:
-            input["exclusive_start_shard_id"] = exclusive_start_shard_id
+            input_["exclusive_start_shard_id"] = exclusive_start_shard_id
         if shard_filter is not None:
-            input["shard_filter"] = shard_filter
+            input_["shard_filter"] = shard_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,13 +232,13 @@ class AsyncDynamoDBStreamsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb_streams.types.get_records_input.GetRecordsInput = {}  # type: ignore[typeddict-item]
-        input["shard_iterator"] = shard_iterator
+        input_: aws_sdk_dynamodb_streams.types.get_records_input.GetRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["shard_iterator"] = shard_iterator
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,15 +286,15 @@ class AsyncDynamoDBStreamsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb_streams.types.get_shard_iterator_input.GetShardIteratorInput = {}  # type: ignore[typeddict-item]
-        input["stream_arn"] = stream_arn
-        input["shard_id"] = shard_id
-        input["shard_iterator_type"] = shard_iterator_type
+        input_: aws_sdk_dynamodb_streams.types.get_shard_iterator_input.GetShardIteratorInput = {}  # type: ignore[typeddict-item]
+        input_["stream_arn"] = stream_arn
+        input_["shard_id"] = shard_id
+        input_["shard_iterator_type"] = shard_iterator_type
         if sequence_number is not None:
-            input["sequence_number"] = sequence_number
+            input_["sequence_number"] = sequence_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,16 +344,16 @@ class AsyncDynamoDBStreamsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb_streams.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb_streams.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
         if table_name is not None:
-            input["table_name"] = table_name
+            input_["table_name"] = table_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if exclusive_start_stream_arn is not None:
-            input["exclusive_start_stream_arn"] = exclusive_start_stream_arn
+            input_["exclusive_start_stream_arn"] = exclusive_start_stream_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

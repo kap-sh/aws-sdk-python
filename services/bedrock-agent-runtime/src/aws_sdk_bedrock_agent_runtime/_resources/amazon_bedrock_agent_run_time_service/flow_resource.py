@@ -74,19 +74,19 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_identifier"] = flow_identifier
-        input["flow_alias_identifier"] = flow_alias_identifier
-        input["inputs"] = inputs
+        input_: aws_sdk_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_identifier"] = flow_identifier
+        input_["flow_alias_identifier"] = flow_alias_identifier
+        input_["inputs"] = inputs
         if enable_trace is not None:
-            input["enable_trace"] = enable_trace
+            input_["enable_trace"] = enable_trace
         if model_performance_configuration is not None:
-            input["model_performance_configuration"] = model_performance_configuration
+            input_["model_performance_configuration"] = model_performance_configuration
         if execution_id is not None:
-            input["execution_id"] = execution_id
+            input_["execution_id"] = execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -139,19 +139,19 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_identifier"] = flow_identifier
-        input["flow_alias_identifier"] = flow_alias_identifier
-        input["inputs"] = inputs
+        input_: aws_sdk_bedrock_agent_runtime.types.invoke_flow_request.InvokeFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_identifier"] = flow_identifier
+        input_["flow_alias_identifier"] = flow_alias_identifier
+        input_["inputs"] = inputs
         if enable_trace is not None:
-            input["enable_trace"] = enable_trace
+            input_["enable_trace"] = enable_trace
         if model_performance_configuration is not None:
-            input["model_performance_configuration"] = model_performance_configuration
+            input_["model_performance_configuration"] = model_performance_configuration
         if execution_id is not None:
-            input["execution_id"] = execution_id
+            input_["execution_id"] = execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

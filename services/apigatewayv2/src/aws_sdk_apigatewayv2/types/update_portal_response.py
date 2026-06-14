@@ -1,12 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#UpdatePortalResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of__string_min20_max2048
-    import aws_sdk_apigatewayv2.types.__string_min0_max1024
     import aws_sdk_apigatewayv2.types.__string_min0_max255
+    import aws_sdk_apigatewayv2.types.__string_min0_max1024
     import aws_sdk_apigatewayv2.types.__string_min10_max30_pattern_az09
     import aws_sdk_apigatewayv2.types.__string_min20_max2048
     import aws_sdk_apigatewayv2.types.__timestamp_iso8601

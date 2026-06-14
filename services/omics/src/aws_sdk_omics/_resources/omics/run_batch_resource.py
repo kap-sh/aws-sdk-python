@@ -83,17 +83,17 @@ class RunBatchResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_run_batch_request.StartRunBatchRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.start_run_batch_request.StartRunBatchRequest = {}  # type: ignore[typeddict-item]
         if batch_name is not None:
-            input["batch_name"] = batch_name
-        input["request_id"] = request_id
+            input_["batch_name"] = batch_name
+        input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
-        input["default_run_setting"] = default_run_setting
-        input["batch_run_settings"] = batch_run_settings
+            input_["tags"] = tags
+        input_["default_run_setting"] = default_run_setting
+        input_["batch_run_settings"] = batch_run_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,11 +124,11 @@ class RunBatchResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_batch_request.GetBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.get_batch_request.GetBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,11 +159,11 @@ class RunBatchResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_batch_request.DeleteBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.delete_batch_request.DeleteBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,20 +204,20 @@ class RunBatchResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_batch_request.ListBatchRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_batch_request.ListBatchRequest = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if run_group_id is not None:
-            input["run_group_id"] = run_group_id
+            input_["run_group_id"] = run_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,11 +250,11 @@ class RunBatchResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.cancel_run_batch_request.CancelRunBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.cancel_run_batch_request.CancelRunBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,11 +287,11 @@ class RunBatchResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_run_batch_request.DeleteRunBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.delete_run_batch_request.DeleteRunBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -336,21 +336,21 @@ class RunBatchResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_runs_in_batch_request.ListRunsInBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.list_runs_in_batch_request.ListRunsInBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if submission_status is not None:
-            input["submission_status"] = submission_status
+            input_["submission_status"] = submission_status
         if run_setting_id is not None:
-            input["run_setting_id"] = run_setting_id
+            input_["run_setting_id"] = run_setting_id
         if run_id is not None:
-            input["run_id"] = run_id
+            input_["run_id"] = run_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,17 +397,17 @@ class AsyncRunBatchResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_run_batch_request.StartRunBatchRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.start_run_batch_request.StartRunBatchRequest = {}  # type: ignore[typeddict-item]
         if batch_name is not None:
-            input["batch_name"] = batch_name
-        input["request_id"] = request_id
+            input_["batch_name"] = batch_name
+        input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
-        input["default_run_setting"] = default_run_setting
-        input["batch_run_settings"] = batch_run_settings
+            input_["tags"] = tags
+        input_["default_run_setting"] = default_run_setting
+        input_["batch_run_settings"] = batch_run_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,11 +441,11 @@ class AsyncRunBatchResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_batch_request.GetBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.get_batch_request.GetBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -477,11 +477,11 @@ class AsyncRunBatchResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_batch_request.DeleteBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.delete_batch_request.DeleteBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,20 +523,20 @@ class AsyncRunBatchResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_batch_request.ListBatchRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_batch_request.ListBatchRequest = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if run_group_id is not None:
-            input["run_group_id"] = run_group_id
+            input_["run_group_id"] = run_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -570,11 +570,11 @@ class AsyncRunBatchResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.cancel_run_batch_request.CancelRunBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.cancel_run_batch_request.CancelRunBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -608,11 +608,11 @@ class AsyncRunBatchResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_run_batch_request.DeleteRunBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.delete_run_batch_request.DeleteRunBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,21 +658,21 @@ class AsyncRunBatchResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_runs_in_batch_request.ListRunsInBatchRequest = {}  # type: ignore[typeddict-item]
-        input["batch_id"] = batch_id
+        input_: aws_sdk_omics.types.list_runs_in_batch_request.ListRunsInBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["batch_id"] = batch_id
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if submission_status is not None:
-            input["submission_status"] = submission_status
+            input_["submission_status"] = submission_status
         if run_setting_id is not None:
-            input["run_setting_id"] = run_setting_id
+            input_["run_setting_id"] = run_setting_id
         if run_id is not None:
-            input["run_id"] = run_id
+            input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

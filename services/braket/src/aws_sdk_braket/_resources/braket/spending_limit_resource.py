@@ -73,17 +73,17 @@ class SpendingLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.create_spending_limit_request.CreateSpendingLimitRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["device_arn"] = device_arn
-        input["spending_limit"] = spending_limit
+        input_: aws_sdk_braket.types.create_spending_limit_request.CreateSpendingLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["device_arn"] = device_arn
+        input_["spending_limit"] = spending_limit
         if time_period is not None:
-            input["time_period"] = time_period
+            input_["time_period"] = time_period
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,16 +122,16 @@ class SpendingLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest = {}  # type: ignore[typeddict-item]
-        input["spending_limit_arn"] = spending_limit_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["spending_limit_arn"] = spending_limit_arn
+        input_["client_token"] = client_token
         if spending_limit is not None:
-            input["spending_limit"] = spending_limit
+            input_["spending_limit"] = spending_limit
         if time_period is not None:
-            input["time_period"] = time_period
+            input_["time_period"] = time_period
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -164,11 +164,11 @@ class SpendingLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.delete_spending_limit_request.DeleteSpendingLimitRequest = {}  # type: ignore[typeddict-item]
-        input["spending_limit_arn"] = spending_limit_arn
+        input_: aws_sdk_braket.types.delete_spending_limit_request.DeleteSpendingLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["spending_limit_arn"] = spending_limit_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -207,16 +207,16 @@ class SpendingLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.search_spending_limits_request.SearchSpendingLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_braket.types.search_spending_limits_request.SearchSpendingLimitsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,17 +263,17 @@ class AsyncSpendingLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.create_spending_limit_request.CreateSpendingLimitRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["device_arn"] = device_arn
-        input["spending_limit"] = spending_limit
+        input_: aws_sdk_braket.types.create_spending_limit_request.CreateSpendingLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["device_arn"] = device_arn
+        input_["spending_limit"] = spending_limit
         if time_period is not None:
-            input["time_period"] = time_period
+            input_["time_period"] = time_period
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -313,16 +313,16 @@ class AsyncSpendingLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest = {}  # type: ignore[typeddict-item]
-        input["spending_limit_arn"] = spending_limit_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_braket.types.update_spending_limit_request.UpdateSpendingLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["spending_limit_arn"] = spending_limit_arn
+        input_["client_token"] = client_token
         if spending_limit is not None:
-            input["spending_limit"] = spending_limit
+            input_["spending_limit"] = spending_limit
         if time_period is not None:
-            input["time_period"] = time_period
+            input_["time_period"] = time_period
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,11 +356,11 @@ class AsyncSpendingLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.delete_spending_limit_request.DeleteSpendingLimitRequest = {}  # type: ignore[typeddict-item]
-        input["spending_limit_arn"] = spending_limit_arn
+        input_: aws_sdk_braket.types.delete_spending_limit_request.DeleteSpendingLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["spending_limit_arn"] = spending_limit_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -400,16 +400,16 @@ class AsyncSpendingLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.search_spending_limits_request.SearchSpendingLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_braket.types.search_spending_limits_request.SearchSpendingLimitsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

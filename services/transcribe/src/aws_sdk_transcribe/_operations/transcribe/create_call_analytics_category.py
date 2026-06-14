@@ -89,18 +89,18 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_transcribe.types.create_call_analytics_category_request.CreateCallAnalyticsCategoryRequest,
+    input_: aws_sdk_transcribe.types.create_call_analytics_category_request.CreateCallAnalyticsCategoryRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/callanalyticscategories/{CategoryName}"
-    url = url.replace("{CategoryName}", quote(str(input["category_name"]), safe=""))
+    url = url.replace("{CategoryName}", quote(str(input_["category_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     headers["X-Amz-Target"] = "Transcribe.CreateCallAnalyticsCategory"
@@ -108,7 +108,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_transcribe.types.create_call_analytics_category_request.serialize_aws_json_1_1(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
@@ -116,26 +116,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def create_call_analytics_category(
     options: OperationOptions,
-    input: aws_sdk_transcribe.types.create_call_analytics_category_request.CreateCallAnalyticsCategoryRequest,
+    input_: aws_sdk_transcribe.types.create_call_analytics_category_request.CreateCallAnalyticsCategoryRequest,
 ) -> tuple[
     aws_sdk_transcribe.types.create_call_analytics_category_response.CreateCallAnalyticsCategoryResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -144,16 +141,17 @@ def create_call_analytics_category(
 
 async def async_create_call_analytics_category(
     options: AsyncOperationOptions,
-    input: aws_sdk_transcribe.types.create_call_analytics_category_request.CreateCallAnalyticsCategoryRequest,
+    input_: aws_sdk_transcribe.types.create_call_analytics_category_request.CreateCallAnalyticsCategoryRequest,
 ) -> tuple[
     aws_sdk_transcribe.types.create_call_analytics_category_response.CreateCallAnalyticsCategoryResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

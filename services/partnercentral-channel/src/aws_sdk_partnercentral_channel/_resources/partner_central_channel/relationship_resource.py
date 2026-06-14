@@ -109,26 +109,26 @@ class RelationshipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.create_relationship_request.CreateRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["association_type"] = association_type
-        input["program_management_account_identifier"] = (
+        input_: aws_sdk_partnercentral_channel.types.create_relationship_request.CreateRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["association_type"] = association_type
+        input_["program_management_account_identifier"] = (
             program_management_account_identifier
         )
-        input["associated_account_id"] = associated_account_id
-        input["display_name"] = display_name
+        input_["associated_account_id"] = associated_account_id
+        input_["display_name"] = display_name
         if resale_account_model is not None:
-            input["resale_account_model"] = resale_account_model
-        input["sector"] = sector
+            input_["resale_account_model"] = resale_account_model
+        input_["sector"] = sector
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if requested_support_plan is not None:
-            input["requested_support_plan"] = requested_support_plan
+            input_["requested_support_plan"] = requested_support_plan
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -170,15 +170,15 @@ class RelationshipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.get_relationship_request.GetRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["program_management_account_identifier"] = (
+        input_: aws_sdk_partnercentral_channel.types.get_relationship_request.GetRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["program_management_account_identifier"] = (
             program_management_account_identifier
         )
-        input["identifier"] = identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,21 +232,21 @@ class RelationshipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.update_relationship_request.UpdateRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["program_management_account_identifier"] = (
+        input_: aws_sdk_partnercentral_channel.types.update_relationship_request.UpdateRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["program_management_account_identifier"] = (
             program_management_account_identifier
         )
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if requested_support_plan is not None:
-            input["requested_support_plan"] = requested_support_plan
+            input_["requested_support_plan"] = requested_support_plan
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,17 +292,17 @@ class RelationshipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.delete_relationship_request.DeleteRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["program_management_account_identifier"] = (
+        input_: aws_sdk_partnercentral_channel.types.delete_relationship_request.DeleteRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["program_management_account_identifier"] = (
             program_management_account_identifier
         )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,27 +366,27 @@ class RelationshipResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.list_relationships_request.ListRelationshipsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_channel.types.list_relationships_request.ListRelationshipsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if associated_account_ids is not None:
-            input["associated_account_ids"] = associated_account_ids
+            input_["associated_account_ids"] = associated_account_ids
         if association_types is not None:
-            input["association_types"] = association_types
+            input_["association_types"] = association_types
         if display_names is not None:
-            input["display_names"] = display_names
+            input_["display_names"] = display_names
         if program_management_account_identifiers is not None:
-            input["program_management_account_identifiers"] = (
+            input_["program_management_account_identifiers"] = (
                 program_management_account_identifiers
             )
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,26 +454,26 @@ class AsyncRelationshipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.create_relationship_request.CreateRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["association_type"] = association_type
-        input["program_management_account_identifier"] = (
+        input_: aws_sdk_partnercentral_channel.types.create_relationship_request.CreateRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["association_type"] = association_type
+        input_["program_management_account_identifier"] = (
             program_management_account_identifier
         )
-        input["associated_account_id"] = associated_account_id
-        input["display_name"] = display_name
+        input_["associated_account_id"] = associated_account_id
+        input_["display_name"] = display_name
         if resale_account_model is not None:
-            input["resale_account_model"] = resale_account_model
-        input["sector"] = sector
+            input_["resale_account_model"] = resale_account_model
+        input_["sector"] = sector
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if requested_support_plan is not None:
-            input["requested_support_plan"] = requested_support_plan
+            input_["requested_support_plan"] = requested_support_plan
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,15 +516,15 @@ class AsyncRelationshipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.get_relationship_request.GetRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["program_management_account_identifier"] = (
+        input_: aws_sdk_partnercentral_channel.types.get_relationship_request.GetRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["program_management_account_identifier"] = (
             program_management_account_identifier
         )
-        input["identifier"] = identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,21 +579,21 @@ class AsyncRelationshipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.update_relationship_request.UpdateRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["program_management_account_identifier"] = (
+        input_: aws_sdk_partnercentral_channel.types.update_relationship_request.UpdateRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["program_management_account_identifier"] = (
             program_management_account_identifier
         )
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if requested_support_plan is not None:
-            input["requested_support_plan"] = requested_support_plan
+            input_["requested_support_plan"] = requested_support_plan
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -640,17 +640,17 @@ class AsyncRelationshipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.delete_relationship_request.DeleteRelationshipRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["identifier"] = identifier
-        input["program_management_account_identifier"] = (
+        input_: aws_sdk_partnercentral_channel.types.delete_relationship_request.DeleteRelationshipRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["identifier"] = identifier
+        input_["program_management_account_identifier"] = (
             program_management_account_identifier
         )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,27 +715,27 @@ class AsyncRelationshipResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_channel.types.list_relationships_request.ListRelationshipsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_channel.types.list_relationships_request.ListRelationshipsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if associated_account_ids is not None:
-            input["associated_account_ids"] = associated_account_ids
+            input_["associated_account_ids"] = associated_account_ids
         if association_types is not None:
-            input["association_types"] = association_types
+            input_["association_types"] = association_types
         if display_names is not None:
-            input["display_names"] = display_names
+            input_["display_names"] = display_names
         if program_management_account_identifiers is not None:
-            input["program_management_account_identifiers"] = (
+            input_["program_management_account_identifiers"] = (
                 program_management_account_identifiers
             )
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

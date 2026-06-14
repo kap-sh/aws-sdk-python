@@ -85,22 +85,22 @@ class EnvironmentAccountConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_environment_account_connection_input.CreateEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.create_environment_account_connection_input.CreateEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["management_account_id"] = management_account_id
+            input_["client_token"] = client_token
+        input_["management_account_id"] = management_account_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
-        input["environment_name"] = environment_name
+            input_["role_arn"] = role_arn
+        input_["environment_name"] = environment_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if component_role_arn is not None:
-            input["component_role_arn"] = component_role_arn
+            input_["component_role_arn"] = component_role_arn
         if codebuild_role_arn is not None:
-            input["codebuild_role_arn"] = codebuild_role_arn
+            input_["codebuild_role_arn"] = codebuild_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,11 +133,11 @@ class EnvironmentAccountConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_environment_account_connection_input.GetEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.get_environment_account_connection_input.GetEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,17 +176,17 @@ class EnvironmentAccountConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_environment_account_connection_input.UpdateEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.update_environment_account_connection_input.UpdateEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if component_role_arn is not None:
-            input["component_role_arn"] = component_role_arn
+            input_["component_role_arn"] = component_role_arn
         if codebuild_role_arn is not None:
-            input["codebuild_role_arn"] = codebuild_role_arn
+            input_["codebuild_role_arn"] = codebuild_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,11 +219,11 @@ class EnvironmentAccountConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_environment_account_connection_input.DeleteEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.delete_environment_account_connection_input.DeleteEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,19 +270,19 @@ class EnvironmentAccountConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_environment_account_connections_input.ListEnvironmentAccountConnectionsInput = {}  # type: ignore[typeddict-item]
-        input["requested_by"] = requested_by
+        input_: aws_sdk_proton.types.list_environment_account_connections_input.ListEnvironmentAccountConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_["requested_by"] = requested_by
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,11 +315,11 @@ class EnvironmentAccountConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.accept_environment_account_connection_input.AcceptEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.accept_environment_account_connection_input.AcceptEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,11 +352,11 @@ class EnvironmentAccountConnectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.reject_environment_account_connection_input.RejectEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.reject_environment_account_connection_input.RejectEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,22 +407,22 @@ class AsyncEnvironmentAccountConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_environment_account_connection_input.CreateEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.create_environment_account_connection_input.CreateEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["management_account_id"] = management_account_id
+            input_["client_token"] = client_token
+        input_["management_account_id"] = management_account_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
-        input["environment_name"] = environment_name
+            input_["role_arn"] = role_arn
+        input_["environment_name"] = environment_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if component_role_arn is not None:
-            input["component_role_arn"] = component_role_arn
+            input_["component_role_arn"] = component_role_arn
         if codebuild_role_arn is not None:
-            input["codebuild_role_arn"] = codebuild_role_arn
+            input_["codebuild_role_arn"] = codebuild_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,11 +456,11 @@ class AsyncEnvironmentAccountConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_environment_account_connection_input.GetEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.get_environment_account_connection_input.GetEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,17 +500,17 @@ class AsyncEnvironmentAccountConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_environment_account_connection_input.UpdateEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.update_environment_account_connection_input.UpdateEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if component_role_arn is not None:
-            input["component_role_arn"] = component_role_arn
+            input_["component_role_arn"] = component_role_arn
         if codebuild_role_arn is not None:
-            input["codebuild_role_arn"] = codebuild_role_arn
+            input_["codebuild_role_arn"] = codebuild_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,11 +544,11 @@ class AsyncEnvironmentAccountConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_environment_account_connection_input.DeleteEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.delete_environment_account_connection_input.DeleteEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -596,19 +596,19 @@ class AsyncEnvironmentAccountConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_environment_account_connections_input.ListEnvironmentAccountConnectionsInput = {}  # type: ignore[typeddict-item]
-        input["requested_by"] = requested_by
+        input_: aws_sdk_proton.types.list_environment_account_connections_input.ListEnvironmentAccountConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_["requested_by"] = requested_by
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -642,11 +642,11 @@ class AsyncEnvironmentAccountConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.accept_environment_account_connection_input.AcceptEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.accept_environment_account_connection_input.AcceptEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -680,11 +680,11 @@ class AsyncEnvironmentAccountConnectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.reject_environment_account_connection_input.RejectEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.reject_environment_account_connection_input.RejectEnvironmentAccountConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

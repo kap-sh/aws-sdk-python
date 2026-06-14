@@ -86,21 +86,21 @@ class BlueprintResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.create_blueprint_request.CreateBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_name"] = blueprint_name
-        input["type"] = type
+        input_: aws_sdk_bedrock_data_automation.types.create_blueprint_request.CreateBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_name"] = blueprint_name
+        input_["type"] = type
         if blueprint_stage is not None:
-            input["blueprint_stage"] = blueprint_stage
-        input["schema"] = schema
+            input_["blueprint_stage"] = blueprint_stage
+        input_["schema"] = schema
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,15 +141,15 @@ class BlueprintResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_blueprint_request.GetBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_arn"] = blueprint_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_blueprint_request.GetBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_arn"] = blueprint_arn
         if blueprint_version is not None:
-            input["blueprint_version"] = blueprint_version
+            input_["blueprint_version"] = blueprint_version
         if blueprint_stage is not None:
-            input["blueprint_stage"] = blueprint_stage
+            input_["blueprint_stage"] = blueprint_stage
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,16 +189,16 @@ class BlueprintResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.update_blueprint_request.UpdateBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_arn"] = blueprint_arn
-        input["schema"] = schema
+        input_: aws_sdk_bedrock_data_automation.types.update_blueprint_request.UpdateBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_arn"] = blueprint_arn
+        input_["schema"] = schema
         if blueprint_stage is not None:
-            input["blueprint_stage"] = blueprint_stage
+            input_["blueprint_stage"] = blueprint_stage
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,13 +235,13 @@ class BlueprintResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.delete_blueprint_request.DeleteBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_arn"] = blueprint_arn
+        input_: aws_sdk_bedrock_data_automation.types.delete_blueprint_request.DeleteBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_arn"] = blueprint_arn
         if blueprint_version is not None:
-            input["blueprint_version"] = blueprint_version
+            input_["blueprint_version"] = blueprint_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,22 +287,22 @@ class BlueprintResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_blueprints_request.ListBlueprintsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_data_automation.types.list_blueprints_request.ListBlueprintsRequest = {}  # type: ignore[typeddict-item]
         if blueprint_arn is not None:
-            input["blueprint_arn"] = blueprint_arn
+            input_["blueprint_arn"] = blueprint_arn
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
+            input_["resource_owner"] = resource_owner
         if blueprint_stage_filter is not None:
-            input["blueprint_stage_filter"] = blueprint_stage_filter
+            input_["blueprint_stage_filter"] = blueprint_stage_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if project_filter is not None:
-            input["project_filter"] = project_filter
+            input_["project_filter"] = project_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,21 +349,21 @@ class AsyncBlueprintResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.create_blueprint_request.CreateBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_name"] = blueprint_name
-        input["type"] = type
+        input_: aws_sdk_bedrock_data_automation.types.create_blueprint_request.CreateBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_name"] = blueprint_name
+        input_["type"] = type
         if blueprint_stage is not None:
-            input["blueprint_stage"] = blueprint_stage
-        input["schema"] = schema
+            input_["blueprint_stage"] = blueprint_stage
+        input_["schema"] = schema
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,15 +405,15 @@ class AsyncBlueprintResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_blueprint_request.GetBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_arn"] = blueprint_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_blueprint_request.GetBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_arn"] = blueprint_arn
         if blueprint_version is not None:
-            input["blueprint_version"] = blueprint_version
+            input_["blueprint_version"] = blueprint_version
         if blueprint_stage is not None:
-            input["blueprint_stage"] = blueprint_stage
+            input_["blueprint_stage"] = blueprint_stage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,16 +454,16 @@ class AsyncBlueprintResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.update_blueprint_request.UpdateBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_arn"] = blueprint_arn
-        input["schema"] = schema
+        input_: aws_sdk_bedrock_data_automation.types.update_blueprint_request.UpdateBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_arn"] = blueprint_arn
+        input_["schema"] = schema
         if blueprint_stage is not None:
-            input["blueprint_stage"] = blueprint_stage
+            input_["blueprint_stage"] = blueprint_stage
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,13 +501,13 @@ class AsyncBlueprintResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.delete_blueprint_request.DeleteBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_arn"] = blueprint_arn
+        input_: aws_sdk_bedrock_data_automation.types.delete_blueprint_request.DeleteBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_arn"] = blueprint_arn
         if blueprint_version is not None:
-            input["blueprint_version"] = blueprint_version
+            input_["blueprint_version"] = blueprint_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,22 +554,22 @@ class AsyncBlueprintResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_blueprints_request.ListBlueprintsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_data_automation.types.list_blueprints_request.ListBlueprintsRequest = {}  # type: ignore[typeddict-item]
         if blueprint_arn is not None:
-            input["blueprint_arn"] = blueprint_arn
+            input_["blueprint_arn"] = blueprint_arn
         if resource_owner is not None:
-            input["resource_owner"] = resource_owner
+            input_["resource_owner"] = resource_owner
         if blueprint_stage_filter is not None:
-            input["blueprint_stage_filter"] = blueprint_stage_filter
+            input_["blueprint_stage_filter"] = blueprint_stage_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if project_filter is not None:
-            input["project_filter"] = project_filter
+            input_["project_filter"] = project_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_lookoutequipment._auth._signers
+import aws_sdk_lookoutequipment._auth._sigv4
 from aws_sdk_lookoutequipment._auth._identity import Credentials
 from aws_sdk_lookoutequipment._auth._providers import (
     CredentialsProvider,
@@ -299,18 +301,18 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_lookoutequipment.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_name"] = dataset_name
         if dataset_schema is not None:
-            input["dataset_schema"] = dataset_schema
+            input_["dataset_schema"] = dataset_schema
         if server_side_kms_key_id is not None:
-            input["server_side_kms_key_id"] = server_side_kms_key_id
-        input["client_token"] = client_token
+            input_["server_side_kms_key_id"] = server_side_kms_key_id
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,23 +367,23 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.create_inference_scheduler_request.CreateInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
-        input["inference_scheduler_name"] = inference_scheduler_name
+        input_: aws_sdk_lookoutequipment.types.create_inference_scheduler_request.CreateInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
+        input_["inference_scheduler_name"] = inference_scheduler_name
         if data_delay_offset_in_minutes is not None:
-            input["data_delay_offset_in_minutes"] = data_delay_offset_in_minutes
-        input["data_upload_frequency"] = data_upload_frequency
-        input["data_input_configuration"] = data_input_configuration
-        input["data_output_configuration"] = data_output_configuration
-        input["role_arn"] = role_arn
+            input_["data_delay_offset_in_minutes"] = data_delay_offset_in_minutes
+        input_["data_upload_frequency"] = data_upload_frequency
+        input_["data_input_configuration"] = data_input_configuration
+        input_["data_output_configuration"] = data_output_configuration
+        input_["role_arn"] = role_arn
         if server_side_kms_key_id is not None:
-            input["server_side_kms_key_id"] = server_side_kms_key_id
-        input["client_token"] = client_token
+            input_["server_side_kms_key_id"] = server_side_kms_key_id
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,21 +434,21 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.create_label_request.CreateLabelRequest = {}  # type: ignore[typeddict-item]
-        input["label_group_name"] = label_group_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["rating"] = rating
+        input_: aws_sdk_lookoutequipment.types.create_label_request.CreateLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["label_group_name"] = label_group_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["rating"] = rating
         if fault_code is not None:
-            input["fault_code"] = fault_code
+            input_["fault_code"] = fault_code
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if equipment is not None:
-            input["equipment"] = equipment
-        input["client_token"] = client_token
+            input_["equipment"] = equipment
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,16 +489,16 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.create_label_group_request.CreateLabelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["label_group_name"] = label_group_name
+        input_: aws_sdk_lookoutequipment.types.create_label_group_request.CreateLabelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["label_group_name"] = label_group_name
         if fault_codes is not None:
-            input["fault_codes"] = fault_codes
-        input["client_token"] = client_token
+            input_["fault_codes"] = fault_codes
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,41 +581,41 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.create_model_request.CreateModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_lookoutequipment.types.create_model_request.CreateModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
+        input_["dataset_name"] = dataset_name
         if dataset_schema is not None:
-            input["dataset_schema"] = dataset_schema
+            input_["dataset_schema"] = dataset_schema
         if labels_input_configuration is not None:
-            input["labels_input_configuration"] = labels_input_configuration
-        input["client_token"] = client_token
+            input_["labels_input_configuration"] = labels_input_configuration
+        input_["client_token"] = client_token
         if training_data_start_time is not None:
-            input["training_data_start_time"] = training_data_start_time
+            input_["training_data_start_time"] = training_data_start_time
         if training_data_end_time is not None:
-            input["training_data_end_time"] = training_data_end_time
+            input_["training_data_end_time"] = training_data_end_time
         if evaluation_data_start_time is not None:
-            input["evaluation_data_start_time"] = evaluation_data_start_time
+            input_["evaluation_data_start_time"] = evaluation_data_start_time
         if evaluation_data_end_time is not None:
-            input["evaluation_data_end_time"] = evaluation_data_end_time
+            input_["evaluation_data_end_time"] = evaluation_data_end_time
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if data_pre_processing_configuration is not None:
-            input["data_pre_processing_configuration"] = (
+            input_["data_pre_processing_configuration"] = (
                 data_pre_processing_configuration
             )
         if server_side_kms_key_id is not None:
-            input["server_side_kms_key_id"] = server_side_kms_key_id
+            input_["server_side_kms_key_id"] = server_side_kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if off_condition is not None:
-            input["off_condition"] = off_condition
+            input_["off_condition"] = off_condition
         if model_diagnostics_output_configuration is not None:
-            input["model_diagnostics_output_configuration"] = (
+            input_["model_diagnostics_output_configuration"] = (
                 model_diagnostics_output_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,18 +670,18 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.create_retraining_scheduler_request.CreateRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.create_retraining_scheduler_request.CreateRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
         if retraining_start_date is not None:
-            input["retraining_start_date"] = retraining_start_date
-        input["retraining_frequency"] = retraining_frequency
-        input["lookback_window"] = lookback_window
+            input_["retraining_start_date"] = retraining_start_date
+        input_["retraining_frequency"] = retraining_frequency
+        input_["lookback_window"] = lookback_window
         if promote_mode is not None:
-            input["promote_mode"] = promote_mode
-        input["client_token"] = client_token
+            input_["promote_mode"] = promote_mode
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -710,11 +712,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_lookoutequipment.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_name"] = dataset_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,11 +747,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.delete_inference_scheduler_request.DeleteInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["inference_scheduler_name"] = inference_scheduler_name
+        input_: aws_sdk_lookoutequipment.types.delete_inference_scheduler_request.DeleteInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_scheduler_name"] = inference_scheduler_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -782,12 +784,12 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.delete_label_request.DeleteLabelRequest = {}  # type: ignore[typeddict-item]
-        input["label_group_name"] = label_group_name
-        input["label_id"] = label_id
+        input_: aws_sdk_lookoutequipment.types.delete_label_request.DeleteLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["label_group_name"] = label_group_name
+        input_["label_id"] = label_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -818,11 +820,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.delete_label_group_request.DeleteLabelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["label_group_name"] = label_group_name
+        input_: aws_sdk_lookoutequipment.types.delete_label_group_request.DeleteLabelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["label_group_name"] = label_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -853,11 +855,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.delete_model_request.DeleteModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.delete_model_request.DeleteModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -888,11 +890,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_lookoutequipment.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -928,11 +930,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.delete_retraining_scheduler_request.DeleteRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.delete_retraining_scheduler_request.DeleteRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -965,11 +967,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_data_ingestion_job_request.DescribeDataIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_lookoutequipment.types.describe_data_ingestion_job_request.DescribeDataIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1002,11 +1004,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_lookoutequipment.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_name"] = dataset_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1039,11 +1041,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_inference_scheduler_request.DescribeInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["inference_scheduler_name"] = inference_scheduler_name
+        input_: aws_sdk_lookoutequipment.types.describe_inference_scheduler_request.DescribeInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_scheduler_name"] = inference_scheduler_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1078,12 +1080,12 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_label_request.DescribeLabelRequest = {}  # type: ignore[typeddict-item]
-        input["label_group_name"] = label_group_name
-        input["label_id"] = label_id
+        input_: aws_sdk_lookoutequipment.types.describe_label_request.DescribeLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["label_group_name"] = label_group_name
+        input_["label_id"] = label_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1116,11 +1118,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_label_group_request.DescribeLabelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["label_group_name"] = label_group_name
+        input_: aws_sdk_lookoutequipment.types.describe_label_group_request.DescribeLabelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["label_group_name"] = label_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1153,11 +1155,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_model_request.DescribeModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.describe_model_request.DescribeModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1192,12 +1194,12 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_model_version_request.DescribeModelVersionRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
-        input["model_version"] = model_version
+        input_: aws_sdk_lookoutequipment.types.describe_model_version_request.DescribeModelVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
+        input_["model_version"] = model_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1230,11 +1232,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_resource_policy_request.DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_lookoutequipment.types.describe_resource_policy_request.DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,11 +1274,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.describe_retraining_scheduler_request.DescribeRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.describe_retraining_scheduler_request.DescribeRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1321,18 +1323,18 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.import_dataset_request.ImportDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["source_dataset_arn"] = source_dataset_arn
+        input_: aws_sdk_lookoutequipment.types.import_dataset_request.ImportDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["source_dataset_arn"] = source_dataset_arn
         if dataset_name is not None:
-            input["dataset_name"] = dataset_name
-        input["client_token"] = client_token
+            input_["dataset_name"] = dataset_name
+        input_["client_token"] = client_token
         if server_side_kms_key_id is not None:
-            input["server_side_kms_key_id"] = server_side_kms_key_id
+            input_["server_side_kms_key_id"] = server_side_kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1390,25 +1392,25 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.import_model_version_request.ImportModelVersionRequest = {}  # type: ignore[typeddict-item]
-        input["source_model_version_arn"] = source_model_version_arn
+        input_: aws_sdk_lookoutequipment.types.import_model_version_request.ImportModelVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["source_model_version_arn"] = source_model_version_arn
         if model_name is not None:
-            input["model_name"] = model_name
-        input["dataset_name"] = dataset_name
+            input_["model_name"] = model_name
+        input_["dataset_name"] = dataset_name
         if labels_input_configuration is not None:
-            input["labels_input_configuration"] = labels_input_configuration
-        input["client_token"] = client_token
+            input_["labels_input_configuration"] = labels_input_configuration
+        input_["client_token"] = client_token
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if server_side_kms_key_id is not None:
-            input["server_side_kms_key_id"] = server_side_kms_key_id
+            input_["server_side_kms_key_id"] = server_side_kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if inference_data_import_strategy is not None:
-            input["inference_data_import_strategy"] = inference_data_import_strategy
+            input_["inference_data_import_strategy"] = inference_data_import_strategy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1455,18 +1457,18 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_data_ingestion_jobs_request.ListDataIngestionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lookoutequipment.types.list_data_ingestion_jobs_request.ListDataIngestionJobsRequest = {}  # type: ignore[typeddict-item]
         if dataset_name is not None:
-            input["dataset_name"] = dataset_name
+            input_["dataset_name"] = dataset_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1509,16 +1511,16 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lookoutequipment.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if dataset_name_begins_with is not None:
-            input["dataset_name_begins_with"] = dataset_name_begins_with
+            input_["dataset_name_begins_with"] = dataset_name_begins_with
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1563,17 +1565,17 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_inference_events_request.ListInferenceEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lookoutequipment.types.list_inference_events_request.ListInferenceEventsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["inference_scheduler_name"] = inference_scheduler_name
-        input["interval_start_time"] = interval_start_time
-        input["interval_end_time"] = interval_end_time
+            input_["max_results"] = max_results
+        input_["inference_scheduler_name"] = inference_scheduler_name
+        input_["interval_start_time"] = interval_start_time
+        input_["interval_end_time"] = interval_end_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1626,21 +1628,21 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_inference_executions_request.ListInferenceExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lookoutequipment.types.list_inference_executions_request.ListInferenceExecutionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["inference_scheduler_name"] = inference_scheduler_name
+            input_["max_results"] = max_results
+        input_["inference_scheduler_name"] = inference_scheduler_name
         if data_start_time_after is not None:
-            input["data_start_time_after"] = data_start_time_after
+            input_["data_start_time_after"] = data_start_time_after
         if data_end_time_before is not None:
-            input["data_end_time_before"] = data_end_time_before
+            input_["data_end_time_before"] = data_end_time_before
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1691,22 +1693,22 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_inference_schedulers_request.ListInferenceSchedulersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lookoutequipment.types.list_inference_schedulers_request.ListInferenceSchedulersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if inference_scheduler_name_begins_with is not None:
-            input["inference_scheduler_name_begins_with"] = (
+            input_["inference_scheduler_name_begins_with"] = (
                 inference_scheduler_name_begins_with
             )
         if model_name is not None:
-            input["model_name"] = model_name
+            input_["model_name"] = model_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1749,16 +1751,16 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_label_groups_request.ListLabelGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lookoutequipment.types.list_label_groups_request.ListLabelGroupsRequest = {}  # type: ignore[typeddict-item]
         if label_group_name_begins_with is not None:
-            input["label_group_name_begins_with"] = label_group_name_begins_with
+            input_["label_group_name_begins_with"] = label_group_name_begins_with
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1815,23 +1817,23 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_labels_request.ListLabelsRequest = {}  # type: ignore[typeddict-item]
-        input["label_group_name"] = label_group_name
+        input_: aws_sdk_lookoutequipment.types.list_labels_request.ListLabelsRequest = {}  # type: ignore[typeddict-item]
+        input_["label_group_name"] = label_group_name
         if interval_start_time is not None:
-            input["interval_start_time"] = interval_start_time
+            input_["interval_start_time"] = interval_start_time
         if interval_end_time is not None:
-            input["interval_end_time"] = interval_end_time
+            input_["interval_end_time"] = interval_end_time
         if fault_code is not None:
-            input["fault_code"] = fault_code
+            input_["fault_code"] = fault_code
         if equipment is not None:
-            input["equipment"] = equipment
+            input_["equipment"] = equipment
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1882,20 +1884,20 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_models_request.ListModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lookoutequipment.types.list_models_request.ListModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if model_name_begins_with is not None:
-            input["model_name_begins_with"] = model_name_begins_with
+            input_["model_name_begins_with"] = model_name_begins_with
         if dataset_name_begins_with is not None:
-            input["dataset_name_begins_with"] = dataset_name_begins_with
+            input_["dataset_name_begins_with"] = dataset_name_begins_with
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1960,27 +1962,27 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_model_versions_request.ListModelVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.list_model_versions_request.ListModelVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if created_at_end_time is not None:
-            input["created_at_end_time"] = created_at_end_time
+            input_["created_at_end_time"] = created_at_end_time
         if created_at_start_time is not None:
-            input["created_at_start_time"] = created_at_start_time
+            input_["created_at_start_time"] = created_at_start_time
         if max_model_version is not None:
-            input["max_model_version"] = max_model_version
+            input_["max_model_version"] = max_model_version
         if min_model_version is not None:
-            input["min_model_version"] = min_model_version
+            input_["min_model_version"] = min_model_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2032,18 +2034,18 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_retraining_schedulers_request.ListRetrainingSchedulersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lookoutequipment.types.list_retraining_schedulers_request.ListRetrainingSchedulersRequest = {}  # type: ignore[typeddict-item]
         if model_name_begins_with is not None:
-            input["model_name_begins_with"] = model_name_begins_with
+            input_["model_name_begins_with"] = model_name_begins_with
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2088,17 +2090,17 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_sensor_statistics_request.ListSensorStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_lookoutequipment.types.list_sensor_statistics_request.ListSensorStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_name"] = dataset_name
         if ingestion_job_id is not None:
-            input["ingestion_job_id"] = ingestion_job_id
+            input_["ingestion_job_id"] = ingestion_job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2131,11 +2133,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_lookoutequipment.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2176,15 +2178,15 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_policy"] = resource_policy
+        input_: aws_sdk_lookoutequipment.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_policy"] = resource_policy
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
-        input["client_token"] = client_token
+            input_["policy_revision_id"] = policy_revision_id
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2223,14 +2225,14 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.start_data_ingestion_job_request.StartDataIngestionJobRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_name"] = dataset_name
-        input["ingestion_input_configuration"] = ingestion_input_configuration
-        input["role_arn"] = role_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_lookoutequipment.types.start_data_ingestion_job_request.StartDataIngestionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_name"] = dataset_name
+        input_["ingestion_input_configuration"] = ingestion_input_configuration
+        input_["role_arn"] = role_arn
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2263,11 +2265,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.start_inference_scheduler_request.StartInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["inference_scheduler_name"] = inference_scheduler_name
+        input_: aws_sdk_lookoutequipment.types.start_inference_scheduler_request.StartInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_scheduler_name"] = inference_scheduler_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2305,11 +2307,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.start_retraining_scheduler_request.StartRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.start_retraining_scheduler_request.StartRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2342,11 +2344,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.stop_inference_scheduler_request.StopInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["inference_scheduler_name"] = inference_scheduler_name
+        input_: aws_sdk_lookoutequipment.types.stop_inference_scheduler_request.StopInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_scheduler_name"] = inference_scheduler_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2384,11 +2386,11 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.stop_retraining_scheduler_request.StopRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.stop_retraining_scheduler_request.StopRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2423,12 +2425,12 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_lookoutequipment.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2463,12 +2465,12 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_lookoutequipment.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2503,12 +2505,12 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.update_active_model_version_request.UpdateActiveModelVersionRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
-        input["model_version"] = model_version
+        input_: aws_sdk_lookoutequipment.types.update_active_model_version_request.UpdateActiveModelVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
+        input_["model_version"] = model_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2559,21 +2561,21 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.update_inference_scheduler_request.UpdateInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["inference_scheduler_name"] = inference_scheduler_name
+        input_: aws_sdk_lookoutequipment.types.update_inference_scheduler_request.UpdateInferenceSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["inference_scheduler_name"] = inference_scheduler_name
         if data_delay_offset_in_minutes is not None:
-            input["data_delay_offset_in_minutes"] = data_delay_offset_in_minutes
+            input_["data_delay_offset_in_minutes"] = data_delay_offset_in_minutes
         if data_upload_frequency is not None:
-            input["data_upload_frequency"] = data_upload_frequency
+            input_["data_upload_frequency"] = data_upload_frequency
         if data_input_configuration is not None:
-            input["data_input_configuration"] = data_input_configuration
+            input_["data_input_configuration"] = data_input_configuration
         if data_output_configuration is not None:
-            input["data_output_configuration"] = data_output_configuration
+            input_["data_output_configuration"] = data_output_configuration
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2608,13 +2610,13 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.update_label_group_request.UpdateLabelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["label_group_name"] = label_group_name
+        input_: aws_sdk_lookoutequipment.types.update_label_group_request.UpdateLabelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["label_group_name"] = label_group_name
         if fault_codes is not None:
-            input["fault_codes"] = fault_codes
+            input_["fault_codes"] = fault_codes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2661,19 +2663,19 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.update_model_request.UpdateModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.update_model_request.UpdateModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
         if labels_input_configuration is not None:
-            input["labels_input_configuration"] = labels_input_configuration
+            input_["labels_input_configuration"] = labels_input_configuration
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if model_diagnostics_output_configuration is not None:
-            input["model_diagnostics_output_configuration"] = (
+            input_["model_diagnostics_output_configuration"] = (
                 model_diagnostics_output_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2725,19 +2727,19 @@ class LookoutEquipmentClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lookoutequipment.types.update_retraining_scheduler_request.UpdateRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_lookoutequipment.types.update_retraining_scheduler_request.UpdateRetrainingSchedulerRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
         if retraining_start_date is not None:
-            input["retraining_start_date"] = retraining_start_date
+            input_["retraining_start_date"] = retraining_start_date
         if retraining_frequency is not None:
-            input["retraining_frequency"] = retraining_frequency
+            input_["retraining_frequency"] = retraining_frequency
         if lookback_window is not None:
-            input["lookback_window"] = lookback_window
+            input_["lookback_window"] = lookback_window
         if promote_mode is not None:
-            input["promote_mode"] = promote_mode
+            input_["promote_mode"] = promote_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

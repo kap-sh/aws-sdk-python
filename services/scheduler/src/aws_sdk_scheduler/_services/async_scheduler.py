@@ -15,6 +15,10 @@ from aws_sdk_scheduler._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_scheduler._auth._zapros_handler import AuthMiddleware
+from aws_sdk_scheduler._resources.aws_chronos_service.schedule import AsyncSchedule
+from aws_sdk_scheduler._resources.aws_chronos_service.schedule_group import (
+    AsyncScheduleGroup,
+)
 from aws_sdk_scheduler._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -108,6 +112,9 @@ class AsyncSchedulerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.schedule = AsyncSchedule(self)
+        self.schedule_group = AsyncScheduleGroup(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncSchedulerClientConfig] = None
@@ -165,11 +172,11 @@ class AsyncSchedulerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_scheduler.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,12 +212,12 @@ class AsyncSchedulerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_scheduler.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,12 +253,12 @@ class AsyncSchedulerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_scheduler.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

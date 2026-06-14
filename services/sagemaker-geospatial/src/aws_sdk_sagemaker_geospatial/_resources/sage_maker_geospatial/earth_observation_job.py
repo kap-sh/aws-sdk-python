@@ -97,20 +97,20 @@ class EarthObservationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.start_earth_observation_job_input.StartEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker_geospatial.types.start_earth_observation_job_input.StartEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["input_config"] = input_config
-        input["job_config"] = job_config
-        input["execution_role_arn"] = execution_role_arn
+            input_["kms_key_id"] = kms_key_id
+        input_["input_config"] = input_config
+        input_["job_config"] = job_config
+        input_["execution_role_arn"] = execution_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -143,11 +143,11 @@ class EarthObservationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.get_earth_observation_job_input.GetEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.get_earth_observation_job_input.GetEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -180,11 +180,11 @@ class EarthObservationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.delete_earth_observation_job_input.DeleteEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.delete_earth_observation_job_input.DeleteEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,20 +231,20 @@ class EarthObservationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.list_earth_observation_job_input.ListEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker_geospatial.types.list_earth_observation_job_input.ListEarthObservationJobInput = {}  # type: ignore[typeddict-item]
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,17 +285,17 @@ class EarthObservationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.export_earth_observation_job_input.ExportEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.export_earth_observation_job_input.ExportEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["execution_role_arn"] = execution_role_arn
-        input["output_config"] = output_config
+            input_["client_token"] = client_token
+        input_["execution_role_arn"] = execution_role_arn
+        input_["output_config"] = output_config
         if export_source_images is not None:
-            input["export_source_images"] = export_source_images
+            input_["export_source_images"] = export_source_images
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -355,28 +355,28 @@ class EarthObservationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput = {}  # type: ignore[typeddict-item]
-        input["x"] = x
-        input["y"] = y
-        input["z"] = z
-        input["image_assets"] = image_assets
-        input["target"] = target
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput = {}  # type: ignore[typeddict-item]
+        input_["x"] = x
+        input_["y"] = y
+        input_["z"] = z
+        input_["image_assets"] = image_assets
+        input_["target"] = target
+        input_["arn"] = arn
         if image_mask is not None:
-            input["image_mask"] = image_mask
+            input_["image_mask"] = image_mask
         if output_format is not None:
-            input["output_format"] = output_format
+            input_["output_format"] = output_format
         if time_range_filter is not None:
-            input["time_range_filter"] = time_range_filter
+            input_["time_range_filter"] = time_range_filter
         if property_filters is not None:
-            input["property_filters"] = property_filters
+            input_["property_filters"] = property_filters
         if output_data_type is not None:
-            input["output_data_type"] = output_data_type
+            input_["output_data_type"] = output_data_type
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -409,11 +409,11 @@ class EarthObservationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.stop_earth_observation_job_input.StopEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.stop_earth_observation_job_input.StopEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,20 +466,20 @@ class AsyncEarthObservationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.start_earth_observation_job_input.StartEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker_geospatial.types.start_earth_observation_job_input.StartEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["input_config"] = input_config
-        input["job_config"] = job_config
-        input["execution_role_arn"] = execution_role_arn
+            input_["kms_key_id"] = kms_key_id
+        input_["input_config"] = input_config
+        input_["job_config"] = job_config
+        input_["execution_role_arn"] = execution_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,11 +513,11 @@ class AsyncEarthObservationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.get_earth_observation_job_input.GetEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.get_earth_observation_job_input.GetEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -551,11 +551,11 @@ class AsyncEarthObservationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.delete_earth_observation_job_input.DeleteEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.delete_earth_observation_job_input.DeleteEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,20 +603,20 @@ class AsyncEarthObservationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.list_earth_observation_job_input.ListEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker_geospatial.types.list_earth_observation_job_input.ListEarthObservationJobInput = {}  # type: ignore[typeddict-item]
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,17 +658,17 @@ class AsyncEarthObservationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.export_earth_observation_job_input.ExportEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.export_earth_observation_job_input.ExportEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["execution_role_arn"] = execution_role_arn
-        input["output_config"] = output_config
+            input_["client_token"] = client_token
+        input_["execution_role_arn"] = execution_role_arn
+        input_["output_config"] = output_config
         if export_source_images is not None:
-            input["export_source_images"] = export_source_images
+            input_["export_source_images"] = export_source_images
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -729,28 +729,28 @@ class AsyncEarthObservationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput = {}  # type: ignore[typeddict-item]
-        input["x"] = x
-        input["y"] = y
-        input["z"] = z
-        input["image_assets"] = image_assets
-        input["target"] = target
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.get_tile_input.GetTileInput = {}  # type: ignore[typeddict-item]
+        input_["x"] = x
+        input_["y"] = y
+        input_["z"] = z
+        input_["image_assets"] = image_assets
+        input_["target"] = target
+        input_["arn"] = arn
         if image_mask is not None:
-            input["image_mask"] = image_mask
+            input_["image_mask"] = image_mask
         if output_format is not None:
-            input["output_format"] = output_format
+            input_["output_format"] = output_format
         if time_range_filter is not None:
-            input["time_range_filter"] = time_range_filter
+            input_["time_range_filter"] = time_range_filter
         if property_filters is not None:
-            input["property_filters"] = property_filters
+            input_["property_filters"] = property_filters
         if output_data_type is not None:
-            input["output_data_type"] = output_data_type
+            input_["output_data_type"] = output_data_type
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -784,11 +784,11 @@ class AsyncEarthObservationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.stop_earth_observation_job_input.StopEarthObservationJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.stop_earth_observation_job_input.StopEarthObservationJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

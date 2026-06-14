@@ -226,18 +226,18 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.add_profile_permission_request.AddProfilePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
+        input_: aws_sdk_signer.types.add_profile_permission_request.AddProfilePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
         if profile_version is not None:
-            input["profile_version"] = profile_version
-        input["action"] = action
-        input["principal"] = principal
+            input_["profile_version"] = profile_version
+        input_["action"] = action
+        input_["principal"] = principal
         if revision_id is not None:
-            input["revision_id"] = revision_id
-        input["statement_id"] = statement_id
+            input_["revision_id"] = revision_id
+        input_["statement_id"] = statement_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -268,11 +268,11 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.cancel_signing_profile_request.CancelSigningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
+        input_: aws_sdk_signer.types.cancel_signing_profile_request.CancelSigningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -307,11 +307,11 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.describe_signing_job_request.DescribeSigningJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_signer.types.describe_signing_job_request.DescribeSigningJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,15 +352,15 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.get_revocation_status_request.GetRevocationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["signature_timestamp"] = signature_timestamp
-        input["platform_id"] = platform_id
-        input["profile_version_arn"] = profile_version_arn
-        input["job_arn"] = job_arn
-        input["certificate_hashes"] = certificate_hashes
+        input_: aws_sdk_signer.types.get_revocation_status_request.GetRevocationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["signature_timestamp"] = signature_timestamp
+        input_["platform_id"] = platform_id
+        input_["profile_version_arn"] = profile_version_arn
+        input_["job_arn"] = job_arn
+        input_["certificate_hashes"] = certificate_hashes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,11 +395,11 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.get_signing_platform_request.GetSigningPlatformRequest = {}  # type: ignore[typeddict-item]
-        input["platform_id"] = platform_id
+        input_: aws_sdk_signer.types.get_signing_platform_request.GetSigningPlatformRequest = {}  # type: ignore[typeddict-item]
+        input_["platform_id"] = platform_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,13 +434,13 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.get_signing_profile_request.GetSigningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
+        input_: aws_sdk_signer.types.get_signing_profile_request.GetSigningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
         if profile_owner is not None:
-            input["profile_owner"] = profile_owner
+            input_["profile_owner"] = profile_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -475,13 +475,13 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.list_profile_permissions_request.ListProfilePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
+        input_: aws_sdk_signer.types.list_profile_permissions_request.ListProfilePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,28 +534,28 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.list_signing_jobs_request.ListSigningJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signer.types.list_signing_jobs_request.ListSigningJobsRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if platform_id is not None:
-            input["platform_id"] = platform_id
+            input_["platform_id"] = platform_id
         if requested_by is not None:
-            input["requested_by"] = requested_by
+            input_["requested_by"] = requested_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if is_revoked is not None:
-            input["is_revoked"] = is_revoked
+            input_["is_revoked"] = is_revoked
         if signature_expires_before is not None:
-            input["signature_expires_before"] = signature_expires_before
+            input_["signature_expires_before"] = signature_expires_before
         if signature_expires_after is not None:
-            input["signature_expires_after"] = signature_expires_after
+            input_["signature_expires_after"] = signature_expires_after
         if job_invoker is not None:
-            input["job_invoker"] = job_invoker
+            input_["job_invoker"] = job_invoker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -596,20 +596,20 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.list_signing_platforms_request.ListSigningPlatformsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signer.types.list_signing_platforms_request.ListSigningPlatformsRequest = {}  # type: ignore[typeddict-item]
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if partner is not None:
-            input["partner"] = partner
+            input_["partner"] = partner
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -650,20 +650,20 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.list_signing_profiles_request.ListSigningProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_signer.types.list_signing_profiles_request.ListSigningProfilesRequest = {}  # type: ignore[typeddict-item]
         if include_canceled is not None:
-            input["include_canceled"] = include_canceled
+            input_["include_canceled"] = include_canceled
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if platform_id is not None:
-            input["platform_id"] = platform_id
+            input_["platform_id"] = platform_id
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,11 +696,11 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_signer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -753,22 +753,22 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.put_signing_profile_request.PutSigningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
+        input_: aws_sdk_signer.types.put_signing_profile_request.PutSigningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
         if signing_material is not None:
-            input["signing_material"] = signing_material
+            input_["signing_material"] = signing_material
         if signature_validity_period is not None:
-            input["signature_validity_period"] = signature_validity_period
-        input["platform_id"] = platform_id
+            input_["signature_validity_period"] = signature_validity_period
+        input_["platform_id"] = platform_id
         if overrides is not None:
-            input["overrides"] = overrides
+            input_["overrides"] = overrides
         if signing_parameters is not None:
-            input["signing_parameters"] = signing_parameters
+            input_["signing_parameters"] = signing_parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -805,13 +805,13 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.remove_profile_permission_request.RemoveProfilePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
-        input["revision_id"] = revision_id
-        input["statement_id"] = statement_id
+        input_: aws_sdk_signer.types.remove_profile_permission_request.RemoveProfilePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
+        input_["revision_id"] = revision_id
+        input_["statement_id"] = statement_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,14 +846,14 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.revoke_signature_request.RevokeSignatureRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_signer.types.revoke_signature_request.RevokeSignatureRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if job_owner is not None:
-            input["job_owner"] = job_owner
-        input["reason"] = reason
+            input_["job_owner"] = job_owner
+        input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -890,14 +890,14 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.revoke_signing_profile_request.RevokeSigningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
-        input["profile_version"] = profile_version
-        input["reason"] = reason
-        input["effective_time"] = effective_time
+        input_: aws_sdk_signer.types.revoke_signing_profile_request.RevokeSigningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
+        input_["profile_version"] = profile_version
+        input_["reason"] = reason
+        input_["effective_time"] = effective_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -936,15 +936,15 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.sign_payload_request.SignPayloadRequest = {}  # type: ignore[typeddict-item]
-        input["profile_name"] = profile_name
+        input_: aws_sdk_signer.types.sign_payload_request.SignPayloadRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_name"] = profile_name
         if profile_owner is not None:
-            input["profile_owner"] = profile_owner
-        input["payload"] = payload
-        input["payload_format"] = payload_format
+            input_["profile_owner"] = profile_owner
+        input_["payload"] = payload
+        input_["payload_format"] = payload_format
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -985,16 +985,16 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.start_signing_job_request.StartSigningJobRequest = {}  # type: ignore[typeddict-item]
-        input["source"] = source
-        input["destination"] = destination
-        input["profile_name"] = profile_name
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_signer.types.start_signing_job_request.StartSigningJobRequest = {}  # type: ignore[typeddict-item]
+        input_["source"] = source
+        input_["destination"] = destination
+        input_["profile_name"] = profile_name
+        input_["client_request_token"] = client_request_token
         if profile_owner is not None:
-            input["profile_owner"] = profile_owner
+            input_["profile_owner"] = profile_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,12 +1029,12 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_signer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,12 +1069,12 @@ class signerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_signer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_signer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

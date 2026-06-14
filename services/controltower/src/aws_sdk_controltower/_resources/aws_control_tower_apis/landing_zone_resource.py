@@ -81,17 +81,17 @@ class LandingZoneResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.create_landing_zone_input.CreateLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["version"] = version
+        input_: aws_sdk_controltower.types.create_landing_zone_input.CreateLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["version"] = version
         if remediation_types is not None:
-            input["remediation_types"] = remediation_types
+            input_["remediation_types"] = remediation_types
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if manifest is not None:
-            input["manifest"] = manifest
+            input_["manifest"] = manifest
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,11 +124,11 @@ class LandingZoneResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_landing_zone_input.GetLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["landing_zone_identifier"] = landing_zone_identifier
+        input_: aws_sdk_controltower.types.get_landing_zone_input.GetLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["landing_zone_identifier"] = landing_zone_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -171,16 +171,16 @@ class LandingZoneResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.update_landing_zone_input.UpdateLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["version"] = version
+        input_: aws_sdk_controltower.types.update_landing_zone_input.UpdateLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["version"] = version
         if remediation_types is not None:
-            input["remediation_types"] = remediation_types
-        input["landing_zone_identifier"] = landing_zone_identifier
+            input_["remediation_types"] = remediation_types
+        input_["landing_zone_identifier"] = landing_zone_identifier
         if manifest is not None:
-            input["manifest"] = manifest
+            input_["manifest"] = manifest
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,11 +215,11 @@ class LandingZoneResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.delete_landing_zone_input.DeleteLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["landing_zone_identifier"] = landing_zone_identifier
+        input_: aws_sdk_controltower.types.delete_landing_zone_input.DeleteLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["landing_zone_identifier"] = landing_zone_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -256,14 +256,14 @@ class LandingZoneResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_landing_zones_input.ListLandingZonesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_landing_zones_input.ListLandingZonesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -296,11 +296,11 @@ class LandingZoneResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.reset_landing_zone_input.ResetLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["landing_zone_identifier"] = landing_zone_identifier
+        input_: aws_sdk_controltower.types.reset_landing_zone_input.ResetLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["landing_zone_identifier"] = landing_zone_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,17 +349,17 @@ class AsyncLandingZoneResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.create_landing_zone_input.CreateLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["version"] = version
+        input_: aws_sdk_controltower.types.create_landing_zone_input.CreateLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["version"] = version
         if remediation_types is not None:
-            input["remediation_types"] = remediation_types
+            input_["remediation_types"] = remediation_types
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if manifest is not None:
-            input["manifest"] = manifest
+            input_["manifest"] = manifest
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,11 +393,11 @@ class AsyncLandingZoneResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_landing_zone_input.GetLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["landing_zone_identifier"] = landing_zone_identifier
+        input_: aws_sdk_controltower.types.get_landing_zone_input.GetLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["landing_zone_identifier"] = landing_zone_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,16 +441,16 @@ class AsyncLandingZoneResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.update_landing_zone_input.UpdateLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["version"] = version
+        input_: aws_sdk_controltower.types.update_landing_zone_input.UpdateLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["version"] = version
         if remediation_types is not None:
-            input["remediation_types"] = remediation_types
-        input["landing_zone_identifier"] = landing_zone_identifier
+            input_["remediation_types"] = remediation_types
+        input_["landing_zone_identifier"] = landing_zone_identifier
         if manifest is not None:
-            input["manifest"] = manifest
+            input_["manifest"] = manifest
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -486,11 +486,11 @@ class AsyncLandingZoneResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.delete_landing_zone_input.DeleteLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["landing_zone_identifier"] = landing_zone_identifier
+        input_: aws_sdk_controltower.types.delete_landing_zone_input.DeleteLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["landing_zone_identifier"] = landing_zone_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,14 +528,14 @@ class AsyncLandingZoneResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_landing_zones_input.ListLandingZonesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_landing_zones_input.ListLandingZonesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -569,11 +569,11 @@ class AsyncLandingZoneResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.reset_landing_zone_input.ResetLandingZoneInput = {}  # type: ignore[typeddict-item]
-        input["landing_zone_identifier"] = landing_zone_identifier
+        input_: aws_sdk_controltower.types.reset_landing_zone_input.ResetLandingZoneInput = {}  # type: ignore[typeddict-item]
+        input_["landing_zone_identifier"] = landing_zone_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

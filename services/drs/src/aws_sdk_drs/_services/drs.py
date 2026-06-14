@@ -16,6 +16,27 @@ from aws_sdk_drs._auth._providers import (
 )
 from aws_sdk_drs._auth._zapros_handler import AuthMiddleware
 from aws_sdk_drs._pagination import resolve_path as _resolve_path
+from aws_sdk_drs._resources.elastic_disaster_recovery_service.account_resource import (
+    AccountResource,
+)
+from aws_sdk_drs._resources.elastic_disaster_recovery_service.job_resource import (
+    JobResource,
+)
+from aws_sdk_drs._resources.elastic_disaster_recovery_service.launch_configuration_template_resource import (
+    LaunchConfigurationTemplateResource,
+)
+from aws_sdk_drs._resources.elastic_disaster_recovery_service.recovery_instance_resource import (
+    RecoveryInstanceResource,
+)
+from aws_sdk_drs._resources.elastic_disaster_recovery_service.replication_configuration_template_resource import (
+    ReplicationConfigurationTemplateResource,
+)
+from aws_sdk_drs._resources.elastic_disaster_recovery_service.source_network_resource import (
+    SourceNetworkResource,
+)
+from aws_sdk_drs._resources.elastic_disaster_recovery_service.source_server_resource import (
+    SourceServerResource,
+)
 from aws_sdk_drs._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -137,6 +158,18 @@ class drsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_resource = AccountResource(self)
+        self.job_resource = JobResource(self)
+        self.launch_configuration_template_resource = (
+            LaunchConfigurationTemplateResource(self)
+        )
+        self.recovery_instance_resource = RecoveryInstanceResource(self)
+        self.replication_configuration_template_resource = (
+            ReplicationConfigurationTemplateResource(self)
+        )
+        self.source_network_resource = SourceNetworkResource(self)
+        self.source_server_resource = SourceServerResource(self)
 
     def operation_options(
         self, config_overrides: Optional[drsClientConfig] = None
@@ -195,13 +228,13 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.create_extended_source_server_request.CreateExtendedSourceServerRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_arn"] = source_server_arn
+        input_: aws_sdk_drs.types.create_extended_source_server_request.CreateExtendedSourceServerRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_arn"] = source_server_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,12 +264,12 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_launch_action_request.DeleteLaunchActionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["action_id"] = action_id
+        input_: aws_sdk_drs.types.delete_launch_action_request.DeleteLaunchActionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["action_id"] = action_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,10 +295,10 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.initialize_service_request.InitializeServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.initialize_service_request.InitializeServiceRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,15 +339,15 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.list_extensible_source_servers_request.ListExtensibleSourceServersRequest = {}  # type: ignore[typeddict-item]
-        input["staging_account_id"] = staging_account_id
+        input_: aws_sdk_drs.types.list_extensible_source_servers_request.ListExtensibleSourceServersRequest = {}  # type: ignore[typeddict-item]
+        input_["staging_account_id"] = staging_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,17 +418,17 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.list_launch_actions_request.ListLaunchActionsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_drs.types.list_launch_actions_request.ListLaunchActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,14 +496,14 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.list_staging_accounts_request.ListStagingAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.list_staging_accounts_request.ListStagingAccountsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,11 +561,11 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_drs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,22 +612,22 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.put_launch_action_request.PutLaunchActionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["action_code"] = action_code
-        input["order"] = order
-        input["action_id"] = action_id
-        input["optional"] = optional
-        input["active"] = active
-        input["name"] = name
-        input["action_version"] = action_version
-        input["category"] = category
+        input_: aws_sdk_drs.types.put_launch_action_request.PutLaunchActionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["action_code"] = action_code
+        input_["order"] = order
+        input_["action_id"] = action_id
+        input_["optional"] = optional
+        input_["active"] = active
+        input_["name"] = name
+        input_["action_version"] = action_version
+        input_["category"] = category
         if parameters is not None:
-            input["parameters"] = parameters
-        input["description"] = description
+            input_["parameters"] = parameters
+        input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -627,12 +660,12 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_drs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -665,12 +698,12 @@ class drsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_drs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_drs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

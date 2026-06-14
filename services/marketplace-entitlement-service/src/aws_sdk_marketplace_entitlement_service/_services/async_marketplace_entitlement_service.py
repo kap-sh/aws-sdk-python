@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_marketplace_entitlement_service._auth._signers
+import aws_sdk_marketplace_entitlement_service._auth._sigv4
 from aws_sdk_marketplace_entitlement_service._auth._identity import Credentials
 from aws_sdk_marketplace_entitlement_service._auth._providers import (
     CredentialsProvider,
@@ -179,17 +181,17 @@ class AsyncMarketplaceEntitlementServiceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_entitlement_service.types.get_entitlements_request.GetEntitlementsRequest = {}  # type: ignore[typeddict-item]
-        input["product_code"] = product_code
+        input_: aws_sdk_marketplace_entitlement_service.types.get_entitlements_request.GetEntitlementsRequest = {}  # type: ignore[typeddict-item]
+        input_["product_code"] = product_code
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

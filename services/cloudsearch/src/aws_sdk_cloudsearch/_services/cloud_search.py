@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_cloudsearch._auth._signers
+import aws_sdk_cloudsearch._auth._sigv4
 from aws_sdk_cloudsearch._auth._identity import Credentials
 from aws_sdk_cloudsearch._auth._providers import (
     CredentialsProvider,
@@ -212,11 +214,11 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.build_suggesters_request.BuildSuggestersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.build_suggesters_request.BuildSuggestersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,11 +251,11 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,12 +285,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.define_analysis_scheme_request.DefineAnalysisSchemeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["analysis_scheme"] = analysis_scheme
+        input_: aws_sdk_cloudsearch.types.define_analysis_scheme_request.DefineAnalysisSchemeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["analysis_scheme"] = analysis_scheme
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,12 +322,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.define_expression_request.DefineExpressionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["expression"] = expression
+        input_: aws_sdk_cloudsearch.types.define_expression_request.DefineExpressionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["expression"] = expression
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -361,12 +363,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.define_index_field_request.DefineIndexFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["index_field"] = index_field
+        input_: aws_sdk_cloudsearch.types.define_index_field_request.DefineIndexFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["index_field"] = index_field
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,12 +398,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.define_suggester_request.DefineSuggesterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["suggester"] = suggester
+        input_: aws_sdk_cloudsearch.types.define_suggester_request.DefineSuggesterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["suggester"] = suggester
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,12 +437,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.delete_analysis_scheme_request.DeleteAnalysisSchemeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["analysis_scheme_name"] = analysis_scheme_name
+        input_: aws_sdk_cloudsearch.types.delete_analysis_scheme_request.DeleteAnalysisSchemeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["analysis_scheme_name"] = analysis_scheme_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,11 +475,11 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,12 +515,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.delete_expression_request.DeleteExpressionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["expression_name"] = expression_name
+        input_: aws_sdk_cloudsearch.types.delete_expression_request.DeleteExpressionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["expression_name"] = expression_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,12 +556,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.delete_index_field_request.DeleteIndexFieldRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["index_field_name"] = index_field_name
+        input_: aws_sdk_cloudsearch.types.delete_index_field_request.DeleteIndexFieldRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["index_field_name"] = index_field_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,12 +595,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.delete_suggester_request.DeleteSuggesterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["suggester_name"] = suggester_name
+        input_: aws_sdk_cloudsearch.types.delete_suggester_request.DeleteSuggesterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["suggester_name"] = suggester_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -637,15 +639,15 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_analysis_schemes_request.DescribeAnalysisSchemesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.describe_analysis_schemes_request.DescribeAnalysisSchemesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if analysis_scheme_names is not None:
-            input["analysis_scheme_names"] = analysis_scheme_names
+            input_["analysis_scheme_names"] = analysis_scheme_names
         if deployed is not None:
-            input["deployed"] = deployed
+            input_["deployed"] = deployed
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -680,13 +682,13 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_availability_options_request.DescribeAvailabilityOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.describe_availability_options_request.DescribeAvailabilityOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if deployed is not None:
-            input["deployed"] = deployed
+            input_["deployed"] = deployed
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -721,13 +723,13 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_domain_endpoint_options_request.DescribeDomainEndpointOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.describe_domain_endpoint_options_request.DescribeDomainEndpointOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if deployed is not None:
-            input["deployed"] = deployed
+            input_["deployed"] = deployed
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -762,12 +764,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_domains_request.DescribeDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudsearch.types.describe_domains_request.DescribeDomainsRequest = {}  # type: ignore[typeddict-item]
         if domain_names is not None:
-            input["domain_names"] = domain_names
+            input_["domain_names"] = domain_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,15 +808,15 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_expressions_request.DescribeExpressionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.describe_expressions_request.DescribeExpressionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if expression_names is not None:
-            input["expression_names"] = expression_names
+            input_["expression_names"] = expression_names
         if deployed is not None:
-            input["deployed"] = deployed
+            input_["deployed"] = deployed
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -853,15 +855,15 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_index_fields_request.DescribeIndexFieldsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.describe_index_fields_request.DescribeIndexFieldsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if field_names is not None:
-            input["field_names"] = field_names
+            input_["field_names"] = field_names
         if deployed is not None:
-            input["deployed"] = deployed
+            input_["deployed"] = deployed
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -890,11 +892,11 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_scaling_parameters_request.DescribeScalingParametersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.describe_scaling_parameters_request.DescribeScalingParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -929,13 +931,13 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_service_access_policies_request.DescribeServiceAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.describe_service_access_policies_request.DescribeServiceAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if deployed is not None:
-            input["deployed"] = deployed
+            input_["deployed"] = deployed
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -974,15 +976,15 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.describe_suggesters_request.DescribeSuggestersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.describe_suggesters_request.DescribeSuggestersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if suggester_names is not None:
-            input["suggester_names"] = suggester_names
+            input_["suggester_names"] = suggester_names
         if deployed is not None:
-            input["deployed"] = deployed
+            input_["deployed"] = deployed
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1011,11 +1013,11 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.index_documents_request.IndexDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_cloudsearch.types.index_documents_request.IndexDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1077,12 +1079,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.update_availability_options_request.UpdateAvailabilityOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["multi_az"] = multi_az
+        input_: aws_sdk_cloudsearch.types.update_availability_options_request.UpdateAvailabilityOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["multi_az"] = multi_az
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1117,12 +1119,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.update_domain_endpoint_options_request.UpdateDomainEndpointOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["domain_endpoint_options"] = domain_endpoint_options
+        input_: aws_sdk_cloudsearch.types.update_domain_endpoint_options_request.UpdateDomainEndpointOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["domain_endpoint_options"] = domain_endpoint_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1152,12 +1154,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.update_scaling_parameters_request.UpdateScalingParametersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["scaling_parameters"] = scaling_parameters
+        input_: aws_sdk_cloudsearch.types.update_scaling_parameters_request.UpdateScalingParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["scaling_parameters"] = scaling_parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1191,12 +1193,12 @@ class CloudSearchClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudsearch.types.update_service_access_policies_request.UpdateServiceAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["access_policies"] = access_policies
+        input_: aws_sdk_cloudsearch.types.update_service_access_policies_request.UpdateServiceAccessPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["access_policies"] = access_policies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

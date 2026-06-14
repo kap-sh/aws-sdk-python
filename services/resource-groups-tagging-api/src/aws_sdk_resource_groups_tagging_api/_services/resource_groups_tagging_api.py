@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_resource_groups_tagging_api._auth._signers
+import aws_sdk_resource_groups_tagging_api._auth._sigv4
 from aws_sdk_resource_groups_tagging_api._auth._identity import Credentials
 from aws_sdk_resource_groups_tagging_api._auth._providers import (
     CredentialsProvider,
@@ -188,10 +190,10 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.describe_report_creation_input.DescribeReportCreationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups_tagging_api.types.describe_report_creation_input.DescribeReportCreationInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,24 +252,24 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_input.GetComplianceSummaryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups_tagging_api.types.get_compliance_summary_input.GetComplianceSummaryInput = {}  # type: ignore[typeddict-item]
         if target_id_filters is not None:
-            input["target_id_filters"] = target_id_filters
+            input_["target_id_filters"] = target_id_filters
         if region_filters is not None:
-            input["region_filters"] = region_filters
+            input_["region_filters"] = region_filters
         if resource_type_filters is not None:
-            input["resource_type_filters"] = resource_type_filters
+            input_["resource_type_filters"] = resource_type_filters
         if tag_key_filters is not None:
-            input["tag_key_filters"] = tag_key_filters
+            input_["tag_key_filters"] = tag_key_filters
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if pagination_token is not None:
-            input["pagination_token"] = pagination_token
+            input_["pagination_token"] = pagination_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,26 +377,26 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.get_resources_input.GetResourcesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups_tagging_api.types.get_resources_input.GetResourcesInput = {}  # type: ignore[typeddict-item]
         if pagination_token is not None:
-            input["pagination_token"] = pagination_token
+            input_["pagination_token"] = pagination_token
         if tag_filters is not None:
-            input["tag_filters"] = tag_filters
+            input_["tag_filters"] = tag_filters
         if resources_per_page is not None:
-            input["resources_per_page"] = resources_per_page
+            input_["resources_per_page"] = resources_per_page
         if tags_per_page is not None:
-            input["tags_per_page"] = tags_per_page
+            input_["tags_per_page"] = tags_per_page
         if resource_type_filters is not None:
-            input["resource_type_filters"] = resource_type_filters
+            input_["resource_type_filters"] = resource_type_filters
         if include_compliance_details is not None:
-            input["include_compliance_details"] = include_compliance_details
+            input_["include_compliance_details"] = include_compliance_details
         if exclude_compliant_resources is not None:
-            input["exclude_compliant_resources"] = exclude_compliant_resources
+            input_["exclude_compliant_resources"] = exclude_compliant_resources
         if resource_arn_list is not None:
-            input["resource_arn_list"] = resource_arn_list
+            input_["resource_arn_list"] = resource_arn_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,12 +482,12 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.get_tag_keys_input.GetTagKeysInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups_tagging_api.types.get_tag_keys_input.GetTagKeysInput = {}  # type: ignore[typeddict-item]
         if pagination_token is not None:
-            input["pagination_token"] = pagination_token
+            input_["pagination_token"] = pagination_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -543,13 +545,13 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.get_tag_values_input.GetTagValuesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups_tagging_api.types.get_tag_values_input.GetTagValuesInput = {}  # type: ignore[typeddict-item]
         if pagination_token is not None:
-            input["pagination_token"] = pagination_token
-        input["key"] = key
+            input_["pagination_token"] = pagination_token
+        input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -611,14 +613,14 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.list_required_tags_input.ListRequiredTagsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups_tagging_api.types.list_required_tags_input.ListRequiredTagsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -676,11 +678,11 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.start_report_creation_input.StartReportCreationInput = {}  # type: ignore[typeddict-item]
-        input["s3_bucket"] = s3_bucket
+        input_: aws_sdk_resource_groups_tagging_api.types.start_report_creation_input.StartReportCreationInput = {}  # type: ignore[typeddict-item]
+        input_["s3_bucket"] = s3_bucket
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,12 +717,12 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.tag_resources_input.TagResourcesInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn_list"] = resource_arn_list
-        input["tags"] = tags
+        input_: aws_sdk_resource_groups_tagging_api.types.tag_resources_input.TagResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn_list"] = resource_arn_list
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -755,12 +757,12 @@ class ResourceGroupsTaggingAPIClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups_tagging_api.types.untag_resources_input.UntagResourcesInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn_list"] = resource_arn_list
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_resource_groups_tagging_api.types.untag_resources_input.UntagResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn_list"] = resource_arn_list
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

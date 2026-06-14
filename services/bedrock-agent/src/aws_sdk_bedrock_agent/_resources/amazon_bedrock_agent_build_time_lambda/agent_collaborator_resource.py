@@ -90,19 +90,19 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.associate_agent_collaborator_request.AssociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["agent_descriptor"] = agent_descriptor
-        input["collaborator_name"] = collaborator_name
-        input["collaboration_instruction"] = collaboration_instruction
+        input_: aws_sdk_bedrock_agent.types.associate_agent_collaborator_request.AssociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["agent_descriptor"] = agent_descriptor
+        input_["collaborator_name"] = collaborator_name
+        input_["collaboration_instruction"] = collaboration_instruction
         if relay_conversation_history is not None:
-            input["relay_conversation_history"] = relay_conversation_history
+            input_["relay_conversation_history"] = relay_conversation_history
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -139,13 +139,13 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.disassociate_agent_collaborator_request.DisassociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["collaborator_id"] = collaborator_id
+        input_: aws_sdk_bedrock_agent.types.disassociate_agent_collaborator_request.DisassociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["collaborator_id"] = collaborator_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -182,13 +182,13 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_collaborator_request.GetAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["collaborator_id"] = collaborator_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_collaborator_request.GetAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["collaborator_id"] = collaborator_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -229,16 +229,16 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_collaborators_request.ListAgentCollaboratorsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.list_agent_collaborators_request.ListAgentCollaboratorsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,18 +285,18 @@ class AgentCollaboratorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_collaborator_request.UpdateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["collaborator_id"] = collaborator_id
-        input["agent_descriptor"] = agent_descriptor
-        input["collaborator_name"] = collaborator_name
-        input["collaboration_instruction"] = collaboration_instruction
+        input_: aws_sdk_bedrock_agent.types.update_agent_collaborator_request.UpdateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["collaborator_id"] = collaborator_id
+        input_["agent_descriptor"] = agent_descriptor
+        input_["collaborator_name"] = collaborator_name
+        input_["collaboration_instruction"] = collaboration_instruction
         if relay_conversation_history is not None:
-            input["relay_conversation_history"] = relay_conversation_history
+            input_["relay_conversation_history"] = relay_conversation_history
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -351,19 +351,19 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.associate_agent_collaborator_request.AssociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["agent_descriptor"] = agent_descriptor
-        input["collaborator_name"] = collaborator_name
-        input["collaboration_instruction"] = collaboration_instruction
+        input_: aws_sdk_bedrock_agent.types.associate_agent_collaborator_request.AssociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["agent_descriptor"] = agent_descriptor
+        input_["collaborator_name"] = collaborator_name
+        input_["collaboration_instruction"] = collaboration_instruction
         if relay_conversation_history is not None:
-            input["relay_conversation_history"] = relay_conversation_history
+            input_["relay_conversation_history"] = relay_conversation_history
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,13 +401,13 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.disassociate_agent_collaborator_request.DisassociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["collaborator_id"] = collaborator_id
+        input_: aws_sdk_bedrock_agent.types.disassociate_agent_collaborator_request.DisassociateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["collaborator_id"] = collaborator_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,13 +445,13 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_collaborator_request.GetAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["collaborator_id"] = collaborator_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_collaborator_request.GetAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["collaborator_id"] = collaborator_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -493,16 +493,16 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_collaborators_request.ListAgentCollaboratorsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.list_agent_collaborators_request.ListAgentCollaboratorsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -550,18 +550,18 @@ class AsyncAgentCollaboratorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_collaborator_request.UpdateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["collaborator_id"] = collaborator_id
-        input["agent_descriptor"] = agent_descriptor
-        input["collaborator_name"] = collaborator_name
-        input["collaboration_instruction"] = collaboration_instruction
+        input_: aws_sdk_bedrock_agent.types.update_agent_collaborator_request.UpdateAgentCollaboratorRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["collaborator_id"] = collaborator_id
+        input_["agent_descriptor"] = agent_descriptor
+        input_["collaborator_name"] = collaborator_name
+        input_["collaboration_instruction"] = collaboration_instruction
         if relay_conversation_history is not None:
-            input["relay_conversation_history"] = relay_conversation_history
+            input_["relay_conversation_history"] = relay_conversation_history
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

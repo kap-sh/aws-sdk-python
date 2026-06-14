@@ -1,12 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetModelResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.id
-    import aws_sdk_apigatewayv2.types.string_with_length_between0_and1024
     import aws_sdk_apigatewayv2.types.string_with_length_between0_and32_k
+    import aws_sdk_apigatewayv2.types.string_with_length_between0_and1024
     import aws_sdk_apigatewayv2.types.string_with_length_between1_and128
     import aws_sdk_apigatewayv2.types.string_with_length_between1_and256
 

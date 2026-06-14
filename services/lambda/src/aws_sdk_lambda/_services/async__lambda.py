@@ -16,6 +16,35 @@ from aws_sdk_lambda._auth._providers import (
 )
 from aws_sdk_lambda._auth._zapros_handler import AuthMiddleware
 from aws_sdk_lambda._pagination import resolve_path as _resolve_path
+from aws_sdk_lambda._resources.aws_gir_api_service.capacity_provider_resource import (
+    AsyncCapacityProviderResource,
+)
+from aws_sdk_lambda._resources.aws_gir_api_service.code_signing_config_resource import (
+    AsyncCodeSigningConfigResource,
+)
+from aws_sdk_lambda._resources.aws_gir_api_service.event_source_mapping import (
+    AsyncEventSourceMapping,
+)
+from aws_sdk_lambda._resources.aws_gir_api_service.function import AsyncFunction
+from aws_sdk_lambda._resources.aws_gir_api_service.function_alias import (
+    AsyncFunctionAlias,
+)
+from aws_sdk_lambda._resources.aws_gir_api_service.function_version_resource import (
+    AsyncFunctionVersionResource,
+)
+from aws_sdk_lambda._resources.aws_gir_api_service.layer_resource import (
+    AsyncLayerResource,
+)
+from aws_sdk_lambda._resources.aws_gir_api_service.layer_version import (
+    AsyncLayerVersion,
+)
+from aws_sdk_lambda._resources.aws_gir_api_service.permission import AsyncPermission
+from aws_sdk_lambda._resources.aws_gir_api_service.provisioned_concurrency_config import (
+    AsyncProvisionedConcurrencyConfig,
+)
+from aws_sdk_lambda._resources.aws_gir_api_service.resource_policy import (
+    AsyncResourcePolicy,
+)
 from aws_sdk_lambda._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -159,6 +188,18 @@ class AsyncLambdaClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.capacity_provider_resource = AsyncCapacityProviderResource(self)
+        self.code_signing_config_resource = AsyncCodeSigningConfigResource(self)
+        self.event_source_mapping = AsyncEventSourceMapping(self)
+        self.function = AsyncFunction(self)
+        self.function_alias = AsyncFunctionAlias(self)
+        self.function_version_resource = AsyncFunctionVersionResource(self)
+        self.layer_resource = AsyncLayerResource(self)
+        self.layer_version = AsyncLayerVersion(self)
+        self.permission = AsyncPermission(self)
+        self.provisioned_concurrency_config = AsyncProvisionedConcurrencyConfig(self)
+        self.resource_policy = AsyncResourcePolicy(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncLambdaClientConfig] = None
@@ -224,16 +265,16 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.checkpoint_durable_execution_request.CheckpointDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["durable_execution_arn"] = durable_execution_arn
-        input["checkpoint_token"] = checkpoint_token
+        input_: aws_sdk_lambda.types.checkpoint_durable_execution_request.CheckpointDurableExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["durable_execution_arn"] = durable_execution_arn
+        input_["checkpoint_token"] = checkpoint_token
         if updates is not None:
-            input["updates"] = updates
+            input_["updates"] = updates
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,13 +318,13 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,13 +366,13 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_function_event_invoke_config_request.DeleteFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.delete_function_event_invoke_config_request.DeleteFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -367,10 +408,10 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.get_account_settings_request.GetAccountSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,11 +445,11 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_durable_execution_request.GetDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["durable_execution_arn"] = durable_execution_arn
+        input_: aws_sdk_lambda.types.get_durable_execution_request.GetDurableExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["durable_execution_arn"] = durable_execution_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,19 +495,19 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_durable_execution_history_request.GetDurableExecutionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["durable_execution_arn"] = durable_execution_arn
+        input_: aws_sdk_lambda.types.get_durable_execution_history_request.GetDurableExecutionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["durable_execution_arn"] = durable_execution_arn
         if include_execution_data is not None:
-            input["include_execution_data"] = include_execution_data
+            input_["include_execution_data"] = include_execution_data
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -537,16 +578,16 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest = {}  # type: ignore[typeddict-item]
-        input["durable_execution_arn"] = durable_execution_arn
-        input["checkpoint_token"] = checkpoint_token
+        input_: aws_sdk_lambda.types.get_durable_execution_state_request.GetDurableExecutionStateRequest = {}  # type: ignore[typeddict-item]
+        input_["durable_execution_arn"] = durable_execution_arn
+        input_["checkpoint_token"] = checkpoint_token
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -615,13 +656,13 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_event_invoke_config_request.GetFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_event_invoke_config_request.GetFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,27 +724,27 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_durable_executions_by_function_request.ListDurableExecutionsByFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if durable_execution_name is not None:
-            input["durable_execution_name"] = durable_execution_name
+            input_["durable_execution_name"] = durable_execution_name
         if statuses is not None:
-            input["statuses"] = statuses
+            input_["statuses"] = statuses
         if started_after is not None:
-            input["started_after"] = started_after
+            input_["started_after"] = started_after
         if started_before is not None:
-            input["started_before"] = started_before
+            input_["started_before"] = started_before
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -796,15 +837,15 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_function_event_invoke_configs_request.ListFunctionEventInvokeConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_function_event_invoke_configs_request.ListFunctionEventInvokeConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -844,11 +885,11 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
+        input_: aws_sdk_lambda.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -904,19 +945,19 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_event_invoke_config_request.PutFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.put_function_event_invoke_config_request.PutFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if maximum_retry_attempts is not None:
-            input["maximum_retry_attempts"] = maximum_retry_attempts
+            input_["maximum_retry_attempts"] = maximum_retry_attempts
         if maximum_event_age_in_seconds is not None:
-            input["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
+            input_["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
         if destination_config is not None:
-            input["destination_config"] = destination_config
+            input_["destination_config"] = destination_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,13 +993,13 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.send_durable_execution_callback_failure_request.SendDurableExecutionCallbackFailureRequest = {}  # type: ignore[typeddict-item]
-        input["callback_id"] = callback_id
+        input_: aws_sdk_lambda.types.send_durable_execution_callback_failure_request.SendDurableExecutionCallbackFailureRequest = {}  # type: ignore[typeddict-item]
+        input_["callback_id"] = callback_id
         if error is not None:
-            input["error"] = error
+            input_["error"] = error
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -992,11 +1033,11 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.send_durable_execution_callback_heartbeat_request.SendDurableExecutionCallbackHeartbeatRequest = {}  # type: ignore[typeddict-item]
-        input["callback_id"] = callback_id
+        input_: aws_sdk_lambda.types.send_durable_execution_callback_heartbeat_request.SendDurableExecutionCallbackHeartbeatRequest = {}  # type: ignore[typeddict-item]
+        input_["callback_id"] = callback_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1034,13 +1075,13 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.send_durable_execution_callback_success_request.SendDurableExecutionCallbackSuccessRequest = {}  # type: ignore[typeddict-item]
-        input["callback_id"] = callback_id
+        input_: aws_sdk_lambda.types.send_durable_execution_callback_success_request.SendDurableExecutionCallbackSuccessRequest = {}  # type: ignore[typeddict-item]
+        input_["callback_id"] = callback_id
         if result is not None:
-            input["result"] = result
+            input_["result"] = result
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1076,13 +1117,13 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.stop_durable_execution_request.StopDurableExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["durable_execution_arn"] = durable_execution_arn
+        input_: aws_sdk_lambda.types.stop_durable_execution_request.StopDurableExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["durable_execution_arn"] = durable_execution_arn
         if error is not None:
-            input["error"] = error
+            input_["error"] = error
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,12 +1163,12 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["tags"] = tags
+        input_: aws_sdk_lambda.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1167,12 +1208,12 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_lambda.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1228,19 +1269,19 @@ class AsyncLambdaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_function_event_invoke_config_request.UpdateFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.update_function_event_invoke_config_request.UpdateFunctionEventInvokeConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if maximum_retry_attempts is not None:
-            input["maximum_retry_attempts"] = maximum_retry_attempts
+            input_["maximum_retry_attempts"] = maximum_retry_attempts
         if maximum_event_age_in_seconds is not None:
-            input["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
+            input_["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
         if destination_config is not None:
-            input["destination_config"] = destination_config
+            input_["destination_config"] = destination_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

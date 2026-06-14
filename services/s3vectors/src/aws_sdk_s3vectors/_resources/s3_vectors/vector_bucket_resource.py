@@ -82,15 +82,15 @@ class VectorBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.create_vector_bucket_input.CreateVectorBucketInput = {}  # type: ignore[typeddict-item]
-        input["vector_bucket_name"] = vector_bucket_name
+        input_: aws_sdk_s3vectors.types.create_vector_bucket_input.CreateVectorBucketInput = {}  # type: ignore[typeddict-item]
+        input_["vector_bucket_name"] = vector_bucket_name
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -129,14 +129,14 @@ class VectorBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.delete_vector_bucket_input.DeleteVectorBucketInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.delete_vector_bucket_input.DeleteVectorBucketInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
+            input_["vector_bucket_arn"] = vector_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -175,14 +175,14 @@ class VectorBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.delete_vector_bucket_policy_input.DeleteVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.delete_vector_bucket_policy_input.DeleteVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
+            input_["vector_bucket_arn"] = vector_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -221,14 +221,14 @@ class VectorBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.get_vector_bucket_input.GetVectorBucketInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.get_vector_bucket_input.GetVectorBucketInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
+            input_["vector_bucket_arn"] = vector_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,14 +267,14 @@ class VectorBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.get_vector_bucket_policy_input.GetVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.get_vector_bucket_policy_input.GetVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
+            input_["vector_bucket_arn"] = vector_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -317,16 +317,16 @@ class VectorBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.list_vector_buckets_input.ListVectorBucketsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.list_vector_buckets_input.ListVectorBucketsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -367,15 +367,15 @@ class VectorBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.put_vector_bucket_policy_input.PutVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.put_vector_bucket_policy_input.PutVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
-        input["policy"] = policy
+            input_["vector_bucket_arn"] = vector_bucket_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,15 +420,15 @@ class AsyncVectorBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.create_vector_bucket_input.CreateVectorBucketInput = {}  # type: ignore[typeddict-item]
-        input["vector_bucket_name"] = vector_bucket_name
+        input_: aws_sdk_s3vectors.types.create_vector_bucket_input.CreateVectorBucketInput = {}  # type: ignore[typeddict-item]
+        input_["vector_bucket_name"] = vector_bucket_name
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,14 +468,14 @@ class AsyncVectorBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.delete_vector_bucket_input.DeleteVectorBucketInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.delete_vector_bucket_input.DeleteVectorBucketInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
+            input_["vector_bucket_arn"] = vector_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -515,14 +515,14 @@ class AsyncVectorBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.delete_vector_bucket_policy_input.DeleteVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.delete_vector_bucket_policy_input.DeleteVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
+            input_["vector_bucket_arn"] = vector_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -562,14 +562,14 @@ class AsyncVectorBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.get_vector_bucket_input.GetVectorBucketInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.get_vector_bucket_input.GetVectorBucketInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
+            input_["vector_bucket_arn"] = vector_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,14 +609,14 @@ class AsyncVectorBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.get_vector_bucket_policy_input.GetVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.get_vector_bucket_policy_input.GetVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
+            input_["vector_bucket_arn"] = vector_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -660,16 +660,16 @@ class AsyncVectorBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.list_vector_buckets_input.ListVectorBucketsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.list_vector_buckets_input.ListVectorBucketsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -711,15 +711,15 @@ class AsyncVectorBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3vectors.types.put_vector_bucket_policy_input.PutVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3vectors.types.put_vector_bucket_policy_input.PutVectorBucketPolicyInput = {}  # type: ignore[typeddict-item]
         if vector_bucket_name is not None:
-            input["vector_bucket_name"] = vector_bucket_name
+            input_["vector_bucket_name"] = vector_bucket_name
         if vector_bucket_arn is not None:
-            input["vector_bucket_arn"] = vector_bucket_arn
-        input["policy"] = policy
+            input_["vector_bucket_arn"] = vector_bucket_arn
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

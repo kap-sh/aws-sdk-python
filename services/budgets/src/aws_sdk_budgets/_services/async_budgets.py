@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_budgets._auth._signers
+import aws_sdk_budgets._auth._sigv4
 from aws_sdk_budgets._auth._identity import Credentials
 from aws_sdk_budgets._auth._providers import (
     CredentialsProvider,
@@ -244,16 +246,16 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.create_budget_request.CreateBudgetRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget"] = budget
+        input_: aws_sdk_budgets.types.create_budget_request.CreateBudgetRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget"] = budget
         if notifications_with_subscribers is not None:
-            input["notifications_with_subscribers"] = notifications_with_subscribers
+            input_["notifications_with_subscribers"] = notifications_with_subscribers
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,21 +305,21 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.create_budget_action_request.CreateBudgetActionRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["notification_type"] = notification_type
-        input["action_type"] = action_type
-        input["action_threshold"] = action_threshold
-        input["definition"] = definition
-        input["execution_role_arn"] = execution_role_arn
-        input["approval_model"] = approval_model
-        input["subscribers"] = subscribers
+        input_: aws_sdk_budgets.types.create_budget_action_request.CreateBudgetActionRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["notification_type"] = notification_type
+        input_["action_type"] = action_type
+        input_["action_threshold"] = action_threshold
+        input_["definition"] = definition
+        input_["execution_role_arn"] = execution_role_arn
+        input_["approval_model"] = approval_model
+        input_["subscribers"] = subscribers
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,14 +361,14 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.create_notification_request.CreateNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["notification"] = notification
-        input["subscribers"] = subscribers
+        input_: aws_sdk_budgets.types.create_notification_request.CreateNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["notification"] = notification
+        input_["subscribers"] = subscribers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -406,14 +408,14 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.create_subscriber_request.CreateSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["notification"] = notification
-        input["subscriber"] = subscriber
+        input_: aws_sdk_budgets.types.create_subscriber_request.CreateSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["notification"] = notification
+        input_["subscriber"] = subscriber
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,12 +451,12 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.delete_budget_request.DeleteBudgetRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
+        input_: aws_sdk_budgets.types.delete_budget_request.DeleteBudgetRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,13 +494,13 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.delete_budget_action_request.DeleteBudgetActionRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["action_id"] = action_id
+        input_: aws_sdk_budgets.types.delete_budget_action_request.DeleteBudgetActionRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["action_id"] = action_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,13 +540,13 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.delete_notification_request.DeleteNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["notification"] = notification
+        input_: aws_sdk_budgets.types.delete_notification_request.DeleteNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["notification"] = notification
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,14 +586,14 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.delete_subscriber_request.DeleteSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["notification"] = notification
-        input["subscriber"] = subscriber
+        input_: aws_sdk_budgets.types.delete_subscriber_request.DeleteSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["notification"] = notification
+        input_["subscriber"] = subscriber
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -631,14 +633,14 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_budget_request.DescribeBudgetRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
+        input_: aws_sdk_budgets.types.describe_budget_request.DescribeBudgetRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
         if show_filter_expression is not None:
-            input["show_filter_expression"] = show_filter_expression
+            input_["show_filter_expression"] = show_filter_expression
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,13 +676,13 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_budget_action_request.DescribeBudgetActionRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["action_id"] = action_id
+        input_: aws_sdk_budgets.types.describe_budget_action_request.DescribeBudgetActionRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["action_id"] = action_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -721,19 +723,19 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_budget_action_histories_request.DescribeBudgetActionHistoriesRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["action_id"] = action_id
+        input_: aws_sdk_budgets.types.describe_budget_action_histories_request.DescribeBudgetActionHistoriesRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["action_id"] = action_id
         if time_period is not None:
-            input["time_period"] = time_period
+            input_["time_period"] = time_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -798,15 +800,15 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_budget_actions_for_account_request.DescribeBudgetActionsForAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_budgets.types.describe_budget_actions_for_account_request.DescribeBudgetActionsForAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -866,16 +868,16 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_budget_actions_for_budget_request.DescribeBudgetActionsForBudgetRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
+        input_: aws_sdk_budgets.types.describe_budget_actions_for_budget_request.DescribeBudgetActionsForBudgetRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -942,15 +944,15 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_budget_notifications_for_account_request.DescribeBudgetNotificationsForAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_budgets.types.describe_budget_notifications_for_account_request.DescribeBudgetNotificationsForAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1017,18 +1019,18 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_budget_performance_history_request.DescribeBudgetPerformanceHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
+        input_: aws_sdk_budgets.types.describe_budget_performance_history_request.DescribeBudgetPerformanceHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
         if time_period is not None:
-            input["time_period"] = time_period
+            input_["time_period"] = time_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1074,17 +1076,17 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_budgets_request.DescribeBudgetsRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_budgets.types.describe_budgets_request.DescribeBudgetsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if show_filter_expression is not None:
-            input["show_filter_expression"] = show_filter_expression
+            input_["show_filter_expression"] = show_filter_expression
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1157,16 +1159,16 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_notifications_for_budget_request.DescribeNotificationsForBudgetRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
+        input_: aws_sdk_budgets.types.describe_notifications_for_budget_request.DescribeNotificationsForBudgetRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1237,17 +1239,17 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.describe_subscribers_for_notification_request.DescribeSubscribersForNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["notification"] = notification
+        input_: aws_sdk_budgets.types.describe_subscribers_for_notification_request.DescribeSubscribersForNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["notification"] = notification
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1314,14 +1316,14 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.execute_budget_action_request.ExecuteBudgetActionRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["action_id"] = action_id
-        input["execution_type"] = execution_type
+        input_: aws_sdk_budgets.types.execute_budget_action_request.ExecuteBudgetActionRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["action_id"] = action_id
+        input_["execution_type"] = execution_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1355,11 +1357,11 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_budgets.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1395,12 +1397,12 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tags"] = resource_tags
+        input_: aws_sdk_budgets.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1436,12 +1438,12 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tag_keys"] = resource_tag_keys
+        input_: aws_sdk_budgets.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tag_keys"] = resource_tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1477,12 +1479,12 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.update_budget_request.UpdateBudgetRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["new_budget"] = new_budget
+        input_: aws_sdk_budgets.types.update_budget_request.UpdateBudgetRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["new_budget"] = new_budget
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1534,25 +1536,25 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.update_budget_action_request.UpdateBudgetActionRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["action_id"] = action_id
+        input_: aws_sdk_budgets.types.update_budget_action_request.UpdateBudgetActionRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["action_id"] = action_id
         if notification_type is not None:
-            input["notification_type"] = notification_type
+            input_["notification_type"] = notification_type
         if action_threshold is not None:
-            input["action_threshold"] = action_threshold
+            input_["action_threshold"] = action_threshold
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if approval_model is not None:
-            input["approval_model"] = approval_model
+            input_["approval_model"] = approval_model
         if subscribers is not None:
-            input["subscribers"] = subscribers
+            input_["subscribers"] = subscribers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1594,14 +1596,14 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.update_notification_request.UpdateNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["old_notification"] = old_notification
-        input["new_notification"] = new_notification
+        input_: aws_sdk_budgets.types.update_notification_request.UpdateNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["old_notification"] = old_notification
+        input_["new_notification"] = new_notification
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1643,15 +1645,15 @@ class AsyncBudgetsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_budgets.types.update_subscriber_request.UpdateSubscriberRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["budget_name"] = budget_name
-        input["notification"] = notification
-        input["old_subscriber"] = old_subscriber
-        input["new_subscriber"] = new_subscriber
+        input_: aws_sdk_budgets.types.update_subscriber_request.UpdateSubscriberRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["budget_name"] = budget_name
+        input_["notification"] = notification
+        input_["old_subscriber"] = old_subscriber
+        input_["new_subscriber"] = new_subscriber
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

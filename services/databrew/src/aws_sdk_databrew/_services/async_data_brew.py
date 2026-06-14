@@ -299,12 +299,12 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.batch_delete_recipe_version_request.BatchDeleteRecipeVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["recipe_versions"] = recipe_versions
+        input_: aws_sdk_databrew.types.batch_delete_recipe_version_request.BatchDeleteRecipeVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["recipe_versions"] = recipe_versions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,20 +350,20 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if format_options is not None:
-            input["format_options"] = format_options
-        input["input"] = input
+            input_["format_options"] = format_options
+        input_["input"] = input
         if path_options is not None:
-            input["path_options"] = path_options
+            input_["path_options"] = path_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,34 +434,34 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.create_profile_job_request.CreateProfileJobRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_databrew.types.create_profile_job_request.CreateProfileJobRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_name"] = dataset_name
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if encryption_mode is not None:
-            input["encryption_mode"] = encryption_mode
-        input["name"] = name
+            input_["encryption_mode"] = encryption_mode
+        input_["name"] = name
         if log_subscription is not None:
-            input["log_subscription"] = log_subscription
+            input_["log_subscription"] = log_subscription
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if max_retries is not None:
-            input["max_retries"] = max_retries
-        input["output_location"] = output_location
+            input_["max_retries"] = max_retries
+        input_["output_location"] = output_location
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if validation_configurations is not None:
-            input["validation_configurations"] = validation_configurations
-        input["role_arn"] = role_arn
+            input_["validation_configurations"] = validation_configurations
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if job_sample is not None:
-            input["job_sample"] = job_sample
+            input_["job_sample"] = job_sample
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -504,18 +504,18 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.create_project_request.CreateProjectRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_name"] = dataset_name
-        input["name"] = name
-        input["recipe_name"] = recipe_name
+        input_: aws_sdk_databrew.types.create_project_request.CreateProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_name"] = dataset_name
+        input_["name"] = name
+        input_["recipe_name"] = recipe_name
         if sample is not None:
-            input["sample"] = sample
-        input["role_arn"] = role_arn
+            input_["sample"] = sample
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,16 +557,16 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.create_recipe_request.CreateRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.create_recipe_request.CreateRecipeRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["name"] = name
-        input["steps"] = steps
+            input_["description"] = description
+        input_["name"] = name
+        input_["steps"] = steps
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -645,38 +645,38 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.create_recipe_job_request.CreateRecipeJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.create_recipe_job_request.CreateRecipeJobRequest = {}  # type: ignore[typeddict-item]
         if dataset_name is not None:
-            input["dataset_name"] = dataset_name
+            input_["dataset_name"] = dataset_name
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if encryption_mode is not None:
-            input["encryption_mode"] = encryption_mode
-        input["name"] = name
+            input_["encryption_mode"] = encryption_mode
+        input_["name"] = name
         if log_subscription is not None:
-            input["log_subscription"] = log_subscription
+            input_["log_subscription"] = log_subscription
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if max_retries is not None:
-            input["max_retries"] = max_retries
+            input_["max_retries"] = max_retries
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if data_catalog_outputs is not None:
-            input["data_catalog_outputs"] = data_catalog_outputs
+            input_["data_catalog_outputs"] = data_catalog_outputs
         if database_outputs is not None:
-            input["database_outputs"] = database_outputs
+            input_["database_outputs"] = database_outputs
         if project_name is not None:
-            input["project_name"] = project_name
+            input_["project_name"] = project_name
         if recipe_reference is not None:
-            input["recipe_reference"] = recipe_reference
-        input["role_arn"] = role_arn
+            input_["recipe_reference"] = recipe_reference
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -720,17 +720,17 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.create_ruleset_request.CreateRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.create_ruleset_request.CreateRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["target_arn"] = target_arn
-        input["rules"] = rules
+            input_["description"] = description
+        input_["target_arn"] = target_arn
+        input_["rules"] = rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -770,16 +770,16 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.create_schedule_request.CreateScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.create_schedule_request.CreateScheduleRequest = {}  # type: ignore[typeddict-item]
         if job_names is not None:
-            input["job_names"] = job_names
-        input["cron_expression"] = cron_expression
+            input_["job_names"] = job_names
+        input_["cron_expression"] = cron_expression
         if tags is not None:
-            input["tags"] = tags
-        input["name"] = name
+            input_["tags"] = tags
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -813,11 +813,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,11 +851,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -889,11 +889,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.delete_project_request.DeleteProjectRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.delete_project_request.DeleteProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -929,12 +929,12 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.delete_recipe_version_request.DeleteRecipeVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["recipe_version"] = recipe_version
+        input_: aws_sdk_databrew.types.delete_recipe_version_request.DeleteRecipeVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["recipe_version"] = recipe_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -968,11 +968,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.delete_ruleset_request.DeleteRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.delete_ruleset_request.DeleteRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1006,11 +1006,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.delete_schedule_request.DeleteScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.delete_schedule_request.DeleteScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1044,11 +1044,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1082,11 +1082,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,12 +1122,12 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.describe_job_run_request.DescribeJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["run_id"] = run_id
+        input_: aws_sdk_databrew.types.describe_job_run_request.DescribeJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1161,11 +1161,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.describe_project_request.DescribeProjectRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.describe_project_request.DescribeProjectRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1203,13 +1203,13 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.describe_recipe_request.DescribeRecipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.describe_recipe_request.DescribeRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if recipe_version is not None:
-            input["recipe_version"] = recipe_version
+            input_["recipe_version"] = recipe_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1243,11 +1243,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.describe_ruleset_request.DescribeRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.describe_ruleset_request.DescribeRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1281,11 +1281,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.describe_schedule_request.DescribeScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.describe_schedule_request.DescribeScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1323,14 +1323,14 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1393,15 +1393,15 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_job_runs_request.ListJobRunsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.list_job_runs_request.ListJobRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1472,18 +1472,18 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if dataset_name is not None:
-            input["dataset_name"] = dataset_name
+            input_["dataset_name"] = dataset_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if project_name is not None:
-            input["project_name"] = project_name
+            input_["project_name"] = project_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1552,14 +1552,14 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_projects_request.ListProjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.list_projects_request.ListProjectsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1624,16 +1624,16 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_recipes_request.ListRecipesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.list_recipes_request.ListRecipesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if recipe_version is not None:
-            input["recipe_version"] = recipe_version
+            input_["recipe_version"] = recipe_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1700,15 +1700,15 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_recipe_versions_request.ListRecipeVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.list_recipe_versions_request.ListRecipeVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["name"] = name
+            input_["next_token"] = next_token
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1773,16 +1773,16 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_rulesets_request.ListRulesetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.list_rulesets_request.ListRulesetsRequest = {}  # type: ignore[typeddict-item]
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1847,16 +1847,16 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_schedules_request.ListSchedulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.list_schedules_request.ListSchedulesRequest = {}  # type: ignore[typeddict-item]
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1915,11 +1915,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_databrew.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1957,13 +1957,13 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.publish_recipe_request.PublishRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.publish_recipe_request.PublishRecipeRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2007,21 +2007,21 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.send_project_session_action_request.SendProjectSessionActionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.send_project_session_action_request.SendProjectSessionActionRequest = {}  # type: ignore[typeddict-item]
         if preview is not None:
-            input["preview"] = preview
-        input["name"] = name
+            input_["preview"] = preview
+        input_["name"] = name
         if recipe_step is not None:
-            input["recipe_step"] = recipe_step
+            input_["recipe_step"] = recipe_step
         if step_index is not None:
-            input["step_index"] = step_index
+            input_["step_index"] = step_index
         if client_session_id is not None:
-            input["client_session_id"] = client_session_id
+            input_["client_session_id"] = client_session_id
         if view_frame is not None:
-            input["view_frame"] = view_frame
+            input_["view_frame"] = view_frame
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2055,11 +2055,11 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2097,13 +2097,13 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.start_project_session_request.StartProjectSessionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.start_project_session_request.StartProjectSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if assume_control is not None:
-            input["assume_control"] = assume_control
+            input_["assume_control"] = assume_control
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2139,12 +2139,12 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.stop_job_run_request.StopJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["run_id"] = run_id
+        input_: aws_sdk_databrew.types.stop_job_run_request.StopJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2180,12 +2180,12 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_databrew.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2221,12 +2221,12 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_databrew.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2270,18 +2270,18 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if format_options is not None:
-            input["format_options"] = format_options
-        input["input"] = input
+            input_["format_options"] = format_options
+        input_["input"] = input
         if path_options is not None:
-            input["path_options"] = path_options
+            input_["path_options"] = path_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2348,31 +2348,31 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.update_profile_job_request.UpdateProfileJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.update_profile_job_request.UpdateProfileJobRequest = {}  # type: ignore[typeddict-item]
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if encryption_mode is not None:
-            input["encryption_mode"] = encryption_mode
-        input["name"] = name
+            input_["encryption_mode"] = encryption_mode
+        input_["name"] = name
         if log_subscription is not None:
-            input["log_subscription"] = log_subscription
+            input_["log_subscription"] = log_subscription
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if max_retries is not None:
-            input["max_retries"] = max_retries
-        input["output_location"] = output_location
+            input_["max_retries"] = max_retries
+        input_["output_location"] = output_location
         if validation_configurations is not None:
-            input["validation_configurations"] = validation_configurations
-        input["role_arn"] = role_arn
+            input_["validation_configurations"] = validation_configurations
+        input_["role_arn"] = role_arn
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if job_sample is not None:
-            input["job_sample"] = job_sample
+            input_["job_sample"] = job_sample
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2409,14 +2409,14 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.update_project_request.UpdateProjectRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.update_project_request.UpdateProjectRequest = {}  # type: ignore[typeddict-item]
         if sample is not None:
-            input["sample"] = sample
-        input["role_arn"] = role_arn
-        input["name"] = name
+            input_["sample"] = sample
+        input_["role_arn"] = role_arn
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2458,15 +2458,15 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.update_recipe_request.UpdateRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.update_recipe_request.UpdateRecipeRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if steps is not None:
-            input["steps"] = steps
+            input_["steps"] = steps
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2532,30 +2532,30 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.update_recipe_job_request.UpdateRecipeJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.update_recipe_job_request.UpdateRecipeJobRequest = {}  # type: ignore[typeddict-item]
         if encryption_key_arn is not None:
-            input["encryption_key_arn"] = encryption_key_arn
+            input_["encryption_key_arn"] = encryption_key_arn
         if encryption_mode is not None:
-            input["encryption_mode"] = encryption_mode
-        input["name"] = name
+            input_["encryption_mode"] = encryption_mode
+        input_["name"] = name
         if log_subscription is not None:
-            input["log_subscription"] = log_subscription
+            input_["log_subscription"] = log_subscription
         if max_capacity is not None:
-            input["max_capacity"] = max_capacity
+            input_["max_capacity"] = max_capacity
         if max_retries is not None:
-            input["max_retries"] = max_retries
+            input_["max_retries"] = max_retries
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if data_catalog_outputs is not None:
-            input["data_catalog_outputs"] = data_catalog_outputs
+            input_["data_catalog_outputs"] = data_catalog_outputs
         if database_outputs is not None:
-            input["database_outputs"] = database_outputs
-        input["role_arn"] = role_arn
+            input_["database_outputs"] = database_outputs
+        input_["role_arn"] = role_arn
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2595,14 +2595,14 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.update_ruleset_request.UpdateRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_databrew.types.update_ruleset_request.UpdateRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["rules"] = rules
+            input_["description"] = description
+        input_["rules"] = rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2640,14 +2640,14 @@ class AsyncDataBrewClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_databrew.types.update_schedule_request.UpdateScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_databrew.types.update_schedule_request.UpdateScheduleRequest = {}  # type: ignore[typeddict-item]
         if job_names is not None:
-            input["job_names"] = job_names
-        input["cron_expression"] = cron_expression
-        input["name"] = name
+            input_["job_names"] = job_names
+        input_["cron_expression"] = cron_expression
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

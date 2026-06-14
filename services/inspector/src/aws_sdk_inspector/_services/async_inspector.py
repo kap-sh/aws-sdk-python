@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_inspector._auth._signers
+import aws_sdk_inspector._auth._sigv4
 from aws_sdk_inspector._auth._identity import Credentials
 from aws_sdk_inspector._auth._providers import (
     CredentialsProvider,
@@ -255,12 +257,12 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.add_attributes_to_findings_request.AddAttributesToFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["finding_arns"] = finding_arns
-        input["attributes"] = attributes
+        input_: aws_sdk_inspector.types.add_attributes_to_findings_request.AddAttributesToFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_arns"] = finding_arns
+        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,13 +304,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.create_assessment_target_request.CreateAssessmentTargetRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_target_name"] = assessment_target_name
+        input_: aws_sdk_inspector.types.create_assessment_target_request.CreateAssessmentTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_target_name"] = assessment_target_name
         if resource_group_arn is not None:
-            input["resource_group_arn"] = resource_group_arn
+            input_["resource_group_arn"] = resource_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,16 +360,16 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.create_assessment_template_request.CreateAssessmentTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_target_arn"] = assessment_target_arn
-        input["assessment_template_name"] = assessment_template_name
-        input["duration_in_seconds"] = duration_in_seconds
-        input["rules_package_arns"] = rules_package_arns
+        input_: aws_sdk_inspector.types.create_assessment_template_request.CreateAssessmentTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_target_arn"] = assessment_target_arn
+        input_["assessment_template_name"] = assessment_template_name
+        input_["duration_in_seconds"] = duration_in_seconds
+        input_["rules_package_arns"] = rules_package_arns
         if user_attributes_for_findings is not None:
-            input["user_attributes_for_findings"] = user_attributes_for_findings
+            input_["user_attributes_for_findings"] = user_attributes_for_findings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,11 +403,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.create_exclusions_preview_request.CreateExclusionsPreviewRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_template_arn"] = assessment_template_arn
+        input_: aws_sdk_inspector.types.create_exclusions_preview_request.CreateExclusionsPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_template_arn"] = assessment_template_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,11 +447,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.create_resource_group_request.CreateResourceGroupRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_tags"] = resource_group_tags
+        input_: aws_sdk_inspector.types.create_resource_group_request.CreateResourceGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_tags"] = resource_group_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,11 +489,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.delete_assessment_run_request.DeleteAssessmentRunRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_run_arn"] = assessment_run_arn
+        input_: aws_sdk_inspector.types.delete_assessment_run_request.DeleteAssessmentRunRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_run_arn"] = assessment_run_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,11 +531,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.delete_assessment_target_request.DeleteAssessmentTargetRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_target_arn"] = assessment_target_arn
+        input_: aws_sdk_inspector.types.delete_assessment_target_request.DeleteAssessmentTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_target_arn"] = assessment_target_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -571,11 +573,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.delete_assessment_template_request.DeleteAssessmentTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_template_arn"] = assessment_template_arn
+        input_: aws_sdk_inspector.types.delete_assessment_template_request.DeleteAssessmentTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_template_arn"] = assessment_template_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,11 +611,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.describe_assessment_runs_request.DescribeAssessmentRunsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_run_arns"] = assessment_run_arns
+        input_: aws_sdk_inspector.types.describe_assessment_runs_request.DescribeAssessmentRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_run_arns"] = assessment_run_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -647,11 +649,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.describe_assessment_targets_request.DescribeAssessmentTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_target_arns"] = assessment_target_arns
+        input_: aws_sdk_inspector.types.describe_assessment_targets_request.DescribeAssessmentTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_target_arns"] = assessment_target_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -681,11 +683,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.describe_assessment_templates_request.DescribeAssessmentTemplatesRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_template_arns"] = assessment_template_arns
+        input_: aws_sdk_inspector.types.describe_assessment_templates_request.DescribeAssessmentTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_template_arns"] = assessment_template_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -750,13 +752,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.describe_exclusions_request.DescribeExclusionsRequest = {}  # type: ignore[typeddict-item]
-        input["exclusion_arns"] = exclusion_arns
+        input_: aws_sdk_inspector.types.describe_exclusions_request.DescribeExclusionsRequest = {}  # type: ignore[typeddict-item]
+        input_["exclusion_arns"] = exclusion_arns
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -792,13 +794,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.describe_findings_request.DescribeFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["finding_arns"] = finding_arns
+        input_: aws_sdk_inspector.types.describe_findings_request.DescribeFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_arns"] = finding_arns
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -832,11 +834,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.describe_resource_groups_request.DescribeResourceGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_group_arns"] = resource_group_arns
+        input_: aws_sdk_inspector.types.describe_resource_groups_request.DescribeResourceGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_group_arns"] = resource_group_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -878,13 +880,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.describe_rules_packages_request.DescribeRulesPackagesRequest = {}  # type: ignore[typeddict-item]
-        input["rules_package_arns"] = rules_package_arns
+        input_: aws_sdk_inspector.types.describe_rules_packages_request.DescribeRulesPackagesRequest = {}  # type: ignore[typeddict-item]
+        input_["rules_package_arns"] = rules_package_arns
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -922,13 +924,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.get_assessment_report_request.GetAssessmentReportRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_run_arn"] = assessment_run_arn
-        input["report_file_format"] = report_file_format
-        input["report_type"] = report_type
+        input_: aws_sdk_inspector.types.get_assessment_report_request.GetAssessmentReportRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_run_arn"] = assessment_run_arn
+        input_["report_file_format"] = report_file_format
+        input_["report_type"] = report_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -974,18 +976,18 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.get_exclusions_preview_request.GetExclusionsPreviewRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_template_arn"] = assessment_template_arn
-        input["preview_token"] = preview_token
+        input_: aws_sdk_inspector.types.get_exclusions_preview_request.GetExclusionsPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_template_arn"] = assessment_template_arn
+        input_["preview_token"] = preview_token
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1025,11 +1027,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.get_telemetry_metadata_request.GetTelemetryMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_run_arn"] = assessment_run_arn
+        input_: aws_sdk_inspector.types.get_telemetry_metadata_request.GetTelemetryMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_run_arn"] = assessment_run_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1079,17 +1081,17 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_assessment_run_agents_request.ListAssessmentRunAgentsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_run_arn"] = assessment_run_arn
+        input_: aws_sdk_inspector.types.list_assessment_run_agents_request.ListAssessmentRunAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_run_arn"] = assessment_run_arn
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1143,18 +1145,18 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_assessment_runs_request.ListAssessmentRunsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector.types.list_assessment_runs_request.ListAssessmentRunsRequest = {}  # type: ignore[typeddict-item]
         if assessment_template_arns is not None:
-            input["assessment_template_arns"] = assessment_template_arns
+            input_["assessment_template_arns"] = assessment_template_arns
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1204,16 +1206,16 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_assessment_targets_request.ListAssessmentTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector.types.list_assessment_targets_request.ListAssessmentTargetsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1267,18 +1269,18 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_assessment_templates_request.ListAssessmentTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector.types.list_assessment_templates_request.ListAssessmentTemplatesRequest = {}  # type: ignore[typeddict-item]
         if assessment_target_arns is not None:
-            input["assessment_target_arns"] = assessment_target_arns
+            input_["assessment_target_arns"] = assessment_target_arns
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1320,16 +1322,16 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_event_subscriptions_request.ListEventSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector.types.list_event_subscriptions_request.ListEventSubscriptionsRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1371,15 +1373,15 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_exclusions_request.ListExclusionsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_run_arn"] = assessment_run_arn
+        input_: aws_sdk_inspector.types.list_exclusions_request.ListExclusionsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_run_arn"] = assessment_run_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1431,18 +1433,18 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
         if assessment_run_arns is not None:
-            input["assessment_run_arns"] = assessment_run_arns
+            input_["assessment_run_arns"] = assessment_run_arns
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1490,14 +1492,14 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_rules_packages_request.ListRulesPackagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector.types.list_rules_packages_request.ListRulesPackagesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1537,11 +1539,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_inspector.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1589,15 +1591,15 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.preview_agents_request.PreviewAgentsRequest = {}  # type: ignore[typeddict-item]
-        input["preview_agents_arn"] = preview_agents_arn
+        input_: aws_sdk_inspector.types.preview_agents_request.PreviewAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_["preview_agents_arn"] = preview_agents_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1635,11 +1637,11 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.register_cross_account_access_role_request.RegisterCrossAccountAccessRoleRequest = {}  # type: ignore[typeddict-item]
-        input["role_arn"] = role_arn
+        input_: aws_sdk_inspector.types.register_cross_account_access_role_request.RegisterCrossAccountAccessRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1681,12 +1683,12 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.remove_attributes_from_findings_request.RemoveAttributesFromFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["finding_arns"] = finding_arns
-        input["attribute_keys"] = attribute_keys
+        input_: aws_sdk_inspector.types.remove_attributes_from_findings_request.RemoveAttributesFromFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_arns"] = finding_arns
+        input_["attribute_keys"] = attribute_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1726,13 +1728,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.set_tags_for_resource_request.SetTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_inspector.types.set_tags_for_resource_request.SetTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1776,13 +1778,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.start_assessment_run_request.StartAssessmentRunRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_template_arn"] = assessment_template_arn
+        input_: aws_sdk_inspector.types.start_assessment_run_request.StartAssessmentRunRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_template_arn"] = assessment_template_arn
         if assessment_run_name is not None:
-            input["assessment_run_name"] = assessment_run_name
+            input_["assessment_run_name"] = assessment_run_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1822,13 +1824,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.stop_assessment_run_request.StopAssessmentRunRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_run_arn"] = assessment_run_arn
+        input_: aws_sdk_inspector.types.stop_assessment_run_request.StopAssessmentRunRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_run_arn"] = assessment_run_arn
         if stop_action is not None:
-            input["stop_action"] = stop_action
+            input_["stop_action"] = stop_action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1870,13 +1872,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.subscribe_to_event_request.SubscribeToEventRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["event"] = event
-        input["topic_arn"] = topic_arn
+        input_: aws_sdk_inspector.types.subscribe_to_event_request.SubscribeToEventRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["event"] = event
+        input_["topic_arn"] = topic_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1918,13 +1920,13 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.unsubscribe_from_event_request.UnsubscribeFromEventRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["event"] = event
-        input["topic_arn"] = topic_arn
+        input_: aws_sdk_inspector.types.unsubscribe_from_event_request.UnsubscribeFromEventRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["event"] = event
+        input_["topic_arn"] = topic_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1966,14 +1968,14 @@ class AsyncInspectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector.types.update_assessment_target_request.UpdateAssessmentTargetRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_target_arn"] = assessment_target_arn
-        input["assessment_target_name"] = assessment_target_name
+        input_: aws_sdk_inspector.types.update_assessment_target_request.UpdateAssessmentTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_target_arn"] = assessment_target_arn
+        input_["assessment_target_name"] = assessment_target_name
         if resource_group_arn is not None:
-            input["resource_group_arn"] = resource_group_arn
+            input_["resource_group_arn"] = resource_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

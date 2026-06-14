@@ -13,6 +13,9 @@ from aws_sdk_geo_routes._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_geo_routes._auth._zapros_handler import AuthMiddleware
+from aws_sdk_geo_routes._resources.routes_service.provider_resource import (
+    ProviderResource,
+)
 from aws_sdk_geo_routes._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +93,8 @@ class GeoRoutesClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.provider_resource = ProviderResource(self)
 
     def operation_options(
         self, config_overrides: Optional[GeoRoutesClientConfig] = None

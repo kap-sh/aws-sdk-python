@@ -72,21 +72,21 @@ class Permission:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_permissions_request.ListPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.list_permissions_request.ListPermissionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if group_id is not None:
-            input["group_id"] = group_id
-        input["workspace_id"] = workspace_id
+            input_["group_id"] = group_id
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,12 +121,12 @@ class Permission:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.update_permissions_request.UpdatePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["update_instruction_batch"] = update_instruction_batch
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.update_permissions_request.UpdatePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["update_instruction_batch"] = update_instruction_batch
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -177,21 +177,21 @@ class AsyncPermission:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_permissions_request.ListPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.list_permissions_request.ListPermissionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if group_id is not None:
-            input["group_id"] = group_id
-        input["workspace_id"] = workspace_id
+            input_["group_id"] = group_id
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -227,12 +227,12 @@ class AsyncPermission:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.update_permissions_request.UpdatePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["update_instruction_batch"] = update_instruction_batch
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.update_permissions_request.UpdatePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["update_instruction_batch"] = update_instruction_batch
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

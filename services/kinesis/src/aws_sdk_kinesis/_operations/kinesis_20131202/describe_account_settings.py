@@ -69,7 +69,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput,
+    input_: aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -99,12 +99,12 @@ def build_request(
 
 def describe_account_settings(
     options: OperationOptions,
-    input: aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput,
+    input_: aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput,
 ) -> tuple[
     aws_sdk_kinesis.types.describe_account_settings_output.DescribeAccountSettingsOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -118,12 +118,12 @@ def describe_account_settings(
 
 async def async_describe_account_settings(
     options: AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput,
+    input_: aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput,
 ) -> tuple[
     aws_sdk_kinesis.types.describe_account_settings_output.DescribeAccountSettingsOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

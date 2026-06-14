@@ -82,50 +82,47 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest,
+    input_: aws_sdk_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/trust-stores"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("ListTrustStoresRequest")
-    if "marker" in input:
-        SubElement(root, "Marker").text = str(input["marker"])
-    if "max_items" in input:
-        SubElement(root, "MaxItems").text = str(input["max_items"])
+    if "marker" in input_:
+        SubElement(root, "Marker").text = str(input_["marker"])
+    if "max_items" in input_:
+        SubElement(root, "MaxItems").text = str(input_["max_items"])
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_trust_stores(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest,
+    input_: aws_sdk_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.list_trust_stores_result.ListTrustStoresResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -134,16 +131,17 @@ def list_trust_stores(
 
 async def async_list_trust_stores(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest,
+    input_: aws_sdk_cloudfront.types.list_trust_stores_request.ListTrustStoresRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.list_trust_stores_result.ListTrustStoresResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

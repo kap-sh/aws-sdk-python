@@ -241,11 +241,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.cancel_sol_network_operation_input.CancelSolNetworkOperationInput = {}  # type: ignore[typeddict-item]
-        input["ns_lcm_op_occ_id"] = ns_lcm_op_occ_id
+        input_: aws_sdk_tnb.types.cancel_sol_network_operation_input.CancelSolNetworkOperationInput = {}  # type: ignore[typeddict-item]
+        input_["ns_lcm_op_occ_id"] = ns_lcm_op_occ_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,12 +283,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.create_sol_function_package_input.CreateSolFunctionPackageInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_tnb.types.create_sol_function_package_input.CreateSolFunctionPackageInput = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,16 +332,16 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.create_sol_network_instance_input.CreateSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
-        input["nsd_info_id"] = nsd_info_id
-        input["ns_name"] = ns_name
+        input_: aws_sdk_tnb.types.create_sol_network_instance_input.CreateSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["nsd_info_id"] = nsd_info_id
+        input_["ns_name"] = ns_name
         if ns_description is not None:
-            input["ns_description"] = ns_description
+            input_["ns_description"] = ns_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,12 +379,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.create_sol_network_package_input.CreateSolNetworkPackageInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_tnb.types.create_sol_network_package_input.CreateSolNetworkPackageInput = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,11 +420,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.delete_sol_function_package_input.DeleteSolFunctionPackageInput = {}  # type: ignore[typeddict-item]
-        input["vnf_pkg_id"] = vnf_pkg_id
+        input_: aws_sdk_tnb.types.delete_sol_function_package_input.DeleteSolFunctionPackageInput = {}  # type: ignore[typeddict-item]
+        input_["vnf_pkg_id"] = vnf_pkg_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,11 +460,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.delete_sol_network_instance_input.DeleteSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
-        input["ns_instance_id"] = ns_instance_id
+        input_: aws_sdk_tnb.types.delete_sol_network_instance_input.DeleteSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["ns_instance_id"] = ns_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,11 +500,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.delete_sol_network_package_input.DeleteSolNetworkPackageInput = {}  # type: ignore[typeddict-item]
-        input["nsd_info_id"] = nsd_info_id
+        input_: aws_sdk_tnb.types.delete_sol_network_package_input.DeleteSolNetworkPackageInput = {}  # type: ignore[typeddict-item]
+        input_["nsd_info_id"] = nsd_info_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,11 +542,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_function_instance_input.GetSolFunctionInstanceInput = {}  # type: ignore[typeddict-item]
-        input["vnf_instance_id"] = vnf_instance_id
+        input_: aws_sdk_tnb.types.get_sol_function_instance_input.GetSolFunctionInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["vnf_instance_id"] = vnf_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,11 +586,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_function_package_input.GetSolFunctionPackageInput = {}  # type: ignore[typeddict-item]
-        input["vnf_pkg_id"] = vnf_pkg_id
+        input_: aws_sdk_tnb.types.get_sol_function_package_input.GetSolFunctionPackageInput = {}  # type: ignore[typeddict-item]
+        input_["vnf_pkg_id"] = vnf_pkg_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,12 +630,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_function_package_content_input.GetSolFunctionPackageContentInput = {}  # type: ignore[typeddict-item]
-        input["vnf_pkg_id"] = vnf_pkg_id
-        input["accept"] = accept
+        input_: aws_sdk_tnb.types.get_sol_function_package_content_input.GetSolFunctionPackageContentInput = {}  # type: ignore[typeddict-item]
+        input_["vnf_pkg_id"] = vnf_pkg_id
+        input_["accept"] = accept
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -675,12 +675,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_function_package_descriptor_input.GetSolFunctionPackageDescriptorInput = {}  # type: ignore[typeddict-item]
-        input["vnf_pkg_id"] = vnf_pkg_id
-        input["accept"] = accept
+        input_: aws_sdk_tnb.types.get_sol_function_package_descriptor_input.GetSolFunctionPackageDescriptorInput = {}  # type: ignore[typeddict-item]
+        input_["vnf_pkg_id"] = vnf_pkg_id
+        input_["accept"] = accept
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -720,11 +720,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_network_instance_input.GetSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
-        input["ns_instance_id"] = ns_instance_id
+        input_: aws_sdk_tnb.types.get_sol_network_instance_input.GetSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["ns_instance_id"] = ns_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,11 +771,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_network_operation_input.GetSolNetworkOperationInput = {}  # type: ignore[typeddict-item]
-        input["ns_lcm_op_occ_id"] = ns_lcm_op_occ_id
+        input_: aws_sdk_tnb.types.get_sol_network_operation_input.GetSolNetworkOperationInput = {}  # type: ignore[typeddict-item]
+        input_["ns_lcm_op_occ_id"] = ns_lcm_op_occ_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -813,11 +813,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_network_package_input.GetSolNetworkPackageInput = {}  # type: ignore[typeddict-item]
-        input["nsd_info_id"] = nsd_info_id
+        input_: aws_sdk_tnb.types.get_sol_network_package_input.GetSolNetworkPackageInput = {}  # type: ignore[typeddict-item]
+        input_["nsd_info_id"] = nsd_info_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -857,12 +857,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_network_package_content_input.GetSolNetworkPackageContentInput = {}  # type: ignore[typeddict-item]
-        input["nsd_info_id"] = nsd_info_id
-        input["accept"] = accept
+        input_: aws_sdk_tnb.types.get_sol_network_package_content_input.GetSolNetworkPackageContentInput = {}  # type: ignore[typeddict-item]
+        input_["nsd_info_id"] = nsd_info_id
+        input_["accept"] = accept
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -900,11 +900,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.get_sol_network_package_descriptor_input.GetSolNetworkPackageDescriptorInput = {}  # type: ignore[typeddict-item]
-        input["nsd_info_id"] = nsd_info_id
+        input_: aws_sdk_tnb.types.get_sol_network_package_descriptor_input.GetSolNetworkPackageDescriptorInput = {}  # type: ignore[typeddict-item]
+        input_["nsd_info_id"] = nsd_info_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -951,17 +951,17 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.instantiate_sol_network_instance_input.InstantiateSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
-        input["ns_instance_id"] = ns_instance_id
+        input_: aws_sdk_tnb.types.instantiate_sol_network_instance_input.InstantiateSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["ns_instance_id"] = ns_instance_id
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if additional_params_for_ns is not None:
-            input["additional_params_for_ns"] = additional_params_for_ns
+            input_["additional_params_for_ns"] = additional_params_for_ns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1006,14 +1006,14 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.list_sol_function_instances_input.ListSolFunctionInstancesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_tnb.types.list_sol_function_instances_input.ListSolFunctionInstancesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1084,14 +1084,14 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.list_sol_function_packages_input.ListSolFunctionPackagesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_tnb.types.list_sol_function_packages_input.ListSolFunctionPackagesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1159,14 +1159,14 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.list_sol_network_instances_input.ListSolNetworkInstancesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_tnb.types.list_sol_network_instances_input.ListSolNetworkInstancesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1244,16 +1244,16 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.list_sol_network_operations_input.ListSolNetworkOperationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_tnb.types.list_sol_network_operations_input.ListSolNetworkOperationsInput = {}  # type: ignore[typeddict-item]
         if ns_instance_id is not None:
-            input["ns_instance_id"] = ns_instance_id
+            input_["ns_instance_id"] = ns_instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1328,14 +1328,14 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.list_sol_network_packages_input.ListSolNetworkPackagesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_tnb.types.list_sol_network_packages_input.ListSolNetworkPackagesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1391,11 +1391,11 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_tnb.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1439,14 +1439,14 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.put_sol_function_package_content_input.PutSolFunctionPackageContentInput = {}  # type: ignore[typeddict-item]
-        input["vnf_pkg_id"] = vnf_pkg_id
+        input_: aws_sdk_tnb.types.put_sol_function_package_content_input.PutSolFunctionPackageContentInput = {}  # type: ignore[typeddict-item]
+        input_["vnf_pkg_id"] = vnf_pkg_id
         if content_type is not None:
-            input["content_type"] = content_type
-        input["file"] = file
+            input_["content_type"] = content_type
+        input_["file"] = file
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1490,14 +1490,14 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.put_sol_network_package_content_input.PutSolNetworkPackageContentInput = {}  # type: ignore[typeddict-item]
-        input["nsd_info_id"] = nsd_info_id
+        input_: aws_sdk_tnb.types.put_sol_network_package_content_input.PutSolNetworkPackageContentInput = {}  # type: ignore[typeddict-item]
+        input_["nsd_info_id"] = nsd_info_id
         if content_type is not None:
-            input["content_type"] = content_type
-        input["file"] = file
+            input_["content_type"] = content_type
+        input_["file"] = file
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1532,12 +1532,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_tnb.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1577,13 +1577,13 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.terminate_sol_network_instance_input.TerminateSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
-        input["ns_instance_id"] = ns_instance_id
+        input_: aws_sdk_tnb.types.terminate_sol_network_instance_input.TerminateSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["ns_instance_id"] = ns_instance_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1618,12 +1618,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_tnb.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1666,12 +1666,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.update_sol_function_package_input.UpdateSolFunctionPackageInput = {}  # type: ignore[typeddict-item]
-        input["vnf_pkg_id"] = vnf_pkg_id
-        input["operational_state"] = operational_state
+        input_: aws_sdk_tnb.types.update_sol_function_package_input.UpdateSolFunctionPackageInput = {}  # type: ignore[typeddict-item]
+        input_["vnf_pkg_id"] = vnf_pkg_id
+        input_["operational_state"] = operational_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1724,18 +1724,18 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.update_sol_network_instance_input.UpdateSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
-        input["ns_instance_id"] = ns_instance_id
-        input["update_type"] = update_type
+        input_: aws_sdk_tnb.types.update_sol_network_instance_input.UpdateSolNetworkInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["ns_instance_id"] = ns_instance_id
+        input_["update_type"] = update_type
         if modify_vnf_info_data is not None:
-            input["modify_vnf_info_data"] = modify_vnf_info_data
+            input_["modify_vnf_info_data"] = modify_vnf_info_data
         if update_ns is not None:
-            input["update_ns"] = update_ns
+            input_["update_ns"] = update_ns
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1778,12 +1778,12 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.update_sol_network_package_input.UpdateSolNetworkPackageInput = {}  # type: ignore[typeddict-item]
-        input["nsd_info_id"] = nsd_info_id
-        input["nsd_operational_state"] = nsd_operational_state
+        input_: aws_sdk_tnb.types.update_sol_network_package_input.UpdateSolNetworkPackageInput = {}  # type: ignore[typeddict-item]
+        input_["nsd_info_id"] = nsd_info_id
+        input_["nsd_operational_state"] = nsd_operational_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1827,14 +1827,14 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.validate_sol_function_package_content_input.ValidateSolFunctionPackageContentInput = {}  # type: ignore[typeddict-item]
-        input["vnf_pkg_id"] = vnf_pkg_id
+        input_: aws_sdk_tnb.types.validate_sol_function_package_content_input.ValidateSolFunctionPackageContentInput = {}  # type: ignore[typeddict-item]
+        input_["vnf_pkg_id"] = vnf_pkg_id
         if content_type is not None:
-            input["content_type"] = content_type
-        input["file"] = file
+            input_["content_type"] = content_type
+        input_["file"] = file
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1878,14 +1878,14 @@ class tnbClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_tnb.types.validate_sol_network_package_content_input.ValidateSolNetworkPackageContentInput = {}  # type: ignore[typeddict-item]
-        input["nsd_info_id"] = nsd_info_id
+        input_: aws_sdk_tnb.types.validate_sol_network_package_content_input.ValidateSolNetworkPackageContentInput = {}  # type: ignore[typeddict-item]
+        input_["nsd_info_id"] = nsd_info_id
         if content_type is not None:
-            input["content_type"] = content_type
-        input["file"] = file
+            input_["content_type"] = content_type
+        input_["file"] = file
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

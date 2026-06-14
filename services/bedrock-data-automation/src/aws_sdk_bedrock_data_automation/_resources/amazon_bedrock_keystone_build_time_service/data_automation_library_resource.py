@@ -79,19 +79,19 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.create_data_automation_library_request.CreateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input["library_name"] = library_name
+        input_: aws_sdk_bedrock_data_automation.types.create_data_automation_library_request.CreateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
+        input_["library_name"] = library_name
         if library_description is not None:
-            input["library_description"] = library_description
+            input_["library_description"] = library_description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,11 +124,11 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_data_automation_library_request.GetDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_data_automation_library_request.GetDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -167,15 +167,15 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.update_data_automation_library_request.UpdateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.update_data_automation_library_request.UpdateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
         if library_description is not None:
-            input["library_description"] = library_description
+            input_["library_description"] = library_description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,11 +208,11 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.delete_data_automation_library_request.DeleteDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.delete_data_automation_library_request.DeleteDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,16 +249,16 @@ class DataAutomationLibraryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_data_automation_libraries_request.ListDataAutomationLibrariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_data_automation.types.list_data_automation_libraries_request.ListDataAutomationLibrariesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if project_filter is not None:
-            input["project_filter"] = project_filter
+            input_["project_filter"] = project_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,19 +303,19 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.create_data_automation_library_request.CreateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input["library_name"] = library_name
+        input_: aws_sdk_bedrock_data_automation.types.create_data_automation_library_request.CreateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
+        input_["library_name"] = library_name
         if library_description is not None:
-            input["library_description"] = library_description
+            input_["library_description"] = library_description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,11 +349,11 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_data_automation_library_request.GetDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.get_data_automation_library_request.GetDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,15 +393,15 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.update_data_automation_library_request.UpdateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.update_data_automation_library_request.UpdateDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
         if library_description is not None:
-            input["library_description"] = library_description
+            input_["library_description"] = library_description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,11 +435,11 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.delete_data_automation_library_request.DeleteDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
+        input_: aws_sdk_bedrock_data_automation.types.delete_data_automation_library_request.DeleteDataAutomationLibraryRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -477,16 +477,16 @@ class AsyncDataAutomationLibraryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_data_automation_libraries_request.ListDataAutomationLibrariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_data_automation.types.list_data_automation_libraries_request.ListDataAutomationLibrariesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if project_filter is not None:
-            input["project_filter"] = project_filter
+            input_["project_filter"] = project_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

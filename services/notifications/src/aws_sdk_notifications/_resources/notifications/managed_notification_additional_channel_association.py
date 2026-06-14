@@ -61,14 +61,14 @@ class ManagedNotificationAdditionalChannelAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.associate_managed_notification_additional_channel_request.AssociateManagedNotificationAdditionalChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["managed_notification_configuration_arn"] = (
+        input_: aws_sdk_notifications.types.associate_managed_notification_additional_channel_request.AssociateManagedNotificationAdditionalChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["managed_notification_configuration_arn"] = (
             managed_notification_configuration_arn
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -103,14 +103,14 @@ class ManagedNotificationAdditionalChannelAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.disassociate_managed_notification_additional_channel_request.DisassociateManagedNotificationAdditionalChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["managed_notification_configuration_arn"] = (
+        input_: aws_sdk_notifications.types.disassociate_managed_notification_additional_channel_request.DisassociateManagedNotificationAdditionalChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["managed_notification_configuration_arn"] = (
             managed_notification_configuration_arn
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,14 +151,14 @@ class AsyncManagedNotificationAdditionalChannelAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.associate_managed_notification_additional_channel_request.AssociateManagedNotificationAdditionalChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["managed_notification_configuration_arn"] = (
+        input_: aws_sdk_notifications.types.associate_managed_notification_additional_channel_request.AssociateManagedNotificationAdditionalChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["managed_notification_configuration_arn"] = (
             managed_notification_configuration_arn
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -194,14 +194,14 @@ class AsyncManagedNotificationAdditionalChannelAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.disassociate_managed_notification_additional_channel_request.DisassociateManagedNotificationAdditionalChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["managed_notification_configuration_arn"] = (
+        input_: aws_sdk_notifications.types.disassociate_managed_notification_additional_channel_request.DisassociateManagedNotificationAdditionalChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["managed_notification_configuration_arn"] = (
             managed_notification_configuration_arn
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

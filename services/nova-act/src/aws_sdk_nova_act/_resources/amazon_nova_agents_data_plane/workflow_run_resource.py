@@ -85,17 +85,17 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.create_workflow_run_request.CreateWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["model_id"] = model_id
+        input_: aws_sdk_nova_act.types.create_workflow_run_request.CreateWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["model_id"] = model_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
-        input["client_info"] = client_info
+            input_["log_group_name"] = log_group_name
+        input_["client_info"] = client_info
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -130,12 +130,12 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
+        input_: aws_sdk_nova_act.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -174,13 +174,13 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.update_workflow_run_request.UpdateWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
-        input["status"] = status
+        input_: aws_sdk_nova_act.types.update_workflow_run_request.UpdateWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
+        input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,12 +217,12 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.delete_workflow_run_request.DeleteWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
+        input_: aws_sdk_nova_act.types.delete_workflow_run_request.DeleteWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,17 +261,17 @@ class WorkflowRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.list_workflow_runs_request.ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
+        input_: aws_sdk_nova_act.types.list_workflow_runs_request.ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,17 +324,17 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.create_workflow_run_request.CreateWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["model_id"] = model_id
+        input_: aws_sdk_nova_act.types.create_workflow_run_request.CreateWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["model_id"] = model_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
-        input["client_info"] = client_info
+            input_["log_group_name"] = log_group_name
+        input_["client_info"] = client_info
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,12 +370,12 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
+        input_: aws_sdk_nova_act.types.get_workflow_run_request.GetWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,13 +415,13 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.update_workflow_run_request.UpdateWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
-        input["status"] = status
+        input_: aws_sdk_nova_act.types.update_workflow_run_request.UpdateWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,12 +459,12 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.delete_workflow_run_request.DeleteWorkflowRunRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
+        input_: aws_sdk_nova_act.types.delete_workflow_run_request.DeleteWorkflowRunRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -504,17 +504,17 @@ class AsyncWorkflowRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.list_workflow_runs_request.ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
+        input_: aws_sdk_nova_act.types.list_workflow_runs_request.ListWorkflowRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

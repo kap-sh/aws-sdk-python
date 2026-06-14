@@ -71,14 +71,14 @@ class ReservationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_reservation_request.CreateReservationRequest = {}  # type: ignore[typeddict-item]
-        input["capacity"] = capacity
-        input["offering_id"] = offering_id
+        input_: aws_sdk_redshift_serverless.types.create_reservation_request.CreateReservationRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity"] = capacity
+        input_["offering_id"] = offering_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -111,11 +111,11 @@ class ReservationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_reservation_request.GetReservationRequest = {}  # type: ignore[typeddict-item]
-        input["reservation_id"] = reservation_id
+        input_: aws_sdk_redshift_serverless.types.get_reservation_request.GetReservationRequest = {}  # type: ignore[typeddict-item]
+        input_["reservation_id"] = reservation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -148,11 +148,11 @@ class ReservationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_reservation_offering_request.GetReservationOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["offering_id"] = offering_id
+        input_: aws_sdk_redshift_serverless.types.get_reservation_offering_request.GetReservationOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["offering_id"] = offering_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,14 +189,14 @@ class ReservationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_reservation_offerings_request.ListReservationOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_reservation_offerings_request.ListReservationOfferingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,14 +233,14 @@ class ReservationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_reservations_request.ListReservationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_reservations_request.ListReservationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,14 +283,14 @@ class AsyncReservationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_reservation_request.CreateReservationRequest = {}  # type: ignore[typeddict-item]
-        input["capacity"] = capacity
-        input["offering_id"] = offering_id
+        input_: aws_sdk_redshift_serverless.types.create_reservation_request.CreateReservationRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity"] = capacity
+        input_["offering_id"] = offering_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,11 +324,11 @@ class AsyncReservationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_reservation_request.GetReservationRequest = {}  # type: ignore[typeddict-item]
-        input["reservation_id"] = reservation_id
+        input_: aws_sdk_redshift_serverless.types.get_reservation_request.GetReservationRequest = {}  # type: ignore[typeddict-item]
+        input_["reservation_id"] = reservation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -362,11 +362,11 @@ class AsyncReservationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_reservation_offering_request.GetReservationOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["offering_id"] = offering_id
+        input_: aws_sdk_redshift_serverless.types.get_reservation_offering_request.GetReservationOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["offering_id"] = offering_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,14 +404,14 @@ class AsyncReservationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_reservation_offerings_request.ListReservationOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_reservation_offerings_request.ListReservationOfferingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,14 +449,14 @@ class AsyncReservationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_reservations_request.ListReservationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_reservations_request.ListReservationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

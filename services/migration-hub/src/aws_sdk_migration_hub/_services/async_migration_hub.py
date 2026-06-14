@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_migration_hub._auth._signers
+import aws_sdk_migration_hub._auth._sigv4
 from aws_sdk_migration_hub._auth._identity import Credentials
 from aws_sdk_migration_hub._auth._providers import (
     CredentialsProvider,
@@ -229,15 +231,15 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.associate_created_artifact_request.AssociateCreatedArtifactRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
-        input["created_artifact"] = created_artifact
+        input_: aws_sdk_migration_hub.types.associate_created_artifact_request.AssociateCreatedArtifactRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
+        input_["created_artifact"] = created_artifact
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,15 +279,15 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.associate_discovered_resource_request.AssociateDiscoveredResourceRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
-        input["discovered_resource"] = discovered_resource
+        input_: aws_sdk_migration_hub.types.associate_discovered_resource_request.AssociateDiscoveredResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
+        input_["discovered_resource"] = discovered_resource
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,15 +327,15 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.associate_source_resource_request.AssociateSourceResourceRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
-        input["source_resource"] = source_resource
+        input_: aws_sdk_migration_hub.types.associate_source_resource_request.AssociateSourceResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
+        input_["source_resource"] = source_resource
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -369,13 +371,13 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.create_progress_update_stream_request.CreateProgressUpdateStreamRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream_name"] = progress_update_stream_name
+        input_: aws_sdk_migration_hub.types.create_progress_update_stream_request.CreateProgressUpdateStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream_name"] = progress_update_stream_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,13 +413,13 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.delete_progress_update_stream_request.DeleteProgressUpdateStreamRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream_name"] = progress_update_stream_name
+        input_: aws_sdk_migration_hub.types.delete_progress_update_stream_request.DeleteProgressUpdateStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream_name"] = progress_update_stream_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,11 +453,11 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.describe_application_state_request.DescribeApplicationStateRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_migration_hub.types.describe_application_state_request.DescribeApplicationStateRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -491,12 +493,12 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.describe_migration_task_request.DescribeMigrationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
+        input_: aws_sdk_migration_hub.types.describe_migration_task_request.DescribeMigrationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -536,15 +538,15 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.disassociate_created_artifact_request.DisassociateCreatedArtifactRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
-        input["created_artifact_name"] = created_artifact_name
+        input_: aws_sdk_migration_hub.types.disassociate_created_artifact_request.DisassociateCreatedArtifactRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
+        input_["created_artifact_name"] = created_artifact_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,15 +586,15 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.disassociate_discovered_resource_request.DisassociateDiscoveredResourceRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
-        input["configuration_id"] = configuration_id
+        input_: aws_sdk_migration_hub.types.disassociate_discovered_resource_request.DisassociateDiscoveredResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
+        input_["configuration_id"] = configuration_id
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -632,15 +634,15 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.disassociate_source_resource_request.DisassociateSourceResourceRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
-        input["source_resource_name"] = source_resource_name
+        input_: aws_sdk_migration_hub.types.disassociate_source_resource_request.DisassociateSourceResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
+        input_["source_resource_name"] = source_resource_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,14 +680,14 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.import_migration_task_request.ImportMigrationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
+        input_: aws_sdk_migration_hub.types.import_migration_task_request.ImportMigrationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -727,16 +729,16 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.list_application_states_request.ListApplicationStatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migration_hub.types.list_application_states_request.ListApplicationStatesRequest = {}  # type: ignore[typeddict-item]
         if application_ids is not None:
-            input["application_ids"] = application_ids
+            input_["application_ids"] = application_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -807,16 +809,16 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.list_created_artifacts_request.ListCreatedArtifactsRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
+        input_: aws_sdk_migration_hub.types.list_created_artifacts_request.ListCreatedArtifactsRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -885,16 +887,16 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.list_discovered_resources_request.ListDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
+        input_: aws_sdk_migration_hub.types.list_discovered_resources_request.ListDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -963,16 +965,16 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.list_migration_tasks_request.ListMigrationTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migration_hub.types.list_migration_tasks_request.ListMigrationTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_name is not None:
-            input["resource_name"] = resource_name
+            input_["resource_name"] = resource_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1041,16 +1043,16 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.list_migration_task_updates_request.ListMigrationTaskUpdatesRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
+        input_: aws_sdk_migration_hub.types.list_migration_task_updates_request.ListMigrationTaskUpdatesRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1115,14 +1117,14 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.list_progress_update_streams_request.ListProgressUpdateStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migration_hub.types.list_progress_update_streams_request.ListProgressUpdateStreamsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1187,16 +1189,16 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.list_source_resources_request.ListSourceResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
+        input_: aws_sdk_migration_hub.types.list_source_resources_request.ListSourceResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1265,16 +1267,16 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.notify_application_state_request.NotifyApplicationStateRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["status"] = status
+        input_: aws_sdk_migration_hub.types.notify_application_state_request.NotifyApplicationStateRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["status"] = status
         if update_date_time is not None:
-            input["update_date_time"] = update_date_time
+            input_["update_date_time"] = update_date_time
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1318,17 +1320,17 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.notify_migration_task_state_request.NotifyMigrationTaskStateRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
-        input["task"] = task
-        input["update_date_time"] = update_date_time
-        input["next_update_seconds"] = next_update_seconds
+        input_: aws_sdk_migration_hub.types.notify_migration_task_state_request.NotifyMigrationTaskStateRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
+        input_["task"] = task
+        input_["update_date_time"] = update_date_time
+        input_["next_update_seconds"] = next_update_seconds
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1368,15 +1370,15 @@ class AsyncMigrationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migration_hub.types.put_resource_attributes_request.PutResourceAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["progress_update_stream"] = progress_update_stream
-        input["migration_task_name"] = migration_task_name
-        input["resource_attribute_list"] = resource_attribute_list
+        input_: aws_sdk_migration_hub.types.put_resource_attributes_request.PutResourceAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["progress_update_stream"] = progress_update_stream
+        input_["migration_task_name"] = migration_task_name
+        input_["resource_attribute_list"] = resource_attribute_list
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -70,15 +70,15 @@ class CodegenJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.start_codegen_job_request.StartCodegenJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.start_codegen_job_request.StartCodegenJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["codegen_job_to_create"] = codegen_job_to_create
+            input_["client_token"] = client_token
+        input_["codegen_job_to_create"] = codegen_job_to_create
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -117,13 +117,13 @@ class CodegenJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.get_codegen_job_request.GetCodegenJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["id"] = id
+        input_: aws_sdk_amplifyuibuilder.types.get_codegen_job_request.GetCodegenJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -164,16 +164,16 @@ class CodegenJobResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.list_codegen_jobs_request.ListCodegenJobsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.list_codegen_jobs_request.ListCodegenJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -218,15 +218,15 @@ class AsyncCodegenJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.start_codegen_job_request.StartCodegenJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.start_codegen_job_request.StartCodegenJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["codegen_job_to_create"] = codegen_job_to_create
+            input_["client_token"] = client_token
+        input_["codegen_job_to_create"] = codegen_job_to_create
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,13 +266,13 @@ class AsyncCodegenJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.get_codegen_job_request.GetCodegenJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["id"] = id
+        input_: aws_sdk_amplifyuibuilder.types.get_codegen_job_request.GetCodegenJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,16 +314,16 @@ class AsyncCodegenJobResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.list_codegen_jobs_request.ListCodegenJobsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.list_codegen_jobs_request.ListCodegenJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

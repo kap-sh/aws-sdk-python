@@ -78,15 +78,15 @@ class GroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
+        input_: aws_sdk_identitystore.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,12 +121,12 @@ class GroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
+        input_: aws_sdk_identitystore.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -163,13 +163,13 @@ class GroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
-        input["operations"] = operations
+        input_: aws_sdk_identitystore.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
+        input_["operations"] = operations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,12 +204,12 @@ class GroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
+        input_: aws_sdk_identitystore.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -250,17 +250,17 @@ class GroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
+        input_: aws_sdk_identitystore.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -307,15 +307,15 @@ class AsyncGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
+        input_: aws_sdk_identitystore.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -351,12 +351,12 @@ class AsyncGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
+        input_: aws_sdk_identitystore.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,13 +394,13 @@ class AsyncGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
-        input["operations"] = operations
+        input_: aws_sdk_identitystore.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
+        input_["operations"] = operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,12 +436,12 @@ class AsyncGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
+        input_: aws_sdk_identitystore.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,17 +483,17 @@ class AsyncGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
+        input_: aws_sdk_identitystore.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

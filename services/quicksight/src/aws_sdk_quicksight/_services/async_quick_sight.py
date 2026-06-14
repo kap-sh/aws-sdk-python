@@ -939,13 +939,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.batch_create_topic_reviewed_answer_request.BatchCreateTopicReviewedAnswerRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
-        input["answers"] = answers
+        input_: aws_sdk_quicksight.types.batch_create_topic_reviewed_answer_request.BatchCreateTopicReviewedAnswerRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
+        input_["answers"] = answers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -981,12 +981,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.batch_delete_knowledge_base_request.BatchDeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["knowledge_base_ids"] = knowledge_base_ids
+        input_: aws_sdk_quicksight.types.batch_delete_knowledge_base_request.BatchDeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["knowledge_base_ids"] = knowledge_base_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1024,14 +1024,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.batch_delete_topic_reviewed_answer_request.BatchDeleteTopicReviewedAnswerRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
+        input_: aws_sdk_quicksight.types.batch_delete_topic_reviewed_answer_request.BatchDeleteTopicReviewedAnswerRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
         if answer_ids is not None:
-            input["answer_ids"] = answer_ids
+            input_["answer_ids"] = answer_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,13 +1069,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.cancel_ingestion_request.CancelIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
-        input["ingestion_id"] = ingestion_id
+        input_: aws_sdk_quicksight.types.cancel_ingestion_request.CancelIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
+        input_["ingestion_id"] = ingestion_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1115,16 +1115,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_account_customization_request.CreateAccountCustomizationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.create_account_customization_request.CreateAccountCustomizationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if namespace is not None:
-            input["namespace"] = namespace
-        input["account_customization"] = account_customization
+            input_["namespace"] = namespace
+        input_["account_customization"] = account_customization
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1208,44 +1208,46 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_account_subscription_request.CreateAccountSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_quicksight.types.create_account_subscription_request.CreateAccountSubscriptionRequest = {}  # type: ignore[typeddict-item]
         if edition is not None:
-            input["edition"] = edition
-        input["authentication_method"] = authentication_method
-        input["aws_account_id"] = aws_account_id
-        input["account_name"] = account_name
-        input["notification_email"] = notification_email
+            input_["edition"] = edition
+        input_["authentication_method"] = authentication_method
+        input_["aws_account_id"] = aws_account_id
+        input_["account_name"] = account_name
+        input_["notification_email"] = notification_email
         if active_directory_name is not None:
-            input["active_directory_name"] = active_directory_name
+            input_["active_directory_name"] = active_directory_name
         if realm is not None:
-            input["realm"] = realm
+            input_["realm"] = realm
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if admin_group is not None:
-            input["admin_group"] = admin_group
+            input_["admin_group"] = admin_group
         if author_group is not None:
-            input["author_group"] = author_group
+            input_["author_group"] = author_group
         if reader_group is not None:
-            input["reader_group"] = reader_group
+            input_["reader_group"] = reader_group
         if admin_pro_group is not None:
-            input["admin_pro_group"] = admin_pro_group
+            input_["admin_pro_group"] = admin_pro_group
         if author_pro_group is not None:
-            input["author_pro_group"] = author_pro_group
+            input_["author_pro_group"] = author_pro_group
         if reader_pro_group is not None:
-            input["reader_pro_group"] = reader_pro_group
+            input_["reader_pro_group"] = reader_pro_group
         if first_name is not None:
-            input["first_name"] = first_name
+            input_["first_name"] = first_name
         if last_name is not None:
-            input["last_name"] = last_name
+            input_["last_name"] = last_name
         if email_address is not None:
-            input["email_address"] = email_address
+            input_["email_address"] = email_address
         if contact_number is not None:
-            input["contact_number"] = contact_number
+            input_["contact_number"] = contact_number
         if iam_identity_center_instance_arn is not None:
-            input["iam_identity_center_instance_arn"] = iam_identity_center_instance_arn
+            input_["iam_identity_center_instance_arn"] = (
+                iam_identity_center_instance_arn
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1299,23 +1301,23 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_action_connector_request.CreateActionConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["action_connector_id"] = action_connector_id
-        input["name"] = name
-        input["type"] = type
-        input["authentication_config"] = authentication_config
+        input_: aws_sdk_quicksight.types.create_action_connector_request.CreateActionConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["action_connector_id"] = action_connector_id
+        input_["name"] = name
+        input_["type"] = type
+        input_["authentication_config"] = authentication_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if vpc_connection_arn is not None:
-            input["vpc_connection_arn"] = vpc_connection_arn
+            input_["vpc_connection_arn"] = vpc_connection_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1383,29 +1385,29 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_quicksight.types.create_agent_request.CreateAgentRequest = {}  # type: ignore[typeddict-item]
         if spaces is not None:
-            input["spaces"] = spaces
+            input_["spaces"] = spaces
         if action_connectors is not None:
-            input["action_connectors"] = action_connectors
-        input["aws_account_id"] = aws_account_id
-        input["agent_id"] = agent_id
-        input["name"] = name
+            input_["action_connectors"] = action_connectors
+        input_["aws_account_id"] = aws_account_id
+        input_["agent_id"] = agent_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if icon_id is not None:
-            input["icon_id"] = icon_id
+            input_["icon_id"] = icon_id
         if starter_prompts is not None:
-            input["starter_prompts"] = starter_prompts
+            input_["starter_prompts"] = starter_prompts
         if welcome_message is not None:
-            input["welcome_message"] = welcome_message
+            input_["welcome_message"] = welcome_message
         if agent_lifecycle is not None:
-            input["agent_lifecycle"] = agent_lifecycle
+            input_["agent_lifecycle"] = agent_lifecycle
         if custom_prompt_input is not None:
-            input["custom_prompt_input"] = custom_prompt_input
+            input_["custom_prompt_input"] = custom_prompt_input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1469,29 +1471,29 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_analysis_request.CreateAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["analysis_id"] = analysis_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.create_analysis_request.CreateAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["analysis_id"] = analysis_id
+        input_["name"] = name
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if source_entity is not None:
-            input["source_entity"] = source_entity
+            input_["source_entity"] = source_entity
         if theme_arn is not None:
-            input["theme_arn"] = theme_arn
+            input_["theme_arn"] = theme_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if validation_strategy is not None:
-            input["validation_strategy"] = validation_strategy
+            input_["validation_strategy"] = validation_strategy
         if folder_arns is not None:
-            input["folder_arns"] = folder_arns
+            input_["folder_arns"] = folder_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,16 +1535,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_brand_request.CreateBrandRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["brand_id"] = brand_id
+        input_: aws_sdk_quicksight.types.create_brand_request.CreateBrandRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["brand_id"] = brand_id
         if brand_definition is not None:
-            input["brand_definition"] = brand_definition
+            input_["brand_definition"] = brand_definition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1584,16 +1586,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_custom_permissions_request.CreateCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["custom_permissions_name"] = custom_permissions_name
+        input_: aws_sdk_quicksight.types.create_custom_permissions_request.CreateCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["custom_permissions_name"] = custom_permissions_name
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1673,37 +1675,37 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_dashboard_request.CreateDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.create_dashboard_request.CreateDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["name"] = name
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if source_entity is not None:
-            input["source_entity"] = source_entity
+            input_["source_entity"] = source_entity
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if dashboard_publish_options is not None:
-            input["dashboard_publish_options"] = dashboard_publish_options
+            input_["dashboard_publish_options"] = dashboard_publish_options
         if theme_arn is not None:
-            input["theme_arn"] = theme_arn
+            input_["theme_arn"] = theme_arn
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if validation_strategy is not None:
-            input["validation_strategy"] = validation_strategy
+            input_["validation_strategy"] = validation_strategy
         if folder_arns is not None:
-            input["folder_arns"] = folder_arns
+            input_["folder_arns"] = folder_arns
         if link_sharing_configuration is not None:
-            input["link_sharing_configuration"] = link_sharing_configuration
+            input_["link_sharing_configuration"] = link_sharing_configuration
         if link_entities is not None:
-            input["link_entities"] = link_entities
+            input_["link_entities"] = link_entities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1802,47 +1804,47 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_data_set_request.CreateDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
-        input["name"] = name
-        input["physical_table_map"] = physical_table_map
+        input_: aws_sdk_quicksight.types.create_data_set_request.CreateDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
+        input_["name"] = name
+        input_["physical_table_map"] = physical_table_map
         if logical_table_map is not None:
-            input["logical_table_map"] = logical_table_map
-        input["import_mode"] = import_mode
+            input_["logical_table_map"] = logical_table_map
+        input_["import_mode"] = import_mode
         if column_groups is not None:
-            input["column_groups"] = column_groups
+            input_["column_groups"] = column_groups
         if field_folders is not None:
-            input["field_folders"] = field_folders
+            input_["field_folders"] = field_folders
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if row_level_permission_data_set is not None:
-            input["row_level_permission_data_set"] = row_level_permission_data_set
+            input_["row_level_permission_data_set"] = row_level_permission_data_set
         if row_level_permission_tag_configuration is not None:
-            input["row_level_permission_tag_configuration"] = (
+            input_["row_level_permission_tag_configuration"] = (
                 row_level_permission_tag_configuration
             )
         if column_level_permission_rules is not None:
-            input["column_level_permission_rules"] = column_level_permission_rules
+            input_["column_level_permission_rules"] = column_level_permission_rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if data_set_usage_configuration is not None:
-            input["data_set_usage_configuration"] = data_set_usage_configuration
+            input_["data_set_usage_configuration"] = data_set_usage_configuration
         if dataset_parameters is not None:
-            input["dataset_parameters"] = dataset_parameters
+            input_["dataset_parameters"] = dataset_parameters
         if folder_arns is not None:
-            input["folder_arns"] = folder_arns
+            input_["folder_arns"] = folder_arns
         if performance_configuration is not None:
-            input["performance_configuration"] = performance_configuration
+            input_["performance_configuration"] = performance_configuration
         if use_as is not None:
-            input["use_as"] = use_as
+            input_["use_as"] = use_as
         if data_prep_configuration is not None:
-            input["data_prep_configuration"] = data_prep_configuration
+            input_["data_prep_configuration"] = data_prep_configuration
         if semantic_model_configuration is not None:
-            input["semantic_model_configuration"] = semantic_model_configuration
+            input_["semantic_model_configuration"] = semantic_model_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1910,28 +1912,28 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_source_id"] = data_source_id
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_quicksight.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_source_id"] = data_source_id
+        input_["name"] = name
+        input_["type"] = type
         if data_source_parameters is not None:
-            input["data_source_parameters"] = data_source_parameters
+            input_["data_source_parameters"] = data_source_parameters
         if credentials is not None:
-            input["credentials"] = credentials
+            input_["credentials"] = credentials
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if vpc_connection_properties is not None:
-            input["vpc_connection_properties"] = vpc_connection_properties
+            input_["vpc_connection_properties"] = vpc_connection_properties
         if ssl_properties is not None:
-            input["ssl_properties"] = ssl_properties
+            input_["ssl_properties"] = ssl_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if folder_arns is not None:
-            input["folder_arns"] = folder_arns
+            input_["folder_arns"] = folder_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1981,19 +1983,19 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["flow_definition"] = flow_definition
+            input_["description"] = description
+        input_["flow_definition"] = flow_definition
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2045,24 +2047,24 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_folder_request.CreateFolderRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
+        input_: aws_sdk_quicksight.types.create_folder_request.CreateFolderRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if folder_type is not None:
-            input["folder_type"] = folder_type
+            input_["folder_type"] = folder_type
         if parent_folder_arn is not None:
-            input["parent_folder_arn"] = parent_folder_arn
+            input_["parent_folder_arn"] = parent_folder_arn
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if sharing_model is not None:
-            input["sharing_model"] = sharing_model
+            input_["sharing_model"] = sharing_model
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2102,14 +2104,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_folder_membership_request.CreateFolderMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
-        input["member_id"] = member_id
-        input["member_type"] = member_type
+        input_: aws_sdk_quicksight.types.create_folder_membership_request.CreateFolderMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
+        input_["member_id"] = member_id
+        input_["member_type"] = member_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2151,15 +2153,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_name"] = group_name
+        input_: aws_sdk_quicksight.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_name"] = group_name
         if description is not None:
-            input["description"] = description
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+            input_["description"] = description
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2199,14 +2201,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_group_membership_request.CreateGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["member_name"] = member_name
-        input["group_name"] = group_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.create_group_membership_request.CreateGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["member_name"] = member_name
+        input_["group_name"] = group_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2252,18 +2254,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_iam_policy_assignment_request.CreateIAMPolicyAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["assignment_name"] = assignment_name
-        input["assignment_status"] = assignment_status
+        input_: aws_sdk_quicksight.types.create_iam_policy_assignment_request.CreateIAMPolicyAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["assignment_name"] = assignment_name
+        input_["assignment_status"] = assignment_status
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if identities is not None:
-            input["identities"] = identities
-        input["namespace"] = namespace
+            input_["identities"] = identities
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2305,15 +2307,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_ingestion_request.CreateIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
-        input["ingestion_id"] = ingestion_id
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.create_ingestion_request.CreateIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
+        input_["ingestion_id"] = ingestion_id
+        input_["aws_account_id"] = aws_account_id
         if ingestion_type is not None:
-            input["ingestion_type"] = ingestion_type
+            input_["ingestion_type"] = ingestion_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2353,15 +2355,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
-        input["identity_store"] = identity_store
+        input_: aws_sdk_quicksight.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
+        input_["identity_store"] = identity_store
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2424,31 +2426,31 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_o_auth_client_application_request.CreateOAuthClientApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["o_auth_client_application_id"] = o_auth_client_application_id
-        input["name"] = name
-        input["o_auth_client_authentication_type"] = o_auth_client_authentication_type
-        input["client_id"] = client_id
-        input["client_secret"] = client_secret
-        input["o_auth_token_endpoint_url"] = o_auth_token_endpoint_url
+        input_: aws_sdk_quicksight.types.create_o_auth_client_application_request.CreateOAuthClientApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["o_auth_client_application_id"] = o_auth_client_application_id
+        input_["name"] = name
+        input_["o_auth_client_authentication_type"] = o_auth_client_authentication_type
+        input_["client_id"] = client_id
+        input_["client_secret"] = client_secret
+        input_["o_auth_token_endpoint_url"] = o_auth_token_endpoint_url
         if o_auth_authorization_endpoint_url is not None:
-            input["o_auth_authorization_endpoint_url"] = (
+            input_["o_auth_authorization_endpoint_url"] = (
                 o_auth_authorization_endpoint_url
             )
         if o_auth_scopes is not None:
-            input["o_auth_scopes"] = o_auth_scopes
+            input_["o_auth_scopes"] = o_auth_scopes
         if data_source_type is not None:
-            input["data_source_type"] = data_source_type
+            input_["data_source_type"] = data_source_type
         if identity_provider_vpc_connection_properties is not None:
-            input["identity_provider_vpc_connection_properties"] = (
+            input_["identity_provider_vpc_connection_properties"] = (
                 identity_provider_vpc_connection_properties
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2486,13 +2488,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_refresh_schedule_request.CreateRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
-        input["aws_account_id"] = aws_account_id
-        input["schedule"] = schedule
+        input_: aws_sdk_quicksight.types.create_refresh_schedule_request.CreateRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
+        input_["aws_account_id"] = aws_account_id
+        input_["schedule"] = schedule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2532,14 +2534,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_role_membership_request.CreateRoleMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["member_name"] = member_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
-        input["role"] = role
+        input_: aws_sdk_quicksight.types.create_role_membership_request.CreateRoleMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["member_name"] = member_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
+        input_["role"] = role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2581,15 +2583,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_space_request.CreateSpaceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["space_id"] = space_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.create_space_request.CreateSpaceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["space_id"] = space_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2649,26 +2651,26 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_template_request.CreateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.create_template_request.CreateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if source_entity is not None:
-            input["source_entity"] = source_entity
+            input_["source_entity"] = source_entity
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if validation_strategy is not None:
-            input["validation_strategy"] = validation_strategy
+            input_["validation_strategy"] = validation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2708,14 +2710,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_template_alias_request.CreateTemplateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
-        input["alias_name"] = alias_name
-        input["template_version_number"] = template_version_number
+        input_: aws_sdk_quicksight.types.create_template_alias_request.CreateTemplateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
+        input_["alias_name"] = alias_name
+        input_["template_version_number"] = template_version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2767,21 +2769,21 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_theme_request.CreateThemeRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
-        input["name"] = name
-        input["base_theme_id"] = base_theme_id
+        input_: aws_sdk_quicksight.types.create_theme_request.CreateThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
+        input_["name"] = name
+        input_["base_theme_id"] = base_theme_id
         if version_description is not None:
-            input["version_description"] = version_description
-        input["configuration"] = configuration
+            input_["version_description"] = version_description
+        input_["configuration"] = configuration
         if permissions is not None:
-            input["permissions"] = permissions
+            input_["permissions"] = permissions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2823,14 +2825,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_theme_alias_request.CreateThemeAliasRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
-        input["alias_name"] = alias_name
-        input["theme_version_number"] = theme_version_number
+        input_: aws_sdk_quicksight.types.create_theme_alias_request.CreateThemeAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
+        input_["alias_name"] = alias_name
+        input_["theme_version_number"] = theme_version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2878,19 +2880,19 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_topic_request.CreateTopicRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
-        input["topic"] = topic
+        input_: aws_sdk_quicksight.types.create_topic_request.CreateTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
+        input_["topic"] = topic
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if folder_arns is not None:
-            input["folder_arns"] = folder_arns
+            input_["folder_arns"] = folder_arns
         if custom_instructions is not None:
-            input["custom_instructions"] = custom_instructions
+            input_["custom_instructions"] = custom_instructions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2932,16 +2934,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_topic_refresh_schedule_request.CreateTopicRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
-        input["dataset_arn"] = dataset_arn
+        input_: aws_sdk_quicksight.types.create_topic_refresh_schedule_request.CreateTopicRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
+        input_["dataset_arn"] = dataset_arn
         if dataset_name is not None:
-            input["dataset_name"] = dataset_name
-        input["refresh_schedule"] = refresh_schedule
+            input_["dataset_name"] = dataset_name
+        input_["refresh_schedule"] = refresh_schedule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2991,20 +2993,20 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.create_vpc_connection_request.CreateVPCConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["vpc_connection_id"] = vpc_connection_id
-        input["name"] = name
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
+        input_: aws_sdk_quicksight.types.create_vpc_connection_request.CreateVPCConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["vpc_connection_id"] = vpc_connection_id
+        input_["name"] = name
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
         if dns_resolvers is not None:
-            input["dns_resolvers"] = dns_resolvers
-        input["role_arn"] = role_arn
+            input_["dns_resolvers"] = dns_resolvers
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3040,13 +3042,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_account_customization_request.DeleteAccountCustomizationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.delete_account_customization_request.DeleteAccountCustomizationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3080,11 +3082,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_account_custom_permission_request.DeleteAccountCustomPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.delete_account_custom_permission_request.DeleteAccountCustomPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3118,11 +3120,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_account_subscription_request.DeleteAccountSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.delete_account_subscription_request.DeleteAccountSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3158,12 +3160,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_action_connector_request.DeleteActionConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["action_connector_id"] = action_connector_id
+        input_: aws_sdk_quicksight.types.delete_action_connector_request.DeleteActionConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["action_connector_id"] = action_connector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3199,12 +3201,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.delete_agent_request.DeleteAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3248,16 +3250,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_analysis_request.DeleteAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["analysis_id"] = analysis_id
+        input_: aws_sdk_quicksight.types.delete_analysis_request.DeleteAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["analysis_id"] = analysis_id
         if recovery_window_in_days is not None:
-            input["recovery_window_in_days"] = recovery_window_in_days
+            input_["recovery_window_in_days"] = recovery_window_in_days
         if force_delete_without_recovery is not None:
-            input["force_delete_without_recovery"] = force_delete_without_recovery
+            input_["force_delete_without_recovery"] = force_delete_without_recovery
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3293,12 +3295,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_brand_request.DeleteBrandRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["brand_id"] = brand_id
+        input_: aws_sdk_quicksight.types.delete_brand_request.DeleteBrandRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["brand_id"] = brand_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3332,11 +3334,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_brand_assignment_request.DeleteBrandAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.delete_brand_assignment_request.DeleteBrandAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3372,12 +3374,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_custom_permissions_request.DeleteCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["custom_permissions_name"] = custom_permissions_name
+        input_: aws_sdk_quicksight.types.delete_custom_permissions_request.DeleteCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["custom_permissions_name"] = custom_permissions_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3417,14 +3419,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_dashboard_request.DeleteDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_quicksight.types.delete_dashboard_request.DeleteDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3460,12 +3462,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_data_set_request.DeleteDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_quicksight.types.delete_data_set_request.DeleteDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3501,12 +3503,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_data_set_refresh_properties_request.DeleteDataSetRefreshPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_quicksight.types.delete_data_set_refresh_properties_request.DeleteDataSetRefreshPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3544,12 +3546,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_quicksight.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_source_id"] = data_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3585,13 +3587,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_default_q_business_application_request.DeleteDefaultQBusinessApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.delete_default_q_business_application_request.DeleteDefaultQBusinessApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3627,12 +3629,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_quicksight.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["flow_id"] = flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3668,12 +3670,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_folder_request.DeleteFolderRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
+        input_: aws_sdk_quicksight.types.delete_folder_request.DeleteFolderRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3713,14 +3715,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_folder_membership_request.DeleteFolderMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
-        input["member_id"] = member_id
-        input["member_type"] = member_type
+        input_: aws_sdk_quicksight.types.delete_folder_membership_request.DeleteFolderMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
+        input_["member_id"] = member_id
+        input_["member_type"] = member_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3758,13 +3760,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_name"] = group_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_name"] = group_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3804,14 +3806,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_group_membership_request.DeleteGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["member_name"] = member_name
-        input["group_name"] = group_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_group_membership_request.DeleteGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["member_name"] = member_name
+        input_["group_name"] = group_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3849,13 +3851,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_iam_policy_assignment_request.DeleteIAMPolicyAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["assignment_name"] = assignment_name
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_iam_policy_assignment_request.DeleteIAMPolicyAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["assignment_name"] = assignment_name
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3891,12 +3893,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_identity_propagation_config_request.DeleteIdentityPropagationConfigRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["service"] = service
+        input_: aws_sdk_quicksight.types.delete_identity_propagation_config_request.DeleteIdentityPropagationConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["service"] = service
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3932,12 +3934,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_quicksight.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3973,12 +3975,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4014,12 +4016,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_o_auth_client_application_request.DeleteOAuthClientApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["o_auth_client_application_id"] = o_auth_client_application_id
+        input_: aws_sdk_quicksight.types.delete_o_auth_client_application_request.DeleteOAuthClientApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["o_auth_client_application_id"] = o_auth_client_application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4057,13 +4059,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_refresh_schedule_request.DeleteRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
-        input["aws_account_id"] = aws_account_id
-        input["schedule_id"] = schedule_id
+        input_: aws_sdk_quicksight.types.delete_refresh_schedule_request.DeleteRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
+        input_["aws_account_id"] = aws_account_id
+        input_["schedule_id"] = schedule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4101,13 +4103,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_role_custom_permission_request.DeleteRoleCustomPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["role"] = role
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_role_custom_permission_request.DeleteRoleCustomPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["role"] = role
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4147,14 +4149,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_role_membership_request.DeleteRoleMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["member_name"] = member_name
-        input["role"] = role
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_role_membership_request.DeleteRoleMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["member_name"] = member_name
+        input_["role"] = role
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4190,12 +4192,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_space_request.DeleteSpaceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["space_id"] = space_id
+        input_: aws_sdk_quicksight.types.delete_space_request.DeleteSpaceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["space_id"] = space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4235,14 +4237,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_template_request.DeleteTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.delete_template_request.DeleteTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4280,13 +4282,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_template_alias_request.DeleteTemplateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
-        input["alias_name"] = alias_name
+        input_: aws_sdk_quicksight.types.delete_template_alias_request.DeleteTemplateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
+        input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4326,14 +4328,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_theme_request.DeleteThemeRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
+        input_: aws_sdk_quicksight.types.delete_theme_request.DeleteThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4373,13 +4375,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_theme_alias_request.DeleteThemeAliasRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
-        input["alias_name"] = alias_name
+        input_: aws_sdk_quicksight.types.delete_theme_alias_request.DeleteThemeAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
+        input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4415,12 +4417,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_topic_request.DeleteTopicRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
+        input_: aws_sdk_quicksight.types.delete_topic_request.DeleteTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4458,13 +4460,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_topic_refresh_schedule_request.DeleteTopicRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_quicksight.types.delete_topic_refresh_schedule_request.DeleteTopicRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
+        input_["dataset_id"] = dataset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4502,13 +4504,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4546,13 +4548,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_user_by_principal_id_request.DeleteUserByPrincipalIdRequest = {}  # type: ignore[typeddict-item]
-        input["principal_id"] = principal_id
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_user_by_principal_id_request.DeleteUserByPrincipalIdRequest = {}  # type: ignore[typeddict-item]
+        input_["principal_id"] = principal_id
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4590,13 +4592,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_user_custom_permission_request.DeleteUserCustomPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.delete_user_custom_permission_request.DeleteUserCustomPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4632,12 +4634,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.delete_vpc_connection_request.DeleteVPCConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["vpc_connection_id"] = vpc_connection_id
+        input_: aws_sdk_quicksight.types.delete_vpc_connection_request.DeleteVPCConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["vpc_connection_id"] = vpc_connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4675,15 +4677,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_account_customization_request.DescribeAccountCustomizationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_account_customization_request.DescribeAccountCustomizationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if resolved is not None:
-            input["resolved"] = resolved
+            input_["resolved"] = resolved
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4717,11 +4719,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_account_custom_permission_request.DescribeAccountCustomPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_account_custom_permission_request.DescribeAccountCustomPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4755,11 +4757,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_account_settings_request.DescribeAccountSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_account_settings_request.DescribeAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4793,11 +4795,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_account_subscription_request.DescribeAccountSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_account_subscription_request.DescribeAccountSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4833,12 +4835,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_action_connector_request.DescribeActionConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["action_connector_id"] = action_connector_id
+        input_: aws_sdk_quicksight.types.describe_action_connector_request.DescribeActionConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["action_connector_id"] = action_connector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4874,12 +4876,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_action_connector_permissions_request.DescribeActionConnectorPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["action_connector_id"] = action_connector_id
+        input_: aws_sdk_quicksight.types.describe_action_connector_permissions_request.DescribeActionConnectorPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["action_connector_id"] = action_connector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4915,12 +4917,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_agent_request.DescribeAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_agent_request.DescribeAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4956,12 +4958,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_agent_permissions_request.DescribeAgentPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_agent_permissions_request.DescribeAgentPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4997,12 +4999,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_analysis_request.DescribeAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["analysis_id"] = analysis_id
+        input_: aws_sdk_quicksight.types.describe_analysis_request.DescribeAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["analysis_id"] = analysis_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5038,12 +5040,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_analysis_definition_request.DescribeAnalysisDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["analysis_id"] = analysis_id
+        input_: aws_sdk_quicksight.types.describe_analysis_definition_request.DescribeAnalysisDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["analysis_id"] = analysis_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5079,12 +5081,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_analysis_permissions_request.DescribeAnalysisPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["analysis_id"] = analysis_id
+        input_: aws_sdk_quicksight.types.describe_analysis_permissions_request.DescribeAnalysisPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["analysis_id"] = analysis_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5120,12 +5122,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_asset_bundle_export_job_request.DescribeAssetBundleExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["asset_bundle_export_job_id"] = asset_bundle_export_job_id
+        input_: aws_sdk_quicksight.types.describe_asset_bundle_export_job_request.DescribeAssetBundleExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["asset_bundle_export_job_id"] = asset_bundle_export_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5161,12 +5163,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_asset_bundle_import_job_request.DescribeAssetBundleImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["asset_bundle_import_job_id"] = asset_bundle_import_job_id
+        input_: aws_sdk_quicksight.types.describe_asset_bundle_import_job_request.DescribeAssetBundleImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["asset_bundle_import_job_id"] = asset_bundle_import_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5214,18 +5216,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_automation_job_request.DescribeAutomationJobRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["automation_group_id"] = automation_group_id
-        input["automation_id"] = automation_id
+        input_: aws_sdk_quicksight.types.describe_automation_job_request.DescribeAutomationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["automation_group_id"] = automation_group_id
+        input_["automation_id"] = automation_id
         if include_input_payload is not None:
-            input["include_input_payload"] = include_input_payload
+            input_["include_input_payload"] = include_input_payload
         if include_output_payload is not None:
-            input["include_output_payload"] = include_output_payload
-        input["job_id"] = job_id
+            input_["include_output_payload"] = include_output_payload
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5265,14 +5267,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_brand_request.DescribeBrandRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["brand_id"] = brand_id
+        input_: aws_sdk_quicksight.types.describe_brand_request.DescribeBrandRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["brand_id"] = brand_id
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5306,11 +5308,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_brand_assignment_request.DescribeBrandAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_brand_assignment_request.DescribeBrandAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5346,12 +5348,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_brand_published_version_request.DescribeBrandPublishedVersionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["brand_id"] = brand_id
+        input_: aws_sdk_quicksight.types.describe_brand_published_version_request.DescribeBrandPublishedVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["brand_id"] = brand_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5387,12 +5389,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_custom_permissions_request.DescribeCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["custom_permissions_name"] = custom_permissions_name
+        input_: aws_sdk_quicksight.types.describe_custom_permissions_request.DescribeCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["custom_permissions_name"] = custom_permissions_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5436,16 +5438,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_dashboard_request.DescribeDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_quicksight.types.describe_dashboard_request.DescribeDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5487,16 +5489,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_dashboard_definition_request.DescribeDashboardDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_quicksight.types.describe_dashboard_definition_request.DescribeDashboardDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5532,12 +5534,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_dashboard_permissions_request.DescribeDashboardPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_quicksight.types.describe_dashboard_permissions_request.DescribeDashboardPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5575,13 +5577,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_dashboard_snapshot_job_request.DescribeDashboardSnapshotJobRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["snapshot_job_id"] = snapshot_job_id
+        input_: aws_sdk_quicksight.types.describe_dashboard_snapshot_job_request.DescribeDashboardSnapshotJobRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["snapshot_job_id"] = snapshot_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5619,13 +5621,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_dashboard_snapshot_job_result_request.DescribeDashboardSnapshotJobResultRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["snapshot_job_id"] = snapshot_job_id
+        input_: aws_sdk_quicksight.types.describe_dashboard_snapshot_job_result_request.DescribeDashboardSnapshotJobResultRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["snapshot_job_id"] = snapshot_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5659,11 +5661,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_dashboards_qa_configuration_request.DescribeDashboardsQAConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_dashboards_qa_configuration_request.DescribeDashboardsQAConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5699,12 +5701,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_data_set_request.DescribeDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_quicksight.types.describe_data_set_request.DescribeDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5740,12 +5742,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_data_set_permissions_request.DescribeDataSetPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_quicksight.types.describe_data_set_permissions_request.DescribeDataSetPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5781,12 +5783,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_data_set_refresh_properties_request.DescribeDataSetRefreshPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_quicksight.types.describe_data_set_refresh_properties_request.DescribeDataSetRefreshPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5822,12 +5824,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_data_source_request.DescribeDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_quicksight.types.describe_data_source_request.DescribeDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_source_id"] = data_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5863,12 +5865,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_data_source_permissions_request.DescribeDataSourcePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_quicksight.types.describe_data_source_permissions_request.DescribeDataSourcePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_source_id"] = data_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5904,13 +5906,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_default_q_business_application_request.DescribeDefaultQBusinessApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_default_q_business_application_request.DescribeDefaultQBusinessApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5948,13 +5950,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_flow_request.DescribeFlowRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["flow_id"] = flow_id
-        input["publish_state"] = publish_state
+        input_: aws_sdk_quicksight.types.describe_flow_request.DescribeFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["flow_id"] = flow_id
+        input_["publish_state"] = publish_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5990,12 +5992,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_folder_request.DescribeFolderRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
+        input_: aws_sdk_quicksight.types.describe_folder_request.DescribeFolderRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6037,18 +6039,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_folder_permissions_request.DescribeFolderPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
+        input_: aws_sdk_quicksight.types.describe_folder_permissions_request.DescribeFolderPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6119,18 +6121,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_folder_resolved_permissions_request.DescribeFolderResolvedPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
+        input_: aws_sdk_quicksight.types.describe_folder_resolved_permissions_request.DescribeFolderResolvedPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6197,13 +6199,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_name"] = group_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_name"] = group_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6243,14 +6245,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_group_membership_request.DescribeGroupMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["member_name"] = member_name
-        input["group_name"] = group_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.describe_group_membership_request.DescribeGroupMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["member_name"] = member_name
+        input_["group_name"] = group_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6288,13 +6290,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_iam_policy_assignment_request.DescribeIAMPolicyAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["assignment_name"] = assignment_name
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.describe_iam_policy_assignment_request.DescribeIAMPolicyAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["assignment_name"] = assignment_name
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6334,13 +6336,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_ingestion_request.DescribeIngestionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
-        input["ingestion_id"] = ingestion_id
+        input_: aws_sdk_quicksight.types.describe_ingestion_request.DescribeIngestionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
+        input_["ingestion_id"] = ingestion_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6374,11 +6376,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_ip_restriction_request.DescribeIpRestrictionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_ip_restriction_request.DescribeIpRestrictionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6414,13 +6416,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_key_registration_request.DescribeKeyRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_key_registration_request.DescribeKeyRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if default_key_only is not None:
-            input["default_key_only"] = default_key_only
+            input_["default_key_only"] = default_key_only
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6456,12 +6458,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_knowledge_base_request.DescribeKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_quicksight.types.describe_knowledge_base_request.DescribeKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6497,12 +6499,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_knowledge_base_permissions_request.DescribeKnowledgeBasePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_quicksight.types.describe_knowledge_base_permissions_request.DescribeKnowledgeBasePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6540,12 +6542,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_namespace_request.DescribeNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.describe_namespace_request.DescribeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6581,12 +6583,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_o_auth_client_application_request.DescribeOAuthClientApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["o_auth_client_application_id"] = o_auth_client_application_id
+        input_: aws_sdk_quicksight.types.describe_o_auth_client_application_request.DescribeOAuthClientApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["o_auth_client_application_id"] = o_auth_client_application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6620,11 +6622,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_q_personalization_configuration_request.DescribeQPersonalizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_q_personalization_configuration_request.DescribeQPersonalizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6658,11 +6660,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_quick_sight_q_search_configuration_request.DescribeQuickSightQSearchConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.describe_quick_sight_q_search_configuration_request.DescribeQuickSightQSearchConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6700,13 +6702,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_refresh_schedule_request.DescribeRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
-        input["schedule_id"] = schedule_id
+        input_: aws_sdk_quicksight.types.describe_refresh_schedule_request.DescribeRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
+        input_["schedule_id"] = schedule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6744,13 +6746,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_role_custom_permission_request.DescribeRoleCustomPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["role"] = role
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.describe_role_custom_permission_request.DescribeRoleCustomPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["role"] = role
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6786,12 +6788,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_self_upgrade_configuration_request.DescribeSelfUpgradeConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.describe_self_upgrade_configuration_request.DescribeSelfUpgradeConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6831,14 +6833,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_space_request.DescribeSpaceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["space_id"] = space_id
+        input_: aws_sdk_quicksight.types.describe_space_request.DescribeSpaceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["space_id"] = space_id
         if max_contributors is not None:
-            input["max_contributors"] = max_contributors
+            input_["max_contributors"] = max_contributors
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6874,12 +6876,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_space_permissions_request.DescribeSpacePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["space_id"] = space_id
+        input_: aws_sdk_quicksight.types.describe_space_permissions_request.DescribeSpacePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["space_id"] = space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6921,16 +6923,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_template_request.DescribeTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.describe_template_request.DescribeTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6968,13 +6970,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_template_alias_request.DescribeTemplateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
-        input["alias_name"] = alias_name
+        input_: aws_sdk_quicksight.types.describe_template_alias_request.DescribeTemplateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
+        input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7016,16 +7018,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_template_definition_request.DescribeTemplateDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.describe_template_definition_request.DescribeTemplateDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7061,12 +7063,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_template_permissions_request.DescribeTemplatePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.describe_template_permissions_request.DescribeTemplatePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7108,16 +7110,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_theme_request.DescribeThemeRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
+        input_: aws_sdk_quicksight.types.describe_theme_request.DescribeThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7155,13 +7157,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_theme_alias_request.DescribeThemeAliasRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
-        input["alias_name"] = alias_name
+        input_: aws_sdk_quicksight.types.describe_theme_alias_request.DescribeThemeAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
+        input_["alias_name"] = alias_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7197,12 +7199,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_theme_permissions_request.DescribeThemePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
+        input_: aws_sdk_quicksight.types.describe_theme_permissions_request.DescribeThemePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7238,12 +7240,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_topic_request.DescribeTopicRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
+        input_: aws_sdk_quicksight.types.describe_topic_request.DescribeTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7279,12 +7281,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_topic_permissions_request.DescribeTopicPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
+        input_: aws_sdk_quicksight.types.describe_topic_permissions_request.DescribeTopicPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7322,13 +7324,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_topic_refresh_request.DescribeTopicRefreshRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
-        input["refresh_id"] = refresh_id
+        input_: aws_sdk_quicksight.types.describe_topic_refresh_request.DescribeTopicRefreshRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
+        input_["refresh_id"] = refresh_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7366,13 +7368,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_topic_refresh_schedule_request.DescribeTopicRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_quicksight.types.describe_topic_refresh_schedule_request.DescribeTopicRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
+        input_["dataset_id"] = dataset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7410,13 +7412,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7452,12 +7454,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.describe_vpc_connection_request.DescribeVPCConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["vpc_connection_id"] = vpc_connection_id
+        input_: aws_sdk_quicksight.types.describe_vpc_connection_request.DescribeVPCConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["vpc_connection_id"] = vpc_connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7509,20 +7511,20 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.generate_embed_url_for_anonymous_user_request.GenerateEmbedUrlForAnonymousUserRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.generate_embed_url_for_anonymous_user_request.GenerateEmbedUrlForAnonymousUserRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if session_lifetime_in_minutes is not None:
-            input["session_lifetime_in_minutes"] = session_lifetime_in_minutes
-        input["namespace"] = namespace
+            input_["session_lifetime_in_minutes"] = session_lifetime_in_minutes
+        input_["namespace"] = namespace
         if session_tags is not None:
-            input["session_tags"] = session_tags
-        input["authorized_resource_arns"] = authorized_resource_arns
-        input["experience_configuration"] = experience_configuration
+            input_["session_tags"] = session_tags
+        input_["authorized_resource_arns"] = authorized_resource_arns
+        input_["experience_configuration"] = experience_configuration
         if allowed_domains is not None:
-            input["allowed_domains"] = allowed_domains
+            input_["allowed_domains"] = allowed_domains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7568,17 +7570,17 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.generate_embed_url_for_registered_user_request.GenerateEmbedUrlForRegisteredUserRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.generate_embed_url_for_registered_user_request.GenerateEmbedUrlForRegisteredUserRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if session_lifetime_in_minutes is not None:
-            input["session_lifetime_in_minutes"] = session_lifetime_in_minutes
-        input["user_arn"] = user_arn
-        input["experience_configuration"] = experience_configuration
+            input_["session_lifetime_in_minutes"] = session_lifetime_in_minutes
+        input_["user_arn"] = user_arn
+        input_["experience_configuration"] = experience_configuration
         if allowed_domains is not None:
-            input["allowed_domains"] = allowed_domains
+            input_["allowed_domains"] = allowed_domains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7621,16 +7623,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.generate_embed_url_for_registered_user_with_identity_request.GenerateEmbedUrlForRegisteredUserWithIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.generate_embed_url_for_registered_user_with_identity_request.GenerateEmbedUrlForRegisteredUserWithIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if session_lifetime_in_minutes is not None:
-            input["session_lifetime_in_minutes"] = session_lifetime_in_minutes
-        input["experience_configuration"] = experience_configuration
+            input_["session_lifetime_in_minutes"] = session_lifetime_in_minutes
+        input_["experience_configuration"] = experience_configuration
         if allowed_domains is not None:
-            input["allowed_domains"] = allowed_domains
+            input_["allowed_domains"] = allowed_domains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7688,27 +7690,27 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.get_dashboard_embed_url_request.GetDashboardEmbedUrlRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["identity_type"] = identity_type
+        input_: aws_sdk_quicksight.types.get_dashboard_embed_url_request.GetDashboardEmbedUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["identity_type"] = identity_type
         if session_lifetime_in_minutes is not None:
-            input["session_lifetime_in_minutes"] = session_lifetime_in_minutes
+            input_["session_lifetime_in_minutes"] = session_lifetime_in_minutes
         if undo_redo_disabled is not None:
-            input["undo_redo_disabled"] = undo_redo_disabled
+            input_["undo_redo_disabled"] = undo_redo_disabled
         if reset_disabled is not None:
-            input["reset_disabled"] = reset_disabled
+            input_["reset_disabled"] = reset_disabled
         if state_persistence_enabled is not None:
-            input["state_persistence_enabled"] = state_persistence_enabled
+            input_["state_persistence_enabled"] = state_persistence_enabled
         if user_arn is not None:
-            input["user_arn"] = user_arn
+            input_["user_arn"] = user_arn
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if additional_dashboard_ids is not None:
-            input["additional_dashboard_ids"] = additional_dashboard_ids
+            input_["additional_dashboard_ids"] = additional_dashboard_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7744,12 +7746,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.get_flow_metadata_input.GetFlowMetadataInput = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_quicksight.types.get_flow_metadata_input.GetFlowMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["flow_id"] = flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7787,12 +7789,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.get_flow_permissions_input.GetFlowPermissionsInput = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_quicksight.types.get_flow_permissions_input.GetFlowPermissionsInput = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["flow_id"] = flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7834,18 +7836,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.get_identity_context_request.GetIdentityContextRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["user_identifier"] = user_identifier
+        input_: aws_sdk_quicksight.types.get_identity_context_request.GetIdentityContextRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["user_identifier"] = user_identifier
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if session_expires_at is not None:
-            input["session_expires_at"] = session_expires_at
+            input_["session_expires_at"] = session_expires_at
         if context_region is not None:
-            input["context_region"] = context_region
+            input_["context_region"] = context_region
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7887,17 +7889,17 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.get_session_embed_url_request.GetSessionEmbedUrlRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.get_session_embed_url_request.GetSessionEmbedUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if entry_point is not None:
-            input["entry_point"] = entry_point
+            input_["entry_point"] = entry_point
         if session_lifetime_in_minutes is not None:
-            input["session_lifetime_in_minutes"] = session_lifetime_in_minutes
+            input_["session_lifetime_in_minutes"] = session_lifetime_in_minutes
         if user_arn is not None:
-            input["user_arn"] = user_arn
+            input_["user_arn"] = user_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7935,15 +7937,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_action_connectors_request.ListActionConnectorsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_action_connectors_request.ListActionConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8006,15 +8008,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_agents_request.ListAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8052,15 +8054,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_analyses_request.ListAnalysesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_analyses_request.ListAnalysesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8121,15 +8123,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_asset_bundle_export_jobs_request.ListAssetBundleExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_asset_bundle_export_jobs_request.ListAssetBundleExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8190,15 +8192,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_asset_bundle_import_jobs_request.ListAssetBundleImportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_asset_bundle_import_jobs_request.ListAssetBundleImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8259,15 +8261,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_brands_request.ListBrandsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_brands_request.ListBrandsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8328,15 +8330,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_custom_permissions_request.ListCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_custom_permissions_request.ListCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8397,15 +8399,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_dashboards_request.ListDashboardsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_dashboards_request.ListDashboardsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8468,16 +8470,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_dashboard_versions_request.ListDashboardVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_quicksight.types.list_dashboard_versions_request.ListDashboardVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8540,15 +8542,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_data_sets_request.ListDataSetsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_data_sets_request.ListDataSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8609,15 +8611,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8680,15 +8682,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_flows_input.ListFlowsInput = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_flows_input.ListFlowsInput = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8753,16 +8755,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_folder_members_request.ListFolderMembersRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
+        input_: aws_sdk_quicksight.types.list_folder_members_request.ListFolderMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8825,15 +8827,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_folders_request.ListFoldersRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_folders_request.ListFoldersRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8896,16 +8898,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_folders_for_resource_request.ListFoldersForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_quicksight.types.list_folders_for_resource_request.ListFoldersForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8972,17 +8974,17 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_group_memberships_request.ListGroupMembershipsRequest = {}  # type: ignore[typeddict-item]
-        input["group_name"] = group_name
+        input_: aws_sdk_quicksight.types.list_group_memberships_request.ListGroupMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_["group_name"] = group_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+            input_["max_results"] = max_results
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9049,16 +9051,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["namespace"] = namespace
+            input_["max_results"] = max_results
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9127,18 +9129,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_iam_policy_assignments_request.ListIAMPolicyAssignmentsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_iam_policy_assignments_request.ListIAMPolicyAssignmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if assignment_status is not None:
-            input["assignment_status"] = assignment_status
-        input["namespace"] = namespace
+            input_["assignment_status"] = assignment_status
+        input_["namespace"] = namespace
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9209,17 +9211,17 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_iam_policy_assignments_for_user_request.ListIAMPolicyAssignmentsForUserRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["user_name"] = user_name
+        input_: aws_sdk_quicksight.types.list_iam_policy_assignments_for_user_request.ListIAMPolicyAssignmentsForUserRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["user_name"] = user_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["namespace"] = namespace
+            input_["max_results"] = max_results
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9286,15 +9288,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_identity_propagation_configs_request.ListIdentityPropagationConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_identity_propagation_configs_request.ListIdentityPropagationConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9336,16 +9338,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_ingestions_request.ListIngestionsRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_quicksight.types.list_ingestions_request.ListIngestionsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
         if next_token is not None:
-            input["next_token"] = next_token
-        input["aws_account_id"] = aws_account_id
+            input_["next_token"] = next_token
+        input_["aws_account_id"] = aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9410,15 +9412,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9479,15 +9481,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9548,15 +9550,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_o_auth_client_applications_request.ListOAuthClientApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_o_auth_client_applications_request.ListOAuthClientApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9615,12 +9617,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_refresh_schedules_request.ListRefreshSchedulesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_quicksight.types.list_refresh_schedules_request.ListRefreshSchedulesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9662,17 +9664,17 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_role_memberships_request.ListRoleMembershipsRequest = {}  # type: ignore[typeddict-item]
-        input["role"] = role
+        input_: aws_sdk_quicksight.types.list_role_memberships_request.ListRoleMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_["role"] = role
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+            input_["max_results"] = max_results
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9741,16 +9743,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_self_upgrades_request.ListSelfUpgradesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.list_self_upgrades_request.ListSelfUpgradesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9786,12 +9788,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_space_resources_request.ListSpaceResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["space_id"] = space_id
+        input_: aws_sdk_quicksight.types.list_space_resources_request.ListSpaceResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["space_id"] = space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9831,15 +9833,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_spaces_request.ListSpacesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_spaces_request.ListSpacesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9873,11 +9875,11 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_quicksight.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9917,16 +9919,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_template_aliases_request.ListTemplateAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.list_template_aliases_request.ListTemplateAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9989,15 +9991,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10060,16 +10062,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_template_versions_request.ListTemplateVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.list_template_versions_request.ListTemplateVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10136,16 +10138,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_theme_aliases_request.ListThemeAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
+        input_: aws_sdk_quicksight.types.list_theme_aliases_request.ListThemeAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10185,17 +10187,17 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_themes_request.ListThemesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_themes_request.ListThemesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10260,16 +10262,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_theme_versions_request.ListThemeVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
+        input_: aws_sdk_quicksight.types.list_theme_versions_request.ListThemeVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10330,12 +10332,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_topic_refresh_schedules_request.ListTopicRefreshSchedulesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
+        input_: aws_sdk_quicksight.types.list_topic_refresh_schedules_request.ListTopicRefreshSchedulesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10371,12 +10373,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_topic_reviewed_answers_request.ListTopicReviewedAnswersRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
+        input_: aws_sdk_quicksight.types.list_topic_reviewed_answers_request.ListTopicReviewedAnswersRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10414,15 +10416,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_topics_request.ListTopicsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_topics_request.ListTopicsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10464,17 +10466,17 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_user_groups_request.ListUserGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.list_user_groups_request.ListUserGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10541,16 +10543,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["namespace"] = namespace
+            input_["max_results"] = max_results
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10629,23 +10631,23 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_users_index_capacity_request.ListUsersIndexCapacityRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_users_index_capacity_request.ListUsersIndexCapacityRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10683,15 +10685,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.list_vpc_connections_request.ListVPCConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.list_vpc_connections_request.ListVPCConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10741,18 +10743,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.predict_qa_results_request.PredictQAResultsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["query_text"] = query_text
+        input_: aws_sdk_quicksight.types.predict_qa_results_request.PredictQAResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["query_text"] = query_text
         if include_quick_sight_q_index is not None:
-            input["include_quick_sight_q_index"] = include_quick_sight_q_index
+            input_["include_quick_sight_q_index"] = include_quick_sight_q_index
         if include_generated_answer is not None:
-            input["include_generated_answer"] = include_generated_answer
+            input_["include_generated_answer"] = include_generated_answer
         if max_topics_to_consider is not None:
-            input["max_topics_to_consider"] = max_topics_to_consider
+            input_["max_topics_to_consider"] = max_topics_to_consider
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10790,13 +10792,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.put_data_set_refresh_properties_request.PutDataSetRefreshPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
-        input["data_set_refresh_properties"] = data_set_refresh_properties
+        input_: aws_sdk_quicksight.types.put_data_set_refresh_properties_request.PutDataSetRefreshPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
+        input_["data_set_refresh_properties"] = data_set_refresh_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10862,33 +10864,33 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.register_user_request.RegisterUserRequest = {}  # type: ignore[typeddict-item]
-        input["identity_type"] = identity_type
-        input["email"] = email
-        input["user_role"] = user_role
+        input_: aws_sdk_quicksight.types.register_user_request.RegisterUserRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_type"] = identity_type
+        input_["email"] = email
+        input_["user_role"] = user_role
         if iam_arn is not None:
-            input["iam_arn"] = iam_arn
+            input_["iam_arn"] = iam_arn
         if session_name is not None:
-            input["session_name"] = session_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+            input_["session_name"] = session_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
         if custom_permissions_name is not None:
-            input["custom_permissions_name"] = custom_permissions_name
+            input_["custom_permissions_name"] = custom_permissions_name
         if external_login_federation_provider_type is not None:
-            input["external_login_federation_provider_type"] = (
+            input_["external_login_federation_provider_type"] = (
                 external_login_federation_provider_type
             )
         if custom_federation_provider_url is not None:
-            input["custom_federation_provider_url"] = custom_federation_provider_url
+            input_["custom_federation_provider_url"] = custom_federation_provider_url
         if external_login_id is not None:
-            input["external_login_id"] = external_login_id
+            input_["external_login_id"] = external_login_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10926,14 +10928,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.restore_analysis_request.RestoreAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["analysis_id"] = analysis_id
+        input_: aws_sdk_quicksight.types.restore_analysis_request.RestoreAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["analysis_id"] = analysis_id
         if restore_to_folders is not None:
-            input["restore_to_folders"] = restore_to_folders
+            input_["restore_to_folders"] = restore_to_folders
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10975,16 +10977,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_action_connectors_request.SearchActionConnectorsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.search_action_connectors_request.SearchActionConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["filters"] = filters
+            input_["next_token"] = next_token
+        input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11053,16 +11055,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_agents_request.SearchAgentsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["filters"] = filters
+        input_: aws_sdk_quicksight.types.search_agents_request.SearchAgentsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11102,16 +11104,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_analyses_request.SearchAnalysesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["filters"] = filters
+        input_: aws_sdk_quicksight.types.search_analyses_request.SearchAnalysesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11176,16 +11178,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_dashboards_request.SearchDashboardsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["filters"] = filters
+        input_: aws_sdk_quicksight.types.search_dashboards_request.SearchDashboardsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11250,16 +11252,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_data_sets_request.SearchDataSetsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["filters"] = filters
+        input_: aws_sdk_quicksight.types.search_data_sets_request.SearchDataSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11324,16 +11326,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_data_sources_request.SearchDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["filters"] = filters
+        input_: aws_sdk_quicksight.types.search_data_sources_request.SearchDataSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11402,16 +11404,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_flows_input.SearchFlowsInput = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["filters"] = filters
+        input_: aws_sdk_quicksight.types.search_flows_input.SearchFlowsInput = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11478,16 +11480,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_folders_request.SearchFoldersRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["filters"] = filters
+        input_: aws_sdk_quicksight.types.search_folders_request.SearchFoldersRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11554,17 +11556,17 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_groups_request.SearchGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.search_groups_request.SearchGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["namespace"] = namespace
-        input["filters"] = filters
+            input_["max_results"] = max_results
+        input_["namespace"] = namespace
+        input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11637,19 +11639,19 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_knowledge_bases_request.SearchKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.search_knowledge_bases_request.SearchKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11722,16 +11724,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_spaces_request.SearchSpacesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.search_spaces_request.SearchSpacesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["filters"] = filters
+            input_["max_results"] = max_results
+        input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11771,16 +11773,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.search_topics_request.SearchTopicsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["filters"] = filters
+        input_: aws_sdk_quicksight.types.search_topics_request.SearchTopicsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11871,30 +11873,30 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.start_asset_bundle_export_job_request.StartAssetBundleExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["asset_bundle_export_job_id"] = asset_bundle_export_job_id
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_quicksight.types.start_asset_bundle_export_job_request.StartAssetBundleExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["asset_bundle_export_job_id"] = asset_bundle_export_job_id
+        input_["resource_arns"] = resource_arns
         if include_all_dependencies is not None:
-            input["include_all_dependencies"] = include_all_dependencies
-        input["export_format"] = export_format
+            input_["include_all_dependencies"] = include_all_dependencies
+        input_["export_format"] = export_format
         if cloud_formation_override_property_configuration is not None:
-            input["cloud_formation_override_property_configuration"] = (
+            input_["cloud_formation_override_property_configuration"] = (
                 cloud_formation_override_property_configuration
             )
         if include_permissions is not None:
-            input["include_permissions"] = include_permissions
+            input_["include_permissions"] = include_permissions
         if include_tags is not None:
-            input["include_tags"] = include_tags
+            input_["include_tags"] = include_tags
         if validation_strategy is not None:
-            input["validation_strategy"] = validation_strategy
+            input_["validation_strategy"] = validation_strategy
         if include_folder_memberships is not None:
-            input["include_folder_memberships"] = include_folder_memberships
+            input_["include_folder_memberships"] = include_folder_memberships
         if include_folder_members is not None:
-            input["include_folder_members"] = include_folder_members
+            input_["include_folder_members"] = include_folder_members
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11952,23 +11954,23 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.start_asset_bundle_import_job_request.StartAssetBundleImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["asset_bundle_import_job_id"] = asset_bundle_import_job_id
-        input["asset_bundle_import_source"] = asset_bundle_import_source
+        input_: aws_sdk_quicksight.types.start_asset_bundle_import_job_request.StartAssetBundleImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["asset_bundle_import_job_id"] = asset_bundle_import_job_id
+        input_["asset_bundle_import_source"] = asset_bundle_import_source
         if override_parameters is not None:
-            input["override_parameters"] = override_parameters
+            input_["override_parameters"] = override_parameters
         if failure_action is not None:
-            input["failure_action"] = failure_action
+            input_["failure_action"] = failure_action
         if override_permissions is not None:
-            input["override_permissions"] = override_permissions
+            input_["override_permissions"] = override_permissions
         if override_tags is not None:
-            input["override_tags"] = override_tags
+            input_["override_tags"] = override_tags
         if override_validation_strategy is not None:
-            input["override_validation_strategy"] = override_validation_strategy
+            input_["override_validation_strategy"] = override_validation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12010,15 +12012,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.start_automation_job_request.StartAutomationJobRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["automation_group_id"] = automation_group_id
-        input["automation_id"] = automation_id
+        input_: aws_sdk_quicksight.types.start_automation_job_request.StartAutomationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["automation_group_id"] = automation_group_id
+        input_["automation_id"] = automation_id
         if input_payload is not None:
-            input["input_payload"] = input_payload
+            input_["input_payload"] = input_payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12062,16 +12064,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.start_dashboard_snapshot_job_request.StartDashboardSnapshotJobRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["snapshot_job_id"] = snapshot_job_id
+        input_: aws_sdk_quicksight.types.start_dashboard_snapshot_job_request.StartDashboardSnapshotJobRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["snapshot_job_id"] = snapshot_job_id
         if user_configuration is not None:
-            input["user_configuration"] = user_configuration
-        input["snapshot_configuration"] = snapshot_configuration
+            input_["user_configuration"] = user_configuration
+        input_["snapshot_configuration"] = snapshot_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12109,13 +12111,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.start_dashboard_snapshot_job_schedule_request.StartDashboardSnapshotJobScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["schedule_id"] = schedule_id
+        input_: aws_sdk_quicksight.types.start_dashboard_snapshot_job_schedule_request.StartDashboardSnapshotJobScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["schedule_id"] = schedule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12151,12 +12153,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_quicksight.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12192,12 +12194,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_quicksight.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12235,14 +12237,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_account_customization_request.UpdateAccountCustomizationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.update_account_customization_request.UpdateAccountCustomizationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if namespace is not None:
-            input["namespace"] = namespace
-        input["account_customization"] = account_customization
+            input_["namespace"] = namespace
+        input_["account_customization"] = account_customization
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12278,12 +12280,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_account_custom_permission_request.UpdateAccountCustomPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["custom_permissions_name"] = custom_permissions_name
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.update_account_custom_permission_request.UpdateAccountCustomPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_permissions_name"] = custom_permissions_name
+        input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12325,16 +12327,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["default_namespace"] = default_namespace
+        input_: aws_sdk_quicksight.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["default_namespace"] = default_namespace
         if notification_email is not None:
-            input["notification_email"] = notification_email
+            input_["notification_email"] = notification_email
         if termination_protection_enabled is not None:
-            input["termination_protection_enabled"] = termination_protection_enabled
+            input_["termination_protection_enabled"] = termination_protection_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12380,18 +12382,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_action_connector_request.UpdateActionConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["action_connector_id"] = action_connector_id
-        input["name"] = name
-        input["authentication_config"] = authentication_config
+        input_: aws_sdk_quicksight.types.update_action_connector_request.UpdateActionConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["action_connector_id"] = action_connector_id
+        input_["name"] = name
+        input_["authentication_config"] = authentication_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if vpc_connection_arn is not None:
-            input["vpc_connection_arn"] = vpc_connection_arn
+            input_["vpc_connection_arn"] = vpc_connection_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12435,16 +12437,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_action_connector_permissions_request.UpdateActionConnectorPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["action_connector_id"] = action_connector_id
+        input_: aws_sdk_quicksight.types.update_action_connector_permissions_request.UpdateActionConnectorPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["action_connector_id"] = action_connector_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12516,31 +12518,31 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["aws_account_id"] = aws_account_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.update_agent_request.UpdateAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["aws_account_id"] = aws_account_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if icon_id is not None:
-            input["icon_id"] = icon_id
+            input_["icon_id"] = icon_id
         if starter_prompts is not None:
-            input["starter_prompts"] = starter_prompts
+            input_["starter_prompts"] = starter_prompts
         if welcome_message is not None:
-            input["welcome_message"] = welcome_message
+            input_["welcome_message"] = welcome_message
         if custom_prompt_input is not None:
-            input["custom_prompt_input"] = custom_prompt_input
+            input_["custom_prompt_input"] = custom_prompt_input
         if spaces_to_add is not None:
-            input["spaces_to_add"] = spaces_to_add
+            input_["spaces_to_add"] = spaces_to_add
         if spaces_to_remove is not None:
-            input["spaces_to_remove"] = spaces_to_remove
+            input_["spaces_to_remove"] = spaces_to_remove
         if action_connectors_to_add is not None:
-            input["action_connectors_to_add"] = action_connectors_to_add
+            input_["action_connectors_to_add"] = action_connectors_to_add
         if action_connectors_to_remove is not None:
-            input["action_connectors_to_remove"] = action_connectors_to_remove
+            input_["action_connectors_to_remove"] = action_connectors_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12584,16 +12586,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_agent_permissions_request.UpdateAgentPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.update_agent_permissions_request.UpdateAgentPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["aws_account_id"] = aws_account_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12647,23 +12649,23 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_analysis_request.UpdateAnalysisRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["analysis_id"] = analysis_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.update_analysis_request.UpdateAnalysisRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["analysis_id"] = analysis_id
+        input_["name"] = name
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if source_entity is not None:
-            input["source_entity"] = source_entity
+            input_["source_entity"] = source_entity
         if theme_arn is not None:
-            input["theme_arn"] = theme_arn
+            input_["theme_arn"] = theme_arn
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if validation_strategy is not None:
-            input["validation_strategy"] = validation_strategy
+            input_["validation_strategy"] = validation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12707,16 +12709,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_analysis_permissions_request.UpdateAnalysisPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["analysis_id"] = analysis_id
+        input_: aws_sdk_quicksight.types.update_analysis_permissions_request.UpdateAnalysisPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["analysis_id"] = analysis_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12752,12 +12754,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_application_with_token_exchange_grant_request.UpdateApplicationWithTokenExchangeGrantRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.update_application_with_token_exchange_grant_request.UpdateApplicationWithTokenExchangeGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12797,14 +12799,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_brand_request.UpdateBrandRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["brand_id"] = brand_id
+        input_: aws_sdk_quicksight.types.update_brand_request.UpdateBrandRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["brand_id"] = brand_id
         if brand_definition is not None:
-            input["brand_definition"] = brand_definition
+            input_["brand_definition"] = brand_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12840,12 +12842,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_brand_assignment_request.UpdateBrandAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["brand_arn"] = brand_arn
+        input_: aws_sdk_quicksight.types.update_brand_assignment_request.UpdateBrandAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["brand_arn"] = brand_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12883,13 +12885,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_brand_published_version_request.UpdateBrandPublishedVersionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["brand_id"] = brand_id
-        input["version_id"] = version_id
+        input_: aws_sdk_quicksight.types.update_brand_published_version_request.UpdateBrandPublishedVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["brand_id"] = brand_id
+        input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12929,14 +12931,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_custom_permissions_request.UpdateCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["custom_permissions_name"] = custom_permissions_name
+        input_: aws_sdk_quicksight.types.update_custom_permissions_request.UpdateCustomPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["custom_permissions_name"] = custom_permissions_name
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12998,27 +13000,27 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_dashboard_request.UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.update_dashboard_request.UpdateDashboardRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["name"] = name
         if source_entity is not None:
-            input["source_entity"] = source_entity
+            input_["source_entity"] = source_entity
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if dashboard_publish_options is not None:
-            input["dashboard_publish_options"] = dashboard_publish_options
+            input_["dashboard_publish_options"] = dashboard_publish_options
         if theme_arn is not None:
-            input["theme_arn"] = theme_arn
+            input_["theme_arn"] = theme_arn
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if validation_strategy is not None:
-            input["validation_strategy"] = validation_strategy
+            input_["validation_strategy"] = validation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13056,13 +13058,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_dashboard_links_request.UpdateDashboardLinksRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["link_entities"] = link_entities
+        input_: aws_sdk_quicksight.types.update_dashboard_links_request.UpdateDashboardLinksRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["link_entities"] = link_entities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13114,20 +13116,20 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_dashboard_permissions_request.UpdateDashboardPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
+        input_: aws_sdk_quicksight.types.update_dashboard_permissions_request.UpdateDashboardPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
         if grant_link_permissions is not None:
-            input["grant_link_permissions"] = grant_link_permissions
+            input_["grant_link_permissions"] = grant_link_permissions
         if revoke_link_permissions is not None:
-            input["revoke_link_permissions"] = revoke_link_permissions
+            input_["revoke_link_permissions"] = revoke_link_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13165,13 +13167,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_dashboard_published_version_request.UpdateDashboardPublishedVersionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboard_id"] = dashboard_id
-        input["version_number"] = version_number
+        input_: aws_sdk_quicksight.types.update_dashboard_published_version_request.UpdateDashboardPublishedVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboard_id"] = dashboard_id
+        input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13207,12 +13209,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_dashboards_qa_configuration_request.UpdateDashboardsQAConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["dashboards_qa_status"] = dashboards_qa_status
+        input_: aws_sdk_quicksight.types.update_dashboards_qa_configuration_request.UpdateDashboardsQAConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["dashboards_qa_status"] = dashboards_qa_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13297,39 +13299,39 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_data_set_request.UpdateDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
-        input["name"] = name
-        input["physical_table_map"] = physical_table_map
+        input_: aws_sdk_quicksight.types.update_data_set_request.UpdateDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
+        input_["name"] = name
+        input_["physical_table_map"] = physical_table_map
         if logical_table_map is not None:
-            input["logical_table_map"] = logical_table_map
-        input["import_mode"] = import_mode
+            input_["logical_table_map"] = logical_table_map
+        input_["import_mode"] = import_mode
         if column_groups is not None:
-            input["column_groups"] = column_groups
+            input_["column_groups"] = column_groups
         if field_folders is not None:
-            input["field_folders"] = field_folders
+            input_["field_folders"] = field_folders
         if row_level_permission_data_set is not None:
-            input["row_level_permission_data_set"] = row_level_permission_data_set
+            input_["row_level_permission_data_set"] = row_level_permission_data_set
         if row_level_permission_tag_configuration is not None:
-            input["row_level_permission_tag_configuration"] = (
+            input_["row_level_permission_tag_configuration"] = (
                 row_level_permission_tag_configuration
             )
         if column_level_permission_rules is not None:
-            input["column_level_permission_rules"] = column_level_permission_rules
+            input_["column_level_permission_rules"] = column_level_permission_rules
         if data_set_usage_configuration is not None:
-            input["data_set_usage_configuration"] = data_set_usage_configuration
+            input_["data_set_usage_configuration"] = data_set_usage_configuration
         if dataset_parameters is not None:
-            input["dataset_parameters"] = dataset_parameters
+            input_["dataset_parameters"] = dataset_parameters
         if performance_configuration is not None:
-            input["performance_configuration"] = performance_configuration
+            input_["performance_configuration"] = performance_configuration
         if data_prep_configuration is not None:
-            input["data_prep_configuration"] = data_prep_configuration
+            input_["data_prep_configuration"] = data_prep_configuration
         if semantic_model_configuration is not None:
-            input["semantic_model_configuration"] = semantic_model_configuration
+            input_["semantic_model_configuration"] = semantic_model_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13373,16 +13375,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_data_set_permissions_request.UpdateDataSetPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_quicksight.types.update_data_set_permissions_request.UpdateDataSetPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_set_id"] = data_set_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13438,21 +13440,21 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_source_id"] = data_source_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_source_id"] = data_source_id
+        input_["name"] = name
         if data_source_parameters is not None:
-            input["data_source_parameters"] = data_source_parameters
+            input_["data_source_parameters"] = data_source_parameters
         if credentials is not None:
-            input["credentials"] = credentials
+            input_["credentials"] = credentials
         if vpc_connection_properties is not None:
-            input["vpc_connection_properties"] = vpc_connection_properties
+            input_["vpc_connection_properties"] = vpc_connection_properties
         if ssl_properties is not None:
-            input["ssl_properties"] = ssl_properties
+            input_["ssl_properties"] = ssl_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13496,16 +13498,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_data_source_permissions_request.UpdateDataSourcePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_quicksight.types.update_data_source_permissions_request.UpdateDataSourcePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["data_source_id"] = data_source_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13543,14 +13545,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_default_q_business_application_request.UpdateDefaultQBusinessApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.update_default_q_business_application_request.UpdateDefaultQBusinessApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if namespace is not None:
-            input["namespace"] = namespace
-        input["application_id"] = application_id
+            input_["namespace"] = namespace
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13600,20 +13602,20 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_quicksight.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["flow_id"] = flow_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if flow_definition is not None:
-            input["flow_definition"] = flow_definition
+            input_["flow_definition"] = flow_definition
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13657,16 +13659,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_flow_permissions_input.UpdateFlowPermissionsInput = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_quicksight.types.update_flow_permissions_input.UpdateFlowPermissionsInput = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["flow_id"] = flow_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13704,13 +13706,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_folder_request.UpdateFolderRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.update_folder_request.UpdateFolderRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13754,16 +13756,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_folder_permissions_request.UpdateFolderPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["folder_id"] = folder_id
+        input_: aws_sdk_quicksight.types.update_folder_permissions_request.UpdateFolderPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["folder_id"] = folder_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13805,15 +13807,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_name"] = group_name
+        input_: aws_sdk_quicksight.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_name"] = group_name
         if description is not None:
-            input["description"] = description
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+            input_["description"] = description
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13861,19 +13863,19 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_iam_policy_assignment_request.UpdateIAMPolicyAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["assignment_name"] = assignment_name
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.update_iam_policy_assignment_request.UpdateIAMPolicyAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["assignment_name"] = assignment_name
+        input_["namespace"] = namespace
         if assignment_status is not None:
-            input["assignment_status"] = assignment_status
+            input_["assignment_status"] = assignment_status
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if identities is not None:
-            input["identities"] = identities
+            input_["identities"] = identities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13913,14 +13915,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_identity_propagation_config_request.UpdateIdentityPropagationConfigRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["service"] = service
+        input_: aws_sdk_quicksight.types.update_identity_propagation_config_request.UpdateIdentityPropagationConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["service"] = service
         if authorized_targets is not None:
-            input["authorized_targets"] = authorized_targets
+            input_["authorized_targets"] = authorized_targets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13970,21 +13972,21 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_ip_restriction_request.UpdateIpRestrictionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.update_ip_restriction_request.UpdateIpRestrictionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if ip_restriction_rule_map is not None:
-            input["ip_restriction_rule_map"] = ip_restriction_rule_map
+            input_["ip_restriction_rule_map"] = ip_restriction_rule_map
         if vpc_id_restriction_rule_map is not None:
-            input["vpc_id_restriction_rule_map"] = vpc_id_restriction_rule_map
+            input_["vpc_id_restriction_rule_map"] = vpc_id_restriction_rule_map
         if vpc_endpoint_id_restriction_rule_map is not None:
-            input["vpc_endpoint_id_restriction_rule_map"] = (
+            input_["vpc_endpoint_id_restriction_rule_map"] = (
                 vpc_endpoint_id_restriction_rule_map
             )
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14020,12 +14022,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_key_registration_request.UpdateKeyRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["key_registration"] = key_registration
+        input_: aws_sdk_quicksight.types.update_key_registration_request.UpdateKeyRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["key_registration"] = key_registration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14069,16 +14071,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_knowledge_base_permissions_request.UpdateKnowledgeBasePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_quicksight.types.update_knowledge_base_permissions_request.UpdateKnowledgeBasePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["knowledge_base_id"] = knowledge_base_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14143,31 +14145,31 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_o_auth_client_application_request.UpdateOAuthClientApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["o_auth_client_application_id"] = o_auth_client_application_id
-        input["name"] = name
+        input_: aws_sdk_quicksight.types.update_o_auth_client_application_request.UpdateOAuthClientApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["o_auth_client_application_id"] = o_auth_client_application_id
+        input_["name"] = name
         if client_id is not None:
-            input["client_id"] = client_id
+            input_["client_id"] = client_id
         if client_secret is not None:
-            input["client_secret"] = client_secret
+            input_["client_secret"] = client_secret
         if o_auth_token_endpoint_url is not None:
-            input["o_auth_token_endpoint_url"] = o_auth_token_endpoint_url
+            input_["o_auth_token_endpoint_url"] = o_auth_token_endpoint_url
         if o_auth_authorization_endpoint_url is not None:
-            input["o_auth_authorization_endpoint_url"] = (
+            input_["o_auth_authorization_endpoint_url"] = (
                 o_auth_authorization_endpoint_url
             )
         if o_auth_scopes is not None:
-            input["o_auth_scopes"] = o_auth_scopes
+            input_["o_auth_scopes"] = o_auth_scopes
         if data_source_type is not None:
-            input["data_source_type"] = data_source_type
+            input_["data_source_type"] = data_source_type
         if identity_provider_vpc_connection_properties is not None:
-            input["identity_provider_vpc_connection_properties"] = (
+            input_["identity_provider_vpc_connection_properties"] = (
                 identity_provider_vpc_connection_properties
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14205,13 +14207,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_public_sharing_settings_request.UpdatePublicSharingSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
+        input_: aws_sdk_quicksight.types.update_public_sharing_settings_request.UpdatePublicSharingSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
         if public_sharing_enabled is not None:
-            input["public_sharing_enabled"] = public_sharing_enabled
+            input_["public_sharing_enabled"] = public_sharing_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14247,12 +14249,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_q_personalization_configuration_request.UpdateQPersonalizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["personalization_mode"] = personalization_mode
+        input_: aws_sdk_quicksight.types.update_q_personalization_configuration_request.UpdateQPersonalizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["personalization_mode"] = personalization_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14288,12 +14290,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_quick_sight_q_search_configuration_request.UpdateQuickSightQSearchConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["q_search_status"] = q_search_status
+        input_: aws_sdk_quicksight.types.update_quick_sight_q_search_configuration_request.UpdateQuickSightQSearchConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["q_search_status"] = q_search_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14331,13 +14333,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_refresh_schedule_request.UpdateRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["data_set_id"] = data_set_id
-        input["aws_account_id"] = aws_account_id
-        input["schedule"] = schedule
+        input_: aws_sdk_quicksight.types.update_refresh_schedule_request.UpdateRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["data_set_id"] = data_set_id
+        input_["aws_account_id"] = aws_account_id
+        input_["schedule"] = schedule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14377,14 +14379,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_role_custom_permission_request.UpdateRoleCustomPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["custom_permissions_name"] = custom_permissions_name
-        input["role"] = role
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
+        input_: aws_sdk_quicksight.types.update_role_custom_permission_request.UpdateRoleCustomPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_permissions_name"] = custom_permissions_name
+        input_["role"] = role
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14424,14 +14426,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_self_upgrade_request.UpdateSelfUpgradeRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
-        input["upgrade_request_id"] = upgrade_request_id
-        input["action"] = action
+        input_: aws_sdk_quicksight.types.update_self_upgrade_request.UpdateSelfUpgradeRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
+        input_["upgrade_request_id"] = upgrade_request_id
+        input_["action"] = action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14469,13 +14471,13 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_self_upgrade_configuration_request.UpdateSelfUpgradeConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
-        input["self_upgrade_status"] = self_upgrade_status
+        input_: aws_sdk_quicksight.types.update_self_upgrade_configuration_request.UpdateSelfUpgradeConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
+        input_["self_upgrade_status"] = self_upgrade_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14517,16 +14519,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_space_request.UpdateSpaceRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["space_id"] = space_id
+        input_: aws_sdk_quicksight.types.update_space_request.UpdateSpaceRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["space_id"] = space_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14570,16 +14572,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_space_permissions_request.UpdateSpacePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["space_id"] = space_id
+        input_: aws_sdk_quicksight.types.update_space_permissions_request.UpdateSpacePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["space_id"] = space_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14623,16 +14625,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_space_resources_request.UpdateSpaceResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["space_id"] = space_id
+        input_: aws_sdk_quicksight.types.update_space_resources_request.UpdateSpaceResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["space_id"] = space_id
         if add_resources is not None:
-            input["add_resources"] = add_resources
+            input_["add_resources"] = add_resources
         if remove_resources is not None:
-            input["remove_resources"] = remove_resources
+            input_["remove_resources"] = remove_resources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14668,12 +14670,12 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_spice_capacity_configuration_request.UpdateSPICECapacityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["purchase_mode"] = purchase_mode
+        input_: aws_sdk_quicksight.types.update_spice_capacity_configuration_request.UpdateSPICECapacityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["purchase_mode"] = purchase_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14727,22 +14729,22 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_template_request.UpdateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.update_template_request.UpdateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
         if source_entity is not None:
-            input["source_entity"] = source_entity
+            input_["source_entity"] = source_entity
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if validation_strategy is not None:
-            input["validation_strategy"] = validation_strategy
+            input_["validation_strategy"] = validation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14782,14 +14784,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_template_alias_request.UpdateTemplateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
-        input["alias_name"] = alias_name
-        input["template_version_number"] = template_version_number
+        input_: aws_sdk_quicksight.types.update_template_alias_request.UpdateTemplateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
+        input_["alias_name"] = alias_name
+        input_["template_version_number"] = template_version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14833,16 +14835,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_template_permissions_request.UpdateTemplatePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["template_id"] = template_id
+        input_: aws_sdk_quicksight.types.update_template_permissions_request.UpdateTemplatePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["template_id"] = template_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14890,19 +14892,19 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_theme_request.UpdateThemeRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
+        input_: aws_sdk_quicksight.types.update_theme_request.UpdateThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
         if name is not None:
-            input["name"] = name
-        input["base_theme_id"] = base_theme_id
+            input_["name"] = name
+        input_["base_theme_id"] = base_theme_id
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14944,14 +14946,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_theme_alias_request.UpdateThemeAliasRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
-        input["alias_name"] = alias_name
-        input["theme_version_number"] = theme_version_number
+        input_: aws_sdk_quicksight.types.update_theme_alias_request.UpdateThemeAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
+        input_["alias_name"] = alias_name
+        input_["theme_version_number"] = theme_version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14995,16 +14997,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_theme_permissions_request.UpdateThemePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["theme_id"] = theme_id
+        input_: aws_sdk_quicksight.types.update_theme_permissions_request.UpdateThemePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["theme_id"] = theme_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15046,15 +15048,15 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_topic_request.UpdateTopicRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
-        input["topic"] = topic
+        input_: aws_sdk_quicksight.types.update_topic_request.UpdateTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
+        input_["topic"] = topic
         if custom_instructions is not None:
-            input["custom_instructions"] = custom_instructions
+            input_["custom_instructions"] = custom_instructions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15098,16 +15100,16 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_topic_permissions_request.UpdateTopicPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
+        input_: aws_sdk_quicksight.types.update_topic_permissions_request.UpdateTopicPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15147,14 +15149,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_topic_refresh_schedule_request.UpdateTopicRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["topic_id"] = topic_id
-        input["dataset_id"] = dataset_id
-        input["refresh_schedule"] = refresh_schedule
+        input_: aws_sdk_quicksight.types.update_topic_refresh_schedule_request.UpdateTopicRefreshScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["topic_id"] = topic_id
+        input_["dataset_id"] = dataset_id
+        input_["refresh_schedule"] = refresh_schedule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15214,27 +15216,27 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
-        input["email"] = email
-        input["role"] = role
+        input_: aws_sdk_quicksight.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
+        input_["email"] = email
+        input_["role"] = role
         if custom_permissions_name is not None:
-            input["custom_permissions_name"] = custom_permissions_name
+            input_["custom_permissions_name"] = custom_permissions_name
         if unapply_custom_permissions is not None:
-            input["unapply_custom_permissions"] = unapply_custom_permissions
+            input_["unapply_custom_permissions"] = unapply_custom_permissions
         if external_login_federation_provider_type is not None:
-            input["external_login_federation_provider_type"] = (
+            input_["external_login_federation_provider_type"] = (
                 external_login_federation_provider_type
             )
         if custom_federation_provider_url is not None:
-            input["custom_federation_provider_url"] = custom_federation_provider_url
+            input_["custom_federation_provider_url"] = custom_federation_provider_url
         if external_login_id is not None:
-            input["external_login_id"] = external_login_id
+            input_["external_login_id"] = external_login_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15274,14 +15276,14 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_user_custom_permission_request.UpdateUserCustomPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["aws_account_id"] = aws_account_id
-        input["namespace"] = namespace
-        input["custom_permissions_name"] = custom_permissions_name
+        input_: aws_sdk_quicksight.types.update_user_custom_permission_request.UpdateUserCustomPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["aws_account_id"] = aws_account_id
+        input_["namespace"] = namespace
+        input_["custom_permissions_name"] = custom_permissions_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15329,18 +15331,18 @@ class AsyncQuickSightClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_quicksight.types.update_vpc_connection_request.UpdateVPCConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["aws_account_id"] = aws_account_id
-        input["vpc_connection_id"] = vpc_connection_id
-        input["name"] = name
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
+        input_: aws_sdk_quicksight.types.update_vpc_connection_request.UpdateVPCConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["aws_account_id"] = aws_account_id
+        input_["vpc_connection_id"] = vpc_connection_id
+        input_["name"] = name
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
         if dns_resolvers is not None:
-            input["dns_resolvers"] = dns_resolvers
-        input["role_arn"] = role_arn
+            input_["dns_resolvers"] = dns_resolvers
+        input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

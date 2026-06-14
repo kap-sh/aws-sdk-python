@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_comprehendmedical._auth._signers
+import aws_sdk_comprehendmedical._auth._sigv4
 from aws_sdk_comprehendmedical._auth._identity import Credentials
 from aws_sdk_comprehendmedical._auth._providers import (
     CredentialsProvider,
@@ -219,11 +221,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.describe_entities_detection_v2_job_request.DescribeEntitiesDetectionV2JobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.describe_entities_detection_v2_job_request.DescribeEntitiesDetectionV2JobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -257,11 +259,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.describe_icd10_cm_inference_job_request.DescribeICD10CMInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.describe_icd10_cm_inference_job_request.DescribeICD10CMInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,11 +297,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.describe_phi_detection_job_request.DescribePHIDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.describe_phi_detection_job_request.DescribePHIDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,11 +335,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.describe_rx_norm_inference_job_request.DescribeRxNormInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.describe_rx_norm_inference_job_request.DescribeRxNormInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,11 +373,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.describe_snomedct_inference_job_request.DescribeSNOMEDCTInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.describe_snomedct_inference_job_request.DescribeSNOMEDCTInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -409,11 +411,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.detect_entities_request.DetectEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
+        input_: aws_sdk_comprehendmedical.types.detect_entities_request.DetectEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,11 +449,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.detect_entities_v2_request.DetectEntitiesV2Request = {}  # type: ignore[typeddict-item]
-        input["text"] = text
+        input_: aws_sdk_comprehendmedical.types.detect_entities_v2_request.DetectEntitiesV2Request = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,11 +487,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.detect_phi_request.DetectPHIRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
+        input_: aws_sdk_comprehendmedical.types.detect_phi_request.DetectPHIRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,11 +525,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.infer_icd10_cm_request.InferICD10CMRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
+        input_: aws_sdk_comprehendmedical.types.infer_icd10_cm_request.InferICD10CMRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,11 +563,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.infer_rx_norm_request.InferRxNormRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
+        input_: aws_sdk_comprehendmedical.types.infer_rx_norm_request.InferRxNormRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -601,11 +603,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.infer_snomedct_request.InferSNOMEDCTRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
+        input_: aws_sdk_comprehendmedical.types.infer_snomedct_request.InferSNOMEDCTRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -647,16 +649,16 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.list_entities_detection_v2_jobs_request.ListEntitiesDetectionV2JobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehendmedical.types.list_entities_detection_v2_jobs_request.ListEntitiesDetectionV2JobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,16 +700,16 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.list_icd10_cm_inference_jobs_request.ListICD10CMInferenceJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehendmedical.types.list_icd10_cm_inference_jobs_request.ListICD10CMInferenceJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -749,16 +751,16 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.list_phi_detection_jobs_request.ListPHIDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehendmedical.types.list_phi_detection_jobs_request.ListPHIDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -800,16 +802,16 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.list_rx_norm_inference_jobs_request.ListRxNormInferenceJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehendmedical.types.list_rx_norm_inference_jobs_request.ListRxNormInferenceJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -850,16 +852,16 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.list_snomedct_inference_jobs_request.ListSNOMEDCTInferenceJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehendmedical.types.list_snomedct_inference_jobs_request.ListSNOMEDCTInferenceJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -907,20 +909,20 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.start_entities_detection_v2_job_request.StartEntitiesDetectionV2JobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehendmedical.types.start_entities_detection_v2_job_request.StartEntitiesDetectionV2JobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if kms_key is not None:
-            input["kms_key"] = kms_key
-        input["language_code"] = language_code
+            input_["kms_key"] = kms_key
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -968,20 +970,20 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.start_icd10_cm_inference_job_request.StartICD10CMInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehendmedical.types.start_icd10_cm_inference_job_request.StartICD10CMInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if kms_key is not None:
-            input["kms_key"] = kms_key
-        input["language_code"] = language_code
+            input_["kms_key"] = kms_key
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,20 +1031,20 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.start_phi_detection_job_request.StartPHIDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehendmedical.types.start_phi_detection_job_request.StartPHIDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if kms_key is not None:
-            input["kms_key"] = kms_key
-        input["language_code"] = language_code
+            input_["kms_key"] = kms_key
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1090,20 +1092,20 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.start_rx_norm_inference_job_request.StartRxNormInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehendmedical.types.start_rx_norm_inference_job_request.StartRxNormInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if kms_key is not None:
-            input["kms_key"] = kms_key
-        input["language_code"] = language_code
+            input_["kms_key"] = kms_key
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1149,20 +1151,20 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.start_snomedct_inference_job_request.StartSNOMEDCTInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehendmedical.types.start_snomedct_inference_job_request.StartSNOMEDCTInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if kms_key is not None:
-            input["kms_key"] = kms_key
-        input["language_code"] = language_code
+            input_["kms_key"] = kms_key
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1196,11 +1198,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.stop_entities_detection_v2_job_request.StopEntitiesDetectionV2JobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.stop_entities_detection_v2_job_request.StopEntitiesDetectionV2JobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1234,11 +1236,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.stop_icd10_cm_inference_job_request.StopICD10CMInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.stop_icd10_cm_inference_job_request.StopICD10CMInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,11 +1274,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.stop_phi_detection_job_request.StopPHIDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.stop_phi_detection_job_request.StopPHIDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1310,11 +1312,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.stop_rx_norm_inference_job_request.StopRxNormInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.stop_rx_norm_inference_job_request.StopRxNormInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1348,11 +1350,11 @@ class AsyncComprehendMedicalClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehendmedical.types.stop_snomedct_inference_job_request.StopSNOMEDCTInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehendmedical.types.stop_snomedct_inference_job_request.StopSNOMEDCTInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

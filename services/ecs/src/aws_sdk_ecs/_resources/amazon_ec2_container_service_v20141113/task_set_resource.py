@@ -76,14 +76,14 @@ class TaskSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_task_set_request.UpdateTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["service"] = service
-        input["task_set"] = task_set
-        input["scale"] = scale
+        input_: aws_sdk_ecs.types.update_task_set_request.UpdateTaskSetRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["service"] = service
+        input_["task_set"] = task_set
+        input_["scale"] = scale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -128,15 +128,15 @@ class TaskSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_task_set_request.DeleteTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["service"] = service
-        input["task_set"] = task_set
+        input_: aws_sdk_ecs.types.delete_task_set_request.DeleteTaskSetRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["service"] = service
+        input_["task_set"] = task_set
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -207,33 +207,33 @@ class TaskSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_task_set_request.CreateTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input["service"] = service
-        input["cluster"] = cluster
+        input_: aws_sdk_ecs.types.create_task_set_request.CreateTaskSetRequest = {}  # type: ignore[typeddict-item]
+        input_["service"] = service
+        input_["cluster"] = cluster
         if external_id is not None:
-            input["external_id"] = external_id
-        input["task_definition"] = task_definition
+            input_["external_id"] = external_id
+        input_["task_definition"] = task_definition
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if load_balancers is not None:
-            input["load_balancers"] = load_balancers
+            input_["load_balancers"] = load_balancers
         if service_registries is not None:
-            input["service_registries"] = service_registries
+            input_["service_registries"] = service_registries
         if launch_type is not None:
-            input["launch_type"] = launch_type
+            input_["launch_type"] = launch_type
         if capacity_provider_strategy is not None:
-            input["capacity_provider_strategy"] = capacity_provider_strategy
+            input_["capacity_provider_strategy"] = capacity_provider_strategy
         if platform_version is not None:
-            input["platform_version"] = platform_version
+            input_["platform_version"] = platform_version
         if scale is not None:
-            input["scale"] = scale
+            input_["scale"] = scale
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,16 +280,16 @@ class TaskSetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_task_sets_request.DescribeTaskSetsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["service"] = service
+        input_: aws_sdk_ecs.types.describe_task_sets_request.DescribeTaskSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["service"] = service
         if task_sets is not None:
-            input["task_sets"] = task_sets
+            input_["task_sets"] = task_sets
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,14 +340,14 @@ class AsyncTaskSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_task_set_request.UpdateTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["service"] = service
-        input["task_set"] = task_set
-        input["scale"] = scale
+        input_: aws_sdk_ecs.types.update_task_set_request.UpdateTaskSetRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["service"] = service
+        input_["task_set"] = task_set
+        input_["scale"] = scale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,15 +393,15 @@ class AsyncTaskSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_task_set_request.DeleteTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["service"] = service
-        input["task_set"] = task_set
+        input_: aws_sdk_ecs.types.delete_task_set_request.DeleteTaskSetRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["service"] = service
+        input_["task_set"] = task_set
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,33 +473,33 @@ class AsyncTaskSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_task_set_request.CreateTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input["service"] = service
-        input["cluster"] = cluster
+        input_: aws_sdk_ecs.types.create_task_set_request.CreateTaskSetRequest = {}  # type: ignore[typeddict-item]
+        input_["service"] = service
+        input_["cluster"] = cluster
         if external_id is not None:
-            input["external_id"] = external_id
-        input["task_definition"] = task_definition
+            input_["external_id"] = external_id
+        input_["task_definition"] = task_definition
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if load_balancers is not None:
-            input["load_balancers"] = load_balancers
+            input_["load_balancers"] = load_balancers
         if service_registries is not None:
-            input["service_registries"] = service_registries
+            input_["service_registries"] = service_registries
         if launch_type is not None:
-            input["launch_type"] = launch_type
+            input_["launch_type"] = launch_type
         if capacity_provider_strategy is not None:
-            input["capacity_provider_strategy"] = capacity_provider_strategy
+            input_["capacity_provider_strategy"] = capacity_provider_strategy
         if platform_version is not None:
-            input["platform_version"] = platform_version
+            input_["platform_version"] = platform_version
         if scale is not None:
-            input["scale"] = scale
+            input_["scale"] = scale
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -547,16 +547,16 @@ class AsyncTaskSetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_task_sets_request.DescribeTaskSetsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["service"] = service
+        input_: aws_sdk_ecs.types.describe_task_sets_request.DescribeTaskSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["service"] = service
         if task_sets is not None:
-            input["task_sets"] = task_sets
+            input_["task_sets"] = task_sets
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

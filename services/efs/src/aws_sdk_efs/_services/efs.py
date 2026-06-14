@@ -247,18 +247,18 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.create_access_point_request.CreateAccessPointRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
+        input_: aws_sdk_efs.types.create_access_point_request.CreateAccessPointRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
-        input["file_system_id"] = file_system_id
+            input_["tags"] = tags
+        input_["file_system_id"] = file_system_id
         if posix_user is not None:
-            input["posix_user"] = posix_user
+            input_["posix_user"] = posix_user
         if root_directory is not None:
-            input["root_directory"] = root_directory
+            input_["root_directory"] = root_directory
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,27 +315,27 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.create_file_system_request.CreateFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input["creation_token"] = creation_token
+        input_: aws_sdk_efs.types.create_file_system_request.CreateFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["creation_token"] = creation_token
         if performance_mode is not None:
-            input["performance_mode"] = performance_mode
+            input_["performance_mode"] = performance_mode
         if encrypted is not None:
-            input["encrypted"] = encrypted
+            input_["encrypted"] = encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if throughput_mode is not None:
-            input["throughput_mode"] = throughput_mode
+            input_["throughput_mode"] = throughput_mode
         if provisioned_throughput_in_mibps is not None:
-            input["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
+            input_["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
         if availability_zone_name is not None:
-            input["availability_zone_name"] = availability_zone_name
+            input_["availability_zone_name"] = availability_zone_name
         if backup is not None:
-            input["backup"] = backup
+            input_["backup"] = backup
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,20 +388,20 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.create_mount_target_request.CreateMountTargetRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
-        input["subnet_id"] = subnet_id
+        input_: aws_sdk_efs.types.create_mount_target_request.CreateMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
+        input_["subnet_id"] = subnet_id
         if ip_address is not None:
-            input["ip_address"] = ip_address
+            input_["ip_address"] = ip_address
         if ipv6_address is not None:
-            input["ipv6_address"] = ipv6_address
+            input_["ipv6_address"] = ipv6_address
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,12 +436,12 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.create_replication_configuration_request.CreateReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_file_system_id"] = source_file_system_id
-        input["destinations"] = destinations
+        input_: aws_sdk_efs.types.create_replication_configuration_request.CreateReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_file_system_id"] = source_file_system_id
+        input_["destinations"] = destinations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,12 +480,12 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
-        input["tags"] = tags
+        input_: aws_sdk_efs.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,11 +516,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.delete_access_point_request.DeleteAccessPointRequest = {}  # type: ignore[typeddict-item]
-        input["access_point_id"] = access_point_id
+        input_: aws_sdk_efs.types.delete_access_point_request.DeleteAccessPointRequest = {}  # type: ignore[typeddict-item]
+        input_["access_point_id"] = access_point_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,11 +557,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.delete_file_system_request.DeleteFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_efs.types.delete_file_system_request.DeleteFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,11 +592,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.delete_file_system_policy_request.DeleteFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_efs.types.delete_file_system_policy_request.DeleteFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -633,11 +633,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.delete_mount_target_request.DeleteMountTargetRequest = {}  # type: ignore[typeddict-item]
-        input["mount_target_id"] = mount_target_id
+        input_: aws_sdk_efs.types.delete_mount_target_request.DeleteMountTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["mount_target_id"] = mount_target_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -670,13 +670,13 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.delete_replication_configuration_request.DeleteReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_file_system_id"] = source_file_system_id
+        input_: aws_sdk_efs.types.delete_replication_configuration_request.DeleteReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_file_system_id"] = source_file_system_id
         if deletion_mode is not None:
-            input["deletion_mode"] = deletion_mode
+            input_["deletion_mode"] = deletion_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,12 +715,12 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_efs.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -765,18 +765,18 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_access_points_request.DescribeAccessPointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_efs.types.describe_access_points_request.DescribeAccessPointsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if access_point_id is not None:
-            input["access_point_id"] = access_point_id
+            input_["access_point_id"] = access_point_id
         if file_system_id is not None:
-            input["file_system_id"] = file_system_id
+            input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,14 +840,14 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_account_preferences_request.DescribeAccountPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_efs.types.describe_account_preferences_request.DescribeAccountPreferencesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -880,11 +880,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_backup_policy_request.DescribeBackupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_efs.types.describe_backup_policy_request.DescribeBackupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -917,11 +917,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_file_system_policy_request.DescribeFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_efs.types.describe_file_system_policy_request.DescribeFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -964,18 +964,18 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_file_systems_request.DescribeFileSystemsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_efs.types.describe_file_systems_request.DescribeFileSystemsRequest = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if creation_token is not None:
-            input["creation_token"] = creation_token
+            input_["creation_token"] = creation_token
         if file_system_id is not None:
-            input["file_system_id"] = file_system_id
+            input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1043,11 +1043,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_lifecycle_configuration_request.DescribeLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_efs.types.describe_lifecycle_configuration_request.DescribeLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1102,20 +1102,20 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_mount_targets_request.DescribeMountTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_efs.types.describe_mount_targets_request.DescribeMountTargetsRequest = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if file_system_id is not None:
-            input["file_system_id"] = file_system_id
+            input_["file_system_id"] = file_system_id
         if mount_target_id is not None:
-            input["mount_target_id"] = mount_target_id
+            input_["mount_target_id"] = mount_target_id
         if access_point_id is not None:
-            input["access_point_id"] = access_point_id
+            input_["access_point_id"] = access_point_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1187,11 +1187,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_mount_target_security_groups_request.DescribeMountTargetSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["mount_target_id"] = mount_target_id
+        input_: aws_sdk_efs.types.describe_mount_target_security_groups_request.DescribeMountTargetSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["mount_target_id"] = mount_target_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1230,16 +1230,16 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_replication_configurations_request.DescribeReplicationConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_efs.types.describe_replication_configurations_request.DescribeReplicationConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if file_system_id is not None:
-            input["file_system_id"] = file_system_id
+            input_["file_system_id"] = file_system_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1307,15 +1307,15 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_efs.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if marker is not None:
-            input["marker"] = marker
-        input["file_system_id"] = file_system_id
+            input_["marker"] = marker
+        input_["file_system_id"] = file_system_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1377,15 +1377,15 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_efs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1426,13 +1426,13 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.modify_mount_target_security_groups_request.ModifyMountTargetSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["mount_target_id"] = mount_target_id
+        input_: aws_sdk_efs.types.modify_mount_target_security_groups_request.ModifyMountTargetSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["mount_target_id"] = mount_target_id
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1465,11 +1465,11 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.put_account_preferences_request.PutAccountPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id_type"] = resource_id_type
+        input_: aws_sdk_efs.types.put_account_preferences_request.PutAccountPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id_type"] = resource_id_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1504,12 +1504,12 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.put_backup_policy_request.PutBackupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
-        input["backup_policy"] = backup_policy
+        input_: aws_sdk_efs.types.put_backup_policy_request.PutBackupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
+        input_["backup_policy"] = backup_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1548,16 +1548,16 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.put_file_system_policy_request.PutFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
-        input["policy"] = policy
+        input_: aws_sdk_efs.types.put_file_system_policy_request.PutFileSystemPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
+        input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
-            input["bypass_policy_lockout_safety_check"] = (
+            input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1598,12 +1598,12 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.put_lifecycle_configuration_request.PutLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
-        input["lifecycle_policies"] = lifecycle_policies
+        input_: aws_sdk_efs.types.put_lifecycle_configuration_request.PutLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
+        input_["lifecycle_policies"] = lifecycle_policies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1636,12 +1636,12 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tags"] = tags
+        input_: aws_sdk_efs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1674,12 +1674,12 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_efs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1720,15 +1720,15 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.update_file_system_request.UpdateFileSystemRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_efs.types.update_file_system_request.UpdateFileSystemRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if throughput_mode is not None:
-            input["throughput_mode"] = throughput_mode
+            input_["throughput_mode"] = throughput_mode
         if provisioned_throughput_in_mibps is not None:
-            input["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
+            input_["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1765,13 +1765,15 @@ class EFSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_efs.types.update_file_system_protection_request.UpdateFileSystemProtectionRequest = {}  # type: ignore[typeddict-item]
-        input["file_system_id"] = file_system_id
+        input_: aws_sdk_efs.types.update_file_system_protection_request.UpdateFileSystemProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_["file_system_id"] = file_system_id
         if replication_overwrite_protection is not None:
-            input["replication_overwrite_protection"] = replication_overwrite_protection
+            input_["replication_overwrite_protection"] = (
+                replication_overwrite_protection
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

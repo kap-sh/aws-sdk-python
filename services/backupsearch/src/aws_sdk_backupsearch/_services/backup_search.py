@@ -16,6 +16,12 @@ from aws_sdk_backupsearch._auth._providers import (
 )
 from aws_sdk_backupsearch._auth._zapros_handler import AuthMiddleware
 from aws_sdk_backupsearch._pagination import resolve_path as _resolve_path
+from aws_sdk_backupsearch._resources.cryo_backup_search_service.search_job import (
+    SearchJob,
+)
+from aws_sdk_backupsearch._resources.cryo_backup_search_service.search_result_export_job import (
+    SearchResultExportJob,
+)
 from aws_sdk_backupsearch._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -108,6 +114,9 @@ class BackupSearchClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.search_job = SearchJob(self)
+        self.search_result_export_job = SearchResultExportJob(self)
 
     def operation_options(
         self, config_overrides: Optional[BackupSearchClientConfig] = None

@@ -57,13 +57,13 @@ class ServiceSyncBlockerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_sync_blocker_summary_input.GetServiceSyncBlockerSummaryInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.get_service_sync_blocker_summary_input.GetServiceSyncBlockerSummaryInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
         if service_instance_name is not None:
-            input["service_instance_name"] = service_instance_name
+            input_["service_instance_name"] = service_instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -98,12 +98,12 @@ class ServiceSyncBlockerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_sync_blocker_input.UpdateServiceSyncBlockerInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["resolved_reason"] = resolved_reason
+        input_: aws_sdk_proton.types.update_service_sync_blocker_input.UpdateServiceSyncBlockerInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["resolved_reason"] = resolved_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -146,13 +146,13 @@ class AsyncServiceSyncBlockerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_sync_blocker_summary_input.GetServiceSyncBlockerSummaryInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.get_service_sync_blocker_summary_input.GetServiceSyncBlockerSummaryInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
         if service_instance_name is not None:
-            input["service_instance_name"] = service_instance_name
+            input_["service_instance_name"] = service_instance_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,12 +188,12 @@ class AsyncServiceSyncBlockerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_sync_blocker_input.UpdateServiceSyncBlockerInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["resolved_reason"] = resolved_reason
+        input_: aws_sdk_proton.types.update_service_sync_blocker_input.UpdateServiceSyncBlockerInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["resolved_reason"] = resolved_reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

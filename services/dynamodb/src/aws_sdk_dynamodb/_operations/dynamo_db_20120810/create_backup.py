@@ -105,7 +105,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.create_backup_input.CreateBackupInput,
+    input_: aws_sdk_dynamodb.types.create_backup_input.CreateBackupInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -115,7 +115,7 @@ def build_request(
             Endpoint=options.endpoint,
             AccountId=options.account_id,
             AccountIdEndpointMode=options.account_id_endpoint_mode,
-            ResourceArn=input.get("table_name"),
+            ResourceArn=input_.get("table_name"),
             ResourceArnList=options.resource_arn_list,
         )
     )  # noqa: F841
@@ -126,7 +126,7 @@ def build_request(
     import aws_sdk_dynamodb.types.create_backup_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_dynamodb.types.create_backup_input.serialize_aws_json_1_0(input)
+        aws_sdk_dynamodb.types.create_backup_input.serialize_aws_json_1_0(input_)
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -139,11 +139,11 @@ def build_request(
 
 def create_backup(
     options: OperationOptions,
-    input: aws_sdk_dynamodb.types.create_backup_input.CreateBackupInput,
+    input_: aws_sdk_dynamodb.types.create_backup_input.CreateBackupInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.create_backup_output.CreateBackupOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -157,11 +157,11 @@ def create_backup(
 
 async def async_create_backup(
     options: AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.create_backup_input.CreateBackupInput,
+    input_: aws_sdk_dynamodb.types.create_backup_input.CreateBackupInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.create_backup_output.CreateBackupOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

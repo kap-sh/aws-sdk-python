@@ -435,11 +435,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
-        input["create_application_request"] = create_application_request
+        input_: aws_sdk_pinpoint.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
+        input_["create_application_request"] = create_application_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,12 +474,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["write_campaign_request"] = write_campaign_request
+        input_: aws_sdk_pinpoint.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["write_campaign_request"] = write_campaign_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,12 +514,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_email_template_request.CreateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["email_template_request"] = email_template_request
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.create_email_template_request.CreateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["email_template_request"] = email_template_request
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,12 +554,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_export_job_request.CreateExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["export_job_request"] = export_job_request
+        input_: aws_sdk_pinpoint.types.create_export_job_request.CreateExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["export_job_request"] = export_job_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -594,12 +594,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_import_job_request.CreateImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["import_job_request"] = import_job_request
+        input_: aws_sdk_pinpoint.types.create_import_job_request.CreateImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["import_job_request"] = import_job_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -634,12 +634,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_in_app_template_request.CreateInAppTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["in_app_template_request"] = in_app_template_request
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.create_in_app_template_request.CreateInAppTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["in_app_template_request"] = in_app_template_request
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,12 +674,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_journey_request.CreateJourneyRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["write_journey_request"] = write_journey_request
+        input_: aws_sdk_pinpoint.types.create_journey_request.CreateJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["write_journey_request"] = write_journey_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -714,12 +714,14 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_push_template_request.CreatePushTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["push_notification_template_request"] = push_notification_template_request
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.create_push_template_request.CreatePushTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["push_notification_template_request"] = (
+            push_notification_template_request
+        )
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -749,11 +751,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_recommender_configuration_request.CreateRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["create_recommender_configuration"] = create_recommender_configuration
+        input_: aws_sdk_pinpoint.types.create_recommender_configuration_request.CreateRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["create_recommender_configuration"] = create_recommender_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,12 +790,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_segment_request.CreateSegmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["write_segment_request"] = write_segment_request
+        input_: aws_sdk_pinpoint.types.create_segment_request.CreateSegmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["write_segment_request"] = write_segment_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,12 +832,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_sms_template_request.CreateSmsTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["sms_template_request"] = sms_template_request
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.create_sms_template_request.CreateSmsTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["sms_template_request"] = sms_template_request
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -870,12 +872,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.create_voice_template_request.CreateVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["voice_template_request"] = voice_template_request
+        input_: aws_sdk_pinpoint.types.create_voice_template_request.CreateVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["voice_template_request"] = voice_template_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -909,11 +911,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_adm_channel_request.DeleteAdmChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_adm_channel_request.DeleteAdmChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -949,11 +951,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_apns_channel_request.DeleteApnsChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_apns_channel_request.DeleteApnsChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,11 +989,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_apns_sandbox_channel_request.DeleteApnsSandboxChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_apns_sandbox_channel_request.DeleteApnsSandboxChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1025,11 +1027,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_apns_voip_channel_request.DeleteApnsVoipChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_apns_voip_channel_request.DeleteApnsVoipChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1063,11 +1065,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_apns_voip_sandbox_channel_request.DeleteApnsVoipSandboxChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_apns_voip_sandbox_channel_request.DeleteApnsVoipSandboxChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1101,11 +1103,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1139,11 +1141,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_baidu_channel_request.DeleteBaiduChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_baidu_channel_request.DeleteBaiduChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1179,12 +1181,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_campaign_request.DeleteCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["campaign_id"] = campaign_id
+        input_: aws_sdk_pinpoint.types.delete_campaign_request.DeleteCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["campaign_id"] = campaign_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1218,11 +1220,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_email_channel_request.DeleteEmailChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_email_channel_request.DeleteEmailChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1258,13 +1260,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_email_template_request.DeleteEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.delete_email_template_request.DeleteEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1300,12 +1302,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_endpoint_request.DeleteEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_pinpoint.types.delete_endpoint_request.DeleteEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["endpoint_id"] = endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1341,11 +1343,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_event_stream_request.DeleteEventStreamRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_event_stream_request.DeleteEventStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1379,11 +1381,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_gcm_channel_request.DeleteGcmChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_gcm_channel_request.DeleteGcmChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1419,13 +1421,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_in_app_template_request.DeleteInAppTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.delete_in_app_template_request.DeleteInAppTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1461,12 +1463,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_journey_request.DeleteJourneyRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_id"] = journey_id
+        input_: aws_sdk_pinpoint.types.delete_journey_request.DeleteJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_id"] = journey_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1502,13 +1504,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_push_template_request.DeletePushTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.delete_push_template_request.DeletePushTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1542,11 +1544,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_recommender_configuration_request.DeleteRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["recommender_id"] = recommender_id
+        input_: aws_sdk_pinpoint.types.delete_recommender_configuration_request.DeleteRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["recommender_id"] = recommender_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1582,12 +1584,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_segment_request.DeleteSegmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["segment_id"] = segment_id
+        input_: aws_sdk_pinpoint.types.delete_segment_request.DeleteSegmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["segment_id"] = segment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1621,11 +1623,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_sms_channel_request.DeleteSmsChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_sms_channel_request.DeleteSmsChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1663,13 +1665,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_sms_template_request.DeleteSmsTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.delete_sms_template_request.DeleteSmsTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1705,12 +1707,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_user_endpoints_request.DeleteUserEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["user_id"] = user_id
+        input_: aws_sdk_pinpoint.types.delete_user_endpoints_request.DeleteUserEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1744,11 +1746,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_voice_channel_request.DeleteVoiceChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.delete_voice_channel_request.DeleteVoiceChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1784,13 +1786,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.delete_voice_template_request.DeleteVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.delete_voice_template_request.DeleteVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1824,11 +1826,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_adm_channel_request.GetAdmChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_adm_channel_request.GetAdmChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1862,11 +1864,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_apns_channel_request.GetApnsChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_apns_channel_request.GetApnsChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1900,11 +1902,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_apns_sandbox_channel_request.GetApnsSandboxChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_apns_sandbox_channel_request.GetApnsSandboxChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1938,11 +1940,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_apns_voip_channel_request.GetApnsVoipChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_apns_voip_channel_request.GetApnsVoipChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1976,11 +1978,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_apns_voip_sandbox_channel_request.GetApnsVoipSandboxChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_apns_voip_sandbox_channel_request.GetApnsVoipSandboxChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2014,11 +2016,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_app_request.GetAppRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_app_request.GetAppRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2066,20 +2068,20 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_application_date_range_kpi_request.GetApplicationDateRangeKpiRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_application_date_range_kpi_request.GetApplicationDateRangeKpiRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if end_time is not None:
-            input["end_time"] = end_time
-        input["kpi_name"] = kpi_name
+            input_["end_time"] = end_time
+        input_["kpi_name"] = kpi_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2113,11 +2115,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_application_settings_request.GetApplicationSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_application_settings_request.GetApplicationSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2153,14 +2155,14 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_apps_request.GetAppsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.get_apps_request.GetAppsRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2194,11 +2196,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_baidu_channel_request.GetBaiduChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_baidu_channel_request.GetBaiduChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2234,12 +2236,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_campaign_request.GetCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["campaign_id"] = campaign_id
+        input_: aws_sdk_pinpoint.types.get_campaign_request.GetCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["campaign_id"] = campaign_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2279,16 +2281,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_campaign_activities_request.GetCampaignActivitiesRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["campaign_id"] = campaign_id
+        input_: aws_sdk_pinpoint.types.get_campaign_activities_request.GetCampaignActivitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["campaign_id"] = campaign_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2338,21 +2340,21 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_campaign_date_range_kpi_request.GetCampaignDateRangeKpiRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["campaign_id"] = campaign_id
+        input_: aws_sdk_pinpoint.types.get_campaign_date_range_kpi_request.GetCampaignDateRangeKpiRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["campaign_id"] = campaign_id
         if end_time is not None:
-            input["end_time"] = end_time
-        input["kpi_name"] = kpi_name
+            input_["end_time"] = end_time
+        input_["kpi_name"] = kpi_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2390,15 +2392,15 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_campaigns_request.GetCampaignsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_campaigns_request.GetCampaignsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2436,13 +2438,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_campaign_version_request.GetCampaignVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["campaign_id"] = campaign_id
-        input["version"] = version
+        input_: aws_sdk_pinpoint.types.get_campaign_version_request.GetCampaignVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["campaign_id"] = campaign_id
+        input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2482,16 +2484,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_campaign_versions_request.GetCampaignVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["campaign_id"] = campaign_id
+        input_: aws_sdk_pinpoint.types.get_campaign_versions_request.GetCampaignVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["campaign_id"] = campaign_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2525,11 +2527,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_channels_request.GetChannelsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_channels_request.GetChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2563,11 +2565,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_email_channel_request.GetEmailChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_email_channel_request.GetEmailChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2603,13 +2605,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_email_template_request.GetEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.get_email_template_request.GetEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2645,12 +2647,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_endpoint_request.GetEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_pinpoint.types.get_endpoint_request.GetEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["endpoint_id"] = endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2684,11 +2686,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_event_stream_request.GetEventStreamRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_event_stream_request.GetEventStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2724,12 +2726,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_export_job_request.GetExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_id"] = job_id
+        input_: aws_sdk_pinpoint.types.get_export_job_request.GetExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2767,15 +2769,15 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_export_jobs_request.GetExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_export_jobs_request.GetExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2809,11 +2811,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_gcm_channel_request.GetGcmChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_gcm_channel_request.GetGcmChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2849,12 +2851,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_import_job_request.GetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_id"] = job_id
+        input_: aws_sdk_pinpoint.types.get_import_job_request.GetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2892,15 +2894,15 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_import_jobs_request.GetImportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_import_jobs_request.GetImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2936,12 +2938,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_in_app_messages_request.GetInAppMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_pinpoint.types.get_in_app_messages_request.GetInAppMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["endpoint_id"] = endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2977,13 +2979,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_in_app_template_request.GetInAppTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.get_in_app_template_request.GetInAppTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3019,12 +3021,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_journey_request.GetJourneyRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_id"] = journey_id
+        input_: aws_sdk_pinpoint.types.get_journey_request.GetJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_id"] = journey_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3074,21 +3076,21 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_journey_date_range_kpi_request.GetJourneyDateRangeKpiRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_journey_date_range_kpi_request.GetJourneyDateRangeKpiRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if end_time is not None:
-            input["end_time"] = end_time
-        input["journey_id"] = journey_id
-        input["kpi_name"] = kpi_name
+            input_["end_time"] = end_time
+        input_["journey_id"] = journey_id
+        input_["kpi_name"] = kpi_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3130,17 +3132,17 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_journey_execution_activity_metrics_request.GetJourneyExecutionActivityMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_activity_id"] = journey_activity_id
-        input["journey_id"] = journey_id
+        input_: aws_sdk_pinpoint.types.get_journey_execution_activity_metrics_request.GetJourneyExecutionActivityMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_activity_id"] = journey_activity_id
+        input_["journey_id"] = journey_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3180,16 +3182,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_journey_execution_metrics_request.GetJourneyExecutionMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_id"] = journey_id
+        input_: aws_sdk_pinpoint.types.get_journey_execution_metrics_request.GetJourneyExecutionMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_id"] = journey_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3239,18 +3241,18 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_journey_run_execution_activity_metrics_request.GetJourneyRunExecutionActivityMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_activity_id"] = journey_activity_id
-        input["journey_id"] = journey_id
+        input_: aws_sdk_pinpoint.types.get_journey_run_execution_activity_metrics_request.GetJourneyRunExecutionActivityMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_activity_id"] = journey_activity_id
+        input_["journey_id"] = journey_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
-        input["run_id"] = run_id
+            input_["page_size"] = page_size
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3298,17 +3300,17 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_journey_run_execution_metrics_request.GetJourneyRunExecutionMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_id"] = journey_id
+        input_: aws_sdk_pinpoint.types.get_journey_run_execution_metrics_request.GetJourneyRunExecutionMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_id"] = journey_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
-        input["run_id"] = run_id
+            input_["page_size"] = page_size
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3354,16 +3356,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_journey_runs_request.GetJourneyRunsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_id"] = journey_id
+        input_: aws_sdk_pinpoint.types.get_journey_runs_request.GetJourneyRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_id"] = journey_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3399,13 +3401,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_push_template_request.GetPushTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.get_push_template_request.GetPushTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3439,11 +3441,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_recommender_configuration_request.GetRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["recommender_id"] = recommender_id
+        input_: aws_sdk_pinpoint.types.get_recommender_configuration_request.GetRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["recommender_id"] = recommender_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3479,14 +3481,14 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_recommender_configurations_request.GetRecommenderConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.get_recommender_configurations_request.GetRecommenderConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3522,12 +3524,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_segment_request.GetSegmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["segment_id"] = segment_id
+        input_: aws_sdk_pinpoint.types.get_segment_request.GetSegmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["segment_id"] = segment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3567,16 +3569,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_segment_export_jobs_request.GetSegmentExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_segment_export_jobs_request.GetSegmentExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if page_size is not None:
-            input["page_size"] = page_size
-        input["segment_id"] = segment_id
+            input_["page_size"] = page_size
+        input_["segment_id"] = segment_id
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3616,16 +3618,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_segment_import_jobs_request.GetSegmentImportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_segment_import_jobs_request.GetSegmentImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if page_size is not None:
-            input["page_size"] = page_size
-        input["segment_id"] = segment_id
+            input_["page_size"] = page_size
+        input_["segment_id"] = segment_id
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3663,15 +3665,15 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_segments_request.GetSegmentsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_segments_request.GetSegmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3711,13 +3713,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_segment_version_request.GetSegmentVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["segment_id"] = segment_id
-        input["version"] = version
+        input_: aws_sdk_pinpoint.types.get_segment_version_request.GetSegmentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["segment_id"] = segment_id
+        input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3757,16 +3759,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_segment_versions_request.GetSegmentVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_segment_versions_request.GetSegmentVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if page_size is not None:
-            input["page_size"] = page_size
-        input["segment_id"] = segment_id
+            input_["page_size"] = page_size
+        input_["segment_id"] = segment_id
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3800,11 +3802,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_sms_channel_request.GetSmsChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_sms_channel_request.GetSmsChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3840,13 +3842,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_sms_template_request.GetSmsTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.get_sms_template_request.GetSmsTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3882,12 +3884,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_user_endpoints_request.GetUserEndpointsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["user_id"] = user_id
+        input_: aws_sdk_pinpoint.types.get_user_endpoints_request.GetUserEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3921,11 +3923,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_voice_channel_request.GetVoiceChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.get_voice_channel_request.GetVoiceChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3961,13 +3963,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.get_voice_template_request.GetVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_pinpoint.types.get_voice_template_request.GetVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4005,15 +4007,15 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.list_journeys_request.ListJourneysRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.list_journeys_request.ListJourneysRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4047,11 +4049,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_pinpoint.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4091,18 +4093,18 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if template_type is not None:
-            input["template_type"] = template_type
+            input_["template_type"] = template_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4142,16 +4144,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.list_template_versions_request.ListTemplateVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.list_template_versions_request.ListTemplateVersionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
-        input["template_name"] = template_name
-        input["template_type"] = template_type
+            input_["page_size"] = page_size
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4181,11 +4183,11 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.phone_number_validate_request.PhoneNumberValidateRequest = {}  # type: ignore[typeddict-item]
-        input["number_validate_request"] = number_validate_request
+        input_: aws_sdk_pinpoint.types.phone_number_validate_request.PhoneNumberValidateRequest = {}  # type: ignore[typeddict-item]
+        input_["number_validate_request"] = number_validate_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4220,12 +4222,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.put_events_request.PutEventsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["events_request"] = events_request
+        input_: aws_sdk_pinpoint.types.put_events_request.PutEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["events_request"] = events_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4260,12 +4262,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.put_event_stream_request.PutEventStreamRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["write_event_stream"] = write_event_stream
+        input_: aws_sdk_pinpoint.types.put_event_stream_request.PutEventStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["write_event_stream"] = write_event_stream
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4302,13 +4304,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.remove_attributes_request.RemoveAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["attribute_type"] = attribute_type
-        input["update_attributes_request"] = update_attributes_request
+        input_: aws_sdk_pinpoint.types.remove_attributes_request.RemoveAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["attribute_type"] = attribute_type
+        input_["update_attributes_request"] = update_attributes_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4343,12 +4345,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.send_messages_request.SendMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["message_request"] = message_request
+        input_: aws_sdk_pinpoint.types.send_messages_request.SendMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["message_request"] = message_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4383,14 +4385,14 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.send_otp_message_request.SendOTPMessageRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["send_otp_message_request_parameters"] = (
+        input_: aws_sdk_pinpoint.types.send_otp_message_request.SendOTPMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["send_otp_message_request_parameters"] = (
             send_otp_message_request_parameters
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4427,12 +4429,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.send_users_messages_request.SendUsersMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["send_users_message_request"] = send_users_message_request
+        input_: aws_sdk_pinpoint.types.send_users_messages_request.SendUsersMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["send_users_message_request"] = send_users_message_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4465,12 +4467,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags_model"] = tags_model
+        input_: aws_sdk_pinpoint.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags_model"] = tags_model
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4504,12 +4506,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_pinpoint.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4544,12 +4546,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_adm_channel_request.UpdateAdmChannelRequest = {}  # type: ignore[typeddict-item]
-        input["adm_channel_request"] = adm_channel_request
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.update_adm_channel_request.UpdateAdmChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["adm_channel_request"] = adm_channel_request
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4586,12 +4588,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_apns_channel_request.UpdateApnsChannelRequest = {}  # type: ignore[typeddict-item]
-        input["apns_channel_request"] = apns_channel_request
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.update_apns_channel_request.UpdateApnsChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["apns_channel_request"] = apns_channel_request
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4626,12 +4628,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_apns_sandbox_channel_request.UpdateApnsSandboxChannelRequest = {}  # type: ignore[typeddict-item]
-        input["apns_sandbox_channel_request"] = apns_sandbox_channel_request
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.update_apns_sandbox_channel_request.UpdateApnsSandboxChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["apns_sandbox_channel_request"] = apns_sandbox_channel_request
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4666,12 +4668,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_apns_voip_channel_request.UpdateApnsVoipChannelRequest = {}  # type: ignore[typeddict-item]
-        input["apns_voip_channel_request"] = apns_voip_channel_request
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.update_apns_voip_channel_request.UpdateApnsVoipChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["apns_voip_channel_request"] = apns_voip_channel_request
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4706,12 +4708,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_apns_voip_sandbox_channel_request.UpdateApnsVoipSandboxChannelRequest = {}  # type: ignore[typeddict-item]
-        input["apns_voip_sandbox_channel_request"] = apns_voip_sandbox_channel_request
-        input["application_id"] = application_id
+        input_: aws_sdk_pinpoint.types.update_apns_voip_sandbox_channel_request.UpdateApnsVoipSandboxChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["apns_voip_sandbox_channel_request"] = apns_voip_sandbox_channel_request
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4746,12 +4748,14 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_application_settings_request.UpdateApplicationSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["write_application_settings_request"] = write_application_settings_request
+        input_: aws_sdk_pinpoint.types.update_application_settings_request.UpdateApplicationSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["write_application_settings_request"] = (
+            write_application_settings_request
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4786,12 +4790,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_baidu_channel_request.UpdateBaiduChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["baidu_channel_request"] = baidu_channel_request
+        input_: aws_sdk_pinpoint.types.update_baidu_channel_request.UpdateBaiduChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["baidu_channel_request"] = baidu_channel_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4828,13 +4832,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_campaign_request.UpdateCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["campaign_id"] = campaign_id
-        input["write_campaign_request"] = write_campaign_request
+        input_: aws_sdk_pinpoint.types.update_campaign_request.UpdateCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["campaign_id"] = campaign_id
+        input_["write_campaign_request"] = write_campaign_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4869,12 +4873,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_email_channel_request.UpdateEmailChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["email_channel_request"] = email_channel_request
+        input_: aws_sdk_pinpoint.types.update_email_channel_request.UpdateEmailChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["email_channel_request"] = email_channel_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4915,16 +4919,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_email_template_request.UpdateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.update_email_template_request.UpdateEmailTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
-            input["create_new_version"] = create_new_version
-        input["email_template_request"] = email_template_request
-        input["template_name"] = template_name
+            input_["create_new_version"] = create_new_version
+        input_["email_template_request"] = email_template_request
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4961,13 +4965,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_endpoint_request.UpdateEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["endpoint_id"] = endpoint_id
-        input["endpoint_request"] = endpoint_request
+        input_: aws_sdk_pinpoint.types.update_endpoint_request.UpdateEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["endpoint_id"] = endpoint_id
+        input_["endpoint_request"] = endpoint_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5002,12 +5006,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_endpoints_batch_request.UpdateEndpointsBatchRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["endpoint_batch_request"] = endpoint_batch_request
+        input_: aws_sdk_pinpoint.types.update_endpoints_batch_request.UpdateEndpointsBatchRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["endpoint_batch_request"] = endpoint_batch_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5042,12 +5046,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_gcm_channel_request.UpdateGcmChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["gcm_channel_request"] = gcm_channel_request
+        input_: aws_sdk_pinpoint.types.update_gcm_channel_request.UpdateGcmChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["gcm_channel_request"] = gcm_channel_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5088,16 +5092,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_in_app_template_request.UpdateInAppTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.update_in_app_template_request.UpdateInAppTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
-            input["create_new_version"] = create_new_version
-        input["in_app_template_request"] = in_app_template_request
-        input["template_name"] = template_name
+            input_["create_new_version"] = create_new_version
+        input_["in_app_template_request"] = in_app_template_request
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5134,13 +5138,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_journey_request.UpdateJourneyRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_id"] = journey_id
-        input["write_journey_request"] = write_journey_request
+        input_: aws_sdk_pinpoint.types.update_journey_request.UpdateJourneyRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_id"] = journey_id
+        input_["write_journey_request"] = write_journey_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5177,13 +5181,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_journey_state_request.UpdateJourneyStateRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["journey_id"] = journey_id
-        input["journey_state_request"] = journey_state_request
+        input_: aws_sdk_pinpoint.types.update_journey_state_request.UpdateJourneyStateRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["journey_id"] = journey_id
+        input_["journey_state_request"] = journey_state_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5224,16 +5228,18 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
-            input["create_new_version"] = create_new_version
-        input["push_notification_template_request"] = push_notification_template_request
-        input["template_name"] = template_name
+            input_["create_new_version"] = create_new_version
+        input_["push_notification_template_request"] = (
+            push_notification_template_request
+        )
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5268,12 +5274,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_recommender_configuration_request.UpdateRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["recommender_id"] = recommender_id
-        input["update_recommender_configuration"] = update_recommender_configuration
+        input_: aws_sdk_pinpoint.types.update_recommender_configuration_request.UpdateRecommenderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["recommender_id"] = recommender_id
+        input_["update_recommender_configuration"] = update_recommender_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5310,13 +5316,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_segment_request.UpdateSegmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["segment_id"] = segment_id
-        input["write_segment_request"] = write_segment_request
+        input_: aws_sdk_pinpoint.types.update_segment_request.UpdateSegmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["segment_id"] = segment_id
+        input_["write_segment_request"] = write_segment_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5351,12 +5357,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_sms_channel_request.UpdateSmsChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["sms_channel_request"] = sms_channel_request
+        input_: aws_sdk_pinpoint.types.update_sms_channel_request.UpdateSmsChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["sms_channel_request"] = sms_channel_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5399,16 +5405,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_sms_template_request.UpdateSmsTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.update_sms_template_request.UpdateSmsTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
-            input["create_new_version"] = create_new_version
-        input["sms_template_request"] = sms_template_request
-        input["template_name"] = template_name
+            input_["create_new_version"] = create_new_version
+        input_["sms_template_request"] = sms_template_request
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5445,13 +5451,13 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_template_active_version_request.UpdateTemplateActiveVersionRequest = {}  # type: ignore[typeddict-item]
-        input["template_active_version_request"] = template_active_version_request
-        input["template_name"] = template_name
-        input["template_type"] = template_type
+        input_: aws_sdk_pinpoint.types.update_template_active_version_request.UpdateTemplateActiveVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["template_active_version_request"] = template_active_version_request
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5486,12 +5492,12 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_voice_channel_request.UpdateVoiceChannelRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["voice_channel_request"] = voice_channel_request
+        input_: aws_sdk_pinpoint.types.update_voice_channel_request.UpdateVoiceChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["voice_channel_request"] = voice_channel_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5532,16 +5538,16 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.update_voice_template_request.UpdateVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint.types.update_voice_template_request.UpdateVoiceTemplateRequest = {}  # type: ignore[typeddict-item]
         if create_new_version is not None:
-            input["create_new_version"] = create_new_version
-        input["template_name"] = template_name
+            input_["create_new_version"] = create_new_version
+        input_["template_name"] = template_name
         if version is not None:
-            input["version"] = version
-        input["voice_template_request"] = voice_template_request
+            input_["version"] = version
+        input_["voice_template_request"] = voice_template_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5576,14 +5582,14 @@ class AsyncPinpointClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint.types.verify_otp_message_request.VerifyOTPMessageRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["verify_otp_message_request_parameters"] = (
+        input_: aws_sdk_pinpoint.types.verify_otp_message_request.VerifyOTPMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["verify_otp_message_request_parameters"] = (
             verify_otp_message_request_parameters
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

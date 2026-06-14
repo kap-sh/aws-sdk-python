@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_shield._auth._signers
+import aws_sdk_shield._auth._sigv4
 from aws_sdk_shield._auth._identity import Credentials
 from aws_sdk_shield._auth._providers import (
     CredentialsProvider,
@@ -249,11 +251,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.associate_drt_log_bucket_request.AssociateDRTLogBucketRequest = {}  # type: ignore[typeddict-item]
-        input["log_bucket"] = log_bucket
+        input_: aws_sdk_shield.types.associate_drt_log_bucket_request.AssociateDRTLogBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["log_bucket"] = log_bucket
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,11 +288,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.associate_drt_role_request.AssociateDRTRoleRequest = {}  # type: ignore[typeddict-item]
-        input["role_arn"] = role_arn
+        input_: aws_sdk_shield.types.associate_drt_role_request.AssociateDRTRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,12 +327,12 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.associate_health_check_request.AssociateHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input["protection_id"] = protection_id
-        input["health_check_arn"] = health_check_arn
+        input_: aws_sdk_shield.types.associate_health_check_request.AssociateHealthCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["protection_id"] = protection_id
+        input_["health_check_arn"] = health_check_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -363,11 +365,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.associate_proactive_engagement_details_request.AssociateProactiveEngagementDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["emergency_contact_list"] = emergency_contact_list
+        input_: aws_sdk_shield.types.associate_proactive_engagement_details_request.AssociateProactiveEngagementDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["emergency_contact_list"] = emergency_contact_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,14 +406,14 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.create_protection_request.CreateProtectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_shield.types.create_protection_request.CreateProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["resource_arn"] = resource_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,19 +460,19 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.create_protection_group_request.CreateProtectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["protection_group_id"] = protection_group_id
-        input["aggregation"] = aggregation
-        input["pattern"] = pattern
+        input_: aws_sdk_shield.types.create_protection_group_request.CreateProtectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["protection_group_id"] = protection_group_id
+        input_["aggregation"] = aggregation
+        input_["pattern"] = pattern
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if members is not None:
-            input["members"] = members
+            input_["members"] = members
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,10 +498,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.create_subscription_request.CreateSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.create_subscription_request.CreateSubscriptionRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,11 +534,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.delete_protection_request.DeleteProtectionRequest = {}  # type: ignore[typeddict-item]
-        input["protection_id"] = protection_id
+        input_: aws_sdk_shield.types.delete_protection_request.DeleteProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_["protection_id"] = protection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -569,11 +571,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.delete_protection_group_request.DeleteProtectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["protection_group_id"] = protection_group_id
+        input_: aws_sdk_shield.types.delete_protection_group_request.DeleteProtectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["protection_group_id"] = protection_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,10 +601,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.delete_subscription_request.DeleteSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.delete_subscription_request.DeleteSubscriptionRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -635,11 +637,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.describe_attack_request.DescribeAttackRequest = {}  # type: ignore[typeddict-item]
-        input["attack_id"] = attack_id
+        input_: aws_sdk_shield.types.describe_attack_request.DescribeAttackRequest = {}  # type: ignore[typeddict-item]
+        input_["attack_id"] = attack_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -665,10 +667,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.describe_attack_statistics_request.DescribeAttackStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.describe_attack_statistics_request.DescribeAttackStatisticsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -694,10 +696,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.describe_drt_access_request.DescribeDRTAccessRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.describe_drt_access_request.DescribeDRTAccessRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -723,10 +725,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.describe_emergency_contact_settings_request.DescribeEmergencyContactSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.describe_emergency_contact_settings_request.DescribeEmergencyContactSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,14 +765,14 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.describe_protection_request.DescribeProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.describe_protection_request.DescribeProtectionRequest = {}  # type: ignore[typeddict-item]
         if protection_id is not None:
-            input["protection_id"] = protection_id
+            input_["protection_id"] = protection_id
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,11 +805,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.describe_protection_group_request.DescribeProtectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["protection_group_id"] = protection_group_id
+        input_: aws_sdk_shield.types.describe_protection_group_request.DescribeProtectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["protection_group_id"] = protection_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -833,10 +835,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.describe_subscription_request.DescribeSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.describe_subscription_request.DescribeSubscriptionRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -869,11 +871,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.disable_application_layer_automatic_response_request.DisableApplicationLayerAutomaticResponseRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_shield.types.disable_application_layer_automatic_response_request.DisableApplicationLayerAutomaticResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -899,10 +901,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.disable_proactive_engagement_request.DisableProactiveEngagementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.disable_proactive_engagement_request.DisableProactiveEngagementRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -935,11 +937,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.disassociate_drt_log_bucket_request.DisassociateDRTLogBucketRequest = {}  # type: ignore[typeddict-item]
-        input["log_bucket"] = log_bucket
+        input_: aws_sdk_shield.types.disassociate_drt_log_bucket_request.DisassociateDRTLogBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["log_bucket"] = log_bucket
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -965,10 +967,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.disassociate_drt_role_request.DisassociateDRTRoleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.disassociate_drt_role_request.DisassociateDRTRoleRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1003,12 +1005,12 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.disassociate_health_check_request.DisassociateHealthCheckRequest = {}  # type: ignore[typeddict-item]
-        input["protection_id"] = protection_id
-        input["health_check_arn"] = health_check_arn
+        input_: aws_sdk_shield.types.disassociate_health_check_request.DisassociateHealthCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["protection_id"] = protection_id
+        input_["health_check_arn"] = health_check_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1043,12 +1045,12 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.enable_application_layer_automatic_response_request.EnableApplicationLayerAutomaticResponseRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["action"] = action
+        input_: aws_sdk_shield.types.enable_application_layer_automatic_response_request.EnableApplicationLayerAutomaticResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["action"] = action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1074,10 +1076,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.enable_proactive_engagement_request.EnableProactiveEngagementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.enable_proactive_engagement_request.EnableProactiveEngagementRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1103,10 +1105,10 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.get_subscription_state_request.GetSubscriptionStateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.get_subscription_state_request.GetSubscriptionStateRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1149,20 +1151,20 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.list_attacks_request.ListAttacksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.list_attacks_request.ListAttacksRequest = {}  # type: ignore[typeddict-item]
         if resource_arns is not None:
-            input["resource_arns"] = resource_arns
+            input_["resource_arns"] = resource_arns
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1230,16 +1232,16 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.list_protection_groups_request.ListProtectionGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.list_protection_groups_request.ListProtectionGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if inclusion_filters is not None:
-            input["inclusion_filters"] = inclusion_filters
+            input_["inclusion_filters"] = inclusion_filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1278,16 +1280,16 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.list_protections_request.ListProtectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.list_protections_request.ListProtectionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if inclusion_filters is not None:
-            input["inclusion_filters"] = inclusion_filters
+            input_["inclusion_filters"] = inclusion_filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1349,15 +1351,15 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.list_resources_in_protection_group_request.ListResourcesInProtectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["protection_group_id"] = protection_group_id
+        input_: aws_sdk_shield.types.list_resources_in_protection_group_request.ListResourcesInProtectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["protection_group_id"] = protection_group_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1390,11 +1392,11 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_shield.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1429,12 +1431,12 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_shield.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1469,12 +1471,12 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_shield.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1509,12 +1511,12 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.update_application_layer_automatic_response_request.UpdateApplicationLayerAutomaticResponseRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["action"] = action
+        input_: aws_sdk_shield.types.update_application_layer_automatic_response_request.UpdateApplicationLayerAutomaticResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["action"] = action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1549,12 +1551,12 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.update_emergency_contact_settings_request.UpdateEmergencyContactSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.update_emergency_contact_settings_request.UpdateEmergencyContactSettingsRequest = {}  # type: ignore[typeddict-item]
         if emergency_contact_list is not None:
-            input["emergency_contact_list"] = emergency_contact_list
+            input_["emergency_contact_list"] = emergency_contact_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1599,17 +1601,17 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.update_protection_group_request.UpdateProtectionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["protection_group_id"] = protection_group_id
-        input["aggregation"] = aggregation
-        input["pattern"] = pattern
+        input_: aws_sdk_shield.types.update_protection_group_request.UpdateProtectionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["protection_group_id"] = protection_group_id
+        input_["aggregation"] = aggregation
+        input_["pattern"] = pattern
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if members is not None:
-            input["members"] = members
+            input_["members"] = members
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1642,12 +1644,12 @@ class ShieldClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_shield.types.update_subscription_request.UpdateSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_shield.types.update_subscription_request.UpdateSubscriptionRequest = {}  # type: ignore[typeddict-item]
         if auto_renew is not None:
-            input["auto_renew"] = auto_renew
+            input_["auto_renew"] = auto_renew
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

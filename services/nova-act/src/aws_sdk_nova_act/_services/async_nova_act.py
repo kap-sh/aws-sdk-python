@@ -13,6 +13,24 @@ from aws_sdk_nova_act._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_nova_act._auth._zapros_handler import AuthMiddleware
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.act_resource import (
+    AsyncActResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.model_resource import (
+    AsyncModelResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.service_linked_role_resource import (
+    AsyncServiceLinkedRoleResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.session_resource import (
+    AsyncSessionResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.workflow_definition_resource import (
+    AsyncWorkflowDefinitionResource,
+)
+from aws_sdk_nova_act._resources.amazon_nova_agents_data_plane.workflow_run_resource import (
+    AsyncWorkflowRunResource,
+)
 from aws_sdk_nova_act._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -92,6 +110,13 @@ class AsyncNovaActClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.act_resource = AsyncActResource(self)
+        self.model_resource = AsyncModelResource(self)
+        self.service_linked_role_resource = AsyncServiceLinkedRoleResource(self)
+        self.session_resource = AsyncSessionResource(self)
+        self.workflow_definition_resource = AsyncWorkflowDefinitionResource(self)
+        self.workflow_run_resource = AsyncWorkflowRunResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncNovaActClientConfig] = None

@@ -68,11 +68,11 @@ class ManagedDevice:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.describe_device_input.DescribeDeviceInput = {}  # type: ignore[typeddict-item]
-        input["managed_device_id"] = managed_device_id
+        input_: aws_sdk_snow_device_management.types.describe_device_input.DescribeDeviceInput = {}  # type: ignore[typeddict-item]
+        input_["managed_device_id"] = managed_device_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -113,16 +113,16 @@ class ManagedDevice:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.list_devices_input.ListDevicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snow_device_management.types.list_devices_input.ListDevicesInput = {}  # type: ignore[typeddict-item]
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,12 +157,12 @@ class ManagedDevice:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.describe_device_ec2_input.DescribeDeviceEc2Input = {}  # type: ignore[typeddict-item]
-        input["managed_device_id"] = managed_device_id
-        input["instance_ids"] = instance_ids
+        input_: aws_sdk_snow_device_management.types.describe_device_ec2_input.DescribeDeviceEc2Input = {}  # type: ignore[typeddict-item]
+        input_["managed_device_id"] = managed_device_id
+        input_["instance_ids"] = instance_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,17 +205,17 @@ class ManagedDevice:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.list_device_resources_input.ListDeviceResourcesInput = {}  # type: ignore[typeddict-item]
-        input["managed_device_id"] = managed_device_id
+        input_: aws_sdk_snow_device_management.types.list_device_resources_input.ListDeviceResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["managed_device_id"] = managed_device_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,11 +254,11 @@ class AsyncManagedDevice:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.describe_device_input.DescribeDeviceInput = {}  # type: ignore[typeddict-item]
-        input["managed_device_id"] = managed_device_id
+        input_: aws_sdk_snow_device_management.types.describe_device_input.DescribeDeviceInput = {}  # type: ignore[typeddict-item]
+        input_["managed_device_id"] = managed_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,16 +300,16 @@ class AsyncManagedDevice:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.list_devices_input.ListDevicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_snow_device_management.types.list_devices_input.ListDevicesInput = {}  # type: ignore[typeddict-item]
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,12 +345,12 @@ class AsyncManagedDevice:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.describe_device_ec2_input.DescribeDeviceEc2Input = {}  # type: ignore[typeddict-item]
-        input["managed_device_id"] = managed_device_id
-        input["instance_ids"] = instance_ids
+        input_: aws_sdk_snow_device_management.types.describe_device_ec2_input.DescribeDeviceEc2Input = {}  # type: ignore[typeddict-item]
+        input_["managed_device_id"] = managed_device_id
+        input_["instance_ids"] = instance_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,17 +394,17 @@ class AsyncManagedDevice:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_snow_device_management.types.list_device_resources_input.ListDeviceResourcesInput = {}  # type: ignore[typeddict-item]
-        input["managed_device_id"] = managed_device_id
+        input_: aws_sdk_snow_device_management.types.list_device_resources_input.ListDeviceResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["managed_device_id"] = managed_device_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

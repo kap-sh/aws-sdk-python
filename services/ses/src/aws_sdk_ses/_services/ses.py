@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_ses._auth._signers
+import aws_sdk_ses._auth._sigv4
 from aws_sdk_ses._auth._identity import Credentials
 from aws_sdk_ses._auth._providers import (
     CredentialsProvider,
@@ -340,12 +342,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.clone_receipt_rule_set_request.CloneReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
-        input["original_rule_set_name"] = original_rule_set_name
+        input_: aws_sdk_ses.types.clone_receipt_rule_set_request.CloneReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
+        input_["original_rule_set_name"] = original_rule_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,11 +380,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.create_configuration_set_request.CreateConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set"] = configuration_set
+        input_: aws_sdk_ses.types.create_configuration_set_request.CreateConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set"] = configuration_set
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,12 +419,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.create_configuration_set_event_destination_request.CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination"] = event_destination
+        input_: aws_sdk_ses.types.create_configuration_set_event_destination_request.CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination"] = event_destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,12 +458,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.create_configuration_set_tracking_options_request.CreateConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["tracking_options"] = tracking_options
+        input_: aws_sdk_ses.types.create_configuration_set_tracking_options_request.CreateConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["tracking_options"] = tracking_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,16 +504,16 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.create_custom_verification_email_template_request.CreateCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["from_email_address"] = from_email_address
-        input["template_subject"] = template_subject
-        input["template_content"] = template_content
-        input["success_redirection_url"] = success_redirection_url
-        input["failure_redirection_url"] = failure_redirection_url
+        input_: aws_sdk_ses.types.create_custom_verification_email_template_request.CreateCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["from_email_address"] = from_email_address
+        input_["template_subject"] = template_subject
+        input_["template_content"] = template_content
+        input_["success_redirection_url"] = success_redirection_url
+        input_["failure_redirection_url"] = failure_redirection_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -550,11 +552,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.create_receipt_filter_request.CreateReceiptFilterRequest = {}  # type: ignore[typeddict-item]
-        input["filter"] = filter
+        input_: aws_sdk_ses.types.create_receipt_filter_request.CreateReceiptFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,14 +599,14 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.create_receipt_rule_request.CreateReceiptRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
+        input_: aws_sdk_ses.types.create_receipt_rule_request.CreateReceiptRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
         if after is not None:
-            input["after"] = after
-        input["rule"] = rule
+            input_["after"] = after
+        input_["rule"] = rule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -643,11 +645,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.create_receipt_rule_set_request.CreateReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
+        input_: aws_sdk_ses.types.create_receipt_rule_set_request.CreateReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -680,11 +682,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.create_template_request.CreateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template"] = template
+        input_: aws_sdk_ses.types.create_template_request.CreateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template"] = template
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -717,11 +719,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_configuration_set_request.DeleteConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_ses.types.delete_configuration_set_request.DeleteConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -756,12 +758,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_configuration_set_event_destination_request.DeleteConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination_name"] = event_destination_name
+        input_: aws_sdk_ses.types.delete_configuration_set_event_destination_request.DeleteConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination_name"] = event_destination_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,11 +796,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_configuration_set_tracking_options_request.DeleteConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_ses.types.delete_configuration_set_tracking_options_request.DeleteConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,11 +831,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_custom_verification_email_template_request.DeleteCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_ses.types.delete_custom_verification_email_template_request.DeleteCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -872,11 +874,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_identity_request.DeleteIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
+        input_: aws_sdk_ses.types.delete_identity_request.DeleteIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,12 +921,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_identity_policy_request.DeleteIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
-        input["policy_name"] = policy_name
+        input_: aws_sdk_ses.types.delete_identity_policy_request.DeleteIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
+        input_["policy_name"] = policy_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -963,11 +965,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_receipt_filter_request.DeleteReceiptFilterRequest = {}  # type: ignore[typeddict-item]
-        input["filter_name"] = filter_name
+        input_: aws_sdk_ses.types.delete_receipt_filter_request.DeleteReceiptFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["filter_name"] = filter_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1008,12 +1010,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_receipt_rule_request.DeleteReceiptRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
-        input["rule_name"] = rule_name
+        input_: aws_sdk_ses.types.delete_receipt_rule_request.DeleteReceiptRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
+        input_["rule_name"] = rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1052,11 +1054,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_receipt_rule_set_request.DeleteReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
+        input_: aws_sdk_ses.types.delete_receipt_rule_set_request.DeleteReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1089,11 +1091,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_template_request.DeleteTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_ses.types.delete_template_request.DeleteTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1130,11 +1132,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.delete_verified_email_address_request.DeleteVerifiedEmailAddressRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
+        input_: aws_sdk_ses.types.delete_verified_email_address_request.DeleteVerifiedEmailAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1167,10 +1169,10 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.describe_active_receipt_rule_set_request.DescribeActiveReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.describe_active_receipt_rule_set_request.DescribeActiveReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1207,15 +1209,15 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.describe_configuration_set_request.DescribeConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_ses.types.describe_configuration_set_request.DescribeConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if configuration_set_attribute_names is not None:
-            input["configuration_set_attribute_names"] = (
+            input_["configuration_set_attribute_names"] = (
                 configuration_set_attribute_names
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1256,12 +1258,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.describe_receipt_rule_request.DescribeReceiptRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
-        input["rule_name"] = rule_name
+        input_: aws_sdk_ses.types.describe_receipt_rule_request.DescribeReceiptRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
+        input_["rule_name"] = rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1300,11 +1302,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.describe_receipt_rule_set_request.DescribeReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
+        input_: aws_sdk_ses.types.describe_receipt_rule_set_request.DescribeReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1372,11 +1374,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.get_custom_verification_email_template_request.GetCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_ses.types.get_custom_verification_email_template_request.GetCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1415,11 +1417,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.get_identity_dkim_attributes_request.GetIdentityDkimAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["identities"] = identities
+        input_: aws_sdk_ses.types.get_identity_dkim_attributes_request.GetIdentityDkimAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["identities"] = identities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1458,11 +1460,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.get_identity_mail_from_domain_attributes_request.GetIdentityMailFromDomainAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["identities"] = identities
+        input_: aws_sdk_ses.types.get_identity_mail_from_domain_attributes_request.GetIdentityMailFromDomainAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["identities"] = identities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1501,11 +1503,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.get_identity_notification_attributes_request.GetIdentityNotificationAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["identities"] = identities
+        input_: aws_sdk_ses.types.get_identity_notification_attributes_request.GetIdentityNotificationAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["identities"] = identities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1546,12 +1548,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.get_identity_policies_request.GetIdentityPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
-        input["policy_names"] = policy_names
+        input_: aws_sdk_ses.types.get_identity_policies_request.GetIdentityPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
+        input_["policy_names"] = policy_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1590,11 +1592,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.get_identity_verification_attributes_request.GetIdentityVerificationAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["identities"] = identities
+        input_: aws_sdk_ses.types.get_identity_verification_attributes_request.GetIdentityVerificationAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["identities"] = identities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1697,11 +1699,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.get_template_request.GetTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_ses.types.get_template_request.GetTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1736,14 +1738,14 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.list_configuration_sets_request.ListConfigurationSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.list_configuration_sets_request.ListConfigurationSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1778,14 +1780,14 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.list_custom_verification_email_templates_request.ListCustomVerificationEmailTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.list_custom_verification_email_templates_request.ListCustomVerificationEmailTemplatesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1828,16 +1830,16 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.list_identities_request.ListIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.list_identities_request.ListIdentitiesRequest = {}  # type: ignore[typeddict-item]
         if identity_type is not None:
-            input["identity_type"] = identity_type
+            input_["identity_type"] = identity_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1901,11 +1903,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.list_identity_policies_request.ListIdentityPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
+        input_: aws_sdk_ses.types.list_identity_policies_request.ListIdentityPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1938,10 +1940,10 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.list_receipt_filters_request.ListReceiptFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.list_receipt_filters_request.ListReceiptFiltersRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1982,12 +1984,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.list_receipt_rule_sets_request.ListReceiptRuleSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.list_receipt_rule_sets_request.ListReceiptRuleSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2022,14 +2024,14 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2101,13 +2103,13 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.put_configuration_set_delivery_options_request.PutConfigurationSetDeliveryOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_ses.types.put_configuration_set_delivery_options_request.PutConfigurationSetDeliveryOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if delivery_options is not None:
-            input["delivery_options"] = delivery_options
+            input_["delivery_options"] = delivery_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2150,13 +2152,13 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.put_identity_policy_request.PutIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
-        input["policy_name"] = policy_name
-        input["policy"] = policy
+        input_: aws_sdk_ses.types.put_identity_policy_request.PutIdentityPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
+        input_["policy_name"] = policy_name
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2197,12 +2199,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.reorder_receipt_rule_set_request.ReorderReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
-        input["rule_names"] = rule_names
+        input_: aws_sdk_ses.types.reorder_receipt_rule_set_request.ReorderReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
+        input_["rule_names"] = rule_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2247,19 +2249,19 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.send_bounce_request.SendBounceRequest = {}  # type: ignore[typeddict-item]
-        input["original_message_id"] = original_message_id
-        input["bounce_sender"] = bounce_sender
+        input_: aws_sdk_ses.types.send_bounce_request.SendBounceRequest = {}  # type: ignore[typeddict-item]
+        input_["original_message_id"] = original_message_id
+        input_["bounce_sender"] = bounce_sender
         if explanation is not None:
-            input["explanation"] = explanation
+            input_["explanation"] = explanation
         if message_dsn is not None:
-            input["message_dsn"] = message_dsn
-        input["bounced_recipient_info_list"] = bounced_recipient_info_list
+            input_["message_dsn"] = message_dsn
+        input_["bounced_recipient_info_list"] = bounced_recipient_info_list
         if bounce_sender_arn is not None:
-            input["bounce_sender_arn"] = bounce_sender_arn
+            input_["bounce_sender_arn"] = bounce_sender_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2324,28 +2326,28 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.send_bulk_templated_email_request.SendBulkTemplatedEmailRequest = {}  # type: ignore[typeddict-item]
-        input["source"] = source
+        input_: aws_sdk_ses.types.send_bulk_templated_email_request.SendBulkTemplatedEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["source"] = source
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if reply_to_addresses is not None:
-            input["reply_to_addresses"] = reply_to_addresses
+            input_["reply_to_addresses"] = reply_to_addresses
         if return_path is not None:
-            input["return_path"] = return_path
+            input_["return_path"] = return_path
         if return_path_arn is not None:
-            input["return_path_arn"] = return_path_arn
+            input_["return_path_arn"] = return_path_arn
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
         if default_tags is not None:
-            input["default_tags"] = default_tags
-        input["template"] = template
+            input_["default_tags"] = default_tags
+        input_["template"] = template
         if template_arn is not None:
-            input["template_arn"] = template_arn
-        input["default_template_data"] = default_template_data
-        input["destinations"] = destinations
+            input_["template_arn"] = template_arn
+        input_["default_template_data"] = default_template_data
+        input_["destinations"] = destinations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2384,14 +2386,14 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.send_custom_verification_email_request.SendCustomVerificationEmailRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
-        input["template_name"] = template_name
+        input_: aws_sdk_ses.types.send_custom_verification_email_request.SendCustomVerificationEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
+        input_["template_name"] = template_name
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2454,25 +2456,25 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.send_email_request.SendEmailRequest = {}  # type: ignore[typeddict-item]
-        input["source"] = source
-        input["destination"] = destination
-        input["message"] = message
+        input_: aws_sdk_ses.types.send_email_request.SendEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["source"] = source
+        input_["destination"] = destination
+        input_["message"] = message
         if reply_to_addresses is not None:
-            input["reply_to_addresses"] = reply_to_addresses
+            input_["reply_to_addresses"] = reply_to_addresses
         if return_path is not None:
-            input["return_path"] = return_path
+            input_["return_path"] = return_path
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if return_path_arn is not None:
-            input["return_path_arn"] = return_path_arn
+            input_["return_path_arn"] = return_path_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2533,25 +2535,25 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.send_raw_email_request.SendRawEmailRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.send_raw_email_request.SendRawEmailRequest = {}  # type: ignore[typeddict-item]
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if destinations is not None:
-            input["destinations"] = destinations
-        input["raw_message"] = raw_message
+            input_["destinations"] = destinations
+        input_["raw_message"] = raw_message
         if from_arn is not None:
-            input["from_arn"] = from_arn
+            input_["from_arn"] = from_arn
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if return_path_arn is not None:
-            input["return_path_arn"] = return_path_arn
+            input_["return_path_arn"] = return_path_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2614,28 +2616,28 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.send_templated_email_request.SendTemplatedEmailRequest = {}  # type: ignore[typeddict-item]
-        input["source"] = source
-        input["destination"] = destination
+        input_: aws_sdk_ses.types.send_templated_email_request.SendTemplatedEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["source"] = source
+        input_["destination"] = destination
         if reply_to_addresses is not None:
-            input["reply_to_addresses"] = reply_to_addresses
+            input_["reply_to_addresses"] = reply_to_addresses
         if return_path is not None:
-            input["return_path"] = return_path
+            input_["return_path"] = return_path
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if return_path_arn is not None:
-            input["return_path_arn"] = return_path_arn
+            input_["return_path_arn"] = return_path_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
-        input["template"] = template
+            input_["configuration_set_name"] = configuration_set_name
+        input_["template"] = template
         if template_arn is not None:
-            input["template_arn"] = template_arn
-        input["template_data"] = template_data
+            input_["template_arn"] = template_arn
+        input_["template_data"] = template_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2676,12 +2678,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.set_active_receipt_rule_set_request.SetActiveReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.set_active_receipt_rule_set_request.SetActiveReceiptRuleSetRequest = {}  # type: ignore[typeddict-item]
         if rule_set_name is not None:
-            input["rule_set_name"] = rule_set_name
+            input_["rule_set_name"] = rule_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2722,12 +2724,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.set_identity_dkim_enabled_request.SetIdentityDkimEnabledRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
-        input["dkim_enabled"] = dkim_enabled
+        input_: aws_sdk_ses.types.set_identity_dkim_enabled_request.SetIdentityDkimEnabledRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
+        input_["dkim_enabled"] = dkim_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2768,12 +2770,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.set_identity_feedback_forwarding_enabled_request.SetIdentityFeedbackForwardingEnabledRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
-        input["forwarding_enabled"] = forwarding_enabled
+        input_: aws_sdk_ses.types.set_identity_feedback_forwarding_enabled_request.SetIdentityFeedbackForwardingEnabledRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
+        input_["forwarding_enabled"] = forwarding_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2816,13 +2818,13 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.set_identity_headers_in_notifications_enabled_request.SetIdentityHeadersInNotificationsEnabledRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
-        input["notification_type"] = notification_type
-        input["enabled"] = enabled
+        input_: aws_sdk_ses.types.set_identity_headers_in_notifications_enabled_request.SetIdentityHeadersInNotificationsEnabledRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
+        input_["notification_type"] = notification_type
+        input_["enabled"] = enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2869,15 +2871,15 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.set_identity_mail_from_domain_request.SetIdentityMailFromDomainRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
+        input_: aws_sdk_ses.types.set_identity_mail_from_domain_request.SetIdentityMailFromDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
         if mail_from_domain is not None:
-            input["mail_from_domain"] = mail_from_domain
+            input_["mail_from_domain"] = mail_from_domain
         if behavior_on_mx_failure is not None:
-            input["behavior_on_mx_failure"] = behavior_on_mx_failure
+            input_["behavior_on_mx_failure"] = behavior_on_mx_failure
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2922,14 +2924,14 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.set_identity_notification_topic_request.SetIdentityNotificationTopicRequest = {}  # type: ignore[typeddict-item]
-        input["identity"] = identity
-        input["notification_type"] = notification_type
+        input_: aws_sdk_ses.types.set_identity_notification_topic_request.SetIdentityNotificationTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["identity"] = identity
+        input_["notification_type"] = notification_type
         if sns_topic is not None:
-            input["sns_topic"] = sns_topic
+            input_["sns_topic"] = sns_topic
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2972,14 +2974,14 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.set_receipt_rule_position_request.SetReceiptRulePositionRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
-        input["rule_name"] = rule_name
+        input_: aws_sdk_ses.types.set_receipt_rule_position_request.SetReceiptRulePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
+        input_["rule_name"] = rule_name
         if after is not None:
-            input["after"] = after
+            input_["after"] = after
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3014,12 +3016,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.test_render_template_request.TestRenderTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_data"] = template_data
+        input_: aws_sdk_ses.types.test_render_template_request.TestRenderTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_data"] = template_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3056,12 +3058,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.update_account_sending_enabled_request.UpdateAccountSendingEnabledRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ses.types.update_account_sending_enabled_request.UpdateAccountSendingEnabledRequest = {}  # type: ignore[typeddict-item]
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3096,12 +3098,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.update_configuration_set_event_destination_request.UpdateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination"] = event_destination
+        input_: aws_sdk_ses.types.update_configuration_set_event_destination_request.UpdateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination"] = event_destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3140,12 +3142,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.update_configuration_set_reputation_metrics_enabled_request.UpdateConfigurationSetReputationMetricsEnabledRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["enabled"] = enabled
+        input_: aws_sdk_ses.types.update_configuration_set_reputation_metrics_enabled_request.UpdateConfigurationSetReputationMetricsEnabledRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["enabled"] = enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3184,12 +3186,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.update_configuration_set_sending_enabled_request.UpdateConfigurationSetSendingEnabledRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["enabled"] = enabled
+        input_: aws_sdk_ses.types.update_configuration_set_sending_enabled_request.UpdateConfigurationSetSendingEnabledRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["enabled"] = enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3223,12 +3225,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.update_configuration_set_tracking_options_request.UpdateConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["tracking_options"] = tracking_options
+        input_: aws_sdk_ses.types.update_configuration_set_tracking_options_request.UpdateConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["tracking_options"] = tracking_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3277,21 +3279,21 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.update_custom_verification_email_template_request.UpdateCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_ses.types.update_custom_verification_email_template_request.UpdateCustomVerificationEmailTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if from_email_address is not None:
-            input["from_email_address"] = from_email_address
+            input_["from_email_address"] = from_email_address
         if template_subject is not None:
-            input["template_subject"] = template_subject
+            input_["template_subject"] = template_subject
         if template_content is not None:
-            input["template_content"] = template_content
+            input_["template_content"] = template_content
         if success_redirection_url is not None:
-            input["success_redirection_url"] = success_redirection_url
+            input_["success_redirection_url"] = success_redirection_url
         if failure_redirection_url is not None:
-            input["failure_redirection_url"] = failure_redirection_url
+            input_["failure_redirection_url"] = failure_redirection_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3332,12 +3334,12 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.update_receipt_rule_request.UpdateReceiptRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_set_name"] = rule_set_name
-        input["rule"] = rule
+        input_: aws_sdk_ses.types.update_receipt_rule_request.UpdateReceiptRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_set_name"] = rule_set_name
+        input_["rule"] = rule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3366,11 +3368,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.update_template_request.UpdateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template"] = template
+        input_: aws_sdk_ses.types.update_template_request.UpdateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template"] = template
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3409,11 +3411,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.verify_domain_dkim_request.VerifyDomainDkimRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_ses.types.verify_domain_dkim_request.VerifyDomainDkimRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3454,11 +3456,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.verify_domain_identity_request.VerifyDomainIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_ses.types.verify_domain_identity_request.VerifyDomainIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3495,11 +3497,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.verify_email_address_request.VerifyEmailAddressRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
+        input_: aws_sdk_ses.types.verify_email_address_request.VerifyEmailAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3538,11 +3540,11 @@ class SESClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ses.types.verify_email_identity_request.VerifyEmailIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
+        input_: aws_sdk_ses.types.verify_email_identity_request.VerifyEmailIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

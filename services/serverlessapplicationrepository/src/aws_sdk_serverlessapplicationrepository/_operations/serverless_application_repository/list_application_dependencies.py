@@ -102,51 +102,48 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest,
+    input_: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/applications/{ApplicationId}/dependencies"
-    url = url.replace("{ApplicationId}", quote(str(input["application_id"]), safe=""))
+    url = url.replace("{ApplicationId}", quote(str(input_["application_id"]), safe=""))
     params: dict[str, str] = {}
-    if "max_items" in input:
-        params["maxItems"] = str(input["max_items"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "semantic_version" in input:
-        params["semanticVersion"] = str(input["semantic_version"])
+    if "max_items" in input_:
+        params["maxItems"] = str(input_["max_items"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "semantic_version" in input_:
+        params["semanticVersion"] = str(input_["semantic_version"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_application_dependencies(
     options: OperationOptions,
-    input: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest,
+    input_: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest,
 ) -> tuple[
     aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_response.ListApplicationDependenciesResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -155,16 +152,17 @@ def list_application_dependencies(
 
 async def async_list_application_dependencies(
     options: AsyncOperationOptions,
-    input: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest,
+    input_: aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_request.ListApplicationDependenciesRequest,
 ) -> tuple[
     aws_sdk_serverlessapplicationrepository.types.list_application_dependencies_response.ListApplicationDependenciesResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

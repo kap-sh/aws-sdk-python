@@ -83,17 +83,17 @@ class EnabledBaselineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.enable_baseline_input.EnableBaselineInput = {}  # type: ignore[typeddict-item]
-        input["baseline_version"] = baseline_version
+        input_: aws_sdk_controltower.types.enable_baseline_input.EnableBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["baseline_version"] = baseline_version
         if parameters is not None:
-            input["parameters"] = parameters
-        input["baseline_identifier"] = baseline_identifier
-        input["target_identifier"] = target_identifier
+            input_["parameters"] = parameters
+        input_["baseline_identifier"] = baseline_identifier
+        input_["target_identifier"] = target_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -126,11 +126,11 @@ class EnabledBaselineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_enabled_baseline_input.GetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
-        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+        input_: aws_sdk_controltower.types.get_enabled_baseline_input.GetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_baseline_identifier"] = enabled_baseline_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -169,14 +169,14 @@ class EnabledBaselineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.update_enabled_baseline_input.UpdateEnabledBaselineInput = {}  # type: ignore[typeddict-item]
-        input["baseline_version"] = baseline_version
+        input_: aws_sdk_controltower.types.update_enabled_baseline_input.UpdateEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["baseline_version"] = baseline_version
         if parameters is not None:
-            input["parameters"] = parameters
-        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+            input_["parameters"] = parameters
+        input_["enabled_baseline_identifier"] = enabled_baseline_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -209,11 +209,11 @@ class EnabledBaselineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.disable_baseline_input.DisableBaselineInput = {}  # type: ignore[typeddict-item]
-        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+        input_: aws_sdk_controltower.types.disable_baseline_input.DisableBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_baseline_identifier"] = enabled_baseline_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,18 +258,18 @@ class EnabledBaselineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_enabled_baselines_input.ListEnabledBaselinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_enabled_baselines_input.ListEnabledBaselinesInput = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if include_children is not None:
-            input["include_children"] = include_children
+            input_["include_children"] = include_children
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,11 +302,11 @@ class EnabledBaselineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.reset_enabled_baseline_input.ResetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
-        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+        input_: aws_sdk_controltower.types.reset_enabled_baseline_input.ResetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_baseline_identifier"] = enabled_baseline_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -355,17 +355,17 @@ class AsyncEnabledBaselineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.enable_baseline_input.EnableBaselineInput = {}  # type: ignore[typeddict-item]
-        input["baseline_version"] = baseline_version
+        input_: aws_sdk_controltower.types.enable_baseline_input.EnableBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["baseline_version"] = baseline_version
         if parameters is not None:
-            input["parameters"] = parameters
-        input["baseline_identifier"] = baseline_identifier
-        input["target_identifier"] = target_identifier
+            input_["parameters"] = parameters
+        input_["baseline_identifier"] = baseline_identifier
+        input_["target_identifier"] = target_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -399,11 +399,11 @@ class AsyncEnabledBaselineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_enabled_baseline_input.GetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
-        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+        input_: aws_sdk_controltower.types.get_enabled_baseline_input.GetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_baseline_identifier"] = enabled_baseline_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,14 +443,14 @@ class AsyncEnabledBaselineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.update_enabled_baseline_input.UpdateEnabledBaselineInput = {}  # type: ignore[typeddict-item]
-        input["baseline_version"] = baseline_version
+        input_: aws_sdk_controltower.types.update_enabled_baseline_input.UpdateEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["baseline_version"] = baseline_version
         if parameters is not None:
-            input["parameters"] = parameters
-        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+            input_["parameters"] = parameters
+        input_["enabled_baseline_identifier"] = enabled_baseline_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,11 +484,11 @@ class AsyncEnabledBaselineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.disable_baseline_input.DisableBaselineInput = {}  # type: ignore[typeddict-item]
-        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+        input_: aws_sdk_controltower.types.disable_baseline_input.DisableBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_baseline_identifier"] = enabled_baseline_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,18 +534,18 @@ class AsyncEnabledBaselineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_enabled_baselines_input.ListEnabledBaselinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_enabled_baselines_input.ListEnabledBaselinesInput = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if include_children is not None:
-            input["include_children"] = include_children
+            input_["include_children"] = include_children
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,11 +579,11 @@ class AsyncEnabledBaselineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.reset_enabled_baseline_input.ResetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
-        input["enabled_baseline_identifier"] = enabled_baseline_identifier
+        input_: aws_sdk_controltower.types.reset_enabled_baseline_input.ResetEnabledBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["enabled_baseline_identifier"] = enabled_baseline_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

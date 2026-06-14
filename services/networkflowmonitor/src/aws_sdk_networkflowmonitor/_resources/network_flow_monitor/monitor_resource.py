@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_networkflowmonitor._auth._signers
@@ -98,19 +99,19 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.create_monitor_input.CreateMonitorInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["local_resources"] = local_resources
+        input_: aws_sdk_networkflowmonitor.types.create_monitor_input.CreateMonitorInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["local_resources"] = local_resources
         if remote_resources is not None:
-            input["remote_resources"] = remote_resources
-        input["scope_arn"] = scope_arn
+            input_["remote_resources"] = remote_resources
+        input_["scope_arn"] = scope_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -143,11 +144,11 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
+        input_: aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -200,21 +201,21 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.update_monitor_input.UpdateMonitorInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
+        input_: aws_sdk_networkflowmonitor.types.update_monitor_input.UpdateMonitorInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
         if local_resources_to_add is not None:
-            input["local_resources_to_add"] = local_resources_to_add
+            input_["local_resources_to_add"] = local_resources_to_add
         if local_resources_to_remove is not None:
-            input["local_resources_to_remove"] = local_resources_to_remove
+            input_["local_resources_to_remove"] = local_resources_to_remove
         if remote_resources_to_add is not None:
-            input["remote_resources_to_add"] = remote_resources_to_add
+            input_["remote_resources_to_add"] = remote_resources_to_add
         if remote_resources_to_remove is not None:
-            input["remote_resources_to_remove"] = remote_resources_to_remove
+            input_["remote_resources_to_remove"] = remote_resources_to_remove
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -247,11 +248,11 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
+        input_: aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,16 +293,16 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.list_monitors_input.ListMonitorsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkflowmonitor.types.list_monitors_input.ListMonitorsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if monitor_status is not None:
-            input["monitor_status"] = monitor_status
+            input_["monitor_status"] = monitor_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,16 +341,16 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_input.GetQueryResultsMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_input.GetQueryResultsMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,12 +385,12 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_input.GetQueryStatusMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_input.GetQueryStatusMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,17 +433,17 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.StartQueryMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["metric_name"] = metric_name
-        input["destination_category"] = destination_category
+        input_: aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.StartQueryMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["metric_name"] = metric_name
+        input_["destination_category"] = destination_category
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -477,12 +478,12 @@ class MonitorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_input.StopQueryMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_input.StopQueryMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,19 +536,19 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.create_monitor_input.CreateMonitorInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["local_resources"] = local_resources
+        input_: aws_sdk_networkflowmonitor.types.create_monitor_input.CreateMonitorInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["local_resources"] = local_resources
         if remote_resources is not None:
-            input["remote_resources"] = remote_resources
-        input["scope_arn"] = scope_arn
+            input_["remote_resources"] = remote_resources
+        input_["scope_arn"] = scope_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -581,11 +582,11 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
+        input_: aws_sdk_networkflowmonitor.types.get_monitor_input.GetMonitorInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -639,21 +640,21 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.update_monitor_input.UpdateMonitorInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
+        input_: aws_sdk_networkflowmonitor.types.update_monitor_input.UpdateMonitorInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
         if local_resources_to_add is not None:
-            input["local_resources_to_add"] = local_resources_to_add
+            input_["local_resources_to_add"] = local_resources_to_add
         if local_resources_to_remove is not None:
-            input["local_resources_to_remove"] = local_resources_to_remove
+            input_["local_resources_to_remove"] = local_resources_to_remove
         if remote_resources_to_add is not None:
-            input["remote_resources_to_add"] = remote_resources_to_add
+            input_["remote_resources_to_add"] = remote_resources_to_add
         if remote_resources_to_remove is not None:
-            input["remote_resources_to_remove"] = remote_resources_to_remove
+            input_["remote_resources_to_remove"] = remote_resources_to_remove
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -687,11 +688,11 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
+        input_: aws_sdk_networkflowmonitor.types.delete_monitor_input.DeleteMonitorInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -733,16 +734,16 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.list_monitors_input.ListMonitorsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkflowmonitor.types.list_monitors_input.ListMonitorsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if monitor_status is not None:
-            input["monitor_status"] = monitor_status
+            input_["monitor_status"] = monitor_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -782,16 +783,16 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_input.GetQueryResultsMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_results_monitor_top_contributors_input.GetQueryResultsMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -827,12 +828,12 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_input.GetQueryStatusMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_status_monitor_top_contributors_input.GetQueryStatusMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,17 +877,17 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.StartQueryMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["metric_name"] = metric_name
-        input["destination_category"] = destination_category
+        input_: aws_sdk_networkflowmonitor.types.start_query_monitor_top_contributors_input.StartQueryMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["metric_name"] = metric_name
+        input_["destination_category"] = destination_category
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -922,12 +923,12 @@ class AsyncMonitorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_input.StopQueryMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["monitor_name"] = monitor_name
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.stop_query_monitor_top_contributors_input.StopQueryMonitorTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["monitor_name"] = monitor_name
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -127,14 +127,14 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.associate_whats_app_business_account_input.AssociateWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.associate_whats_app_business_account_input.AssociateWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
         if signup_callback is not None:
-            input["signup_callback"] = signup_callback
+            input_["signup_callback"] = signup_callback
         if setup_finalization is not None:
-            input["setup_finalization"] = setup_finalization
+            input_["setup_finalization"] = setup_finalization
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -167,11 +167,11 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_input.GetLinkedWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_input.GetLinkedWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,11 +204,11 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.disassociate_whats_app_business_account_input.DisassociateWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.disassociate_whats_app_business_account_input.DisassociateWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -247,14 +247,14 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_linked_whats_app_business_accounts_input.ListLinkedWhatsAppBusinessAccountsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.list_linked_whats_app_business_accounts_input.ListLinkedWhatsAppBusinessAccountsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,19 +301,19 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.create_whats_app_flow_input.CreateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_name"] = flow_name
-        input["categories"] = categories
+        input_: aws_sdk_socialmessaging.types.create_whats_app_flow_input.CreateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_name"] = flow_name
+        input_["categories"] = categories
         if flow_json is not None:
-            input["flow_json"] = flow_json
+            input_["flow_json"] = flow_json
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if clone_flow_id is not None:
-            input["clone_flow_id"] = clone_flow_id
+            input_["clone_flow_id"] = clone_flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,12 +348,12 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.create_whats_app_message_template_input.CreateWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
-        input["template_definition"] = template_definition
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.create_whats_app_message_template_input.CreateWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["template_definition"] = template_definition
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,12 +388,12 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.create_whats_app_message_template_from_library_input.CreateWhatsAppMessageTemplateFromLibraryInput = {}  # type: ignore[typeddict-item]
-        input["meta_library_template"] = meta_library_template
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.create_whats_app_message_template_from_library_input.CreateWhatsAppMessageTemplateFromLibraryInput = {}  # type: ignore[typeddict-item]
+        input_["meta_library_template"] = meta_library_template
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,13 +427,13 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.create_whats_app_message_template_media_input.CreateWhatsAppMessageTemplateMediaInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.create_whats_app_message_template_media_input.CreateWhatsAppMessageTemplateMediaInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if source_s3_file is not None:
-            input["source_s3_file"] = source_s3_file
+            input_["source_s3_file"] = source_s3_file
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,12 +468,12 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.delete_whats_app_flow_input.DeleteWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.delete_whats_app_flow_input.DeleteWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,16 +516,16 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.delete_whats_app_message_template_input.DeleteWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.delete_whats_app_message_template_input.DeleteWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
         if meta_template_id is not None:
-            input["meta_template_id"] = meta_template_id
+            input_["meta_template_id"] = meta_template_id
         if delete_all_languages is not None:
-            input["delete_all_languages"] = delete_all_languages
-        input["id"] = id
-        input["template_name"] = template_name
+            input_["delete_all_languages"] = delete_all_languages
+        input_["id"] = id
+        input_["template_name"] = template_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -560,12 +560,12 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.deprecate_whats_app_flow_input.DeprecateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.deprecate_whats_app_flow_input.DeprecateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -602,12 +602,12 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_whats_app_flow_input.GetWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.get_whats_app_flow_input.GetWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -644,14 +644,14 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_whats_app_flow_preview_input.GetWhatsAppFlowPreviewInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.get_whats_app_flow_preview_input.GetWhatsAppFlowPreviewInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
         if invalidate is not None:
-            input["invalidate"] = invalidate
+            input_["invalidate"] = invalidate
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,17 +696,17 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_whats_app_message_template_input.GetWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.get_whats_app_message_template_input.GetWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
         if meta_template_id is not None:
-            input["meta_template_id"] = meta_template_id
-        input["id"] = id
+            input_["meta_template_id"] = meta_template_id
+        input_["id"] = id
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if template_language_code is not None:
-            input["template_language_code"] = template_language_code
+            input_["template_language_code"] = template_language_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -749,16 +749,16 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_whats_app_flow_assets_input.ListWhatsAppFlowAssetsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.list_whats_app_flow_assets_input.ListWhatsAppFlowAssetsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -799,15 +799,15 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_whats_app_flows_input.ListWhatsAppFlowsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.list_whats_app_flows_input.ListWhatsAppFlowsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,15 +848,15 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_whats_app_message_templates_input.ListWhatsAppMessageTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.list_whats_app_message_templates_input.ListWhatsAppMessageTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -899,17 +899,17 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_whats_app_template_library_input.ListWhatsAppTemplateLibraryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.list_whats_app_template_library_input.ListWhatsAppTemplateLibraryInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["id"] = id
+            input_["max_results"] = max_results
+        input_["id"] = id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -944,12 +944,12 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.publish_whats_app_flow_input.PublishWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.publish_whats_app_flow_input.PublishWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -984,12 +984,12 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.put_whats_app_business_account_event_destinations_input.PutWhatsAppBusinessAccountEventDestinationsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["event_destinations"] = event_destinations
+        input_: aws_sdk_socialmessaging.types.put_whats_app_business_account_event_destinations_input.PutWhatsAppBusinessAccountEventDestinationsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["event_destinations"] = event_destinations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1032,16 +1032,16 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.update_whats_app_flow_input.UpdateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.update_whats_app_flow_input.UpdateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
         if flow_name is not None:
-            input["flow_name"] = flow_name
+            input_["flow_name"] = flow_name
         if categories is not None:
-            input["categories"] = categories
+            input_["categories"] = categories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1078,13 +1078,13 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.update_whats_app_flow_assets_input.UpdateWhatsAppFlowAssetsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
-        input["flow_json"] = flow_json
+        input_: aws_sdk_socialmessaging.types.update_whats_app_flow_assets_input.UpdateWhatsAppFlowAssetsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
+        input_["flow_json"] = flow_json
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1145,25 +1145,25 @@ class LinkedWhatsAppBusinessAccountResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.update_whats_app_message_template_input.UpdateWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.update_whats_app_message_template_input.UpdateWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if meta_template_id is not None:
-            input["meta_template_id"] = meta_template_id
+            input_["meta_template_id"] = meta_template_id
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if template_language_code is not None:
-            input["template_language_code"] = template_language_code
+            input_["template_language_code"] = template_language_code
         if parameter_format is not None:
-            input["parameter_format"] = parameter_format
+            input_["parameter_format"] = parameter_format
         if template_category is not None:
-            input["template_category"] = template_category
+            input_["template_category"] = template_category
         if template_components is not None:
-            input["template_components"] = template_components
+            input_["template_components"] = template_components
         if cta_url_link_tracking_opted_out is not None:
-            input["cta_url_link_tracking_opted_out"] = cta_url_link_tracking_opted_out
+            input_["cta_url_link_tracking_opted_out"] = cta_url_link_tracking_opted_out
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1208,14 +1208,14 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.associate_whats_app_business_account_input.AssociateWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.associate_whats_app_business_account_input.AssociateWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
         if signup_callback is not None:
-            input["signup_callback"] = signup_callback
+            input_["signup_callback"] = signup_callback
         if setup_finalization is not None:
-            input["setup_finalization"] = setup_finalization
+            input_["setup_finalization"] = setup_finalization
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1249,11 +1249,11 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_input.GetLinkedWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_input.GetLinkedWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1287,11 +1287,11 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.disassociate_whats_app_business_account_input.DisassociateWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.disassociate_whats_app_business_account_input.DisassociateWhatsAppBusinessAccountInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1331,14 +1331,14 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_linked_whats_app_business_accounts_input.ListLinkedWhatsAppBusinessAccountsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.list_linked_whats_app_business_accounts_input.ListLinkedWhatsAppBusinessAccountsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1386,19 +1386,19 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.create_whats_app_flow_input.CreateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_name"] = flow_name
-        input["categories"] = categories
+        input_: aws_sdk_socialmessaging.types.create_whats_app_flow_input.CreateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_name"] = flow_name
+        input_["categories"] = categories
         if flow_json is not None:
-            input["flow_json"] = flow_json
+            input_["flow_json"] = flow_json
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if clone_flow_id is not None:
-            input["clone_flow_id"] = clone_flow_id
+            input_["clone_flow_id"] = clone_flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1434,12 +1434,12 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.create_whats_app_message_template_input.CreateWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
-        input["template_definition"] = template_definition
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.create_whats_app_message_template_input.CreateWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["template_definition"] = template_definition
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1475,12 +1475,12 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.create_whats_app_message_template_from_library_input.CreateWhatsAppMessageTemplateFromLibraryInput = {}  # type: ignore[typeddict-item]
-        input["meta_library_template"] = meta_library_template
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.create_whats_app_message_template_from_library_input.CreateWhatsAppMessageTemplateFromLibraryInput = {}  # type: ignore[typeddict-item]
+        input_["meta_library_template"] = meta_library_template
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1515,13 +1515,13 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.create_whats_app_message_template_media_input.CreateWhatsAppMessageTemplateMediaInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.create_whats_app_message_template_media_input.CreateWhatsAppMessageTemplateMediaInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if source_s3_file is not None:
-            input["source_s3_file"] = source_s3_file
+            input_["source_s3_file"] = source_s3_file
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1557,12 +1557,12 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.delete_whats_app_flow_input.DeleteWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.delete_whats_app_flow_input.DeleteWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1606,16 +1606,16 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.delete_whats_app_message_template_input.DeleteWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.delete_whats_app_message_template_input.DeleteWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
         if meta_template_id is not None:
-            input["meta_template_id"] = meta_template_id
+            input_["meta_template_id"] = meta_template_id
         if delete_all_languages is not None:
-            input["delete_all_languages"] = delete_all_languages
-        input["id"] = id
-        input["template_name"] = template_name
+            input_["delete_all_languages"] = delete_all_languages
+        input_["id"] = id
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1651,12 +1651,12 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.deprecate_whats_app_flow_input.DeprecateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.deprecate_whats_app_flow_input.DeprecateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1694,12 +1694,12 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_whats_app_flow_input.GetWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.get_whats_app_flow_input.GetWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1737,14 +1737,14 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_whats_app_flow_preview_input.GetWhatsAppFlowPreviewInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.get_whats_app_flow_preview_input.GetWhatsAppFlowPreviewInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
         if invalidate is not None:
-            input["invalidate"] = invalidate
+            input_["invalidate"] = invalidate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1790,17 +1790,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_whats_app_message_template_input.GetWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.get_whats_app_message_template_input.GetWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
         if meta_template_id is not None:
-            input["meta_template_id"] = meta_template_id
-        input["id"] = id
+            input_["meta_template_id"] = meta_template_id
+        input_["id"] = id
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if template_language_code is not None:
-            input["template_language_code"] = template_language_code
+            input_["template_language_code"] = template_language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1844,16 +1844,16 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_whats_app_flow_assets_input.ListWhatsAppFlowAssetsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.list_whats_app_flow_assets_input.ListWhatsAppFlowAssetsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1895,15 +1895,15 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_whats_app_flows_input.ListWhatsAppFlowsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.list_whats_app_flows_input.ListWhatsAppFlowsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1945,15 +1945,15 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_whats_app_message_templates_input.ListWhatsAppMessageTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.list_whats_app_message_templates_input.ListWhatsAppMessageTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1997,17 +1997,17 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.list_whats_app_template_library_input.ListWhatsAppTemplateLibraryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_socialmessaging.types.list_whats_app_template_library_input.ListWhatsAppTemplateLibraryInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["id"] = id
+            input_["max_results"] = max_results
+        input_["id"] = id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2043,12 +2043,12 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.publish_whats_app_flow_input.PublishWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.publish_whats_app_flow_input.PublishWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2084,12 +2084,12 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.put_whats_app_business_account_event_destinations_input.PutWhatsAppBusinessAccountEventDestinationsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["event_destinations"] = event_destinations
+        input_: aws_sdk_socialmessaging.types.put_whats_app_business_account_event_destinations_input.PutWhatsAppBusinessAccountEventDestinationsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["event_destinations"] = event_destinations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2133,16 +2133,16 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.update_whats_app_flow_input.UpdateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
+        input_: aws_sdk_socialmessaging.types.update_whats_app_flow_input.UpdateWhatsAppFlowInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
         if flow_name is not None:
-            input["flow_name"] = flow_name
+            input_["flow_name"] = flow_name
         if categories is not None:
-            input["categories"] = categories
+            input_["categories"] = categories
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2180,13 +2180,13 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.update_whats_app_flow_assets_input.UpdateWhatsAppFlowAssetsInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["flow_id"] = flow_id
-        input["flow_json"] = flow_json
+        input_: aws_sdk_socialmessaging.types.update_whats_app_flow_assets_input.UpdateWhatsAppFlowAssetsInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["flow_id"] = flow_id
+        input_["flow_json"] = flow_json
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2248,25 +2248,25 @@ class AsyncLinkedWhatsAppBusinessAccountResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.update_whats_app_message_template_input.UpdateWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.update_whats_app_message_template_input.UpdateWhatsAppMessageTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if meta_template_id is not None:
-            input["meta_template_id"] = meta_template_id
+            input_["meta_template_id"] = meta_template_id
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if template_language_code is not None:
-            input["template_language_code"] = template_language_code
+            input_["template_language_code"] = template_language_code
         if parameter_format is not None:
-            input["parameter_format"] = parameter_format
+            input_["parameter_format"] = parameter_format
         if template_category is not None:
-            input["template_category"] = template_category
+            input_["template_category"] = template_category
         if template_components is not None:
-            input["template_components"] = template_components
+            input_["template_components"] = template_components
         if cta_url_link_tracking_opted_out is not None:
-            input["cta_url_link_tracking_opted_out"] = cta_url_link_tracking_opted_out
+            input_["cta_url_link_tracking_opted_out"] = cta_url_link_tracking_opted_out
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

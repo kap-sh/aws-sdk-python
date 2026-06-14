@@ -97,57 +97,54 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest,
+    input_: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/profilingGroups/{profilingGroupName}/profile"
     url = url.replace(
-        "{profilingGroupName}", quote(str(input["profiling_group_name"]), safe="")
+        "{profilingGroupName}", quote(str(input_["profiling_group_name"]), safe="")
     )
     params: dict[str, str] = {}
-    if "start_time" in input:
-        params["startTime"] = str(input["start_time"])
-    if "period" in input:
-        params["period"] = str(input["period"])
-    if "end_time" in input:
-        params["endTime"] = str(input["end_time"])
-    if "max_depth" in input:
-        params["maxDepth"] = str(input["max_depth"])
+    if "start_time" in input_:
+        params["startTime"] = str(input_["start_time"])
+    if "period" in input_:
+        params["period"] = str(input_["period"])
+    if "end_time" in input_:
+        params["endTime"] = str(input_["end_time"])
+    if "max_depth" in input_:
+        params["maxDepth"] = str(input_["max_depth"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "accept" in input:
-        headers["Accept"] = str(input["accept"])
+    if "accept" in input_:
+        headers["Accept"] = str(input_["accept"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_profile(
     options: OperationOptions,
-    input: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest,
+    input_: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest,
 ) -> tuple[
     aws_sdk_codeguruprofiler.types.get_profile_response.GetProfileResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -156,16 +153,17 @@ def get_profile(
 
 async def async_get_profile(
     options: AsyncOperationOptions,
-    input: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest,
+    input_: aws_sdk_codeguruprofiler.types.get_profile_request.GetProfileRequest,
 ) -> tuple[
     aws_sdk_codeguruprofiler.types.get_profile_response.GetProfileResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

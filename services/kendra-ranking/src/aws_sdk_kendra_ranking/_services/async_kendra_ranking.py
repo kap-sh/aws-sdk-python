@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_kendra_ranking._auth._signers
+import aws_sdk_kendra_ranking._auth._sigv4
 from aws_sdk_kendra_ranking._auth._identity import Credentials
 from aws_sdk_kendra_ranking._auth._providers import (
     CredentialsProvider,
@@ -189,19 +191,19 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.create_rescore_execution_plan_request.CreateRescoreExecutionPlanRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_kendra_ranking.types.create_rescore_execution_plan_request.CreateRescoreExecutionPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if capacity_units is not None:
-            input["capacity_units"] = capacity_units
+            input_["capacity_units"] = capacity_units
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,11 +235,11 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.delete_rescore_execution_plan_request.DeleteRescoreExecutionPlanRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra_ranking.types.delete_rescore_execution_plan_request.DeleteRescoreExecutionPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,11 +273,11 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.describe_rescore_execution_plan_request.DescribeRescoreExecutionPlanRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra_ranking.types.describe_rescore_execution_plan_request.DescribeRescoreExecutionPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,14 +317,14 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.list_rescore_execution_plans_request.ListRescoreExecutionPlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kendra_ranking.types.list_rescore_execution_plans_request.ListRescoreExecutionPlansRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,11 +358,11 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kendra_ranking.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,13 +400,13 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.rescore_request.RescoreRequest = {}  # type: ignore[typeddict-item]
-        input["rescore_execution_plan_id"] = rescore_execution_plan_id
-        input["search_query"] = search_query
-        input["documents"] = documents
+        input_: aws_sdk_kendra_ranking.types.rescore_request.RescoreRequest = {}  # type: ignore[typeddict-item]
+        input_["rescore_execution_plan_id"] = rescore_execution_plan_id
+        input_["search_query"] = search_query
+        input_["documents"] = documents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,12 +442,12 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_kendra_ranking.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,12 +483,12 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_kendra_ranking.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,17 +532,17 @@ class AsyncKendraRankingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra_ranking.types.update_rescore_execution_plan_request.UpdateRescoreExecutionPlanRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra_ranking.types.update_rescore_execution_plan_request.UpdateRescoreExecutionPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if capacity_units is not None:
-            input["capacity_units"] = capacity_units
+            input_["capacity_units"] = capacity_units
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

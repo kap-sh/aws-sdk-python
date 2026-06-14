@@ -15,6 +15,21 @@ from aws_sdk_pca_connector_ad._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_pca_connector_ad._auth._zapros_handler import AuthMiddleware
+from aws_sdk_pca_connector_ad._resources.pca_connector_ad.connector_resource import (
+    ConnectorResource,
+)
+from aws_sdk_pca_connector_ad._resources.pca_connector_ad.directory_registration_resource import (
+    DirectoryRegistrationResource,
+)
+from aws_sdk_pca_connector_ad._resources.pca_connector_ad.service_principal_name_resource import (
+    ServicePrincipalNameResource,
+)
+from aws_sdk_pca_connector_ad._resources.pca_connector_ad.template_group_access_control_entry_resource import (
+    TemplateGroupAccessControlEntryResource,
+)
+from aws_sdk_pca_connector_ad._resources.pca_connector_ad.template_resource import (
+    TemplateResource,
+)
 from aws_sdk_pca_connector_ad._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -103,6 +118,14 @@ class PcaConnectorAdClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.connector_resource = ConnectorResource(self)
+        self.directory_registration_resource = DirectoryRegistrationResource(self)
+        self.service_principal_name_resource = ServicePrincipalNameResource(self)
+        self.template_group_access_control_entry_resource = (
+            TemplateGroupAccessControlEntryResource(self)
+        )
+        self.template_resource = TemplateResource(self)
 
     def operation_options(
         self, config_overrides: Optional[PcaConnectorAdClientConfig] = None
@@ -159,11 +182,11 @@ class PcaConnectorAdClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_pca_connector_ad.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,12 +219,12 @@ class PcaConnectorAdClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_pca_connector_ad.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -234,12 +257,12 @@ class PcaConnectorAdClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_pca_connector_ad.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

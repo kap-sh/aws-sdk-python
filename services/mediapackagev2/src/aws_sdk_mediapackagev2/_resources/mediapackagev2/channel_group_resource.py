@@ -85,17 +85,17 @@ class ChannelGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.create_channel_group_request.CreateChannelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_group_name"] = channel_group_name
+        input_: aws_sdk_mediapackagev2.types.create_channel_group_request.CreateChannelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_group_name"] = channel_group_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,11 +133,11 @@ class ChannelGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.get_channel_group_request.GetChannelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_group_name"] = channel_group_name
+        input_: aws_sdk_mediapackagev2.types.get_channel_group_request.GetChannelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_group_name"] = channel_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,15 +181,15 @@ class ChannelGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.update_channel_group_request.UpdateChannelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_group_name"] = channel_group_name
+        input_: aws_sdk_mediapackagev2.types.update_channel_group_request.UpdateChannelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_group_name"] = channel_group_name
         if e_tag is not None:
-            input["e_tag"] = e_tag
+            input_["e_tag"] = e_tag
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -227,11 +227,11 @@ class ChannelGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.delete_channel_group_request.DeleteChannelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_group_name"] = channel_group_name
+        input_: aws_sdk_mediapackagev2.types.delete_channel_group_request.DeleteChannelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_group_name"] = channel_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,14 +273,14 @@ class ChannelGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.list_channel_groups_request.ListChannelGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackagev2.types.list_channel_groups_request.ListChannelGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,17 +334,17 @@ class AsyncChannelGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.create_channel_group_request.CreateChannelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_group_name"] = channel_group_name
+        input_: aws_sdk_mediapackagev2.types.create_channel_group_request.CreateChannelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_group_name"] = channel_group_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,11 +383,11 @@ class AsyncChannelGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.get_channel_group_request.GetChannelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_group_name"] = channel_group_name
+        input_: aws_sdk_mediapackagev2.types.get_channel_group_request.GetChannelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_group_name"] = channel_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,15 +432,15 @@ class AsyncChannelGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.update_channel_group_request.UpdateChannelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_group_name"] = channel_group_name
+        input_: aws_sdk_mediapackagev2.types.update_channel_group_request.UpdateChannelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_group_name"] = channel_group_name
         if e_tag is not None:
-            input["e_tag"] = e_tag
+            input_["e_tag"] = e_tag
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,11 +479,11 @@ class AsyncChannelGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.delete_channel_group_request.DeleteChannelGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_group_name"] = channel_group_name
+        input_: aws_sdk_mediapackagev2.types.delete_channel_group_request.DeleteChannelGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_group_name"] = channel_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,14 +526,14 @@ class AsyncChannelGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediapackagev2.types.list_channel_groups_request.ListChannelGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackagev2.types.list_channel_groups_request.ListChannelGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_billing._auth._signers
+import aws_sdk_billing._auth._sigv4
 from aws_sdk_billing._auth._identity import Credentials
 from aws_sdk_billing._auth._providers import (
     CredentialsProvider,
@@ -203,12 +205,12 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.associate_source_views_request.AssociateSourceViewsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["source_views"] = source_views
+        input_: aws_sdk_billing.types.associate_source_views_request.AssociateSourceViewsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["source_views"] = source_views
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,20 +265,20 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.create_billing_view_request.CreateBillingViewRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_billing.types.create_billing_view_request.CreateBillingViewRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["source_views"] = source_views
+            input_["description"] = description
+        input_["source_views"] = source_views
         if data_filter_expression is not None:
-            input["data_filter_expression"] = data_filter_expression
+            input_["data_filter_expression"] = data_filter_expression
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -317,13 +319,13 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.delete_billing_view_request.DeleteBillingViewRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billing.types.delete_billing_view_request.DeleteBillingViewRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,12 +366,12 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.disassociate_source_views_request.DisassociateSourceViewsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["source_views"] = source_views
+        input_: aws_sdk_billing.types.disassociate_source_views_request.DisassociateSourceViewsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["source_views"] = source_views
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,11 +410,11 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.get_billing_view_request.GetBillingViewRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billing.types.get_billing_view_request.GetBillingViewRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,11 +453,11 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_billing.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -521,26 +523,26 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.list_billing_views_request.ListBillingViewsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billing.types.list_billing_views_request.ListBillingViewsRequest = {}  # type: ignore[typeddict-item]
         if active_time_range is not None:
-            input["active_time_range"] = active_time_range
+            input_["active_time_range"] = active_time_range
         if arns is not None:
-            input["arns"] = arns
+            input_["arns"] = arns
         if billing_view_types is not None:
-            input["billing_view_types"] = billing_view_types
+            input_["billing_view_types"] = billing_view_types
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if owner_account_id is not None:
-            input["owner_account_id"] = owner_account_id
+            input_["owner_account_id"] = owner_account_id
         if source_account_id is not None:
-            input["source_account_id"] = source_account_id
+            input_["source_account_id"] = source_account_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -628,15 +630,15 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.list_source_views_for_billing_view_request.ListSourceViewsForBillingViewRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billing.types.list_source_views_for_billing_view_request.ListSourceViewsForBillingViewRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -700,11 +702,11 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_billing.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,12 +747,12 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tags"] = resource_tags
+        input_: aws_sdk_billing.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tags"] = resource_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -791,12 +793,12 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_tag_keys"] = resource_tag_keys
+        input_: aws_sdk_billing.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_tag_keys"] = resource_tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -847,17 +849,17 @@ class AsyncBillingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_billing.types.update_billing_view_request.UpdateBillingViewRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billing.types.update_billing_view_request.UpdateBillingViewRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_filter_expression is not None:
-            input["data_filter_expression"] = data_filter_expression
+            input_["data_filter_expression"] = data_filter_expression
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

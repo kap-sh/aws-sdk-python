@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_codedeploy._auth._signers
+import aws_sdk_codedeploy._auth._sigv4
 from aws_sdk_codedeploy._auth._identity import Credentials
 from aws_sdk_codedeploy._auth._providers import (
     CredentialsProvider,
@@ -299,12 +301,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.add_tags_to_on_premises_instances_input.AddTagsToOnPremisesInstancesInput = {}  # type: ignore[typeddict-item]
-        input["tags"] = tags
-        input["instance_names"] = instance_names
+        input_: aws_sdk_codedeploy.types.add_tags_to_on_premises_instances_input.AddTagsToOnPremisesInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["tags"] = tags
+        input_["instance_names"] = instance_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,12 +342,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.batch_get_application_revisions_input.BatchGetApplicationRevisionsInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["revisions"] = revisions
+        input_: aws_sdk_codedeploy.types.batch_get_application_revisions_input.BatchGetApplicationRevisionsInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["revisions"] = revisions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,11 +381,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.batch_get_applications_input.BatchGetApplicationsInput = {}  # type: ignore[typeddict-item]
-        input["application_names"] = application_names
+        input_: aws_sdk_codedeploy.types.batch_get_applications_input.BatchGetApplicationsInput = {}  # type: ignore[typeddict-item]
+        input_["application_names"] = application_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,12 +421,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.batch_get_deployment_groups_input.BatchGetDeploymentGroupsInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["deployment_group_names"] = deployment_group_names
+        input_: aws_sdk_codedeploy.types.batch_get_deployment_groups_input.BatchGetDeploymentGroupsInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["deployment_group_names"] = deployment_group_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,12 +462,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.batch_get_deployment_instances_input.BatchGetDeploymentInstancesInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["instance_ids"] = instance_ids
+        input_: aws_sdk_codedeploy.types.batch_get_deployment_instances_input.BatchGetDeploymentInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["instance_ids"] = instance_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,11 +501,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.batch_get_deployments_input.BatchGetDeploymentsInput = {}  # type: ignore[typeddict-item]
-        input["deployment_ids"] = deployment_ids
+        input_: aws_sdk_codedeploy.types.batch_get_deployments_input.BatchGetDeploymentsInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_ids"] = deployment_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,12 +541,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.batch_get_deployment_targets_input.BatchGetDeploymentTargetsInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["target_ids"] = target_ids
+        input_: aws_sdk_codedeploy.types.batch_get_deployment_targets_input.BatchGetDeploymentTargetsInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["target_ids"] = target_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -578,11 +580,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.batch_get_on_premises_instances_input.BatchGetOnPremisesInstancesInput = {}  # type: ignore[typeddict-item]
-        input["instance_names"] = instance_names
+        input_: aws_sdk_codedeploy.types.batch_get_on_premises_instances_input.BatchGetOnPremisesInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["instance_names"] = instance_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,14 +622,14 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.continue_deployment_input.ContinueDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.continue_deployment_input.ContinueDeploymentInput = {}  # type: ignore[typeddict-item]
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
+            input_["deployment_id"] = deployment_id
         if deployment_wait_type is not None:
-            input["deployment_wait_type"] = deployment_wait_type
+            input_["deployment_wait_type"] = deployment_wait_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -667,15 +669,15 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.create_application_input.CreateApplicationInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_codedeploy.types.create_application_input.CreateApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if compute_platform is not None:
-            input["compute_platform"] = compute_platform
+            input_["compute_platform"] = compute_platform
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -749,31 +751,33 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.create_deployment_input.CreateDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_codedeploy.types.create_deployment_input.CreateDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if deployment_group_name is not None:
-            input["deployment_group_name"] = deployment_group_name
+            input_["deployment_group_name"] = deployment_group_name
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if deployment_config_name is not None:
-            input["deployment_config_name"] = deployment_config_name
+            input_["deployment_config_name"] = deployment_config_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if ignore_application_stop_failures is not None:
-            input["ignore_application_stop_failures"] = ignore_application_stop_failures
+            input_["ignore_application_stop_failures"] = (
+                ignore_application_stop_failures
+            )
         if target_instances is not None:
-            input["target_instances"] = target_instances
+            input_["target_instances"] = target_instances
         if auto_rollback_configuration is not None:
-            input["auto_rollback_configuration"] = auto_rollback_configuration
+            input_["auto_rollback_configuration"] = auto_rollback_configuration
         if update_outdated_instances_only is not None:
-            input["update_outdated_instances_only"] = update_outdated_instances_only
+            input_["update_outdated_instances_only"] = update_outdated_instances_only
         if file_exists_behavior is not None:
-            input["file_exists_behavior"] = file_exists_behavior
+            input_["file_exists_behavior"] = file_exists_behavior
         if override_alarm_configuration is not None:
-            input["override_alarm_configuration"] = override_alarm_configuration
+            input_["override_alarm_configuration"] = override_alarm_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -823,19 +827,19 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.create_deployment_config_input.CreateDeploymentConfigInput = {}  # type: ignore[typeddict-item]
-        input["deployment_config_name"] = deployment_config_name
+        input_: aws_sdk_codedeploy.types.create_deployment_config_input.CreateDeploymentConfigInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_config_name"] = deployment_config_name
         if minimum_healthy_hosts is not None:
-            input["minimum_healthy_hosts"] = minimum_healthy_hosts
+            input_["minimum_healthy_hosts"] = minimum_healthy_hosts
         if traffic_routing_config is not None:
-            input["traffic_routing_config"] = traffic_routing_config
+            input_["traffic_routing_config"] = traffic_routing_config
         if compute_platform is not None:
-            input["compute_platform"] = compute_platform
+            input_["compute_platform"] = compute_platform
         if zonal_config is not None:
-            input["zonal_config"] = zonal_config
+            input_["zonal_config"] = zonal_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -933,47 +937,49 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.create_deployment_group_input.CreateDeploymentGroupInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["deployment_group_name"] = deployment_group_name
+        input_: aws_sdk_codedeploy.types.create_deployment_group_input.CreateDeploymentGroupInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["deployment_group_name"] = deployment_group_name
         if deployment_config_name is not None:
-            input["deployment_config_name"] = deployment_config_name
+            input_["deployment_config_name"] = deployment_config_name
         if ec2_tag_filters is not None:
-            input["ec2_tag_filters"] = ec2_tag_filters
+            input_["ec2_tag_filters"] = ec2_tag_filters
         if on_premises_instance_tag_filters is not None:
-            input["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
+            input_["on_premises_instance_tag_filters"] = (
+                on_premises_instance_tag_filters
+            )
         if auto_scaling_groups is not None:
-            input["auto_scaling_groups"] = auto_scaling_groups
-        input["service_role_arn"] = service_role_arn
+            input_["auto_scaling_groups"] = auto_scaling_groups
+        input_["service_role_arn"] = service_role_arn
         if trigger_configurations is not None:
-            input["trigger_configurations"] = trigger_configurations
+            input_["trigger_configurations"] = trigger_configurations
         if alarm_configuration is not None:
-            input["alarm_configuration"] = alarm_configuration
+            input_["alarm_configuration"] = alarm_configuration
         if auto_rollback_configuration is not None:
-            input["auto_rollback_configuration"] = auto_rollback_configuration
+            input_["auto_rollback_configuration"] = auto_rollback_configuration
         if outdated_instances_strategy is not None:
-            input["outdated_instances_strategy"] = outdated_instances_strategy
+            input_["outdated_instances_strategy"] = outdated_instances_strategy
         if deployment_style is not None:
-            input["deployment_style"] = deployment_style
+            input_["deployment_style"] = deployment_style
         if blue_green_deployment_configuration is not None:
-            input["blue_green_deployment_configuration"] = (
+            input_["blue_green_deployment_configuration"] = (
                 blue_green_deployment_configuration
             )
         if load_balancer_info is not None:
-            input["load_balancer_info"] = load_balancer_info
+            input_["load_balancer_info"] = load_balancer_info
         if ec2_tag_set is not None:
-            input["ec2_tag_set"] = ec2_tag_set
+            input_["ec2_tag_set"] = ec2_tag_set
         if ecs_services is not None:
-            input["ecs_services"] = ecs_services
+            input_["ecs_services"] = ecs_services
         if on_premises_tag_set is not None:
-            input["on_premises_tag_set"] = on_premises_tag_set
+            input_["on_premises_tag_set"] = on_premises_tag_set
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if termination_hook_enabled is not None:
-            input["termination_hook_enabled"] = termination_hook_enabled
+            input_["termination_hook_enabled"] = termination_hook_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1005,11 +1011,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.delete_application_input.DeleteApplicationInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_codedeploy.types.delete_application_input.DeleteApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1041,11 +1047,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.delete_deployment_config_input.DeleteDeploymentConfigInput = {}  # type: ignore[typeddict-item]
-        input["deployment_config_name"] = deployment_config_name
+        input_: aws_sdk_codedeploy.types.delete_deployment_config_input.DeleteDeploymentConfigInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_config_name"] = deployment_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1081,12 +1087,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.delete_deployment_group_input.DeleteDeploymentGroupInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["deployment_group_name"] = deployment_group_name
+        input_: aws_sdk_codedeploy.types.delete_deployment_group_input.DeleteDeploymentGroupInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["deployment_group_name"] = deployment_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,12 +1128,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.delete_git_hub_account_token_input.DeleteGitHubAccountTokenInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.delete_git_hub_account_token_input.DeleteGitHubAccountTokenInput = {}  # type: ignore[typeddict-item]
         if token_name is not None:
-            input["token_name"] = token_name
+            input_["token_name"] = token_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1161,12 +1167,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.delete_resources_by_external_id_input.DeleteResourcesByExternalIdInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.delete_resources_by_external_id_input.DeleteResourcesByExternalIdInput = {}  # type: ignore[typeddict-item]
         if external_id is not None:
-            input["external_id"] = external_id
+            input_["external_id"] = external_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1198,11 +1204,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.deregister_on_premises_instance_input.DeregisterOnPremisesInstanceInput = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_codedeploy.types.deregister_on_premises_instance_input.DeregisterOnPremisesInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1236,11 +1242,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.get_application_input.GetApplicationInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_codedeploy.types.get_application_input.GetApplicationInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1276,12 +1282,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.get_application_revision_input.GetApplicationRevisionInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["revision"] = revision
+        input_: aws_sdk_codedeploy.types.get_application_revision_input.GetApplicationRevisionInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["revision"] = revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1315,11 +1321,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_codedeploy.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1353,11 +1359,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.get_deployment_config_input.GetDeploymentConfigInput = {}  # type: ignore[typeddict-item]
-        input["deployment_config_name"] = deployment_config_name
+        input_: aws_sdk_codedeploy.types.get_deployment_config_input.GetDeploymentConfigInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_config_name"] = deployment_config_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1395,12 +1401,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.get_deployment_group_input.GetDeploymentGroupInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["deployment_group_name"] = deployment_group_name
+        input_: aws_sdk_codedeploy.types.get_deployment_group_input.GetDeploymentGroupInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["deployment_group_name"] = deployment_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1436,12 +1442,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.get_deployment_instance_input.GetDeploymentInstanceInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_codedeploy.types.get_deployment_instance_input.GetDeploymentInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1477,12 +1483,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.get_deployment_target_input.GetDeploymentTargetInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["target_id"] = target_id
+        input_: aws_sdk_codedeploy.types.get_deployment_target_input.GetDeploymentTargetInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["target_id"] = target_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1516,11 +1522,11 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.get_on_premises_instance_input.GetOnPremisesInstanceInput = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_codedeploy.types.get_on_premises_instance_input.GetOnPremisesInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1570,23 +1576,23 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_application_revisions_input.ListApplicationRevisionsInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_codedeploy.types.list_application_revisions_input.ListApplicationRevisionsInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if s3_bucket is not None:
-            input["s3_bucket"] = s3_bucket
+            input_["s3_bucket"] = s3_bucket
         if s3_key_prefix is not None:
-            input["s3_key_prefix"] = s3_key_prefix
+            input_["s3_key_prefix"] = s3_key_prefix
         if deployed is not None:
-            input["deployed"] = deployed
+            input_["deployed"] = deployed
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1655,12 +1661,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_applications_input.ListApplicationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.list_applications_input.ListApplicationsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1713,12 +1719,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_deployment_configs_input.ListDeploymentConfigsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.list_deployment_configs_input.ListDeploymentConfigsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1773,13 +1779,13 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_deployment_groups_input.ListDeploymentGroupsInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_codedeploy.types.list_deployment_groups_input.ListDeploymentGroupsInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1844,17 +1850,17 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_deployment_instances_input.ListDeploymentInstancesInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_codedeploy.types.list_deployment_instances_input.ListDeploymentInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if instance_status_filter is not None:
-            input["instance_status_filter"] = instance_status_filter
+            input_["instance_status_filter"] = instance_status_filter
         if instance_type_filter is not None:
-            input["instance_type_filter"] = instance_type_filter
+            input_["instance_type_filter"] = instance_type_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1935,22 +1941,22 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
         if application_name is not None:
-            input["application_name"] = application_name
+            input_["application_name"] = application_name
         if deployment_group_name is not None:
-            input["deployment_group_name"] = deployment_group_name
+            input_["deployment_group_name"] = deployment_group_name
         if external_id is not None:
-            input["external_id"] = external_id
+            input_["external_id"] = external_id
         if include_only_statuses is not None:
-            input["include_only_statuses"] = include_only_statuses
+            input_["include_only_statuses"] = include_only_statuses
         if create_time_range is not None:
-            input["create_time_range"] = create_time_range
+            input_["create_time_range"] = create_time_range
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2027,15 +2033,15 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_deployment_targets_input.ListDeploymentTargetsInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_codedeploy.types.list_deployment_targets_input.ListDeploymentTargetsInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if target_filters is not None:
-            input["target_filters"] = target_filters
+            input_["target_filters"] = target_filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2069,12 +2075,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_git_hub_account_token_names_input.ListGitHubAccountTokenNamesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.list_git_hub_account_token_names_input.ListGitHubAccountTokenNamesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2116,16 +2122,16 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_on_premises_instances_input.ListOnPremisesInstancesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.list_on_premises_instances_input.ListOnPremisesInstancesInput = {}  # type: ignore[typeddict-item]
         if registration_status is not None:
-            input["registration_status"] = registration_status
+            input_["registration_status"] = registration_status
         if tag_filters is not None:
-            input["tag_filters"] = tag_filters
+            input_["tag_filters"] = tag_filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2161,13 +2167,13 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codedeploy.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2211,18 +2217,18 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.put_lifecycle_event_hook_execution_status_input.PutLifecycleEventHookExecutionStatusInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.put_lifecycle_event_hook_execution_status_input.PutLifecycleEventHookExecutionStatusInput = {}  # type: ignore[typeddict-item]
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
+            input_["deployment_id"] = deployment_id
         if lifecycle_event_hook_execution_id is not None:
-            input["lifecycle_event_hook_execution_id"] = (
+            input_["lifecycle_event_hook_execution_id"] = (
                 lifecycle_event_hook_execution_id
             )
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2260,14 +2266,14 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.register_application_revision_input.RegisterApplicationRevisionInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_codedeploy.types.register_application_revision_input.RegisterApplicationRevisionInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if description is not None:
-            input["description"] = description
-        input["revision"] = revision
+            input_["description"] = description
+        input_["revision"] = revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2307,15 +2313,15 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.register_on_premises_instance_input.RegisterOnPremisesInstanceInput = {}  # type: ignore[typeddict-item]
-        input["instance_name"] = instance_name
+        input_: aws_sdk_codedeploy.types.register_on_premises_instance_input.RegisterOnPremisesInstanceInput = {}  # type: ignore[typeddict-item]
+        input_["instance_name"] = instance_name
         if iam_session_arn is not None:
-            input["iam_session_arn"] = iam_session_arn
+            input_["iam_session_arn"] = iam_session_arn
         if iam_user_arn is not None:
-            input["iam_user_arn"] = iam_user_arn
+            input_["iam_user_arn"] = iam_user_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2349,12 +2355,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.remove_tags_from_on_premises_instances_input.RemoveTagsFromOnPremisesInstancesInput = {}  # type: ignore[typeddict-item]
-        input["tags"] = tags
-        input["instance_names"] = instance_names
+        input_: aws_sdk_codedeploy.types.remove_tags_from_on_premises_instances_input.RemoveTagsFromOnPremisesInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["tags"] = tags
+        input_["instance_names"] = instance_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2388,12 +2394,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.skip_wait_time_for_instance_termination_input.SkipWaitTimeForInstanceTerminationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.skip_wait_time_for_instance_termination_input.SkipWaitTimeForInstanceTerminationInput = {}  # type: ignore[typeddict-item]
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
+            input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2431,13 +2437,13 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.stop_deployment_input.StopDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_codedeploy.types.stop_deployment_input.StopDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
         if auto_rollback_enabled is not None:
-            input["auto_rollback_enabled"] = auto_rollback_enabled
+            input_["auto_rollback_enabled"] = auto_rollback_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2473,12 +2479,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_codedeploy.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2514,12 +2520,12 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codedeploy.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2557,14 +2563,14 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.update_application_input.UpdateApplicationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codedeploy.types.update_application_input.UpdateApplicationInput = {}  # type: ignore[typeddict-item]
         if application_name is not None:
-            input["application_name"] = application_name
+            input_["application_name"] = application_name
         if new_application_name is not None:
-            input["new_application_name"] = new_application_name
+            input_["new_application_name"] = new_application_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2664,48 +2670,50 @@ class AsyncCodeDeployClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codedeploy.types.update_deployment_group_input.UpdateDeploymentGroupInput = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_deployment_group_name"] = current_deployment_group_name
+        input_: aws_sdk_codedeploy.types.update_deployment_group_input.UpdateDeploymentGroupInput = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_deployment_group_name"] = current_deployment_group_name
         if new_deployment_group_name is not None:
-            input["new_deployment_group_name"] = new_deployment_group_name
+            input_["new_deployment_group_name"] = new_deployment_group_name
         if deployment_config_name is not None:
-            input["deployment_config_name"] = deployment_config_name
+            input_["deployment_config_name"] = deployment_config_name
         if ec2_tag_filters is not None:
-            input["ec2_tag_filters"] = ec2_tag_filters
+            input_["ec2_tag_filters"] = ec2_tag_filters
         if on_premises_instance_tag_filters is not None:
-            input["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
+            input_["on_premises_instance_tag_filters"] = (
+                on_premises_instance_tag_filters
+            )
         if auto_scaling_groups is not None:
-            input["auto_scaling_groups"] = auto_scaling_groups
+            input_["auto_scaling_groups"] = auto_scaling_groups
         if service_role_arn is not None:
-            input["service_role_arn"] = service_role_arn
+            input_["service_role_arn"] = service_role_arn
         if trigger_configurations is not None:
-            input["trigger_configurations"] = trigger_configurations
+            input_["trigger_configurations"] = trigger_configurations
         if alarm_configuration is not None:
-            input["alarm_configuration"] = alarm_configuration
+            input_["alarm_configuration"] = alarm_configuration
         if auto_rollback_configuration is not None:
-            input["auto_rollback_configuration"] = auto_rollback_configuration
+            input_["auto_rollback_configuration"] = auto_rollback_configuration
         if outdated_instances_strategy is not None:
-            input["outdated_instances_strategy"] = outdated_instances_strategy
+            input_["outdated_instances_strategy"] = outdated_instances_strategy
         if deployment_style is not None:
-            input["deployment_style"] = deployment_style
+            input_["deployment_style"] = deployment_style
         if blue_green_deployment_configuration is not None:
-            input["blue_green_deployment_configuration"] = (
+            input_["blue_green_deployment_configuration"] = (
                 blue_green_deployment_configuration
             )
         if load_balancer_info is not None:
-            input["load_balancer_info"] = load_balancer_info
+            input_["load_balancer_info"] = load_balancer_info
         if ec2_tag_set is not None:
-            input["ec2_tag_set"] = ec2_tag_set
+            input_["ec2_tag_set"] = ec2_tag_set
         if ecs_services is not None:
-            input["ecs_services"] = ecs_services
+            input_["ecs_services"] = ecs_services
         if on_premises_tag_set is not None:
-            input["on_premises_tag_set"] = on_premises_tag_set
+            input_["on_premises_tag_set"] = on_premises_tag_set
         if termination_hook_enabled is not None:
-            input["termination_hook_enabled"] = termination_hook_enabled
+            input_["termination_hook_enabled"] = termination_hook_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

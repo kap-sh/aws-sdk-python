@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_wafv2._auth._signers
+import aws_sdk_wafv2._auth._sigv4
 from aws_sdk_wafv2._auth._identity import Credentials
 from aws_sdk_wafv2._auth._providers import (
     CredentialsProvider,
@@ -307,12 +309,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.associate_web_acl_request.AssociateWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_arn"] = web_acl_arn
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_wafv2.types.associate_web_acl_request.AssociateWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_arn"] = web_acl_arn
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,12 +349,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.check_capacity_request.CheckCapacityRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
-        input["rules"] = rules
+        input_: aws_sdk_wafv2.types.check_capacity_request.CheckCapacityRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
+        input_["rules"] = rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,12 +389,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.create_api_key_request.CreateAPIKeyRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
-        input["token_domains"] = token_domains
+        input_: aws_sdk_wafv2.types.create_api_key_request.CreateAPIKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
+        input_["token_domains"] = token_domains
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,18 +439,18 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.create_ip_set_request.CreateIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.create_ip_set_request.CreateIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
         if description is not None:
-            input["description"] = description
-        input["ip_address_version"] = ip_address_version
-        input["addresses"] = addresses
+            input_["description"] = description
+        input_["ip_address_version"] = ip_address_version
+        input_["addresses"] = addresses
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -491,17 +493,17 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.create_regex_pattern_set_request.CreateRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.create_regex_pattern_set_request.CreateRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
         if description is not None:
-            input["description"] = description
-        input["regular_expression_list"] = regular_expression_list
+            input_["description"] = description
+        input_["regular_expression_list"] = regular_expression_list
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,22 +554,22 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.create_rule_group_request.CreateRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["capacity"] = capacity
+        input_: aws_sdk_wafv2.types.create_rule_group_request.CreateRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["capacity"] = capacity
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rules is not None:
-            input["rules"] = rules
-        input["visibility_config"] = visibility_config
+            input_["rules"] = rules
+        input_["visibility_config"] = visibility_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if custom_response_bodies is not None:
-            input["custom_response_bodies"] = custom_response_bodies
+            input_["custom_response_bodies"] = custom_response_bodies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -646,38 +648,38 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.create_web_acl_request.CreateWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["default_action"] = default_action
+        input_: aws_sdk_wafv2.types.create_web_acl_request.CreateWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["default_action"] = default_action
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rules is not None:
-            input["rules"] = rules
-        input["visibility_config"] = visibility_config
+            input_["rules"] = rules
+        input_["visibility_config"] = visibility_config
         if data_protection_config is not None:
-            input["data_protection_config"] = data_protection_config
+            input_["data_protection_config"] = data_protection_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if custom_response_bodies is not None:
-            input["custom_response_bodies"] = custom_response_bodies
+            input_["custom_response_bodies"] = custom_response_bodies
         if captcha_config is not None:
-            input["captcha_config"] = captcha_config
+            input_["captcha_config"] = captcha_config
         if challenge_config is not None:
-            input["challenge_config"] = challenge_config
+            input_["challenge_config"] = challenge_config
         if token_domains is not None:
-            input["token_domains"] = token_domains
+            input_["token_domains"] = token_domains
         if association_config is not None:
-            input["association_config"] = association_config
+            input_["association_config"] = association_config
         if on_source_d_do_s_protection_config is not None:
-            input["on_source_d_do_s_protection_config"] = (
+            input_["on_source_d_do_s_protection_config"] = (
                 on_source_d_do_s_protection_config
             )
         if application_config is not None:
-            input["application_config"] = application_config
+            input_["application_config"] = application_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -712,12 +714,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.delete_api_key_request.DeleteAPIKeyRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
-        input["api_key"] = api_key
+        input_: aws_sdk_wafv2.types.delete_api_key_request.DeleteAPIKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
+        input_["api_key"] = api_key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -752,12 +754,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.delete_firewall_manager_rule_groups_request.DeleteFirewallManagerRuleGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_arn"] = web_acl_arn
-        input["web_acl_lock_token"] = web_acl_lock_token
+        input_: aws_sdk_wafv2.types.delete_firewall_manager_rule_groups_request.DeleteFirewallManagerRuleGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_arn"] = web_acl_arn
+        input_["web_acl_lock_token"] = web_acl_lock_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -796,14 +798,14 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.delete_ip_set_request.DeleteIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
-        input["lock_token"] = lock_token
+        input_: aws_sdk_wafv2.types.delete_ip_set_request.DeleteIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
+        input_["lock_token"] = lock_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,15 +842,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.delete_logging_configuration_request.DeleteLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_wafv2.types.delete_logging_configuration_request.DeleteLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if log_type is not None:
-            input["log_type"] = log_type
+            input_["log_type"] = log_type
         if log_scope is not None:
-            input["log_scope"] = log_scope
+            input_["log_scope"] = log_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -881,11 +883,11 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.delete_permission_policy_request.DeletePermissionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_wafv2.types.delete_permission_policy_request.DeletePermissionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -924,14 +926,14 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.delete_regex_pattern_set_request.DeleteRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
-        input["lock_token"] = lock_token
+        input_: aws_sdk_wafv2.types.delete_regex_pattern_set_request.DeleteRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
+        input_["lock_token"] = lock_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -970,14 +972,14 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.delete_rule_group_request.DeleteRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
-        input["lock_token"] = lock_token
+        input_: aws_sdk_wafv2.types.delete_rule_group_request.DeleteRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
+        input_["lock_token"] = lock_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1016,14 +1018,14 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.delete_web_acl_request.DeleteWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
-        input["lock_token"] = lock_token
+        input_: aws_sdk_wafv2.types.delete_web_acl_request.DeleteWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
+        input_["lock_token"] = lock_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1056,11 +1058,11 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.describe_all_managed_products_request.DescribeAllManagedProductsRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.describe_all_managed_products_request.DescribeAllManagedProductsRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1095,12 +1097,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.describe_managed_products_by_vendor_request.DescribeManagedProductsByVendorRequest = {}  # type: ignore[typeddict-item]
-        input["vendor_name"] = vendor_name
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.describe_managed_products_by_vendor_request.DescribeManagedProductsByVendorRequest = {}  # type: ignore[typeddict-item]
+        input_["vendor_name"] = vendor_name
+        input_["scope"] = scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1141,15 +1143,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.describe_managed_rule_group_request.DescribeManagedRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["vendor_name"] = vendor_name
-        input["name"] = name
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.describe_managed_rule_group_request.DescribeManagedRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["vendor_name"] = vendor_name
+        input_["name"] = name
+        input_["scope"] = scope
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1182,11 +1184,11 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.disassociate_web_acl_request.DisassociateWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_wafv2.types.disassociate_web_acl_request.DisassociateWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1221,12 +1223,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.generate_mobile_sdk_release_url_request.GenerateMobileSdkReleaseUrlRequest = {}  # type: ignore[typeddict-item]
-        input["platform"] = platform
-        input["release_version"] = release_version
+        input_: aws_sdk_wafv2.types.generate_mobile_sdk_release_url_request.GenerateMobileSdkReleaseUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["platform"] = platform
+        input_["release_version"] = release_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1263,12 +1265,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_decrypted_api_key_request.GetDecryptedAPIKeyRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
-        input["api_key"] = api_key
+        input_: aws_sdk_wafv2.types.get_decrypted_api_key_request.GetDecryptedAPIKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
+        input_["api_key"] = api_key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1305,13 +1307,13 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_ip_set_request.GetIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
+        input_: aws_sdk_wafv2.types.get_ip_set_request.GetIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1348,15 +1350,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_logging_configuration_request.GetLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_wafv2.types.get_logging_configuration_request.GetLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if log_type is not None:
-            input["log_type"] = log_type
+            input_["log_type"] = log_type
         if log_scope is not None:
-            input["log_scope"] = log_scope
+            input_["log_scope"] = log_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1393,13 +1395,13 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_managed_rule_set_request.GetManagedRuleSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
+        input_: aws_sdk_wafv2.types.get_managed_rule_set_request.GetManagedRuleSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1434,12 +1436,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_mobile_sdk_release_request.GetMobileSdkReleaseRequest = {}  # type: ignore[typeddict-item]
-        input["platform"] = platform
-        input["release_version"] = release_version
+        input_: aws_sdk_wafv2.types.get_mobile_sdk_release_request.GetMobileSdkReleaseRequest = {}  # type: ignore[typeddict-item]
+        input_["platform"] = platform
+        input_["release_version"] = release_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1474,11 +1476,11 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_permission_policy_request.GetPermissionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_wafv2.types.get_permission_policy_request.GetPermissionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1521,16 +1523,16 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_rate_based_statement_managed_keys_request.GetRateBasedStatementManagedKeysRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
-        input["web_acl_name"] = web_acl_name
-        input["web_acl_id"] = web_acl_id
+        input_: aws_sdk_wafv2.types.get_rate_based_statement_managed_keys_request.GetRateBasedStatementManagedKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
+        input_["web_acl_name"] = web_acl_name
+        input_["web_acl_id"] = web_acl_id
         if rule_group_rule_name is not None:
-            input["rule_group_rule_name"] = rule_group_rule_name
-        input["rule_name"] = rule_name
+            input_["rule_group_rule_name"] = rule_group_rule_name
+        input_["rule_name"] = rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1569,13 +1571,13 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_regex_pattern_set_request.GetRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
+        input_: aws_sdk_wafv2.types.get_regex_pattern_set_request.GetRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1614,18 +1616,18 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_rule_group_request.GetRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wafv2.types.get_rule_group_request.GetRuleGroupRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1666,15 +1668,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_sampled_requests_request.GetSampledRequestsRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_arn"] = web_acl_arn
-        input["rule_metric_name"] = rule_metric_name
-        input["scope"] = scope
-        input["time_window"] = time_window
-        input["max_items"] = max_items
+        input_: aws_sdk_wafv2.types.get_sampled_requests_request.GetSampledRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_arn"] = web_acl_arn
+        input_["rule_metric_name"] = rule_metric_name
+        input_["scope"] = scope
+        input_["time_window"] = time_window
+        input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1729,27 +1731,27 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_top_path_statistics_by_traffic_request.GetTopPathStatisticsByTrafficRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_arn"] = web_acl_arn
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.get_top_path_statistics_by_traffic_request.GetTopPathStatisticsByTrafficRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_arn"] = web_acl_arn
+        input_["scope"] = scope
         if uri_path_prefix is not None:
-            input["uri_path_prefix"] = uri_path_prefix
-        input["time_window"] = time_window
+            input_["uri_path_prefix"] = uri_path_prefix
+        input_["time_window"] = time_window
         if bot_category is not None:
-            input["bot_category"] = bot_category
+            input_["bot_category"] = bot_category
         if bot_organization is not None:
-            input["bot_organization"] = bot_organization
+            input_["bot_organization"] = bot_organization
         if bot_name is not None:
-            input["bot_name"] = bot_name
-        input["limit"] = limit
-        input["number_of_top_traffic_bots_per_path"] = (
+            input_["bot_name"] = bot_name
+        input_["limit"] = limit
+        input_["number_of_top_traffic_bots_per_path"] = (
             number_of_top_traffic_bots_per_path
         )
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1788,18 +1790,18 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_web_acl_request.GetWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wafv2.types.get_web_acl_request.GetWebACLRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1832,11 +1834,11 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.get_web_acl_for_resource_request.GetWebACLForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_wafv2.types.get_web_acl_for_resource_request.GetWebACLForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1873,15 +1875,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_api_keys_request.ListAPIKeysRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_api_keys_request.ListAPIKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1918,15 +1920,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_available_managed_rule_groups_request.ListAvailableManagedRuleGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_available_managed_rule_groups_request.ListAvailableManagedRuleGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1967,17 +1969,17 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_available_managed_rule_group_versions_request.ListAvailableManagedRuleGroupVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["vendor_name"] = vendor_name
-        input["name"] = name
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_available_managed_rule_group_versions_request.ListAvailableManagedRuleGroupVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["vendor_name"] = vendor_name
+        input_["name"] = name
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2014,15 +2016,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_ip_sets_request.ListIPSetsRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_ip_sets_request.ListIPSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2061,17 +2063,17 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_logging_configurations_request.ListLoggingConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_logging_configurations_request.ListLoggingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if log_scope is not None:
-            input["log_scope"] = log_scope
+            input_["log_scope"] = log_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2108,15 +2110,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_managed_rule_sets_request.ListManagedRuleSetsRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_managed_rule_sets_request.ListManagedRuleSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2153,15 +2155,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_mobile_sdk_releases_request.ListMobileSdkReleasesRequest = {}  # type: ignore[typeddict-item]
-        input["platform"] = platform
+        input_: aws_sdk_wafv2.types.list_mobile_sdk_releases_request.ListMobileSdkReleasesRequest = {}  # type: ignore[typeddict-item]
+        input_["platform"] = platform
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2198,15 +2200,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_regex_pattern_sets_request.ListRegexPatternSetsRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_regex_pattern_sets_request.ListRegexPatternSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2243,13 +2245,13 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_resources_for_web_acl_request.ListResourcesForWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_arn"] = web_acl_arn
+        input_: aws_sdk_wafv2.types.list_resources_for_web_acl_request.ListResourcesForWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_arn"] = web_acl_arn
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2286,15 +2288,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_rule_groups_request.ListRuleGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_rule_groups_request.ListRuleGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2331,15 +2333,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wafv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
-        input["resource_arn"] = resource_arn
+            input_["limit"] = limit
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2376,15 +2378,15 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.list_web_ac_ls_request.ListWebACLsRequest = {}  # type: ignore[typeddict-item]
-        input["scope"] = scope
+        input_: aws_sdk_wafv2.types.list_web_ac_ls_request.ListWebACLsRequest = {}  # type: ignore[typeddict-item]
+        input_["scope"] = scope
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2417,11 +2419,11 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.put_logging_configuration_request.PutLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["logging_configuration"] = logging_configuration
+        input_: aws_sdk_wafv2.types.put_logging_configuration_request.PutLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["logging_configuration"] = logging_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2468,18 +2470,18 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.put_managed_rule_set_versions_request.PutManagedRuleSetVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
-        input["lock_token"] = lock_token
+        input_: aws_sdk_wafv2.types.put_managed_rule_set_versions_request.PutManagedRuleSetVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
+        input_["lock_token"] = lock_token
         if recommended_version is not None:
-            input["recommended_version"] = recommended_version
+            input_["recommended_version"] = recommended_version
         if versions_to_publish is not None:
-            input["versions_to_publish"] = versions_to_publish
+            input_["versions_to_publish"] = versions_to_publish
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2516,12 +2518,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.put_permission_policy_request.PutPermissionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_wafv2.types.put_permission_policy_request.PutPermissionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2556,12 +2558,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_wafv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2596,12 +2598,12 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_wafv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2646,17 +2648,17 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.update_ip_set_request.UpdateIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
+        input_: aws_sdk_wafv2.types.update_ip_set_request.UpdateIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
-        input["addresses"] = addresses
-        input["lock_token"] = lock_token
+            input_["description"] = description
+        input_["addresses"] = addresses
+        input_["lock_token"] = lock_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2699,16 +2701,16 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.update_managed_rule_set_version_expiry_date_request.UpdateManagedRuleSetVersionExpiryDateRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
-        input["lock_token"] = lock_token
-        input["version_to_expire"] = version_to_expire
-        input["expiry_timestamp"] = expiry_timestamp
+        input_: aws_sdk_wafv2.types.update_managed_rule_set_version_expiry_date_request.UpdateManagedRuleSetVersionExpiryDateRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
+        input_["lock_token"] = lock_token
+        input_["version_to_expire"] = version_to_expire
+        input_["expiry_timestamp"] = expiry_timestamp
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2753,17 +2755,17 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.update_regex_pattern_set_request.UpdateRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
+        input_: aws_sdk_wafv2.types.update_regex_pattern_set_request.UpdateRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
-        input["regular_expression_list"] = regular_expression_list
-        input["lock_token"] = lock_token
+            input_["description"] = description
+        input_["regular_expression_list"] = regular_expression_list
+        input_["lock_token"] = lock_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2814,21 +2816,21 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.update_rule_group_request.UpdateRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
+        input_: aws_sdk_wafv2.types.update_rule_group_request.UpdateRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rules is not None:
-            input["rules"] = rules
-        input["visibility_config"] = visibility_config
-        input["lock_token"] = lock_token
+            input_["rules"] = rules
+        input_["visibility_config"] = visibility_config
+        input_["lock_token"] = lock_token
         if custom_response_bodies is not None:
-            input["custom_response_bodies"] = custom_response_bodies
+            input_["custom_response_bodies"] = custom_response_bodies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2909,38 +2911,38 @@ class WAFV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_wafv2.types.update_web_acl_request.UpdateWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["scope"] = scope
-        input["id"] = id
-        input["default_action"] = default_action
+        input_: aws_sdk_wafv2.types.update_web_acl_request.UpdateWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["scope"] = scope
+        input_["id"] = id
+        input_["default_action"] = default_action
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rules is not None:
-            input["rules"] = rules
-        input["visibility_config"] = visibility_config
+            input_["rules"] = rules
+        input_["visibility_config"] = visibility_config
         if data_protection_config is not None:
-            input["data_protection_config"] = data_protection_config
-        input["lock_token"] = lock_token
+            input_["data_protection_config"] = data_protection_config
+        input_["lock_token"] = lock_token
         if custom_response_bodies is not None:
-            input["custom_response_bodies"] = custom_response_bodies
+            input_["custom_response_bodies"] = custom_response_bodies
         if captcha_config is not None:
-            input["captcha_config"] = captcha_config
+            input_["captcha_config"] = captcha_config
         if challenge_config is not None:
-            input["challenge_config"] = challenge_config
+            input_["challenge_config"] = challenge_config
         if token_domains is not None:
-            input["token_domains"] = token_domains
+            input_["token_domains"] = token_domains
         if association_config is not None:
-            input["association_config"] = association_config
+            input_["association_config"] = association_config
         if on_source_d_do_s_protection_config is not None:
-            input["on_source_d_do_s_protection_config"] = (
+            input_["on_source_d_do_s_protection_config"] = (
                 on_source_d_do_s_protection_config
             )
         if application_config is not None:
-            input["application_config"] = application_config
+            input_["application_config"] = application_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

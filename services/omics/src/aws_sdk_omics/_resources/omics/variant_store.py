@@ -76,19 +76,19 @@ class VariantStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_variant_store_request.CreateVariantStoreRequest = {}  # type: ignore[typeddict-item]
-        input["reference"] = reference
+        input_: aws_sdk_omics.types.create_variant_store_request.CreateVariantStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["reference"] = reference
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if sse_config is not None:
-            input["sse_config"] = sse_config
+            input_["sse_config"] = sse_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -118,11 +118,11 @@ class VariantStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_variant_store_request.GetVariantStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.get_variant_store_request.GetVariantStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,13 +157,13 @@ class VariantStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_variant_store_request.UpdateVariantStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.update_variant_store_request.UpdateVariantStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,13 +198,13 @@ class VariantStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_variant_store_request.DeleteVariantStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.delete_variant_store_request.DeleteVariantStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,18 +245,18 @@ class VariantStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_variant_stores_request.ListVariantStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_variant_stores_request.ListVariantStoresRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,19 +303,19 @@ class AsyncVariantStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_variant_store_request.CreateVariantStoreRequest = {}  # type: ignore[typeddict-item]
-        input["reference"] = reference
+        input_: aws_sdk_omics.types.create_variant_store_request.CreateVariantStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["reference"] = reference
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if sse_config is not None:
-            input["sse_config"] = sse_config
+            input_["sse_config"] = sse_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,11 +346,11 @@ class AsyncVariantStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_variant_store_request.GetVariantStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.get_variant_store_request.GetVariantStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,13 +386,13 @@ class AsyncVariantStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_variant_store_request.UpdateVariantStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.update_variant_store_request.UpdateVariantStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,13 +428,13 @@ class AsyncVariantStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_variant_store_request.DeleteVariantStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.delete_variant_store_request.DeleteVariantStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,18 +476,18 @@ class AsyncVariantStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_variant_stores_request.ListVariantStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_variant_stores_request.ListVariantStoresRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

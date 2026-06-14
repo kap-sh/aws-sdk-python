@@ -98,52 +98,49 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_deadline.types.assume_queue_role_for_worker_request.AssumeQueueRoleForWorkerRequest,
+    input_: aws_sdk_deadline.types.assume_queue_role_for_worker_request.AssumeQueueRoleForWorkerRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/queue-roles"
     )
-    url = url.replace("{farmId}", quote(str(input["farm_id"]), safe=""))
-    url = url.replace("{fleetId}", quote(str(input["fleet_id"]), safe=""))
-    url = url.replace("{workerId}", quote(str(input["worker_id"]), safe=""))
+    url = url.replace("{farmId}", quote(str(input_["farm_id"]), safe=""))
+    url = url.replace("{fleetId}", quote(str(input_["fleet_id"]), safe=""))
+    url = url.replace("{workerId}", quote(str(input_["worker_id"]), safe=""))
     params: dict[str, str] = {}
-    if "queue_id" in input:
-        params["queueId"] = str(input["queue_id"])
+    if "queue_id" in input_:
+        params["queueId"] = str(input_["queue_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def assume_queue_role_for_worker(
     options: OperationOptions,
-    input: aws_sdk_deadline.types.assume_queue_role_for_worker_request.AssumeQueueRoleForWorkerRequest,
+    input_: aws_sdk_deadline.types.assume_queue_role_for_worker_request.AssumeQueueRoleForWorkerRequest,
 ) -> tuple[
     aws_sdk_deadline.types.assume_queue_role_for_worker_response.AssumeQueueRoleForWorkerResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -152,16 +149,17 @@ def assume_queue_role_for_worker(
 
 async def async_assume_queue_role_for_worker(
     options: AsyncOperationOptions,
-    input: aws_sdk_deadline.types.assume_queue_role_for_worker_request.AssumeQueueRoleForWorkerRequest,
+    input_: aws_sdk_deadline.types.assume_queue_role_for_worker_request.AssumeQueueRoleForWorkerRequest,
 ) -> tuple[
     aws_sdk_deadline.types.assume_queue_role_for_worker_response.AssumeQueueRoleForWorkerResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -76,15 +76,15 @@ class ScheduleGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.create_schedule_group_input.CreateScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.create_schedule_group_input.CreateScheduleGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -117,11 +117,11 @@ class ScheduleGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.get_schedule_group_input.GetScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.get_schedule_group_input.GetScheduleGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -160,13 +160,13 @@ class ScheduleGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,16 +205,16 @@ class ScheduleGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.list_schedule_groups_input.ListScheduleGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_scheduler.types.list_schedule_groups_input.ListScheduleGroupsInput = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,15 +261,15 @@ class AsyncScheduleGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.create_schedule_group_input.CreateScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.create_schedule_group_input.CreateScheduleGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,11 +303,11 @@ class AsyncScheduleGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.get_schedule_group_input.GetScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.get_schedule_group_input.GetScheduleGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,13 +347,13 @@ class AsyncScheduleGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.delete_schedule_group_input.DeleteScheduleGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,16 +393,16 @@ class AsyncScheduleGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.list_schedule_groups_input.ListScheduleGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_scheduler.types.list_schedule_groups_input.ListScheduleGroupsInput = {}  # type: ignore[typeddict-item]
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

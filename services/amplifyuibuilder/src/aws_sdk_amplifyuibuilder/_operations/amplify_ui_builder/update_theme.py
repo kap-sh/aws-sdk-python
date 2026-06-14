@@ -88,35 +88,35 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest,
+    input_: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/app/{appId}/environment/{environmentName}/themes/{id}"
     )
-    url = url.replace("{appId}", quote(str(input["app_id"]), safe=""))
+    url = url.replace("{appId}", quote(str(input_["app_id"]), safe=""))
     url = url.replace(
-        "{environmentName}", quote(str(input["environment_name"]), safe="")
+        "{environmentName}", quote(str(input_["environment_name"]), safe="")
     )
-    url = url.replace("{id}", quote(str(input["id"]), safe=""))
+    url = url.replace("{id}", quote(str(input_["id"]), safe=""))
     params: dict[str, str] = {}
-    if "client_token" in input:
-        params["clientToken"] = str(input["client_token"])
+    if "client_token" in input_:
+        params["clientToken"] = str(input_["client_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "updated_theme" in input:
+    if "updated_theme" in input_:
         import aws_sdk_amplifyuibuilder.types.update_theme_data
 
         body: bytes | None = json.dumps(
             aws_sdk_amplifyuibuilder.types.update_theme_data.serialize_json(
-                input["updated_theme"]
+                input_["updated_theme"]
             )
         ).encode()
         headers["content-type"] = "application/json"
@@ -126,26 +126,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PATCH",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PATCH", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_theme(
     options: OperationOptions,
-    input: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest,
+    input_: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest,
 ) -> tuple[
     aws_sdk_amplifyuibuilder.types.update_theme_response.UpdateThemeResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -154,16 +151,17 @@ def update_theme(
 
 async def async_update_theme(
     options: AsyncOperationOptions,
-    input: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest,
+    input_: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest,
 ) -> tuple[
     aws_sdk_amplifyuibuilder.types.update_theme_response.UpdateThemeResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

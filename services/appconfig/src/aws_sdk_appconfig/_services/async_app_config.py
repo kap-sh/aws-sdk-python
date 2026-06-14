@@ -270,15 +270,15 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appconfig.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,25 +340,25 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.create_configuration_profile_request.CreateConfigurationProfileRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["name"] = name
+        input_: aws_sdk_appconfig.types.create_configuration_profile_request.CreateConfigurationProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["location_uri"] = location_uri
+            input_["description"] = description
+        input_["location_uri"] = location_uri
         if retrieval_role_arn is not None:
-            input["retrieval_role_arn"] = retrieval_role_arn
+            input_["retrieval_role_arn"] = retrieval_role_arn
         if validators is not None:
-            input["validators"] = validators
+            input_["validators"] = validators
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,23 +416,23 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.create_deployment_strategy_request.CreateDeploymentStrategyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appconfig.types.create_deployment_strategy_request.CreateDeploymentStrategyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["deployment_duration_in_minutes"] = deployment_duration_in_minutes
+            input_["description"] = description
+        input_["deployment_duration_in_minutes"] = deployment_duration_in_minutes
         if final_bake_time_in_minutes is not None:
-            input["final_bake_time_in_minutes"] = final_bake_time_in_minutes
-        input["growth_factor"] = growth_factor
+            input_["final_bake_time_in_minutes"] = final_bake_time_in_minutes
+        input_["growth_factor"] = growth_factor
         if growth_type is not None:
-            input["growth_type"] = growth_type
+            input_["growth_type"] = growth_type
         if replicate_to is not None:
-            input["replicate_to"] = replicate_to
+            input_["replicate_to"] = replicate_to
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,18 +478,18 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["name"] = name
+        input_: aws_sdk_appconfig.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if monitors is not None:
-            input["monitors"] = monitors
+            input_["monitors"] = monitors
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,20 +535,20 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.create_extension_request.CreateExtensionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_appconfig.types.create_extension_request.CreateExtensionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["actions"] = actions
+            input_["description"] = description
+        input_["actions"] = actions
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if latest_version_number is not None:
-            input["latest_version_number"] = latest_version_number
+            input_["latest_version_number"] = latest_version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -594,18 +594,18 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.create_extension_association_request.CreateExtensionAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["extension_identifier"] = extension_identifier
+        input_: aws_sdk_appconfig.types.create_extension_association_request.CreateExtensionAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["extension_identifier"] = extension_identifier
         if extension_version_number is not None:
-            input["extension_version_number"] = extension_version_number
-        input["resource_identifier"] = resource_identifier
+            input_["extension_version_number"] = extension_version_number
+        input_["resource_identifier"] = resource_identifier
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -661,20 +661,20 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.create_hosted_configuration_version_request.CreateHostedConfigurationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["configuration_profile_id"] = configuration_profile_id
+        input_: aws_sdk_appconfig.types.create_hosted_configuration_version_request.CreateHostedConfigurationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["configuration_profile_id"] = configuration_profile_id
         if description is not None:
-            input["description"] = description
-        input["content"] = content
-        input["content_type"] = content_type
+            input_["description"] = description
+        input_["content"] = content
+        input_["content_type"] = content_type
         if latest_version_number is not None:
-            input["latest_version_number"] = latest_version_number
+            input_["latest_version_number"] = latest_version_number
         if version_label is not None:
-            input["version_label"] = version_label
+            input_["version_label"] = version_label
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -713,11 +713,11 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_appconfig.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,14 +761,14 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.delete_configuration_profile_request.DeleteConfigurationProfileRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["configuration_profile_id"] = configuration_profile_id
+        input_: aws_sdk_appconfig.types.delete_configuration_profile_request.DeleteConfigurationProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["configuration_profile_id"] = configuration_profile_id
         if deletion_protection_check is not None:
-            input["deletion_protection_check"] = deletion_protection_check
+            input_["deletion_protection_check"] = deletion_protection_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,11 +806,11 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.delete_deployment_strategy_request.DeleteDeploymentStrategyRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_strategy_id"] = deployment_strategy_id
+        input_: aws_sdk_appconfig.types.delete_deployment_strategy_request.DeleteDeploymentStrategyRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_strategy_id"] = deployment_strategy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -854,14 +854,14 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["application_id"] = application_id
+        input_: aws_sdk_appconfig.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["application_id"] = application_id
         if deletion_protection_check is not None:
-            input["deletion_protection_check"] = deletion_protection_check
+            input_["deletion_protection_check"] = deletion_protection_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -895,13 +895,13 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.delete_extension_request.DeleteExtensionRequest = {}  # type: ignore[typeddict-item]
-        input["extension_identifier"] = extension_identifier
+        input_: aws_sdk_appconfig.types.delete_extension_request.DeleteExtensionRequest = {}  # type: ignore[typeddict-item]
+        input_["extension_identifier"] = extension_identifier
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -933,11 +933,11 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.delete_extension_association_request.DeleteExtensionAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["extension_association_id"] = extension_association_id
+        input_: aws_sdk_appconfig.types.delete_extension_association_request.DeleteExtensionAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["extension_association_id"] = extension_association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -979,13 +979,13 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.delete_hosted_configuration_version_request.DeleteHostedConfigurationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["configuration_profile_id"] = configuration_profile_id
-        input["version_number"] = version_number
+        input_: aws_sdk_appconfig.types.delete_hosted_configuration_version_request.DeleteHostedConfigurationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["configuration_profile_id"] = configuration_profile_id
+        input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1052,11 +1052,11 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_appconfig.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1106,16 +1106,16 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_configuration_request.GetConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application"] = application
-        input["environment"] = environment
-        input["configuration"] = configuration
-        input["client_id"] = client_id
+        input_: aws_sdk_appconfig.types.get_configuration_request.GetConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application"] = application
+        input_["environment"] = environment
+        input_["configuration"] = configuration
+        input_["client_id"] = client_id
         if client_configuration_version is not None:
-            input["client_configuration_version"] = client_configuration_version
+            input_["client_configuration_version"] = client_configuration_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1157,12 +1157,12 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_configuration_profile_request.GetConfigurationProfileRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["configuration_profile_id"] = configuration_profile_id
+        input_: aws_sdk_appconfig.types.get_configuration_profile_request.GetConfigurationProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["configuration_profile_id"] = configuration_profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1198,13 +1198,13 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["environment_id"] = environment_id
-        input["deployment_number"] = deployment_number
+        input_: aws_sdk_appconfig.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["environment_id"] = environment_id
+        input_["deployment_number"] = deployment_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1244,11 +1244,11 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_deployment_strategy_request.GetDeploymentStrategyRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_strategy_id"] = deployment_strategy_id
+        input_: aws_sdk_appconfig.types.get_deployment_strategy_request.GetDeploymentStrategyRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_strategy_id"] = deployment_strategy_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1288,12 +1288,12 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["environment_id"] = environment_id
+        input_: aws_sdk_appconfig.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1327,13 +1327,13 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_extension_request.GetExtensionRequest = {}  # type: ignore[typeddict-item]
-        input["extension_identifier"] = extension_identifier
+        input_: aws_sdk_appconfig.types.get_extension_request.GetExtensionRequest = {}  # type: ignore[typeddict-item]
+        input_["extension_identifier"] = extension_identifier
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1367,11 +1367,11 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_extension_association_request.GetExtensionAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["extension_association_id"] = extension_association_id
+        input_: aws_sdk_appconfig.types.get_extension_association_request.GetExtensionAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["extension_association_id"] = extension_association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1415,13 +1415,13 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.get_hosted_configuration_version_request.GetHostedConfigurationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["configuration_profile_id"] = configuration_profile_id
-        input["version_number"] = version_number
+        input_: aws_sdk_appconfig.types.get_hosted_configuration_version_request.GetHostedConfigurationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["configuration_profile_id"] = configuration_profile_id
+        input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1463,14 +1463,14 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appconfig.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1539,17 +1539,17 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_configuration_profiles_request.ListConfigurationProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_appconfig.types.list_configuration_profiles_request.ListConfigurationProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1614,16 +1614,16 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["environment_id"] = environment_id
+        input_: aws_sdk_appconfig.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["environment_id"] = environment_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1690,14 +1690,14 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_deployment_strategies_request.ListDeploymentStrategiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appconfig.types.list_deployment_strategies_request.ListDeploymentStrategiesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1764,15 +1764,15 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_appconfig.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1841,20 +1841,20 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_extension_associations_request.ListExtensionAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appconfig.types.list_extension_associations_request.ListExtensionAssociationsRequest = {}  # type: ignore[typeddict-item]
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if extension_identifier is not None:
-            input["extension_identifier"] = extension_identifier
+            input_["extension_identifier"] = extension_identifier
         if extension_version_number is not None:
-            input["extension_version_number"] = extension_version_number
+            input_["extension_version_number"] = extension_version_number
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1921,16 +1921,16 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_extensions_request.ListExtensionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appconfig.types.list_extensions_request.ListExtensionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2001,18 +2001,18 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_hosted_configuration_versions_request.ListHostedConfigurationVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["configuration_profile_id"] = configuration_profile_id
+        input_: aws_sdk_appconfig.types.list_hosted_configuration_versions_request.ListHostedConfigurationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["configuration_profile_id"] = configuration_profile_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if version_label is not None:
-            input["version_label"] = version_label
+            input_["version_label"] = version_label
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2079,11 +2079,11 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_appconfig.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2135,23 +2135,23 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.start_deployment_request.StartDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["environment_id"] = environment_id
-        input["deployment_strategy_id"] = deployment_strategy_id
-        input["configuration_profile_id"] = configuration_profile_id
-        input["configuration_version"] = configuration_version
+        input_: aws_sdk_appconfig.types.start_deployment_request.StartDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["environment_id"] = environment_id
+        input_["deployment_strategy_id"] = deployment_strategy_id
+        input_["configuration_profile_id"] = configuration_profile_id
+        input_["configuration_version"] = configuration_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
         if dynamic_extension_parameters is not None:
-            input["dynamic_extension_parameters"] = dynamic_extension_parameters
+            input_["dynamic_extension_parameters"] = dynamic_extension_parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2195,15 +2195,15 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.stop_deployment_request.StopDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["environment_id"] = environment_id
-        input["deployment_number"] = deployment_number
+        input_: aws_sdk_appconfig.types.stop_deployment_request.StopDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["environment_id"] = environment_id
+        input_["deployment_number"] = deployment_number
         if allow_revert is not None:
-            input["allow_revert"] = allow_revert
+            input_["allow_revert"] = allow_revert
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2243,12 +2243,12 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_appconfig.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2288,12 +2288,12 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_appconfig.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2329,12 +2329,12 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_appconfig.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2376,15 +2376,15 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_appconfig.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2440,22 +2440,22 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.update_configuration_profile_request.UpdateConfigurationProfileRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["configuration_profile_id"] = configuration_profile_id
+        input_: aws_sdk_appconfig.types.update_configuration_profile_request.UpdateConfigurationProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["configuration_profile_id"] = configuration_profile_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if retrieval_role_arn is not None:
-            input["retrieval_role_arn"] = retrieval_role_arn
+            input_["retrieval_role_arn"] = retrieval_role_arn
         if validators is not None:
-            input["validators"] = validators
+            input_["validators"] = validators
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2512,21 +2512,21 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.update_deployment_strategy_request.UpdateDeploymentStrategyRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_strategy_id"] = deployment_strategy_id
+        input_: aws_sdk_appconfig.types.update_deployment_strategy_request.UpdateDeploymentStrategyRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_strategy_id"] = deployment_strategy_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if deployment_duration_in_minutes is not None:
-            input["deployment_duration_in_minutes"] = deployment_duration_in_minutes
+            input_["deployment_duration_in_minutes"] = deployment_duration_in_minutes
         if final_bake_time_in_minutes is not None:
-            input["final_bake_time_in_minutes"] = final_bake_time_in_minutes
+            input_["final_bake_time_in_minutes"] = final_bake_time_in_minutes
         if growth_factor is not None:
-            input["growth_factor"] = growth_factor
+            input_["growth_factor"] = growth_factor
         if growth_type is not None:
-            input["growth_type"] = growth_type
+            input_["growth_type"] = growth_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2572,18 +2572,18 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["environment_id"] = environment_id
+        input_: aws_sdk_appconfig.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["environment_id"] = environment_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if monitors is not None:
-            input["monitors"] = monitors
+            input_["monitors"] = monitors
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2625,19 +2625,19 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.update_extension_request.UpdateExtensionRequest = {}  # type: ignore[typeddict-item]
-        input["extension_identifier"] = extension_identifier
+        input_: aws_sdk_appconfig.types.update_extension_request.UpdateExtensionRequest = {}  # type: ignore[typeddict-item]
+        input_["extension_identifier"] = extension_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if actions is not None:
-            input["actions"] = actions
+            input_["actions"] = actions
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2675,13 +2675,13 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.update_extension_association_request.UpdateExtensionAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["extension_association_id"] = extension_association_id
+        input_: aws_sdk_appconfig.types.update_extension_association_request.UpdateExtensionAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["extension_association_id"] = extension_association_id
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2723,13 +2723,13 @@ class AsyncAppConfigClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_appconfig.types.validate_configuration_request.ValidateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["configuration_profile_id"] = configuration_profile_id
-        input["configuration_version"] = configuration_version
+        input_: aws_sdk_appconfig.types.validate_configuration_request.ValidateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["configuration_profile_id"] = configuration_profile_id
+        input_["configuration_version"] = configuration_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

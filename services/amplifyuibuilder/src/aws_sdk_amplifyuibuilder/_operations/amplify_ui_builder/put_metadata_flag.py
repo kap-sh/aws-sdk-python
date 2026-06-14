@@ -68,33 +68,33 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_amplifyuibuilder.types.put_metadata_flag_request.PutMetadataFlagRequest,
+    input_: aws_sdk_amplifyuibuilder.types.put_metadata_flag_request.PutMetadataFlagRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/app/{appId}/environment/{environmentName}/metadata/features/{featureName}"
     )
-    url = url.replace("{appId}", quote(str(input["app_id"]), safe=""))
+    url = url.replace("{appId}", quote(str(input_["app_id"]), safe=""))
     url = url.replace(
-        "{environmentName}", quote(str(input["environment_name"]), safe="")
+        "{environmentName}", quote(str(input_["environment_name"]), safe="")
     )
-    url = url.replace("{featureName}", quote(str(input["feature_name"]), safe=""))
+    url = url.replace("{featureName}", quote(str(input_["feature_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "body" in input:
+    if "body" in input_:
         import aws_sdk_amplifyuibuilder.types.put_metadata_flag_body
 
         body: bytes | None = json.dumps(
             aws_sdk_amplifyuibuilder.types.put_metadata_flag_body.serialize_json(
-                input["body"]
+                input_["body"]
             )
         ).encode()
         headers["content-type"] = "application/json"
@@ -104,23 +104,20 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def put_metadata_flag(
     options: OperationOptions,
-    input: aws_sdk_amplifyuibuilder.types.put_metadata_flag_request.PutMetadataFlagRequest,
+    input_: aws_sdk_amplifyuibuilder.types.put_metadata_flag_request.PutMetadataFlagRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -129,13 +126,14 @@ def put_metadata_flag(
 
 async def async_put_metadata_flag(
     options: AsyncOperationOptions,
-    input: aws_sdk_amplifyuibuilder.types.put_metadata_flag_request.PutMetadataFlagRequest,
+    input_: aws_sdk_amplifyuibuilder.types.put_metadata_flag_request.PutMetadataFlagRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

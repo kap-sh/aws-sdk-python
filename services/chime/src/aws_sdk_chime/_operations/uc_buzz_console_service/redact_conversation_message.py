@@ -100,23 +100,25 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_chime.types.redact_conversation_message_request.RedactConversationMessageRequest,
+    input_: aws_sdk_chime.types.redact_conversation_message_request.RedactConversationMessageRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/accounts/{AccountId}/conversations/{ConversationId}/messages/{MessageId}?operation=redact"
     )
-    url = url.replace("{AccountId}", quote(str(input["account_id"]), safe=""))
-    url = url.replace("{ConversationId}", quote(str(input["conversation_id"]), safe=""))
-    url = url.replace("{MessageId}", quote(str(input["message_id"]), safe=""))
+    url = url.replace("{AccountId}", quote(str(input_["account_id"]), safe=""))
+    url = url.replace(
+        "{ConversationId}", quote(str(input_["conversation_id"]), safe="")
+    )
+    url = url.replace("{MessageId}", quote(str(input_["message_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -124,26 +126,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def redact_conversation_message(
     options: OperationOptions,
-    input: aws_sdk_chime.types.redact_conversation_message_request.RedactConversationMessageRequest,
+    input_: aws_sdk_chime.types.redact_conversation_message_request.RedactConversationMessageRequest,
 ) -> tuple[
     aws_sdk_chime.types.redact_conversation_message_response.RedactConversationMessageResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -152,16 +151,17 @@ def redact_conversation_message(
 
 async def async_redact_conversation_message(
     options: AsyncOperationOptions,
-    input: aws_sdk_chime.types.redact_conversation_message_request.RedactConversationMessageRequest,
+    input_: aws_sdk_chime.types.redact_conversation_message_request.RedactConversationMessageRequest,
 ) -> tuple[
     aws_sdk_chime.types.redact_conversation_message_response.RedactConversationMessageResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

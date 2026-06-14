@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_cloudcontrol._auth._signers
+import aws_sdk_cloudcontrol._auth._sigv4
 from aws_sdk_cloudcontrol._auth._identity import Credentials
 from aws_sdk_cloudcontrol._auth._providers import (
     CredentialsProvider,
@@ -182,11 +184,11 @@ class CloudControlClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudcontrol.types.cancel_resource_request_input.CancelResourceRequestInput = {}  # type: ignore[typeddict-item]
-        input["request_token"] = request_token
+        input_: aws_sdk_cloudcontrol.types.cancel_resource_request_input.CancelResourceRequestInput = {}  # type: ignore[typeddict-item]
+        input_["request_token"] = request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,18 +233,18 @@ class CloudControlClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudcontrol.types.create_resource_input.CreateResourceInput = {}  # type: ignore[typeddict-item]
-        input["type_name"] = type_name
+        input_: aws_sdk_cloudcontrol.types.create_resource_input.CreateResourceInput = {}  # type: ignore[typeddict-item]
+        input_["type_name"] = type_name
         if type_version_id is not None:
-            input["type_version_id"] = type_version_id
+            input_["type_version_id"] = type_version_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["desired_state"] = desired_state
+            input_["client_token"] = client_token
+        input_["desired_state"] = desired_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,18 +289,18 @@ class CloudControlClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudcontrol.types.delete_resource_input.DeleteResourceInput = {}  # type: ignore[typeddict-item]
-        input["type_name"] = type_name
+        input_: aws_sdk_cloudcontrol.types.delete_resource_input.DeleteResourceInput = {}  # type: ignore[typeddict-item]
+        input_["type_name"] = type_name
         if type_version_id is not None:
-            input["type_version_id"] = type_version_id
+            input_["type_version_id"] = type_version_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["identifier"] = identifier
+            input_["client_token"] = client_token
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,16 +341,16 @@ class CloudControlClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudcontrol.types.get_resource_input.GetResourceInput = {}  # type: ignore[typeddict-item]
-        input["type_name"] = type_name
+        input_: aws_sdk_cloudcontrol.types.get_resource_input.GetResourceInput = {}  # type: ignore[typeddict-item]
+        input_["type_name"] = type_name
         if type_version_id is not None:
-            input["type_version_id"] = type_version_id
+            input_["type_version_id"] = type_version_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
-        input["identifier"] = identifier
+            input_["role_arn"] = role_arn
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +383,11 @@ class CloudControlClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudcontrol.types.get_resource_request_status_input.GetResourceRequestStatusInput = {}  # type: ignore[typeddict-item]
-        input["request_token"] = request_token
+        input_: aws_sdk_cloudcontrol.types.get_resource_request_status_input.GetResourceRequestStatusInput = {}  # type: ignore[typeddict-item]
+        input_["request_token"] = request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,16 +428,16 @@ class CloudControlClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudcontrol.types.list_resource_requests_input.ListResourceRequestsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudcontrol.types.list_resource_requests_input.ListResourceRequestsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if resource_request_status_filter is not None:
-            input["resource_request_status_filter"] = resource_request_status_filter
+            input_["resource_request_status_filter"] = resource_request_status_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,21 +515,21 @@ class CloudControlClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudcontrol.types.list_resources_input.ListResourcesInput = {}  # type: ignore[typeddict-item]
-        input["type_name"] = type_name
+        input_: aws_sdk_cloudcontrol.types.list_resources_input.ListResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["type_name"] = type_name
         if type_version_id is not None:
-            input["type_version_id"] = type_version_id
+            input_["type_version_id"] = type_version_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if resource_model is not None:
-            input["resource_model"] = resource_model
+            input_["resource_model"] = resource_model
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -613,19 +615,19 @@ class CloudControlClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudcontrol.types.update_resource_input.UpdateResourceInput = {}  # type: ignore[typeddict-item]
-        input["type_name"] = type_name
+        input_: aws_sdk_cloudcontrol.types.update_resource_input.UpdateResourceInput = {}  # type: ignore[typeddict-item]
+        input_["type_name"] = type_name
         if type_version_id is not None:
-            input["type_version_id"] = type_version_id
+            input_["type_version_id"] = type_version_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["identifier"] = identifier
-        input["patch_document"] = patch_document
+            input_["client_token"] = client_token
+        input_["identifier"] = identifier
+        input_["patch_document"] = patch_document
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

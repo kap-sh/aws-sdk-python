@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_codebuild._auth._signers
+import aws_sdk_codebuild._auth._sigv4
 from aws_sdk_codebuild._auth._identity import Credentials
 from aws_sdk_codebuild._auth._providers import (
     CredentialsProvider,
@@ -345,11 +347,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_delete_builds_input.BatchDeleteBuildsInput = {}  # type: ignore[typeddict-item]
-        input["ids"] = ids
+        input_: aws_sdk_codebuild.types.batch_delete_builds_input.BatchDeleteBuildsInput = {}  # type: ignore[typeddict-item]
+        input_["ids"] = ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -382,11 +384,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_get_build_batches_input.BatchGetBuildBatchesInput = {}  # type: ignore[typeddict-item]
-        input["ids"] = ids
+        input_: aws_sdk_codebuild.types.batch_get_build_batches_input.BatchGetBuildBatchesInput = {}  # type: ignore[typeddict-item]
+        input_["ids"] = ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,11 +421,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_get_builds_input.BatchGetBuildsInput = {}  # type: ignore[typeddict-item]
-        input["ids"] = ids
+        input_: aws_sdk_codebuild.types.batch_get_builds_input.BatchGetBuildsInput = {}  # type: ignore[typeddict-item]
+        input_["ids"] = ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,12 +460,12 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_get_command_executions_input.BatchGetCommandExecutionsInput = {}  # type: ignore[typeddict-item]
-        input["sandbox_id"] = sandbox_id
-        input["command_execution_ids"] = command_execution_ids
+        input_: aws_sdk_codebuild.types.batch_get_command_executions_input.BatchGetCommandExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_["sandbox_id"] = sandbox_id
+        input_["command_execution_ids"] = command_execution_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,11 +498,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_get_fleets_input.BatchGetFleetsInput = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_codebuild.types.batch_get_fleets_input.BatchGetFleetsInput = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -533,11 +535,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_get_projects_input.BatchGetProjectsInput = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_codebuild.types.batch_get_projects_input.BatchGetProjectsInput = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -570,11 +572,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_get_report_groups_input.BatchGetReportGroupsInput = {}  # type: ignore[typeddict-item]
-        input["report_group_arns"] = report_group_arns
+        input_: aws_sdk_codebuild.types.batch_get_report_groups_input.BatchGetReportGroupsInput = {}  # type: ignore[typeddict-item]
+        input_["report_group_arns"] = report_group_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -607,11 +609,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_get_reports_input.BatchGetReportsInput = {}  # type: ignore[typeddict-item]
-        input["report_arns"] = report_arns
+        input_: aws_sdk_codebuild.types.batch_get_reports_input.BatchGetReportsInput = {}  # type: ignore[typeddict-item]
+        input_["report_arns"] = report_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -644,11 +646,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.batch_get_sandboxes_input.BatchGetSandboxesInput = {}  # type: ignore[typeddict-item]
-        input["ids"] = ids
+        input_: aws_sdk_codebuild.types.batch_get_sandboxes_input.BatchGetSandboxesInput = {}  # type: ignore[typeddict-item]
+        input_["ids"] = ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -714,30 +716,30 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.create_fleet_input.CreateFleetInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["base_capacity"] = base_capacity
-        input["environment_type"] = environment_type
-        input["compute_type"] = compute_type
+        input_: aws_sdk_codebuild.types.create_fleet_input.CreateFleetInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["base_capacity"] = base_capacity
+        input_["environment_type"] = environment_type
+        input_["compute_type"] = compute_type
         if compute_configuration is not None:
-            input["compute_configuration"] = compute_configuration
+            input_["compute_configuration"] = compute_configuration
         if scaling_configuration is not None:
-            input["scaling_configuration"] = scaling_configuration
+            input_["scaling_configuration"] = scaling_configuration
         if overflow_behavior is not None:
-            input["overflow_behavior"] = overflow_behavior
+            input_["overflow_behavior"] = overflow_behavior
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if proxy_configuration is not None:
-            input["proxy_configuration"] = proxy_configuration
+            input_["proxy_configuration"] = proxy_configuration
         if image_id is not None:
-            input["image_id"] = image_id
+            input_["image_id"] = image_id
         if fleet_service_role is not None:
-            input["fleet_service_role"] = fleet_service_role
+            input_["fleet_service_role"] = fleet_service_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -836,49 +838,49 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.create_project_input.CreateProjectInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codebuild.types.create_project_input.CreateProjectInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["source"] = source
+            input_["description"] = description
+        input_["source"] = source
         if secondary_sources is not None:
-            input["secondary_sources"] = secondary_sources
+            input_["secondary_sources"] = secondary_sources
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
         if secondary_source_versions is not None:
-            input["secondary_source_versions"] = secondary_source_versions
-        input["artifacts"] = artifacts
+            input_["secondary_source_versions"] = secondary_source_versions
+        input_["artifacts"] = artifacts
         if secondary_artifacts is not None:
-            input["secondary_artifacts"] = secondary_artifacts
+            input_["secondary_artifacts"] = secondary_artifacts
         if cache is not None:
-            input["cache"] = cache
-        input["environment"] = environment
-        input["service_role"] = service_role
+            input_["cache"] = cache
+        input_["environment"] = environment
+        input_["service_role"] = service_role
         if timeout_in_minutes is not None:
-            input["timeout_in_minutes"] = timeout_in_minutes
+            input_["timeout_in_minutes"] = timeout_in_minutes
         if queued_timeout_in_minutes is not None:
-            input["queued_timeout_in_minutes"] = queued_timeout_in_minutes
+            input_["queued_timeout_in_minutes"] = queued_timeout_in_minutes
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if badge_enabled is not None:
-            input["badge_enabled"] = badge_enabled
+            input_["badge_enabled"] = badge_enabled
         if logs_config is not None:
-            input["logs_config"] = logs_config
+            input_["logs_config"] = logs_config
         if file_system_locations is not None:
-            input["file_system_locations"] = file_system_locations
+            input_["file_system_locations"] = file_system_locations
         if build_batch_config is not None:
-            input["build_batch_config"] = build_batch_config
+            input_["build_batch_config"] = build_batch_config
         if concurrent_build_limit is not None:
-            input["concurrent_build_limit"] = concurrent_build_limit
+            input_["concurrent_build_limit"] = concurrent_build_limit
         if auto_retry_limit is not None:
-            input["auto_retry_limit"] = auto_retry_limit
+            input_["auto_retry_limit"] = auto_retry_limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -917,15 +919,15 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.create_report_group_input.CreateReportGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
-        input["export_config"] = export_config
+        input_: aws_sdk_codebuild.types.create_report_group_input.CreateReportGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
+        input_["export_config"] = export_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -980,23 +982,23 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.create_webhook_input.CreateWebhookInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_codebuild.types.create_webhook_input.CreateWebhookInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if branch_filter is not None:
-            input["branch_filter"] = branch_filter
+            input_["branch_filter"] = branch_filter
         if filter_groups is not None:
-            input["filter_groups"] = filter_groups
+            input_["filter_groups"] = filter_groups
         if build_type is not None:
-            input["build_type"] = build_type
+            input_["build_type"] = build_type
         if manual_creation is not None:
-            input["manual_creation"] = manual_creation
+            input_["manual_creation"] = manual_creation
         if scope_configuration is not None:
-            input["scope_configuration"] = scope_configuration
+            input_["scope_configuration"] = scope_configuration
         if pull_request_build_policy is not None:
-            input["pull_request_build_policy"] = pull_request_build_policy
+            input_["pull_request_build_policy"] = pull_request_build_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,11 +1031,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.delete_build_batch_input.DeleteBuildBatchInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_codebuild.types.delete_build_batch_input.DeleteBuildBatchInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1066,11 +1068,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.delete_fleet_input.DeleteFleetInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codebuild.types.delete_fleet_input.DeleteFleetInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1103,11 +1105,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.delete_project_input.DeleteProjectInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codebuild.types.delete_project_input.DeleteProjectInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1140,11 +1142,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.delete_report_input.DeleteReportInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codebuild.types.delete_report_input.DeleteReportInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1179,13 +1181,13 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.delete_report_group_input.DeleteReportGroupInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codebuild.types.delete_report_group_input.DeleteReportGroupInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if delete_reports is not None:
-            input["delete_reports"] = delete_reports
+            input_["delete_reports"] = delete_reports
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1218,11 +1220,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codebuild.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1255,11 +1257,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.delete_source_credentials_input.DeleteSourceCredentialsInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codebuild.types.delete_source_credentials_input.DeleteSourceCredentialsInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1292,11 +1294,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.delete_webhook_input.DeleteWebhookInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_codebuild.types.delete_webhook_input.DeleteWebhookInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1349,23 +1351,23 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.describe_code_coverages_input.DescribeCodeCoveragesInput = {}  # type: ignore[typeddict-item]
-        input["report_arn"] = report_arn
+        input_: aws_sdk_codebuild.types.describe_code_coverages_input.DescribeCodeCoveragesInput = {}  # type: ignore[typeddict-item]
+        input_["report_arn"] = report_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if min_line_coverage_percentage is not None:
-            input["min_line_coverage_percentage"] = min_line_coverage_percentage
+            input_["min_line_coverage_percentage"] = min_line_coverage_percentage
         if max_line_coverage_percentage is not None:
-            input["max_line_coverage_percentage"] = max_line_coverage_percentage
+            input_["max_line_coverage_percentage"] = max_line_coverage_percentage
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1445,17 +1447,17 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.describe_test_cases_input.DescribeTestCasesInput = {}  # type: ignore[typeddict-item]
-        input["report_arn"] = report_arn
+        input_: aws_sdk_codebuild.types.describe_test_cases_input.DescribeTestCasesInput = {}  # type: ignore[typeddict-item]
+        input_["report_arn"] = report_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1519,14 +1521,14 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.get_report_group_trend_input.GetReportGroupTrendInput = {}  # type: ignore[typeddict-item]
-        input["report_group_arn"] = report_group_arn
+        input_: aws_sdk_codebuild.types.get_report_group_trend_input.GetReportGroupTrendInput = {}  # type: ignore[typeddict-item]
+        input_["report_group_arn"] = report_group_arn
         if num_of_reports is not None:
-            input["num_of_reports"] = num_of_reports
-        input["trend_field"] = trend_field
+            input_["num_of_reports"] = num_of_reports
+        input_["trend_field"] = trend_field
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1559,11 +1561,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codebuild.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1608,17 +1610,17 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.import_source_credentials_input.ImportSourceCredentialsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.import_source_credentials_input.ImportSourceCredentialsInput = {}  # type: ignore[typeddict-item]
         if username is not None:
-            input["username"] = username
-        input["token"] = token
-        input["server_type"] = server_type
-        input["auth_type"] = auth_type
+            input_["username"] = username
+        input_["token"] = token
+        input_["server_type"] = server_type
+        input_["auth_type"] = auth_type
         if should_overwrite is not None:
-            input["should_overwrite"] = should_overwrite
+            input_["should_overwrite"] = should_overwrite
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1651,11 +1653,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.invalidate_project_cache_input.InvalidateProjectCacheInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_codebuild.types.invalidate_project_cache_input.InvalidateProjectCacheInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1698,18 +1700,18 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_build_batches_input.ListBuildBatchesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_build_batches_input.ListBuildBatchesInput = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1785,20 +1787,20 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_build_batches_for_project_input.ListBuildBatchesForProjectInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_build_batches_for_project_input.ListBuildBatchesForProjectInput = {}  # type: ignore[typeddict-item]
         if project_name is not None:
-            input["project_name"] = project_name
+            input_["project_name"] = project_name
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1868,14 +1870,14 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_builds_input.ListBuildsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_builds_input.ListBuildsInput = {}  # type: ignore[typeddict-item]
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1937,15 +1939,15 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_builds_for_project_input.ListBuildsForProjectInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_codebuild.types.list_builds_for_project_input.ListBuildsForProjectInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2013,17 +2015,17 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_command_executions_for_sandbox_input.ListCommandExecutionsForSandboxInput = {}  # type: ignore[typeddict-item]
-        input["sandbox_id"] = sandbox_id
+        input_: aws_sdk_codebuild.types.list_command_executions_for_sandbox_input.ListCommandExecutionsForSandboxInput = {}  # type: ignore[typeddict-item]
+        input_["sandbox_id"] = sandbox_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2078,10 +2080,10 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_curated_environment_images_input.ListCuratedEnvironmentImagesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_curated_environment_images_input.ListCuratedEnvironmentImagesInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2126,18 +2128,18 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_fleets_input.ListFleetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_fleets_input.ListFleetsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2180,16 +2182,16 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_projects_input.ListProjectsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_projects_input.ListProjectsInput = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2261,18 +2263,18 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_report_groups_input.ListReportGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_report_groups_input.ListReportGroupsInput = {}  # type: ignore[typeddict-item]
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2342,18 +2344,18 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_reports_input.ListReportsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_reports_input.ListReportsInput = {}  # type: ignore[typeddict-item]
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2423,19 +2425,19 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_reports_for_report_group_input.ListReportsForReportGroupInput = {}  # type: ignore[typeddict-item]
-        input["report_group_arn"] = report_group_arn
+        input_: aws_sdk_codebuild.types.list_reports_for_report_group_input.ListReportsForReportGroupInput = {}  # type: ignore[typeddict-item]
+        input_["report_group_arn"] = report_group_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2503,16 +2505,16 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_sandboxes_input.ListSandboxesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_sandboxes_input.ListSandboxesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2580,17 +2582,17 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_sandboxes_for_project_input.ListSandboxesForProjectInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_codebuild.types.list_sandboxes_for_project_input.ListSandboxesForProjectInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2664,18 +2666,18 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_shared_projects_input.ListSharedProjectsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_shared_projects_input.ListSharedProjectsInput = {}  # type: ignore[typeddict-item]
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2749,18 +2751,18 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_shared_report_groups_input.ListSharedReportGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_shared_report_groups_input.ListSharedReportGroupsInput = {}  # type: ignore[typeddict-item]
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2815,10 +2817,10 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.list_source_credentials_input.ListSourceCredentialsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.list_source_credentials_input.ListSourceCredentialsInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2853,12 +2855,12 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["policy"] = policy
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codebuild.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["policy"] = policy
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2893,14 +2895,14 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.retry_build_input.RetryBuildInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.retry_build_input.RetryBuildInput = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2939,16 +2941,16 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.retry_build_batch_input.RetryBuildBatchInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.retry_build_batch_input.RetryBuildBatchInput = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if retry_type is not None:
-            input["retry_type"] = retry_type
+            input_["retry_type"] = retry_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3101,81 +3103,81 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.start_build_input.StartBuildInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_codebuild.types.start_build_input.StartBuildInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if secondary_sources_override is not None:
-            input["secondary_sources_override"] = secondary_sources_override
+            input_["secondary_sources_override"] = secondary_sources_override
         if secondary_sources_version_override is not None:
-            input["secondary_sources_version_override"] = (
+            input_["secondary_sources_version_override"] = (
                 secondary_sources_version_override
             )
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
         if artifacts_override is not None:
-            input["artifacts_override"] = artifacts_override
+            input_["artifacts_override"] = artifacts_override
         if secondary_artifacts_override is not None:
-            input["secondary_artifacts_override"] = secondary_artifacts_override
+            input_["secondary_artifacts_override"] = secondary_artifacts_override
         if environment_variables_override is not None:
-            input["environment_variables_override"] = environment_variables_override
+            input_["environment_variables_override"] = environment_variables_override
         if source_type_override is not None:
-            input["source_type_override"] = source_type_override
+            input_["source_type_override"] = source_type_override
         if source_location_override is not None:
-            input["source_location_override"] = source_location_override
+            input_["source_location_override"] = source_location_override
         if source_auth_override is not None:
-            input["source_auth_override"] = source_auth_override
+            input_["source_auth_override"] = source_auth_override
         if git_clone_depth_override is not None:
-            input["git_clone_depth_override"] = git_clone_depth_override
+            input_["git_clone_depth_override"] = git_clone_depth_override
         if git_submodules_config_override is not None:
-            input["git_submodules_config_override"] = git_submodules_config_override
+            input_["git_submodules_config_override"] = git_submodules_config_override
         if buildspec_override is not None:
-            input["buildspec_override"] = buildspec_override
+            input_["buildspec_override"] = buildspec_override
         if insecure_ssl_override is not None:
-            input["insecure_ssl_override"] = insecure_ssl_override
+            input_["insecure_ssl_override"] = insecure_ssl_override
         if report_build_status_override is not None:
-            input["report_build_status_override"] = report_build_status_override
+            input_["report_build_status_override"] = report_build_status_override
         if build_status_config_override is not None:
-            input["build_status_config_override"] = build_status_config_override
+            input_["build_status_config_override"] = build_status_config_override
         if environment_type_override is not None:
-            input["environment_type_override"] = environment_type_override
+            input_["environment_type_override"] = environment_type_override
         if image_override is not None:
-            input["image_override"] = image_override
+            input_["image_override"] = image_override
         if compute_type_override is not None:
-            input["compute_type_override"] = compute_type_override
+            input_["compute_type_override"] = compute_type_override
         if certificate_override is not None:
-            input["certificate_override"] = certificate_override
+            input_["certificate_override"] = certificate_override
         if cache_override is not None:
-            input["cache_override"] = cache_override
+            input_["cache_override"] = cache_override
         if service_role_override is not None:
-            input["service_role_override"] = service_role_override
+            input_["service_role_override"] = service_role_override
         if privileged_mode_override is not None:
-            input["privileged_mode_override"] = privileged_mode_override
+            input_["privileged_mode_override"] = privileged_mode_override
         if timeout_in_minutes_override is not None:
-            input["timeout_in_minutes_override"] = timeout_in_minutes_override
+            input_["timeout_in_minutes_override"] = timeout_in_minutes_override
         if queued_timeout_in_minutes_override is not None:
-            input["queued_timeout_in_minutes_override"] = (
+            input_["queued_timeout_in_minutes_override"] = (
                 queued_timeout_in_minutes_override
             )
         if encryption_key_override is not None:
-            input["encryption_key_override"] = encryption_key_override
+            input_["encryption_key_override"] = encryption_key_override
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if logs_config_override is not None:
-            input["logs_config_override"] = logs_config_override
+            input_["logs_config_override"] = logs_config_override
         if registry_credential_override is not None:
-            input["registry_credential_override"] = registry_credential_override
+            input_["registry_credential_override"] = registry_credential_override
         if image_pull_credentials_type_override is not None:
-            input["image_pull_credentials_type_override"] = (
+            input_["image_pull_credentials_type_override"] = (
                 image_pull_credentials_type_override
             )
         if debug_session_enabled is not None:
-            input["debug_session_enabled"] = debug_session_enabled
+            input_["debug_session_enabled"] = debug_session_enabled
         if fleet_override is not None:
-            input["fleet_override"] = fleet_override
+            input_["fleet_override"] = fleet_override
         if auto_retry_limit_override is not None:
-            input["auto_retry_limit_override"] = auto_retry_limit_override
+            input_["auto_retry_limit_override"] = auto_retry_limit_override
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3320,81 +3322,81 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.start_build_batch_input.StartBuildBatchInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_codebuild.types.start_build_batch_input.StartBuildBatchInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if secondary_sources_override is not None:
-            input["secondary_sources_override"] = secondary_sources_override
+            input_["secondary_sources_override"] = secondary_sources_override
         if secondary_sources_version_override is not None:
-            input["secondary_sources_version_override"] = (
+            input_["secondary_sources_version_override"] = (
                 secondary_sources_version_override
             )
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
         if artifacts_override is not None:
-            input["artifacts_override"] = artifacts_override
+            input_["artifacts_override"] = artifacts_override
         if secondary_artifacts_override is not None:
-            input["secondary_artifacts_override"] = secondary_artifacts_override
+            input_["secondary_artifacts_override"] = secondary_artifacts_override
         if environment_variables_override is not None:
-            input["environment_variables_override"] = environment_variables_override
+            input_["environment_variables_override"] = environment_variables_override
         if source_type_override is not None:
-            input["source_type_override"] = source_type_override
+            input_["source_type_override"] = source_type_override
         if source_location_override is not None:
-            input["source_location_override"] = source_location_override
+            input_["source_location_override"] = source_location_override
         if source_auth_override is not None:
-            input["source_auth_override"] = source_auth_override
+            input_["source_auth_override"] = source_auth_override
         if git_clone_depth_override is not None:
-            input["git_clone_depth_override"] = git_clone_depth_override
+            input_["git_clone_depth_override"] = git_clone_depth_override
         if git_submodules_config_override is not None:
-            input["git_submodules_config_override"] = git_submodules_config_override
+            input_["git_submodules_config_override"] = git_submodules_config_override
         if buildspec_override is not None:
-            input["buildspec_override"] = buildspec_override
+            input_["buildspec_override"] = buildspec_override
         if insecure_ssl_override is not None:
-            input["insecure_ssl_override"] = insecure_ssl_override
+            input_["insecure_ssl_override"] = insecure_ssl_override
         if report_build_batch_status_override is not None:
-            input["report_build_batch_status_override"] = (
+            input_["report_build_batch_status_override"] = (
                 report_build_batch_status_override
             )
         if environment_type_override is not None:
-            input["environment_type_override"] = environment_type_override
+            input_["environment_type_override"] = environment_type_override
         if image_override is not None:
-            input["image_override"] = image_override
+            input_["image_override"] = image_override
         if compute_type_override is not None:
-            input["compute_type_override"] = compute_type_override
+            input_["compute_type_override"] = compute_type_override
         if certificate_override is not None:
-            input["certificate_override"] = certificate_override
+            input_["certificate_override"] = certificate_override
         if cache_override is not None:
-            input["cache_override"] = cache_override
+            input_["cache_override"] = cache_override
         if service_role_override is not None:
-            input["service_role_override"] = service_role_override
+            input_["service_role_override"] = service_role_override
         if privileged_mode_override is not None:
-            input["privileged_mode_override"] = privileged_mode_override
+            input_["privileged_mode_override"] = privileged_mode_override
         if build_timeout_in_minutes_override is not None:
-            input["build_timeout_in_minutes_override"] = (
+            input_["build_timeout_in_minutes_override"] = (
                 build_timeout_in_minutes_override
             )
         if queued_timeout_in_minutes_override is not None:
-            input["queued_timeout_in_minutes_override"] = (
+            input_["queued_timeout_in_minutes_override"] = (
                 queued_timeout_in_minutes_override
             )
         if encryption_key_override is not None:
-            input["encryption_key_override"] = encryption_key_override
+            input_["encryption_key_override"] = encryption_key_override
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if logs_config_override is not None:
-            input["logs_config_override"] = logs_config_override
+            input_["logs_config_override"] = logs_config_override
         if registry_credential_override is not None:
-            input["registry_credential_override"] = registry_credential_override
+            input_["registry_credential_override"] = registry_credential_override
         if image_pull_credentials_type_override is not None:
-            input["image_pull_credentials_type_override"] = (
+            input_["image_pull_credentials_type_override"] = (
                 image_pull_credentials_type_override
             )
         if build_batch_config_override is not None:
-            input["build_batch_config_override"] = build_batch_config_override
+            input_["build_batch_config_override"] = build_batch_config_override
         if debug_session_enabled is not None:
-            input["debug_session_enabled"] = debug_session_enabled
+            input_["debug_session_enabled"] = debug_session_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3431,14 +3433,14 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.start_command_execution_input.StartCommandExecutionInput = {}  # type: ignore[typeddict-item]
-        input["sandbox_id"] = sandbox_id
-        input["command"] = command
+        input_: aws_sdk_codebuild.types.start_command_execution_input.StartCommandExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["sandbox_id"] = sandbox_id
+        input_["command"] = command
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3477,14 +3479,14 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.start_sandbox_input.StartSandboxInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codebuild.types.start_sandbox_input.StartSandboxInput = {}  # type: ignore[typeddict-item]
         if project_name is not None:
-            input["project_name"] = project_name
+            input_["project_name"] = project_name
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3517,11 +3519,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.start_sandbox_connection_input.StartSandboxConnectionInput = {}  # type: ignore[typeddict-item]
-        input["sandbox_id"] = sandbox_id
+        input_: aws_sdk_codebuild.types.start_sandbox_connection_input.StartSandboxConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["sandbox_id"] = sandbox_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3554,11 +3556,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.stop_build_input.StopBuildInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_codebuild.types.stop_build_input.StopBuildInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3591,11 +3593,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.stop_build_batch_input.StopBuildBatchInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_codebuild.types.stop_build_batch_input.StopBuildBatchInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3628,11 +3630,11 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.stop_sandbox_input.StopSandboxInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_codebuild.types.stop_sandbox_input.StopSandboxInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3704,33 +3706,33 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.update_fleet_input.UpdateFleetInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codebuild.types.update_fleet_input.UpdateFleetInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if base_capacity is not None:
-            input["base_capacity"] = base_capacity
+            input_["base_capacity"] = base_capacity
         if environment_type is not None:
-            input["environment_type"] = environment_type
+            input_["environment_type"] = environment_type
         if compute_type is not None:
-            input["compute_type"] = compute_type
+            input_["compute_type"] = compute_type
         if compute_configuration is not None:
-            input["compute_configuration"] = compute_configuration
+            input_["compute_configuration"] = compute_configuration
         if scaling_configuration is not None:
-            input["scaling_configuration"] = scaling_configuration
+            input_["scaling_configuration"] = scaling_configuration
         if overflow_behavior is not None:
-            input["overflow_behavior"] = overflow_behavior
+            input_["overflow_behavior"] = overflow_behavior
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if proxy_configuration is not None:
-            input["proxy_configuration"] = proxy_configuration
+            input_["proxy_configuration"] = proxy_configuration
         if image_id is not None:
-            input["image_id"] = image_id
+            input_["image_id"] = image_id
         if fleet_service_role is not None:
-            input["fleet_service_role"] = fleet_service_role
+            input_["fleet_service_role"] = fleet_service_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3834,53 +3836,53 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.update_project_input.UpdateProjectInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codebuild.types.update_project_input.UpdateProjectInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if secondary_sources is not None:
-            input["secondary_sources"] = secondary_sources
+            input_["secondary_sources"] = secondary_sources
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
         if secondary_source_versions is not None:
-            input["secondary_source_versions"] = secondary_source_versions
+            input_["secondary_source_versions"] = secondary_source_versions
         if artifacts is not None:
-            input["artifacts"] = artifacts
+            input_["artifacts"] = artifacts
         if secondary_artifacts is not None:
-            input["secondary_artifacts"] = secondary_artifacts
+            input_["secondary_artifacts"] = secondary_artifacts
         if cache is not None:
-            input["cache"] = cache
+            input_["cache"] = cache
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if timeout_in_minutes is not None:
-            input["timeout_in_minutes"] = timeout_in_minutes
+            input_["timeout_in_minutes"] = timeout_in_minutes
         if queued_timeout_in_minutes is not None:
-            input["queued_timeout_in_minutes"] = queued_timeout_in_minutes
+            input_["queued_timeout_in_minutes"] = queued_timeout_in_minutes
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if badge_enabled is not None:
-            input["badge_enabled"] = badge_enabled
+            input_["badge_enabled"] = badge_enabled
         if logs_config is not None:
-            input["logs_config"] = logs_config
+            input_["logs_config"] = logs_config
         if file_system_locations is not None:
-            input["file_system_locations"] = file_system_locations
+            input_["file_system_locations"] = file_system_locations
         if build_batch_config is not None:
-            input["build_batch_config"] = build_batch_config
+            input_["build_batch_config"] = build_batch_config
         if concurrent_build_limit is not None:
-            input["concurrent_build_limit"] = concurrent_build_limit
+            input_["concurrent_build_limit"] = concurrent_build_limit
         if auto_retry_limit is not None:
-            input["auto_retry_limit"] = auto_retry_limit
+            input_["auto_retry_limit"] = auto_retry_limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3918,14 +3920,14 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.update_project_visibility_input.UpdateProjectVisibilityInput = {}  # type: ignore[typeddict-item]
-        input["project_arn"] = project_arn
-        input["project_visibility"] = project_visibility
+        input_: aws_sdk_codebuild.types.update_project_visibility_input.UpdateProjectVisibilityInput = {}  # type: ignore[typeddict-item]
+        input_["project_arn"] = project_arn
+        input_["project_visibility"] = project_visibility
         if resource_access_role is not None:
-            input["resource_access_role"] = resource_access_role
+            input_["resource_access_role"] = resource_access_role
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3964,15 +3966,15 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.update_report_group_input.UpdateReportGroupInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codebuild.types.update_report_group_input.UpdateReportGroupInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if export_config is not None:
-            input["export_config"] = export_config
+            input_["export_config"] = export_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4021,21 +4023,21 @@ class CodeBuildClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codebuild.types.update_webhook_input.UpdateWebhookInput = {}  # type: ignore[typeddict-item]
-        input["project_name"] = project_name
+        input_: aws_sdk_codebuild.types.update_webhook_input.UpdateWebhookInput = {}  # type: ignore[typeddict-item]
+        input_["project_name"] = project_name
         if branch_filter is not None:
-            input["branch_filter"] = branch_filter
+            input_["branch_filter"] = branch_filter
         if rotate_secret is not None:
-            input["rotate_secret"] = rotate_secret
+            input_["rotate_secret"] = rotate_secret
         if filter_groups is not None:
-            input["filter_groups"] = filter_groups
+            input_["filter_groups"] = filter_groups
         if build_type is not None:
-            input["build_type"] = build_type
+            input_["build_type"] = build_type
         if pull_request_build_policy is not None:
-            input["pull_request_build_policy"] = pull_request_build_policy
+            input_["pull_request_build_policy"] = pull_request_build_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

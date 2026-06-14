@@ -267,17 +267,17 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.create_signaling_channel_input.CreateSignalingChannelInput = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_kinesis_video.types.create_signaling_channel_input.CreateSignalingChannelInput = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if channel_type is not None:
-            input["channel_type"] = channel_type
+            input_["channel_type"] = channel_type
         if single_master_configuration is not None:
-            input["single_master_configuration"] = single_master_configuration
+            input_["single_master_configuration"] = single_master_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,23 +329,23 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.create_stream_input.CreateStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.create_stream_input.CreateStreamInput = {}  # type: ignore[typeddict-item]
         if device_name is not None:
-            input["device_name"] = device_name
-        input["stream_name"] = stream_name
+            input_["device_name"] = device_name
+        input_["stream_name"] = stream_name
         if media_type is not None:
-            input["media_type"] = media_type
+            input_["media_type"] = media_type
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if data_retention_in_hours is not None:
-            input["data_retention_in_hours"] = data_retention_in_hours
+            input_["data_retention_in_hours"] = data_retention_in_hours
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if stream_storage_configuration is not None:
-            input["stream_storage_configuration"] = stream_storage_configuration
+            input_["stream_storage_configuration"] = stream_storage_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,14 +385,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.delete_edge_configuration_input.DeleteEdgeConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.delete_edge_configuration_input.DeleteEdgeConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,13 +428,13 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.delete_signaling_channel_input.DeleteSignalingChannelInput = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_kinesis_video.types.delete_signaling_channel_input.DeleteSignalingChannelInput = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if current_version is not None:
-            input["current_version"] = current_version
+            input_["current_version"] = current_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,13 +470,13 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.delete_stream_input.DeleteStreamInput = {}  # type: ignore[typeddict-item]
-        input["stream_arn"] = stream_arn
+        input_: aws_sdk_kinesis_video.types.delete_stream_input.DeleteStreamInput = {}  # type: ignore[typeddict-item]
+        input_["stream_arn"] = stream_arn
         if current_version is not None:
-            input["current_version"] = current_version
+            input_["current_version"] = current_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,14 +516,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.describe_edge_configuration_input.DescribeEdgeConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.describe_edge_configuration_input.DescribeEdgeConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -563,14 +563,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.describe_image_generation_configuration_input.DescribeImageGenerationConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.describe_image_generation_configuration_input.DescribeImageGenerationConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -616,18 +616,18 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.describe_mapped_resource_configuration_input.DescribeMappedResourceConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.describe_mapped_resource_configuration_input.DescribeMappedResourceConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,14 +698,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.describe_media_storage_configuration_input.DescribeMediaStorageConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.describe_media_storage_configuration_input.DescribeMediaStorageConfigurationInput = {}  # type: ignore[typeddict-item]
         if channel_name is not None:
-            input["channel_name"] = channel_name
+            input_["channel_name"] = channel_name
         if channel_arn is not None:
-            input["channel_arn"] = channel_arn
+            input_["channel_arn"] = channel_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,14 +745,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.describe_notification_configuration_input.DescribeNotificationConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.describe_notification_configuration_input.DescribeNotificationConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -792,14 +792,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.describe_signaling_channel_input.DescribeSignalingChannelInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.describe_signaling_channel_input.DescribeSignalingChannelInput = {}  # type: ignore[typeddict-item]
         if channel_name is not None:
-            input["channel_name"] = channel_name
+            input_["channel_name"] = channel_name
         if channel_arn is not None:
-            input["channel_arn"] = channel_arn
+            input_["channel_arn"] = channel_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -839,14 +839,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.describe_stream_input.DescribeStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.describe_stream_input.DescribeStreamInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -886,14 +886,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.describe_stream_storage_configuration_input.DescribeStreamStorageConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.describe_stream_storage_configuration_input.DescribeStreamStorageConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -935,15 +935,15 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.get_data_endpoint_input.GetDataEndpointInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.get_data_endpoint_input.GetDataEndpointInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["api_name"] = api_name
+            input_["stream_arn"] = stream_arn
+        input_["api_name"] = api_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -981,15 +981,15 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.get_signaling_channel_endpoint_input.GetSignalingChannelEndpointInput = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_kinesis_video.types.get_signaling_channel_endpoint_input.GetSignalingChannelEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if single_master_channel_endpoint_configuration is not None:
-            input["single_master_channel_endpoint_configuration"] = (
+            input_["single_master_channel_endpoint_configuration"] = (
                 single_master_channel_endpoint_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,15 +1029,15 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.list_edge_agent_configurations_input.ListEdgeAgentConfigurationsInput = {}  # type: ignore[typeddict-item]
-        input["hub_device_arn"] = hub_device_arn
+        input_: aws_sdk_kinesis_video.types.list_edge_agent_configurations_input.ListEdgeAgentConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_["hub_device_arn"] = hub_device_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1104,16 +1104,16 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.list_signaling_channels_input.ListSignalingChannelsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.list_signaling_channels_input.ListSignalingChannelsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if channel_name_condition is not None:
-            input["channel_name_condition"] = channel_name_condition
+            input_["channel_name_condition"] = channel_name_condition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1182,16 +1182,16 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if stream_name_condition is not None:
-            input["stream_name_condition"] = stream_name_condition
+            input_["stream_name_condition"] = stream_name_condition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1254,13 +1254,13 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_arn"] = resource_arn
+            input_["next_token"] = next_token
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1302,16 +1302,16 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.list_tags_for_stream_input.ListTagsForStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.list_tags_for_stream_input.ListTagsForStreamInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1353,15 +1353,15 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.start_edge_configuration_update_input.StartEdgeConfigurationUpdateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.start_edge_configuration_update_input.StartEdgeConfigurationUpdateInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["edge_config"] = edge_config
+            input_["stream_arn"] = stream_arn
+        input_["edge_config"] = edge_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1397,12 +1397,12 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_kinesis_video.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1444,15 +1444,15 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.tag_stream_input.TagStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.tag_stream_input.TagStreamInput = {}  # type: ignore[typeddict-item]
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["tags"] = tags
+            input_["stream_name"] = stream_name
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1488,12 +1488,12 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_key_list"] = tag_key_list
+        input_: aws_sdk_kinesis_video.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_key_list"] = tag_key_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1535,15 +1535,15 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.untag_stream_input.UntagStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.untag_stream_input.UntagStreamInput = {}  # type: ignore[typeddict-item]
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["tag_key_list"] = tag_key_list
+            input_["stream_name"] = stream_name
+        input_["tag_key_list"] = tag_key_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1589,17 +1589,17 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.update_data_retention_input.UpdateDataRetentionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.update_data_retention_input.UpdateDataRetentionInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["current_version"] = current_version
-        input["operation"] = operation
-        input["data_retention_change_in_hours"] = data_retention_change_in_hours
+            input_["stream_arn"] = stream_arn
+        input_["current_version"] = current_version
+        input_["operation"] = operation
+        input_["data_retention_change_in_hours"] = data_retention_change_in_hours
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1643,16 +1643,16 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.update_image_generation_configuration_input.UpdateImageGenerationConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.update_image_generation_configuration_input.UpdateImageGenerationConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if image_generation_configuration is not None:
-            input["image_generation_configuration"] = image_generation_configuration
+            input_["image_generation_configuration"] = image_generation_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1688,12 +1688,12 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.update_media_storage_configuration_input.UpdateMediaStorageConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["media_storage_configuration"] = media_storage_configuration
+        input_: aws_sdk_kinesis_video.types.update_media_storage_configuration_input.UpdateMediaStorageConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["media_storage_configuration"] = media_storage_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1737,16 +1737,16 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.update_notification_configuration_input.UpdateNotificationConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.update_notification_configuration_input.UpdateNotificationConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if notification_configuration is not None:
-            input["notification_configuration"] = notification_configuration
+            input_["notification_configuration"] = notification_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1786,14 +1786,14 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.update_signaling_channel_input.UpdateSignalingChannelInput = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["current_version"] = current_version
+        input_: aws_sdk_kinesis_video.types.update_signaling_channel_input.UpdateSignalingChannelInput = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["current_version"] = current_version
         if single_master_configuration is not None:
-            input["single_master_configuration"] = single_master_configuration
+            input_["single_master_configuration"] = single_master_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1841,19 +1841,19 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.update_stream_input.UpdateStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.update_stream_input.UpdateStreamInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["current_version"] = current_version
+            input_["stream_arn"] = stream_arn
+        input_["current_version"] = current_version
         if device_name is not None:
-            input["device_name"] = device_name
+            input_["device_name"] = device_name
         if media_type is not None:
-            input["media_type"] = media_type
+            input_["media_type"] = media_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1897,16 +1897,16 @@ class AsyncKinesisVideoClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video.types.update_stream_storage_configuration_input.UpdateStreamStorageConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_video.types.update_stream_storage_configuration_input.UpdateStreamStorageConfigurationInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
-        input["current_version"] = current_version
-        input["stream_storage_configuration"] = stream_storage_configuration
+            input_["stream_arn"] = stream_arn
+        input_["current_version"] = current_version
+        input_["stream_storage_configuration"] = stream_storage_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

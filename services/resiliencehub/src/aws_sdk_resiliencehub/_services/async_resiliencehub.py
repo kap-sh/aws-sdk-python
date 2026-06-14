@@ -335,12 +335,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.accept_resource_grouping_recommendations_request.AcceptResourceGroupingRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["entries"] = entries
+        input_: aws_sdk_resiliencehub.types.accept_resource_grouping_recommendations_request.AcceptResourceGroupingRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["entries"] = entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,12 +376,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.add_draft_app_version_resource_mappings_request.AddDraftAppVersionResourceMappingsRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["resource_mappings"] = resource_mappings
+        input_: aws_sdk_resiliencehub.types.add_draft_app_version_resource_mappings_request.AddDraftAppVersionResourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["resource_mappings"] = resource_mappings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,12 +417,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.batch_update_recommendation_status_request.BatchUpdateRecommendationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["request_entries"] = request_entries
+        input_: aws_sdk_resiliencehub.types.batch_update_recommendation_status_request.BatchUpdateRecommendationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["request_entries"] = request_entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -482,27 +482,27 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_resiliencehub.types.create_app_request.CreateAppRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if assessment_schedule is not None:
-            input["assessment_schedule"] = assessment_schedule
+            input_["assessment_schedule"] = assessment_schedule
         if permission_model is not None:
-            input["permission_model"] = permission_model
+            input_["permission_model"] = permission_model
         if event_subscriptions is not None:
-            input["event_subscriptions"] = event_subscriptions
+            input_["event_subscriptions"] = event_subscriptions
         if aws_application_arn is not None:
-            input["aws_application_arn"] = aws_application_arn
+            input_["aws_application_arn"] = aws_application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -550,19 +550,19 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.create_app_version_app_component_request.CreateAppVersionAppComponentRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.create_app_version_app_component_request.CreateAppVersionAppComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if id is not None:
-            input["id"] = id
-        input["name"] = name
-        input["type"] = type
+            input_["id"] = id
+        input_["name"] = name
+        input_["type"] = type
         if additional_info is not None:
-            input["additional_info"] = additional_info
+            input_["additional_info"] = additional_info
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -622,25 +622,25 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.create_app_version_resource_request.CreateAppVersionResourceRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.create_app_version_resource_request.CreateAppVersionResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if resource_name is not None:
-            input["resource_name"] = resource_name
-        input["logical_resource_id"] = logical_resource_id
-        input["physical_resource_id"] = physical_resource_id
+            input_["resource_name"] = resource_name
+        input_["logical_resource_id"] = logical_resource_id
+        input_["physical_resource_id"] = physical_resource_id
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
-        input["resource_type"] = resource_type
-        input["app_components"] = app_components
+            input_["aws_account_id"] = aws_account_id
+        input_["resource_type"] = resource_type
+        input_["app_components"] = app_components
         if additional_info is not None:
-            input["additional_info"] = additional_info
+            input_["additional_info"] = additional_info
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,24 +698,24 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.create_recommendation_template_request.CreateRecommendationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.create_recommendation_template_request.CreateRecommendationTemplateRequest = {}  # type: ignore[typeddict-item]
         if recommendation_ids is not None:
-            input["recommendation_ids"] = recommendation_ids
+            input_["recommendation_ids"] = recommendation_ids
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if recommendation_types is not None:
-            input["recommendation_types"] = recommendation_types
-        input["assessment_arn"] = assessment_arn
-        input["name"] = name
+            input_["recommendation_types"] = recommendation_types
+        input_["assessment_arn"] = assessment_arn
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if bucket_name is not None:
-            input["bucket_name"] = bucket_name
+            input_["bucket_name"] = bucket_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -767,21 +767,21 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.create_resiliency_policy_request.CreateResiliencyPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
+        input_: aws_sdk_resiliencehub.types.create_resiliency_policy_request.CreateResiliencyPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
         if policy_description is not None:
-            input["policy_description"] = policy_description
+            input_["policy_description"] = policy_description
         if data_location_constraint is not None:
-            input["data_location_constraint"] = data_location_constraint
-        input["tier"] = tier
-        input["policy"] = policy
+            input_["data_location_constraint"] = data_location_constraint
+        input_["tier"] = tier
+        input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -823,15 +823,15 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.delete_app_request.DeleteAppRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -869,13 +869,13 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.delete_app_assessment_request.DeleteAppAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_arn"] = assessment_arn
+        input_: aws_sdk_resiliencehub.types.delete_app_assessment_request.DeleteAppAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_arn"] = assessment_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -923,19 +923,19 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.delete_app_input_source_request.DeleteAppInputSourceRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.delete_app_input_source_request.DeleteAppInputSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if terraform_source is not None:
-            input["terraform_source"] = terraform_source
+            input_["terraform_source"] = terraform_source
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if eks_source_cluster_namespace is not None:
-            input["eks_source_cluster_namespace"] = eks_source_cluster_namespace
+            input_["eks_source_cluster_namespace"] = eks_source_cluster_namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -975,14 +975,14 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.delete_app_version_app_component_request.DeleteAppVersionAppComponentRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["id"] = id
+        input_: aws_sdk_resiliencehub.types.delete_app_version_app_component_request.DeleteAppVersionAppComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1038,23 +1038,23 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.delete_app_version_resource_request.DeleteAppVersionResourceRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.delete_app_version_resource_request.DeleteAppVersionResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if resource_name is not None:
-            input["resource_name"] = resource_name
+            input_["resource_name"] = resource_name
         if logical_resource_id is not None:
-            input["logical_resource_id"] = logical_resource_id
+            input_["logical_resource_id"] = logical_resource_id
         if physical_resource_id is not None:
-            input["physical_resource_id"] = physical_resource_id
+            input_["physical_resource_id"] = physical_resource_id
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1092,13 +1092,13 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.delete_recommendation_template_request.DeleteRecommendationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["recommendation_template_arn"] = recommendation_template_arn
+        input_: aws_sdk_resiliencehub.types.delete_recommendation_template_request.DeleteRecommendationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["recommendation_template_arn"] = recommendation_template_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1136,13 +1136,13 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.delete_resiliency_policy_request.DeleteResiliencyPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_resiliencehub.types.delete_resiliency_policy_request.DeleteResiliencyPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1176,11 +1176,11 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_app_request.DescribeAppRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.describe_app_request.DescribeAppRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1214,11 +1214,11 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_app_assessment_request.DescribeAppAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_arn"] = assessment_arn
+        input_: aws_sdk_resiliencehub.types.describe_app_assessment_request.DescribeAppAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_arn"] = assessment_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1254,12 +1254,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_app_version_request.DescribeAppVersionRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.describe_app_version_request.DescribeAppVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1297,13 +1297,13 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_app_version_app_component_request.DescribeAppVersionAppComponentRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
-        input["id"] = id
+        input_: aws_sdk_resiliencehub.types.describe_app_version_app_component_request.DescribeAppVersionAppComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1357,22 +1357,22 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_app_version_resource_request.DescribeAppVersionResourceRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.describe_app_version_resource_request.DescribeAppVersionResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
         if resource_name is not None:
-            input["resource_name"] = resource_name
+            input_["resource_name"] = resource_name
         if logical_resource_id is not None:
-            input["logical_resource_id"] = logical_resource_id
+            input_["logical_resource_id"] = logical_resource_id
         if physical_resource_id is not None:
-            input["physical_resource_id"] = physical_resource_id
+            input_["physical_resource_id"] = physical_resource_id
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1412,14 +1412,14 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_app_version_resources_resolution_status_request.DescribeAppVersionResourcesResolutionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.describe_app_version_resources_resolution_status_request.DescribeAppVersionResourcesResolutionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
         if resolution_id is not None:
-            input["resolution_id"] = resolution_id
+            input_["resolution_id"] = resolution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1455,12 +1455,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_app_version_template_request.DescribeAppVersionTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.describe_app_version_template_request.DescribeAppVersionTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1494,11 +1494,11 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_draft_app_version_resources_import_status_request.DescribeDraftAppVersionResourcesImportStatusRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.describe_draft_app_version_resources_import_status_request.DescribeDraftAppVersionResourcesImportStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1532,11 +1532,11 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_metrics_export_request.DescribeMetricsExportRequest = {}  # type: ignore[typeddict-item]
-        input["metrics_export_id"] = metrics_export_id
+        input_: aws_sdk_resiliencehub.types.describe_metrics_export_request.DescribeMetricsExportRequest = {}  # type: ignore[typeddict-item]
+        input_["metrics_export_id"] = metrics_export_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1570,11 +1570,11 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_resiliency_policy_request.DescribeResiliencyPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_resiliencehub.types.describe_resiliency_policy_request.DescribeResiliencyPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1610,13 +1610,13 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.describe_resource_grouping_recommendation_task_request.DescribeResourceGroupingRecommendationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.describe_resource_grouping_recommendation_task_request.DescribeResourceGroupingRecommendationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if grouping_id is not None:
-            input["grouping_id"] = grouping_id
+            input_["grouping_id"] = grouping_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1664,19 +1664,19 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.import_resources_to_draft_app_version_request.ImportResourcesToDraftAppVersionRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.import_resources_to_draft_app_version_request.ImportResourcesToDraftAppVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if source_arns is not None:
-            input["source_arns"] = source_arns
+            input_["source_arns"] = source_arns
         if terraform_sources is not None:
-            input["terraform_sources"] = terraform_sources
+            input_["terraform_sources"] = terraform_sources
         if import_strategy is not None:
-            input["import_strategy"] = import_strategy
+            input_["import_strategy"] = import_strategy
         if eks_sources is not None:
-            input["eks_sources"] = eks_sources
+            input_["eks_sources"] = eks_sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1716,15 +1716,15 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_alarm_recommendations_request.ListAlarmRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_arn"] = assessment_arn
+        input_: aws_sdk_resiliencehub.types.list_alarm_recommendations_request.ListAlarmRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_arn"] = assessment_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1764,15 +1764,15 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_assessment_compliance_drifts_request.ListAppAssessmentComplianceDriftsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_arn"] = assessment_arn
+        input_: aws_sdk_resiliencehub.types.list_app_assessment_compliance_drifts_request.ListAppAssessmentComplianceDriftsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_arn"] = assessment_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1812,15 +1812,15 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_assessment_resource_drifts_request.ListAppAssessmentResourceDriftsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_arn"] = assessment_arn
+        input_: aws_sdk_resiliencehub.types.list_app_assessment_resource_drifts_request.ListAppAssessmentResourceDriftsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_arn"] = assessment_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1905,26 +1905,26 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_assessments_request.ListAppAssessmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_app_assessments_request.ListAppAssessmentsRequest = {}  # type: ignore[typeddict-item]
         if app_arn is not None:
-            input["app_arn"] = app_arn
+            input_["app_arn"] = app_arn
         if assessment_name is not None:
-            input["assessment_name"] = assessment_name
+            input_["assessment_name"] = assessment_name
         if assessment_status is not None:
-            input["assessment_status"] = assessment_status
+            input_["assessment_status"] = assessment_status
         if compliance_status is not None:
-            input["compliance_status"] = compliance_status
+            input_["compliance_status"] = compliance_status
         if invoker is not None:
-            input["invoker"] = invoker
+            input_["invoker"] = invoker
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1964,15 +1964,15 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_component_compliances_request.ListAppComponentCompliancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_app_component_compliances_request.ListAppComponentCompliancesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["assessment_arn"] = assessment_arn
+            input_["max_results"] = max_results
+        input_["assessment_arn"] = assessment_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2012,15 +2012,15 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_component_recommendations_request.ListAppComponentRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_arn"] = assessment_arn
+        input_: aws_sdk_resiliencehub.types.list_app_component_recommendations_request.ListAppComponentRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_arn"] = assessment_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2062,16 +2062,16 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_input_sources_request.ListAppInputSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.list_app_input_sources_request.ListAppInputSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2127,26 +2127,26 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_apps_request.ListAppsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_apps_request.ListAppsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if app_arn is not None:
-            input["app_arn"] = app_arn
+            input_["app_arn"] = app_arn
         if from_last_assessment_time is not None:
-            input["from_last_assessment_time"] = from_last_assessment_time
+            input_["from_last_assessment_time"] = from_last_assessment_time
         if to_last_assessment_time is not None:
-            input["to_last_assessment_time"] = to_last_assessment_time
+            input_["to_last_assessment_time"] = to_last_assessment_time
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
         if aws_application_arn is not None:
-            input["aws_application_arn"] = aws_application_arn
+            input_["aws_application_arn"] = aws_application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2188,16 +2188,16 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_version_app_components_request.ListAppVersionAppComponentsRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.list_app_version_app_components_request.ListAppVersionAppComponentsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2239,16 +2239,16 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_version_resource_mappings_request.ListAppVersionResourceMappingsRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.list_app_version_resource_mappings_request.ListAppVersionResourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2294,18 +2294,18 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_version_resources_request.ListAppVersionResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.list_app_version_resources_request.ListAppVersionResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
         if resolution_id is not None:
-            input["resolution_id"] = resolution_id
+            input_["resolution_id"] = resolution_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2351,19 +2351,19 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_app_versions_request.ListAppVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.list_app_versions_request.ListAppVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2411,22 +2411,22 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_metrics_request.ListMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_metrics_request.ListMetricsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
         if data_source is not None:
-            input["data_source"] = data_source
+            input_["data_source"] = data_source
         if conditions is not None:
-            input["conditions"] = conditions
+            input_["conditions"] = conditions
         if sorts is not None:
-            input["sorts"] = sorts
+            input_["sorts"] = sorts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2513,24 +2513,24 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_recommendation_templates_request.ListRecommendationTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_recommendation_templates_request.ListRecommendationTemplatesRequest = {}  # type: ignore[typeddict-item]
         if assessment_arn is not None:
-            input["assessment_arn"] = assessment_arn
+            input_["assessment_arn"] = assessment_arn
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if recommendation_template_arn is not None:
-            input["recommendation_template_arn"] = recommendation_template_arn
+            input_["recommendation_template_arn"] = recommendation_template_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2572,16 +2572,16 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_resiliency_policies_request.ListResiliencyPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_resiliency_policies_request.ListResiliencyPoliciesRequest = {}  # type: ignore[typeddict-item]
         if policy_name is not None:
-            input["policy_name"] = policy_name
+            input_["policy_name"] = policy_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2621,16 +2621,16 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_resource_grouping_recommendations_request.ListResourceGroupingRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_resource_grouping_recommendations_request.ListResourceGroupingRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if app_arn is not None:
-            input["app_arn"] = app_arn
+            input_["app_arn"] = app_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2695,15 +2695,15 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_sop_recommendations_request.ListSopRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_sop_recommendations_request.ListSopRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["assessment_arn"] = assessment_arn
+            input_["max_results"] = max_results
+        input_["assessment_arn"] = assessment_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2741,14 +2741,14 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_suggested_resiliency_policies_request.ListSuggestedResiliencyPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_suggested_resiliency_policies_request.ListSuggestedResiliencyPoliciesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2782,11 +2782,11 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_resiliencehub.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2826,15 +2826,15 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_test_recommendations_request.ListTestRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.list_test_recommendations_request.ListTestRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["assessment_arn"] = assessment_arn
+            input_["max_results"] = max_results
+        input_["assessment_arn"] = assessment_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2880,18 +2880,18 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.list_unsupported_app_version_resources_request.ListUnsupportedAppVersionResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.list_unsupported_app_version_resources_request.ListUnsupportedAppVersionResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
         if resolution_id is not None:
-            input["resolution_id"] = resolution_id
+            input_["resolution_id"] = resolution_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2929,13 +2929,13 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.publish_app_version_request.PublishAppVersionRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.publish_app_version_request.PublishAppVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2971,12 +2971,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.put_draft_app_version_template_request.PutDraftAppVersionTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_template_body"] = app_template_body
+        input_: aws_sdk_resiliencehub.types.put_draft_app_version_template_request.PutDraftAppVersionTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_template_body"] = app_template_body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3012,12 +3012,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.reject_resource_grouping_recommendations_request.RejectResourceGroupingRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["entries"] = entries
+        input_: aws_sdk_resiliencehub.types.reject_resource_grouping_recommendations_request.RejectResourceGroupingRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["entries"] = entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3075,23 +3075,23 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.remove_draft_app_version_resource_mappings_request.RemoveDraftAppVersionResourceMappingsRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.remove_draft_app_version_resource_mappings_request.RemoveDraftAppVersionResourceMappingsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if resource_names is not None:
-            input["resource_names"] = resource_names
+            input_["resource_names"] = resource_names
         if logical_stack_names is not None:
-            input["logical_stack_names"] = logical_stack_names
+            input_["logical_stack_names"] = logical_stack_names
         if app_registry_app_names is not None:
-            input["app_registry_app_names"] = app_registry_app_names
+            input_["app_registry_app_names"] = app_registry_app_names
         if resource_group_names is not None:
-            input["resource_group_names"] = resource_group_names
+            input_["resource_group_names"] = resource_group_names
         if terraform_source_names is not None:
-            input["terraform_source_names"] = terraform_source_names
+            input_["terraform_source_names"] = terraform_source_names
         if eks_source_names is not None:
-            input["eks_source_names"] = eks_source_names
+            input_["eks_source_names"] = eks_source_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3127,12 +3127,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.resolve_app_version_resources_request.ResolveAppVersionResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
+        input_: aws_sdk_resiliencehub.types.resolve_app_version_resources_request.ResolveAppVersionResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3176,17 +3176,17 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.start_app_assessment_request.StartAppAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["app_version"] = app_version
-        input["assessment_name"] = assessment_name
+        input_: aws_sdk_resiliencehub.types.start_app_assessment_request.StartAppAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["app_version"] = app_version
+        input_["assessment_name"] = assessment_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3226,14 +3226,14 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.start_metrics_export_request.StartMetricsExportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resiliencehub.types.start_metrics_export_request.StartMetricsExportRequest = {}  # type: ignore[typeddict-item]
         if bucket_name is not None:
-            input["bucket_name"] = bucket_name
+            input_["bucket_name"] = bucket_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3267,11 +3267,11 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.start_resource_grouping_recommendation_task_request.StartResourceGroupingRecommendationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.start_resource_grouping_recommendation_task_request.StartResourceGroupingRecommendationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3307,12 +3307,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_resiliencehub.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3348,12 +3348,12 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_resiliencehub.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3409,23 +3409,23 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.update_app_request.UpdateAppRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.update_app_request.UpdateAppRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy_arn is not None:
-            input["policy_arn"] = policy_arn
+            input_["policy_arn"] = policy_arn
         if clear_resiliency_policy_arn is not None:
-            input["clear_resiliency_policy_arn"] = clear_resiliency_policy_arn
+            input_["clear_resiliency_policy_arn"] = clear_resiliency_policy_arn
         if assessment_schedule is not None:
-            input["assessment_schedule"] = assessment_schedule
+            input_["assessment_schedule"] = assessment_schedule
         if permission_model is not None:
-            input["permission_model"] = permission_model
+            input_["permission_model"] = permission_model
         if event_subscriptions is not None:
-            input["event_subscriptions"] = event_subscriptions
+            input_["event_subscriptions"] = event_subscriptions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3463,13 +3463,13 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.update_app_version_request.UpdateAppVersionRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.update_app_version_request.UpdateAppVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if additional_info is not None:
-            input["additional_info"] = additional_info
+            input_["additional_info"] = additional_info
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3513,18 +3513,18 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.update_app_version_app_component_request.UpdateAppVersionAppComponentRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
-        input["id"] = id
+        input_: aws_sdk_resiliencehub.types.update_app_version_app_component_request.UpdateAppVersionAppComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if additional_info is not None:
-            input["additional_info"] = additional_info
+            input_["additional_info"] = additional_info
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3592,29 +3592,29 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.update_app_version_resource_request.UpdateAppVersionResourceRequest = {}  # type: ignore[typeddict-item]
-        input["app_arn"] = app_arn
+        input_: aws_sdk_resiliencehub.types.update_app_version_resource_request.UpdateAppVersionResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["app_arn"] = app_arn
         if resource_name is not None:
-            input["resource_name"] = resource_name
+            input_["resource_name"] = resource_name
         if logical_resource_id is not None:
-            input["logical_resource_id"] = logical_resource_id
+            input_["logical_resource_id"] = logical_resource_id
         if physical_resource_id is not None:
-            input["physical_resource_id"] = physical_resource_id
+            input_["physical_resource_id"] = physical_resource_id
         if aws_region is not None:
-            input["aws_region"] = aws_region
+            input_["aws_region"] = aws_region
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if app_components is not None:
-            input["app_components"] = app_components
+            input_["app_components"] = app_components
         if additional_info is not None:
-            input["additional_info"] = additional_info
+            input_["additional_info"] = additional_info
         if excluded is not None:
-            input["excluded"] = excluded
+            input_["excluded"] = excluded
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3668,21 +3668,21 @@ class AsyncresiliencehubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resiliencehub.types.update_resiliency_policy_request.UpdateResiliencyPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_arn"] = policy_arn
+        input_: aws_sdk_resiliencehub.types.update_resiliency_policy_request.UpdateResiliencyPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_arn"] = policy_arn
         if policy_name is not None:
-            input["policy_name"] = policy_name
+            input_["policy_name"] = policy_name
         if policy_description is not None:
-            input["policy_description"] = policy_description
+            input_["policy_description"] = policy_description
         if data_location_constraint is not None:
-            input["data_location_constraint"] = data_location_constraint
+            input_["data_location_constraint"] = data_location_constraint
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

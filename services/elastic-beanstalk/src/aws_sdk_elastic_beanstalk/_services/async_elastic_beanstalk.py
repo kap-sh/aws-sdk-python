@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_elastic_beanstalk._auth._signers
+import aws_sdk_elastic_beanstalk._auth._sigv4
 from aws_sdk_elastic_beanstalk._auth._identity import Credentials
 from aws_sdk_elastic_beanstalk._auth._providers import (
     CredentialsProvider,
@@ -296,14 +298,14 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.abort_environment_update_message.AbortEnvironmentUpdateMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.abort_environment_update_message.AbortEnvironmentUpdateMessage = {}  # type: ignore[typeddict-item]
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,15 +347,15 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.apply_environment_managed_action_request.ApplyEnvironmentManagedActionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.apply_environment_managed_action_request.ApplyEnvironmentManagedActionRequest = {}  # type: ignore[typeddict-item]
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if environment_id is not None:
-            input["environment_id"] = environment_id
-        input["action_id"] = action_id
+            input_["environment_id"] = environment_id
+        input_["action_id"] = action_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,12 +389,12 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.associate_environment_operations_role_message.AssociateEnvironmentOperationsRoleMessage = {}  # type: ignore[typeddict-item]
-        input["environment_name"] = environment_name
-        input["operations_role"] = operations_role
+        input_: aws_sdk_elastic_beanstalk.types.associate_environment_operations_role_message.AssociateEnvironmentOperationsRoleMessage = {}  # type: ignore[typeddict-item]
+        input_["environment_name"] = environment_name
+        input_["operations_role"] = operations_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,11 +434,11 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.check_dns_availability_message.CheckDNSAvailabilityMessage = {}  # type: ignore[typeddict-item]
-        input["cname_prefix"] = cname_prefix
+        input_: aws_sdk_elastic_beanstalk.types.check_dns_availability_message.CheckDNSAvailabilityMessage = {}  # type: ignore[typeddict-item]
+        input_["cname_prefix"] = cname_prefix
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,16 +482,16 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.compose_environments_message.ComposeEnvironmentsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.compose_environments_message.ComposeEnvironmentsMessage = {}  # type: ignore[typeddict-item]
         if application_name is not None:
-            input["application_name"] = application_name
+            input_["application_name"] = application_name
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if version_labels is not None:
-            input["version_labels"] = version_labels
+            input_["version_labels"] = version_labels
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,17 +541,17 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.create_application_message.CreateApplicationMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_elastic_beanstalk.types.create_application_message.CreateApplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if resource_lifecycle_config is not None:
-            input["resource_lifecycle_config"] = resource_lifecycle_config
+            input_["resource_lifecycle_config"] = resource_lifecycle_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,26 +619,26 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.create_application_version_message.CreateApplicationVersionMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["version_label"] = version_label
+        input_: aws_sdk_elastic_beanstalk.types.create_application_version_message.CreateApplicationVersionMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["version_label"] = version_label
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if source_build_information is not None:
-            input["source_build_information"] = source_build_information
+            input_["source_build_information"] = source_build_information
         if source_bundle is not None:
-            input["source_bundle"] = source_bundle
+            input_["source_bundle"] = source_bundle
         if build_configuration is not None:
-            input["build_configuration"] = build_configuration
+            input_["build_configuration"] = build_configuration
         if auto_create_application is not None:
-            input["auto_create_application"] = auto_create_application
+            input_["auto_create_application"] = auto_create_application
         if process is not None:
-            input["process"] = process
+            input_["process"] = process
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -704,26 +706,26 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.create_configuration_template_message.CreateConfigurationTemplateMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["template_name"] = template_name
+        input_: aws_sdk_elastic_beanstalk.types.create_configuration_template_message.CreateConfigurationTemplateMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["template_name"] = template_name
         if solution_stack_name is not None:
-            input["solution_stack_name"] = solution_stack_name
+            input_["solution_stack_name"] = solution_stack_name
         if platform_arn is not None:
-            input["platform_arn"] = platform_arn
+            input_["platform_arn"] = platform_arn
         if source_configuration is not None:
-            input["source_configuration"] = source_configuration
+            input_["source_configuration"] = source_configuration
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if option_settings is not None:
-            input["option_settings"] = option_settings
+            input_["option_settings"] = option_settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -815,37 +817,37 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.create_environment_message.CreateEnvironmentMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_elastic_beanstalk.types.create_environment_message.CreateEnvironmentMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if cname_prefix is not None:
-            input["cname_prefix"] = cname_prefix
+            input_["cname_prefix"] = cname_prefix
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if version_label is not None:
-            input["version_label"] = version_label
+            input_["version_label"] = version_label
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if solution_stack_name is not None:
-            input["solution_stack_name"] = solution_stack_name
+            input_["solution_stack_name"] = solution_stack_name
         if platform_arn is not None:
-            input["platform_arn"] = platform_arn
+            input_["platform_arn"] = platform_arn
         if option_settings is not None:
-            input["option_settings"] = option_settings
+            input_["option_settings"] = option_settings
         if options_to_remove is not None:
-            input["options_to_remove"] = options_to_remove
+            input_["options_to_remove"] = options_to_remove
         if operations_role is not None:
-            input["operations_role"] = operations_role
+            input_["operations_role"] = operations_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -893,19 +895,19 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.create_platform_version_request.CreatePlatformVersionRequest = {}  # type: ignore[typeddict-item]
-        input["platform_name"] = platform_name
-        input["platform_version"] = platform_version
-        input["platform_definition_bundle"] = platform_definition_bundle
+        input_: aws_sdk_elastic_beanstalk.types.create_platform_version_request.CreatePlatformVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["platform_name"] = platform_name
+        input_["platform_version"] = platform_version
+        input_["platform_definition_bundle"] = platform_definition_bundle
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if option_settings is not None:
-            input["option_settings"] = option_settings
+            input_["option_settings"] = option_settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -983,13 +985,13 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.delete_application_message.DeleteApplicationMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_elastic_beanstalk.types.delete_application_message.DeleteApplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if terminate_env_by_force is not None:
-            input["terminate_env_by_force"] = terminate_env_by_force
+            input_["terminate_env_by_force"] = terminate_env_by_force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1033,14 +1035,14 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.delete_application_version_message.DeleteApplicationVersionMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["version_label"] = version_label
+        input_: aws_sdk_elastic_beanstalk.types.delete_application_version_message.DeleteApplicationVersionMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["version_label"] = version_label
         if delete_source_bundle is not None:
-            input["delete_source_bundle"] = delete_source_bundle
+            input_["delete_source_bundle"] = delete_source_bundle
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1080,12 +1082,12 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.delete_configuration_template_message.DeleteConfigurationTemplateMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["template_name"] = template_name
+        input_: aws_sdk_elastic_beanstalk.types.delete_configuration_template_message.DeleteConfigurationTemplateMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1125,12 +1127,12 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.delete_environment_configuration_message.DeleteEnvironmentConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["environment_name"] = environment_name
+        input_: aws_sdk_elastic_beanstalk.types.delete_environment_configuration_message.DeleteEnvironmentConfigurationMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["environment_name"] = environment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1166,12 +1168,12 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.delete_platform_version_request.DeletePlatformVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.delete_platform_version_request.DeletePlatformVersionRequest = {}  # type: ignore[typeddict-item]
         if platform_arn is not None:
-            input["platform_arn"] = platform_arn
+            input_["platform_arn"] = platform_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1242,12 +1244,12 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_applications_message.DescribeApplicationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_applications_message.DescribeApplicationsMessage = {}  # type: ignore[typeddict-item]
         if application_names is not None:
-            input["application_names"] = application_names
+            input_["application_names"] = application_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1299,18 +1301,18 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_application_versions_message.DescribeApplicationVersionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_application_versions_message.DescribeApplicationVersionsMessage = {}  # type: ignore[typeddict-item]
         if application_name is not None:
-            input["application_name"] = application_name
+            input_["application_name"] = application_name
         if version_labels is not None:
-            input["version_labels"] = version_labels
+            input_["version_labels"] = version_labels
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1372,22 +1374,22 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_configuration_options_message.DescribeConfigurationOptionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_configuration_options_message.DescribeConfigurationOptionsMessage = {}  # type: ignore[typeddict-item]
         if application_name is not None:
-            input["application_name"] = application_name
+            input_["application_name"] = application_name
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if solution_stack_name is not None:
-            input["solution_stack_name"] = solution_stack_name
+            input_["solution_stack_name"] = solution_stack_name
         if platform_arn is not None:
-            input["platform_arn"] = platform_arn
+            input_["platform_arn"] = platform_arn
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1435,15 +1437,15 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_configuration_settings_message.DescribeConfigurationSettingsMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_elastic_beanstalk.types.describe_configuration_settings_message.DescribeConfigurationSettingsMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1493,16 +1495,16 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_environment_health_request.DescribeEnvironmentHealthRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_environment_health_request.DescribeEnvironmentHealthRequest = {}  # type: ignore[typeddict-item]
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if attribute_names is not None:
-            input["attribute_names"] = attribute_names
+            input_["attribute_names"] = attribute_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1548,18 +1550,18 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_environment_managed_action_history_request.DescribeEnvironmentManagedActionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_environment_managed_action_history_request.DescribeEnvironmentManagedActionHistoryRequest = {}  # type: ignore[typeddict-item]
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1634,16 +1636,16 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_environment_managed_actions_request.DescribeEnvironmentManagedActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_environment_managed_actions_request.DescribeEnvironmentManagedActionsRequest = {}  # type: ignore[typeddict-item]
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1689,14 +1691,14 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_environment_resources_message.DescribeEnvironmentResourcesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_environment_resources_message.DescribeEnvironmentResourcesMessage = {}  # type: ignore[typeddict-item]
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1764,26 +1766,26 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_environments_message.DescribeEnvironmentsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_environments_message.DescribeEnvironmentsMessage = {}  # type: ignore[typeddict-item]
         if application_name is not None:
-            input["application_name"] = application_name
+            input_["application_name"] = application_name
         if version_label is not None:
-            input["version_label"] = version_label
+            input_["version_label"] = version_label
         if environment_ids is not None:
-            input["environment_ids"] = environment_ids
+            input_["environment_ids"] = environment_ids
         if environment_names is not None:
-            input["environment_names"] = environment_names
+            input_["environment_names"] = environment_names
         if include_deleted is not None:
-            input["include_deleted"] = include_deleted
+            input_["include_deleted"] = include_deleted
         if included_deleted_back_to is not None:
-            input["included_deleted_back_to"] = included_deleted_back_to
+            input_["included_deleted_back_to"] = included_deleted_back_to
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1867,34 +1869,34 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
         if application_name is not None:
-            input["application_name"] = application_name
+            input_["application_name"] = application_name
         if version_label is not None:
-            input["version_label"] = version_label
+            input_["version_label"] = version_label
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if platform_arn is not None:
-            input["platform_arn"] = platform_arn
+            input_["platform_arn"] = platform_arn
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if severity is not None:
-            input["severity"] = severity
+            input_["severity"] = severity
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2011,18 +2013,18 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_instances_health_request.DescribeInstancesHealthRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_instances_health_request.DescribeInstancesHealthRequest = {}  # type: ignore[typeddict-item]
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if attribute_names is not None:
-            input["attribute_names"] = attribute_names
+            input_["attribute_names"] = attribute_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2058,12 +2060,12 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.describe_platform_version_request.DescribePlatformVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.describe_platform_version_request.DescribePlatformVersionRequest = {}  # type: ignore[typeddict-item]
         if platform_arn is not None:
-            input["platform_arn"] = platform_arn
+            input_["platform_arn"] = platform_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2095,11 +2097,11 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.disassociate_environment_operations_role_message.DisassociateEnvironmentOperationsRoleMessage = {}  # type: ignore[typeddict-item]
-        input["environment_name"] = environment_name
+        input_: aws_sdk_elastic_beanstalk.types.disassociate_environment_operations_role_message.DisassociateEnvironmentOperationsRoleMessage = {}  # type: ignore[typeddict-item]
+        input_["environment_name"] = environment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2177,16 +2179,16 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.list_platform_branches_request.ListPlatformBranchesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.list_platform_branches_request.ListPlatformBranchesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2228,16 +2230,16 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.list_platform_versions_request.ListPlatformVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.list_platform_versions_request.ListPlatformVersionsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2298,11 +2300,11 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_elastic_beanstalk.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2346,14 +2348,14 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.rebuild_environment_message.RebuildEnvironmentMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.rebuild_environment_message.RebuildEnvironmentMessage = {}  # type: ignore[typeddict-item]
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2399,15 +2401,15 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.request_environment_info_message.RequestEnvironmentInfoMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.request_environment_info_message.RequestEnvironmentInfoMessage = {}  # type: ignore[typeddict-item]
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
-        input["info_type"] = info_type
+            input_["environment_name"] = environment_name
+        input_["info_type"] = info_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2451,14 +2453,14 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.restart_app_server_message.RestartAppServerMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.restart_app_server_message.RestartAppServerMessage = {}  # type: ignore[typeddict-item]
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2506,15 +2508,15 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.retrieve_environment_info_message.RetrieveEnvironmentInfoMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.retrieve_environment_info_message.RetrieveEnvironmentInfoMessage = {}  # type: ignore[typeddict-item]
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
-        input["info_type"] = info_type
+            input_["environment_name"] = environment_name
+        input_["info_type"] = info_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2566,18 +2568,18 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.swap_environment_cnam_es_message.SwapEnvironmentCNAMEsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.swap_environment_cnam_es_message.SwapEnvironmentCNAMEsMessage = {}  # type: ignore[typeddict-item]
         if source_environment_id is not None:
-            input["source_environment_id"] = source_environment_id
+            input_["source_environment_id"] = source_environment_id
         if source_environment_name is not None:
-            input["source_environment_name"] = source_environment_name
+            input_["source_environment_name"] = source_environment_name
         if destination_environment_id is not None:
-            input["destination_environment_id"] = destination_environment_id
+            input_["destination_environment_id"] = destination_environment_id
         if destination_environment_name is not None:
-            input["destination_environment_name"] = destination_environment_name
+            input_["destination_environment_name"] = destination_environment_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2633,18 +2635,18 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.terminate_environment_message.TerminateEnvironmentMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.terminate_environment_message.TerminateEnvironmentMessage = {}  # type: ignore[typeddict-item]
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if terminate_resources is not None:
-            input["terminate_resources"] = terminate_resources
+            input_["terminate_resources"] = terminate_resources
         if force_terminate is not None:
-            input["force_terminate"] = force_terminate
+            input_["force_terminate"] = force_terminate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2688,13 +2690,13 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.update_application_message.UpdateApplicationMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_elastic_beanstalk.types.update_application_message.UpdateApplicationMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2730,12 +2732,12 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.update_application_resource_lifecycle_message.UpdateApplicationResourceLifecycleMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["resource_lifecycle_config"] = resource_lifecycle_config
+        input_: aws_sdk_elastic_beanstalk.types.update_application_resource_lifecycle_message.UpdateApplicationResourceLifecycleMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["resource_lifecycle_config"] = resource_lifecycle_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2781,14 +2783,14 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.update_application_version_message.UpdateApplicationVersionMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["version_label"] = version_label
+        input_: aws_sdk_elastic_beanstalk.types.update_application_version_message.UpdateApplicationVersionMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["version_label"] = version_label
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2842,18 +2844,18 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.update_configuration_template_message.UpdateConfigurationTemplateMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["template_name"] = template_name
+        input_: aws_sdk_elastic_beanstalk.types.update_configuration_template_message.UpdateConfigurationTemplateMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["template_name"] = template_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if option_settings is not None:
-            input["option_settings"] = option_settings
+            input_["option_settings"] = option_settings
         if options_to_remove is not None:
-            input["options_to_remove"] = options_to_remove
+            input_["options_to_remove"] = options_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2945,34 +2947,34 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.update_environment_message.UpdateEnvironmentMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_beanstalk.types.update_environment_message.UpdateEnvironmentMessage = {}  # type: ignore[typeddict-item]
         if application_name is not None:
-            input["application_name"] = application_name
+            input_["application_name"] = application_name
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if version_label is not None:
-            input["version_label"] = version_label
+            input_["version_label"] = version_label
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if solution_stack_name is not None:
-            input["solution_stack_name"] = solution_stack_name
+            input_["solution_stack_name"] = solution_stack_name
         if platform_arn is not None:
-            input["platform_arn"] = platform_arn
+            input_["platform_arn"] = platform_arn
         if option_settings is not None:
-            input["option_settings"] = option_settings
+            input_["option_settings"] = option_settings
         if options_to_remove is not None:
-            input["options_to_remove"] = options_to_remove
+            input_["options_to_remove"] = options_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3012,15 +3014,15 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.update_tags_for_resource_message.UpdateTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_elastic_beanstalk.types.update_tags_for_resource_message.UpdateTagsForResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if tags_to_add is not None:
-            input["tags_to_add"] = tags_to_add
+            input_["tags_to_add"] = tags_to_add
         if tags_to_remove is not None:
-            input["tags_to_remove"] = tags_to_remove
+            input_["tags_to_remove"] = tags_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3070,16 +3072,16 @@ class AsyncElasticBeanstalkClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_beanstalk.types.validate_configuration_settings_message.ValidateConfigurationSettingsMessage = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_elastic_beanstalk.types.validate_configuration_settings_message.ValidateConfigurationSettingsMessage = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if environment_name is not None:
-            input["environment_name"] = environment_name
-        input["option_settings"] = option_settings
+            input_["environment_name"] = environment_name
+        input_["option_settings"] = option_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

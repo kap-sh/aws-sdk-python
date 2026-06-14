@@ -92,20 +92,20 @@ class Membership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.create_membership_request.CreateMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.create_membership_request.CreateMembershipRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["membership_name"] = membership_name
-        input["incident_response_team"] = incident_response_team
+            input_["client_token"] = client_token
+        input_["membership_name"] = membership_name
+        input_["incident_response_team"] = incident_response_team
         if opt_in_features is not None:
-            input["opt_in_features"] = opt_in_features
+            input_["opt_in_features"] = opt_in_features
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if cover_entire_organization is not None:
-            input["cover_entire_organization"] = cover_entire_organization
+            input_["cover_entire_organization"] = cover_entire_organization
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -143,11 +143,11 @@ class Membership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.get_membership_request.GetMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["membership_id"] = membership_id
+        input_: aws_sdk_security_ir.types.get_membership_request.GetMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_id"] = membership_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,23 +205,23 @@ class Membership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_membership_request.UpdateMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["membership_id"] = membership_id
+        input_: aws_sdk_security_ir.types.update_membership_request.UpdateMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_id"] = membership_id
         if membership_name is not None:
-            input["membership_name"] = membership_name
+            input_["membership_name"] = membership_name
         if incident_response_team is not None:
-            input["incident_response_team"] = incident_response_team
+            input_["incident_response_team"] = incident_response_team
         if opt_in_features is not None:
-            input["opt_in_features"] = opt_in_features
+            input_["opt_in_features"] = opt_in_features
         if membership_accounts_configurations_update is not None:
-            input["membership_accounts_configurations_update"] = (
+            input_["membership_accounts_configurations_update"] = (
                 membership_accounts_configurations_update
             )
         if undo_membership_cancellation is not None:
-            input["undo_membership_cancellation"] = undo_membership_cancellation
+            input_["undo_membership_cancellation"] = undo_membership_cancellation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,14 +261,14 @@ class Membership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_memberships_request.ListMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_memberships_request.ListMembershipsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,12 +308,12 @@ class Membership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.batch_get_member_account_details_request.BatchGetMemberAccountDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["membership_id"] = membership_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_security_ir.types.batch_get_member_account_details_request.BatchGetMemberAccountDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_id"] = membership_id
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -353,11 +353,11 @@ class Membership:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.cancel_membership_request.CancelMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["membership_id"] = membership_id
+        input_: aws_sdk_security_ir.types.cancel_membership_request.CancelMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_id"] = membership_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,20 +415,20 @@ class AsyncMembership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.create_membership_request.CreateMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.create_membership_request.CreateMembershipRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["membership_name"] = membership_name
-        input["incident_response_team"] = incident_response_team
+            input_["client_token"] = client_token
+        input_["membership_name"] = membership_name
+        input_["incident_response_team"] = incident_response_team
         if opt_in_features is not None:
-            input["opt_in_features"] = opt_in_features
+            input_["opt_in_features"] = opt_in_features
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if cover_entire_organization is not None:
-            input["cover_entire_organization"] = cover_entire_organization
+            input_["cover_entire_organization"] = cover_entire_organization
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -467,11 +467,11 @@ class AsyncMembership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.get_membership_request.GetMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["membership_id"] = membership_id
+        input_: aws_sdk_security_ir.types.get_membership_request.GetMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_id"] = membership_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,23 +530,23 @@ class AsyncMembership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_membership_request.UpdateMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["membership_id"] = membership_id
+        input_: aws_sdk_security_ir.types.update_membership_request.UpdateMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_id"] = membership_id
         if membership_name is not None:
-            input["membership_name"] = membership_name
+            input_["membership_name"] = membership_name
         if incident_response_team is not None:
-            input["incident_response_team"] = incident_response_team
+            input_["incident_response_team"] = incident_response_team
         if opt_in_features is not None:
-            input["opt_in_features"] = opt_in_features
+            input_["opt_in_features"] = opt_in_features
         if membership_accounts_configurations_update is not None:
-            input["membership_accounts_configurations_update"] = (
+            input_["membership_accounts_configurations_update"] = (
                 membership_accounts_configurations_update
             )
         if undo_membership_cancellation is not None:
-            input["undo_membership_cancellation"] = undo_membership_cancellation
+            input_["undo_membership_cancellation"] = undo_membership_cancellation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -587,14 +587,14 @@ class AsyncMembership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_memberships_request.ListMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_memberships_request.ListMembershipsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -635,12 +635,12 @@ class AsyncMembership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.batch_get_member_account_details_request.BatchGetMemberAccountDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["membership_id"] = membership_id
-        input["account_ids"] = account_ids
+        input_: aws_sdk_security_ir.types.batch_get_member_account_details_request.BatchGetMemberAccountDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_id"] = membership_id
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -681,11 +681,11 @@ class AsyncMembership:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.cancel_membership_request.CancelMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["membership_id"] = membership_id
+        input_: aws_sdk_security_ir.types.cancel_membership_request.CancelMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_id"] = membership_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

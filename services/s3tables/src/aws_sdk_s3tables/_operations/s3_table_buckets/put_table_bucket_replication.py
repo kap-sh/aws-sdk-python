@@ -103,28 +103,28 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest,
+    input_: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/table-bucket-replication"
     params: dict[str, str] = {}
-    if "table_bucket_arn" in input:
-        params["tableBucketARN"] = str(input["table_bucket_arn"])
-    if "version_token" in input:
-        params["versionToken"] = str(input["version_token"])
+    if "table_bucket_arn" in input_:
+        params["tableBucketARN"] = str(input_["table_bucket_arn"])
+    if "version_token" in input_:
+        params["versionToken"] = str(input_["version_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_s3tables.types.put_table_bucket_replication_request
 
     body: bytes | None = json.dumps(
         aws_sdk_s3tables.types.put_table_bucket_replication_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -132,26 +132,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def put_table_bucket_replication(
     options: OperationOptions,
-    input: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest,
+    input_: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest,
 ) -> tuple[
     aws_sdk_s3tables.types.put_table_bucket_replication_response.PutTableBucketReplicationResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -160,16 +157,17 @@ def put_table_bucket_replication(
 
 async def async_put_table_bucket_replication(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest,
+    input_: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest,
 ) -> tuple[
     aws_sdk_s3tables.types.put_table_bucket_replication_response.PutTableBucketReplicationResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

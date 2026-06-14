@@ -92,23 +92,23 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_agent_space_input.CreateAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_securityagent.types.create_agent_space_input.CreateAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if aws_resources is not None:
-            input["aws_resources"] = aws_resources
+            input_["aws_resources"] = aws_resources
         if target_domain_ids is not None:
-            input["target_domain_ids"] = target_domain_ids
+            input_["target_domain_ids"] = target_domain_ids
         if code_review_settings is not None:
-            input["code_review_settings"] = code_review_settings
+            input_["code_review_settings"] = code_review_settings
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,21 +157,21 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_agent_space_input.UpdateAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.update_agent_space_input.UpdateAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if aws_resources is not None:
-            input["aws_resources"] = aws_resources
+            input_["aws_resources"] = aws_resources
         if target_domain_ids is not None:
-            input["target_domain_ids"] = target_domain_ids
+            input_["target_domain_ids"] = target_domain_ids
         if code_review_settings is not None:
-            input["code_review_settings"] = code_review_settings
+            input_["code_review_settings"] = code_review_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,11 +204,11 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_agent_space_input.DeleteAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.delete_agent_space_input.DeleteAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,14 +245,14 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_agent_spaces_input.ListAgentSpacesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_agent_spaces_input.ListAgentSpacesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,11 +285,11 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_agent_spaces_input.BatchGetAgentSpacesInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_ids"] = agent_space_ids
+        input_: aws_sdk_securityagent.types.batch_get_agent_spaces_input.BatchGetAgentSpacesInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_ids"] = agent_space_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,23 +346,23 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_agent_space_input.CreateAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_securityagent.types.create_agent_space_input.CreateAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if aws_resources is not None:
-            input["aws_resources"] = aws_resources
+            input_["aws_resources"] = aws_resources
         if target_domain_ids is not None:
-            input["target_domain_ids"] = target_domain_ids
+            input_["target_domain_ids"] = target_domain_ids
         if code_review_settings is not None:
-            input["code_review_settings"] = code_review_settings
+            input_["code_review_settings"] = code_review_settings
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,21 +412,21 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_agent_space_input.UpdateAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.update_agent_space_input.UpdateAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if aws_resources is not None:
-            input["aws_resources"] = aws_resources
+            input_["aws_resources"] = aws_resources
         if target_domain_ids is not None:
-            input["target_domain_ids"] = target_domain_ids
+            input_["target_domain_ids"] = target_domain_ids
         if code_review_settings is not None:
-            input["code_review_settings"] = code_review_settings
+            input_["code_review_settings"] = code_review_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,11 +460,11 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_agent_space_input.DeleteAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.delete_agent_space_input.DeleteAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,14 +502,14 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_agent_spaces_input.ListAgentSpacesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_agent_spaces_input.ListAgentSpacesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -543,11 +543,11 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_agent_spaces_input.BatchGetAgentSpacesInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_ids"] = agent_space_ids
+        input_: aws_sdk_securityagent.types.batch_get_agent_spaces_input.BatchGetAgentSpacesInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_ids"] = agent_space_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

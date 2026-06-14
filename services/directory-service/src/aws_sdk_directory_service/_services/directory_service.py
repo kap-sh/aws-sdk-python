@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_directory_service._auth._signers
+import aws_sdk_directory_service._auth._sigv4
 from aws_sdk_directory_service._auth._identity import Credentials
 from aws_sdk_directory_service._auth._providers import (
     CredentialsProvider,
@@ -405,11 +407,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.accept_shared_directory_request.AcceptSharedDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["shared_directory_id"] = shared_directory_id
+        input_: aws_sdk_directory_service.types.accept_shared_directory_request.AcceptSharedDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["shared_directory_id"] = shared_directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,16 +456,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.add_ip_routes_request.AddIpRoutesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["ip_routes"] = ip_routes
+        input_: aws_sdk_directory_service.types.add_ip_routes_request.AddIpRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["ip_routes"] = ip_routes
         if update_security_group_for_directory_controllers is not None:
-            input["update_security_group_for_directory_controllers"] = (
+            input_["update_security_group_for_directory_controllers"] = (
                 update_security_group_for_directory_controllers
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,13 +501,13 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.add_region_request.AddRegionRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["region_name"] = region_name
-        input["vpc_settings"] = vpc_settings
+        input_: aws_sdk_directory_service.types.add_region_request.AddRegionRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["region_name"] = region_name
+        input_["vpc_settings"] = vpc_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,12 +548,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.add_tags_to_resource_request.AddTagsToResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tags"] = tags
+        input_: aws_sdk_directory_service.types.add_tags_to_resource_request.AddTagsToResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,12 +594,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.cancel_schema_extension_request.CancelSchemaExtensionRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["schema_extension_id"] = schema_extension_id
+        input_: aws_sdk_directory_service.types.cancel_schema_extension_request.CancelSchemaExtensionRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["schema_extension_id"] = schema_extension_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -656,22 +658,22 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.connect_directory_request.ConnectDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_directory_service.types.connect_directory_request.ConnectDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if short_name is not None:
-            input["short_name"] = short_name
-        input["password"] = password
+            input_["short_name"] = short_name
+        input_["password"] = password
         if description is not None:
-            input["description"] = description
-        input["size"] = size
-        input["connect_settings"] = connect_settings
+            input_["description"] = description
+        input_["size"] = size
+        input_["connect_settings"] = connect_settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -712,12 +714,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["alias"] = alias
+        input_: aws_sdk_directory_service.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["alias"] = alias
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -768,19 +770,19 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_computer_request.CreateComputerRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["computer_name"] = computer_name
-        input["password"] = password
+        input_: aws_sdk_directory_service.types.create_computer_request.CreateComputerRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["computer_name"] = computer_name
+        input_["password"] = password
         if organizational_unit_distinguished_name is not None:
-            input["organizational_unit_distinguished_name"] = (
+            input_["organizational_unit_distinguished_name"] = (
                 organizational_unit_distinguished_name
             )
         if computer_attributes is not None:
-            input["computer_attributes"] = computer_attributes
+            input_["computer_attributes"] = computer_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,16 +831,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_conditional_forwarder_request.CreateConditionalForwarderRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["remote_domain_name"] = remote_domain_name
+        input_: aws_sdk_directory_service.types.create_conditional_forwarder_request.CreateConditionalForwarderRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["remote_domain_name"] = remote_domain_name
         if dns_ip_addrs is not None:
-            input["dns_ip_addrs"] = dns_ip_addrs
+            input_["dns_ip_addrs"] = dns_ip_addrs
         if dns_ipv6_addrs is not None:
-            input["dns_ipv6_addrs"] = dns_ipv6_addrs
+            input_["dns_ipv6_addrs"] = dns_ipv6_addrs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -901,23 +903,23 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_directory_request.CreateDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_directory_service.types.create_directory_request.CreateDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if short_name is not None:
-            input["short_name"] = short_name
-        input["password"] = password
+            input_["short_name"] = short_name
+        input_["password"] = password
         if description is not None:
-            input["description"] = description
-        input["size"] = size
+            input_["description"] = description
+        input_["size"] = size
         if vpc_settings is not None:
-            input["vpc_settings"] = vpc_settings
+            input_["vpc_settings"] = vpc_settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -954,14 +956,14 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_hybrid_ad_request.CreateHybridADRequest = {}  # type: ignore[typeddict-item]
-        input["secret_arn"] = secret_arn
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_directory_service.types.create_hybrid_ad_request.CreateHybridADRequest = {}  # type: ignore[typeddict-item]
+        input_["secret_arn"] = secret_arn
+        input_["assessment_id"] = assessment_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,12 +998,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_log_subscription_request.CreateLogSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["log_group_name"] = log_group_name
+        input_: aws_sdk_directory_service.types.create_log_subscription_request.CreateLogSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["log_group_name"] = log_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1062,23 +1064,23 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_microsoft_ad_request.CreateMicrosoftADRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_directory_service.types.create_microsoft_ad_request.CreateMicrosoftADRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if short_name is not None:
-            input["short_name"] = short_name
-        input["password"] = password
+            input_["short_name"] = short_name
+        input_["password"] = password
         if description is not None:
-            input["description"] = description
-        input["vpc_settings"] = vpc_settings
+            input_["description"] = description
+        input_["vpc_settings"] = vpc_settings
         if edition is not None:
-            input["edition"] = edition
+            input_["edition"] = edition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1121,13 +1123,13 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1188,22 +1190,24 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.create_trust_request.CreateTrustRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["remote_domain_name"] = remote_domain_name
-        input["trust_password"] = trust_password
-        input["trust_direction"] = trust_direction
+        input_: aws_sdk_directory_service.types.create_trust_request.CreateTrustRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["remote_domain_name"] = remote_domain_name
+        input_["trust_password"] = trust_password
+        input_["trust_direction"] = trust_direction
         if trust_type is not None:
-            input["trust_type"] = trust_type
+            input_["trust_type"] = trust_type
         if conditional_forwarder_ip_addrs is not None:
-            input["conditional_forwarder_ip_addrs"] = conditional_forwarder_ip_addrs
+            input_["conditional_forwarder_ip_addrs"] = conditional_forwarder_ip_addrs
         if conditional_forwarder_ipv6_addrs is not None:
-            input["conditional_forwarder_ipv6_addrs"] = conditional_forwarder_ipv6_addrs
+            input_["conditional_forwarder_ipv6_addrs"] = (
+                conditional_forwarder_ipv6_addrs
+            )
         if selective_auth is not None:
-            input["selective_auth"] = selective_auth
+            input_["selective_auth"] = selective_auth
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1236,11 +1240,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.delete_ad_assessment_request.DeleteADAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_directory_service.types.delete_ad_assessment_request.DeleteADAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1281,12 +1285,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.delete_conditional_forwarder_request.DeleteConditionalForwarderRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["remote_domain_name"] = remote_domain_name
+        input_: aws_sdk_directory_service.types.delete_conditional_forwarder_request.DeleteConditionalForwarderRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["remote_domain_name"] = remote_domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1327,11 +1331,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.delete_directory_request.DeleteDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.delete_directory_request.DeleteDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1364,11 +1368,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.delete_log_subscription_request.DeleteLogSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.delete_log_subscription_request.DeleteLogSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1407,11 +1411,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_id"] = snapshot_id
+        input_: aws_sdk_directory_service.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_id"] = snapshot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1454,15 +1458,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.delete_trust_request.DeleteTrustRequest = {}  # type: ignore[typeddict-item]
-        input["trust_id"] = trust_id
+        input_: aws_sdk_directory_service.types.delete_trust_request.DeleteTrustRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_id"] = trust_id
         if delete_associated_conditional_forwarder is not None:
-            input["delete_associated_conditional_forwarder"] = (
+            input_["delete_associated_conditional_forwarder"] = (
                 delete_associated_conditional_forwarder
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1497,12 +1501,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.deregister_certificate_request.DeregisterCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_directory_service.types.deregister_certificate_request.DeregisterCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["certificate_id"] = certificate_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1543,12 +1547,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.deregister_event_topic_request.DeregisterEventTopicRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["topic_name"] = topic_name
+        input_: aws_sdk_directory_service.types.deregister_event_topic_request.DeregisterEventTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["topic_name"] = topic_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1581,11 +1585,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_ad_assessment_request.DescribeADAssessmentRequest = {}  # type: ignore[typeddict-item]
-        input["assessment_id"] = assessment_id
+        input_: aws_sdk_directory_service.types.describe_ad_assessment_request.DescribeADAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assessment_id"] = assessment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1618,11 +1622,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_ca_enrollment_policy_request.DescribeCAEnrollmentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_ca_enrollment_policy_request.DescribeCAEnrollmentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1657,12 +1661,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_directory_service.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["certificate_id"] = certificate_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1705,17 +1709,17 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_client_authentication_settings_request.DescribeClientAuthenticationSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_client_authentication_settings_request.DescribeClientAuthenticationSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1787,13 +1791,13 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_conditional_forwarders_request.DescribeConditionalForwardersRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_conditional_forwarders_request.DescribeConditionalForwardersRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if remote_domain_names is not None:
-            input["remote_domain_names"] = remote_domain_names
+            input_["remote_domain_names"] = remote_domain_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1840,16 +1844,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_directories_request.DescribeDirectoriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_directory_service.types.describe_directories_request.DescribeDirectoriesRequest = {}  # type: ignore[typeddict-item]
         if directory_ids is not None:
-            input["directory_ids"] = directory_ids
+            input_["directory_ids"] = directory_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1909,11 +1913,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_directory_data_access_request.DescribeDirectoryDataAccessRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_directory_data_access_request.DescribeDirectoryDataAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1956,17 +1960,17 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_domain_controllers_request.DescribeDomainControllersRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_domain_controllers_request.DescribeDomainControllersRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if domain_controller_ids is not None:
-            input["domain_controller_ids"] = domain_controller_ids
+            input_["domain_controller_ids"] = domain_controller_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2011,14 +2015,14 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_event_topics_request.DescribeEventTopicsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_directory_service.types.describe_event_topics_request.DescribeEventTopicsRequest = {}  # type: ignore[typeddict-item]
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if topic_names is not None:
-            input["topic_names"] = topic_names
+            input_["topic_names"] = topic_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2059,15 +2063,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_hybrid_ad_update_request.DescribeHybridADUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_hybrid_ad_update_request.DescribeHybridADUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if update_type is not None:
-            input["update_type"] = update_type
+            input_["update_type"] = update_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2108,17 +2112,17 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_ldaps_settings_request.DescribeLDAPSSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_ldaps_settings_request.DescribeLDAPSSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2190,15 +2194,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_regions_request.DescribeRegionsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_regions_request.DescribeRegionsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if region_name is not None:
-            input["region_name"] = region_name
+            input_["region_name"] = region_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2268,15 +2272,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_settings_request.DescribeSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.describe_settings_request.DescribeSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2319,17 +2323,17 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_shared_directories_request.DescribeSharedDirectoriesRequest = {}  # type: ignore[typeddict-item]
-        input["owner_directory_id"] = owner_directory_id
+        input_: aws_sdk_directory_service.types.describe_shared_directories_request.DescribeSharedDirectoriesRequest = {}  # type: ignore[typeddict-item]
+        input_["owner_directory_id"] = owner_directory_id
         if shared_directory_ids is not None:
-            input["shared_directory_ids"] = shared_directory_ids
+            input_["shared_directory_ids"] = shared_directory_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2409,18 +2413,18 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_snapshots_request.DescribeSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_directory_service.types.describe_snapshots_request.DescribeSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if snapshot_ids is not None:
-            input["snapshot_ids"] = snapshot_ids
+            input_["snapshot_ids"] = snapshot_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2502,18 +2506,18 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_trusts_request.DescribeTrustsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_directory_service.types.describe_trusts_request.DescribeTrustsRequest = {}  # type: ignore[typeddict-item]
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if trust_ids is not None:
-            input["trust_ids"] = trust_ids
+            input_["trust_ids"] = trust_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2587,16 +2591,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.describe_update_directory_request.DescribeUpdateDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["update_type"] = update_type
+        input_: aws_sdk_directory_service.types.describe_update_directory_request.DescribeUpdateDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["update_type"] = update_type
         if region_name is not None:
-            input["region_name"] = region_name
+            input_["region_name"] = region_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2658,11 +2662,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.disable_ca_enrollment_policy_request.DisableCAEnrollmentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.disable_ca_enrollment_policy_request.DisableCAEnrollmentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2697,12 +2701,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.disable_client_authentication_request.DisableClientAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["type"] = type
+        input_: aws_sdk_directory_service.types.disable_client_authentication_request.DisableClientAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2735,11 +2739,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.disable_directory_data_access_request.DisableDirectoryDataAccessRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.disable_directory_data_access_request.DisableDirectoryDataAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2774,12 +2778,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.disable_ldaps_request.DisableLDAPSRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["type"] = type
+        input_: aws_sdk_directory_service.types.disable_ldaps_request.DisableLDAPSRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2818,11 +2822,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.disable_radius_request.DisableRadiusRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.disable_radius_request.DisableRadiusRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2869,15 +2873,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.disable_sso_request.DisableSsoRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.disable_sso_request.DisableSsoRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2912,12 +2916,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.enable_ca_enrollment_policy_request.EnableCAEnrollmentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["pca_connector_arn"] = pca_connector_arn
+        input_: aws_sdk_directory_service.types.enable_ca_enrollment_policy_request.EnableCAEnrollmentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["pca_connector_arn"] = pca_connector_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2952,12 +2956,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.enable_client_authentication_request.EnableClientAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["type"] = type
+        input_: aws_sdk_directory_service.types.enable_client_authentication_request.EnableClientAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2990,11 +2994,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.enable_directory_data_access_request.EnableDirectoryDataAccessRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.enable_directory_data_access_request.EnableDirectoryDataAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3029,12 +3033,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.enable_ldaps_request.EnableLDAPSRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["type"] = type
+        input_: aws_sdk_directory_service.types.enable_ldaps_request.EnableLDAPSRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3075,12 +3079,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.enable_radius_request.EnableRadiusRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["radius_settings"] = radius_settings
+        input_: aws_sdk_directory_service.types.enable_radius_request.EnableRadiusRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["radius_settings"] = radius_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3127,15 +3131,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.enable_sso_request.EnableSsoRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.enable_sso_request.EnableSsoRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3168,10 +3172,10 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.get_directory_limits_request.GetDirectoryLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_directory_service.types.get_directory_limits_request.GetDirectoryLimitsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3210,11 +3214,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.get_snapshot_limits_request.GetSnapshotLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.get_snapshot_limits_request.GetSnapshotLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3257,16 +3261,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.list_ad_assessments_request.ListADAssessmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_directory_service.types.list_ad_assessments_request.ListADAssessmentsRequest = {}  # type: ignore[typeddict-item]
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3336,15 +3340,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3414,15 +3418,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.list_ip_routes_request.ListIpRoutesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.list_ip_routes_request.ListIpRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3488,16 +3492,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.list_log_subscriptions_request.ListLogSubscriptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_directory_service.types.list_log_subscriptions_request.ListLogSubscriptionsRequest = {}  # type: ignore[typeddict-item]
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3569,15 +3573,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.list_schema_extensions_request.ListSchemaExtensionsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.list_schema_extensions_request.ListSchemaExtensionsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3647,15 +3651,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_directory_service.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3723,16 +3727,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.register_certificate_request.RegisterCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["certificate_data"] = certificate_data
+        input_: aws_sdk_directory_service.types.register_certificate_request.RegisterCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["certificate_data"] = certificate_data
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if client_cert_auth_settings is not None:
-            input["client_cert_auth_settings"] = client_cert_auth_settings
+            input_["client_cert_auth_settings"] = client_cert_auth_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3773,12 +3777,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.register_event_topic_request.RegisterEventTopicRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["topic_name"] = topic_name
+        input_: aws_sdk_directory_service.types.register_event_topic_request.RegisterEventTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["topic_name"] = topic_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3811,11 +3815,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.reject_shared_directory_request.RejectSharedDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["shared_directory_id"] = shared_directory_id
+        input_: aws_sdk_directory_service.types.reject_shared_directory_request.RejectSharedDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["shared_directory_id"] = shared_directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3860,15 +3864,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.remove_ip_routes_request.RemoveIpRoutesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.remove_ip_routes_request.RemoveIpRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if cidr_ips is not None:
-            input["cidr_ips"] = cidr_ips
+            input_["cidr_ips"] = cidr_ips
         if cidr_ipv6s is not None:
-            input["cidr_ipv6s"] = cidr_ipv6s
+            input_["cidr_ipv6s"] = cidr_ipv6s
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3901,11 +3905,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.remove_region_request.RemoveRegionRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.remove_region_request.RemoveRegionRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3946,12 +3950,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.remove_tags_from_resource_request.RemoveTagsFromResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_directory_service.types.remove_tags_from_resource_request.RemoveTagsFromResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3988,13 +3992,13 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.reset_user_password_request.ResetUserPasswordRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["user_name"] = user_name
-        input["new_password"] = new_password
+        input_: aws_sdk_directory_service.types.reset_user_password_request.ResetUserPasswordRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["user_name"] = user_name
+        input_["new_password"] = new_password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4033,11 +4037,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.restore_from_snapshot_request.RestoreFromSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_id"] = snapshot_id
+        input_: aws_sdk_directory_service.types.restore_from_snapshot_request.RestoreFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_id"] = snapshot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4076,15 +4080,15 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.share_directory_request.ShareDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.share_directory_request.ShareDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if share_notes is not None:
-            input["share_notes"] = share_notes
-        input["share_target"] = share_target
-        input["share_method"] = share_method
+            input_["share_notes"] = share_notes
+        input_["share_target"] = share_target
+        input_["share_method"] = share_method
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4123,14 +4127,14 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.start_ad_assessment_request.StartADAssessmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_directory_service.types.start_ad_assessment_request.StartADAssessmentRequest = {}  # type: ignore[typeddict-item]
         if assessment_configuration is not None:
-            input["assessment_configuration"] = assessment_configuration
+            input_["assessment_configuration"] = assessment_configuration
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4175,16 +4179,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.start_schema_extension_request.StartSchemaExtensionRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["create_snapshot_before_schema_extension"] = (
+        input_: aws_sdk_directory_service.types.start_schema_extension_request.StartSchemaExtensionRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["create_snapshot_before_schema_extension"] = (
             create_snapshot_before_schema_extension
         )
-        input["ldif_content"] = ldif_content
-        input["description"] = description
+        input_["ldif_content"] = ldif_content
+        input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4219,12 +4223,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.unshare_directory_request.UnshareDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["unshare_target"] = unshare_target
+        input_: aws_sdk_directory_service.types.unshare_directory_request.UnshareDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["unshare_target"] = unshare_target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4273,16 +4277,16 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.update_conditional_forwarder_request.UpdateConditionalForwarderRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["remote_domain_name"] = remote_domain_name
+        input_: aws_sdk_directory_service.types.update_conditional_forwarder_request.UpdateConditionalForwarderRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["remote_domain_name"] = remote_domain_name
         if dns_ip_addrs is not None:
-            input["dns_ip_addrs"] = dns_ip_addrs
+            input_["dns_ip_addrs"] = dns_ip_addrs
         if dns_ipv6_addrs is not None:
-            input["dns_ipv6_addrs"] = dns_ipv6_addrs
+            input_["dns_ipv6_addrs"] = dns_ipv6_addrs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4333,20 +4337,20 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.update_directory_setup_request.UpdateDirectorySetupRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["update_type"] = update_type
+        input_: aws_sdk_directory_service.types.update_directory_setup_request.UpdateDirectorySetupRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["update_type"] = update_type
         if os_update_settings is not None:
-            input["os_update_settings"] = os_update_settings
+            input_["os_update_settings"] = os_update_settings
         if directory_size_update_settings is not None:
-            input["directory_size_update_settings"] = directory_size_update_settings
+            input_["directory_size_update_settings"] = directory_size_update_settings
         if network_update_settings is not None:
-            input["network_update_settings"] = network_update_settings
+            input_["network_update_settings"] = network_update_settings
         if create_snapshot_before_update is not None:
-            input["create_snapshot_before_update"] = create_snapshot_before_update
+            input_["create_snapshot_before_update"] = create_snapshot_before_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4387,17 +4391,17 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.update_hybrid_ad_request.UpdateHybridADRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service.types.update_hybrid_ad_request.UpdateHybridADRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if hybrid_administrator_account_update is not None:
-            input["hybrid_administrator_account_update"] = (
+            input_["hybrid_administrator_account_update"] = (
                 hybrid_administrator_account_update
             )
         if self_managed_instances_settings is not None:
-            input["self_managed_instances_settings"] = self_managed_instances_settings
+            input_["self_managed_instances_settings"] = self_managed_instances_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4432,12 +4436,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.update_number_of_domain_controllers_request.UpdateNumberOfDomainControllersRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["desired_number"] = desired_number
+        input_: aws_sdk_directory_service.types.update_number_of_domain_controllers_request.UpdateNumberOfDomainControllersRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["desired_number"] = desired_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4478,12 +4482,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.update_radius_request.UpdateRadiusRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["radius_settings"] = radius_settings
+        input_: aws_sdk_directory_service.types.update_radius_request.UpdateRadiusRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["radius_settings"] = radius_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4518,12 +4522,12 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.update_settings_request.UpdateSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["settings"] = settings
+        input_: aws_sdk_directory_service.types.update_settings_request.UpdateSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["settings"] = settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4560,13 +4564,13 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.update_trust_request.UpdateTrustRequest = {}  # type: ignore[typeddict-item]
-        input["trust_id"] = trust_id
+        input_: aws_sdk_directory_service.types.update_trust_request.UpdateTrustRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_id"] = trust_id
         if selective_auth is not None:
-            input["selective_auth"] = selective_auth
+            input_["selective_auth"] = selective_auth
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4605,11 +4609,11 @@ class DirectoryServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service.types.verify_trust_request.VerifyTrustRequest = {}  # type: ignore[typeddict-item]
-        input["trust_id"] = trust_id
+        input_: aws_sdk_directory_service.types.verify_trust_request.VerifyTrustRequest = {}  # type: ignore[typeddict-item]
+        input_["trust_id"] = trust_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

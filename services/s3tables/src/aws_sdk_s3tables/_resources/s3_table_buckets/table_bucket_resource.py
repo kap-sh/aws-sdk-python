@@ -93,17 +93,17 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.create_table_bucket_request.CreateTableBucketRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.create_table_bucket_request.CreateTableBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if storage_class_configuration is not None:
-            input["storage_class_configuration"] = storage_class_configuration
+            input_["storage_class_configuration"] = storage_class_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,11 +134,11 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_bucket_request.DeleteTableBucketRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.delete_table_bucket_request.DeleteTableBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -169,11 +169,11 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_bucket_metrics_configuration_request.DeleteTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.delete_table_bucket_metrics_configuration_request.DeleteTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,11 +206,11 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_request.GetTableBucketRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_request.GetTableBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,11 +243,11 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_maintenance_configuration_request.GetTableBucketMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_maintenance_configuration_request.GetTableBucketMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,11 +280,11 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_metrics_configuration_request.GetTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_metrics_configuration_request.GetTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -317,11 +317,11 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_storage_class_request.GetTableBucketStorageClassRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_storage_class_request.GetTableBucketStorageClassRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,18 +366,18 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.list_table_buckets_request.ListTableBucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3tables.types.list_table_buckets_request.ListTableBucketsRequest = {}  # type: ignore[typeddict-item]
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if max_buckets is not None:
-            input["max_buckets"] = max_buckets
+            input_["max_buckets"] = max_buckets
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,13 +412,13 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_maintenance_configuration_request.PutTableBucketMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["type"] = type
-        input["value"] = value
+        input_: aws_sdk_s3tables.types.put_table_bucket_maintenance_configuration_request.PutTableBucketMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["type"] = type
+        input_["value"] = value
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,11 +449,11 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_metrics_configuration_request.PutTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.put_table_bucket_metrics_configuration_request.PutTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -486,12 +486,12 @@ class TableBucketResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_storage_class_request.PutTableBucketStorageClassRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["storage_class_configuration"] = storage_class_configuration
+        input_: aws_sdk_s3tables.types.put_table_bucket_storage_class_request.PutTableBucketStorageClassRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["storage_class_configuration"] = storage_class_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,17 +542,17 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.create_table_bucket_request.CreateTableBucketRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_s3tables.types.create_table_bucket_request.CreateTableBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if storage_class_configuration is not None:
-            input["storage_class_configuration"] = storage_class_configuration
+            input_["storage_class_configuration"] = storage_class_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,11 +584,11 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_bucket_request.DeleteTableBucketRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.delete_table_bucket_request.DeleteTableBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,11 +620,11 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_bucket_metrics_configuration_request.DeleteTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.delete_table_bucket_metrics_configuration_request.DeleteTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,11 +658,11 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_request.GetTableBucketRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_request.GetTableBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,11 +696,11 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_maintenance_configuration_request.GetTableBucketMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_maintenance_configuration_request.GetTableBucketMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -734,11 +734,11 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_metrics_configuration_request.GetTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_metrics_configuration_request.GetTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,11 +772,11 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_storage_class_request.GetTableBucketStorageClassRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_storage_class_request.GetTableBucketStorageClassRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -822,18 +822,18 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.list_table_buckets_request.ListTableBucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3tables.types.list_table_buckets_request.ListTableBucketsRequest = {}  # type: ignore[typeddict-item]
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if max_buckets is not None:
-            input["max_buckets"] = max_buckets
+            input_["max_buckets"] = max_buckets
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -869,13 +869,13 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_maintenance_configuration_request.PutTableBucketMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["type"] = type
-        input["value"] = value
+        input_: aws_sdk_s3tables.types.put_table_bucket_maintenance_configuration_request.PutTableBucketMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["type"] = type
+        input_["value"] = value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -907,11 +907,11 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_metrics_configuration_request.PutTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.put_table_bucket_metrics_configuration_request.PutTableBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -945,12 +945,12 @@ class AsyncTableBucketResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_storage_class_request.PutTableBucketStorageClassRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["storage_class_configuration"] = storage_class_configuration
+        input_: aws_sdk_s3tables.types.put_table_bucket_storage_class_request.PutTableBucketStorageClassRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["storage_class_configuration"] = storage_class_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

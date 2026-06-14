@@ -94,58 +94,55 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_deadline.types.update_task_request.UpdateTaskRequest,
+    input_: aws_sdk_deadline.types.update_task_request.UpdateTaskRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}/steps/{stepId}/tasks/{taskId}"
     )
-    url = url.replace("{farmId}", quote(str(input["farm_id"]), safe=""))
-    url = url.replace("{queueId}", quote(str(input["queue_id"]), safe=""))
-    url = url.replace("{jobId}", quote(str(input["job_id"]), safe=""))
-    url = url.replace("{stepId}", quote(str(input["step_id"]), safe=""))
-    url = url.replace("{taskId}", quote(str(input["task_id"]), safe=""))
+    url = url.replace("{farmId}", quote(str(input_["farm_id"]), safe=""))
+    url = url.replace("{queueId}", quote(str(input_["queue_id"]), safe=""))
+    url = url.replace("{jobId}", quote(str(input_["job_id"]), safe=""))
+    url = url.replace("{stepId}", quote(str(input_["step_id"]), safe=""))
+    url = url.replace("{taskId}", quote(str(input_["task_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "client_token" in input:
-        headers["X-Amz-Client-Token"] = str(input["client_token"])
+    if "client_token" in input_:
+        headers["X-Amz-Client-Token"] = str(input_["client_token"])
     import aws_sdk_deadline.types.update_task_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_deadline.types.update_task_request.serialize_json(input)
+        aws_sdk_deadline.types.update_task_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PATCH",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PATCH", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_task(
     options: OperationOptions,
-    input: aws_sdk_deadline.types.update_task_request.UpdateTaskRequest,
+    input_: aws_sdk_deadline.types.update_task_request.UpdateTaskRequest,
 ) -> tuple[
     aws_sdk_deadline.types.update_task_response.UpdateTaskResponse, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -154,15 +151,16 @@ def update_task(
 
 async def async_update_task(
     options: AsyncOperationOptions,
-    input: aws_sdk_deadline.types.update_task_request.UpdateTaskRequest,
+    input_: aws_sdk_deadline.types.update_task_request.UpdateTaskRequest,
 ) -> tuple[
     aws_sdk_deadline.types.update_task_response.UpdateTaskResponse, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

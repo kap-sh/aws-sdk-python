@@ -60,11 +60,11 @@ class BaselineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_baseline_input.GetBaselineInput = {}  # type: ignore[typeddict-item]
-        input["baseline_identifier"] = baseline_identifier
+        input_: aws_sdk_controltower.types.get_baseline_input.GetBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["baseline_identifier"] = baseline_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -101,14 +101,14 @@ class BaselineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_baselines_input.ListBaselinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_baselines_input.ListBaselinesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -147,11 +147,11 @@ class AsyncBaselineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.get_baseline_input.GetBaselineInput = {}  # type: ignore[typeddict-item]
-        input["baseline_identifier"] = baseline_identifier
+        input_: aws_sdk_controltower.types.get_baseline_input.GetBaselineInput = {}  # type: ignore[typeddict-item]
+        input_["baseline_identifier"] = baseline_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,14 +189,14 @@ class AsyncBaselineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.list_baselines_input.ListBaselinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.list_baselines_input.ListBaselinesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

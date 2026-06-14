@@ -118,32 +118,32 @@ class OtaTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_ota_task_request.CreateOtaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.create_ota_task_request.CreateOtaTaskRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["s3_url"] = s3_url
+            input_["description"] = description
+        input_["s3_url"] = s3_url
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
         if task_configuration_id is not None:
-            input["task_configuration_id"] = task_configuration_id
+            input_["task_configuration_id"] = task_configuration_id
         if ota_mechanism is not None:
-            input["ota_mechanism"] = ota_mechanism
-        input["ota_type"] = ota_type
+            input_["ota_mechanism"] = ota_mechanism
+        input_["ota_type"] = ota_type
         if ota_target_query_string is not None:
-            input["ota_target_query_string"] = ota_target_query_string
+            input_["ota_target_query_string"] = ota_target_query_string
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if ota_scheduling_config is not None:
-            input["ota_scheduling_config"] = ota_scheduling_config
+            input_["ota_scheduling_config"] = ota_scheduling_config
         if ota_task_execution_retry_config is not None:
-            input["ota_task_execution_retry_config"] = ota_task_execution_retry_config
+            input_["ota_task_execution_retry_config"] = ota_task_execution_retry_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,11 +176,11 @@ class OtaTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_ota_task_request.GetOtaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_ota_task_request.GetOtaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,15 +219,15 @@ class OtaTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_ota_task_request.UpdateOtaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.update_ota_task_request.UpdateOtaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if task_configuration_id is not None:
-            input["task_configuration_id"] = task_configuration_id
+            input_["task_configuration_id"] = task_configuration_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,11 +258,11 @@ class OtaTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_ota_task_request.DeleteOtaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.delete_ota_task_request.DeleteOtaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,14 +301,14 @@ class OtaTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_ota_tasks_request.ListOtaTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_ota_tasks_request.ListOtaTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,15 +349,15 @@ class OtaTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_ota_task_executions_request.ListOtaTaskExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.list_ota_task_executions_request.ListOtaTaskExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,32 +434,32 @@ class AsyncOtaTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_ota_task_request.CreateOtaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.create_ota_task_request.CreateOtaTaskRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["s3_url"] = s3_url
+            input_["description"] = description
+        input_["s3_url"] = s3_url
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
         if task_configuration_id is not None:
-            input["task_configuration_id"] = task_configuration_id
+            input_["task_configuration_id"] = task_configuration_id
         if ota_mechanism is not None:
-            input["ota_mechanism"] = ota_mechanism
-        input["ota_type"] = ota_type
+            input_["ota_mechanism"] = ota_mechanism
+        input_["ota_type"] = ota_type
         if ota_target_query_string is not None:
-            input["ota_target_query_string"] = ota_target_query_string
+            input_["ota_target_query_string"] = ota_target_query_string
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if ota_scheduling_config is not None:
-            input["ota_scheduling_config"] = ota_scheduling_config
+            input_["ota_scheduling_config"] = ota_scheduling_config
         if ota_task_execution_retry_config is not None:
-            input["ota_task_execution_retry_config"] = ota_task_execution_retry_config
+            input_["ota_task_execution_retry_config"] = ota_task_execution_retry_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -493,11 +493,11 @@ class AsyncOtaTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_ota_task_request.GetOtaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_ota_task_request.GetOtaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -537,15 +537,15 @@ class AsyncOtaTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_ota_task_request.UpdateOtaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.update_ota_task_request.UpdateOtaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if task_configuration_id is not None:
-            input["task_configuration_id"] = task_configuration_id
+            input_["task_configuration_id"] = task_configuration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -577,11 +577,11 @@ class AsyncOtaTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_ota_task_request.DeleteOtaTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.delete_ota_task_request.DeleteOtaTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -621,14 +621,14 @@ class AsyncOtaTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_ota_tasks_request.ListOtaTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_ota_tasks_request.ListOtaTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -670,15 +670,15 @@ class AsyncOtaTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_ota_task_executions_request.ListOtaTaskExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.list_ota_task_executions_request.ListOtaTaskExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -188,14 +188,14 @@ class AsyncLexRuntimeV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_v2.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_alias_id"] = bot_alias_id
-        input["locale_id"] = locale_id
-        input["session_id"] = session_id
+        input_: aws_sdk_lex_runtime_v2.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_alias_id"] = bot_alias_id
+        input_["locale_id"] = locale_id
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,14 +235,14 @@ class AsyncLexRuntimeV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_v2.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_alias_id"] = bot_alias_id
-        input["locale_id"] = locale_id
-        input["session_id"] = session_id
+        input_: aws_sdk_lex_runtime_v2.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_alias_id"] = bot_alias_id
+        input_["locale_id"] = locale_id
+        input_["session_id"] = session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,21 +295,21 @@ class AsyncLexRuntimeV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_v2.types.put_session_request.PutSessionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_alias_id"] = bot_alias_id
-        input["locale_id"] = locale_id
-        input["session_id"] = session_id
+        input_: aws_sdk_lex_runtime_v2.types.put_session_request.PutSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_alias_id"] = bot_alias_id
+        input_["locale_id"] = locale_id
+        input_["session_id"] = session_id
         if messages is not None:
-            input["messages"] = messages
-        input["session_state"] = session_state
+            input_["messages"] = messages
+        input_["session_state"] = session_state
         if request_attributes is not None:
-            input["request_attributes"] = request_attributes
+            input_["request_attributes"] = request_attributes
         if response_content_type is not None:
-            input["response_content_type"] = response_content_type
+            input_["response_content_type"] = response_content_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,19 +359,19 @@ class AsyncLexRuntimeV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_v2.types.recognize_text_request.RecognizeTextRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_alias_id"] = bot_alias_id
-        input["locale_id"] = locale_id
-        input["session_id"] = session_id
-        input["text"] = text
+        input_: aws_sdk_lex_runtime_v2.types.recognize_text_request.RecognizeTextRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_alias_id"] = bot_alias_id
+        input_["locale_id"] = locale_id
+        input_["session_id"] = session_id
+        input_["text"] = text
         if session_state is not None:
-            input["session_state"] = session_state
+            input_["session_state"] = session_state
         if request_attributes is not None:
-            input["request_attributes"] = request_attributes
+            input_["request_attributes"] = request_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,23 +428,23 @@ class AsyncLexRuntimeV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_v2.types.recognize_utterance_request.RecognizeUtteranceRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_alias_id"] = bot_alias_id
-        input["locale_id"] = locale_id
-        input["session_id"] = session_id
+        input_: aws_sdk_lex_runtime_v2.types.recognize_utterance_request.RecognizeUtteranceRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_alias_id"] = bot_alias_id
+        input_["locale_id"] = locale_id
+        input_["session_id"] = session_id
         if session_state is not None:
-            input["session_state"] = session_state
+            input_["session_state"] = session_state
         if request_attributes is not None:
-            input["request_attributes"] = request_attributes
-        input["request_content_type"] = request_content_type
+            input_["request_attributes"] = request_attributes
+        input_["request_content_type"] = request_content_type
         if response_content_type is not None:
-            input["response_content_type"] = response_content_type
+            input_["response_content_type"] = response_content_type
         if input_stream is not None:
-            input["input_stream"] = ensure_async_iterator(input_stream)  # type: ignore
+            input_["input_stream"] = ensure_async_iterator(input_stream)  # type: ignore
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -490,17 +490,17 @@ class AsyncLexRuntimeV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_v2.types.start_conversation_request.StartConversationRequest = {}  # type: ignore[typeddict-item]
-        input["bot_id"] = bot_id
-        input["bot_alias_id"] = bot_alias_id
-        input["locale_id"] = locale_id
-        input["session_id"] = session_id
+        input_: aws_sdk_lex_runtime_v2.types.start_conversation_request.StartConversationRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_id"] = bot_id
+        input_["bot_alias_id"] = bot_alias_id
+        input_["locale_id"] = locale_id
+        input_["session_id"] = session_id
         if conversation_mode is not None:
-            input["conversation_mode"] = conversation_mode
-        input["request_event_stream"] = ensure_async_iterator(request_event_stream)  # type: ignore
+            input_["conversation_mode"] = conversation_mode
+        input_["request_event_stream"] = ensure_async_iterator(request_event_stream)  # type: ignore
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

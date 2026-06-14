@@ -30,6 +30,7 @@ testpaths = ["tests"]
 include = ["src", "tests"]
 extraPaths = ["src"]
 pythonVersion = "3.14"
+reportInvalidStringEscapeSequence = false
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]

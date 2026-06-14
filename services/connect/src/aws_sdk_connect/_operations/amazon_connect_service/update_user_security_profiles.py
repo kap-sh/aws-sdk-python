@@ -80,26 +80,26 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_connect.types.update_user_security_profiles_request.UpdateUserSecurityProfilesRequest,
+    input_: aws_sdk_connect.types.update_user_security_profiles_request.UpdateUserSecurityProfilesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/users/{InstanceId}/{UserId}/security-profiles"
-    url = url.replace("{UserId}", quote(str(input["user_id"]), safe=""))
-    url = url.replace("{InstanceId}", quote(str(input["instance_id"]), safe=""))
+    url = url.replace("{UserId}", quote(str(input_["user_id"]), safe=""))
+    url = url.replace("{InstanceId}", quote(str(input_["instance_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_connect.types.update_user_security_profiles_request
 
     body: bytes | None = json.dumps(
         aws_sdk_connect.types.update_user_security_profiles_request.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -107,23 +107,20 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_user_security_profiles(
     options: OperationOptions,
-    input: aws_sdk_connect.types.update_user_security_profiles_request.UpdateUserSecurityProfilesRequest,
+    input_: aws_sdk_connect.types.update_user_security_profiles_request.UpdateUserSecurityProfilesRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -132,13 +129,14 @@ def update_user_security_profiles(
 
 async def async_update_user_security_profiles(
     options: AsyncOperationOptions,
-    input: aws_sdk_connect.types.update_user_security_profiles_request.UpdateUserSecurityProfilesRequest,
+    input_: aws_sdk_connect.types.update_user_security_profiles_request.UpdateUserSecurityProfilesRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

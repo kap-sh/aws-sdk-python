@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_proton._auth._signers
+import aws_sdk_proton._auth._sigv4
 from aws_sdk_proton._auth._identity import Credentials
 from aws_sdk_proton._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,78 @@ from aws_sdk_proton._auth._providers import (
 )
 from aws_sdk_proton._auth._zapros_handler import AuthMiddleware
 from aws_sdk_proton._pagination import resolve_path as _resolve_path
+from aws_sdk_proton._resources.aws_proton20200720.account_settings_resource import (
+    AccountSettingsResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.component_output_resource import (
+    ComponentOutputResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.component_provisioned_resource_resource import (
+    ComponentProvisionedResourceResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.component_resource import (
+    ComponentResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.deployment_resource import (
+    DeploymentResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.environment_account_connection_resource import (
+    EnvironmentAccountConnectionResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.environment_output_resource import (
+    EnvironmentOutputResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.environment_provisioned_resource_resource import (
+    EnvironmentProvisionedResourceResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.environment_resource import (
+    EnvironmentResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.environment_template_resource import (
+    EnvironmentTemplateResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.environment_template_version_resource import (
+    EnvironmentTemplateVersionResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.repository_resource import (
+    RepositoryResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_instance_output_resource import (
+    ServiceInstanceOutputResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_instance_provisioned_resource_resource import (
+    ServiceInstanceProvisionedResourceResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_instance_resource import (
+    ServiceInstanceResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_pipeline_output_resource import (
+    ServicePipelineOutputResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_pipeline_provisioned_resource_resource import (
+    ServicePipelineProvisionedResourceResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_pipeline_resource import (
+    ServicePipelineResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_resource import (
+    ServiceResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_sync_blocker_resource import (
+    ServiceSyncBlockerResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_sync_config_resource import (
+    ServiceSyncConfigResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_template_resource import (
+    ServiceTemplateResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.service_template_version_resource import (
+    ServiceTemplateVersionResource,
+)
+from aws_sdk_proton._resources.aws_proton20200720.template_sync_config_resource import (
+    TemplateSyncConfigResource,
+)
 from aws_sdk_proton._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -140,6 +214,43 @@ class ProtonClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_settings_resource = AccountSettingsResource(self)
+        self.component_output_resource = ComponentOutputResource(self)
+        self.component_provisioned_resource_resource = (
+            ComponentProvisionedResourceResource(self)
+        )
+        self.component_resource = ComponentResource(self)
+        self.deployment_resource = DeploymentResource(self)
+        self.environment_account_connection_resource = (
+            EnvironmentAccountConnectionResource(self)
+        )
+        self.environment_output_resource = EnvironmentOutputResource(self)
+        self.environment_provisioned_resource_resource = (
+            EnvironmentProvisionedResourceResource(self)
+        )
+        self.environment_resource = EnvironmentResource(self)
+        self.environment_template_resource = EnvironmentTemplateResource(self)
+        self.environment_template_version_resource = EnvironmentTemplateVersionResource(
+            self
+        )
+        self.repository_resource = RepositoryResource(self)
+        self.service_instance_output_resource = ServiceInstanceOutputResource(self)
+        self.service_instance_provisioned_resource_resource = (
+            ServiceInstanceProvisionedResourceResource(self)
+        )
+        self.service_instance_resource = ServiceInstanceResource(self)
+        self.service_pipeline_output_resource = ServicePipelineOutputResource(self)
+        self.service_pipeline_provisioned_resource_resource = (
+            ServicePipelineProvisionedResourceResource(self)
+        )
+        self.service_pipeline_resource = ServicePipelineResource(self)
+        self.service_resource = ServiceResource(self)
+        self.service_sync_blocker_resource = ServiceSyncBlockerResource(self)
+        self.service_sync_config_resource = ServiceSyncConfigResource(self)
+        self.service_template_resource = ServiceTemplateResource(self)
+        self.service_template_version_resource = ServiceTemplateVersionResource(self)
+        self.template_sync_config_resource = TemplateSyncConfigResource(self)
 
     def operation_options(
         self, config_overrides: Optional[ProtonClientConfig] = None
@@ -196,11 +307,11 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.cancel_component_deployment_input.CancelComponentDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["component_name"] = component_name
+        input_: aws_sdk_proton.types.cancel_component_deployment_input.CancelComponentDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["component_name"] = component_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,11 +344,11 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.cancel_environment_deployment_input.CancelEnvironmentDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["environment_name"] = environment_name
+        input_: aws_sdk_proton.types.cancel_environment_deployment_input.CancelEnvironmentDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["environment_name"] = environment_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -272,12 +383,12 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.cancel_service_instance_deployment_input.CancelServiceInstanceDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["service_instance_name"] = service_instance_name
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.cancel_service_instance_deployment_input.CancelServiceInstanceDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["service_instance_name"] = service_instance_name
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,11 +421,11 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.cancel_service_pipeline_deployment_input.CancelServicePipelineDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.cancel_service_pipeline_deployment_input.CancelServicePipelineDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -353,14 +464,14 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_repository_sync_status_input.GetRepositorySyncStatusInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["repository_provider"] = repository_provider
-        input["branch"] = branch
-        input["sync_type"] = sync_type
+        input_: aws_sdk_proton.types.get_repository_sync_status_input.GetRepositorySyncStatusInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["repository_provider"] = repository_provider
+        input_["branch"] = branch
+        input_["sync_type"] = sync_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,10 +497,10 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_resources_summary_input.GetResourcesSummaryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.get_resources_summary_input.GetResourcesSummaryInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,12 +535,12 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_instance_sync_status_input.GetServiceInstanceSyncStatusInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["service_instance_name"] = service_instance_name
+        input_: aws_sdk_proton.types.get_service_instance_sync_status_input.GetServiceInstanceSyncStatusInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["service_instance_name"] = service_instance_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,13 +577,13 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_template_sync_status_input.GetTemplateSyncStatusInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_type"] = template_type
-        input["template_version"] = template_version
+        input_: aws_sdk_proton.types.get_template_sync_status_input.GetTemplateSyncStatusInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_type"] = template_type
+        input_["template_version"] = template_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,15 +624,15 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_repository_sync_definitions_input.ListRepositorySyncDefinitionsInput = {}  # type: ignore[typeddict-item]
-        input["repository_name"] = repository_name
-        input["repository_provider"] = repository_provider
-        input["sync_type"] = sync_type
+        input_: aws_sdk_proton.types.list_repository_sync_definitions_input.ListRepositorySyncDefinitionsInput = {}  # type: ignore[typeddict-item]
+        input_["repository_name"] = repository_name
+        input_["repository_provider"] = repository_provider
+        input_["sync_type"] = sync_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -587,15 +698,15 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_proton.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -667,19 +778,19 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.notify_resource_deployment_status_change_input.NotifyResourceDeploymentStatusChangeInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_proton.types.notify_resource_deployment_status_change_input.NotifyResourceDeploymentStatusChangeInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
+            input_["deployment_id"] = deployment_id
         if status_message is not None:
-            input["status_message"] = status_message
+            input_["status_message"] = status_message
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -714,12 +825,12 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_proton.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,12 +865,12 @@ class ProtonClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_proton.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_proton.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

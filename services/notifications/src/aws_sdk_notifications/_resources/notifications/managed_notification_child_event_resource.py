@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_notifications._auth._signers
@@ -66,13 +67,13 @@ class ManagedNotificationChildEventResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_managed_notification_child_event_request.GetManagedNotificationChildEventRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.get_managed_notification_child_event_request.GetManagedNotificationChildEventRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -123,27 +124,27 @@ class ManagedNotificationChildEventResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_managed_notification_child_events_request.ListManagedNotificationChildEventsRequest = {}  # type: ignore[typeddict-item]
-        input["aggregate_managed_notification_event_arn"] = (
+        input_: aws_sdk_notifications.types.list_managed_notification_child_events_request.ListManagedNotificationChildEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["aggregate_managed_notification_event_arn"] = (
             aggregate_managed_notification_event_arn
         )
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if related_account is not None:
-            input["related_account"] = related_account
+            input_["related_account"] = related_account
         if organizational_unit_id is not None:
-            input["organizational_unit_id"] = organizational_unit_id
+            input_["organizational_unit_id"] = organizational_unit_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -184,13 +185,13 @@ class AsyncManagedNotificationChildEventResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.get_managed_notification_child_event_request.GetManagedNotificationChildEventRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.get_managed_notification_child_event_request.GetManagedNotificationChildEventRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -242,27 +243,27 @@ class AsyncManagedNotificationChildEventResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_managed_notification_child_events_request.ListManagedNotificationChildEventsRequest = {}  # type: ignore[typeddict-item]
-        input["aggregate_managed_notification_event_arn"] = (
+        input_: aws_sdk_notifications.types.list_managed_notification_child_events_request.ListManagedNotificationChildEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["aggregate_managed_notification_event_arn"] = (
             aggregate_managed_notification_event_arn
         )
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if related_account is not None:
-            input["related_account"] = related_account
+            input_["related_account"] = related_account
         if organizational_unit_id is not None:
-            input["organizational_unit_id"] = organizational_unit_id
+            input_["organizational_unit_id"] = organizational_unit_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

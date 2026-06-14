@@ -63,13 +63,13 @@ class PrimaryEmailResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.accept_primary_email_update_request.AcceptPrimaryEmailUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["primary_email"] = primary_email
-        input["otp"] = otp
+        input_: aws_sdk_account.types.accept_primary_email_update_request.AcceptPrimaryEmailUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["primary_email"] = primary_email
+        input_["otp"] = otp
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -102,11 +102,11 @@ class PrimaryEmailResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_primary_email_request.GetPrimaryEmailRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_account.types.get_primary_email_request.GetPrimaryEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,12 +141,12 @@ class PrimaryEmailResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.start_primary_email_update_request.StartPrimaryEmailUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["primary_email"] = primary_email
+        input_: aws_sdk_account.types.start_primary_email_update_request.StartPrimaryEmailUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["primary_email"] = primary_email
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,13 +189,13 @@ class AsyncPrimaryEmailResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.accept_primary_email_update_request.AcceptPrimaryEmailUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["primary_email"] = primary_email
-        input["otp"] = otp
+        input_: aws_sdk_account.types.accept_primary_email_update_request.AcceptPrimaryEmailUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["primary_email"] = primary_email
+        input_["otp"] = otp
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -229,11 +229,11 @@ class AsyncPrimaryEmailResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_primary_email_request.GetPrimaryEmailRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_account.types.get_primary_email_request.GetPrimaryEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,12 +269,12 @@ class AsyncPrimaryEmailResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.start_primary_email_update_request.StartPrimaryEmailUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["primary_email"] = primary_email
+        input_: aws_sdk_account.types.start_primary_email_update_request.StartPrimaryEmailUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["primary_email"] = primary_email
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

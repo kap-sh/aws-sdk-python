@@ -16,6 +16,45 @@ from aws_sdk_cleanroomsml._auth._providers import (
 )
 from aws_sdk_cleanroomsml._auth._zapros_handler import AuthMiddleware
 from aws_sdk_cleanroomsml._pagination import resolve_path as _resolve_path
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.audience_export_job import (
+    AudienceExportJob,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.audience_generation_job import (
+    AudienceGenerationJob,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.audience_model import (
+    AudienceModel,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.configured_audience_model import (
+    ConfiguredAudienceModel,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.configured_audience_model_policy import (
+    ConfiguredAudienceModelPolicy,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.configured_model_algorithm import (
+    ConfiguredModelAlgorithm,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.configured_model_algorithm_association import (
+    ConfiguredModelAlgorithmAssociation,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.ml_configuration import (
+    MLConfiguration,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.ml_input_channel import (
+    MLInputChannel,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.trained_model import (
+    TrainedModel,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.trained_model_export_job import (
+    TrainedModelExportJob,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.trained_model_inference_job import (
+    TrainedModelInferenceJob,
+)
+from aws_sdk_cleanroomsml._resources.aws_stark_control_service.training_dataset import (
+    TrainingDataset,
+)
 from aws_sdk_cleanroomsml._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -126,6 +165,22 @@ class CleanRoomsMLClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.audience_export_job = AudienceExportJob(self)
+        self.audience_generation_job = AudienceGenerationJob(self)
+        self.audience_model = AudienceModel(self)
+        self.configured_audience_model = ConfiguredAudienceModel(self)
+        self.configured_audience_model_policy = ConfiguredAudienceModelPolicy(self)
+        self.configured_model_algorithm = ConfiguredModelAlgorithm(self)
+        self.configured_model_algorithm_association = (
+            ConfiguredModelAlgorithmAssociation(self)
+        )
+        self.ml_configuration = MLConfiguration(self)
+        self.ml_input_channel = MLInputChannel(self)
+        self.trained_model = TrainedModel(self)
+        self.trained_model_export_job = TrainedModelExportJob(self)
+        self.trained_model_inference_job = TrainedModelInferenceJob(self)
+        self.training_dataset = TrainingDataset(self)
 
     def operation_options(
         self, config_overrides: Optional[CleanRoomsMLClientConfig] = None
@@ -188,15 +243,15 @@ class CleanRoomsMLClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_configured_model_algorithm_associations_request.ListCollaborationConfiguredModelAlgorithmAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_configured_model_algorithm_associations_request.ListCollaborationConfiguredModelAlgorithmAssociationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,15 +317,15 @@ class CleanRoomsMLClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_ml_input_channels_request.ListCollaborationMLInputChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_ml_input_channels_request.ListCollaborationMLInputChannelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,18 +395,20 @@ class CleanRoomsMLClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_trained_model_export_jobs_request.ListCollaborationTrainedModelExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_trained_model_export_jobs_request.ListCollaborationTrainedModelExportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
-        input["trained_model_arn"] = trained_model_arn
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
+        input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -431,19 +488,21 @@ class CleanRoomsMLClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_trained_model_inference_jobs_request.ListCollaborationTrainedModelInferenceJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_trained_model_inference_jobs_request.ListCollaborationTrainedModelInferenceJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
         if trained_model_arn is not None:
-            input["trained_model_arn"] = trained_model_arn
+            input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -517,15 +576,15 @@ class CleanRoomsMLClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_collaboration_trained_models_request.ListCollaborationTrainedModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_collaboration_trained_models_request.ListCollaborationTrainedModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["collaboration_identifier"] = collaboration_identifier
+            input_["max_results"] = max_results
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -583,11 +642,11 @@ class CleanRoomsMLClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cleanroomsml.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -622,12 +681,12 @@ class CleanRoomsMLClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_cleanroomsml.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,12 +721,12 @@ class CleanRoomsMLClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cleanroomsml.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

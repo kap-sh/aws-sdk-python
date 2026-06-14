@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_firehose._auth._signers
+import aws_sdk_firehose._auth._sigv4
 from aws_sdk_firehose._auth._identity import Credentials
 from aws_sdk_firehose._auth._providers import (
     CredentialsProvider,
@@ -283,65 +285,67 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.create_delivery_stream_input.CreateDeliveryStreamInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
+        input_: aws_sdk_firehose.types.create_delivery_stream_input.CreateDeliveryStreamInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
         if delivery_stream_type is not None:
-            input["delivery_stream_type"] = delivery_stream_type
+            input_["delivery_stream_type"] = delivery_stream_type
         if direct_put_source_configuration is not None:
-            input["direct_put_source_configuration"] = direct_put_source_configuration
+            input_["direct_put_source_configuration"] = direct_put_source_configuration
         if kinesis_stream_source_configuration is not None:
-            input["kinesis_stream_source_configuration"] = (
+            input_["kinesis_stream_source_configuration"] = (
                 kinesis_stream_source_configuration
             )
         if delivery_stream_encryption_configuration_input is not None:
-            input["delivery_stream_encryption_configuration_input"] = (
+            input_["delivery_stream_encryption_configuration_input"] = (
                 delivery_stream_encryption_configuration_input
             )
         if s3_destination_configuration is not None:
-            input["s3_destination_configuration"] = s3_destination_configuration
+            input_["s3_destination_configuration"] = s3_destination_configuration
         if extended_s3_destination_configuration is not None:
-            input["extended_s3_destination_configuration"] = (
+            input_["extended_s3_destination_configuration"] = (
                 extended_s3_destination_configuration
             )
         if redshift_destination_configuration is not None:
-            input["redshift_destination_configuration"] = (
+            input_["redshift_destination_configuration"] = (
                 redshift_destination_configuration
             )
         if elasticsearch_destination_configuration is not None:
-            input["elasticsearch_destination_configuration"] = (
+            input_["elasticsearch_destination_configuration"] = (
                 elasticsearch_destination_configuration
             )
         if amazonopensearchservice_destination_configuration is not None:
-            input["amazonopensearchservice_destination_configuration"] = (
+            input_["amazonopensearchservice_destination_configuration"] = (
                 amazonopensearchservice_destination_configuration
             )
         if splunk_destination_configuration is not None:
-            input["splunk_destination_configuration"] = splunk_destination_configuration
+            input_["splunk_destination_configuration"] = (
+                splunk_destination_configuration
+            )
         if http_endpoint_destination_configuration is not None:
-            input["http_endpoint_destination_configuration"] = (
+            input_["http_endpoint_destination_configuration"] = (
                 http_endpoint_destination_configuration
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if amazon_open_search_serverless_destination_configuration is not None:
-            input["amazon_open_search_serverless_destination_configuration"] = (
+            input_["amazon_open_search_serverless_destination_configuration"] = (
                 amazon_open_search_serverless_destination_configuration
             )
         if msk_source_configuration is not None:
-            input["msk_source_configuration"] = msk_source_configuration
+            input_["msk_source_configuration"] = msk_source_configuration
         if snowflake_destination_configuration is not None:
-            input["snowflake_destination_configuration"] = (
+            input_["snowflake_destination_configuration"] = (
                 snowflake_destination_configuration
             )
         if iceberg_destination_configuration is not None:
-            input["iceberg_destination_configuration"] = (
+            input_["iceberg_destination_configuration"] = (
                 iceberg_destination_configuration
             )
         if database_source_configuration is not None:
-            input["database_source_configuration"] = database_source_configuration
+            input_["database_source_configuration"] = database_source_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,13 +383,13 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.delete_delivery_stream_input.DeleteDeliveryStreamInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
+        input_: aws_sdk_firehose.types.delete_delivery_stream_input.DeleteDeliveryStreamInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
         if allow_force_delete is not None:
-            input["allow_force_delete"] = allow_force_delete
+            input_["allow_force_delete"] = allow_force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,15 +431,15 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.describe_delivery_stream_input.DescribeDeliveryStreamInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
+        input_: aws_sdk_firehose.types.describe_delivery_stream_input.DescribeDeliveryStreamInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if exclusive_start_destination_id is not None:
-            input["exclusive_start_destination_id"] = exclusive_start_destination_id
+            input_["exclusive_start_destination_id"] = exclusive_start_destination_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,18 +485,18 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.list_delivery_streams_input.ListDeliveryStreamsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_firehose.types.list_delivery_streams_input.ListDeliveryStreamsInput = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if delivery_stream_type is not None:
-            input["delivery_stream_type"] = delivery_stream_type
+            input_["delivery_stream_type"] = delivery_stream_type
         if exclusive_start_delivery_stream_name is not None:
-            input["exclusive_start_delivery_stream_name"] = (
+            input_["exclusive_start_delivery_stream_name"] = (
                 exclusive_start_delivery_stream_name
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,15 +538,15 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.list_tags_for_delivery_stream_input.ListTagsForDeliveryStreamInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
+        input_: aws_sdk_firehose.types.list_tags_for_delivery_stream_input.ListTagsForDeliveryStreamInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
         if exclusive_start_tag_key is not None:
-            input["exclusive_start_tag_key"] = exclusive_start_tag_key
+            input_["exclusive_start_tag_key"] = exclusive_start_tag_key
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -578,12 +582,12 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.put_record_input.PutRecordInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
-        input["record"] = record
+        input_: aws_sdk_firehose.types.put_record_input.PutRecordInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
+        input_["record"] = record
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -619,12 +623,12 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.put_record_batch_input.PutRecordBatchInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
-        input["records"] = records
+        input_: aws_sdk_firehose.types.put_record_batch_input.PutRecordBatchInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
+        input_["records"] = records
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,15 +666,15 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.start_delivery_stream_encryption_input.StartDeliveryStreamEncryptionInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
+        input_: aws_sdk_firehose.types.start_delivery_stream_encryption_input.StartDeliveryStreamEncryptionInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
         if delivery_stream_encryption_configuration_input is not None:
-            input["delivery_stream_encryption_configuration_input"] = (
+            input_["delivery_stream_encryption_configuration_input"] = (
                 delivery_stream_encryption_configuration_input
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -704,11 +708,11 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.stop_delivery_stream_encryption_input.StopDeliveryStreamEncryptionInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
+        input_: aws_sdk_firehose.types.stop_delivery_stream_encryption_input.StopDeliveryStreamEncryptionInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -744,12 +748,12 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.tag_delivery_stream_input.TagDeliveryStreamInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
-        input["tags"] = tags
+        input_: aws_sdk_firehose.types.tag_delivery_stream_input.TagDeliveryStreamInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -787,12 +791,12 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.untag_delivery_stream_input.UntagDeliveryStreamInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_firehose.types.untag_delivery_stream_input.UntagDeliveryStreamInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -870,37 +874,43 @@ class AsyncFirehoseClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_firehose.types.update_destination_input.UpdateDestinationInput = {}  # type: ignore[typeddict-item]
-        input["delivery_stream_name"] = delivery_stream_name
-        input["current_delivery_stream_version_id"] = current_delivery_stream_version_id
-        input["destination_id"] = destination_id
+        input_: aws_sdk_firehose.types.update_destination_input.UpdateDestinationInput = {}  # type: ignore[typeddict-item]
+        input_["delivery_stream_name"] = delivery_stream_name
+        input_["current_delivery_stream_version_id"] = (
+            current_delivery_stream_version_id
+        )
+        input_["destination_id"] = destination_id
         if s3_destination_update is not None:
-            input["s3_destination_update"] = s3_destination_update
+            input_["s3_destination_update"] = s3_destination_update
         if extended_s3_destination_update is not None:
-            input["extended_s3_destination_update"] = extended_s3_destination_update
+            input_["extended_s3_destination_update"] = extended_s3_destination_update
         if redshift_destination_update is not None:
-            input["redshift_destination_update"] = redshift_destination_update
+            input_["redshift_destination_update"] = redshift_destination_update
         if elasticsearch_destination_update is not None:
-            input["elasticsearch_destination_update"] = elasticsearch_destination_update
+            input_["elasticsearch_destination_update"] = (
+                elasticsearch_destination_update
+            )
         if amazonopensearchservice_destination_update is not None:
-            input["amazonopensearchservice_destination_update"] = (
+            input_["amazonopensearchservice_destination_update"] = (
                 amazonopensearchservice_destination_update
             )
         if splunk_destination_update is not None:
-            input["splunk_destination_update"] = splunk_destination_update
+            input_["splunk_destination_update"] = splunk_destination_update
         if http_endpoint_destination_update is not None:
-            input["http_endpoint_destination_update"] = http_endpoint_destination_update
+            input_["http_endpoint_destination_update"] = (
+                http_endpoint_destination_update
+            )
         if amazon_open_search_serverless_destination_update is not None:
-            input["amazon_open_search_serverless_destination_update"] = (
+            input_["amazon_open_search_serverless_destination_update"] = (
                 amazon_open_search_serverless_destination_update
             )
         if snowflake_destination_update is not None:
-            input["snowflake_destination_update"] = snowflake_destination_update
+            input_["snowflake_destination_update"] = snowflake_destination_update
         if iceberg_destination_update is not None:
-            input["iceberg_destination_update"] = iceberg_destination_update
+            input_["iceberg_destination_update"] = iceberg_destination_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

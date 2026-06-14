@@ -95,51 +95,48 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iot.types.list_principal_policies_request.ListPrincipalPoliciesRequest,
+    input_: aws_sdk_iot.types.list_principal_policies_request.ListPrincipalPoliciesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/principal-policies"
     params: dict[str, str] = {}
-    if "marker" in input:
-        params["marker"] = str(input["marker"])
-    if "page_size" in input:
-        params["pageSize"] = str(input["page_size"])
-    params["isAscendingOrder"] = str(input.get("ascending_order", False))
+    if "marker" in input_:
+        params["marker"] = str(input_["marker"])
+    if "page_size" in input_:
+        params["pageSize"] = str(input_["page_size"])
+    params["isAscendingOrder"] = str(input_.get("ascending_order", False))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "principal" in input:
-        headers["x-amzn-iot-principal"] = str(input["principal"])
+    if "principal" in input_:
+        headers["x-amzn-iot-principal"] = str(input_["principal"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_principal_policies(
     options: OperationOptions,
-    input: aws_sdk_iot.types.list_principal_policies_request.ListPrincipalPoliciesRequest,
+    input_: aws_sdk_iot.types.list_principal_policies_request.ListPrincipalPoliciesRequest,
 ) -> tuple[
     aws_sdk_iot.types.list_principal_policies_response.ListPrincipalPoliciesResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -148,16 +145,17 @@ def list_principal_policies(
 
 async def async_list_principal_policies(
     options: AsyncOperationOptions,
-    input: aws_sdk_iot.types.list_principal_policies_request.ListPrincipalPoliciesRequest,
+    input_: aws_sdk_iot.types.list_principal_policies_request.ListPrincipalPoliciesRequest,
 ) -> tuple[
     aws_sdk_iot.types.list_principal_policies_response.ListPrincipalPoliciesResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -13,6 +13,9 @@ from aws_sdk_geo_routes._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_geo_routes._auth._zapros_handler import AuthMiddleware
+from aws_sdk_geo_routes._resources.routes_service.provider_resource import (
+    AsyncProviderResource,
+)
 from aws_sdk_geo_routes._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -92,6 +95,8 @@ class AsyncGeoRoutesClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.provider_resource = AsyncProviderResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncGeoRoutesClientConfig] = None

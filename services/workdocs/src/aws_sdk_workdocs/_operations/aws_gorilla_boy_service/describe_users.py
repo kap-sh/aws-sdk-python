@@ -105,64 +105,61 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_workdocs.types.describe_users_request.DescribeUsersRequest,
+    input_: aws_sdk_workdocs.types.describe_users_request.DescribeUsersRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/api/v1/users"
     params: dict[str, str] = {}
-    if "organization_id" in input:
-        params["organizationId"] = str(input["organization_id"])
-    if "user_ids" in input:
-        params["userIds"] = str(input["user_ids"])
-    if "query" in input:
-        params["query"] = str(input["query"])
-    if "include" in input:
-        params["include"] = str(input["include"])
-    if "order" in input:
-        params["order"] = str(input["order"])
-    if "sort" in input:
-        params["sort"] = str(input["sort"])
-    if "marker" in input:
-        params["marker"] = str(input["marker"])
-    if "limit" in input:
-        params["limit"] = str(input["limit"])
-    if "fields" in input:
-        params["fields"] = str(input["fields"])
+    if "organization_id" in input_:
+        params["organizationId"] = str(input_["organization_id"])
+    if "user_ids" in input_:
+        params["userIds"] = str(input_["user_ids"])
+    if "query" in input_:
+        params["query"] = str(input_["query"])
+    if "include" in input_:
+        params["include"] = str(input_["include"])
+    if "order" in input_:
+        params["order"] = str(input_["order"])
+    if "sort" in input_:
+        params["sort"] = str(input_["sort"])
+    if "marker" in input_:
+        params["marker"] = str(input_["marker"])
+    if "limit" in input_:
+        params["limit"] = str(input_["limit"])
+    if "fields" in input_:
+        params["fields"] = str(input_["fields"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "authentication_token" in input:
-        headers["Authentication"] = str(input["authentication_token"])
+    if "authentication_token" in input_:
+        headers["Authentication"] = str(input_["authentication_token"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def describe_users(
     options: OperationOptions,
-    input: aws_sdk_workdocs.types.describe_users_request.DescribeUsersRequest,
+    input_: aws_sdk_workdocs.types.describe_users_request.DescribeUsersRequest,
 ) -> tuple[
     aws_sdk_workdocs.types.describe_users_response.DescribeUsersResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -171,16 +168,17 @@ def describe_users(
 
 async def async_describe_users(
     options: AsyncOperationOptions,
-    input: aws_sdk_workdocs.types.describe_users_request.DescribeUsersRequest,
+    input_: aws_sdk_workdocs.types.describe_users_request.DescribeUsersRequest,
 ) -> tuple[
     aws_sdk_workdocs.types.describe_users_response.DescribeUsersResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

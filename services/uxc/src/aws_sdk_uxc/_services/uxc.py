@@ -159,10 +159,10 @@ class uxcClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_uxc.types.get_account_customizations_input.GetAccountCustomizationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_uxc.types.get_account_customizations_input.GetAccountCustomizationsInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -203,14 +203,14 @@ class uxcClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_uxc.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_uxc.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,16 +274,16 @@ class uxcClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_uxc.types.update_account_customizations_input.UpdateAccountCustomizationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_uxc.types.update_account_customizations_input.UpdateAccountCustomizationsInput = {}  # type: ignore[typeddict-item]
         if account_color is not None:
-            input["account_color"] = account_color
+            input_["account_color"] = account_color
         if visible_services is not None:
-            input["visible_services"] = visible_services
+            input_["visible_services"] = visible_services
         if visible_regions is not None:
-            input["visible_regions"] = visible_regions
+            input_["visible_regions"] = visible_regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

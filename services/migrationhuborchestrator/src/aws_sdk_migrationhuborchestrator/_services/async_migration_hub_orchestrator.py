@@ -15,6 +15,30 @@ from aws_sdk_migrationhuborchestrator._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_migrationhuborchestrator._auth._zapros_handler import AuthMiddleware
+from aws_sdk_migrationhuborchestrator._resources.aws_migration_hub_orchestrator.migration_workflow import (
+    AsyncMigrationWorkflow,
+)
+from aws_sdk_migrationhuborchestrator._resources.aws_migration_hub_orchestrator.migration_workflow_template import (
+    AsyncMigrationWorkflowTemplate,
+)
+from aws_sdk_migrationhuborchestrator._resources.aws_migration_hub_orchestrator.plugin import (
+    AsyncPlugin,
+)
+from aws_sdk_migrationhuborchestrator._resources.aws_migration_hub_orchestrator.template_step import (
+    AsyncTemplateStep,
+)
+from aws_sdk_migrationhuborchestrator._resources.aws_migration_hub_orchestrator.template_step_group import (
+    AsyncTemplateStepGroup,
+)
+from aws_sdk_migrationhuborchestrator._resources.aws_migration_hub_orchestrator.template_step_groups import (
+    AsyncTemplateStepGroups,
+)
+from aws_sdk_migrationhuborchestrator._resources.aws_migration_hub_orchestrator.workflow_step import (
+    AsyncWorkflowStep,
+)
+from aws_sdk_migrationhuborchestrator._resources.aws_migration_hub_orchestrator.workflow_step_group import (
+    AsyncWorkflowStepGroup,
+)
 from aws_sdk_migrationhuborchestrator._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -108,6 +132,15 @@ class AsyncMigrationHubOrchestratorClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.migration_workflow = AsyncMigrationWorkflow(self)
+        self.migration_workflow_template = AsyncMigrationWorkflowTemplate(self)
+        self.plugin = AsyncPlugin(self)
+        self.template_step = AsyncTemplateStep(self)
+        self.template_step_group = AsyncTemplateStepGroup(self)
+        self.template_step_groups = AsyncTemplateStepGroups(self)
+        self.workflow_step = AsyncWorkflowStep(self)
+        self.workflow_step_group = AsyncWorkflowStepGroup(self)
 
     def operation_options(
         self,
@@ -166,11 +199,11 @@ class AsyncMigrationHubOrchestratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_migrationhuborchestrator.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,12 +239,12 @@ class AsyncMigrationHubOrchestratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_migrationhuborchestrator.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -247,12 +280,12 @@ class AsyncMigrationHubOrchestratorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_migrationhuborchestrator.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

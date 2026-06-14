@@ -230,13 +230,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.clone_backend_request.CloneBackendRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["target_environment_name"] = target_environment_name
+        input_: aws_sdk_amplifybackend.types.clone_backend_request.CloneBackendRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["target_environment_name"] = target_environment_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,17 +281,17 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.create_backend_request.CreateBackendRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["app_name"] = app_name
-        input["backend_environment_name"] = backend_environment_name
+        input_: aws_sdk_amplifybackend.types.create_backend_request.CreateBackendRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["app_name"] = app_name
+        input_["backend_environment_name"] = backend_environment_name
         if resource_config is not None:
-            input["resource_config"] = resource_config
+            input_["resource_config"] = resource_config
         if resource_name is not None:
-            input["resource_name"] = resource_name
+            input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,14 +330,14 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.create_backend_api_request.CreateBackendAPIRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_config"] = resource_config
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.create_backend_api_request.CreateBackendAPIRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_config"] = resource_config
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,14 +376,14 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.create_backend_auth_request.CreateBackendAuthRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_config"] = resource_config
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.create_backend_auth_request.CreateBackendAuthRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_config"] = resource_config
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,13 +420,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.create_backend_config_request.CreateBackendConfigRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplifybackend.types.create_backend_config_request.CreateBackendConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if backend_manager_app_id is not None:
-            input["backend_manager_app_id"] = backend_manager_app_id
+            input_["backend_manager_app_id"] = backend_manager_app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,14 +465,14 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.create_backend_storage_request.CreateBackendStorageRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_config"] = resource_config
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.create_backend_storage_request.CreateBackendStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_config"] = resource_config
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,11 +505,11 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.create_token_request.CreateTokenRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplifybackend.types.create_token_request.CreateTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,12 +544,12 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.delete_backend_request.DeleteBackendRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
+        input_: aws_sdk_amplifybackend.types.delete_backend_request.DeleteBackendRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -590,15 +590,15 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.delete_backend_api_request.DeleteBackendAPIRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
+        input_: aws_sdk_amplifybackend.types.delete_backend_api_request.DeleteBackendAPIRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
         if resource_config is not None:
-            input["resource_config"] = resource_config
-        input["resource_name"] = resource_name
+            input_["resource_config"] = resource_config
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -635,13 +635,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.delete_backend_auth_request.DeleteBackendAuthRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.delete_backend_auth_request.DeleteBackendAuthRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -680,14 +680,14 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.delete_backend_storage_request.DeleteBackendStorageRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_name"] = resource_name
-        input["service_name"] = service_name
+        input_: aws_sdk_amplifybackend.types.delete_backend_storage_request.DeleteBackendStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_name"] = resource_name
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,12 +722,12 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.delete_token_request.DeleteTokenRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["session_id"] = session_id
+        input_: aws_sdk_amplifybackend.types.delete_token_request.DeleteTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -764,13 +764,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.generate_backend_api_models_request.GenerateBackendAPIModelsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.generate_backend_api_models_request.GenerateBackendAPIModelsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -807,13 +807,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.get_backend_request.GetBackendRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplifybackend.types.get_backend_request.GetBackendRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if backend_environment_name is not None:
-            input["backend_environment_name"] = backend_environment_name
+            input_["backend_environment_name"] = backend_environment_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -854,15 +854,15 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.get_backend_api_request.GetBackendAPIRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
+        input_: aws_sdk_amplifybackend.types.get_backend_api_request.GetBackendAPIRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
         if resource_config is not None:
-            input["resource_config"] = resource_config
-        input["resource_name"] = resource_name
+            input_["resource_config"] = resource_config
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -899,13 +899,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.get_backend_api_models_request.GetBackendAPIModelsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.get_backend_api_models_request.GetBackendAPIModelsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -944,13 +944,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.get_backend_auth_request.GetBackendAuthRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.get_backend_auth_request.GetBackendAuthRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,13 +987,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.get_backend_job_request.GetBackendJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["job_id"] = job_id
+        input_: aws_sdk_amplifybackend.types.get_backend_job_request.GetBackendJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1030,13 +1030,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.get_backend_storage_request.GetBackendStorageRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.get_backend_storage_request.GetBackendStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1071,12 +1071,12 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.get_token_request.GetTokenRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["session_id"] = session_id
+        input_: aws_sdk_amplifybackend.types.get_token_request.GetTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1121,17 +1121,17 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.import_backend_auth_request.ImportBackendAuthRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
+        input_: aws_sdk_amplifybackend.types.import_backend_auth_request.ImportBackendAuthRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
         if identity_pool_id is not None:
-            input["identity_pool_id"] = identity_pool_id
-        input["native_client_id"] = native_client_id
-        input["user_pool_id"] = user_pool_id
-        input["web_client_id"] = web_client_id
+            input_["identity_pool_id"] = identity_pool_id
+        input_["native_client_id"] = native_client_id
+        input_["user_pool_id"] = user_pool_id
+        input_["web_client_id"] = web_client_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1170,15 +1170,15 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.import_backend_storage_request.ImportBackendStorageRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
+        input_: aws_sdk_amplifybackend.types.import_backend_storage_request.ImportBackendStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
         if bucket_name is not None:
-            input["bucket_name"] = bucket_name
-        input["service_name"] = service_name
+            input_["bucket_name"] = bucket_name
+        input_["service_name"] = service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1225,22 +1225,22 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.list_backend_jobs_request.ListBackendJobsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
+        input_: aws_sdk_amplifybackend.types.list_backend_jobs_request.ListBackendJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if operation is not None:
-            input["operation"] = operation
+            input_["operation"] = operation
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1273,12 +1273,12 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.list_s3_buckets_request.ListS3BucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amplifybackend.types.list_s3_buckets_request.ListS3BucketsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1315,13 +1315,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.remove_all_backends_request.RemoveAllBackendsRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplifybackend.types.remove_all_backends_request.RemoveAllBackendsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if clean_amplify_app is not None:
-            input["clean_amplify_app"] = clean_amplify_app
+            input_["clean_amplify_app"] = clean_amplify_app
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1354,11 +1354,11 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.remove_backend_config_request.RemoveBackendConfigRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplifybackend.types.remove_backend_config_request.RemoveBackendConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1399,15 +1399,15 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.update_backend_api_request.UpdateBackendAPIRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
+        input_: aws_sdk_amplifybackend.types.update_backend_api_request.UpdateBackendAPIRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
         if resource_config is not None:
-            input["resource_config"] = resource_config
-        input["resource_name"] = resource_name
+            input_["resource_config"] = resource_config
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1446,14 +1446,14 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.update_backend_auth_request.UpdateBackendAuthRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_config"] = resource_config
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.update_backend_auth_request.UpdateBackendAuthRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_config"] = resource_config
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1490,13 +1490,13 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.update_backend_config_request.UpdateBackendConfigRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
+        input_: aws_sdk_amplifybackend.types.update_backend_config_request.UpdateBackendConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
         if login_auth_config is not None:
-            input["login_auth_config"] = login_auth_config
+            input_["login_auth_config"] = login_auth_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1537,17 +1537,17 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.update_backend_job_request.UpdateBackendJobRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["job_id"] = job_id
+        input_: aws_sdk_amplifybackend.types.update_backend_job_request.UpdateBackendJobRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["job_id"] = job_id
         if operation is not None:
-            input["operation"] = operation
+            input_["operation"] = operation
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1586,14 +1586,14 @@ class AmplifyBackendClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifybackend.types.update_backend_storage_request.UpdateBackendStorageRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["backend_environment_name"] = backend_environment_name
-        input["resource_config"] = resource_config
-        input["resource_name"] = resource_name
+        input_: aws_sdk_amplifybackend.types.update_backend_storage_request.UpdateBackendStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["backend_environment_name"] = backend_environment_name
+        input_["resource_config"] = resource_config
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

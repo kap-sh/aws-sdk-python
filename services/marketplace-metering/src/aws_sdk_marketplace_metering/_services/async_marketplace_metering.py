@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_marketplace_metering._auth._signers
+import aws_sdk_marketplace_metering._auth._sigv4
 from aws_sdk_marketplace_metering._auth._identity import Credentials
 from aws_sdk_marketplace_metering._auth._providers import (
     CredentialsProvider,
@@ -177,13 +179,13 @@ class AsyncMarketplaceMeteringClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_metering.types.batch_meter_usage_request.BatchMeterUsageRequest = {}  # type: ignore[typeddict-item]
-        input["usage_records"] = usage_records
+        input_: aws_sdk_marketplace_metering.types.batch_meter_usage_request.BatchMeterUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_records"] = usage_records
         if product_code is not None:
-            input["product_code"] = product_code
+            input_["product_code"] = product_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,21 +237,21 @@ class AsyncMarketplaceMeteringClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_metering.types.meter_usage_request.MeterUsageRequest = {}  # type: ignore[typeddict-item]
-        input["product_code"] = product_code
-        input["timestamp"] = timestamp
-        input["usage_dimension"] = usage_dimension
+        input_: aws_sdk_marketplace_metering.types.meter_usage_request.MeterUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["product_code"] = product_code
+        input_["timestamp"] = timestamp
+        input_["usage_dimension"] = usage_dimension
         if usage_quantity is not None:
-            input["usage_quantity"] = usage_quantity
+            input_["usage_quantity"] = usage_quantity
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if usage_allocations is not None:
-            input["usage_allocations"] = usage_allocations
+            input_["usage_allocations"] = usage_allocations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,14 +289,14 @@ class AsyncMarketplaceMeteringClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_metering.types.register_usage_request.RegisterUsageRequest = {}  # type: ignore[typeddict-item]
-        input["product_code"] = product_code
-        input["public_key_version"] = public_key_version
+        input_: aws_sdk_marketplace_metering.types.register_usage_request.RegisterUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["product_code"] = product_code
+        input_["public_key_version"] = public_key_version
         if nonce is not None:
-            input["nonce"] = nonce
+            input_["nonce"] = nonce
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,11 +330,11 @@ class AsyncMarketplaceMeteringClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_metering.types.resolve_customer_request.ResolveCustomerRequest = {}  # type: ignore[typeddict-item]
-        input["registration_token"] = registration_token
+        input_: aws_sdk_marketplace_metering.types.resolve_customer_request.ResolveCustomerRequest = {}  # type: ignore[typeddict-item]
+        input_["registration_token"] = registration_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

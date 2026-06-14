@@ -266,24 +266,24 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.create_media_capture_pipeline_request.CreateMediaCapturePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["source_type"] = source_type
-        input["source_arn"] = source_arn
-        input["sink_type"] = sink_type
-        input["sink_arn"] = sink_arn
+        input_: aws_sdk_chime_sdk_media_pipelines.types.create_media_capture_pipeline_request.CreateMediaCapturePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["source_type"] = source_type
+        input_["source_arn"] = source_arn
+        input_["sink_type"] = sink_type
+        input_["sink_arn"] = sink_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if chime_sdk_meeting_configuration is not None:
-            input["chime_sdk_meeting_configuration"] = chime_sdk_meeting_configuration
+            input_["chime_sdk_meeting_configuration"] = chime_sdk_meeting_configuration
         if sse_aws_key_management_params is not None:
-            input["sse_aws_key_management_params"] = sse_aws_key_management_params
+            input_["sse_aws_key_management_params"] = sse_aws_key_management_params
         if sink_iam_role_arn is not None:
-            input["sink_iam_role_arn"] = sink_iam_role_arn
+            input_["sink_iam_role_arn"] = sink_iam_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,16 +326,16 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.create_media_concatenation_pipeline_request.CreateMediaConcatenationPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["sources"] = sources
-        input["sinks"] = sinks
+        input_: aws_sdk_chime_sdk_media_pipelines.types.create_media_concatenation_pipeline_request.CreateMediaConcatenationPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["sources"] = sources
+        input_["sinks"] = sinks
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,31 +392,31 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.create_media_insights_pipeline_request.CreateMediaInsightsPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["media_insights_pipeline_configuration_arn"] = (
+        input_: aws_sdk_chime_sdk_media_pipelines.types.create_media_insights_pipeline_request.CreateMediaInsightsPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["media_insights_pipeline_configuration_arn"] = (
             media_insights_pipeline_configuration_arn
         )
         if kinesis_video_stream_source_runtime_configuration is not None:
-            input["kinesis_video_stream_source_runtime_configuration"] = (
+            input_["kinesis_video_stream_source_runtime_configuration"] = (
                 kinesis_video_stream_source_runtime_configuration
             )
         if media_insights_runtime_metadata is not None:
-            input["media_insights_runtime_metadata"] = media_insights_runtime_metadata
+            input_["media_insights_runtime_metadata"] = media_insights_runtime_metadata
         if kinesis_video_stream_recording_source_runtime_configuration is not None:
-            input["kinesis_video_stream_recording_source_runtime_configuration"] = (
+            input_["kinesis_video_stream_recording_source_runtime_configuration"] = (
                 kinesis_video_stream_recording_source_runtime_configuration
             )
         if s3_recording_sink_runtime_configuration is not None:
-            input["s3_recording_sink_runtime_configuration"] = (
+            input_["s3_recording_sink_runtime_configuration"] = (
                 s3_recording_sink_runtime_configuration
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,21 +465,21 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.create_media_insights_pipeline_configuration_request.CreateMediaInsightsPipelineConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["media_insights_pipeline_configuration_name"] = (
+        input_: aws_sdk_chime_sdk_media_pipelines.types.create_media_insights_pipeline_configuration_request.CreateMediaInsightsPipelineConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["media_insights_pipeline_configuration_name"] = (
             media_insights_pipeline_configuration_name
         )
-        input["resource_access_role_arn"] = resource_access_role_arn
+        input_["resource_access_role_arn"] = resource_access_role_arn
         if real_time_alert_configuration is not None:
-            input["real_time_alert_configuration"] = real_time_alert_configuration
-        input["elements"] = elements
+            input_["real_time_alert_configuration"] = real_time_alert_configuration
+        input_["elements"] = elements
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,16 +522,16 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.create_media_live_connector_pipeline_request.CreateMediaLiveConnectorPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["sources"] = sources
-        input["sinks"] = sinks
+        input_: aws_sdk_chime_sdk_media_pipelines.types.create_media_live_connector_pipeline_request.CreateMediaLiveConnectorPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["sources"] = sources
+        input_["sinks"] = sinks
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,16 +574,16 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.create_media_pipeline_kinesis_video_stream_pool_request.CreateMediaPipelineKinesisVideoStreamPoolRequest = {}  # type: ignore[typeddict-item]
-        input["stream_configuration"] = stream_configuration
-        input["pool_name"] = pool_name
+        input_: aws_sdk_chime_sdk_media_pipelines.types.create_media_pipeline_kinesis_video_stream_pool_request.CreateMediaPipelineKinesisVideoStreamPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["stream_configuration"] = stream_configuration
+        input_["pool_name"] = pool_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -626,16 +626,16 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.create_media_stream_pipeline_request.CreateMediaStreamPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["sources"] = sources
-        input["sinks"] = sinks
+        input_: aws_sdk_chime_sdk_media_pipelines.types.create_media_stream_pipeline_request.CreateMediaStreamPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["sources"] = sources
+        input_["sinks"] = sinks
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -666,11 +666,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.delete_media_capture_pipeline_request.DeleteMediaCapturePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["media_pipeline_id"] = media_pipeline_id
+        input_: aws_sdk_chime_sdk_media_pipelines.types.delete_media_capture_pipeline_request.DeleteMediaCapturePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["media_pipeline_id"] = media_pipeline_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -701,11 +701,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.delete_media_insights_pipeline_configuration_request.DeleteMediaInsightsPipelineConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_chime_sdk_media_pipelines.types.delete_media_insights_pipeline_configuration_request.DeleteMediaInsightsPipelineConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -736,11 +736,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.delete_media_pipeline_request.DeleteMediaPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["media_pipeline_id"] = media_pipeline_id
+        input_: aws_sdk_chime_sdk_media_pipelines.types.delete_media_pipeline_request.DeleteMediaPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["media_pipeline_id"] = media_pipeline_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,11 +771,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.delete_media_pipeline_kinesis_video_stream_pool_request.DeleteMediaPipelineKinesisVideoStreamPoolRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_chime_sdk_media_pipelines.types.delete_media_pipeline_kinesis_video_stream_pool_request.DeleteMediaPipelineKinesisVideoStreamPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -808,11 +808,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.get_media_capture_pipeline_request.GetMediaCapturePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["media_pipeline_id"] = media_pipeline_id
+        input_: aws_sdk_chime_sdk_media_pipelines.types.get_media_capture_pipeline_request.GetMediaCapturePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["media_pipeline_id"] = media_pipeline_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -845,11 +845,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.get_media_insights_pipeline_configuration_request.GetMediaInsightsPipelineConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_chime_sdk_media_pipelines.types.get_media_insights_pipeline_configuration_request.GetMediaInsightsPipelineConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -882,11 +882,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.get_media_pipeline_request.GetMediaPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["media_pipeline_id"] = media_pipeline_id
+        input_: aws_sdk_chime_sdk_media_pipelines.types.get_media_pipeline_request.GetMediaPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["media_pipeline_id"] = media_pipeline_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,11 +919,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.get_media_pipeline_kinesis_video_stream_pool_request.GetMediaPipelineKinesisVideoStreamPoolRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_chime_sdk_media_pipelines.types.get_media_pipeline_kinesis_video_stream_pool_request.GetMediaPipelineKinesisVideoStreamPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -958,12 +958,12 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.get_speaker_search_task_request.GetSpeakerSearchTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["speaker_search_task_id"] = speaker_search_task_id
+        input_: aws_sdk_chime_sdk_media_pipelines.types.get_speaker_search_task_request.GetSpeakerSearchTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["speaker_search_task_id"] = speaker_search_task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -998,12 +998,12 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.get_voice_tone_analysis_task_request.GetVoiceToneAnalysisTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["voice_tone_analysis_task_id"] = voice_tone_analysis_task_id
+        input_: aws_sdk_chime_sdk_media_pipelines.types.get_voice_tone_analysis_task_request.GetVoiceToneAnalysisTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["voice_tone_analysis_task_id"] = voice_tone_analysis_task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1042,14 +1042,14 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.list_media_capture_pipelines_request.ListMediaCapturePipelinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_media_pipelines.types.list_media_capture_pipelines_request.ListMediaCapturePipelinesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1088,14 +1088,14 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.list_media_insights_pipeline_configurations_request.ListMediaInsightsPipelineConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_media_pipelines.types.list_media_insights_pipeline_configurations_request.ListMediaInsightsPipelineConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1134,14 +1134,14 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_request.ListMediaPipelineKinesisVideoStreamPoolsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_media_pipelines.types.list_media_pipeline_kinesis_video_stream_pools_request.ListMediaPipelineKinesisVideoStreamPoolsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1180,14 +1180,14 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.list_media_pipelines_request.ListMediaPipelinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_media_pipelines.types.list_media_pipelines_request.ListMediaPipelinesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1220,11 +1220,11 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_chime_sdk_media_pipelines.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1267,18 +1267,18 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.start_speaker_search_task_request.StartSpeakerSearchTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["voice_profile_domain_arn"] = voice_profile_domain_arn
+        input_: aws_sdk_chime_sdk_media_pipelines.types.start_speaker_search_task_request.StartSpeakerSearchTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["voice_profile_domain_arn"] = voice_profile_domain_arn
         if kinesis_video_stream_source_task_configuration is not None:
-            input["kinesis_video_stream_source_task_configuration"] = (
+            input_["kinesis_video_stream_source_task_configuration"] = (
                 kinesis_video_stream_source_task_configuration
             )
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1321,18 +1321,18 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.start_voice_tone_analysis_task_request.StartVoiceToneAnalysisTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["language_code"] = language_code
+        input_: aws_sdk_chime_sdk_media_pipelines.types.start_voice_tone_analysis_task_request.StartVoiceToneAnalysisTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["language_code"] = language_code
         if kinesis_video_stream_source_task_configuration is not None:
-            input["kinesis_video_stream_source_task_configuration"] = (
+            input_["kinesis_video_stream_source_task_configuration"] = (
                 kinesis_video_stream_source_task_configuration
             )
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1365,12 +1365,12 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.stop_speaker_search_task_request.StopSpeakerSearchTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["speaker_search_task_id"] = speaker_search_task_id
+        input_: aws_sdk_chime_sdk_media_pipelines.types.stop_speaker_search_task_request.StopSpeakerSearchTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["speaker_search_task_id"] = speaker_search_task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1403,12 +1403,12 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.stop_voice_tone_analysis_task_request.StopVoiceToneAnalysisTaskRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["voice_tone_analysis_task_id"] = voice_tone_analysis_task_id
+        input_: aws_sdk_chime_sdk_media_pipelines.types.stop_voice_tone_analysis_task_request.StopVoiceToneAnalysisTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["voice_tone_analysis_task_id"] = voice_tone_analysis_task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1443,12 +1443,12 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_chime_sdk_media_pipelines.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1483,12 +1483,12 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_chime_sdk_media_pipelines.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1529,15 +1529,15 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.update_media_insights_pipeline_configuration_request.UpdateMediaInsightsPipelineConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["resource_access_role_arn"] = resource_access_role_arn
+        input_: aws_sdk_chime_sdk_media_pipelines.types.update_media_insights_pipeline_configuration_request.UpdateMediaInsightsPipelineConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["resource_access_role_arn"] = resource_access_role_arn
         if real_time_alert_configuration is not None:
-            input["real_time_alert_configuration"] = real_time_alert_configuration
-        input["elements"] = elements
+            input_["real_time_alert_configuration"] = real_time_alert_configuration
+        input_["elements"] = elements
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1570,12 +1570,12 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.update_media_insights_pipeline_status_request.UpdateMediaInsightsPipelineStatusRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["update_status"] = update_status
+        input_: aws_sdk_chime_sdk_media_pipelines.types.update_media_insights_pipeline_status_request.UpdateMediaInsightsPipelineStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["update_status"] = update_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1612,13 +1612,13 @@ class ChimeSDKMediaPipelinesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_media_pipelines.types.update_media_pipeline_kinesis_video_stream_pool_request.UpdateMediaPipelineKinesisVideoStreamPoolRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_chime_sdk_media_pipelines.types.update_media_pipeline_kinesis_video_stream_pool_request.UpdateMediaPipelineKinesisVideoStreamPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if stream_configuration is not None:
-            input["stream_configuration"] = stream_configuration
+            input_["stream_configuration"] = stream_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

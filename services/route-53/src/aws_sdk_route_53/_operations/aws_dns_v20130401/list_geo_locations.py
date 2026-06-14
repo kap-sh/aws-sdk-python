@@ -67,52 +67,49 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_route_53.types.list_geo_locations_request.ListGeoLocationsRequest,
+    input_: aws_sdk_route_53.types.list_geo_locations_request.ListGeoLocationsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/geolocations"
     params: dict[str, str] = {}
-    if "start_continent_code" in input:
-        params["startcontinentcode"] = str(input["start_continent_code"])
-    if "start_country_code" in input:
-        params["startcountrycode"] = str(input["start_country_code"])
-    if "start_subdivision_code" in input:
-        params["startsubdivisioncode"] = str(input["start_subdivision_code"])
-    if "max_items" in input:
-        params["maxitems"] = str(input["max_items"])
+    if "start_continent_code" in input_:
+        params["startcontinentcode"] = str(input_["start_continent_code"])
+    if "start_country_code" in input_:
+        params["startcountrycode"] = str(input_["start_country_code"])
+    if "start_subdivision_code" in input_:
+        params["startsubdivisioncode"] = str(input_["start_subdivision_code"])
+    if "max_items" in input_:
+        params["maxitems"] = str(input_["max_items"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_geo_locations(
     options: OperationOptions,
-    input: aws_sdk_route_53.types.list_geo_locations_request.ListGeoLocationsRequest,
+    input_: aws_sdk_route_53.types.list_geo_locations_request.ListGeoLocationsRequest,
 ) -> tuple[
     aws_sdk_route_53.types.list_geo_locations_response.ListGeoLocationsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -121,16 +118,17 @@ def list_geo_locations(
 
 async def async_list_geo_locations(
     options: AsyncOperationOptions,
-    input: aws_sdk_route_53.types.list_geo_locations_request.ListGeoLocationsRequest,
+    input_: aws_sdk_route_53.types.list_geo_locations_request.ListGeoLocationsRequest,
 ) -> tuple[
     aws_sdk_route_53.types.list_geo_locations_response.ListGeoLocationsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

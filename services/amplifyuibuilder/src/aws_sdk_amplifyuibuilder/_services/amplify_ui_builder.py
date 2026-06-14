@@ -15,6 +15,18 @@ from aws_sdk_amplifyuibuilder._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_amplifyuibuilder._auth._zapros_handler import AuthMiddleware
+from aws_sdk_amplifyuibuilder._resources.amplify_ui_builder.codegen_job_resource import (
+    CodegenJobResource,
+)
+from aws_sdk_amplifyuibuilder._resources.amplify_ui_builder.component_resource import (
+    ComponentResource,
+)
+from aws_sdk_amplifyuibuilder._resources.amplify_ui_builder.form_resource import (
+    FormResource,
+)
+from aws_sdk_amplifyuibuilder._resources.amplify_ui_builder.theme_resource import (
+    ThemeResource,
+)
 from aws_sdk_amplifyuibuilder._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -116,6 +128,11 @@ class AmplifyUIBuilderClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.codegen_job_resource = CodegenJobResource(self)
+        self.component_resource = ComponentResource(self)
+        self.form_resource = FormResource(self)
+        self.theme_resource = ThemeResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AmplifyUIBuilderClientConfig] = None
@@ -174,12 +191,12 @@ class AmplifyUIBuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.exchange_code_for_token_request.ExchangeCodeForTokenRequest = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["request"] = request
+        input_: aws_sdk_amplifyuibuilder.types.exchange_code_for_token_request.ExchangeCodeForTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["request"] = request
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,12 +231,12 @@ class AmplifyUIBuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.get_metadata_request.GetMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.get_metadata_request.GetMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,11 +269,11 @@ class AmplifyUIBuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_amplifyuibuilder.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,14 +310,14 @@ class AmplifyUIBuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.put_metadata_flag_request.PutMetadataFlagRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["feature_name"] = feature_name
-        input["body"] = body
+        input_: aws_sdk_amplifyuibuilder.types.put_metadata_flag_request.PutMetadataFlagRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["feature_name"] = feature_name
+        input_["body"] = body
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,12 +352,12 @@ class AmplifyUIBuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.refresh_token_request.RefreshTokenRequest = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["refresh_token_body"] = refresh_token_body
+        input_: aws_sdk_amplifyuibuilder.types.refresh_token_request.RefreshTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["refresh_token_body"] = refresh_token_body
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,12 +392,12 @@ class AmplifyUIBuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_amplifyuibuilder.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,12 +432,12 @@ class AmplifyUIBuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_amplifyuibuilder.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

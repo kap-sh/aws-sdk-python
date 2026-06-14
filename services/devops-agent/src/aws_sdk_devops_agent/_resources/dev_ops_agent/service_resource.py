@@ -92,28 +92,28 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.register_service_input.RegisterServiceInput = {}  # type: ignore[typeddict-item]
-        input["service"] = service
-        input["service_details"] = service_details
+        input_: aws_sdk_devops_agent.types.register_service_input.RegisterServiceInput = {}  # type: ignore[typeddict-item]
+        input_["service"] = service
+        input_["service_details"] = service_details
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if private_connection_name is not None:
-            input["private_connection_name"] = private_connection_name
+            input_["private_connection_name"] = private_connection_name
         if target_url_private_connection_name is not None:
-            input["target_url_private_connection_name"] = (
+            input_["target_url_private_connection_name"] = (
                 target_url_private_connection_name
             )
         if exchange_url_private_connection_name is not None:
-            input["exchange_url_private_connection_name"] = (
+            input_["exchange_url_private_connection_name"] = (
                 exchange_url_private_connection_name
             )
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -146,11 +146,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
+        input_: aws_sdk_devops_agent.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -183,11 +183,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.deregister_service_input.DeregisterServiceInput = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
+        input_: aws_sdk_devops_agent.types.deregister_service_input.DeregisterServiceInput = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,16 +226,16 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_agent.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter_service_type is not None:
-            input["filter_service_type"] = filter_service_type
+            input_["filter_service_type"] = filter_service_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,28 +295,28 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.register_service_input.RegisterServiceInput = {}  # type: ignore[typeddict-item]
-        input["service"] = service
-        input["service_details"] = service_details
+        input_: aws_sdk_devops_agent.types.register_service_input.RegisterServiceInput = {}  # type: ignore[typeddict-item]
+        input_["service"] = service
+        input_["service_details"] = service_details
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if private_connection_name is not None:
-            input["private_connection_name"] = private_connection_name
+            input_["private_connection_name"] = private_connection_name
         if target_url_private_connection_name is not None:
-            input["target_url_private_connection_name"] = (
+            input_["target_url_private_connection_name"] = (
                 target_url_private_connection_name
             )
         if exchange_url_private_connection_name is not None:
-            input["exchange_url_private_connection_name"] = (
+            input_["exchange_url_private_connection_name"] = (
                 exchange_url_private_connection_name
             )
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,11 +350,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
+        input_: aws_sdk_devops_agent.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,11 +388,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.deregister_service_input.DeregisterServiceInput = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
+        input_: aws_sdk_devops_agent.types.deregister_service_input.DeregisterServiceInput = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,16 +432,16 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_agent.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter_service_type is not None:
-            input["filter_service_type"] = filter_service_type
+            input_["filter_service_type"] = filter_service_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

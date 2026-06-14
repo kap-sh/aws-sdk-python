@@ -93,9 +93,9 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_neptune_graph.types.list_queries_input.ListQueriesInput,
+    input_: aws_sdk_neptune_graph.types.list_queries_input.ListQueriesInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseFIPS=options.use_fips,
@@ -103,40 +103,37 @@ def build_request(
             Endpoint=options.endpoint,
             ApiType="DataPlane",
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/queries"
     params: dict[str, str] = {}
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "state" in input:
-        params["state"] = str(input["state"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "state" in input_:
+        params["state"] = str(input_["state"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "graph_identifier" in input:
-        headers["graphIdentifier"] = str(input["graph_identifier"])
+    if "graph_identifier" in input_:
+        headers["graphIdentifier"] = str(input_["graph_identifier"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_queries(
     options: OperationOptions,
-    input: aws_sdk_neptune_graph.types.list_queries_input.ListQueriesInput,
+    input_: aws_sdk_neptune_graph.types.list_queries_input.ListQueriesInput,
 ) -> tuple[
     aws_sdk_neptune_graph.types.list_queries_output.ListQueriesOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -145,15 +142,16 @@ def list_queries(
 
 async def async_list_queries(
     options: AsyncOperationOptions,
-    input: aws_sdk_neptune_graph.types.list_queries_input.ListQueriesInput,
+    input_: aws_sdk_neptune_graph.types.list_queries_input.ListQueriesInput,
 ) -> tuple[
     aws_sdk_neptune_graph.types.list_queries_output.ListQueriesOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

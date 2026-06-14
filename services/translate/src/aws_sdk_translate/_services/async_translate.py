@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_translate._auth._signers
+import aws_sdk_translate._auth._sigv4
 from aws_sdk_translate._auth._identity import Credentials
 from aws_sdk_translate._auth._providers import (
     CredentialsProvider,
@@ -228,19 +230,19 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.create_parallel_data_request.CreateParallelDataRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_translate.types.create_parallel_data_request.CreateParallelDataRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["parallel_data_config"] = parallel_data_config
+            input_["description"] = description
+        input_["parallel_data_config"] = parallel_data_config
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
-        input["client_token"] = client_token
+            input_["encryption_key"] = encryption_key
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,11 +276,11 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.delete_parallel_data_request.DeleteParallelDataRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_translate.types.delete_parallel_data_request.DeleteParallelDataRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,11 +312,11 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.delete_terminology_request.DeleteTerminologyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_translate.types.delete_terminology_request.DeleteTerminologyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,11 +350,11 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.describe_text_translation_job_request.DescribeTextTranslationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_translate.types.describe_text_translation_job_request.DescribeTextTranslationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,11 +388,11 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.get_parallel_data_request.GetParallelDataRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_translate.types.get_parallel_data_request.GetParallelDataRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,13 +430,13 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.get_terminology_request.GetTerminologyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_translate.types.get_terminology_request.GetTerminologyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if terminology_data_format is not None:
-            input["terminology_data_format"] = terminology_data_format
+            input_["terminology_data_format"] = terminology_data_format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -482,19 +484,19 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.import_terminology_request.ImportTerminologyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["merge_strategy"] = merge_strategy
+        input_: aws_sdk_translate.types.import_terminology_request.ImportTerminologyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["merge_strategy"] = merge_strategy
         if description is not None:
-            input["description"] = description
-        input["terminology_data"] = terminology_data
+            input_["description"] = description
+        input_["terminology_data"] = terminology_data
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -536,16 +538,16 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.list_languages_request.ListLanguagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_translate.types.list_languages_request.ListLanguagesRequest = {}  # type: ignore[typeddict-item]
         if display_language_code is not None:
-            input["display_language_code"] = display_language_code
+            input_["display_language_code"] = display_language_code
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -583,14 +585,14 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.list_parallel_data_request.ListParallelDataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_translate.types.list_parallel_data_request.ListParallelDataRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,11 +626,11 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_translate.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,14 +670,14 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.list_terminologies_request.ListTerminologiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_translate.types.list_terminologies_request.ListTerminologiesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -717,16 +719,16 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.list_text_translation_jobs_request.ListTextTranslationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_translate.types.list_text_translation_jobs_request.ListTextTranslationJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -784,24 +786,24 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.start_text_translation_job_request.StartTextTranslationJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_translate.types.start_text_translation_job_request.StartTextTranslationJobRequest = {}  # type: ignore[typeddict-item]
         if job_name is not None:
-            input["job_name"] = job_name
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
-        input["source_language_code"] = source_language_code
-        input["target_language_codes"] = target_language_codes
+            input_["job_name"] = job_name
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
+        input_["source_language_code"] = source_language_code
+        input_["target_language_codes"] = target_language_codes
         if terminology_names is not None:
-            input["terminology_names"] = terminology_names
+            input_["terminology_names"] = terminology_names
         if parallel_data_names is not None:
-            input["parallel_data_names"] = parallel_data_names
-        input["client_token"] = client_token
+            input_["parallel_data_names"] = parallel_data_names
+        input_["client_token"] = client_token
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -835,11 +837,11 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.stop_text_translation_job_request.StopTextTranslationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_translate.types.stop_text_translation_job_request.StopTextTranslationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -875,12 +877,12 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_translate.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -928,17 +930,17 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.translate_document_request.TranslateDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["document"] = document
+        input_: aws_sdk_translate.types.translate_document_request.TranslateDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["document"] = document
         if terminology_names is not None:
-            input["terminology_names"] = terminology_names
-        input["source_language_code"] = source_language_code
-        input["target_language_code"] = target_language_code
+            input_["terminology_names"] = terminology_names
+        input_["source_language_code"] = source_language_code
+        input_["target_language_code"] = target_language_code
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -984,17 +986,17 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.translate_text_request.TranslateTextRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
+        input_: aws_sdk_translate.types.translate_text_request.TranslateTextRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
         if terminology_names is not None:
-            input["terminology_names"] = terminology_names
-        input["source_language_code"] = source_language_code
-        input["target_language_code"] = target_language_code
+            input_["terminology_names"] = terminology_names
+        input_["source_language_code"] = source_language_code
+        input_["target_language_code"] = target_language_code
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1030,12 +1032,12 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_translate.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1075,15 +1077,15 @@ class AsyncTranslateClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_translate.types.update_parallel_data_request.UpdateParallelDataRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_translate.types.update_parallel_data_request.UpdateParallelDataRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["parallel_data_config"] = parallel_data_config
-        input["client_token"] = client_token
+            input_["description"] = description
+        input_["parallel_data_config"] = parallel_data_config
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

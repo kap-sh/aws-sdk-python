@@ -122,33 +122,35 @@ class DeviceDiscoveryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.start_device_discovery_request.StartDeviceDiscoveryRequest = {}  # type: ignore[typeddict-item]
-        input["discovery_type"] = discovery_type
+        input_: aws_sdk_iot_managed_integrations.types.start_device_discovery_request.StartDeviceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_["discovery_type"] = discovery_type
         if custom_protocol_detail is not None:
-            input["custom_protocol_detail"] = custom_protocol_detail
+            input_["custom_protocol_detail"] = custom_protocol_detail
         if controller_identifier is not None:
-            input["controller_identifier"] = controller_identifier
+            input_["controller_identifier"] = controller_identifier
         if connector_association_identifier is not None:
-            input["connector_association_identifier"] = connector_association_identifier
+            input_["connector_association_identifier"] = (
+                connector_association_identifier
+            )
         if account_association_id is not None:
-            input["account_association_id"] = account_association_id
+            input_["account_association_id"] = account_association_id
         if authentication_material is not None:
-            input["authentication_material"] = authentication_material
+            input_["authentication_material"] = authentication_material
         if authentication_material_type is not None:
-            input["authentication_material_type"] = authentication_material_type
+            input_["authentication_material_type"] = authentication_material_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if connector_device_id_list is not None:
-            input["connector_device_id_list"] = connector_device_id_list
+            input_["connector_device_id_list"] = connector_device_id_list
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if end_device_identifier is not None:
-            input["end_device_identifier"] = end_device_identifier
+            input_["end_device_identifier"] = end_device_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,11 +183,11 @@ class DeviceDiscoveryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_device_discovery_request.GetDeviceDiscoveryRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_device_discovery_request.GetDeviceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,18 +234,18 @@ class DeviceDiscoveryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_device_discoveries_request.ListDeviceDiscoveriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_device_discoveries_request.ListDeviceDiscoveriesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if type_filter is not None:
-            input["type_filter"] = type_filter
+            input_["type_filter"] = type_filter
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,15 +286,15 @@ class DeviceDiscoveryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_discovered_devices_request.ListDiscoveredDevicesRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.list_discovered_devices_request.ListDiscoveredDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,33 +377,35 @@ class AsyncDeviceDiscoveryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.start_device_discovery_request.StartDeviceDiscoveryRequest = {}  # type: ignore[typeddict-item]
-        input["discovery_type"] = discovery_type
+        input_: aws_sdk_iot_managed_integrations.types.start_device_discovery_request.StartDeviceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_["discovery_type"] = discovery_type
         if custom_protocol_detail is not None:
-            input["custom_protocol_detail"] = custom_protocol_detail
+            input_["custom_protocol_detail"] = custom_protocol_detail
         if controller_identifier is not None:
-            input["controller_identifier"] = controller_identifier
+            input_["controller_identifier"] = controller_identifier
         if connector_association_identifier is not None:
-            input["connector_association_identifier"] = connector_association_identifier
+            input_["connector_association_identifier"] = (
+                connector_association_identifier
+            )
         if account_association_id is not None:
-            input["account_association_id"] = account_association_id
+            input_["account_association_id"] = account_association_id
         if authentication_material is not None:
-            input["authentication_material"] = authentication_material
+            input_["authentication_material"] = authentication_material
         if authentication_material_type is not None:
-            input["authentication_material_type"] = authentication_material_type
+            input_["authentication_material_type"] = authentication_material_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if connector_device_id_list is not None:
-            input["connector_device_id_list"] = connector_device_id_list
+            input_["connector_device_id_list"] = connector_device_id_list
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
         if end_device_identifier is not None:
-            input["end_device_identifier"] = end_device_identifier
+            input_["end_device_identifier"] = end_device_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,11 +439,11 @@ class AsyncDeviceDiscoveryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_device_discovery_request.GetDeviceDiscoveryRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_device_discovery_request.GetDeviceDiscoveryRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,18 +491,18 @@ class AsyncDeviceDiscoveryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_device_discoveries_request.ListDeviceDiscoveriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_device_discoveries_request.ListDeviceDiscoveriesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if type_filter is not None:
-            input["type_filter"] = type_filter
+            input_["type_filter"] = type_filter
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -540,15 +544,15 @@ class AsyncDeviceDiscoveryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_discovered_devices_request.ListDiscoveredDevicesRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.list_discovered_devices_request.ListDiscoveredDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

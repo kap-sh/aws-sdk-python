@@ -97,19 +97,19 @@ class LayerVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_layer_versions_request.ListLayerVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_layer_versions_request.ListLayerVersionsRequest = {}  # type: ignore[typeddict-item]
         if compatible_runtime is not None:
-            input["compatible_runtime"] = compatible_runtime
-        input["layer_name"] = layer_name
+            input_["compatible_runtime"] = compatible_runtime
+        input_["layer_name"] = layer_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if compatible_architecture is not None:
-            input["compatible_architecture"] = compatible_architecture
+            input_["compatible_architecture"] = compatible_architecture
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -162,19 +162,19 @@ class LayerVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.add_layer_version_permission_request.AddLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
-        input["statement_id"] = statement_id
-        input["action"] = action
-        input["principal"] = principal
+        input_: aws_sdk_lambda.types.add_layer_version_permission_request.AddLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
+        input_["statement_id"] = statement_id
+        input_["action"] = action
+        input_["principal"] = principal
         if organization_id is not None:
-            input["organization_id"] = organization_id
+            input_["organization_id"] = organization_id
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,12 +213,12 @@ class LayerVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_layer_version_request.DeleteLayerVersionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
+        input_: aws_sdk_lambda.types.delete_layer_version_request.DeleteLayerVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,12 +259,12 @@ class LayerVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_layer_version_request.GetLayerVersionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
+        input_: aws_sdk_lambda.types.get_layer_version_request.GetLayerVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,11 +303,11 @@ class LayerVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_layer_version_by_arn_request.GetLayerVersionByArnRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_lambda.types.get_layer_version_by_arn_request.GetLayerVersionByArnRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,12 +342,12 @@ class LayerVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_layer_version_policy_request.GetLayerVersionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
+        input_: aws_sdk_lambda.types.get_layer_version_policy_request.GetLayerVersionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -400,20 +400,20 @@ class LayerVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.publish_layer_version_request.PublishLayerVersionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
+        input_: aws_sdk_lambda.types.publish_layer_version_request.PublishLayerVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
         if description is not None:
-            input["description"] = description
-        input["content"] = content
+            input_["description"] = description
+        input_["content"] = content
         if compatible_runtimes is not None:
-            input["compatible_runtimes"] = compatible_runtimes
+            input_["compatible_runtimes"] = compatible_runtimes
         if license_info is not None:
-            input["license_info"] = license_info
+            input_["license_info"] = license_info
         if compatible_architectures is not None:
-            input["compatible_architectures"] = compatible_architectures
+            input_["compatible_architectures"] = compatible_architectures
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,15 +456,15 @@ class LayerVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.remove_layer_version_permission_request.RemoveLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
-        input["statement_id"] = statement_id
+        input_: aws_sdk_lambda.types.remove_layer_version_permission_request.RemoveLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
+        input_["statement_id"] = statement_id
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -521,19 +521,19 @@ class AsyncLayerVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_layer_versions_request.ListLayerVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_layer_versions_request.ListLayerVersionsRequest = {}  # type: ignore[typeddict-item]
         if compatible_runtime is not None:
-            input["compatible_runtime"] = compatible_runtime
-        input["layer_name"] = layer_name
+            input_["compatible_runtime"] = compatible_runtime
+        input_["layer_name"] = layer_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if compatible_architecture is not None:
-            input["compatible_architecture"] = compatible_architecture
+            input_["compatible_architecture"] = compatible_architecture
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -587,19 +587,19 @@ class AsyncLayerVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.add_layer_version_permission_request.AddLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
-        input["statement_id"] = statement_id
-        input["action"] = action
-        input["principal"] = principal
+        input_: aws_sdk_lambda.types.add_layer_version_permission_request.AddLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
+        input_["statement_id"] = statement_id
+        input_["action"] = action
+        input_["principal"] = principal
         if organization_id is not None:
-            input["organization_id"] = organization_id
+            input_["organization_id"] = organization_id
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -639,12 +639,12 @@ class AsyncLayerVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_layer_version_request.DeleteLayerVersionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
+        input_: aws_sdk_lambda.types.delete_layer_version_request.DeleteLayerVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -686,12 +686,12 @@ class AsyncLayerVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_layer_version_request.GetLayerVersionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
+        input_: aws_sdk_lambda.types.get_layer_version_request.GetLayerVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -731,11 +731,11 @@ class AsyncLayerVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_layer_version_by_arn_request.GetLayerVersionByArnRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_lambda.types.get_layer_version_by_arn_request.GetLayerVersionByArnRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,12 +771,12 @@ class AsyncLayerVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_layer_version_policy_request.GetLayerVersionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
+        input_: aws_sdk_lambda.types.get_layer_version_policy_request.GetLayerVersionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,20 +830,20 @@ class AsyncLayerVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.publish_layer_version_request.PublishLayerVersionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
+        input_: aws_sdk_lambda.types.publish_layer_version_request.PublishLayerVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
         if description is not None:
-            input["description"] = description
-        input["content"] = content
+            input_["description"] = description
+        input_["content"] = content
         if compatible_runtimes is not None:
-            input["compatible_runtimes"] = compatible_runtimes
+            input_["compatible_runtimes"] = compatible_runtimes
         if license_info is not None:
-            input["license_info"] = license_info
+            input_["license_info"] = license_info
         if compatible_architectures is not None:
-            input["compatible_architectures"] = compatible_architectures
+            input_["compatible_architectures"] = compatible_architectures
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -887,15 +887,15 @@ class AsyncLayerVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.remove_layer_version_permission_request.RemoveLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["layer_name"] = layer_name
-        input["version_number"] = version_number
-        input["statement_id"] = statement_id
+        input_: aws_sdk_lambda.types.remove_layer_version_permission_request.RemoveLayerVersionPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["layer_name"] = layer_name
+        input_["version_number"] = version_number
+        input_["statement_id"] = statement_id
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -266,14 +266,14 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.associate_user_to_permission_group_request.AssociateUserToPermissionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["permission_group_id"] = permission_group_id
-        input["user_id"] = user_id
+        input_: aws_sdk_finspace_data.types.associate_user_to_permission_group_request.AssociateUserToPermissionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_group_id"] = permission_group_id
+        input_["user_id"] = user_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,16 +319,16 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.create_changeset_request.CreateChangesetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.create_changeset_request.CreateChangesetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dataset_id"] = dataset_id
-        input["change_type"] = change_type
-        input["source_params"] = source_params
-        input["format_params"] = format_params
+            input_["client_token"] = client_token
+        input_["dataset_id"] = dataset_id
+        input_["change_type"] = change_type
+        input_["source_params"] = source_params
+        input_["format_params"] = format_params
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,23 +384,23 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dataset_title"] = dataset_title
-        input["kind"] = kind
+            input_["client_token"] = client_token
+        input_["dataset_title"] = dataset_title
+        input_["kind"] = kind
         if dataset_description is not None:
-            input["dataset_description"] = dataset_description
+            input_["dataset_description"] = dataset_description
         if owner_info is not None:
-            input["owner_info"] = owner_info
-        input["permission_group_params"] = permission_group_params
+            input_["owner_info"] = owner_info
+        input_["permission_group_params"] = permission_group_params
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if schema_definition is not None:
-            input["schema_definition"] = schema_definition
+            input_["schema_definition"] = schema_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,22 +454,22 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.create_data_view_request.CreateDataViewRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.create_data_view_request.CreateDataViewRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dataset_id"] = dataset_id
+            input_["client_token"] = client_token
+        input_["dataset_id"] = dataset_id
         if auto_update is not None:
-            input["auto_update"] = auto_update
+            input_["auto_update"] = auto_update
         if sort_columns is not None:
-            input["sort_columns"] = sort_columns
+            input_["sort_columns"] = sort_columns
         if partition_columns is not None:
-            input["partition_columns"] = partition_columns
+            input_["partition_columns"] = partition_columns
         if as_of_timestamp is not None:
-            input["as_of_timestamp"] = as_of_timestamp
-        input["destination_type_params"] = destination_type_params
+            input_["as_of_timestamp"] = as_of_timestamp
+        input_["destination_type_params"] = destination_type_params
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,16 +513,16 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.create_permission_group_request.CreatePermissionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_finspace_data.types.create_permission_group_request.CreatePermissionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["application_permissions"] = application_permissions
+            input_["description"] = description
+        input_["application_permissions"] = application_permissions
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,22 +572,22 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["email_address"] = email_address
-        input["type"] = type
+        input_: aws_sdk_finspace_data.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address"] = email_address
+        input_["type"] = type
         if first_name is not None:
-            input["first_name"] = first_name
+            input_["first_name"] = first_name
         if last_name is not None:
-            input["last_name"] = last_name
+            input_["last_name"] = last_name
         if api_access is not None:
-            input["api_access"] = api_access
+            input_["api_access"] = api_access
         if api_access_principal_arn is not None:
-            input["api_access_principal_arn"] = api_access_principal_arn
+            input_["api_access_principal_arn"] = api_access_principal_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,13 +625,13 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.delete_dataset_request.DeleteDatasetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dataset_id"] = dataset_id
+            input_["client_token"] = client_token
+        input_["dataset_id"] = dataset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -669,13 +669,13 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.delete_permission_group_request.DeletePermissionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["permission_group_id"] = permission_group_id
+        input_: aws_sdk_finspace_data.types.delete_permission_group_request.DeletePermissionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_group_id"] = permission_group_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -713,13 +713,13 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.disable_user_request.DisableUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_finspace_data.types.disable_user_request.DisableUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,14 +759,14 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.disassociate_user_from_permission_group_request.DisassociateUserFromPermissionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["permission_group_id"] = permission_group_id
-        input["user_id"] = user_id
+        input_: aws_sdk_finspace_data.types.disassociate_user_from_permission_group_request.DisassociateUserFromPermissionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_group_id"] = permission_group_id
+        input_["user_id"] = user_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -804,13 +804,13 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.enable_user_request.EnableUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_finspace_data.types.enable_user_request.EnableUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,12 +846,12 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.get_changeset_request.GetChangesetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
-        input["changeset_id"] = changeset_id
+        input_: aws_sdk_finspace_data.types.get_changeset_request.GetChangesetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
+        input_["changeset_id"] = changeset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -885,11 +885,11 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.get_dataset_request.GetDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_finspace_data.types.get_dataset_request.GetDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -925,12 +925,12 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.get_data_view_request.GetDataViewRequest = {}  # type: ignore[typeddict-item]
-        input["data_view_id"] = data_view_id
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_finspace_data.types.get_data_view_request.GetDataViewRequest = {}  # type: ignore[typeddict-item]
+        input_["data_view_id"] = data_view_id
+        input_["dataset_id"] = dataset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -966,12 +966,12 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.get_external_data_view_access_details_request.GetExternalDataViewAccessDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["data_view_id"] = data_view_id
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_finspace_data.types.get_external_data_view_access_details_request.GetExternalDataViewAccessDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_view_id"] = data_view_id
+        input_["dataset_id"] = dataset_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1005,11 +1005,11 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.get_permission_group_request.GetPermissionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["permission_group_id"] = permission_group_id
+        input_: aws_sdk_finspace_data.types.get_permission_group_request.GetPermissionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_group_id"] = permission_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1047,13 +1047,13 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.get_programmatic_access_credentials_request.GetProgrammaticAccessCredentialsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.get_programmatic_access_credentials_request.GetProgrammaticAccessCredentialsRequest = {}  # type: ignore[typeddict-item]
         if duration_in_minutes is not None:
-            input["duration_in_minutes"] = duration_in_minutes
-        input["environment_id"] = environment_id
+            input_["duration_in_minutes"] = duration_in_minutes
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1087,11 +1087,11 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.get_user_request.GetUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_finspace_data.types.get_user_request.GetUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1127,12 +1127,12 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.get_working_location_request.GetWorkingLocationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.get_working_location_request.GetWorkingLocationRequest = {}  # type: ignore[typeddict-item]
         if location_type is not None:
-            input["location_type"] = location_type
+            input_["location_type"] = location_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1174,15 +1174,15 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.list_changesets_request.ListChangesetsRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_finspace_data.types.list_changesets_request.ListChangesetsRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1251,14 +1251,14 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1325,15 +1325,15 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.list_data_views_request.ListDataViewsRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_id"] = dataset_id
+        input_: aws_sdk_finspace_data.types.list_data_views_request.ListDataViewsRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_id"] = dataset_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1398,13 +1398,13 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.list_permission_groups_request.ListPermissionGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.list_permission_groups_request.ListPermissionGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
-        input["max_results"] = max_results
+            input_["next_token"] = next_token
+        input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1467,14 +1467,14 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.list_permission_groups_by_user_request.ListPermissionGroupsByUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_finspace_data.types.list_permission_groups_by_user_request.ListPermissionGroupsByUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
         if next_token is not None:
-            input["next_token"] = next_token
-        input["max_results"] = max_results
+            input_["next_token"] = next_token
+        input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1512,13 +1512,13 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
-        input["max_results"] = max_results
+            input_["next_token"] = next_token
+        input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1581,14 +1581,14 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.list_users_by_permission_group_request.ListUsersByPermissionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["permission_group_id"] = permission_group_id
+        input_: aws_sdk_finspace_data.types.list_users_by_permission_group_request.ListUsersByPermissionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_group_id"] = permission_group_id
         if next_token is not None:
-            input["next_token"] = next_token
-        input["max_results"] = max_results
+            input_["next_token"] = next_token
+        input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1626,13 +1626,13 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.reset_user_password_request.ResetUserPasswordRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_finspace_data.types.reset_user_password_request.ResetUserPasswordRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1678,16 +1678,16 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.update_changeset_request.UpdateChangesetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.update_changeset_request.UpdateChangesetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dataset_id"] = dataset_id
-        input["changeset_id"] = changeset_id
-        input["source_params"] = source_params
-        input["format_params"] = format_params
+            input_["client_token"] = client_token
+        input_["dataset_id"] = dataset_id
+        input_["changeset_id"] = changeset_id
+        input_["source_params"] = source_params
+        input_["format_params"] = format_params
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1739,21 +1739,21 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_finspace_data.types.update_dataset_request.UpdateDatasetRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["dataset_id"] = dataset_id
-        input["dataset_title"] = dataset_title
-        input["kind"] = kind
+            input_["client_token"] = client_token
+        input_["dataset_id"] = dataset_id
+        input_["dataset_title"] = dataset_title
+        input_["kind"] = kind
         if dataset_description is not None:
-            input["dataset_description"] = dataset_description
+            input_["dataset_description"] = dataset_description
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if schema_definition is not None:
-            input["schema_definition"] = schema_definition
+            input_["schema_definition"] = schema_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1803,19 +1803,19 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.update_permission_group_request.UpdatePermissionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["permission_group_id"] = permission_group_id
+        input_: aws_sdk_finspace_data.types.update_permission_group_request.UpdatePermissionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["permission_group_id"] = permission_group_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if application_permissions is not None:
-            input["application_permissions"] = application_permissions
+            input_["application_permissions"] = application_permissions
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1865,23 +1865,23 @@ class AsyncfinspacedataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_finspace_data.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_finspace_data.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if first_name is not None:
-            input["first_name"] = first_name
+            input_["first_name"] = first_name
         if last_name is not None:
-            input["last_name"] = last_name
+            input_["last_name"] = last_name
         if api_access is not None:
-            input["api_access"] = api_access
+            input_["api_access"] = api_access
         if api_access_principal_arn is not None:
-            input["api_access_principal_arn"] = api_access_principal_arn
+            input_["api_access_principal_arn"] = api_access_principal_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

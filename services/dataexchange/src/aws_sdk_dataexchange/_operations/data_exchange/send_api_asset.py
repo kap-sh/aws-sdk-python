@@ -92,31 +92,31 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dataexchange.types.send_api_asset_request.SendApiAssetRequest,
+    input_: aws_sdk_dataexchange.types.send_api_asset_request.SendApiAssetRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v1"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "asset_id" in input:
-        headers["x-amzn-dataexchange-asset-id"] = str(input["asset_id"])
-    if "data_set_id" in input:
-        headers["x-amzn-dataexchange-data-set-id"] = str(input["data_set_id"])
-    if "method" in input:
-        headers["x-amzn-dataexchange-http-method"] = str(input["method"])
-    if "path" in input:
-        headers["x-amzn-dataexchange-path"] = str(input["path"])
-    if "revision_id" in input:
-        headers["x-amzn-dataexchange-revision-id"] = str(input["revision_id"])
-    if "body" in input:
-        payload_value = input["body"]
+    if "asset_id" in input_:
+        headers["x-amzn-dataexchange-asset-id"] = str(input_["asset_id"])
+    if "data_set_id" in input_:
+        headers["x-amzn-dataexchange-data-set-id"] = str(input_["data_set_id"])
+    if "method" in input_:
+        headers["x-amzn-dataexchange-http-method"] = str(input_["method"])
+    if "path" in input_:
+        headers["x-amzn-dataexchange-path"] = str(input_["path"])
+    if "revision_id" in input_:
+        headers["x-amzn-dataexchange-revision-id"] = str(input_["revision_id"])
+    if "body" in input_:
+        payload_value = input_["body"]
         body: bytes | None = payload_value.encode()
         headers["content-type"] = "application/json"
     else:
@@ -125,26 +125,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def send_api_asset(
     options: OperationOptions,
-    input: aws_sdk_dataexchange.types.send_api_asset_request.SendApiAssetRequest,
+    input_: aws_sdk_dataexchange.types.send_api_asset_request.SendApiAssetRequest,
 ) -> tuple[
     aws_sdk_dataexchange.types.send_api_asset_response.SendApiAssetResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -153,16 +150,17 @@ def send_api_asset(
 
 async def async_send_api_asset(
     options: AsyncOperationOptions,
-    input: aws_sdk_dataexchange.types.send_api_asset_request.SendApiAssetRequest,
+    input_: aws_sdk_dataexchange.types.send_api_asset_request.SendApiAssetRequest,
 ) -> tuple[
     aws_sdk_dataexchange.types.send_api_asset_response.SendApiAssetResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

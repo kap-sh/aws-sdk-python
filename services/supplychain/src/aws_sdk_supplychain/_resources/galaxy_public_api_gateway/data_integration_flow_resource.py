@@ -90,17 +90,17 @@ class DataIntegrationFlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_data_integration_flow_request.CreateDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
-        input["sources"] = sources
-        input["transformation"] = transformation
-        input["target"] = target
+        input_: aws_sdk_supplychain.types.create_data_integration_flow_request.CreateDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
+        input_["sources"] = sources
+        input_["transformation"] = transformation
+        input_["target"] = target
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -140,12 +140,12 @@ class DataIntegrationFlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_data_integration_flow_request.GetDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.get_data_integration_flow_request.GetDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -200,18 +200,18 @@ class DataIntegrationFlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.update_data_integration_flow_request.UpdateDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.update_data_integration_flow_request.UpdateDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if transformation is not None:
-            input["transformation"] = transformation
+            input_["transformation"] = transformation
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,12 +251,12 @@ class DataIntegrationFlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.delete_data_integration_flow_request.DeleteDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.delete_data_integration_flow_request.DeleteDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,15 +302,15 @@ class DataIntegrationFlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_data_integration_flows_request.ListDataIntegrationFlowsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.list_data_integration_flows_request.ListDataIntegrationFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -367,17 +367,17 @@ class AsyncDataIntegrationFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_data_integration_flow_request.CreateDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
-        input["sources"] = sources
-        input["transformation"] = transformation
-        input["target"] = target
+        input_: aws_sdk_supplychain.types.create_data_integration_flow_request.CreateDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
+        input_["sources"] = sources
+        input_["transformation"] = transformation
+        input_["target"] = target
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,12 +418,12 @@ class AsyncDataIntegrationFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_data_integration_flow_request.GetDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.get_data_integration_flow_request.GetDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,18 +479,18 @@ class AsyncDataIntegrationFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.update_data_integration_flow_request.UpdateDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.update_data_integration_flow_request.UpdateDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if transformation is not None:
-            input["transformation"] = transformation
+            input_["transformation"] = transformation
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -531,12 +531,12 @@ class AsyncDataIntegrationFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.delete_data_integration_flow_request.DeleteDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.delete_data_integration_flow_request.DeleteDataIntegrationFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -583,15 +583,15 @@ class AsyncDataIntegrationFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_data_integration_flows_request.ListDataIntegrationFlowsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.list_data_integration_flows_request.ListDataIntegrationFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

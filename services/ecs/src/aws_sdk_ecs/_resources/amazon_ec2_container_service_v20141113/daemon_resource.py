@@ -94,27 +94,27 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_daemon_request.CreateDaemonRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_name"] = daemon_name
+        input_: aws_sdk_ecs.types.create_daemon_request.CreateDaemonRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_name"] = daemon_name
         if cluster_arn is not None:
-            input["cluster_arn"] = cluster_arn
-        input["daemon_task_definition_arn"] = daemon_task_definition_arn
-        input["capacity_provider_arns"] = capacity_provider_arns
+            input_["cluster_arn"] = cluster_arn
+        input_["daemon_task_definition_arn"] = daemon_task_definition_arn
+        input_["capacity_provider_arns"] = capacity_provider_arns
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -153,11 +153,11 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_daemon_request.DeleteDaemonRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_arn"] = daemon_arn
+        input_: aws_sdk_ecs.types.delete_daemon_request.DeleteDaemonRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_arn"] = daemon_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,11 +196,11 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_daemon_request.DescribeDaemonRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_arn"] = daemon_arn
+        input_: aws_sdk_ecs.types.describe_daemon_request.DescribeDaemonRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_arn"] = daemon_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,19 +249,19 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_daemon_deployments_request.ListDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_arn"] = daemon_arn
+        input_: aws_sdk_ecs.types.list_daemon_deployments_request.ListDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_arn"] = daemon_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if created_at is not None:
-            input["created_at"] = created_at
+            input_["created_at"] = created_at
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,18 +308,18 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_daemons_request.ListDaemonsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_daemons_request.ListDaemonsRequest = {}  # type: ignore[typeddict-item]
         if cluster_arn is not None:
-            input["cluster_arn"] = cluster_arn
+            input_["cluster_arn"] = cluster_arn
         if capacity_provider_arns is not None:
-            input["capacity_provider_arns"] = capacity_provider_arns
+            input_["capacity_provider_arns"] = capacity_provider_arns
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,21 +374,21 @@ class DaemonResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_daemon_request.UpdateDaemonRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_arn"] = daemon_arn
-        input["daemon_task_definition_arn"] = daemon_task_definition_arn
-        input["capacity_provider_arns"] = capacity_provider_arns
+        input_: aws_sdk_ecs.types.update_daemon_request.UpdateDaemonRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_arn"] = daemon_arn
+        input_["daemon_task_definition_arn"] = daemon_task_definition_arn
+        input_["capacity_provider_arns"] = capacity_provider_arns
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,27 +455,27 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_daemon_request.CreateDaemonRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_name"] = daemon_name
+        input_: aws_sdk_ecs.types.create_daemon_request.CreateDaemonRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_name"] = daemon_name
         if cluster_arn is not None:
-            input["cluster_arn"] = cluster_arn
-        input["daemon_task_definition_arn"] = daemon_task_definition_arn
-        input["capacity_provider_arns"] = capacity_provider_arns
+            input_["cluster_arn"] = cluster_arn
+        input_["daemon_task_definition_arn"] = daemon_task_definition_arn
+        input_["capacity_provider_arns"] = capacity_provider_arns
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -515,11 +515,11 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_daemon_request.DeleteDaemonRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_arn"] = daemon_arn
+        input_: aws_sdk_ecs.types.delete_daemon_request.DeleteDaemonRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_arn"] = daemon_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,11 +559,11 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_daemon_request.DescribeDaemonRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_arn"] = daemon_arn
+        input_: aws_sdk_ecs.types.describe_daemon_request.DescribeDaemonRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_arn"] = daemon_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -613,19 +613,19 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_daemon_deployments_request.ListDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_arn"] = daemon_arn
+        input_: aws_sdk_ecs.types.list_daemon_deployments_request.ListDaemonDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_arn"] = daemon_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if created_at is not None:
-            input["created_at"] = created_at
+            input_["created_at"] = created_at
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -673,18 +673,18 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_daemons_request.ListDaemonsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_daemons_request.ListDaemonsRequest = {}  # type: ignore[typeddict-item]
         if cluster_arn is not None:
-            input["cluster_arn"] = cluster_arn
+            input_["cluster_arn"] = cluster_arn
         if capacity_provider_arns is not None:
-            input["capacity_provider_arns"] = capacity_provider_arns
+            input_["capacity_provider_arns"] = capacity_provider_arns
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -740,21 +740,21 @@ class AsyncDaemonResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_daemon_request.UpdateDaemonRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_arn"] = daemon_arn
-        input["daemon_task_definition_arn"] = daemon_task_definition_arn
-        input["capacity_provider_arns"] = capacity_provider_arns
+        input_: aws_sdk_ecs.types.update_daemon_request.UpdateDaemonRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_arn"] = daemon_arn
+        input_["daemon_task_definition_arn"] = daemon_task_definition_arn
+        input_["capacity_provider_arns"] = capacity_provider_arns
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

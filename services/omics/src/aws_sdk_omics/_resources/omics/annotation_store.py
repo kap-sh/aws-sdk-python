@@ -87,25 +87,25 @@ class AnnotationStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_annotation_store_request.CreateAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.create_annotation_store_request.CreateAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
         if reference is not None:
-            input["reference"] = reference
+            input_["reference"] = reference
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if sse_config is not None:
-            input["sse_config"] = sse_config
-        input["store_format"] = store_format
+            input_["sse_config"] = sse_config
+        input_["store_format"] = store_format
         if store_options is not None:
-            input["store_options"] = store_options
+            input_["store_options"] = store_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -135,11 +135,11 @@ class AnnotationStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_annotation_store_request.GetAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.get_annotation_store_request.GetAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -174,13 +174,13 @@ class AnnotationStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_annotation_store_request.UpdateAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.update_annotation_store_request.UpdateAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,13 +215,13 @@ class AnnotationStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_annotation_store_request.DeleteAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.delete_annotation_store_request.DeleteAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,18 +262,18 @@ class AnnotationStore:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_annotation_stores_request.ListAnnotationStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_annotation_stores_request.ListAnnotationStoresRequest = {}  # type: ignore[typeddict-item]
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,25 +328,25 @@ class AsyncAnnotationStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_annotation_store_request.CreateAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.create_annotation_store_request.CreateAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
         if reference is not None:
-            input["reference"] = reference
+            input_["reference"] = reference
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if sse_config is not None:
-            input["sse_config"] = sse_config
-        input["store_format"] = store_format
+            input_["sse_config"] = sse_config
+        input_["store_format"] = store_format
         if store_options is not None:
-            input["store_options"] = store_options
+            input_["store_options"] = store_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,11 +377,11 @@ class AsyncAnnotationStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_annotation_store_request.GetAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.get_annotation_store_request.GetAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,13 +417,13 @@ class AsyncAnnotationStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_annotation_store_request.UpdateAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.update_annotation_store_request.UpdateAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,13 +459,13 @@ class AsyncAnnotationStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_annotation_store_request.DeleteAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.delete_annotation_store_request.DeleteAnnotationStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -507,18 +507,18 @@ class AsyncAnnotationStore:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_annotation_stores_request.ListAnnotationStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_annotation_stores_request.ListAnnotationStoresRequest = {}  # type: ignore[typeddict-item]
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

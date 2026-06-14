@@ -411,12 +411,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.cancel_image_creation_request.CancelImageCreationRequest = {}  # type: ignore[typeddict-item]
-        input["image_build_version_arn"] = image_build_version_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_imagebuilder.types.cancel_image_creation_request.CancelImageCreationRequest = {}  # type: ignore[typeddict-item]
+        input_["image_build_version_arn"] = image_build_version_arn
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,12 +451,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.cancel_lifecycle_execution_request.CancelLifecycleExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["lifecycle_execution_id"] = lifecycle_execution_id
-        input["client_token"] = client_token
+        input_: aws_sdk_imagebuilder.types.cancel_lifecycle_execution_request.CancelLifecycleExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_execution_id"] = lifecycle_execution_id
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -521,30 +521,30 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_component_request.CreateComponentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["semantic_version"] = semantic_version
+        input_: aws_sdk_imagebuilder.types.create_component_request.CreateComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["semantic_version"] = semantic_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if change_description is not None:
-            input["change_description"] = change_description
-        input["platform"] = platform
+            input_["change_description"] = change_description
+        input_["platform"] = platform
         if supported_os_versions is not None:
-            input["supported_os_versions"] = supported_os_versions
+            input_["supported_os_versions"] = supported_os_versions
         if data is not None:
-            input["data"] = data
+            input_["data"] = data
         if uri is not None:
-            input["uri"] = uri
+            input_["uri"] = uri
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -623,36 +623,36 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_container_recipe_request.CreateContainerRecipeRequest = {}  # type: ignore[typeddict-item]
-        input["container_type"] = container_type
-        input["name"] = name
+        input_: aws_sdk_imagebuilder.types.create_container_recipe_request.CreateContainerRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_["container_type"] = container_type
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["semantic_version"] = semantic_version
+            input_["description"] = description
+        input_["semantic_version"] = semantic_version
         if components is not None:
-            input["components"] = components
+            input_["components"] = components
         if instance_configuration is not None:
-            input["instance_configuration"] = instance_configuration
+            input_["instance_configuration"] = instance_configuration
         if dockerfile_template_data is not None:
-            input["dockerfile_template_data"] = dockerfile_template_data
+            input_["dockerfile_template_data"] = dockerfile_template_data
         if dockerfile_template_uri is not None:
-            input["dockerfile_template_uri"] = dockerfile_template_uri
+            input_["dockerfile_template_uri"] = dockerfile_template_uri
         if platform_override is not None:
-            input["platform_override"] = platform_override
+            input_["platform_override"] = platform_override
         if image_os_version_override is not None:
-            input["image_os_version_override"] = image_os_version_override
-        input["parent_image"] = parent_image
+            input_["image_os_version_override"] = image_os_version_override
+        input_["parent_image"] = parent_image
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if working_directory is not None:
-            input["working_directory"] = working_directory
-        input["target_repository"] = target_repository
+            input_["working_directory"] = working_directory
+        input_["target_repository"] = target_repository
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["client_token"] = client_token
+            input_["kms_key_id"] = kms_key_id
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -695,17 +695,17 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_distribution_configuration_request.CreateDistributionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_imagebuilder.types.create_distribution_configuration_request.CreateDistributionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["distributions"] = distributions
+            input_["description"] = description
+        input_["distributions"] = distributions
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -778,32 +778,32 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_image_request.CreateImageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.create_image_request.CreateImageRequest = {}  # type: ignore[typeddict-item]
         if image_recipe_arn is not None:
-            input["image_recipe_arn"] = image_recipe_arn
+            input_["image_recipe_arn"] = image_recipe_arn
         if container_recipe_arn is not None:
-            input["container_recipe_arn"] = container_recipe_arn
+            input_["container_recipe_arn"] = container_recipe_arn
         if distribution_configuration_arn is not None:
-            input["distribution_configuration_arn"] = distribution_configuration_arn
-        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+            input_["distribution_configuration_arn"] = distribution_configuration_arn
+        input_["infrastructure_configuration_arn"] = infrastructure_configuration_arn
         if image_tests_configuration is not None:
-            input["image_tests_configuration"] = image_tests_configuration
+            input_["image_tests_configuration"] = image_tests_configuration
         if enhanced_image_metadata_enabled is not None:
-            input["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
+            input_["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
         if image_scanning_configuration is not None:
-            input["image_scanning_configuration"] = image_scanning_configuration
+            input_["image_scanning_configuration"] = image_scanning_configuration
         if workflows is not None:
-            input["workflows"] = workflows
+            input_["workflows"] = workflows
         if execution_role is not None:
-            input["execution_role"] = execution_role
+            input_["execution_role"] = execution_role
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -890,41 +890,41 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_image_pipeline_request.CreateImagePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_imagebuilder.types.create_image_pipeline_request.CreateImagePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if image_recipe_arn is not None:
-            input["image_recipe_arn"] = image_recipe_arn
+            input_["image_recipe_arn"] = image_recipe_arn
         if container_recipe_arn is not None:
-            input["container_recipe_arn"] = container_recipe_arn
-        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+            input_["container_recipe_arn"] = container_recipe_arn
+        input_["infrastructure_configuration_arn"] = infrastructure_configuration_arn
         if distribution_configuration_arn is not None:
-            input["distribution_configuration_arn"] = distribution_configuration_arn
+            input_["distribution_configuration_arn"] = distribution_configuration_arn
         if image_tests_configuration is not None:
-            input["image_tests_configuration"] = image_tests_configuration
+            input_["image_tests_configuration"] = image_tests_configuration
         if enhanced_image_metadata_enabled is not None:
-            input["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
+            input_["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if image_tags is not None:
-            input["image_tags"] = image_tags
-        input["client_token"] = client_token
+            input_["image_tags"] = image_tags
+        input_["client_token"] = client_token
         if image_scanning_configuration is not None:
-            input["image_scanning_configuration"] = image_scanning_configuration
+            input_["image_scanning_configuration"] = image_scanning_configuration
         if workflows is not None:
-            input["workflows"] = workflows
+            input_["workflows"] = workflows
         if execution_role is not None:
-            input["execution_role"] = execution_role
+            input_["execution_role"] = execution_role
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,30 +987,30 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_image_recipe_request.CreateImageRecipeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_imagebuilder.types.create_image_recipe_request.CreateImageRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["semantic_version"] = semantic_version
+            input_["description"] = description
+        input_["semantic_version"] = semantic_version
         if components is not None:
-            input["components"] = components
-        input["parent_image"] = parent_image
+            input_["components"] = components
+        input_["parent_image"] = parent_image
         if block_device_mappings is not None:
-            input["block_device_mappings"] = block_device_mappings
+            input_["block_device_mappings"] = block_device_mappings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if working_directory is not None:
-            input["working_directory"] = working_directory
+            input_["working_directory"] = working_directory
         if additional_instance_configuration is not None:
-            input["additional_instance_configuration"] = (
+            input_["additional_instance_configuration"] = (
                 additional_instance_configuration
             )
         if ami_tags is not None:
-            input["ami_tags"] = ami_tags
-        input["client_token"] = client_token
+            input_["ami_tags"] = ami_tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1089,37 +1089,37 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_infrastructure_configuration_request.CreateInfrastructureConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_imagebuilder.types.create_infrastructure_configuration_request.CreateInfrastructureConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if instance_types is not None:
-            input["instance_types"] = instance_types
-        input["instance_profile_name"] = instance_profile_name
+            input_["instance_types"] = instance_types
+        input_["instance_profile_name"] = instance_profile_name
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if subnet_id is not None:
-            input["subnet_id"] = subnet_id
+            input_["subnet_id"] = subnet_id
         if logging is not None:
-            input["logging"] = logging
+            input_["logging"] = logging
         if key_pair is not None:
-            input["key_pair"] = key_pair
+            input_["key_pair"] = key_pair
         if terminate_instance_on_failure is not None:
-            input["terminate_instance_on_failure"] = terminate_instance_on_failure
+            input_["terminate_instance_on_failure"] = terminate_instance_on_failure
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if instance_metadata_options is not None:
-            input["instance_metadata_options"] = instance_metadata_options
+            input_["instance_metadata_options"] = instance_metadata_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if placement is not None:
-            input["placement"] = placement
-        input["client_token"] = client_token
+            input_["placement"] = placement
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1172,22 +1172,22 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_lifecycle_policy_request.CreateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_imagebuilder.types.create_lifecycle_policy_request.CreateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
-        input["execution_role"] = execution_role
-        input["resource_type"] = resource_type
-        input["policy_details"] = policy_details
-        input["resource_selection"] = resource_selection
+            input_["status"] = status
+        input_["execution_role"] = execution_role
+        input_["resource_type"] = resource_type
+        input_["policy_details"] = policy_details
+        input_["resource_selection"] = resource_selection
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1248,28 +1248,28 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["semantic_version"] = semantic_version
+        input_: aws_sdk_imagebuilder.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["semantic_version"] = semantic_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if change_description is not None:
-            input["change_description"] = change_description
+            input_["change_description"] = change_description
         if data is not None:
-            input["data"] = data
+            input_["data"] = data
         if uri is not None:
-            input["uri"] = uri
+            input_["uri"] = uri
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
-        input["type"] = type
+            input_["tags"] = tags
+        input_["client_token"] = client_token
+        input_["type"] = type
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1302,11 +1302,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_component_request.DeleteComponentRequest = {}  # type: ignore[typeddict-item]
-        input["component_build_version_arn"] = component_build_version_arn
+        input_: aws_sdk_imagebuilder.types.delete_component_request.DeleteComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["component_build_version_arn"] = component_build_version_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1339,11 +1339,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_container_recipe_request.DeleteContainerRecipeRequest = {}  # type: ignore[typeddict-item]
-        input["container_recipe_arn"] = container_recipe_arn
+        input_: aws_sdk_imagebuilder.types.delete_container_recipe_request.DeleteContainerRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_["container_recipe_arn"] = container_recipe_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1376,11 +1376,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_distribution_configuration_request.DeleteDistributionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_configuration_arn"] = distribution_configuration_arn
+        input_: aws_sdk_imagebuilder.types.delete_distribution_configuration_request.DeleteDistributionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_configuration_arn"] = distribution_configuration_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1413,11 +1413,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_image_request.DeleteImageRequest = {}  # type: ignore[typeddict-item]
-        input["image_build_version_arn"] = image_build_version_arn
+        input_: aws_sdk_imagebuilder.types.delete_image_request.DeleteImageRequest = {}  # type: ignore[typeddict-item]
+        input_["image_build_version_arn"] = image_build_version_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1450,11 +1450,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_image_pipeline_request.DeleteImagePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["image_pipeline_arn"] = image_pipeline_arn
+        input_: aws_sdk_imagebuilder.types.delete_image_pipeline_request.DeleteImagePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["image_pipeline_arn"] = image_pipeline_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,11 +1487,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_image_recipe_request.DeleteImageRecipeRequest = {}  # type: ignore[typeddict-item]
-        input["image_recipe_arn"] = image_recipe_arn
+        input_: aws_sdk_imagebuilder.types.delete_image_recipe_request.DeleteImageRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_["image_recipe_arn"] = image_recipe_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1524,11 +1524,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_infrastructure_configuration_request.DeleteInfrastructureConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+        input_: aws_sdk_imagebuilder.types.delete_infrastructure_configuration_request.DeleteInfrastructureConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["infrastructure_configuration_arn"] = infrastructure_configuration_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1561,11 +1561,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["lifecycle_policy_arn"] = lifecycle_policy_arn
+        input_: aws_sdk_imagebuilder.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_policy_arn"] = lifecycle_policy_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1598,11 +1598,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_build_version_arn"] = workflow_build_version_arn
+        input_: aws_sdk_imagebuilder.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_build_version_arn"] = workflow_build_version_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1647,18 +1647,18 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.distribute_image_request.DistributeImageRequest = {}  # type: ignore[typeddict-item]
-        input["source_image"] = source_image
-        input["distribution_configuration_arn"] = distribution_configuration_arn
-        input["execution_role"] = execution_role
+        input_: aws_sdk_imagebuilder.types.distribute_image_request.DistributeImageRequest = {}  # type: ignore[typeddict-item]
+        input_["source_image"] = source_image
+        input_["distribution_configuration_arn"] = distribution_configuration_arn
+        input_["execution_role"] = execution_role
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1691,11 +1691,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_component_request.GetComponentRequest = {}  # type: ignore[typeddict-item]
-        input["component_build_version_arn"] = component_build_version_arn
+        input_: aws_sdk_imagebuilder.types.get_component_request.GetComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["component_build_version_arn"] = component_build_version_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1728,11 +1728,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_component_policy_request.GetComponentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["component_arn"] = component_arn
+        input_: aws_sdk_imagebuilder.types.get_component_policy_request.GetComponentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["component_arn"] = component_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1765,11 +1765,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_container_recipe_request.GetContainerRecipeRequest = {}  # type: ignore[typeddict-item]
-        input["container_recipe_arn"] = container_recipe_arn
+        input_: aws_sdk_imagebuilder.types.get_container_recipe_request.GetContainerRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_["container_recipe_arn"] = container_recipe_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1802,11 +1802,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_container_recipe_policy_request.GetContainerRecipePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["container_recipe_arn"] = container_recipe_arn
+        input_: aws_sdk_imagebuilder.types.get_container_recipe_policy_request.GetContainerRecipePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["container_recipe_arn"] = container_recipe_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1839,11 +1839,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_distribution_configuration_request.GetDistributionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_configuration_arn"] = distribution_configuration_arn
+        input_: aws_sdk_imagebuilder.types.get_distribution_configuration_request.GetDistributionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_configuration_arn"] = distribution_configuration_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1876,11 +1876,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_image_request.GetImageRequest = {}  # type: ignore[typeddict-item]
-        input["image_build_version_arn"] = image_build_version_arn
+        input_: aws_sdk_imagebuilder.types.get_image_request.GetImageRequest = {}  # type: ignore[typeddict-item]
+        input_["image_build_version_arn"] = image_build_version_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1913,11 +1913,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_image_pipeline_request.GetImagePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["image_pipeline_arn"] = image_pipeline_arn
+        input_: aws_sdk_imagebuilder.types.get_image_pipeline_request.GetImagePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["image_pipeline_arn"] = image_pipeline_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1950,11 +1950,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_image_policy_request.GetImagePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["image_arn"] = image_arn
+        input_: aws_sdk_imagebuilder.types.get_image_policy_request.GetImagePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["image_arn"] = image_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1987,11 +1987,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_image_recipe_request.GetImageRecipeRequest = {}  # type: ignore[typeddict-item]
-        input["image_recipe_arn"] = image_recipe_arn
+        input_: aws_sdk_imagebuilder.types.get_image_recipe_request.GetImageRecipeRequest = {}  # type: ignore[typeddict-item]
+        input_["image_recipe_arn"] = image_recipe_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2024,11 +2024,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_image_recipe_policy_request.GetImageRecipePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["image_recipe_arn"] = image_recipe_arn
+        input_: aws_sdk_imagebuilder.types.get_image_recipe_policy_request.GetImageRecipePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["image_recipe_arn"] = image_recipe_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2061,11 +2061,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_infrastructure_configuration_request.GetInfrastructureConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+        input_: aws_sdk_imagebuilder.types.get_infrastructure_configuration_request.GetInfrastructureConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["infrastructure_configuration_arn"] = infrastructure_configuration_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2098,11 +2098,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_lifecycle_execution_request.GetLifecycleExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["lifecycle_execution_id"] = lifecycle_execution_id
+        input_: aws_sdk_imagebuilder.types.get_lifecycle_execution_request.GetLifecycleExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_execution_id"] = lifecycle_execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2135,11 +2135,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_lifecycle_policy_request.GetLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["lifecycle_policy_arn"] = lifecycle_policy_arn
+        input_: aws_sdk_imagebuilder.types.get_lifecycle_policy_request.GetLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_policy_arn"] = lifecycle_policy_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2178,14 +2178,14 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_marketplace_resource_request.GetMarketplaceResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_imagebuilder.types.get_marketplace_resource_request.GetMarketplaceResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_arn"] = resource_arn
         if resource_location is not None:
-            input["resource_location"] = resource_location
+            input_["resource_location"] = resource_location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2218,11 +2218,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_build_version_arn"] = workflow_build_version_arn
+        input_: aws_sdk_imagebuilder.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_build_version_arn"] = workflow_build_version_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2255,11 +2255,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_workflow_execution_request.GetWorkflowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_execution_id"] = workflow_execution_id
+        input_: aws_sdk_imagebuilder.types.get_workflow_execution_request.GetWorkflowExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_execution_id"] = workflow_execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2292,11 +2292,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.get_workflow_step_execution_request.GetWorkflowStepExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["step_execution_id"] = step_execution_id
+        input_: aws_sdk_imagebuilder.types.get_workflow_step_execution_request.GetWorkflowStepExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["step_execution_id"] = step_execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2359,28 +2359,28 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.import_component_request.ImportComponentRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["semantic_version"] = semantic_version
+        input_: aws_sdk_imagebuilder.types.import_component_request.ImportComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["semantic_version"] = semantic_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if change_description is not None:
-            input["change_description"] = change_description
-        input["type"] = type
-        input["format"] = format
-        input["platform"] = platform
+            input_["change_description"] = change_description
+        input_["type"] = type
+        input_["format"] = format
+        input_["platform"] = platform
         if data is not None:
-            input["data"] = data
+            input_["data"] = data
         if uri is not None:
-            input["uri"] = uri
+            input_["uri"] = uri
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2449,29 +2449,29 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.import_disk_image_request.ImportDiskImageRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["semantic_version"] = semantic_version
+        input_: aws_sdk_imagebuilder.types.import_disk_image_request.ImportDiskImageRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["semantic_version"] = semantic_version
         if description is not None:
-            input["description"] = description
-        input["platform"] = platform
-        input["os_version"] = os_version
+            input_["description"] = description
+        input_["platform"] = platform
+        input_["os_version"] = os_version
         if execution_role is not None:
-            input["execution_role"] = execution_role
-        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
-        input["uri"] = uri
+            input_["execution_role"] = execution_role
+        input_["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+        input_["uri"] = uri
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if register_image_options is not None:
-            input["register_image_options"] = register_image_options
+            input_["register_image_options"] = register_image_options
         if windows_configuration is not None:
-            input["windows_configuration"] = windows_configuration
-        input["client_token"] = client_token
+            input_["windows_configuration"] = windows_configuration
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2524,23 +2524,23 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.import_vm_image_request.ImportVmImageRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["semantic_version"] = semantic_version
+        input_: aws_sdk_imagebuilder.types.import_vm_image_request.ImportVmImageRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["semantic_version"] = semantic_version
         if description is not None:
-            input["description"] = description
-        input["platform"] = platform
+            input_["description"] = description
+        input_["platform"] = platform
         if os_version is not None:
-            input["os_version"] = os_version
-        input["vm_import_task_id"] = vm_import_task_id
+            input_["os_version"] = os_version
+        input_["vm_import_task_id"] = vm_import_task_id
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2583,16 +2583,16 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_component_build_versions_request.ListComponentBuildVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_component_build_versions_request.ListComponentBuildVersionsRequest = {}  # type: ignore[typeddict-item]
         if component_version_arn is not None:
-            input["component_version_arn"] = component_version_arn
+            input_["component_version_arn"] = component_version_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2666,20 +2666,20 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_components_request.ListComponentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_components_request.ListComponentsRequest = {}  # type: ignore[typeddict-item]
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if by_name is not None:
-            input["by_name"] = by_name
+            input_["by_name"] = by_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2753,18 +2753,18 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_container_recipes_request.ListContainerRecipesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_container_recipes_request.ListContainerRecipesRequest = {}  # type: ignore[typeddict-item]
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2834,16 +2834,16 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_distribution_configurations_request.ListDistributionConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_distribution_configurations_request.ListDistributionConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2917,18 +2917,18 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_image_build_versions_request.ListImageBuildVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_image_build_versions_request.ListImageBuildVersionsRequest = {}  # type: ignore[typeddict-item]
         if image_version_arn is not None:
-            input["image_version_arn"] = image_version_arn
+            input_["image_version_arn"] = image_version_arn
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3000,15 +3000,15 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_image_packages_request.ListImagePackagesRequest = {}  # type: ignore[typeddict-item]
-        input["image_build_version_arn"] = image_build_version_arn
+        input_: aws_sdk_imagebuilder.types.list_image_packages_request.ListImagePackagesRequest = {}  # type: ignore[typeddict-item]
+        input_["image_build_version_arn"] = image_build_version_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3078,17 +3078,17 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_image_pipeline_images_request.ListImagePipelineImagesRequest = {}  # type: ignore[typeddict-item]
-        input["image_pipeline_arn"] = image_pipeline_arn
+        input_: aws_sdk_imagebuilder.types.list_image_pipeline_images_request.ListImagePipelineImagesRequest = {}  # type: ignore[typeddict-item]
+        input_["image_pipeline_arn"] = image_pipeline_arn
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3158,16 +3158,16 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_image_pipelines_request.ListImagePipelinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_image_pipelines_request.ListImagePipelinesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3237,18 +3237,18 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_image_recipes_request.ListImageRecipesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_image_recipes_request.ListImageRecipesRequest = {}  # type: ignore[typeddict-item]
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3326,22 +3326,22 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_images_request.ListImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_images_request.ListImagesRequest = {}  # type: ignore[typeddict-item]
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if by_name is not None:
-            input["by_name"] = by_name
+            input_["by_name"] = by_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_deprecated is not None:
-            input["include_deprecated"] = include_deprecated
+            input_["include_deprecated"] = include_deprecated
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3412,14 +3412,14 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_image_scan_finding_aggregations_request.ListImageScanFindingAggregationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_image_scan_finding_aggregations_request.ListImageScanFindingAggregationsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3485,16 +3485,16 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_image_scan_findings_request.ListImageScanFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_image_scan_findings_request.ListImageScanFindingsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3564,16 +3564,16 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_infrastructure_configurations_request.ListInfrastructureConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_infrastructure_configurations_request.ListInfrastructureConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3647,17 +3647,17 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_lifecycle_execution_resources_request.ListLifecycleExecutionResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["lifecycle_execution_id"] = lifecycle_execution_id
+        input_: aws_sdk_imagebuilder.types.list_lifecycle_execution_resources_request.ListLifecycleExecutionResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_execution_id"] = lifecycle_execution_id
         if parent_resource_id is not None:
-            input["parent_resource_id"] = parent_resource_id
+            input_["parent_resource_id"] = parent_resource_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3729,15 +3729,15 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_lifecycle_executions_request.ListLifecycleExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_lifecycle_executions_request.ListLifecycleExecutionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_arn"] = resource_arn
+            input_["next_token"] = next_token
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3805,16 +3805,16 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_lifecycle_policies_request.ListLifecyclePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_lifecycle_policies_request.ListLifecyclePoliciesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3874,11 +3874,11 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_imagebuilder.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3917,14 +3917,14 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_waiting_workflow_steps_request.ListWaitingWorkflowStepsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_waiting_workflow_steps_request.ListWaitingWorkflowStepsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3992,16 +3992,16 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_workflow_build_versions_request.ListWorkflowBuildVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_workflow_build_versions_request.ListWorkflowBuildVersionsRequest = {}  # type: ignore[typeddict-item]
         if workflow_version_arn is not None:
-            input["workflow_version_arn"] = workflow_version_arn
+            input_["workflow_version_arn"] = workflow_version_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4071,15 +4071,15 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_workflow_executions_request.ListWorkflowExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_workflow_executions_request.ListWorkflowExecutionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["image_build_version_arn"] = image_build_version_arn
+            input_["next_token"] = next_token
+        input_["image_build_version_arn"] = image_build_version_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4151,20 +4151,20 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if by_name is not None:
-            input["by_name"] = by_name
+            input_["by_name"] = by_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4236,15 +4236,15 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.list_workflow_step_executions_request.ListWorkflowStepExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_imagebuilder.types.list_workflow_step_executions_request.ListWorkflowStepExecutionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["workflow_execution_id"] = workflow_execution_id
+            input_["next_token"] = next_token
+        input_["workflow_execution_id"] = workflow_execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4306,12 +4306,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.put_component_policy_request.PutComponentPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["component_arn"] = component_arn
-        input["policy"] = policy
+        input_: aws_sdk_imagebuilder.types.put_component_policy_request.PutComponentPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["component_arn"] = component_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4346,12 +4346,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.put_container_recipe_policy_request.PutContainerRecipePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["container_recipe_arn"] = container_recipe_arn
-        input["policy"] = policy
+        input_: aws_sdk_imagebuilder.types.put_container_recipe_policy_request.PutContainerRecipePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["container_recipe_arn"] = container_recipe_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4386,12 +4386,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.put_image_policy_request.PutImagePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["image_arn"] = image_arn
-        input["policy"] = policy
+        input_: aws_sdk_imagebuilder.types.put_image_policy_request.PutImagePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["image_arn"] = image_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4426,12 +4426,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.put_image_recipe_policy_request.PutImageRecipePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["image_recipe_arn"] = image_recipe_arn
-        input["policy"] = policy
+        input_: aws_sdk_imagebuilder.types.put_image_recipe_policy_request.PutImageRecipePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["image_recipe_arn"] = image_recipe_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4466,12 +4466,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.retry_image_request.RetryImageRequest = {}  # type: ignore[typeddict-item]
-        input["image_build_version_arn"] = image_build_version_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_imagebuilder.types.retry_image_request.RetryImageRequest = {}  # type: ignore[typeddict-item]
+        input_["image_build_version_arn"] = image_build_version_arn
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4514,16 +4514,16 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.send_workflow_step_action_request.SendWorkflowStepActionRequest = {}  # type: ignore[typeddict-item]
-        input["step_execution_id"] = step_execution_id
-        input["image_build_version_arn"] = image_build_version_arn
-        input["action"] = action
+        input_: aws_sdk_imagebuilder.types.send_workflow_step_action_request.SendWorkflowStepActionRequest = {}  # type: ignore[typeddict-item]
+        input_["step_execution_id"] = step_execution_id
+        input_["image_build_version_arn"] = image_build_version_arn
+        input_["action"] = action
         if reason is not None:
-            input["reason"] = reason
-        input["client_token"] = client_token
+            input_["reason"] = reason
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4560,14 +4560,14 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.start_image_pipeline_execution_request.StartImagePipelineExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["image_pipeline_arn"] = image_pipeline_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_imagebuilder.types.start_image_pipeline_execution_request.StartImagePipelineExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["image_pipeline_arn"] = image_pipeline_arn
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4620,21 +4620,21 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.start_resource_state_update_request.StartResourceStateUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["state"] = state
+        input_: aws_sdk_imagebuilder.types.start_resource_state_update_request.StartResourceStateUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["state"] = state
         if execution_role is not None:
-            input["execution_role"] = execution_role
+            input_["execution_role"] = execution_role
         if include_resources is not None:
-            input["include_resources"] = include_resources
+            input_["include_resources"] = include_resources
         if exclusion_rules is not None:
-            input["exclusion_rules"] = exclusion_rules
+            input_["exclusion_rules"] = exclusion_rules
         if update_at is not None:
-            input["update_at"] = update_at
-        input["client_token"] = client_token
+            input_["update_at"] = update_at
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4669,12 +4669,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_imagebuilder.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4709,12 +4709,12 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_imagebuilder.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4755,15 +4755,15 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.update_distribution_configuration_request.UpdateDistributionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["distribution_configuration_arn"] = distribution_configuration_arn
+        input_: aws_sdk_imagebuilder.types.update_distribution_configuration_request.UpdateDistributionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["distribution_configuration_arn"] = distribution_configuration_arn
         if description is not None:
-            input["description"] = description
-        input["distributions"] = distributions
-        input["client_token"] = client_token
+            input_["description"] = description
+        input_["distributions"] = distributions
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4848,39 +4848,39 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.update_image_pipeline_request.UpdateImagePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["image_pipeline_arn"] = image_pipeline_arn
+        input_: aws_sdk_imagebuilder.types.update_image_pipeline_request.UpdateImagePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["image_pipeline_arn"] = image_pipeline_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if image_recipe_arn is not None:
-            input["image_recipe_arn"] = image_recipe_arn
+            input_["image_recipe_arn"] = image_recipe_arn
         if container_recipe_arn is not None:
-            input["container_recipe_arn"] = container_recipe_arn
-        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+            input_["container_recipe_arn"] = container_recipe_arn
+        input_["infrastructure_configuration_arn"] = infrastructure_configuration_arn
         if distribution_configuration_arn is not None:
-            input["distribution_configuration_arn"] = distribution_configuration_arn
+            input_["distribution_configuration_arn"] = distribution_configuration_arn
         if image_tests_configuration is not None:
-            input["image_tests_configuration"] = image_tests_configuration
+            input_["image_tests_configuration"] = image_tests_configuration
         if enhanced_image_metadata_enabled is not None:
-            input["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
+            input_["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if status is not None:
-            input["status"] = status
-        input["client_token"] = client_token
+            input_["status"] = status
+        input_["client_token"] = client_token
         if image_scanning_configuration is not None:
-            input["image_scanning_configuration"] = image_scanning_configuration
+            input_["image_scanning_configuration"] = image_scanning_configuration
         if workflows is not None:
-            input["workflows"] = workflows
+            input_["workflows"] = workflows
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if execution_role is not None:
-            input["execution_role"] = execution_role
+            input_["execution_role"] = execution_role
         if image_tags is not None:
-            input["image_tags"] = image_tags
+            input_["image_tags"] = image_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4957,35 +4957,35 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.update_infrastructure_configuration_request.UpdateInfrastructureConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+        input_: aws_sdk_imagebuilder.types.update_infrastructure_configuration_request.UpdateInfrastructureConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["infrastructure_configuration_arn"] = infrastructure_configuration_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if instance_types is not None:
-            input["instance_types"] = instance_types
-        input["instance_profile_name"] = instance_profile_name
+            input_["instance_types"] = instance_types
+        input_["instance_profile_name"] = instance_profile_name
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if subnet_id is not None:
-            input["subnet_id"] = subnet_id
+            input_["subnet_id"] = subnet_id
         if logging is not None:
-            input["logging"] = logging
+            input_["logging"] = logging
         if key_pair is not None:
-            input["key_pair"] = key_pair
+            input_["key_pair"] = key_pair
         if terminate_instance_on_failure is not None:
-            input["terminate_instance_on_failure"] = terminate_instance_on_failure
+            input_["terminate_instance_on_failure"] = terminate_instance_on_failure
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if instance_metadata_options is not None:
-            input["instance_metadata_options"] = instance_metadata_options
+            input_["instance_metadata_options"] = instance_metadata_options
         if placement is not None:
-            input["placement"] = placement
-        input["client_token"] = client_token
+            input_["placement"] = placement
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5036,20 +5036,20 @@ class imagebuilderClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_imagebuilder.types.update_lifecycle_policy_request.UpdateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["lifecycle_policy_arn"] = lifecycle_policy_arn
+        input_: aws_sdk_imagebuilder.types.update_lifecycle_policy_request.UpdateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["lifecycle_policy_arn"] = lifecycle_policy_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
-        input["execution_role"] = execution_role
-        input["resource_type"] = resource_type
-        input["policy_details"] = policy_details
-        input["resource_selection"] = resource_selection
-        input["client_token"] = client_token
+            input_["status"] = status
+        input_["execution_role"] = execution_role
+        input_["resource_type"] = resource_type
+        input_["policy_details"] = policy_details
+        input_["resource_selection"] = resource_selection
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

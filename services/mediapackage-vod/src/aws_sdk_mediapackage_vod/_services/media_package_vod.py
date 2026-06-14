@@ -203,13 +203,13 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.configure_logs_request.ConfigureLogsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage_vod.types.configure_logs_request.ConfigureLogsRequest = {}  # type: ignore[typeddict-item]
         if egress_access_logs is not None:
-            input["egress_access_logs"] = egress_access_logs
-        input["id"] = id
+            input_["egress_access_logs"] = egress_access_logs
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,18 +253,18 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.create_asset_request.CreateAssetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["packaging_group_id"] = packaging_group_id
+        input_: aws_sdk_mediapackage_vod.types.create_asset_request.CreateAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["packaging_group_id"] = packaging_group_id
         if resource_id is not None:
-            input["resource_id"] = resource_id
-        input["source_arn"] = source_arn
-        input["source_role_arn"] = source_role_arn
+            input_["resource_id"] = resource_id
+        input_["source_arn"] = source_arn
+        input_["source_role_arn"] = source_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,22 +312,22 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.create_packaging_configuration_request.CreatePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage_vod.types.create_packaging_configuration_request.CreatePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
         if cmaf_package is not None:
-            input["cmaf_package"] = cmaf_package
+            input_["cmaf_package"] = cmaf_package
         if dash_package is not None:
-            input["dash_package"] = dash_package
+            input_["dash_package"] = dash_package
         if hls_package is not None:
-            input["hls_package"] = hls_package
-        input["id"] = id
+            input_["hls_package"] = hls_package
+        input_["id"] = id
         if mss_package is not None:
-            input["mss_package"] = mss_package
-        input["packaging_group_id"] = packaging_group_id
+            input_["mss_package"] = mss_package
+        input_["packaging_group_id"] = packaging_group_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -367,17 +367,17 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.create_packaging_group_request.CreatePackagingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage_vod.types.create_packaging_group_request.CreatePackagingGroupRequest = {}  # type: ignore[typeddict-item]
         if authorization is not None:
-            input["authorization"] = authorization
+            input_["authorization"] = authorization
         if egress_access_logs is not None:
-            input["egress_access_logs"] = egress_access_logs
-        input["id"] = id
+            input_["egress_access_logs"] = egress_access_logs
+        input_["id"] = id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,11 +410,11 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage_vod.types.delete_asset_request.DeleteAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,11 +447,11 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.delete_packaging_configuration_request.DeletePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage_vod.types.delete_packaging_configuration_request.DeletePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,11 +484,11 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.delete_packaging_group_request.DeletePackagingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage_vod.types.delete_packaging_group_request.DeletePackagingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -521,11 +521,11 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.describe_asset_request.DescribeAssetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage_vod.types.describe_asset_request.DescribeAssetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -558,11 +558,11 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.describe_packaging_configuration_request.DescribePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage_vod.types.describe_packaging_configuration_request.DescribePackagingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,11 +595,11 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.describe_packaging_group_request.DescribePackagingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediapackage_vod.types.describe_packaging_group_request.DescribePackagingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -640,16 +640,16 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.list_assets_request.ListAssetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage_vod.types.list_assets_request.ListAssetsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if packaging_group_id is not None:
-            input["packaging_group_id"] = packaging_group_id
+            input_["packaging_group_id"] = packaging_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -717,16 +717,16 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.list_packaging_configurations_request.ListPackagingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage_vod.types.list_packaging_configurations_request.ListPackagingConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if packaging_group_id is not None:
-            input["packaging_group_id"] = packaging_group_id
+            input_["packaging_group_id"] = packaging_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -790,14 +790,14 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.list_packaging_groups_request.ListPackagingGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage_vod.types.list_packaging_groups_request.ListPackagingGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -853,11 +853,11 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mediapackage_vod.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -890,12 +890,12 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mediapackage_vod.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -928,12 +928,12 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mediapackage_vod.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -969,13 +969,13 @@ class MediaPackageVodClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediapackage_vod.types.update_packaging_group_request.UpdatePackagingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediapackage_vod.types.update_packaging_group_request.UpdatePackagingGroupRequest = {}  # type: ignore[typeddict-item]
         if authorization is not None:
-            input["authorization"] = authorization
-        input["id"] = id
+            input_["authorization"] = authorization
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

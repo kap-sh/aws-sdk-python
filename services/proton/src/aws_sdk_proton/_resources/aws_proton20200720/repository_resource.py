@@ -71,17 +71,17 @@ class RepositoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_repository_input.CreateRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["name"] = name
-        input["connection_arn"] = connection_arn
+        input_: aws_sdk_proton.types.create_repository_input.CreateRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["name"] = name
+        input_["connection_arn"] = connection_arn
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -116,12 +116,12 @@ class RepositoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_repository_input.GetRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["name"] = name
+        input_: aws_sdk_proton.types.get_repository_input.GetRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -156,12 +156,12 @@ class RepositoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_repository_input.DeleteRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["name"] = name
+        input_: aws_sdk_proton.types.delete_repository_input.DeleteRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,14 +198,14 @@ class RepositoryResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_repositories_input.ListRepositoriesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_repositories_input.ListRepositoriesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,17 +252,17 @@ class AsyncRepositoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_repository_input.CreateRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["name"] = name
-        input["connection_arn"] = connection_arn
+        input_: aws_sdk_proton.types.create_repository_input.CreateRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["name"] = name
+        input_["connection_arn"] = connection_arn
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,12 +298,12 @@ class AsyncRepositoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_repository_input.GetRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["name"] = name
+        input_: aws_sdk_proton.types.get_repository_input.GetRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,12 +339,12 @@ class AsyncRepositoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_repository_input.DeleteRepositoryInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
-        input["name"] = name
+        input_: aws_sdk_proton.types.delete_repository_input.DeleteRepositoryInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -382,14 +382,14 @@ class AsyncRepositoryResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_repositories_input.ListRepositoriesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_repositories_input.ListRepositoriesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

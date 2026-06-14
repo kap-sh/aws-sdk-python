@@ -76,15 +76,15 @@ class VodSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_vod_source_request.CreateVodSourceRequest = {}  # type: ignore[typeddict-item]
-        input["http_package_configurations"] = http_package_configurations
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.create_vod_source_request.CreateVodSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["http_package_configurations"] = http_package_configurations
+        input_["source_location_name"] = source_location_name
         if tags is not None:
-            input["tags"] = tags
-        input["vod_source_name"] = vod_source_name
+            input_["tags"] = tags
+        input_["vod_source_name"] = vod_source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -119,12 +119,12 @@ class VodSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.describe_vod_source_request.DescribeVodSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_name"] = source_location_name
-        input["vod_source_name"] = vod_source_name
+        input_: aws_sdk_mediatailor.types.describe_vod_source_request.DescribeVodSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_name"] = source_location_name
+        input_["vod_source_name"] = vod_source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -161,13 +161,13 @@ class VodSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.update_vod_source_request.UpdateVodSourceRequest = {}  # type: ignore[typeddict-item]
-        input["http_package_configurations"] = http_package_configurations
-        input["source_location_name"] = source_location_name
-        input["vod_source_name"] = vod_source_name
+        input_: aws_sdk_mediatailor.types.update_vod_source_request.UpdateVodSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["http_package_configurations"] = http_package_configurations
+        input_["source_location_name"] = source_location_name
+        input_["vod_source_name"] = vod_source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,12 +202,12 @@ class VodSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_vod_source_request.DeleteVodSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_name"] = source_location_name
-        input["vod_source_name"] = vod_source_name
+        input_: aws_sdk_mediatailor.types.delete_vod_source_request.DeleteVodSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_name"] = source_location_name
+        input_["vod_source_name"] = vod_source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,15 +246,15 @@ class VodSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_vod_sources_request.ListVodSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_vod_sources_request.ListVodSourcesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["source_location_name"] = source_location_name
+            input_["next_token"] = next_token
+        input_["source_location_name"] = source_location_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,15 +301,15 @@ class AsyncVodSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_vod_source_request.CreateVodSourceRequest = {}  # type: ignore[typeddict-item]
-        input["http_package_configurations"] = http_package_configurations
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.create_vod_source_request.CreateVodSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["http_package_configurations"] = http_package_configurations
+        input_["source_location_name"] = source_location_name
         if tags is not None:
-            input["tags"] = tags
-        input["vod_source_name"] = vod_source_name
+            input_["tags"] = tags
+        input_["vod_source_name"] = vod_source_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,12 +345,12 @@ class AsyncVodSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.describe_vod_source_request.DescribeVodSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_name"] = source_location_name
-        input["vod_source_name"] = vod_source_name
+        input_: aws_sdk_mediatailor.types.describe_vod_source_request.DescribeVodSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_name"] = source_location_name
+        input_["vod_source_name"] = vod_source_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,13 +388,13 @@ class AsyncVodSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.update_vod_source_request.UpdateVodSourceRequest = {}  # type: ignore[typeddict-item]
-        input["http_package_configurations"] = http_package_configurations
-        input["source_location_name"] = source_location_name
-        input["vod_source_name"] = vod_source_name
+        input_: aws_sdk_mediatailor.types.update_vod_source_request.UpdateVodSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["http_package_configurations"] = http_package_configurations
+        input_["source_location_name"] = source_location_name
+        input_["vod_source_name"] = vod_source_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -430,12 +430,12 @@ class AsyncVodSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_vod_source_request.DeleteVodSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source_location_name"] = source_location_name
-        input["vod_source_name"] = vod_source_name
+        input_: aws_sdk_mediatailor.types.delete_vod_source_request.DeleteVodSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_location_name"] = source_location_name
+        input_["vod_source_name"] = vod_source_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -475,15 +475,15 @@ class AsyncVodSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_vod_sources_request.ListVodSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_vod_sources_request.ListVodSourcesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["source_location_name"] = source_location_name
+            input_["next_token"] = next_token
+        input_["source_location_name"] = source_location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

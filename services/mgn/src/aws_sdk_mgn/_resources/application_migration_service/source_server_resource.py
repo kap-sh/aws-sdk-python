@@ -125,15 +125,15 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_source_server_request.UpdateSourceServerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.update_source_server_request.UpdateSourceServerRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
-        input["source_server_id"] = source_server_id
+            input_["account_id"] = account_id
+        input_["source_server_id"] = source_server_id
         if connector_action is not None:
-            input["connector_action"] = connector_action
+            input_["connector_action"] = connector_action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,13 +168,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.delete_source_server_request.DeleteSourceServerRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.delete_source_server_request.DeleteSourceServerRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,18 +219,18 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.describe_source_servers_request.DescribeSourceServersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.describe_source_servers_request.DescribeSourceServersRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,14 +265,14 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.change_server_life_cycle_state_request.ChangeServerLifeCycleStateRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
-        input["life_cycle"] = life_cycle
+        input_: aws_sdk_mgn.types.change_server_life_cycle_state_request.ChangeServerLifeCycleStateRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
+        input_["life_cycle"] = life_cycle
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,13 +305,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.disconnect_from_service_request.DisconnectFromServiceRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.disconnect_from_service_request.DisconnectFromServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,13 +344,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.finalize_cutover_request.FinalizeCutoverRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.finalize_cutover_request.FinalizeCutoverRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,13 +385,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.get_launch_configuration_request.GetLaunchConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.get_launch_configuration_request.GetLaunchConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,13 +426,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.get_replication_configuration_request.GetReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.get_replication_configuration_request.GetReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,19 +479,19 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_source_server_actions_request.ListSourceServerActionsRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.list_source_server_actions_request.ListSourceServerActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -524,13 +524,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.mark_as_archived_request.MarkAsArchivedRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.mark_as_archived_request.MarkAsArchivedRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -563,13 +563,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.pause_replication_request.PauseReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.pause_replication_request.PauseReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,33 +638,33 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.put_source_server_action_request.PutSourceServerActionRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
-        input["action_name"] = action_name
-        input["document_identifier"] = document_identifier
-        input["order"] = order
-        input["action_id"] = action_id
+        input_: aws_sdk_mgn.types.put_source_server_action_request.PutSourceServerActionRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
+        input_["action_name"] = action_name
+        input_["document_identifier"] = document_identifier
+        input_["order"] = order
+        input_["action_id"] = action_id
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if active is not None:
-            input["active"] = active
+            input_["active"] = active
         if timeout_seconds is not None:
-            input["timeout_seconds"] = timeout_seconds
+            input_["timeout_seconds"] = timeout_seconds
         if must_succeed_for_cutover is not None:
-            input["must_succeed_for_cutover"] = must_succeed_for_cutover
+            input_["must_succeed_for_cutover"] = must_succeed_for_cutover
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if external_parameters is not None:
-            input["external_parameters"] = external_parameters
+            input_["external_parameters"] = external_parameters
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -701,14 +701,14 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.remove_source_server_action_request.RemoveSourceServerActionRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
-        input["action_id"] = action_id
+        input_: aws_sdk_mgn.types.remove_source_server_action_request.RemoveSourceServerActionRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
+        input_["action_id"] = action_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -741,13 +741,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.resume_replication_request.ResumeReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.resume_replication_request.ResumeReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -780,13 +780,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.retry_data_replication_request.RetryDataReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.retry_data_replication_request.RetryDataReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -819,13 +819,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.start_replication_request.StartReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.start_replication_request.StartReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -858,13 +858,13 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.stop_replication_request.StopReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.stop_replication_request.StopReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -928,35 +928,35 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_launch_configuration_request.UpdateLaunchConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.update_launch_configuration_request.UpdateLaunchConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if launch_disposition is not None:
-            input["launch_disposition"] = launch_disposition
+            input_["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = (
+            input_["target_instance_type_right_sizing_method"] = (
                 target_instance_type_right_sizing_method
             )
         if copy_private_ip is not None:
-            input["copy_private_ip"] = copy_private_ip
+            input_["copy_private_ip"] = copy_private_ip
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if licensing is not None:
-            input["licensing"] = licensing
+            input_["licensing"] = licensing
         if boot_mode is not None:
-            input["boot_mode"] = boot_mode
+            input_["boot_mode"] = boot_mode
         if post_launch_actions is not None:
-            input["post_launch_actions"] = post_launch_actions
+            input_["post_launch_actions"] = post_launch_actions
         if enable_map_auto_tagging is not None:
-            input["enable_map_auto_tagging"] = enable_map_auto_tagging
+            input_["enable_map_auto_tagging"] = enable_map_auto_tagging
         if map_auto_tagging_mpe_id is not None:
-            input["map_auto_tagging_mpe_id"] = map_auto_tagging_mpe_id
+            input_["map_auto_tagging_mpe_id"] = map_auto_tagging_mpe_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1043,49 +1043,55 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_replication_configuration_request.UpdateReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.update_replication_configuration_request.UpdateReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if staging_area_subnet_id is not None:
-            input["staging_area_subnet_id"] = staging_area_subnet_id
+            input_["staging_area_subnet_id"] = staging_area_subnet_id
         if associate_default_security_group is not None:
-            input["associate_default_security_group"] = associate_default_security_group
+            input_["associate_default_security_group"] = (
+                associate_default_security_group
+            )
         if replication_servers_security_groups_i_ds is not None:
-            input["replication_servers_security_groups_i_ds"] = (
+            input_["replication_servers_security_groups_i_ds"] = (
                 replication_servers_security_groups_i_ds
             )
         if replication_server_instance_type is not None:
-            input["replication_server_instance_type"] = replication_server_instance_type
+            input_["replication_server_instance_type"] = (
+                replication_server_instance_type
+            )
         if use_dedicated_replication_server is not None:
-            input["use_dedicated_replication_server"] = use_dedicated_replication_server
+            input_["use_dedicated_replication_server"] = (
+                use_dedicated_replication_server
+            )
         if default_large_staging_disk_type is not None:
-            input["default_large_staging_disk_type"] = default_large_staging_disk_type
+            input_["default_large_staging_disk_type"] = default_large_staging_disk_type
         if replicated_disks is not None:
-            input["replicated_disks"] = replicated_disks
+            input_["replicated_disks"] = replicated_disks
         if ebs_encryption is not None:
-            input["ebs_encryption"] = ebs_encryption
+            input_["ebs_encryption"] = ebs_encryption
         if ebs_encryption_key_arn is not None:
-            input["ebs_encryption_key_arn"] = ebs_encryption_key_arn
+            input_["ebs_encryption_key_arn"] = ebs_encryption_key_arn
         if bandwidth_throttling is not None:
-            input["bandwidth_throttling"] = bandwidth_throttling
+            input_["bandwidth_throttling"] = bandwidth_throttling
         if data_plane_routing is not None:
-            input["data_plane_routing"] = data_plane_routing
+            input_["data_plane_routing"] = data_plane_routing
         if create_public_ip is not None:
-            input["create_public_ip"] = create_public_ip
+            input_["create_public_ip"] = create_public_ip
         if staging_area_tags is not None:
-            input["staging_area_tags"] = staging_area_tags
+            input_["staging_area_tags"] = staging_area_tags
         if use_fips_endpoint is not None:
-            input["use_fips_endpoint"] = use_fips_endpoint
+            input_["use_fips_endpoint"] = use_fips_endpoint
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if internet_protocol is not None:
-            input["internet_protocol"] = internet_protocol
+            input_["internet_protocol"] = internet_protocol
         if store_snapshot_on_local_zone is not None:
-            input["store_snapshot_on_local_zone"] = store_snapshot_on_local_zone
+            input_["store_snapshot_on_local_zone"] = store_snapshot_on_local_zone
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1120,14 +1126,14 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_source_server_replication_type_request.UpdateSourceServerReplicationTypeRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
-        input["replication_type"] = replication_type
+        input_: aws_sdk_mgn.types.update_source_server_replication_type_request.UpdateSourceServerReplicationTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
+        input_["replication_type"] = replication_type
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1164,15 +1170,15 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.start_cutover_request.StartCutoverRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_i_ds"] = source_server_i_ds
+        input_: aws_sdk_mgn.types.start_cutover_request.StartCutoverRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_i_ds"] = source_server_i_ds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1209,15 +1215,15 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.start_test_request.StartTestRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_i_ds"] = source_server_i_ds
+        input_: aws_sdk_mgn.types.start_test_request.StartTestRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_i_ds"] = source_server_i_ds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1254,15 +1260,15 @@ class SourceServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.terminate_target_instances_request.TerminateTargetInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_i_ds"] = source_server_i_ds
+        input_: aws_sdk_mgn.types.terminate_target_instances_request.TerminateTargetInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_i_ds"] = source_server_i_ds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1305,15 +1311,15 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_source_server_request.UpdateSourceServerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.update_source_server_request.UpdateSourceServerRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
-        input["source_server_id"] = source_server_id
+            input_["account_id"] = account_id
+        input_["source_server_id"] = source_server_id
         if connector_action is not None:
-            input["connector_action"] = connector_action
+            input_["connector_action"] = connector_action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1349,13 +1355,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.delete_source_server_request.DeleteSourceServerRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.delete_source_server_request.DeleteSourceServerRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1401,18 +1407,18 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.describe_source_servers_request.DescribeSourceServersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.describe_source_servers_request.DescribeSourceServersRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1448,14 +1454,14 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.change_server_life_cycle_state_request.ChangeServerLifeCycleStateRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
-        input["life_cycle"] = life_cycle
+        input_: aws_sdk_mgn.types.change_server_life_cycle_state_request.ChangeServerLifeCycleStateRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
+        input_["life_cycle"] = life_cycle
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1489,13 +1495,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.disconnect_from_service_request.DisconnectFromServiceRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.disconnect_from_service_request.DisconnectFromServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1529,13 +1535,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.finalize_cutover_request.FinalizeCutoverRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.finalize_cutover_request.FinalizeCutoverRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1571,13 +1577,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.get_launch_configuration_request.GetLaunchConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.get_launch_configuration_request.GetLaunchConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1613,13 +1619,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.get_replication_configuration_request.GetReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.get_replication_configuration_request.GetReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1667,19 +1673,19 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_source_server_actions_request.ListSourceServerActionsRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.list_source_server_actions_request.ListSourceServerActionsRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1713,13 +1719,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.mark_as_archived_request.MarkAsArchivedRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.mark_as_archived_request.MarkAsArchivedRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1753,13 +1759,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.pause_replication_request.PauseReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.pause_replication_request.PauseReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1829,33 +1835,33 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.put_source_server_action_request.PutSourceServerActionRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
-        input["action_name"] = action_name
-        input["document_identifier"] = document_identifier
-        input["order"] = order
-        input["action_id"] = action_id
+        input_: aws_sdk_mgn.types.put_source_server_action_request.PutSourceServerActionRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
+        input_["action_name"] = action_name
+        input_["document_identifier"] = document_identifier
+        input_["order"] = order
+        input_["action_id"] = action_id
         if document_version is not None:
-            input["document_version"] = document_version
+            input_["document_version"] = document_version
         if active is not None:
-            input["active"] = active
+            input_["active"] = active
         if timeout_seconds is not None:
-            input["timeout_seconds"] = timeout_seconds
+            input_["timeout_seconds"] = timeout_seconds
         if must_succeed_for_cutover is not None:
-            input["must_succeed_for_cutover"] = must_succeed_for_cutover
+            input_["must_succeed_for_cutover"] = must_succeed_for_cutover
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if external_parameters is not None:
-            input["external_parameters"] = external_parameters
+            input_["external_parameters"] = external_parameters
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1893,14 +1899,14 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.remove_source_server_action_request.RemoveSourceServerActionRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
-        input["action_id"] = action_id
+        input_: aws_sdk_mgn.types.remove_source_server_action_request.RemoveSourceServerActionRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
+        input_["action_id"] = action_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1934,13 +1940,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.resume_replication_request.ResumeReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.resume_replication_request.ResumeReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1974,13 +1980,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.retry_data_replication_request.RetryDataReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.retry_data_replication_request.RetryDataReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2014,13 +2020,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.start_replication_request.StartReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.start_replication_request.StartReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2054,13 +2060,13 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.stop_replication_request.StopReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.stop_replication_request.StopReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2125,35 +2131,35 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_launch_configuration_request.UpdateLaunchConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.update_launch_configuration_request.UpdateLaunchConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if launch_disposition is not None:
-            input["launch_disposition"] = launch_disposition
+            input_["launch_disposition"] = launch_disposition
         if target_instance_type_right_sizing_method is not None:
-            input["target_instance_type_right_sizing_method"] = (
+            input_["target_instance_type_right_sizing_method"] = (
                 target_instance_type_right_sizing_method
             )
         if copy_private_ip is not None:
-            input["copy_private_ip"] = copy_private_ip
+            input_["copy_private_ip"] = copy_private_ip
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if licensing is not None:
-            input["licensing"] = licensing
+            input_["licensing"] = licensing
         if boot_mode is not None:
-            input["boot_mode"] = boot_mode
+            input_["boot_mode"] = boot_mode
         if post_launch_actions is not None:
-            input["post_launch_actions"] = post_launch_actions
+            input_["post_launch_actions"] = post_launch_actions
         if enable_map_auto_tagging is not None:
-            input["enable_map_auto_tagging"] = enable_map_auto_tagging
+            input_["enable_map_auto_tagging"] = enable_map_auto_tagging
         if map_auto_tagging_mpe_id is not None:
-            input["map_auto_tagging_mpe_id"] = map_auto_tagging_mpe_id
+            input_["map_auto_tagging_mpe_id"] = map_auto_tagging_mpe_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2241,49 +2247,55 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_replication_configuration_request.UpdateReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
+        input_: aws_sdk_mgn.types.update_replication_configuration_request.UpdateReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if staging_area_subnet_id is not None:
-            input["staging_area_subnet_id"] = staging_area_subnet_id
+            input_["staging_area_subnet_id"] = staging_area_subnet_id
         if associate_default_security_group is not None:
-            input["associate_default_security_group"] = associate_default_security_group
+            input_["associate_default_security_group"] = (
+                associate_default_security_group
+            )
         if replication_servers_security_groups_i_ds is not None:
-            input["replication_servers_security_groups_i_ds"] = (
+            input_["replication_servers_security_groups_i_ds"] = (
                 replication_servers_security_groups_i_ds
             )
         if replication_server_instance_type is not None:
-            input["replication_server_instance_type"] = replication_server_instance_type
+            input_["replication_server_instance_type"] = (
+                replication_server_instance_type
+            )
         if use_dedicated_replication_server is not None:
-            input["use_dedicated_replication_server"] = use_dedicated_replication_server
+            input_["use_dedicated_replication_server"] = (
+                use_dedicated_replication_server
+            )
         if default_large_staging_disk_type is not None:
-            input["default_large_staging_disk_type"] = default_large_staging_disk_type
+            input_["default_large_staging_disk_type"] = default_large_staging_disk_type
         if replicated_disks is not None:
-            input["replicated_disks"] = replicated_disks
+            input_["replicated_disks"] = replicated_disks
         if ebs_encryption is not None:
-            input["ebs_encryption"] = ebs_encryption
+            input_["ebs_encryption"] = ebs_encryption
         if ebs_encryption_key_arn is not None:
-            input["ebs_encryption_key_arn"] = ebs_encryption_key_arn
+            input_["ebs_encryption_key_arn"] = ebs_encryption_key_arn
         if bandwidth_throttling is not None:
-            input["bandwidth_throttling"] = bandwidth_throttling
+            input_["bandwidth_throttling"] = bandwidth_throttling
         if data_plane_routing is not None:
-            input["data_plane_routing"] = data_plane_routing
+            input_["data_plane_routing"] = data_plane_routing
         if create_public_ip is not None:
-            input["create_public_ip"] = create_public_ip
+            input_["create_public_ip"] = create_public_ip
         if staging_area_tags is not None:
-            input["staging_area_tags"] = staging_area_tags
+            input_["staging_area_tags"] = staging_area_tags
         if use_fips_endpoint is not None:
-            input["use_fips_endpoint"] = use_fips_endpoint
+            input_["use_fips_endpoint"] = use_fips_endpoint
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if internet_protocol is not None:
-            input["internet_protocol"] = internet_protocol
+            input_["internet_protocol"] = internet_protocol
         if store_snapshot_on_local_zone is not None:
-            input["store_snapshot_on_local_zone"] = store_snapshot_on_local_zone
+            input_["store_snapshot_on_local_zone"] = store_snapshot_on_local_zone
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2319,14 +2331,14 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_source_server_replication_type_request.UpdateSourceServerReplicationTypeRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_id"] = source_server_id
-        input["replication_type"] = replication_type
+        input_: aws_sdk_mgn.types.update_source_server_replication_type_request.UpdateSourceServerReplicationTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_id"] = source_server_id
+        input_["replication_type"] = replication_type
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2364,15 +2376,15 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.start_cutover_request.StartCutoverRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_i_ds"] = source_server_i_ds
+        input_: aws_sdk_mgn.types.start_cutover_request.StartCutoverRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_i_ds"] = source_server_i_ds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2410,15 +2422,15 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.start_test_request.StartTestRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_i_ds"] = source_server_i_ds
+        input_: aws_sdk_mgn.types.start_test_request.StartTestRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_i_ds"] = source_server_i_ds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2456,15 +2468,15 @@ class AsyncSourceServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.terminate_target_instances_request.TerminateTargetInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["source_server_i_ds"] = source_server_i_ds
+        input_: aws_sdk_mgn.types.terminate_target_instances_request.TerminateTargetInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["source_server_i_ds"] = source_server_i_ds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -137,42 +137,44 @@ class CampaignResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["signal_catalog_arn"] = signal_catalog_arn
-        input["target_arn"] = target_arn
+            input_["description"] = description
+        input_["signal_catalog_arn"] = signal_catalog_arn
+        input_["target_arn"] = target_arn
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if expiry_time is not None:
-            input["expiry_time"] = expiry_time
+            input_["expiry_time"] = expiry_time
         if post_trigger_collection_duration is not None:
-            input["post_trigger_collection_duration"] = post_trigger_collection_duration
+            input_["post_trigger_collection_duration"] = (
+                post_trigger_collection_duration
+            )
         if diagnostics_mode is not None:
-            input["diagnostics_mode"] = diagnostics_mode
+            input_["diagnostics_mode"] = diagnostics_mode
         if spooling_mode is not None:
-            input["spooling_mode"] = spooling_mode
+            input_["spooling_mode"] = spooling_mode
         if compression is not None:
-            input["compression"] = compression
+            input_["compression"] = compression
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if signals_to_collect is not None:
-            input["signals_to_collect"] = signals_to_collect
-        input["collection_scheme"] = collection_scheme
+            input_["signals_to_collect"] = signals_to_collect
+        input_["collection_scheme"] = collection_scheme
         if data_extra_dimensions is not None:
-            input["data_extra_dimensions"] = data_extra_dimensions
+            input_["data_extra_dimensions"] = data_extra_dimensions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if data_destination_configs is not None:
-            input["data_destination_configs"] = data_destination_configs
+            input_["data_destination_configs"] = data_destination_configs
         if data_partitions is not None:
-            input["data_partitions"] = data_partitions
+            input_["data_partitions"] = data_partitions
         if signals_to_fetch is not None:
-            input["signals_to_fetch"] = signals_to_fetch
+            input_["signals_to_fetch"] = signals_to_fetch
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,11 +207,11 @@ class CampaignResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_campaign_request.GetCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.get_campaign_request.GetCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,16 +254,16 @@ class CampaignResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_campaign_request.UpdateCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.update_campaign_request.UpdateCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_extra_dimensions is not None:
-            input["data_extra_dimensions"] = data_extra_dimensions
-        input["action"] = action
+            input_["data_extra_dimensions"] = data_extra_dimensions
+        input_["action"] = action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,11 +296,11 @@ class CampaignResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_campaign_request.DeleteCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.delete_campaign_request.DeleteCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,18 +343,18 @@ class CampaignResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_campaigns_request.ListCampaignsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_campaigns_request.ListCampaignsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,42 +447,44 @@ class AsyncCampaignResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_campaign_request.CreateCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["signal_catalog_arn"] = signal_catalog_arn
-        input["target_arn"] = target_arn
+            input_["description"] = description
+        input_["signal_catalog_arn"] = signal_catalog_arn
+        input_["target_arn"] = target_arn
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if expiry_time is not None:
-            input["expiry_time"] = expiry_time
+            input_["expiry_time"] = expiry_time
         if post_trigger_collection_duration is not None:
-            input["post_trigger_collection_duration"] = post_trigger_collection_duration
+            input_["post_trigger_collection_duration"] = (
+                post_trigger_collection_duration
+            )
         if diagnostics_mode is not None:
-            input["diagnostics_mode"] = diagnostics_mode
+            input_["diagnostics_mode"] = diagnostics_mode
         if spooling_mode is not None:
-            input["spooling_mode"] = spooling_mode
+            input_["spooling_mode"] = spooling_mode
         if compression is not None:
-            input["compression"] = compression
+            input_["compression"] = compression
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if signals_to_collect is not None:
-            input["signals_to_collect"] = signals_to_collect
-        input["collection_scheme"] = collection_scheme
+            input_["signals_to_collect"] = signals_to_collect
+        input_["collection_scheme"] = collection_scheme
         if data_extra_dimensions is not None:
-            input["data_extra_dimensions"] = data_extra_dimensions
+            input_["data_extra_dimensions"] = data_extra_dimensions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if data_destination_configs is not None:
-            input["data_destination_configs"] = data_destination_configs
+            input_["data_destination_configs"] = data_destination_configs
         if data_partitions is not None:
-            input["data_partitions"] = data_partitions
+            input_["data_partitions"] = data_partitions
         if signals_to_fetch is not None:
-            input["signals_to_fetch"] = signals_to_fetch
+            input_["signals_to_fetch"] = signals_to_fetch
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,11 +518,11 @@ class AsyncCampaignResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_campaign_request.GetCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.get_campaign_request.GetCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -562,16 +566,16 @@ class AsyncCampaignResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_campaign_request.UpdateCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.update_campaign_request.UpdateCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if data_extra_dimensions is not None:
-            input["data_extra_dimensions"] = data_extra_dimensions
-        input["action"] = action
+            input_["data_extra_dimensions"] = data_extra_dimensions
+        input_["action"] = action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -605,11 +609,11 @@ class AsyncCampaignResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_campaign_request.DeleteCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.delete_campaign_request.DeleteCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -653,18 +657,18 @@ class AsyncCampaignResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_campaigns_request.ListCampaignsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_campaigns_request.ListCampaignsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

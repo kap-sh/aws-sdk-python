@@ -121,29 +121,29 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_tracker_request.CreateTrackerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.create_tracker_request.CreateTrackerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pricing_plan_data_source is not None:
-            input["pricing_plan_data_source"] = pricing_plan_data_source
+            input_["pricing_plan_data_source"] = pricing_plan_data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if position_filtering is not None:
-            input["position_filtering"] = position_filtering
+            input_["position_filtering"] = position_filtering
         if event_bridge_enabled is not None:
-            input["event_bridge_enabled"] = event_bridge_enabled
+            input_["event_bridge_enabled"] = event_bridge_enabled
         if kms_key_enable_geospatial_queries is not None:
-            input["kms_key_enable_geospatial_queries"] = (
+            input_["kms_key_enable_geospatial_queries"] = (
                 kms_key_enable_geospatial_queries
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,11 +176,11 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_tracker_request.DescribeTrackerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.describe_tracker_request.DescribeTrackerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,25 +231,25 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_tracker_request.UpdateTrackerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.update_tracker_request.UpdateTrackerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if pricing_plan_data_source is not None:
-            input["pricing_plan_data_source"] = pricing_plan_data_source
+            input_["pricing_plan_data_source"] = pricing_plan_data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if position_filtering is not None:
-            input["position_filtering"] = position_filtering
+            input_["position_filtering"] = position_filtering
         if event_bridge_enabled is not None:
-            input["event_bridge_enabled"] = event_bridge_enabled
+            input_["event_bridge_enabled"] = event_bridge_enabled
         if kms_key_enable_geospatial_queries is not None:
-            input["kms_key_enable_geospatial_queries"] = (
+            input_["kms_key_enable_geospatial_queries"] = (
                 kms_key_enable_geospatial_queries
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -282,11 +282,11 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_tracker_request.DeleteTrackerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.delete_tracker_request.DeleteTrackerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -321,14 +321,14 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_trackers_request.ListTrackersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_trackers_request.ListTrackersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -363,12 +363,12 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.associate_tracker_consumer_request.AssociateTrackerConsumerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["consumer_arn"] = consumer_arn
+        input_: aws_sdk_location.types.associate_tracker_consumer_request.AssociateTrackerConsumerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["consumer_arn"] = consumer_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,12 +403,12 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_delete_device_position_history_request.BatchDeleteDevicePositionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_ids"] = device_ids
+        input_: aws_sdk_location.types.batch_delete_device_position_history_request.BatchDeleteDevicePositionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_ids"] = device_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,12 +443,12 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_get_device_position_request.BatchGetDevicePositionRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_ids"] = device_ids
+        input_: aws_sdk_location.types.batch_get_device_position_request.BatchGetDevicePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_ids"] = device_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,12 +483,12 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_update_device_position_request.BatchUpdateDevicePositionRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["updates"] = updates
+        input_: aws_sdk_location.types.batch_update_device_position_request.BatchUpdateDevicePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["updates"] = updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,12 +523,12 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.disassociate_tracker_consumer_request.DisassociateTrackerConsumerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["consumer_arn"] = consumer_arn
+        input_: aws_sdk_location.types.disassociate_tracker_consumer_request.DisassociateTrackerConsumerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["consumer_arn"] = consumer_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,12 +565,12 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_device_position_request.GetDevicePositionRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_id"] = device_id
+        input_: aws_sdk_location.types.get_device_position_request.GetDevicePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_id"] = device_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,20 +617,20 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_device_position_history_request.GetDevicePositionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_id"] = device_id
+        input_: aws_sdk_location.types.get_device_position_history_request.GetDevicePositionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_id"] = device_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if start_time_inclusive is not None:
-            input["start_time_inclusive"] = start_time_inclusive
+            input_["start_time_inclusive"] = start_time_inclusive
         if end_time_exclusive is not None:
-            input["end_time_exclusive"] = end_time_exclusive
+            input_["end_time_exclusive"] = end_time_exclusive
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -671,17 +671,17 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_device_positions_request.ListDevicePositionsRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.list_device_positions_request.ListDevicePositionsRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter_geometry is not None:
-            input["filter_geometry"] = filter_geometry
+            input_["filter_geometry"] = filter_geometry
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -718,15 +718,15 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_tracker_consumers_request.ListTrackerConsumersRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.list_tracker_consumers_request.ListTrackerConsumersRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -765,14 +765,14 @@ class TrackerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.verify_device_position_request.VerifyDevicePositionRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_state"] = device_state
+        input_: aws_sdk_location.types.verify_device_position_request.VerifyDevicePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_state"] = device_state
         if distance_unit is not None:
-            input["distance_unit"] = distance_unit
+            input_["distance_unit"] = distance_unit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -833,29 +833,29 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_tracker_request.CreateTrackerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.create_tracker_request.CreateTrackerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pricing_plan_data_source is not None:
-            input["pricing_plan_data_source"] = pricing_plan_data_source
+            input_["pricing_plan_data_source"] = pricing_plan_data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if position_filtering is not None:
-            input["position_filtering"] = position_filtering
+            input_["position_filtering"] = position_filtering
         if event_bridge_enabled is not None:
-            input["event_bridge_enabled"] = event_bridge_enabled
+            input_["event_bridge_enabled"] = event_bridge_enabled
         if kms_key_enable_geospatial_queries is not None:
-            input["kms_key_enable_geospatial_queries"] = (
+            input_["kms_key_enable_geospatial_queries"] = (
                 kms_key_enable_geospatial_queries
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -889,11 +889,11 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_tracker_request.DescribeTrackerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.describe_tracker_request.DescribeTrackerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -945,25 +945,25 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_tracker_request.UpdateTrackerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.update_tracker_request.UpdateTrackerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if pricing_plan_data_source is not None:
-            input["pricing_plan_data_source"] = pricing_plan_data_source
+            input_["pricing_plan_data_source"] = pricing_plan_data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if position_filtering is not None:
-            input["position_filtering"] = position_filtering
+            input_["position_filtering"] = position_filtering
         if event_bridge_enabled is not None:
-            input["event_bridge_enabled"] = event_bridge_enabled
+            input_["event_bridge_enabled"] = event_bridge_enabled
         if kms_key_enable_geospatial_queries is not None:
-            input["kms_key_enable_geospatial_queries"] = (
+            input_["kms_key_enable_geospatial_queries"] = (
                 kms_key_enable_geospatial_queries
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,11 +997,11 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_tracker_request.DeleteTrackerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.delete_tracker_request.DeleteTrackerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1037,14 +1037,14 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_trackers_request.ListTrackersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_trackers_request.ListTrackersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1080,12 +1080,12 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.associate_tracker_consumer_request.AssociateTrackerConsumerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["consumer_arn"] = consumer_arn
+        input_: aws_sdk_location.types.associate_tracker_consumer_request.AssociateTrackerConsumerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["consumer_arn"] = consumer_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1121,12 +1121,12 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_delete_device_position_history_request.BatchDeleteDevicePositionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_ids"] = device_ids
+        input_: aws_sdk_location.types.batch_delete_device_position_history_request.BatchDeleteDevicePositionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_ids"] = device_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1162,12 +1162,12 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_get_device_position_request.BatchGetDevicePositionRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_ids"] = device_ids
+        input_: aws_sdk_location.types.batch_get_device_position_request.BatchGetDevicePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_ids"] = device_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1203,12 +1203,12 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_update_device_position_request.BatchUpdateDevicePositionRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["updates"] = updates
+        input_: aws_sdk_location.types.batch_update_device_position_request.BatchUpdateDevicePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["updates"] = updates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1244,12 +1244,12 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.disassociate_tracker_consumer_request.DisassociateTrackerConsumerRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["consumer_arn"] = consumer_arn
+        input_: aws_sdk_location.types.disassociate_tracker_consumer_request.DisassociateTrackerConsumerRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["consumer_arn"] = consumer_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1287,12 +1287,12 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_device_position_request.GetDevicePositionRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_id"] = device_id
+        input_: aws_sdk_location.types.get_device_position_request.GetDevicePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_id"] = device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1340,20 +1340,20 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_device_position_history_request.GetDevicePositionHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_id"] = device_id
+        input_: aws_sdk_location.types.get_device_position_history_request.GetDevicePositionHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_id"] = device_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if start_time_inclusive is not None:
-            input["start_time_inclusive"] = start_time_inclusive
+            input_["start_time_inclusive"] = start_time_inclusive
         if end_time_exclusive is not None:
-            input["end_time_exclusive"] = end_time_exclusive
+            input_["end_time_exclusive"] = end_time_exclusive
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1395,17 +1395,17 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_device_positions_request.ListDevicePositionsRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.list_device_positions_request.ListDevicePositionsRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter_geometry is not None:
-            input["filter_geometry"] = filter_geometry
+            input_["filter_geometry"] = filter_geometry
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1443,15 +1443,15 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_tracker_consumers_request.ListTrackerConsumersRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
+        input_: aws_sdk_location.types.list_tracker_consumers_request.ListTrackerConsumersRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1491,14 +1491,14 @@ class AsyncTrackerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.verify_device_position_request.VerifyDevicePositionRequest = {}  # type: ignore[typeddict-item]
-        input["tracker_name"] = tracker_name
-        input["device_state"] = device_state
+        input_: aws_sdk_location.types.verify_device_position_request.VerifyDevicePositionRequest = {}  # type: ignore[typeddict-item]
+        input_["tracker_name"] = tracker_name
+        input_["device_state"] = device_state
         if distance_unit is not None:
-            input["distance_unit"] = distance_unit
+            input_["distance_unit"] = distance_unit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

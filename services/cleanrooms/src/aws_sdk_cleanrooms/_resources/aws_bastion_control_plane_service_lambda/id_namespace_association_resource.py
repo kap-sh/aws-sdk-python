@@ -87,19 +87,19 @@ class IdNamespaceAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_id_namespace_association_input.CreateIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["input_reference_config"] = input_reference_config
+        input_: aws_sdk_cleanrooms.types.create_id_namespace_association_input.CreateIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["input_reference_config"] = input_reference_config
         if tags is not None:
-            input["tags"] = tags
-        input["name"] = name
+            input_["tags"] = tags
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if id_mapping_config is not None:
-            input["id_mapping_config"] = id_mapping_config
+            input_["id_mapping_config"] = id_mapping_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,14 +134,14 @@ class IdNamespaceAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_id_namespace_association_input.GetIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_id_namespace_association_input.GetIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_association_identifier"] = (
             id_namespace_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,20 +188,20 @@ class IdNamespaceAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_id_namespace_association_input.UpdateIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.update_id_namespace_association_input.UpdateIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_association_identifier"] = (
             id_namespace_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if id_mapping_config is not None:
-            input["id_mapping_config"] = id_mapping_config
+            input_["id_mapping_config"] = id_mapping_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -236,14 +236,14 @@ class IdNamespaceAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_id_namespace_association_input.DeleteIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.delete_id_namespace_association_input.DeleteIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_association_identifier"] = (
             id_namespace_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -282,15 +282,15 @@ class IdNamespaceAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_id_namespace_associations_input.ListIdNamespaceAssociationsInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_id_namespace_associations_input.ListIdNamespaceAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -343,19 +343,19 @@ class AsyncIdNamespaceAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_id_namespace_association_input.CreateIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["input_reference_config"] = input_reference_config
+        input_: aws_sdk_cleanrooms.types.create_id_namespace_association_input.CreateIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["input_reference_config"] = input_reference_config
         if tags is not None:
-            input["tags"] = tags
-        input["name"] = name
+            input_["tags"] = tags
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if id_mapping_config is not None:
-            input["id_mapping_config"] = id_mapping_config
+            input_["id_mapping_config"] = id_mapping_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,14 +391,14 @@ class AsyncIdNamespaceAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_id_namespace_association_input.GetIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_id_namespace_association_input.GetIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_association_identifier"] = (
             id_namespace_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,20 +446,20 @@ class AsyncIdNamespaceAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_id_namespace_association_input.UpdateIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.update_id_namespace_association_input.UpdateIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_association_identifier"] = (
             id_namespace_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if id_mapping_config is not None:
-            input["id_mapping_config"] = id_mapping_config
+            input_["id_mapping_config"] = id_mapping_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -495,14 +495,14 @@ class AsyncIdNamespaceAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_id_namespace_association_input.DeleteIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.delete_id_namespace_association_input.DeleteIdNamespaceAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_association_identifier"] = (
             id_namespace_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,15 +542,15 @@ class AsyncIdNamespaceAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_id_namespace_associations_input.ListIdNamespaceAssociationsInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_id_namespace_associations_input.ListIdNamespaceAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -100,32 +100,32 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["template_name"] = template_name
-        input["template_major_version"] = template_major_version
+        input_: aws_sdk_proton.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["template_name"] = template_name
+        input_["template_major_version"] = template_major_version
         if template_minor_version is not None:
-            input["template_minor_version"] = template_minor_version
+            input_["template_minor_version"] = template_minor_version
         if description is not None:
-            input["description"] = description
-        input["spec"] = spec
+            input_["description"] = description
+        input_["spec"] = spec
         if proton_service_role_arn is not None:
-            input["proton_service_role_arn"] = proton_service_role_arn
+            input_["proton_service_role_arn"] = proton_service_role_arn
         if environment_account_connection_id is not None:
-            input["environment_account_connection_id"] = (
+            input_["environment_account_connection_id"] = (
                 environment_account_connection_id
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if provisioning_repository is not None:
-            input["provisioning_repository"] = provisioning_repository
+            input_["provisioning_repository"] = provisioning_repository
         if component_role_arn is not None:
-            input["component_role_arn"] = component_role_arn
+            input_["component_role_arn"] = component_role_arn
         if codebuild_role_arn is not None:
-            input["codebuild_role_arn"] = codebuild_role_arn
+            input_["codebuild_role_arn"] = codebuild_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -158,11 +158,11 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,32 +223,32 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if spec is not None:
-            input["spec"] = spec
+            input_["spec"] = spec
         if template_major_version is not None:
-            input["template_major_version"] = template_major_version
+            input_["template_major_version"] = template_major_version
         if template_minor_version is not None:
-            input["template_minor_version"] = template_minor_version
+            input_["template_minor_version"] = template_minor_version
         if proton_service_role_arn is not None:
-            input["proton_service_role_arn"] = proton_service_role_arn
-        input["deployment_type"] = deployment_type
+            input_["proton_service_role_arn"] = proton_service_role_arn
+        input_["deployment_type"] = deployment_type
         if environment_account_connection_id is not None:
-            input["environment_account_connection_id"] = (
+            input_["environment_account_connection_id"] = (
                 environment_account_connection_id
             )
         if provisioning_repository is not None:
-            input["provisioning_repository"] = provisioning_repository
+            input_["provisioning_repository"] = provisioning_repository
         if component_role_arn is not None:
-            input["component_role_arn"] = component_role_arn
+            input_["component_role_arn"] = component_role_arn
         if codebuild_role_arn is not None:
-            input["codebuild_role_arn"] = codebuild_role_arn
+            input_["codebuild_role_arn"] = codebuild_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,11 +281,11 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,16 +326,16 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if environment_templates is not None:
-            input["environment_templates"] = environment_templates
+            input_["environment_templates"] = environment_templates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,32 +402,32 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["template_name"] = template_name
-        input["template_major_version"] = template_major_version
+        input_: aws_sdk_proton.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["template_name"] = template_name
+        input_["template_major_version"] = template_major_version
         if template_minor_version is not None:
-            input["template_minor_version"] = template_minor_version
+            input_["template_minor_version"] = template_minor_version
         if description is not None:
-            input["description"] = description
-        input["spec"] = spec
+            input_["description"] = description
+        input_["spec"] = spec
         if proton_service_role_arn is not None:
-            input["proton_service_role_arn"] = proton_service_role_arn
+            input_["proton_service_role_arn"] = proton_service_role_arn
         if environment_account_connection_id is not None:
-            input["environment_account_connection_id"] = (
+            input_["environment_account_connection_id"] = (
                 environment_account_connection_id
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if provisioning_repository is not None:
-            input["provisioning_repository"] = provisioning_repository
+            input_["provisioning_repository"] = provisioning_repository
         if component_role_arn is not None:
-            input["component_role_arn"] = component_role_arn
+            input_["component_role_arn"] = component_role_arn
         if codebuild_role_arn is not None:
-            input["codebuild_role_arn"] = codebuild_role_arn
+            input_["codebuild_role_arn"] = codebuild_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,11 +461,11 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,32 +527,32 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if spec is not None:
-            input["spec"] = spec
+            input_["spec"] = spec
         if template_major_version is not None:
-            input["template_major_version"] = template_major_version
+            input_["template_major_version"] = template_major_version
         if template_minor_version is not None:
-            input["template_minor_version"] = template_minor_version
+            input_["template_minor_version"] = template_minor_version
         if proton_service_role_arn is not None:
-            input["proton_service_role_arn"] = proton_service_role_arn
-        input["deployment_type"] = deployment_type
+            input_["proton_service_role_arn"] = proton_service_role_arn
+        input_["deployment_type"] = deployment_type
         if environment_account_connection_id is not None:
-            input["environment_account_connection_id"] = (
+            input_["environment_account_connection_id"] = (
                 environment_account_connection_id
             )
         if provisioning_repository is not None:
-            input["provisioning_repository"] = provisioning_repository
+            input_["provisioning_repository"] = provisioning_repository
         if component_role_arn is not None:
-            input["component_role_arn"] = component_role_arn
+            input_["component_role_arn"] = component_role_arn
         if codebuild_role_arn is not None:
-            input["codebuild_role_arn"] = codebuild_role_arn
+            input_["codebuild_role_arn"] = codebuild_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,11 +586,11 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -632,16 +632,16 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if environment_templates is not None:
-            input["environment_templates"] = environment_templates
+            input_["environment_templates"] = environment_templates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

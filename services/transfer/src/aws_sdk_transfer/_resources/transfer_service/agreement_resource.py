@@ -101,28 +101,28 @@ class AgreementResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_agreement_request.CreateAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_agreement_request.CreateAgreementRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["server_id"] = server_id
-        input["local_profile_id"] = local_profile_id
-        input["partner_profile_id"] = partner_profile_id
+            input_["description"] = description
+        input_["server_id"] = server_id
+        input_["local_profile_id"] = local_profile_id
+        input_["partner_profile_id"] = partner_profile_id
         if base_directory is not None:
-            input["base_directory"] = base_directory
-        input["access_role"] = access_role
+            input_["base_directory"] = base_directory
+        input_["access_role"] = access_role
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if preserve_filename is not None:
-            input["preserve_filename"] = preserve_filename
+            input_["preserve_filename"] = preserve_filename
         if enforce_message_signing is not None:
-            input["enforce_message_signing"] = enforce_message_signing
+            input_["enforce_message_signing"] = enforce_message_signing
         if custom_directories is not None:
-            input["custom_directories"] = custom_directories
+            input_["custom_directories"] = custom_directories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,12 +157,12 @@ class AgreementResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_agreement_request.DescribeAgreementRequest = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.describe_agreement_request.DescribeAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["server_id"] = server_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -229,30 +229,30 @@ class AgreementResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_agreement_request.UpdateAgreementRequest = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.update_agreement_request.UpdateAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["server_id"] = server_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if local_profile_id is not None:
-            input["local_profile_id"] = local_profile_id
+            input_["local_profile_id"] = local_profile_id
         if partner_profile_id is not None:
-            input["partner_profile_id"] = partner_profile_id
+            input_["partner_profile_id"] = partner_profile_id
         if base_directory is not None:
-            input["base_directory"] = base_directory
+            input_["base_directory"] = base_directory
         if access_role is not None:
-            input["access_role"] = access_role
+            input_["access_role"] = access_role
         if preserve_filename is not None:
-            input["preserve_filename"] = preserve_filename
+            input_["preserve_filename"] = preserve_filename
         if enforce_message_signing is not None:
-            input["enforce_message_signing"] = enforce_message_signing
+            input_["enforce_message_signing"] = enforce_message_signing
         if custom_directories is not None:
-            input["custom_directories"] = custom_directories
+            input_["custom_directories"] = custom_directories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,12 +285,12 @@ class AgreementResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_agreement_request.DeleteAgreementRequest = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.delete_agreement_request.DeleteAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["server_id"] = server_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,15 +327,15 @@ class AgreementResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_agreements_request.ListAgreementsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_agreements_request.ListAgreementsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["server_id"] = server_id
+            input_["next_token"] = next_token
+        input_["server_id"] = server_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,28 +404,28 @@ class AsyncAgreementResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_agreement_request.CreateAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_agreement_request.CreateAgreementRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["server_id"] = server_id
-        input["local_profile_id"] = local_profile_id
-        input["partner_profile_id"] = partner_profile_id
+            input_["description"] = description
+        input_["server_id"] = server_id
+        input_["local_profile_id"] = local_profile_id
+        input_["partner_profile_id"] = partner_profile_id
         if base_directory is not None:
-            input["base_directory"] = base_directory
-        input["access_role"] = access_role
+            input_["base_directory"] = base_directory
+        input_["access_role"] = access_role
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if preserve_filename is not None:
-            input["preserve_filename"] = preserve_filename
+            input_["preserve_filename"] = preserve_filename
         if enforce_message_signing is not None:
-            input["enforce_message_signing"] = enforce_message_signing
+            input_["enforce_message_signing"] = enforce_message_signing
         if custom_directories is not None:
-            input["custom_directories"] = custom_directories
+            input_["custom_directories"] = custom_directories
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,12 +461,12 @@ class AsyncAgreementResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_agreement_request.DescribeAgreementRequest = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.describe_agreement_request.DescribeAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -534,30 +534,30 @@ class AsyncAgreementResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_agreement_request.UpdateAgreementRequest = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.update_agreement_request.UpdateAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["server_id"] = server_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if local_profile_id is not None:
-            input["local_profile_id"] = local_profile_id
+            input_["local_profile_id"] = local_profile_id
         if partner_profile_id is not None:
-            input["partner_profile_id"] = partner_profile_id
+            input_["partner_profile_id"] = partner_profile_id
         if base_directory is not None:
-            input["base_directory"] = base_directory
+            input_["base_directory"] = base_directory
         if access_role is not None:
-            input["access_role"] = access_role
+            input_["access_role"] = access_role
         if preserve_filename is not None:
-            input["preserve_filename"] = preserve_filename
+            input_["preserve_filename"] = preserve_filename
         if enforce_message_signing is not None:
-            input["enforce_message_signing"] = enforce_message_signing
+            input_["enforce_message_signing"] = enforce_message_signing
         if custom_directories is not None:
-            input["custom_directories"] = custom_directories
+            input_["custom_directories"] = custom_directories
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,12 +591,12 @@ class AsyncAgreementResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_agreement_request.DeleteAgreementRequest = {}  # type: ignore[typeddict-item]
-        input["agreement_id"] = agreement_id
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.delete_agreement_request.DeleteAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_["agreement_id"] = agreement_id
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -634,15 +634,15 @@ class AsyncAgreementResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_agreements_request.ListAgreementsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_agreements_request.ListAgreementsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["server_id"] = server_id
+            input_["next_token"] = next_token
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

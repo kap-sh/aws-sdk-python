@@ -480,14 +480,14 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.add_profile_key_request.AddProfileKeyRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["key_name"] = key_name
-        input["values"] = values
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.add_profile_key_request.AddProfileKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["key_name"] = key_name
+        input_["values"] = values
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,15 +528,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.batch_get_calculated_attribute_for_profile_request.BatchGetCalculatedAttributeForProfileRequest = {}  # type: ignore[typeddict-item]
-        input["calculated_attribute_name"] = calculated_attribute_name
-        input["domain_name"] = domain_name
-        input["profile_ids"] = profile_ids
+        input_: aws_sdk_customer_profiles.types.batch_get_calculated_attribute_for_profile_request.BatchGetCalculatedAttributeForProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["calculated_attribute_name"] = calculated_attribute_name
+        input_["domain_name"] = domain_name
+        input_["profile_ids"] = profile_ids
         if condition_overrides is not None:
-            input["condition_overrides"] = condition_overrides
+            input_["condition_overrides"] = condition_overrides
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -571,12 +571,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.batch_get_profile_request.BatchGetProfileRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["profile_ids"] = profile_ids
+        input_: aws_sdk_customer_profiles.types.batch_get_profile_request.BatchGetProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["profile_ids"] = profile_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -613,13 +613,13 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.batch_put_profile_object_request.BatchPutProfileObjectRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
-        input["items"] = items
+        input_: aws_sdk_customer_profiles.types.batch_put_profile_object_request.BatchPutProfileObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
+        input_["items"] = items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,26 +678,26 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_calculated_attribute_definition_request.CreateCalculatedAttributeDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["calculated_attribute_name"] = calculated_attribute_name
+        input_: aws_sdk_customer_profiles.types.create_calculated_attribute_definition_request.CreateCalculatedAttributeDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["calculated_attribute_name"] = calculated_attribute_name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
-        input["attribute_details"] = attribute_details
+            input_["description"] = description
+        input_["attribute_details"] = attribute_details
         if conditions is not None:
-            input["conditions"] = conditions
+            input_["conditions"] = conditions
         if filter is not None:
-            input["filter"] = filter
-        input["statistic"] = statistic
+            input_["filter"] = filter
+        input_["statistic"] = statistic
         if use_historical_data is not None:
-            input["use_historical_data"] = use_historical_data
+            input_["use_historical_data"] = use_historical_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,24 +754,24 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["default_expiration_days"] = default_expiration_days
+        input_: aws_sdk_customer_profiles.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["default_expiration_days"] = default_expiration_days
         if default_encryption_key is not None:
-            input["default_encryption_key"] = default_encryption_key
+            input_["default_encryption_key"] = default_encryption_key
         if dead_letter_queue_url is not None:
-            input["dead_letter_queue_url"] = dead_letter_queue_url
+            input_["dead_letter_queue_url"] = dead_letter_queue_url
         if matching is not None:
-            input["matching"] = matching
+            input_["matching"] = matching
         if rule_based_matching is not None:
-            input["rule_based_matching"] = rule_based_matching
+            input_["rule_based_matching"] = rule_based_matching
         if data_store is not None:
-            input["data_store"] = data_store
+            input_["data_store"] = data_store
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -818,20 +818,20 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_domain_layout_request.CreateDomainLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["layout_definition_name"] = layout_definition_name
-        input["description"] = description
-        input["display_name"] = display_name
+        input_: aws_sdk_customer_profiles.types.create_domain_layout_request.CreateDomainLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["layout_definition_name"] = layout_definition_name
+        input_["description"] = description
+        input_["display_name"] = display_name
         if is_default is not None:
-            input["is_default"] = is_default
-        input["layout_type"] = layout_type
-        input["layout"] = layout
+            input_["is_default"] = is_default
+        input_["layout_type"] = layout_type
+        input_["layout"] = layout
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -870,15 +870,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_event_stream_request.CreateEventStreamRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["uri"] = uri
-        input["event_stream_name"] = event_stream_name
+        input_: aws_sdk_customer_profiles.types.create_event_stream_request.CreateEventStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["uri"] = uri
+        input_["event_stream_name"] = event_stream_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -929,22 +929,22 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_event_trigger_request.CreateEventTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["event_trigger_name"] = event_trigger_name
-        input["object_type_name"] = object_type_name
+        input_: aws_sdk_customer_profiles.types.create_event_trigger_request.CreateEventTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["event_trigger_name"] = event_trigger_name
+        input_["object_type_name"] = object_type_name
         if description is not None:
-            input["description"] = description
-        input["event_trigger_conditions"] = event_trigger_conditions
+            input_["description"] = description
+        input_["event_trigger_conditions"] = event_trigger_conditions
         if segment_filter is not None:
-            input["segment_filter"] = segment_filter
+            input_["segment_filter"] = segment_filter
         if event_trigger_limits is not None:
-            input["event_trigger_limits"] = event_trigger_limits
+            input_["event_trigger_limits"] = event_trigger_limits
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,17 +987,17 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_integration_workflow_request.CreateIntegrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["workflow_type"] = workflow_type
-        input["integration_config"] = integration_config
-        input["object_type_name"] = object_type_name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_customer_profiles.types.create_integration_workflow_request.CreateIntegrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["workflow_type"] = workflow_type
+        input_["integration_config"] = integration_config
+        input_["object_type_name"] = object_type_name
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1128,61 +1128,61 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if account_number is not None:
-            input["account_number"] = account_number
+            input_["account_number"] = account_number
         if additional_information is not None:
-            input["additional_information"] = additional_information
+            input_["additional_information"] = additional_information
         if party_type is not None:
-            input["party_type"] = party_type
+            input_["party_type"] = party_type
         if business_name is not None:
-            input["business_name"] = business_name
+            input_["business_name"] = business_name
         if first_name is not None:
-            input["first_name"] = first_name
+            input_["first_name"] = first_name
         if middle_name is not None:
-            input["middle_name"] = middle_name
+            input_["middle_name"] = middle_name
         if last_name is not None:
-            input["last_name"] = last_name
+            input_["last_name"] = last_name
         if birth_date is not None:
-            input["birth_date"] = birth_date
+            input_["birth_date"] = birth_date
         if gender is not None:
-            input["gender"] = gender
+            input_["gender"] = gender
         if phone_number is not None:
-            input["phone_number"] = phone_number
+            input_["phone_number"] = phone_number
         if mobile_phone_number is not None:
-            input["mobile_phone_number"] = mobile_phone_number
+            input_["mobile_phone_number"] = mobile_phone_number
         if home_phone_number is not None:
-            input["home_phone_number"] = home_phone_number
+            input_["home_phone_number"] = home_phone_number
         if business_phone_number is not None:
-            input["business_phone_number"] = business_phone_number
+            input_["business_phone_number"] = business_phone_number
         if email_address is not None:
-            input["email_address"] = email_address
+            input_["email_address"] = email_address
         if personal_email_address is not None:
-            input["personal_email_address"] = personal_email_address
+            input_["personal_email_address"] = personal_email_address
         if business_email_address is not None:
-            input["business_email_address"] = business_email_address
+            input_["business_email_address"] = business_email_address
         if address is not None:
-            input["address"] = address
+            input_["address"] = address
         if shipping_address is not None:
-            input["shipping_address"] = shipping_address
+            input_["shipping_address"] = shipping_address
         if mailing_address is not None:
-            input["mailing_address"] = mailing_address
+            input_["mailing_address"] = mailing_address
         if billing_address is not None:
-            input["billing_address"] = billing_address
+            input_["billing_address"] = billing_address
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if party_type_string is not None:
-            input["party_type_string"] = party_type_string
+            input_["party_type_string"] = party_type_string
         if gender_string is not None:
-            input["gender_string"] = gender_string
+            input_["gender_string"] = gender_string
         if profile_type is not None:
-            input["profile_type"] = profile_type
+            input_["profile_type"] = profile_type
         if engagement_preferences is not None:
-            input["engagement_preferences"] = engagement_preferences
+            input_["engagement_preferences"] = engagement_preferences
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1233,21 +1233,21 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_recommender_request.CreateRecommenderRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_name"] = recommender_name
-        input["recommender_recipe_name"] = recommender_recipe_name
+        input_: aws_sdk_customer_profiles.types.create_recommender_request.CreateRecommenderRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_name"] = recommender_name
+        input_["recommender_recipe_name"] = recommender_recipe_name
         if recommender_config is not None:
-            input["recommender_config"] = recommender_config
+            input_["recommender_config"] = recommender_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if recommender_schema_name is not None:
-            input["recommender_schema_name"] = recommender_schema_name
+            input_["recommender_schema_name"] = recommender_schema_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1294,19 +1294,19 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_recommender_filter_request.CreateRecommenderFilterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_filter_name"] = recommender_filter_name
-        input["recommender_filter_expression"] = recommender_filter_expression
+        input_: aws_sdk_customer_profiles.types.create_recommender_filter_request.CreateRecommenderFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_filter_name"] = recommender_filter_name
+        input_["recommender_filter_expression"] = recommender_filter_expression
         if recommender_schema_name is not None:
-            input["recommender_schema_name"] = recommender_schema_name
+            input_["recommender_schema_name"] = recommender_schema_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1345,15 +1345,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_recommender_schema_request.CreateRecommenderSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_schema_name"] = recommender_schema_name
-        input["fields"] = fields
+        input_: aws_sdk_customer_profiles.types.create_recommender_schema_request.CreateRecommenderSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_schema_name"] = recommender_schema_name
+        input_["fields"] = fields
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1408,23 +1408,23 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_segment_definition_request.CreateSegmentDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["segment_definition_name"] = segment_definition_name
-        input["display_name"] = display_name
+        input_: aws_sdk_customer_profiles.types.create_segment_definition_request.CreateSegmentDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["segment_definition_name"] = segment_definition_name
+        input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if segment_groups is not None:
-            input["segment_groups"] = segment_groups
+            input_["segment_groups"] = segment_groups
         if segment_sql_query is not None:
-            input["segment_sql_query"] = segment_sql_query
+            input_["segment_sql_query"] = segment_sql_query
         if segment_sort is not None:
-            input["segment_sort"] = segment_sort
+            input_["segment_sort"] = segment_sort
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1465,15 +1465,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_segment_estimate_request.CreateSegmentEstimateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.create_segment_estimate_request.CreateSegmentEstimateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if segment_query is not None:
-            input["segment_query"] = segment_query
+            input_["segment_query"] = segment_query
         if segment_sql_query is not None:
-            input["segment_sql_query"] = segment_sql_query
+            input_["segment_sql_query"] = segment_sql_query
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1520,19 +1520,19 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_segment_snapshot_request.CreateSegmentSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["segment_definition_name"] = segment_definition_name
-        input["data_format"] = data_format
+        input_: aws_sdk_customer_profiles.types.create_segment_snapshot_request.CreateSegmentSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["segment_definition_name"] = segment_definition_name
+        input_["data_format"] = data_format
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if destination_uri is not None:
-            input["destination_uri"] = destination_uri
+            input_["destination_uri"] = destination_uri
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1575,16 +1575,16 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.create_upload_job_request.CreateUploadJobRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["display_name"] = display_name
-        input["fields"] = fields
-        input["unique_key"] = unique_key
+        input_: aws_sdk_customer_profiles.types.create_upload_job_request.CreateUploadJobRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["display_name"] = display_name
+        input_["fields"] = fields
+        input_["unique_key"] = unique_key
         if data_expiry is not None:
-            input["data_expiry"] = data_expiry
+            input_["data_expiry"] = data_expiry
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1619,12 +1619,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_calculated_attribute_definition_request.DeleteCalculatedAttributeDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["calculated_attribute_name"] = calculated_attribute_name
+        input_: aws_sdk_customer_profiles.types.delete_calculated_attribute_definition_request.DeleteCalculatedAttributeDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["calculated_attribute_name"] = calculated_attribute_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1657,11 +1657,11 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1696,12 +1696,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_domain_layout_request.DeleteDomainLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["layout_definition_name"] = layout_definition_name
+        input_: aws_sdk_customer_profiles.types.delete_domain_layout_request.DeleteDomainLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["layout_definition_name"] = layout_definition_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1736,12 +1736,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_domain_object_type_request.DeleteDomainObjectTypeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
+        input_: aws_sdk_customer_profiles.types.delete_domain_object_type_request.DeleteDomainObjectTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1776,12 +1776,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_event_stream_request.DeleteEventStreamRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["event_stream_name"] = event_stream_name
+        input_: aws_sdk_customer_profiles.types.delete_event_stream_request.DeleteEventStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["event_stream_name"] = event_stream_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1816,12 +1816,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_event_trigger_request.DeleteEventTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["event_trigger_name"] = event_trigger_name
+        input_: aws_sdk_customer_profiles.types.delete_event_trigger_request.DeleteEventTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["event_trigger_name"] = event_trigger_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1856,12 +1856,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["uri"] = uri
+        input_: aws_sdk_customer_profiles.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["uri"] = uri
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1898,12 +1898,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1942,14 +1942,14 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_profile_key_request.DeleteProfileKeyRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["key_name"] = key_name
-        input["values"] = values
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.delete_profile_key_request.DeleteProfileKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["key_name"] = key_name
+        input_["values"] = values
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1988,14 +1988,14 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_profile_object_request.DeleteProfileObjectRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
-        input["profile_object_unique_key"] = profile_object_unique_key
-        input["object_type_name"] = object_type_name
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.delete_profile_object_request.DeleteProfileObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
+        input_["profile_object_unique_key"] = profile_object_unique_key
+        input_["object_type_name"] = object_type_name
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2030,12 +2030,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_profile_object_type_request.DeleteProfileObjectTypeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
+        input_: aws_sdk_customer_profiles.types.delete_profile_object_type_request.DeleteProfileObjectTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2070,12 +2070,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_recommender_request.DeleteRecommenderRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_name"] = recommender_name
+        input_: aws_sdk_customer_profiles.types.delete_recommender_request.DeleteRecommenderRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_name"] = recommender_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2110,12 +2110,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_recommender_filter_request.DeleteRecommenderFilterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_filter_name"] = recommender_filter_name
+        input_: aws_sdk_customer_profiles.types.delete_recommender_filter_request.DeleteRecommenderFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_filter_name"] = recommender_filter_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2150,12 +2150,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_recommender_schema_request.DeleteRecommenderSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_schema_name"] = recommender_schema_name
+        input_: aws_sdk_customer_profiles.types.delete_recommender_schema_request.DeleteRecommenderSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_schema_name"] = recommender_schema_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2190,12 +2190,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_segment_definition_request.DeleteSegmentDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["segment_definition_name"] = segment_definition_name
+        input_: aws_sdk_customer_profiles.types.delete_segment_definition_request.DeleteSegmentDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["segment_definition_name"] = segment_definition_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2230,12 +2230,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_customer_profiles.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["workflow_id"] = workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2270,12 +2270,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.detect_profile_object_type_request.DetectProfileObjectTypeRequest = {}  # type: ignore[typeddict-item]
-        input["objects"] = objects
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.detect_profile_object_type_request.DetectProfileObjectTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["objects"] = objects
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2316,17 +2316,17 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_auto_merging_preview_request.GetAutoMergingPreviewRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["consolidation"] = consolidation
-        input["conflict_resolution"] = conflict_resolution
+        input_: aws_sdk_customer_profiles.types.get_auto_merging_preview_request.GetAutoMergingPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["consolidation"] = consolidation
+        input_["conflict_resolution"] = conflict_resolution
         if min_allowed_confidence_score_for_merging is not None:
-            input["min_allowed_confidence_score_for_merging"] = (
+            input_["min_allowed_confidence_score_for_merging"] = (
                 min_allowed_confidence_score_for_merging
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2361,12 +2361,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_calculated_attribute_definition_request.GetCalculatedAttributeDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["calculated_attribute_name"] = calculated_attribute_name
+        input_: aws_sdk_customer_profiles.types.get_calculated_attribute_definition_request.GetCalculatedAttributeDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["calculated_attribute_name"] = calculated_attribute_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2403,13 +2403,13 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_calculated_attribute_for_profile_request.GetCalculatedAttributeForProfileRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["profile_id"] = profile_id
-        input["calculated_attribute_name"] = calculated_attribute_name
+        input_: aws_sdk_customer_profiles.types.get_calculated_attribute_for_profile_request.GetCalculatedAttributeForProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["profile_id"] = profile_id
+        input_["calculated_attribute_name"] = calculated_attribute_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2442,11 +2442,11 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_domain_request.GetDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.get_domain_request.GetDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2481,12 +2481,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_domain_layout_request.GetDomainLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["layout_definition_name"] = layout_definition_name
+        input_: aws_sdk_customer_profiles.types.get_domain_layout_request.GetDomainLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["layout_definition_name"] = layout_definition_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2521,12 +2521,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_domain_object_type_request.GetDomainObjectTypeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
+        input_: aws_sdk_customer_profiles.types.get_domain_object_type_request.GetDomainObjectTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2561,12 +2561,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_event_stream_request.GetEventStreamRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["event_stream_name"] = event_stream_name
+        input_: aws_sdk_customer_profiles.types.get_event_stream_request.GetEventStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["event_stream_name"] = event_stream_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2601,12 +2601,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_event_trigger_request.GetEventTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["event_trigger_name"] = event_trigger_name
+        input_: aws_sdk_customer_profiles.types.get_event_trigger_request.GetEventTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["event_trigger_name"] = event_trigger_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2641,12 +2641,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_identity_resolution_job_request.GetIdentityResolutionJobRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["job_id"] = job_id
+        input_: aws_sdk_customer_profiles.types.get_identity_resolution_job_request.GetIdentityResolutionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2681,12 +2681,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_integration_request.GetIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["uri"] = uri
+        input_: aws_sdk_customer_profiles.types.get_integration_request.GetIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["uri"] = uri
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2725,15 +2725,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_matches_request.GetMatchesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.get_matches_request.GetMatchesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["domain_name"] = domain_name
+            input_["max_results"] = max_results
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2770,13 +2770,13 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_object_type_attribute_statistics_request.GetObjectTypeAttributeStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_customer_profiles.types.get_object_type_attribute_statistics_request.GetObjectTypeAttributeStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
+        input_["attribute_name"] = attribute_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2813,13 +2813,13 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_profile_history_record_request.GetProfileHistoryRecordRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["profile_id"] = profile_id
-        input["id"] = id
+        input_: aws_sdk_customer_profiles.types.get_profile_history_record_request.GetProfileHistoryRecordRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["profile_id"] = profile_id
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2854,12 +2854,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_profile_object_type_request.GetProfileObjectTypeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
+        input_: aws_sdk_customer_profiles.types.get_profile_object_type_request.GetProfileObjectTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2892,11 +2892,11 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_profile_object_type_template_request.GetProfileObjectTypeTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_id"] = template_id
+        input_: aws_sdk_customer_profiles.types.get_profile_object_type_template_request.GetProfileObjectTypeTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_id"] = template_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2957,25 +2957,25 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_profile_recommendations_request.GetProfileRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["profile_id"] = profile_id
-        input["recommender_name"] = recommender_name
+        input_: aws_sdk_customer_profiles.types.get_profile_recommendations_request.GetProfileRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["profile_id"] = profile_id
+        input_["recommender_name"] = recommender_name
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
         if recommender_filters is not None:
-            input["recommender_filters"] = recommender_filters
+            input_["recommender_filters"] = recommender_filters
         if recommender_promotional_filters is not None:
-            input["recommender_promotional_filters"] = recommender_promotional_filters
+            input_["recommender_promotional_filters"] = recommender_promotional_filters
         if candidate_ids is not None:
-            input["candidate_ids"] = candidate_ids
+            input_["candidate_ids"] = candidate_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if metadata_config is not None:
-            input["metadata_config"] = metadata_config
+            input_["metadata_config"] = metadata_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3014,14 +3014,14 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_recommender_request.GetRecommenderRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_name"] = recommender_name
+        input_: aws_sdk_customer_profiles.types.get_recommender_request.GetRecommenderRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_name"] = recommender_name
         if training_metrics_count is not None:
-            input["training_metrics_count"] = training_metrics_count
+            input_["training_metrics_count"] = training_metrics_count
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3056,12 +3056,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_recommender_filter_request.GetRecommenderFilterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_filter_name"] = recommender_filter_name
+        input_: aws_sdk_customer_profiles.types.get_recommender_filter_request.GetRecommenderFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_filter_name"] = recommender_filter_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3096,12 +3096,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_recommender_schema_request.GetRecommenderSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_schema_name"] = recommender_schema_name
+        input_: aws_sdk_customer_profiles.types.get_recommender_schema_request.GetRecommenderSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_schema_name"] = recommender_schema_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3136,12 +3136,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_segment_definition_request.GetSegmentDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["segment_definition_name"] = segment_definition_name
+        input_: aws_sdk_customer_profiles.types.get_segment_definition_request.GetSegmentDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["segment_definition_name"] = segment_definition_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3176,12 +3176,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_segment_estimate_request.GetSegmentEstimateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["estimate_id"] = estimate_id
+        input_: aws_sdk_customer_profiles.types.get_segment_estimate_request.GetSegmentEstimateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["estimate_id"] = estimate_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3218,13 +3218,13 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_segment_membership_request.GetSegmentMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["segment_definition_name"] = segment_definition_name
-        input["profile_ids"] = profile_ids
+        input_: aws_sdk_customer_profiles.types.get_segment_membership_request.GetSegmentMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["segment_definition_name"] = segment_definition_name
+        input_["profile_ids"] = profile_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3261,13 +3261,13 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_segment_snapshot_request.GetSegmentSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["segment_definition_name"] = segment_definition_name
-        input["snapshot_id"] = snapshot_id
+        input_: aws_sdk_customer_profiles.types.get_segment_snapshot_request.GetSegmentSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["segment_definition_name"] = segment_definition_name
+        input_["snapshot_id"] = snapshot_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3312,18 +3312,18 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_similar_profiles_request.GetSimilarProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.get_similar_profiles_request.GetSimilarProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["domain_name"] = domain_name
-        input["match_type"] = match_type
-        input["search_key"] = search_key
-        input["search_value"] = search_value
+            input_["max_results"] = max_results
+        input_["domain_name"] = domain_name
+        input_["match_type"] = match_type
+        input_["search_key"] = search_key
+        input_["search_value"] = search_value
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3389,12 +3389,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_upload_job_request.GetUploadJobRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["job_id"] = job_id
+        input_: aws_sdk_customer_profiles.types.get_upload_job_request.GetUploadJobRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3429,12 +3429,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_upload_job_path_request.GetUploadJobPathRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["job_id"] = job_id
+        input_: aws_sdk_customer_profiles.types.get_upload_job_path_request.GetUploadJobPathRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3469,12 +3469,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_customer_profiles.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["workflow_id"] = workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3515,16 +3515,16 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.get_workflow_steps_request.GetWorkflowStepsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_customer_profiles.types.get_workflow_steps_request.GetWorkflowStepsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["workflow_id"] = workflow_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3567,17 +3567,17 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_account_integrations_request.ListAccountIntegrationsRequest = {}  # type: ignore[typeddict-item]
-        input["uri"] = uri
+        input_: aws_sdk_customer_profiles.types.list_account_integrations_request.ListAccountIntegrationsRequest = {}  # type: ignore[typeddict-item]
+        input_["uri"] = uri
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if include_hidden is not None:
-            input["include_hidden"] = include_hidden
+            input_["include_hidden"] = include_hidden
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3616,15 +3616,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_calculated_attribute_definitions_request.ListCalculatedAttributeDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_calculated_attribute_definitions_request.ListCalculatedAttributeDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3665,16 +3665,16 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_calculated_attributes_for_profile_request.ListCalculatedAttributesForProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.list_calculated_attributes_for_profile_request.ListCalculatedAttributesForProfileRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["domain_name"] = domain_name
-        input["profile_id"] = profile_id
+            input_["max_results"] = max_results
+        input_["domain_name"] = domain_name
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3713,15 +3713,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_domain_layouts_request.ListDomainLayoutsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_domain_layouts_request.ListDomainLayoutsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3785,15 +3785,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_domain_object_types_request.ListDomainObjectTypesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_domain_object_types_request.ListDomainObjectTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3855,14 +3855,14 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3901,15 +3901,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_event_streams_request.ListEventStreamsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_event_streams_request.ListEventStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3973,15 +3973,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_event_triggers_request.ListEventTriggersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_event_triggers_request.ListEventTriggersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4045,15 +4045,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_identity_resolution_jobs_request.ListIdentityResolutionJobsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_identity_resolution_jobs_request.ListIdentityResolutionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4096,17 +4096,17 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_integrations_request.ListIntegrationsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_integrations_request.ListIntegrationsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if include_hidden is not None:
-            input["include_hidden"] = include_hidden
+            input_["include_hidden"] = include_hidden
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4147,16 +4147,16 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_object_type_attributes_request.ListObjectTypeAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.list_object_type_attributes_request.ListObjectTypeAttributesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
+            input_["max_results"] = max_results
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4226,17 +4226,17 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_object_type_attribute_values_request.ListObjectTypeAttributeValuesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.list_object_type_attribute_values_request.ListObjectTypeAttributeValuesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
-        input["attribute_name"] = attribute_name
+            input_["max_results"] = max_results
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
+        input_["attribute_name"] = attribute_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4271,12 +4271,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.profile_attribute_values_request.ProfileAttributeValuesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_customer_profiles.types.profile_attribute_values_request.ProfileAttributeValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["attribute_name"] = attribute_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4329,22 +4329,22 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_profile_history_records_request.ListProfileHistoryRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["profile_id"] = profile_id
+        input_: aws_sdk_customer_profiles.types.list_profile_history_records_request.ListProfileHistoryRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["profile_id"] = profile_id
         if object_type_name is not None:
-            input["object_type_name"] = object_type_name
+            input_["object_type_name"] = object_type_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if action_type is not None:
-            input["action_type"] = action_type
+            input_["action_type"] = action_type
         if performed_by is not None:
-            input["performed_by"] = performed_by
+            input_["performed_by"] = performed_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4391,19 +4391,19 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_profile_objects_request.ListProfileObjectsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.list_profile_objects_request.ListProfileObjectsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
-        input["profile_id"] = profile_id
+            input_["max_results"] = max_results
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
+        input_["profile_id"] = profile_id
         if object_filter is not None:
-            input["object_filter"] = object_filter
+            input_["object_filter"] = object_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4442,15 +4442,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_profile_object_types_request.ListProfileObjectTypesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_profile_object_types_request.ListProfileObjectTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4487,14 +4487,14 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_profile_object_type_templates_request.ListProfileObjectTypeTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.list_profile_object_type_templates_request.ListProfileObjectTypeTemplatesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4533,15 +4533,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_recommender_filters_request.ListRecommenderFiltersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_recommender_filters_request.ListRecommenderFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4603,14 +4603,14 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_recommender_recipes_request.ListRecommenderRecipesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.list_recommender_recipes_request.ListRecommenderRecipesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4674,15 +4674,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_recommenders_request.ListRecommendersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_recommenders_request.ListRecommendersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4746,15 +4746,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_recommender_schemas_request.ListRecommenderSchemasRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_recommender_schemas_request.ListRecommenderSchemasRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4818,15 +4818,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_rule_based_matches_request.ListRuleBasedMatchesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.list_rule_based_matches_request.ListRuleBasedMatchesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["domain_name"] = domain_name
+            input_["max_results"] = max_results
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4890,15 +4890,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_segment_definitions_request.ListSegmentDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_segment_definitions_request.ListSegmentDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4956,11 +4956,11 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_customer_profiles.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4999,15 +4999,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_upload_jobs_request.ListUploadJobsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_upload_jobs_request.ListUploadJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5087,23 +5087,23 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if workflow_type is not None:
-            input["workflow_type"] = workflow_type
+            input_["workflow_type"] = workflow_type
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if query_start_date is not None:
-            input["query_start_date"] = query_start_date
+            input_["query_start_date"] = query_start_date
         if query_end_date is not None:
-            input["query_end_date"] = query_end_date
+            input_["query_end_date"] = query_end_date
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5146,15 +5146,15 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.merge_profiles_request.MergeProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["main_profile_id"] = main_profile_id
-        input["profile_ids_to_be_merged"] = profile_ids_to_be_merged
+        input_: aws_sdk_customer_profiles.types.merge_profiles_request.MergeProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["main_profile_id"] = main_profile_id
+        input_["profile_ids_to_be_merged"] = profile_ids_to_be_merged
         if field_source_profile_ids is not None:
-            input["field_source_profile_ids"] = field_source_profile_ids
+            input_["field_source_profile_ids"] = field_source_profile_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5201,19 +5201,19 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.put_domain_object_type_request.PutDomainObjectTypeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
+        input_: aws_sdk_customer_profiles.types.put_domain_object_type_request.PutDomainObjectTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
-        input["fields"] = fields
+            input_["encryption_key"] = encryption_key
+        input_["fields"] = fields
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5272,27 +5272,27 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.put_integration_request.PutIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.put_integration_request.PutIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if uri is not None:
-            input["uri"] = uri
+            input_["uri"] = uri
         if object_type_name is not None:
-            input["object_type_name"] = object_type_name
+            input_["object_type_name"] = object_type_name
         if object_type_names is not None:
-            input["object_type_names"] = object_type_names
+            input_["object_type_names"] = object_type_names
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if flow_definition is not None:
-            input["flow_definition"] = flow_definition
+            input_["flow_definition"] = flow_definition
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if event_trigger_names is not None:
-            input["event_trigger_names"] = event_trigger_names
+            input_["event_trigger_names"] = event_trigger_names
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5329,13 +5329,13 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.put_profile_object_request.PutProfileObjectRequest = {}  # type: ignore[typeddict-item]
-        input["object_type_name"] = object_type_name
-        input["object"] = object
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.put_profile_object_request.PutProfileObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["object_type_name"] = object_type_name
+        input_["object"] = object
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5404,35 +5404,35 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.put_profile_object_type_request.PutProfileObjectTypeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["object_type_name"] = object_type_name
-        input["description"] = description
+        input_: aws_sdk_customer_profiles.types.put_profile_object_type_request.PutProfileObjectTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["object_type_name"] = object_type_name
+        input_["description"] = description
         if template_id is not None:
-            input["template_id"] = template_id
+            input_["template_id"] = template_id
         if expiration_days is not None:
-            input["expiration_days"] = expiration_days
+            input_["expiration_days"] = expiration_days
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if allow_profile_creation is not None:
-            input["allow_profile_creation"] = allow_profile_creation
+            input_["allow_profile_creation"] = allow_profile_creation
         if source_last_updated_timestamp_format is not None:
-            input["source_last_updated_timestamp_format"] = (
+            input_["source_last_updated_timestamp_format"] = (
                 source_last_updated_timestamp_format
             )
         if max_profile_object_count is not None:
-            input["max_profile_object_count"] = max_profile_object_count
+            input_["max_profile_object_count"] = max_profile_object_count
         if source_priority is not None:
-            input["source_priority"] = source_priority
+            input_["source_priority"] = source_priority
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
         if keys is not None:
-            input["keys"] = keys
+            input_["keys"] = keys
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5483,21 +5483,21 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.search_profiles_request.SearchProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_customer_profiles.types.search_profiles_request.SearchProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["domain_name"] = domain_name
-        input["key_name"] = key_name
-        input["values"] = values
+            input_["max_results"] = max_results
+        input_["domain_name"] = domain_name
+        input_["key_name"] = key_name
+        input_["values"] = values
         if additional_search_keys is not None:
-            input["additional_search_keys"] = additional_search_keys
+            input_["additional_search_keys"] = additional_search_keys
         if logical_operator is not None:
-            input["logical_operator"] = logical_operator
+            input_["logical_operator"] = logical_operator
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5532,12 +5532,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.start_recommender_request.StartRecommenderRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_name"] = recommender_name
+        input_: aws_sdk_customer_profiles.types.start_recommender_request.StartRecommenderRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_name"] = recommender_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5572,12 +5572,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.start_upload_job_request.StartUploadJobRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["job_id"] = job_id
+        input_: aws_sdk_customer_profiles.types.start_upload_job_request.StartUploadJobRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5612,12 +5612,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.stop_recommender_request.StopRecommenderRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_name"] = recommender_name
+        input_: aws_sdk_customer_profiles.types.stop_recommender_request.StopRecommenderRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_name"] = recommender_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5654,12 +5654,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.stop_upload_job_request.StopUploadJobRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["job_id"] = job_id
+        input_: aws_sdk_customer_profiles.types.stop_upload_job_request.StopUploadJobRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5694,12 +5694,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_customer_profiles.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5736,12 +5736,12 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_customer_profiles.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5788,18 +5788,18 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.update_calculated_attribute_definition_request.UpdateCalculatedAttributeDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["calculated_attribute_name"] = calculated_attribute_name
+        input_: aws_sdk_customer_profiles.types.update_calculated_attribute_definition_request.UpdateCalculatedAttributeDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["calculated_attribute_name"] = calculated_attribute_name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if conditions is not None:
-            input["conditions"] = conditions
+            input_["conditions"] = conditions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5858,25 +5858,25 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_customer_profiles.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if default_expiration_days is not None:
-            input["default_expiration_days"] = default_expiration_days
+            input_["default_expiration_days"] = default_expiration_days
         if default_encryption_key is not None:
-            input["default_encryption_key"] = default_encryption_key
+            input_["default_encryption_key"] = default_encryption_key
         if dead_letter_queue_url is not None:
-            input["dead_letter_queue_url"] = dead_letter_queue_url
+            input_["dead_letter_queue_url"] = dead_letter_queue_url
         if matching is not None:
-            input["matching"] = matching
+            input_["matching"] = matching
         if rule_based_matching is not None:
-            input["rule_based_matching"] = rule_based_matching
+            input_["rule_based_matching"] = rule_based_matching
         if data_store is not None:
-            input["data_store"] = data_store
+            input_["data_store"] = data_store
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5929,22 +5929,22 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.update_domain_layout_request.UpdateDomainLayoutRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["layout_definition_name"] = layout_definition_name
+        input_: aws_sdk_customer_profiles.types.update_domain_layout_request.UpdateDomainLayoutRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["layout_definition_name"] = layout_definition_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if is_default is not None:
-            input["is_default"] = is_default
+            input_["is_default"] = is_default
         if layout_type is not None:
-            input["layout_type"] = layout_type
+            input_["layout_type"] = layout_type
         if layout is not None:
-            input["layout"] = layout
+            input_["layout"] = layout
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5997,22 +5997,22 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.update_event_trigger_request.UpdateEventTriggerRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["event_trigger_name"] = event_trigger_name
+        input_: aws_sdk_customer_profiles.types.update_event_trigger_request.UpdateEventTriggerRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["event_trigger_name"] = event_trigger_name
         if object_type_name is not None:
-            input["object_type_name"] = object_type_name
+            input_["object_type_name"] = object_type_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if event_trigger_conditions is not None:
-            input["event_trigger_conditions"] = event_trigger_conditions
+            input_["event_trigger_conditions"] = event_trigger_conditions
         if segment_filter is not None:
-            input["segment_filter"] = segment_filter
+            input_["segment_filter"] = segment_filter
         if event_trigger_limits is not None:
-            input["event_trigger_limits"] = event_trigger_limits
+            input_["event_trigger_limits"] = event_trigger_limits
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6147,62 +6147,62 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["profile_id"] = profile_id
+        input_: aws_sdk_customer_profiles.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["profile_id"] = profile_id
         if additional_information is not None:
-            input["additional_information"] = additional_information
+            input_["additional_information"] = additional_information
         if account_number is not None:
-            input["account_number"] = account_number
+            input_["account_number"] = account_number
         if party_type is not None:
-            input["party_type"] = party_type
+            input_["party_type"] = party_type
         if business_name is not None:
-            input["business_name"] = business_name
+            input_["business_name"] = business_name
         if first_name is not None:
-            input["first_name"] = first_name
+            input_["first_name"] = first_name
         if middle_name is not None:
-            input["middle_name"] = middle_name
+            input_["middle_name"] = middle_name
         if last_name is not None:
-            input["last_name"] = last_name
+            input_["last_name"] = last_name
         if birth_date is not None:
-            input["birth_date"] = birth_date
+            input_["birth_date"] = birth_date
         if gender is not None:
-            input["gender"] = gender
+            input_["gender"] = gender
         if phone_number is not None:
-            input["phone_number"] = phone_number
+            input_["phone_number"] = phone_number
         if mobile_phone_number is not None:
-            input["mobile_phone_number"] = mobile_phone_number
+            input_["mobile_phone_number"] = mobile_phone_number
         if home_phone_number is not None:
-            input["home_phone_number"] = home_phone_number
+            input_["home_phone_number"] = home_phone_number
         if business_phone_number is not None:
-            input["business_phone_number"] = business_phone_number
+            input_["business_phone_number"] = business_phone_number
         if email_address is not None:
-            input["email_address"] = email_address
+            input_["email_address"] = email_address
         if personal_email_address is not None:
-            input["personal_email_address"] = personal_email_address
+            input_["personal_email_address"] = personal_email_address
         if business_email_address is not None:
-            input["business_email_address"] = business_email_address
+            input_["business_email_address"] = business_email_address
         if address is not None:
-            input["address"] = address
+            input_["address"] = address
         if shipping_address is not None:
-            input["shipping_address"] = shipping_address
+            input_["shipping_address"] = shipping_address
         if mailing_address is not None:
-            input["mailing_address"] = mailing_address
+            input_["mailing_address"] = mailing_address
         if billing_address is not None:
-            input["billing_address"] = billing_address
+            input_["billing_address"] = billing_address
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if party_type_string is not None:
-            input["party_type_string"] = party_type_string
+            input_["party_type_string"] = party_type_string
         if gender_string is not None:
-            input["gender_string"] = gender_string
+            input_["gender_string"] = gender_string
         if profile_type is not None:
-            input["profile_type"] = profile_type
+            input_["profile_type"] = profile_type
         if engagement_preferences is not None:
-            input["engagement_preferences"] = engagement_preferences
+            input_["engagement_preferences"] = engagement_preferences
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6245,16 +6245,16 @@ class CustomerProfilesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_customer_profiles.types.update_recommender_request.UpdateRecommenderRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["recommender_name"] = recommender_name
+        input_: aws_sdk_customer_profiles.types.update_recommender_request.UpdateRecommenderRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["recommender_name"] = recommender_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if recommender_config is not None:
-            input["recommender_config"] = recommender_config
+            input_["recommender_config"] = recommender_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -94,25 +94,25 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.create_key_group_request.CreateKeyGroupRequest,
+    input_: aws_sdk_cloudfront.types.create_key_group_request.CreateKeyGroupRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/key-group"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "key_group_config" in input:
+    if "key_group_config" in input_:
         import aws_sdk_cloudfront.types.key_group_config
 
         payload_root = Element("_")
         aws_sdk_cloudfront.types.key_group_config.serialize_xml(
-            input["key_group_config"], payload_root, "KeyGroupConfig"
+            input_["key_group_config"], payload_root, "KeyGroupConfig"
         )
         body: bytes | None = tostring(payload_root[0])
         headers["content-type"] = "application/xml"
@@ -122,26 +122,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def create_key_group(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.create_key_group_request.CreateKeyGroupRequest,
+    input_: aws_sdk_cloudfront.types.create_key_group_request.CreateKeyGroupRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.create_key_group_result.CreateKeyGroupResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -150,16 +147,17 @@ def create_key_group(
 
 async def async_create_key_group(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.create_key_group_request.CreateKeyGroupRequest,
+    input_: aws_sdk_cloudfront.types.create_key_group_request.CreateKeyGroupRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.create_key_group_result.CreateKeyGroupResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

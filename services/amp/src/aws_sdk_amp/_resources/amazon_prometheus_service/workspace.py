@@ -70,18 +70,18 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amp.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -114,11 +114,11 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_amp.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -155,15 +155,15 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.update_workspace_alias_request.UpdateWorkspaceAliasRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_amp.types.update_workspace_alias_request.UpdateWorkspaceAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,13 +198,13 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_amp.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,16 +243,16 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amp.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -299,18 +299,18 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amp.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,11 +344,11 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_amp.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,15 +386,15 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.update_workspace_alias_request.UpdateWorkspaceAliasRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_amp.types.update_workspace_alias_request.UpdateWorkspaceAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -430,13 +430,13 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_amp.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,16 +476,16 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amp.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_amp.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if alias is not None:
-            input["alias"] = alias
+            input_["alias"] = alias
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

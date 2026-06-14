@@ -177,12 +177,12 @@ class PinpointSMSVoiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_sms_voice.types.create_configuration_set_request.CreateConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_sms_voice.types.create_configuration_set_request.CreateConfigurationSetRequest = {}  # type: ignore[typeddict-item]
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,15 +222,15 @@ class PinpointSMSVoiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_sms_voice.types.create_configuration_set_event_destination_request.CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_sms_voice.types.create_configuration_set_event_destination_request.CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if event_destination is not None:
-            input["event_destination"] = event_destination
+            input_["event_destination"] = event_destination
         if event_destination_name is not None:
-            input["event_destination_name"] = event_destination_name
+            input_["event_destination_name"] = event_destination_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,11 +263,11 @@ class PinpointSMSVoiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_sms_voice.types.delete_configuration_set_request.DeleteConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_sms_voice.types.delete_configuration_set_request.DeleteConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,12 +302,12 @@ class PinpointSMSVoiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_sms_voice.types.delete_configuration_set_event_destination_request.DeleteConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination_name"] = event_destination_name
+        input_: aws_sdk_pinpoint_sms_voice.types.delete_configuration_set_event_destination_request.DeleteConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination_name"] = event_destination_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,11 +340,11 @@ class PinpointSMSVoiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_sms_voice.types.get_configuration_set_event_destinations_request.GetConfigurationSetEventDestinationsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_sms_voice.types.get_configuration_set_event_destinations_request.GetConfigurationSetEventDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,14 +383,14 @@ class PinpointSMSVoiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_sms_voice.types.list_configuration_sets_request.ListConfigurationSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_sms_voice.types.list_configuration_sets_request.ListConfigurationSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -438,20 +438,20 @@ class PinpointSMSVoiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_sms_voice.types.send_voice_message_request.SendVoiceMessageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_sms_voice.types.send_voice_message_request.SendVoiceMessageRequest = {}  # type: ignore[typeddict-item]
         if caller_id is not None:
-            input["caller_id"] = caller_id
+            input_["caller_id"] = caller_id
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
         if destination_phone_number is not None:
-            input["destination_phone_number"] = destination_phone_number
+            input_["destination_phone_number"] = destination_phone_number
         if origination_phone_number is not None:
-            input["origination_phone_number"] = origination_phone_number
+            input_["origination_phone_number"] = origination_phone_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,14 +489,14 @@ class PinpointSMSVoiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_sms_voice.types.update_configuration_set_event_destination_request.UpdateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_sms_voice.types.update_configuration_set_event_destination_request.UpdateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if event_destination is not None:
-            input["event_destination"] = event_destination
-        input["event_destination_name"] = event_destination_name
+            input_["event_destination"] = event_destination
+        input_["event_destination_name"] = event_destination_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

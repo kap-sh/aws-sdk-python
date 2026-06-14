@@ -182,13 +182,13 @@ class LexRuntimeServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_service.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_name"] = bot_name
-        input["bot_alias"] = bot_alias
-        input["user_id"] = user_id
+        input_: aws_sdk_lex_runtime_service.types.delete_session_request.DeleteSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_name"] = bot_name
+        input_["bot_alias"] = bot_alias
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -229,15 +229,15 @@ class LexRuntimeServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_service.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_name"] = bot_name
-        input["bot_alias"] = bot_alias
-        input["user_id"] = user_id
+        input_: aws_sdk_lex_runtime_service.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_name"] = bot_name
+        input_["bot_alias"] = bot_alias
+        input_["user_id"] = user_id
         if checkpoint_label_filter is not None:
-            input["checkpoint_label_filter"] = checkpoint_label_filter
+            input_["checkpoint_label_filter"] = checkpoint_label_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,23 +293,23 @@ class LexRuntimeServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_service.types.post_content_request.PostContentRequest = {}  # type: ignore[typeddict-item]
-        input["bot_name"] = bot_name
-        input["bot_alias"] = bot_alias
-        input["user_id"] = user_id
+        input_: aws_sdk_lex_runtime_service.types.post_content_request.PostContentRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_name"] = bot_name
+        input_["bot_alias"] = bot_alias
+        input_["user_id"] = user_id
         if session_attributes is not None:
-            input["session_attributes"] = session_attributes
+            input_["session_attributes"] = session_attributes
         if request_attributes is not None:
-            input["request_attributes"] = request_attributes
-        input["content_type"] = content_type
+            input_["request_attributes"] = request_attributes
+        input_["content_type"] = content_type
         if accept is not None:
-            input["accept"] = accept
-        input["input_stream"] = ensure_sync_iterator(input_stream)  # type: ignore
+            input_["accept"] = accept
+        input_["input_stream"] = ensure_sync_iterator(input_stream)  # type: ignore
         if active_contexts is not None:
-            input["active_contexts"] = active_contexts
+            input_["active_contexts"] = active_contexts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,20 +360,20 @@ class LexRuntimeServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_service.types.post_text_request.PostTextRequest = {}  # type: ignore[typeddict-item]
-        input["bot_name"] = bot_name
-        input["bot_alias"] = bot_alias
-        input["user_id"] = user_id
+        input_: aws_sdk_lex_runtime_service.types.post_text_request.PostTextRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_name"] = bot_name
+        input_["bot_alias"] = bot_alias
+        input_["user_id"] = user_id
         if session_attributes is not None:
-            input["session_attributes"] = session_attributes
+            input_["session_attributes"] = session_attributes
         if request_attributes is not None:
-            input["request_attributes"] = request_attributes
-        input["input_text"] = input_text
+            input_["request_attributes"] = request_attributes
+        input_["input_text"] = input_text
         if active_contexts is not None:
-            input["active_contexts"] = active_contexts
+            input_["active_contexts"] = active_contexts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,23 +429,23 @@ class LexRuntimeServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_lex_runtime_service.types.put_session_request.PutSessionRequest = {}  # type: ignore[typeddict-item]
-        input["bot_name"] = bot_name
-        input["bot_alias"] = bot_alias
-        input["user_id"] = user_id
+        input_: aws_sdk_lex_runtime_service.types.put_session_request.PutSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["bot_name"] = bot_name
+        input_["bot_alias"] = bot_alias
+        input_["user_id"] = user_id
         if session_attributes is not None:
-            input["session_attributes"] = session_attributes
+            input_["session_attributes"] = session_attributes
         if dialog_action is not None:
-            input["dialog_action"] = dialog_action
+            input_["dialog_action"] = dialog_action
         if recent_intent_summary_view is not None:
-            input["recent_intent_summary_view"] = recent_intent_summary_view
+            input_["recent_intent_summary_view"] = recent_intent_summary_view
         if accept is not None:
-            input["accept"] = accept
+            input_["accept"] = accept
         if active_contexts is not None:
-            input["active_contexts"] = active_contexts
+            input_["active_contexts"] = active_contexts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

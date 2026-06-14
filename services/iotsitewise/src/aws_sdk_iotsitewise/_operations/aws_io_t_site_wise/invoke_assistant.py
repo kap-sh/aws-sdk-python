@@ -16,13 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.invoke_assistant_response
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iotsitewise.types.invoke_assistant_request.InvokeAssistantRequest,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def invoke_assistant(
     options: OperationOptions,
     input: aws_sdk_iotsitewise.types.invoke_assistant_request.InvokeAssistantRequest,

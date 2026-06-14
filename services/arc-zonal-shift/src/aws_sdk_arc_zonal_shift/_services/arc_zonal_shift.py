@@ -13,6 +13,23 @@ from aws_sdk_arc_zonal_shift._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_arc_zonal_shift._auth._zapros_handler import AuthMiddleware
+from aws_sdk_arc_zonal_shift._resources.perc_data_plane.autoshift import Autoshift
+from aws_sdk_arc_zonal_shift._resources.perc_data_plane.autoshift_observer_notification import (
+    AutoshiftObserverNotification,
+)
+from aws_sdk_arc_zonal_shift._resources.perc_data_plane.autoshift_trigger_resource import (
+    AutoshiftTriggerResource,
+)
+from aws_sdk_arc_zonal_shift._resources.perc_data_plane.managed_resource import (
+    ManagedResource,
+)
+from aws_sdk_arc_zonal_shift._resources.perc_data_plane.practice_run_configuration_resource import (
+    PracticeRunConfigurationResource,
+)
+from aws_sdk_arc_zonal_shift._resources.perc_data_plane.zonal_shift_resource import (
+    ZonalShiftResource,
+)
+from aws_sdk_arc_zonal_shift._resources.perc_data_plane.zonal_shifts import ZonalShifts
 from aws_sdk_arc_zonal_shift._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +107,16 @@ class ARCZonalShiftClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.autoshift = Autoshift(self)
+        self.autoshift_observer_notification = AutoshiftObserverNotification(self)
+        self.autoshift_trigger_resource = AutoshiftTriggerResource(self)
+        self.managed_resource = ManagedResource(self)
+        self.practice_run_configuration_resource = PracticeRunConfigurationResource(
+            self
+        )
+        self.zonal_shift_resource = ZonalShiftResource(self)
+        self.zonal_shifts = ZonalShifts(self)
 
     def operation_options(
         self, config_overrides: Optional[ARCZonalShiftClientConfig] = None

@@ -93,21 +93,21 @@ class MigrationWorkflow:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.create_migration_workflow_request.CreateMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_migrationhuborchestrator.types.create_migration_workflow_request.CreateMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["template_id"] = template_id
+            input_["description"] = description
+        input_["template_id"] = template_id
         if application_configuration_id is not None:
-            input["application_configuration_id"] = application_configuration_id
-        input["input_parameters"] = input_parameters
+            input_["application_configuration_id"] = application_configuration_id
+        input_["input_parameters"] = input_parameters
         if step_targets is not None:
-            input["step_targets"] = step_targets
+            input_["step_targets"] = step_targets
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -140,11 +140,11 @@ class MigrationWorkflow:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.get_migration_workflow_request.GetMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.get_migration_workflow_request.GetMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,19 +189,19 @@ class MigrationWorkflow:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.update_migration_workflow_request.UpdateMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.update_migration_workflow_request.UpdateMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if input_parameters is not None:
-            input["input_parameters"] = input_parameters
+            input_["input_parameters"] = input_parameters
         if step_targets is not None:
-            input["step_targets"] = step_targets
+            input_["step_targets"] = step_targets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -234,11 +234,11 @@ class MigrationWorkflow:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.delete_migration_workflow_request.DeleteMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.delete_migration_workflow_request.DeleteMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,24 +291,24 @@ class MigrationWorkflow:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.list_migration_workflows_request.ListMigrationWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhuborchestrator.types.list_migration_workflows_request.ListMigrationWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if template_id is not None:
-            input["template_id"] = template_id
+            input_["template_id"] = template_id
         if ads_application_configuration_name is not None:
-            input["ads_application_configuration_name"] = (
+            input_["ads_application_configuration_name"] = (
                 ads_application_configuration_name
             )
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,11 +341,11 @@ class MigrationWorkflow:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.start_migration_workflow_request.StartMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.start_migration_workflow_request.StartMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,11 +378,11 @@ class MigrationWorkflow:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.stop_migration_workflow_request.StopMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.stop_migration_workflow_request.StopMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,21 +437,21 @@ class AsyncMigrationWorkflow:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.create_migration_workflow_request.CreateMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_migrationhuborchestrator.types.create_migration_workflow_request.CreateMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["template_id"] = template_id
+            input_["description"] = description
+        input_["template_id"] = template_id
         if application_configuration_id is not None:
-            input["application_configuration_id"] = application_configuration_id
-        input["input_parameters"] = input_parameters
+            input_["application_configuration_id"] = application_configuration_id
+        input_["input_parameters"] = input_parameters
         if step_targets is not None:
-            input["step_targets"] = step_targets
+            input_["step_targets"] = step_targets
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,11 +485,11 @@ class AsyncMigrationWorkflow:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.get_migration_workflow_request.GetMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.get_migration_workflow_request.GetMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,19 +535,19 @@ class AsyncMigrationWorkflow:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.update_migration_workflow_request.UpdateMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.update_migration_workflow_request.UpdateMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if input_parameters is not None:
-            input["input_parameters"] = input_parameters
+            input_["input_parameters"] = input_parameters
         if step_targets is not None:
-            input["step_targets"] = step_targets
+            input_["step_targets"] = step_targets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -581,11 +581,11 @@ class AsyncMigrationWorkflow:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.delete_migration_workflow_request.DeleteMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.delete_migration_workflow_request.DeleteMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -639,24 +639,24 @@ class AsyncMigrationWorkflow:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.list_migration_workflows_request.ListMigrationWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhuborchestrator.types.list_migration_workflows_request.ListMigrationWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if template_id is not None:
-            input["template_id"] = template_id
+            input_["template_id"] = template_id
         if ads_application_configuration_name is not None:
-            input["ads_application_configuration_name"] = (
+            input_["ads_application_configuration_name"] = (
                 ads_application_configuration_name
             )
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,11 +690,11 @@ class AsyncMigrationWorkflow:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.start_migration_workflow_request.StartMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.start_migration_workflow_request.StartMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -728,11 +728,11 @@ class AsyncMigrationWorkflow:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.stop_migration_workflow_request.StopMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.stop_migration_workflow_request.StopMigrationWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -318,12 +318,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.batch_associate_scram_secret_request.BatchAssociateScramSecretRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["secret_arn_list"] = secret_arn_list
+        input_: aws_sdk_kafka.types.batch_associate_scram_secret_request.BatchAssociateScramSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["secret_arn_list"] = secret_arn_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,12 +358,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.batch_disassociate_scram_secret_request.BatchDisassociateScramSecretRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["secret_arn_list"] = secret_arn_list
+        input_: aws_sdk_kafka.types.batch_disassociate_scram_secret_request.BatchDisassociateScramSecretRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["secret_arn_list"] = secret_arn_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,32 +429,32 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["broker_node_group_info"] = broker_node_group_info
+        input_: aws_sdk_kafka.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_node_group_info"] = broker_node_group_info
         if rebalancing is not None:
-            input["rebalancing"] = rebalancing
+            input_["rebalancing"] = rebalancing
         if client_authentication is not None:
-            input["client_authentication"] = client_authentication
-        input["cluster_name"] = cluster_name
+            input_["client_authentication"] = client_authentication
+        input_["cluster_name"] = cluster_name
         if configuration_info is not None:
-            input["configuration_info"] = configuration_info
+            input_["configuration_info"] = configuration_info
         if encryption_info is not None:
-            input["encryption_info"] = encryption_info
+            input_["encryption_info"] = encryption_info
         if enhanced_monitoring is not None:
-            input["enhanced_monitoring"] = enhanced_monitoring
+            input_["enhanced_monitoring"] = enhanced_monitoring
         if open_monitoring is not None:
-            input["open_monitoring"] = open_monitoring
-        input["kafka_version"] = kafka_version
+            input_["open_monitoring"] = open_monitoring
+        input_["kafka_version"] = kafka_version
         if logging_info is not None:
-            input["logging_info"] = logging_info
-        input["number_of_broker_nodes"] = number_of_broker_nodes
+            input_["logging_info"] = logging_info
+        input_["number_of_broker_nodes"] = number_of_broker_nodes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_mode is not None:
-            input["storage_mode"] = storage_mode
+            input_["storage_mode"] = storage_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -497,17 +497,17 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.create_cluster_v2_request.CreateClusterV2Request = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_kafka.types.create_cluster_v2_request.CreateClusterV2Request = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if provisioned is not None:
-            input["provisioned"] = provisioned
+            input_["provisioned"] = provisioned
         if serverless is not None:
-            input["serverless"] = serverless
+            input_["serverless"] = serverless
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -550,16 +550,16 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.create_configuration_request.CreateConfigurationRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kafka_versions is not None:
-            input["kafka_versions"] = kafka_versions
-        input["name"] = name
-        input["server_properties"] = server_properties
+            input_["kafka_versions"] = kafka_versions
+        input_["name"] = name
+        input_["server_properties"] = server_properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -606,20 +606,20 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.create_replicator_request.CreateReplicatorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.create_replicator_request.CreateReplicatorRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["kafka_clusters"] = kafka_clusters
-        input["replication_info_list"] = replication_info_list
-        input["replicator_name"] = replicator_name
-        input["service_execution_role_arn"] = service_execution_role_arn
+            input_["description"] = description
+        input_["kafka_clusters"] = kafka_clusters
+        input_["replication_info_list"] = replication_info_list
+        input_["replicator_name"] = replicator_name
+        input_["service_execution_role_arn"] = service_execution_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if log_delivery is not None:
-            input["log_delivery"] = log_delivery
+            input_["log_delivery"] = log_delivery
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -660,16 +660,16 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.create_topic_request.CreateTopicRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["topic_name"] = topic_name
-        input["partition_count"] = partition_count
-        input["replication_factor"] = replication_factor
+        input_: aws_sdk_kafka.types.create_topic_request.CreateTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["topic_name"] = topic_name
+        input_["partition_count"] = partition_count
+        input_["replication_factor"] = replication_factor
         if configs is not None:
-            input["configs"] = configs
+            input_["configs"] = configs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -714,17 +714,17 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.create_vpc_connection_request.CreateVpcConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["target_cluster_arn"] = target_cluster_arn
-        input["authentication"] = authentication
-        input["vpc_id"] = vpc_id
-        input["client_subnets"] = client_subnets
-        input["security_groups"] = security_groups
+        input_: aws_sdk_kafka.types.create_vpc_connection_request.CreateVpcConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["target_cluster_arn"] = target_cluster_arn
+        input_["authentication"] = authentication
+        input_["vpc_id"] = vpc_id
+        input_["client_subnets"] = client_subnets
+        input_["security_groups"] = security_groups
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,13 +759,13 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if current_version is not None:
-            input["current_version"] = current_version
+            input_["current_version"] = current_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -800,11 +800,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.delete_cluster_policy_request.DeleteClusterPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.delete_cluster_policy_request.DeleteClusterPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -839,11 +839,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.delete_configuration_request.DeleteConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_kafka.types.delete_configuration_request.DeleteConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -878,13 +878,13 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.delete_replicator_request.DeleteReplicatorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.delete_replicator_request.DeleteReplicatorRequest = {}  # type: ignore[typeddict-item]
         if current_version is not None:
-            input["current_version"] = current_version
-        input["replicator_arn"] = replicator_arn
+            input_["current_version"] = current_version
+        input_["replicator_arn"] = replicator_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -919,12 +919,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.delete_topic_request.DeleteTopicRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["topic_name"] = topic_name
+        input_: aws_sdk_kafka.types.delete_topic_request.DeleteTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["topic_name"] = topic_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -959,11 +959,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.delete_vpc_connection_request.DeleteVpcConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_kafka.types.delete_vpc_connection_request.DeleteVpcConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,11 +996,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1033,11 +1033,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_cluster_operation_request.DescribeClusterOperationRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_operation_arn"] = cluster_operation_arn
+        input_: aws_sdk_kafka.types.describe_cluster_operation_request.DescribeClusterOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_operation_arn"] = cluster_operation_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1070,11 +1070,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_cluster_operation_v2_request.DescribeClusterOperationV2Request = {}  # type: ignore[typeddict-item]
-        input["cluster_operation_arn"] = cluster_operation_arn
+        input_: aws_sdk_kafka.types.describe_cluster_operation_v2_request.DescribeClusterOperationV2Request = {}  # type: ignore[typeddict-item]
+        input_["cluster_operation_arn"] = cluster_operation_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1107,11 +1107,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_cluster_v2_request.DescribeClusterV2Request = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.describe_cluster_v2_request.DescribeClusterV2Request = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1144,11 +1144,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_configuration_request.DescribeConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_kafka.types.describe_configuration_request.DescribeConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1183,12 +1183,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_configuration_revision_request.DescribeConfigurationRevisionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["revision"] = revision
+        input_: aws_sdk_kafka.types.describe_configuration_revision_request.DescribeConfigurationRevisionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["revision"] = revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1221,11 +1221,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_replicator_request.DescribeReplicatorRequest = {}  # type: ignore[typeddict-item]
-        input["replicator_arn"] = replicator_arn
+        input_: aws_sdk_kafka.types.describe_replicator_request.DescribeReplicatorRequest = {}  # type: ignore[typeddict-item]
+        input_["replicator_arn"] = replicator_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1260,12 +1260,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_topic_request.DescribeTopicRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["topic_name"] = topic_name
+        input_: aws_sdk_kafka.types.describe_topic_request.DescribeTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["topic_name"] = topic_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1304,16 +1304,16 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_topic_partitions_request.DescribeTopicPartitionsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["topic_name"] = topic_name
+        input_: aws_sdk_kafka.types.describe_topic_partitions_request.DescribeTopicPartitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["topic_name"] = topic_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1371,11 +1371,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.describe_vpc_connection_request.DescribeVpcConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_kafka.types.describe_vpc_connection_request.DescribeVpcConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1410,11 +1410,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.get_bootstrap_brokers_request.GetBootstrapBrokersRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.get_bootstrap_brokers_request.GetBootstrapBrokersRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1447,11 +1447,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.get_cluster_policy_request.GetClusterPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.get_cluster_policy_request.GetClusterPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1484,12 +1484,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.get_compatible_kafka_versions_request.GetCompatibleKafkaVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.get_compatible_kafka_versions_request.GetCompatibleKafkaVersionsRequest = {}  # type: ignore[typeddict-item]
         if cluster_arn is not None:
-            input["cluster_arn"] = cluster_arn
+            input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1526,15 +1526,15 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_client_vpc_connections_request.ListClientVpcConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.list_client_vpc_connections_request.ListClientVpcConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1594,15 +1594,15 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_cluster_operations_request.ListClusterOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.list_cluster_operations_request.ListClusterOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1662,15 +1662,15 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_cluster_operations_v2_request.ListClusterOperationsV2Request = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.list_cluster_operations_v2_request.ListClusterOperationsV2Request = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1730,16 +1730,16 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
         if cluster_name_filter is not None:
-            input["cluster_name_filter"] = cluster_name_filter
+            input_["cluster_name_filter"] = cluster_name_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1801,18 +1801,18 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_clusters_v2_request.ListClustersV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.list_clusters_v2_request.ListClustersV2Request = {}  # type: ignore[typeddict-item]
         if cluster_name_filter is not None:
-            input["cluster_name_filter"] = cluster_name_filter
+            input_["cluster_name_filter"] = cluster_name_filter
         if cluster_type_filter is not None:
-            input["cluster_type_filter"] = cluster_type_filter
+            input_["cluster_type_filter"] = cluster_type_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1874,15 +1874,15 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_configuration_revisions_request.ListConfigurationRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_kafka.types.list_configuration_revisions_request.ListConfigurationRevisionsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1940,14 +1940,14 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.list_configurations_request.ListConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2003,14 +2003,14 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_kafka_versions_request.ListKafkaVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.list_kafka_versions_request.ListKafkaVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2068,15 +2068,15 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2138,16 +2138,16 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_replicators_request.ListReplicatorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.list_replicators_request.ListReplicatorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if replicator_name_filter is not None:
-            input["replicator_name_filter"] = replicator_name_filter
+            input_["replicator_name_filter"] = replicator_name_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2209,15 +2209,15 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_scram_secrets_request.ListScramSecretsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.list_scram_secrets_request.ListScramSecretsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2273,11 +2273,11 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kafka.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2316,17 +2316,17 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_topics_request.ListTopicsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.list_topics_request.ListTopicsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if topic_name_filter is not None:
-            input["topic_name_filter"] = topic_name_filter
+            input_["topic_name_filter"] = topic_name_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2386,14 +2386,14 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.list_vpc_connections_request.ListVpcConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.list_vpc_connections_request.ListVpcConnectionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2451,14 +2451,14 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.put_cluster_policy_request.PutClusterPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.put_cluster_policy_request.PutClusterPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if current_version is not None:
-            input["current_version"] = current_version
-        input["policy"] = policy
+            input_["current_version"] = current_version
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2493,12 +2493,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.reboot_broker_request.RebootBrokerRequest = {}  # type: ignore[typeddict-item]
-        input["broker_ids"] = broker_ids
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.reboot_broker_request.RebootBrokerRequest = {}  # type: ignore[typeddict-item]
+        input_["broker_ids"] = broker_ids
+        input_["cluster_arn"] = cluster_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2533,12 +2533,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.reject_client_vpc_connection_request.RejectClientVpcConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["vpc_connection_arn"] = vpc_connection_arn
+        input_: aws_sdk_kafka.types.reject_client_vpc_connection_request.RejectClientVpcConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["vpc_connection_arn"] = vpc_connection_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2571,12 +2571,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_kafka.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2609,12 +2609,12 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_kafka.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2651,13 +2651,13 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_broker_count_request.UpdateBrokerCountRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["current_version"] = current_version
-        input["target_number_of_broker_nodes"] = target_number_of_broker_nodes
+        input_: aws_sdk_kafka.types.update_broker_count_request.UpdateBrokerCountRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["current_version"] = current_version
+        input_["target_number_of_broker_nodes"] = target_number_of_broker_nodes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2696,13 +2696,13 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_broker_storage_request.UpdateBrokerStorageRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["current_version"] = current_version
-        input["target_broker_ebs_volume_info"] = target_broker_ebs_volume_info
+        input_: aws_sdk_kafka.types.update_broker_storage_request.UpdateBrokerStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["current_version"] = current_version
+        input_["target_broker_ebs_volume_info"] = target_broker_ebs_volume_info
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2739,13 +2739,13 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_broker_type_request.UpdateBrokerTypeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["current_version"] = current_version
-        input["target_instance_type"] = target_instance_type
+        input_: aws_sdk_kafka.types.update_broker_type_request.UpdateBrokerTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["current_version"] = current_version
+        input_["target_instance_type"] = target_instance_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2782,13 +2782,13 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_cluster_configuration_request.UpdateClusterConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["configuration_info"] = configuration_info
-        input["current_version"] = current_version
+        input_: aws_sdk_kafka.types.update_cluster_configuration_request.UpdateClusterConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["configuration_info"] = configuration_info
+        input_["current_version"] = current_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2829,15 +2829,15 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_cluster_kafka_version_request.UpdateClusterKafkaVersionRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.update_cluster_kafka_version_request.UpdateClusterKafkaVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if configuration_info is not None:
-            input["configuration_info"] = configuration_info
-        input["current_version"] = current_version
-        input["target_kafka_version"] = target_kafka_version
+            input_["configuration_info"] = configuration_info
+        input_["current_version"] = current_version
+        input_["target_kafka_version"] = target_kafka_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2876,14 +2876,14 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_configuration_request.UpdateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_kafka.types.update_configuration_request.UpdateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if description is not None:
-            input["description"] = description
-        input["server_properties"] = server_properties
+            input_["description"] = description
+        input_["server_properties"] = server_properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2926,16 +2926,16 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_connectivity_request.UpdateConnectivityRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
+        input_: aws_sdk_kafka.types.update_connectivity_request.UpdateConnectivityRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
         if connectivity_info is not None:
-            input["connectivity_info"] = connectivity_info
-        input["current_version"] = current_version
+            input_["connectivity_info"] = connectivity_info
+        input_["current_version"] = current_version
         if zookeeper_access is not None:
-            input["zookeeper_access"] = zookeeper_access
+            input_["zookeeper_access"] = zookeeper_access
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2979,18 +2979,18 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_monitoring_request.UpdateMonitoringRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["current_version"] = current_version
+        input_: aws_sdk_kafka.types.update_monitoring_request.UpdateMonitoringRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["current_version"] = current_version
         if enhanced_monitoring is not None:
-            input["enhanced_monitoring"] = enhanced_monitoring
+            input_["enhanced_monitoring"] = enhanced_monitoring
         if open_monitoring is not None:
-            input["open_monitoring"] = open_monitoring
+            input_["open_monitoring"] = open_monitoring
         if logging_info is not None:
-            input["logging_info"] = logging_info
+            input_["logging_info"] = logging_info
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3027,13 +3027,13 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_rebalancing_request.UpdateRebalancingRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["current_version"] = current_version
-        input["rebalancing"] = rebalancing
+        input_: aws_sdk_kafka.types.update_rebalancing_request.UpdateRebalancingRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["current_version"] = current_version
+        input_["rebalancing"] = rebalancing
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3094,26 +3094,26 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_replication_info_request.UpdateReplicationInfoRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.update_replication_info_request.UpdateReplicationInfoRequest = {}  # type: ignore[typeddict-item]
         if consumer_group_replication is not None:
-            input["consumer_group_replication"] = consumer_group_replication
-        input["current_version"] = current_version
-        input["replicator_arn"] = replicator_arn
+            input_["consumer_group_replication"] = consumer_group_replication
+        input_["current_version"] = current_version
+        input_["replicator_arn"] = replicator_arn
         if source_kafka_cluster_arn is not None:
-            input["source_kafka_cluster_arn"] = source_kafka_cluster_arn
+            input_["source_kafka_cluster_arn"] = source_kafka_cluster_arn
         if source_kafka_cluster_id is not None:
-            input["source_kafka_cluster_id"] = source_kafka_cluster_id
+            input_["source_kafka_cluster_id"] = source_kafka_cluster_id
         if target_kafka_cluster_arn is not None:
-            input["target_kafka_cluster_arn"] = target_kafka_cluster_arn
+            input_["target_kafka_cluster_arn"] = target_kafka_cluster_arn
         if target_kafka_cluster_id is not None:
-            input["target_kafka_cluster_id"] = target_kafka_cluster_id
+            input_["target_kafka_cluster_id"] = target_kafka_cluster_id
         if topic_replication is not None:
-            input["topic_replication"] = topic_replication
+            input_["topic_replication"] = topic_replication
         if log_delivery is not None:
-            input["log_delivery"] = log_delivery
+            input_["log_delivery"] = log_delivery
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3156,16 +3156,16 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_security_request.UpdateSecurityRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kafka.types.update_security_request.UpdateSecurityRequest = {}  # type: ignore[typeddict-item]
         if client_authentication is not None:
-            input["client_authentication"] = client_authentication
-        input["cluster_arn"] = cluster_arn
-        input["current_version"] = current_version
+            input_["client_authentication"] = client_authentication
+        input_["cluster_arn"] = cluster_arn
+        input_["current_version"] = current_version
         if encryption_info is not None:
-            input["encryption_info"] = encryption_info
+            input_["encryption_info"] = encryption_info
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3208,18 +3208,18 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_storage_request.UpdateStorageRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["current_version"] = current_version
+        input_: aws_sdk_kafka.types.update_storage_request.UpdateStorageRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["current_version"] = current_version
         if provisioned_throughput is not None:
-            input["provisioned_throughput"] = provisioned_throughput
+            input_["provisioned_throughput"] = provisioned_throughput
         if storage_mode is not None:
-            input["storage_mode"] = storage_mode
+            input_["storage_mode"] = storage_mode
         if volume_size_gb is not None:
-            input["volume_size_gb"] = volume_size_gb
+            input_["volume_size_gb"] = volume_size_gb
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3258,16 +3258,16 @@ class KafkaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kafka.types.update_topic_request.UpdateTopicRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_arn"] = cluster_arn
-        input["topic_name"] = topic_name
+        input_: aws_sdk_kafka.types.update_topic_request.UpdateTopicRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_arn"] = cluster_arn
+        input_["topic_name"] = topic_name
         if configs is not None:
-            input["configs"] = configs
+            input_["configs"] = configs
         if partition_count is not None:
-            input["partition_count"] = partition_count
+            input_["partition_count"] = partition_count
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

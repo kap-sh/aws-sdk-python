@@ -101,41 +101,41 @@ class CloudAutonomousVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input.CreateCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
-        input["odb_network_id"] = odb_network_id
-        input["display_name"] = display_name
+        input_: aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input.CreateCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_["odb_network_id"] = odb_network_id
+        input_["display_name"] = display_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["autonomous_data_storage_size_in_t_bs"] = (
+            input_["client_token"] = client_token
+        input_["autonomous_data_storage_size_in_t_bs"] = (
             autonomous_data_storage_size_in_t_bs
         )
-        input["cpu_core_count_per_node"] = cpu_core_count_per_node
+        input_["cpu_core_count_per_node"] = cpu_core_count_per_node
         if db_servers is not None:
-            input["db_servers"] = db_servers
+            input_["db_servers"] = db_servers
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if is_mtls_enabled_vm_cluster is not None:
-            input["is_mtls_enabled_vm_cluster"] = is_mtls_enabled_vm_cluster
+            input_["is_mtls_enabled_vm_cluster"] = is_mtls_enabled_vm_cluster
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
-        input["memory_per_oracle_compute_unit_in_g_bs"] = (
+            input_["maintenance_window"] = maintenance_window
+        input_["memory_per_oracle_compute_unit_in_g_bs"] = (
             memory_per_oracle_compute_unit_in_g_bs
         )
         if scan_listener_port_non_tls is not None:
-            input["scan_listener_port_non_tls"] = scan_listener_port_non_tls
+            input_["scan_listener_port_non_tls"] = scan_listener_port_non_tls
         if scan_listener_port_tls is not None:
-            input["scan_listener_port_tls"] = scan_listener_port_tls
+            input_["scan_listener_port_tls"] = scan_listener_port_tls
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if time_zone is not None:
-            input["time_zone"] = time_zone
-        input["total_container_databases"] = total_container_databases
+            input_["time_zone"] = time_zone
+        input_["total_container_databases"] = total_container_databases
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,11 +168,11 @@ class CloudAutonomousVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input.GetCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+        input_: aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input.GetCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,11 +205,11 @@ class CloudAutonomousVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input.DeleteCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+        input_: aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input.DeleteCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,16 +248,16 @@ class CloudAutonomousVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input.ListCloudAutonomousVmClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input.ListCloudAutonomousVmClustersInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if cloud_exadata_infrastructure_id is not None:
-            input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+            input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,15 +294,15 @@ class CloudAutonomousVmClusterResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_virtual_machines_input.ListAutonomousVirtualMachinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_virtual_machines_input.ListAutonomousVirtualMachinesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+            input_["next_token"] = next_token
+        input_["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,41 +377,41 @@ class AsyncCloudAutonomousVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input.CreateCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
-        input["odb_network_id"] = odb_network_id
-        input["display_name"] = display_name
+        input_: aws_sdk_odb.types.create_cloud_autonomous_vm_cluster_input.CreateCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+        input_["odb_network_id"] = odb_network_id
+        input_["display_name"] = display_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["autonomous_data_storage_size_in_t_bs"] = (
+            input_["client_token"] = client_token
+        input_["autonomous_data_storage_size_in_t_bs"] = (
             autonomous_data_storage_size_in_t_bs
         )
-        input["cpu_core_count_per_node"] = cpu_core_count_per_node
+        input_["cpu_core_count_per_node"] = cpu_core_count_per_node
         if db_servers is not None:
-            input["db_servers"] = db_servers
+            input_["db_servers"] = db_servers
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if is_mtls_enabled_vm_cluster is not None:
-            input["is_mtls_enabled_vm_cluster"] = is_mtls_enabled_vm_cluster
+            input_["is_mtls_enabled_vm_cluster"] = is_mtls_enabled_vm_cluster
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
-        input["memory_per_oracle_compute_unit_in_g_bs"] = (
+            input_["maintenance_window"] = maintenance_window
+        input_["memory_per_oracle_compute_unit_in_g_bs"] = (
             memory_per_oracle_compute_unit_in_g_bs
         )
         if scan_listener_port_non_tls is not None:
-            input["scan_listener_port_non_tls"] = scan_listener_port_non_tls
+            input_["scan_listener_port_non_tls"] = scan_listener_port_non_tls
         if scan_listener_port_tls is not None:
-            input["scan_listener_port_tls"] = scan_listener_port_tls
+            input_["scan_listener_port_tls"] = scan_listener_port_tls
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if time_zone is not None:
-            input["time_zone"] = time_zone
-        input["total_container_databases"] = total_container_databases
+            input_["time_zone"] = time_zone
+        input_["total_container_databases"] = total_container_databases
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,11 +445,11 @@ class AsyncCloudAutonomousVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input.GetCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+        input_: aws_sdk_odb.types.get_cloud_autonomous_vm_cluster_input.GetCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,11 +483,11 @@ class AsyncCloudAutonomousVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input.DeleteCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
-        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+        input_: aws_sdk_odb.types.delete_cloud_autonomous_vm_cluster_input.DeleteCloudAutonomousVmClusterInput = {}  # type: ignore[typeddict-item]
+        input_["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,16 +527,16 @@ class AsyncCloudAutonomousVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input.ListCloudAutonomousVmClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_cloud_autonomous_vm_clusters_input.ListCloudAutonomousVmClustersInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if cloud_exadata_infrastructure_id is not None:
-            input["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
+            input_["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,15 +574,15 @@ class AsyncCloudAutonomousVmClusterResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_virtual_machines_input.ListAutonomousVirtualMachinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_virtual_machines_input.ListAutonomousVirtualMachinesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
+            input_["next_token"] = next_token
+        input_["cloud_autonomous_vm_cluster_id"] = cloud_autonomous_vm_cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

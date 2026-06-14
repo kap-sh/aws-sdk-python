@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_gamelift._auth._signers
+import aws_sdk_gamelift._auth._sigv4
 from aws_sdk_gamelift._auth._identity import Credentials
 from aws_sdk_gamelift._auth._providers import (
     CredentialsProvider,
@@ -560,13 +562,13 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.accept_match_input.AcceptMatchInput = {}  # type: ignore[typeddict-item]
-        input["ticket_id"] = ticket_id
-        input["player_ids"] = player_ids
-        input["acceptance_type"] = acceptance_type
+        input_: aws_sdk_gamelift.types.accept_match_input.AcceptMatchInput = {}  # type: ignore[typeddict-item]
+        input_["ticket_id"] = ticket_id
+        input_["player_ids"] = player_ids
+        input_["acceptance_type"] = acceptance_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -612,17 +614,17 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.claim_game_server_input.ClaimGameServerInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
+        input_: aws_sdk_gamelift.types.claim_game_server_input.ClaimGameServerInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
         if game_server_id is not None:
-            input["game_server_id"] = game_server_id
+            input_["game_server_id"] = game_server_id
         if game_server_data is not None:
-            input["game_server_data"] = game_server_data
+            input_["game_server_data"] = game_server_data
         if filter_option is not None:
-            input["filter_option"] = filter_option
+            input_["filter_option"] = filter_option
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -664,16 +666,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_alias_input.CreateAliasInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.create_alias_input.CreateAliasInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["routing_strategy"] = routing_strategy
+            input_["description"] = description
+        input_["routing_strategy"] = routing_strategy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -727,22 +729,22 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_build_input.CreateBuildInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.create_build_input.CreateBuildInput = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if storage_location is not None:
-            input["storage_location"] = storage_location
+            input_["storage_location"] = storage_location
         if operating_system is not None:
-            input["operating_system"] = operating_system
+            input_["operating_system"] = operating_system
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if server_sdk_version is not None:
-            input["server_sdk_version"] = server_sdk_version
+            input_["server_sdk_version"] = server_sdk_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -834,51 +836,51 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_container_fleet_input.CreateContainerFleetInput = {}  # type: ignore[typeddict-item]
-        input["fleet_role_arn"] = fleet_role_arn
+        input_: aws_sdk_gamelift.types.create_container_fleet_input.CreateContainerFleetInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_role_arn"] = fleet_role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if game_server_container_group_definition_name is not None:
-            input["game_server_container_group_definition_name"] = (
+            input_["game_server_container_group_definition_name"] = (
                 game_server_container_group_definition_name
             )
         if per_instance_container_group_definition_name is not None:
-            input["per_instance_container_group_definition_name"] = (
+            input_["per_instance_container_group_definition_name"] = (
                 per_instance_container_group_definition_name
             )
         if instance_connection_port_range is not None:
-            input["instance_connection_port_range"] = instance_connection_port_range
+            input_["instance_connection_port_range"] = instance_connection_port_range
         if instance_inbound_permissions is not None:
-            input["instance_inbound_permissions"] = instance_inbound_permissions
+            input_["instance_inbound_permissions"] = instance_inbound_permissions
         if game_server_container_groups_per_instance is not None:
-            input["game_server_container_groups_per_instance"] = (
+            input_["game_server_container_groups_per_instance"] = (
                 game_server_container_groups_per_instance
             )
         if instance_type is not None:
-            input["instance_type"] = instance_type
+            input_["instance_type"] = instance_type
         if billing_type is not None:
-            input["billing_type"] = billing_type
+            input_["billing_type"] = billing_type
         if locations is not None:
-            input["locations"] = locations
+            input_["locations"] = locations
         if metric_groups is not None:
-            input["metric_groups"] = metric_groups
+            input_["metric_groups"] = metric_groups
         if new_game_session_protection_policy is not None:
-            input["new_game_session_protection_policy"] = (
+            input_["new_game_session_protection_policy"] = (
                 new_game_session_protection_policy
             )
         if game_session_creation_limit_policy is not None:
-            input["game_session_creation_limit_policy"] = (
+            input_["game_session_creation_limit_policy"] = (
                 game_session_creation_limit_policy
             )
         if log_configuration is not None:
-            input["log_configuration"] = log_configuration
+            input_["log_configuration"] = log_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if player_gateway_mode is not None:
-            input["player_gateway_mode"] = player_gateway_mode
+            input_["player_gateway_mode"] = player_gateway_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -936,24 +938,26 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_container_group_definition_input.CreateContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.create_container_group_definition_input.CreateContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if container_group_type is not None:
-            input["container_group_type"] = container_group_type
-        input["total_memory_limit_mebibytes"] = total_memory_limit_mebibytes
-        input["total_vcpu_limit"] = total_vcpu_limit
+            input_["container_group_type"] = container_group_type
+        input_["total_memory_limit_mebibytes"] = total_memory_limit_mebibytes
+        input_["total_vcpu_limit"] = total_vcpu_limit
         if game_server_container_definition is not None:
-            input["game_server_container_definition"] = game_server_container_definition
+            input_["game_server_container_definition"] = (
+                game_server_container_definition
+            )
         if support_container_definitions is not None:
-            input["support_container_definitions"] = support_container_definitions
-        input["operating_system"] = operating_system
+            input_["support_container_definitions"] = support_container_definitions
+        input_["operating_system"] = operating_system
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1077,63 +1081,63 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_fleet_input.CreateFleetInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.create_fleet_input.CreateFleetInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if build_id is not None:
-            input["build_id"] = build_id
+            input_["build_id"] = build_id
         if script_id is not None:
-            input["script_id"] = script_id
+            input_["script_id"] = script_id
         if server_launch_path is not None:
-            input["server_launch_path"] = server_launch_path
+            input_["server_launch_path"] = server_launch_path
         if server_launch_parameters is not None:
-            input["server_launch_parameters"] = server_launch_parameters
+            input_["server_launch_parameters"] = server_launch_parameters
         if log_paths is not None:
-            input["log_paths"] = log_paths
+            input_["log_paths"] = log_paths
         if ec2_instance_type is not None:
-            input["ec2_instance_type"] = ec2_instance_type
+            input_["ec2_instance_type"] = ec2_instance_type
         if ec2_inbound_permissions is not None:
-            input["ec2_inbound_permissions"] = ec2_inbound_permissions
+            input_["ec2_inbound_permissions"] = ec2_inbound_permissions
         if new_game_session_protection_policy is not None:
-            input["new_game_session_protection_policy"] = (
+            input_["new_game_session_protection_policy"] = (
                 new_game_session_protection_policy
             )
         if runtime_configuration is not None:
-            input["runtime_configuration"] = runtime_configuration
+            input_["runtime_configuration"] = runtime_configuration
         if resource_creation_limit_policy is not None:
-            input["resource_creation_limit_policy"] = resource_creation_limit_policy
+            input_["resource_creation_limit_policy"] = resource_creation_limit_policy
         if metric_groups is not None:
-            input["metric_groups"] = metric_groups
+            input_["metric_groups"] = metric_groups
         if peer_vpc_aws_account_id is not None:
-            input["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
+            input_["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
         if peer_vpc_id is not None:
-            input["peer_vpc_id"] = peer_vpc_id
+            input_["peer_vpc_id"] = peer_vpc_id
         if fleet_type is not None:
-            input["fleet_type"] = fleet_type
+            input_["fleet_type"] = fleet_type
         if instance_role_arn is not None:
-            input["instance_role_arn"] = instance_role_arn
+            input_["instance_role_arn"] = instance_role_arn
         if certificate_configuration is not None:
-            input["certificate_configuration"] = certificate_configuration
+            input_["certificate_configuration"] = certificate_configuration
         if locations is not None:
-            input["locations"] = locations
+            input_["locations"] = locations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if compute_type is not None:
-            input["compute_type"] = compute_type
+            input_["compute_type"] = compute_type
         if anywhere_configuration is not None:
-            input["anywhere_configuration"] = anywhere_configuration
+            input_["anywhere_configuration"] = anywhere_configuration
         if instance_role_credentials_provider is not None:
-            input["instance_role_credentials_provider"] = (
+            input_["instance_role_credentials_provider"] = (
                 instance_role_credentials_provider
             )
         if player_gateway_mode is not None:
-            input["player_gateway_mode"] = player_gateway_mode
+            input_["player_gateway_mode"] = player_gateway_mode
         if player_gateway_configuration is not None:
-            input["player_gateway_configuration"] = player_gateway_configuration
+            input_["player_gateway_configuration"] = player_gateway_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1169,12 +1173,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_fleet_locations_input.CreateFleetLocationsInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["locations"] = locations
+        input_: aws_sdk_gamelift.types.create_fleet_locations_input.CreateFleetLocationsInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["locations"] = locations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1234,26 +1238,26 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_game_server_group_input.CreateGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
-        input["role_arn"] = role_arn
-        input["min_size"] = min_size
-        input["max_size"] = max_size
-        input["launch_template"] = launch_template
-        input["instance_definitions"] = instance_definitions
+        input_: aws_sdk_gamelift.types.create_game_server_group_input.CreateGameServerGroupInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
+        input_["role_arn"] = role_arn
+        input_["min_size"] = min_size
+        input_["max_size"] = max_size
+        input_["launch_template"] = launch_template
+        input_["instance_definitions"] = instance_definitions
         if auto_scaling_policy is not None:
-            input["auto_scaling_policy"] = auto_scaling_policy
+            input_["auto_scaling_policy"] = auto_scaling_policy
         if balancing_strategy is not None:
-            input["balancing_strategy"] = balancing_strategy
+            input_["balancing_strategy"] = balancing_strategy
         if game_server_protection_policy is not None:
-            input["game_server_protection_policy"] = game_server_protection_policy
+            input_["game_server_protection_policy"] = game_server_protection_policy
         if vpc_subnets is not None:
-            input["vpc_subnets"] = vpc_subnets
+            input_["vpc_subnets"] = vpc_subnets
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1323,29 +1327,29 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_game_session_input.CreateGameSessionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.create_game_session_input.CreateGameSessionInput = {}  # type: ignore[typeddict-item]
         if fleet_id is not None:
-            input["fleet_id"] = fleet_id
+            input_["fleet_id"] = fleet_id
         if alias_id is not None:
-            input["alias_id"] = alias_id
-        input["maximum_player_session_count"] = maximum_player_session_count
+            input_["alias_id"] = alias_id
+        input_["maximum_player_session_count"] = maximum_player_session_count
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if game_properties is not None:
-            input["game_properties"] = game_properties
+            input_["game_properties"] = game_properties
         if creator_id is not None:
-            input["creator_id"] = creator_id
+            input_["creator_id"] = creator_id
         if game_session_id is not None:
-            input["game_session_id"] = game_session_id
+            input_["game_session_id"] = game_session_id
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if game_session_data is not None:
-            input["game_session_data"] = game_session_data
+            input_["game_session_data"] = game_session_data
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1409,27 +1413,27 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_game_session_queue_input.CreateGameSessionQueueInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.create_game_session_queue_input.CreateGameSessionQueueInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if timeout_in_seconds is not None:
-            input["timeout_in_seconds"] = timeout_in_seconds
+            input_["timeout_in_seconds"] = timeout_in_seconds
         if player_latency_policies is not None:
-            input["player_latency_policies"] = player_latency_policies
+            input_["player_latency_policies"] = player_latency_policies
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
         if filter_configuration is not None:
-            input["filter_configuration"] = filter_configuration
+            input_["filter_configuration"] = filter_configuration
         if priority_configuration is not None:
-            input["priority_configuration"] = priority_configuration
+            input_["priority_configuration"] = priority_configuration
         if custom_event_data is not None:
-            input["custom_event_data"] = custom_event_data
+            input_["custom_event_data"] = custom_event_data
         if notification_target is not None:
-            input["notification_target"] = notification_target
+            input_["notification_target"] = notification_target
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1465,13 +1469,13 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_location_input.CreateLocationInput = {}  # type: ignore[typeddict-item]
-        input["location_name"] = location_name
+        input_: aws_sdk_gamelift.types.create_location_input.CreateLocationInput = {}  # type: ignore[typeddict-item]
+        input_["location_name"] = location_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1553,36 +1557,36 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_matchmaking_configuration_input.CreateMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.create_matchmaking_configuration_input.CreateMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if game_session_queue_arns is not None:
-            input["game_session_queue_arns"] = game_session_queue_arns
-        input["request_timeout_seconds"] = request_timeout_seconds
+            input_["game_session_queue_arns"] = game_session_queue_arns
+        input_["request_timeout_seconds"] = request_timeout_seconds
         if acceptance_timeout_seconds is not None:
-            input["acceptance_timeout_seconds"] = acceptance_timeout_seconds
-        input["acceptance_required"] = acceptance_required
-        input["rule_set_name"] = rule_set_name
+            input_["acceptance_timeout_seconds"] = acceptance_timeout_seconds
+        input_["acceptance_required"] = acceptance_required
+        input_["rule_set_name"] = rule_set_name
         if notification_target is not None:
-            input["notification_target"] = notification_target
+            input_["notification_target"] = notification_target
         if additional_player_count is not None:
-            input["additional_player_count"] = additional_player_count
+            input_["additional_player_count"] = additional_player_count
         if custom_event_data is not None:
-            input["custom_event_data"] = custom_event_data
+            input_["custom_event_data"] = custom_event_data
         if game_properties is not None:
-            input["game_properties"] = game_properties
+            input_["game_properties"] = game_properties
         if game_session_data is not None:
-            input["game_session_data"] = game_session_data
+            input_["game_session_data"] = game_session_data
         if backfill_mode is not None:
-            input["backfill_mode"] = backfill_mode
+            input_["backfill_mode"] = backfill_mode
         if flex_match_mode is not None:
-            input["flex_match_mode"] = flex_match_mode
+            input_["flex_match_mode"] = flex_match_mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1620,14 +1624,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_matchmaking_rule_set_input.CreateMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["rule_set_body"] = rule_set_body
+        input_: aws_sdk_gamelift.types.create_matchmaking_rule_set_input.CreateMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["rule_set_body"] = rule_set_body
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1667,14 +1671,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_player_session_input.CreatePlayerSessionInput = {}  # type: ignore[typeddict-item]
-        input["game_session_id"] = game_session_id
-        input["player_id"] = player_id
+        input_: aws_sdk_gamelift.types.create_player_session_input.CreatePlayerSessionInput = {}  # type: ignore[typeddict-item]
+        input_["game_session_id"] = game_session_id
+        input_["player_id"] = player_id
         if player_data is not None:
-            input["player_data"] = player_data
+            input_["player_data"] = player_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1714,14 +1718,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_player_sessions_input.CreatePlayerSessionsInput = {}  # type: ignore[typeddict-item]
-        input["game_session_id"] = game_session_id
-        input["player_ids"] = player_ids
+        input_: aws_sdk_gamelift.types.create_player_sessions_input.CreatePlayerSessionsInput = {}  # type: ignore[typeddict-item]
+        input_["game_session_id"] = game_session_id
+        input_["player_ids"] = player_ids
         if player_data_map is not None:
-            input["player_data_map"] = player_data_map
+            input_["player_data_map"] = player_data_map
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1773,22 +1777,22 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_script_input.CreateScriptInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.create_script_input.CreateScriptInput = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if storage_location is not None:
-            input["storage_location"] = storage_location
+            input_["storage_location"] = storage_location
         if zip_file is not None:
-            input["zip_file"] = zip_file
+            input_["zip_file"] = zip_file
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if node_js_version is not None:
-            input["node_js_version"] = node_js_version
+            input_["node_js_version"] = node_js_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1824,12 +1828,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_vpc_peering_authorization_input.CreateVpcPeeringAuthorizationInput = {}  # type: ignore[typeddict-item]
-        input["game_lift_aws_account_id"] = game_lift_aws_account_id
-        input["peer_vpc_id"] = peer_vpc_id
+        input_: aws_sdk_gamelift.types.create_vpc_peering_authorization_input.CreateVpcPeeringAuthorizationInput = {}  # type: ignore[typeddict-item]
+        input_["game_lift_aws_account_id"] = game_lift_aws_account_id
+        input_["peer_vpc_id"] = peer_vpc_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1867,13 +1871,13 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.create_vpc_peering_connection_input.CreateVpcPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
-        input["peer_vpc_id"] = peer_vpc_id
+        input_: aws_sdk_gamelift.types.create_vpc_peering_connection_input.CreateVpcPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
+        input_["peer_vpc_id"] = peer_vpc_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1905,11 +1909,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_alias_input.DeleteAliasInput = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
+        input_: aws_sdk_gamelift.types.delete_alias_input.DeleteAliasInput = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1941,11 +1945,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_build_input.DeleteBuildInput = {}  # type: ignore[typeddict-item]
-        input["build_id"] = build_id
+        input_: aws_sdk_gamelift.types.delete_build_input.DeleteBuildInput = {}  # type: ignore[typeddict-item]
+        input_["build_id"] = build_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,11 +1983,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_container_fleet_input.DeleteContainerFleetInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.delete_container_fleet_input.DeleteContainerFleetInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2025,15 +2029,15 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_container_group_definition_input.DeleteContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.delete_container_group_definition_input.DeleteContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
         if version_count_to_retain is not None:
-            input["version_count_to_retain"] = version_count_to_retain
+            input_["version_count_to_retain"] = version_count_to_retain
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2065,11 +2069,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_fleet_input.DeleteFleetInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.delete_fleet_input.DeleteFleetInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2105,12 +2109,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_fleet_locations_input.DeleteFleetLocationsInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["locations"] = locations
+        input_: aws_sdk_gamelift.types.delete_fleet_locations_input.DeleteFleetLocationsInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["locations"] = locations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2148,13 +2152,13 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_game_server_group_input.DeleteGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
+        input_: aws_sdk_gamelift.types.delete_game_server_group_input.DeleteGameServerGroupInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
         if delete_option is not None:
-            input["delete_option"] = delete_option
+            input_["delete_option"] = delete_option
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2188,11 +2192,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_game_session_queue_input.DeleteGameSessionQueueInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.delete_game_session_queue_input.DeleteGameSessionQueueInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2226,11 +2230,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_location_input.DeleteLocationInput = {}  # type: ignore[typeddict-item]
-        input["location_name"] = location_name
+        input_: aws_sdk_gamelift.types.delete_location_input.DeleteLocationInput = {}  # type: ignore[typeddict-item]
+        input_["location_name"] = location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2264,11 +2268,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_matchmaking_configuration_input.DeleteMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.delete_matchmaking_configuration_input.DeleteMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2302,11 +2306,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_matchmaking_rule_set_input.DeleteMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.delete_matchmaking_rule_set_input.DeleteMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2340,12 +2344,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_scaling_policy_input.DeleteScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.delete_scaling_policy_input.DeleteScalingPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2377,11 +2381,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_script_input.DeleteScriptInput = {}  # type: ignore[typeddict-item]
-        input["script_id"] = script_id
+        input_: aws_sdk_gamelift.types.delete_script_input.DeleteScriptInput = {}  # type: ignore[typeddict-item]
+        input_["script_id"] = script_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2417,12 +2421,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_vpc_peering_authorization_input.DeleteVpcPeeringAuthorizationInput = {}  # type: ignore[typeddict-item]
-        input["game_lift_aws_account_id"] = game_lift_aws_account_id
-        input["peer_vpc_id"] = peer_vpc_id
+        input_: aws_sdk_gamelift.types.delete_vpc_peering_authorization_input.DeleteVpcPeeringAuthorizationInput = {}  # type: ignore[typeddict-item]
+        input_["game_lift_aws_account_id"] = game_lift_aws_account_id
+        input_["peer_vpc_id"] = peer_vpc_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2458,12 +2462,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.delete_vpc_peering_connection_input.DeleteVpcPeeringConnectionInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["vpc_peering_connection_id"] = vpc_peering_connection_id
+        input_: aws_sdk_gamelift.types.delete_vpc_peering_connection_input.DeleteVpcPeeringConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["vpc_peering_connection_id"] = vpc_peering_connection_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2499,12 +2503,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.deregister_compute_input.DeregisterComputeInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["compute_name"] = compute_name
+        input_: aws_sdk_gamelift.types.deregister_compute_input.DeregisterComputeInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["compute_name"] = compute_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2538,12 +2542,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.deregister_game_server_input.DeregisterGameServerInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
-        input["game_server_id"] = game_server_id
+        input_: aws_sdk_gamelift.types.deregister_game_server_input.DeregisterGameServerInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
+        input_["game_server_id"] = game_server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2577,11 +2581,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_alias_input.DescribeAliasInput = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
+        input_: aws_sdk_gamelift.types.describe_alias_input.DescribeAliasInput = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2615,11 +2619,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_build_input.DescribeBuildInput = {}  # type: ignore[typeddict-item]
-        input["build_id"] = build_id
+        input_: aws_sdk_gamelift.types.describe_build_input.DescribeBuildInput = {}  # type: ignore[typeddict-item]
+        input_["build_id"] = build_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2655,12 +2659,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_compute_input.DescribeComputeInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["compute_name"] = compute_name
+        input_: aws_sdk_gamelift.types.describe_compute_input.DescribeComputeInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["compute_name"] = compute_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2694,11 +2698,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_container_fleet_input.DescribeContainerFleetInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.describe_container_fleet_input.DescribeContainerFleetInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2736,13 +2740,13 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_container_group_definition_input.DescribeContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.describe_container_group_definition_input.DescribeContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if version_number is not None:
-            input["version_number"] = version_number
+            input_["version_number"] = version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2788,18 +2792,18 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_container_group_port_mappings_input.DescribeContainerGroupPortMappingsInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["container_group_type"] = container_group_type
+        input_: aws_sdk_gamelift.types.describe_container_group_port_mappings_input.DescribeContainerGroupPortMappingsInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["container_group_type"] = container_group_type
         if compute_name is not None:
-            input["compute_name"] = compute_name
+            input_["compute_name"] = compute_name
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if container_name is not None:
-            input["container_name"] = container_name
+            input_["container_name"] = container_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2839,14 +2843,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_ec2_instance_limits_input.DescribeEC2InstanceLimitsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_ec2_instance_limits_input.DescribeEC2InstanceLimitsInput = {}  # type: ignore[typeddict-item]
         if ec2_instance_type is not None:
-            input["ec2_instance_type"] = ec2_instance_type
+            input_["ec2_instance_type"] = ec2_instance_type
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2890,16 +2894,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_attributes_input.DescribeFleetAttributesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_fleet_attributes_input.DescribeFleetAttributesInput = {}  # type: ignore[typeddict-item]
         if fleet_ids is not None:
-            input["fleet_ids"] = fleet_ids
+            input_["fleet_ids"] = fleet_ids
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2972,16 +2976,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_capacity_input.DescribeFleetCapacityInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_fleet_capacity_input.DescribeFleetCapacityInput = {}  # type: ignore[typeddict-item]
         if fleet_ids is not None:
-            input["fleet_ids"] = fleet_ids
+            input_["fleet_ids"] = fleet_ids
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3048,13 +3052,13 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_deployment_input.DescribeFleetDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.describe_fleet_deployment_input.DescribeFleetDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
+            input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3102,19 +3106,19 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_events_input.DescribeFleetEventsInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.describe_fleet_events_input.DescribeFleetEventsInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3189,17 +3193,17 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_location_attributes_input.DescribeFleetLocationAttributesInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.describe_fleet_location_attributes_input.DescribeFleetLocationAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if locations is not None:
-            input["locations"] = locations
+            input_["locations"] = locations
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3235,12 +3239,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_location_capacity_input.DescribeFleetLocationCapacityInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["location"] = location
+        input_: aws_sdk_gamelift.types.describe_fleet_location_capacity_input.DescribeFleetLocationCapacityInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3276,12 +3280,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_location_utilization_input.DescribeFleetLocationUtilizationInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["location"] = location
+        input_: aws_sdk_gamelift.types.describe_fleet_location_utilization_input.DescribeFleetLocationUtilizationInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3319,13 +3323,13 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_port_settings_input.DescribeFleetPortSettingsInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.describe_fleet_port_settings_input.DescribeFleetPortSettingsInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3369,16 +3373,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_fleet_utilization_input.DescribeFleetUtilizationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_fleet_utilization_input.DescribeFleetUtilizationInput = {}  # type: ignore[typeddict-item]
         if fleet_ids is not None:
-            input["fleet_ids"] = fleet_ids
+            input_["fleet_ids"] = fleet_ids
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3443,12 +3447,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_game_server_input.DescribeGameServerInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
-        input["game_server_id"] = game_server_id
+        input_: aws_sdk_gamelift.types.describe_game_server_input.DescribeGameServerInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
+        input_["game_server_id"] = game_server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3482,11 +3486,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_game_server_group_input.DescribeGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
+        input_: aws_sdk_gamelift.types.describe_game_server_group_input.DescribeGameServerGroupInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3532,17 +3536,17 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_game_server_instances_input.DescribeGameServerInstancesInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
+        input_: aws_sdk_gamelift.types.describe_game_server_instances_input.DescribeGameServerInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
         if instance_ids is not None:
-            input["instance_ids"] = instance_ids
+            input_["instance_ids"] = instance_ids
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3635,24 +3639,24 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_game_session_details_input.DescribeGameSessionDetailsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_game_session_details_input.DescribeGameSessionDetailsInput = {}  # type: ignore[typeddict-item]
         if fleet_id is not None:
-            input["fleet_id"] = fleet_id
+            input_["fleet_id"] = fleet_id
         if game_session_id is not None:
-            input["game_session_id"] = game_session_id
+            input_["game_session_id"] = game_session_id
         if alias_id is not None:
-            input["alias_id"] = alias_id
+            input_["alias_id"] = alias_id
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3731,11 +3735,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_game_session_placement_input.DescribeGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
-        input["placement_id"] = placement_id
+        input_: aws_sdk_gamelift.types.describe_game_session_placement_input.DescribeGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
+        input_["placement_id"] = placement_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3779,16 +3783,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_game_session_queues_input.DescribeGameSessionQueuesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_game_session_queues_input.DescribeGameSessionQueuesInput = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3877,24 +3881,24 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_game_sessions_input.DescribeGameSessionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_game_sessions_input.DescribeGameSessionsInput = {}  # type: ignore[typeddict-item]
         if fleet_id is not None:
-            input["fleet_id"] = fleet_id
+            input_["fleet_id"] = fleet_id
         if game_session_id is not None:
-            input["game_session_id"] = game_session_id
+            input_["game_session_id"] = game_session_id
         if alias_id is not None:
-            input["alias_id"] = alias_id
+            input_["alias_id"] = alias_id
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3987,19 +3991,19 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_instances_input.DescribeInstancesInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.describe_instances_input.DescribeInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4066,11 +4070,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_matchmaking_input.DescribeMatchmakingInput = {}  # type: ignore[typeddict-item]
-        input["ticket_ids"] = ticket_ids
+        input_: aws_sdk_gamelift.types.describe_matchmaking_input.DescribeMatchmakingInput = {}  # type: ignore[typeddict-item]
+        input_["ticket_ids"] = ticket_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4118,18 +4122,18 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_matchmaking_configurations_input.DescribeMatchmakingConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_matchmaking_configurations_input.DescribeMatchmakingConfigurationsInput = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if rule_set_name is not None:
-            input["rule_set_name"] = rule_set_name
+            input_["rule_set_name"] = rule_set_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4204,16 +4208,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_matchmaking_rule_sets_input.DescribeMatchmakingRuleSetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_matchmaking_rule_sets_input.DescribeMatchmakingRuleSetsInput = {}  # type: ignore[typeddict-item]
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4296,22 +4300,22 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_player_sessions_input.DescribePlayerSessionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_player_sessions_input.DescribePlayerSessionsInput = {}  # type: ignore[typeddict-item]
         if game_session_id is not None:
-            input["game_session_id"] = game_session_id
+            input_["game_session_id"] = game_session_id
         if player_id is not None:
-            input["player_id"] = player_id
+            input_["player_id"] = player_id
         if player_session_id is not None:
-            input["player_session_id"] = player_session_id
+            input_["player_session_id"] = player_session_id
         if player_session_status_filter is not None:
-            input["player_session_status_filter"] = player_session_status_filter
+            input_["player_session_status_filter"] = player_session_status_filter
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4384,11 +4388,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_runtime_configuration_input.DescribeRuntimeConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.describe_runtime_configuration_input.DescribeRuntimeConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4438,19 +4442,19 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_scaling_policies_input.DescribeScalingPoliciesInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.describe_scaling_policies_input.DescribeScalingPoliciesInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4519,11 +4523,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_script_input.DescribeScriptInput = {}  # type: ignore[typeddict-item]
-        input["script_id"] = script_id
+        input_: aws_sdk_gamelift.types.describe_script_input.DescribeScriptInput = {}  # type: ignore[typeddict-item]
+        input_["script_id"] = script_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4550,10 +4554,10 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_vpc_peering_authorizations_input.DescribeVpcPeeringAuthorizationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_vpc_peering_authorizations_input.DescribeVpcPeeringAuthorizationsInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4587,12 +4591,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.describe_vpc_peering_connections_input.DescribeVpcPeeringConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.describe_vpc_peering_connections_input.DescribeVpcPeeringConnectionsInput = {}  # type: ignore[typeddict-item]
         if fleet_id is not None:
-            input["fleet_id"] = fleet_id
+            input_["fleet_id"] = fleet_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4628,12 +4632,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.get_compute_access_input.GetComputeAccessInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["compute_name"] = compute_name
+        input_: aws_sdk_gamelift.types.get_compute_access_input.GetComputeAccessInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["compute_name"] = compute_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4671,12 +4675,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.get_compute_auth_token_input.GetComputeAuthTokenInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["compute_name"] = compute_name
+        input_: aws_sdk_gamelift.types.get_compute_auth_token_input.GetComputeAuthTokenInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["compute_name"] = compute_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4710,11 +4714,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.get_game_session_log_url_input.GetGameSessionLogUrlInput = {}  # type: ignore[typeddict-item]
-        input["game_session_id"] = game_session_id
+        input_: aws_sdk_gamelift.types.get_game_session_log_url_input.GetGameSessionLogUrlInput = {}  # type: ignore[typeddict-item]
+        input_["game_session_id"] = game_session_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4750,12 +4754,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.get_instance_access_input.GetInstanceAccessInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_gamelift.types.get_instance_access_input.GetInstanceAccessInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4791,12 +4795,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.get_player_connection_details_input.GetPlayerConnectionDetailsInput = {}  # type: ignore[typeddict-item]
-        input["game_session_id"] = game_session_id
-        input["player_ids"] = player_ids
+        input_: aws_sdk_gamelift.types.get_player_connection_details_input.GetPlayerConnectionDetailsInput = {}  # type: ignore[typeddict-item]
+        input_["game_session_id"] = game_session_id
+        input_["player_ids"] = player_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4842,18 +4846,18 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_aliases_input.ListAliasesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_aliases_input.ListAliasesInput = {}  # type: ignore[typeddict-item]
         if routing_strategy_type is not None:
-            input["routing_strategy_type"] = routing_strategy_type
+            input_["routing_strategy_type"] = routing_strategy_type
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4926,16 +4930,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_builds_input.ListBuildsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_builds_input.ListBuildsInput = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5016,21 +5020,21 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_compute_input.ListComputeInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.list_compute_input.ListComputeInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if container_group_definition_name is not None:
-            input["container_group_definition_name"] = container_group_definition_name
+            input_["container_group_definition_name"] = container_group_definition_name
         if compute_status is not None:
-            input["compute_status"] = compute_status
+            input_["compute_status"] = compute_status
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5115,16 +5119,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_container_fleets_input.ListContainerFleetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_container_fleets_input.ListContainerFleetsInput = {}  # type: ignore[typeddict-item]
         if container_group_definition_name is not None:
-            input["container_group_definition_name"] = container_group_definition_name
+            input_["container_group_definition_name"] = container_group_definition_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5197,16 +5201,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_container_group_definitions_input.ListContainerGroupDefinitionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_container_group_definitions_input.ListContainerGroupDefinitionsInput = {}  # type: ignore[typeddict-item]
         if container_group_type is not None:
-            input["container_group_type"] = container_group_type
+            input_["container_group_type"] = container_group_type
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5277,15 +5281,15 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_container_group_definition_versions_input.ListContainerGroupDefinitionVersionsInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.list_container_group_definition_versions_input.ListContainerGroupDefinitionVersionsInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5356,16 +5360,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_fleet_deployments_input.ListFleetDeploymentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_fleet_deployments_input.ListFleetDeploymentsInput = {}  # type: ignore[typeddict-item]
         if fleet_id is not None:
-            input["fleet_id"] = fleet_id
+            input_["fleet_id"] = fleet_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5442,18 +5446,18 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_fleets_input.ListFleetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_fleets_input.ListFleetsInput = {}  # type: ignore[typeddict-item]
         if build_id is not None:
-            input["build_id"] = build_id
+            input_["build_id"] = build_id
         if script_id is not None:
-            input["script_id"] = script_id
+            input_["script_id"] = script_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5526,14 +5530,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_game_server_groups_input.ListGameServerGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_game_server_groups_input.ListGameServerGroupsInput = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5602,17 +5606,17 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_game_servers_input.ListGameServersInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
+        input_: aws_sdk_gamelift.types.list_game_servers_input.ListGameServersInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5685,16 +5689,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_locations_input.ListLocationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_locations_input.ListLocationsInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5763,14 +5767,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_scripts_input.ListScriptsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.list_scripts_input.ListScriptsInput = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5829,11 +5833,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_gamelift.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5893,27 +5897,27 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.put_scaling_policy_input.PutScalingPolicyInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.put_scaling_policy_input.PutScalingPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["fleet_id"] = fleet_id
         if scaling_adjustment is not None:
-            input["scaling_adjustment"] = scaling_adjustment
+            input_["scaling_adjustment"] = scaling_adjustment
         if scaling_adjustment_type is not None:
-            input["scaling_adjustment_type"] = scaling_adjustment_type
+            input_["scaling_adjustment_type"] = scaling_adjustment_type
         if threshold is not None:
-            input["threshold"] = threshold
+            input_["threshold"] = threshold
         if comparison_operator is not None:
-            input["comparison_operator"] = comparison_operator
+            input_["comparison_operator"] = comparison_operator
         if evaluation_periods is not None:
-            input["evaluation_periods"] = evaluation_periods
-        input["metric_name"] = metric_name
+            input_["evaluation_periods"] = evaluation_periods
+        input_["metric_name"] = metric_name
         if policy_type is not None:
-            input["policy_type"] = policy_type
+            input_["policy_type"] = policy_type
         if target_configuration is not None:
-            input["target_configuration"] = target_configuration
+            input_["target_configuration"] = target_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5961,20 +5965,20 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.register_compute_input.RegisterComputeInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["compute_name"] = compute_name
+        input_: aws_sdk_gamelift.types.register_compute_input.RegisterComputeInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["compute_name"] = compute_name
         if certificate_path is not None:
-            input["certificate_path"] = certificate_path
+            input_["certificate_path"] = certificate_path
         if dns_name is not None:
-            input["dns_name"] = dns_name
+            input_["dns_name"] = dns_name
         if ip_address is not None:
-            input["ip_address"] = ip_address
+            input_["ip_address"] = ip_address
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6020,17 +6024,17 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.register_game_server_input.RegisterGameServerInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
-        input["game_server_id"] = game_server_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_gamelift.types.register_game_server_input.RegisterGameServerInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
+        input_["game_server_id"] = game_server_id
+        input_["instance_id"] = instance_id
         if connection_info is not None:
-            input["connection_info"] = connection_info
+            input_["connection_info"] = connection_info
         if game_server_data is not None:
-            input["game_server_data"] = game_server_data
+            input_["game_server_data"] = game_server_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6064,11 +6068,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.request_upload_credentials_input.RequestUploadCredentialsInput = {}  # type: ignore[typeddict-item]
-        input["build_id"] = build_id
+        input_: aws_sdk_gamelift.types.request_upload_credentials_input.RequestUploadCredentialsInput = {}  # type: ignore[typeddict-item]
+        input_["build_id"] = build_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6102,11 +6106,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.resolve_alias_input.ResolveAliasInput = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
+        input_: aws_sdk_gamelift.types.resolve_alias_input.ResolveAliasInput = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6142,12 +6146,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.resume_game_server_group_input.ResumeGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
-        input["resume_actions"] = resume_actions
+        input_: aws_sdk_gamelift.types.resume_game_server_group_input.ResumeGameServerGroupInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
+        input_["resume_actions"] = resume_actions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6207,24 +6211,24 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.search_game_sessions_input.SearchGameSessionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.search_game_sessions_input.SearchGameSessionsInput = {}  # type: ignore[typeddict-item]
         if fleet_id is not None:
-            input["fleet_id"] = fleet_id
+            input_["fleet_id"] = fleet_id
         if alias_id is not None:
-            input["alias_id"] = alias_id
+            input_["alias_id"] = alias_id
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if filter_expression is not None:
-            input["filter_expression"] = filter_expression
+            input_["filter_expression"] = filter_expression
         if sort_expression is not None:
-            input["sort_expression"] = sort_expression
+            input_["sort_expression"] = sort_expression
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6309,14 +6313,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.start_fleet_actions_input.StartFleetActionsInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["actions"] = actions
+        input_: aws_sdk_gamelift.types.start_fleet_actions_input.StartFleetActionsInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["actions"] = actions
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6378,25 +6382,25 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.start_game_session_placement_input.StartGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
-        input["placement_id"] = placement_id
-        input["game_session_queue_name"] = game_session_queue_name
+        input_: aws_sdk_gamelift.types.start_game_session_placement_input.StartGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
+        input_["placement_id"] = placement_id
+        input_["game_session_queue_name"] = game_session_queue_name
         if game_properties is not None:
-            input["game_properties"] = game_properties
-        input["maximum_player_session_count"] = maximum_player_session_count
+            input_["game_properties"] = game_properties
+        input_["maximum_player_session_count"] = maximum_player_session_count
         if game_session_name is not None:
-            input["game_session_name"] = game_session_name
+            input_["game_session_name"] = game_session_name
         if player_latencies is not None:
-            input["player_latencies"] = player_latencies
+            input_["player_latencies"] = player_latencies
         if desired_player_sessions is not None:
-            input["desired_player_sessions"] = desired_player_sessions
+            input_["desired_player_sessions"] = desired_player_sessions
         if game_session_data is not None:
-            input["game_session_data"] = game_session_data
+            input_["game_session_data"] = game_session_data
         if priority_configuration_override is not None:
-            input["priority_configuration_override"] = priority_configuration_override
+            input_["priority_configuration_override"] = priority_configuration_override
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6440,16 +6444,16 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.start_match_backfill_input.StartMatchBackfillInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.start_match_backfill_input.StartMatchBackfillInput = {}  # type: ignore[typeddict-item]
         if ticket_id is not None:
-            input["ticket_id"] = ticket_id
-        input["configuration_name"] = configuration_name
+            input_["ticket_id"] = ticket_id
+        input_["configuration_name"] = configuration_name
         if game_session_arn is not None:
-            input["game_session_arn"] = game_session_arn
-        input["players"] = players
+            input_["game_session_arn"] = game_session_arn
+        input_["players"] = players
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6489,14 +6493,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.start_matchmaking_input.StartMatchmakingInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_gamelift.types.start_matchmaking_input.StartMatchmakingInput = {}  # type: ignore[typeddict-item]
         if ticket_id is not None:
-            input["ticket_id"] = ticket_id
-        input["configuration_name"] = configuration_name
-        input["players"] = players
+            input_["ticket_id"] = ticket_id
+        input_["configuration_name"] = configuration_name
+        input_["players"] = players
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6536,14 +6540,14 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.stop_fleet_actions_input.StopFleetActionsInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["actions"] = actions
+        input_: aws_sdk_gamelift.types.stop_fleet_actions_input.StopFleetActionsInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["actions"] = actions
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6577,11 +6581,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.stop_game_session_placement_input.StopGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
-        input["placement_id"] = placement_id
+        input_: aws_sdk_gamelift.types.stop_game_session_placement_input.StopGameSessionPlacementInput = {}  # type: ignore[typeddict-item]
+        input_["placement_id"] = placement_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6615,11 +6619,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.stop_matchmaking_input.StopMatchmakingInput = {}  # type: ignore[typeddict-item]
-        input["ticket_id"] = ticket_id
+        input_: aws_sdk_gamelift.types.stop_matchmaking_input.StopMatchmakingInput = {}  # type: ignore[typeddict-item]
+        input_["ticket_id"] = ticket_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6655,12 +6659,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.suspend_game_server_group_input.SuspendGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
-        input["suspend_actions"] = suspend_actions
+        input_: aws_sdk_gamelift.types.suspend_game_server_group_input.SuspendGameServerGroupInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
+        input_["suspend_actions"] = suspend_actions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6696,12 +6700,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_gamelift.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6737,12 +6741,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.terminate_game_session_input.TerminateGameSessionInput = {}  # type: ignore[typeddict-item]
-        input["game_session_id"] = game_session_id
-        input["termination_mode"] = termination_mode
+        input_: aws_sdk_gamelift.types.terminate_game_session_input.TerminateGameSessionInput = {}  # type: ignore[typeddict-item]
+        input_["game_session_id"] = game_session_id
+        input_["termination_mode"] = termination_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6778,12 +6782,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_gamelift.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6829,17 +6833,17 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_alias_input.UpdateAliasInput = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
+        input_: aws_sdk_gamelift.types.update_alias_input.UpdateAliasInput = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_strategy is not None:
-            input["routing_strategy"] = routing_strategy
+            input_["routing_strategy"] = routing_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6881,15 +6885,15 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_build_input.UpdateBuildInput = {}  # type: ignore[typeddict-item]
-        input["build_id"] = build_id
+        input_: aws_sdk_gamelift.types.update_build_input.UpdateBuildInput = {}  # type: ignore[typeddict-item]
+        input_["build_id"] = build_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6975,51 +6979,51 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_container_fleet_input.UpdateContainerFleetInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.update_container_fleet_input.UpdateContainerFleetInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if game_server_container_group_definition_name is not None:
-            input["game_server_container_group_definition_name"] = (
+            input_["game_server_container_group_definition_name"] = (
                 game_server_container_group_definition_name
             )
         if per_instance_container_group_definition_name is not None:
-            input["per_instance_container_group_definition_name"] = (
+            input_["per_instance_container_group_definition_name"] = (
                 per_instance_container_group_definition_name
             )
         if game_server_container_groups_per_instance is not None:
-            input["game_server_container_groups_per_instance"] = (
+            input_["game_server_container_groups_per_instance"] = (
                 game_server_container_groups_per_instance
             )
         if instance_connection_port_range is not None:
-            input["instance_connection_port_range"] = instance_connection_port_range
+            input_["instance_connection_port_range"] = instance_connection_port_range
         if instance_inbound_permission_authorizations is not None:
-            input["instance_inbound_permission_authorizations"] = (
+            input_["instance_inbound_permission_authorizations"] = (
                 instance_inbound_permission_authorizations
             )
         if instance_inbound_permission_revocations is not None:
-            input["instance_inbound_permission_revocations"] = (
+            input_["instance_inbound_permission_revocations"] = (
                 instance_inbound_permission_revocations
             )
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if metric_groups is not None:
-            input["metric_groups"] = metric_groups
+            input_["metric_groups"] = metric_groups
         if new_game_session_protection_policy is not None:
-            input["new_game_session_protection_policy"] = (
+            input_["new_game_session_protection_policy"] = (
                 new_game_session_protection_policy
             )
         if game_session_creation_limit_policy is not None:
-            input["game_session_creation_limit_policy"] = (
+            input_["game_session_creation_limit_policy"] = (
                 game_session_creation_limit_policy
             )
         if log_configuration is not None:
-            input["log_configuration"] = log_configuration
+            input_["log_configuration"] = log_configuration
         if remove_attributes is not None:
-            input["remove_attributes"] = remove_attributes
+            input_["remove_attributes"] = remove_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7081,25 +7085,27 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_container_group_definition_input.UpdateContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.update_container_group_definition_input.UpdateContainerGroupDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if game_server_container_definition is not None:
-            input["game_server_container_definition"] = game_server_container_definition
+            input_["game_server_container_definition"] = (
+                game_server_container_definition
+            )
         if support_container_definitions is not None:
-            input["support_container_definitions"] = support_container_definitions
+            input_["support_container_definitions"] = support_container_definitions
         if total_memory_limit_mebibytes is not None:
-            input["total_memory_limit_mebibytes"] = total_memory_limit_mebibytes
+            input_["total_memory_limit_mebibytes"] = total_memory_limit_mebibytes
         if total_vcpu_limit is not None:
-            input["total_vcpu_limit"] = total_vcpu_limit
+            input_["total_vcpu_limit"] = total_vcpu_limit
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if source_version_number is not None:
-            input["source_version_number"] = source_version_number
+            input_["source_version_number"] = source_version_number
         if operating_system is not None:
-            input["operating_system"] = operating_system
+            input_["operating_system"] = operating_system
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7157,25 +7163,25 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_fleet_attributes_input.UpdateFleetAttributesInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.update_fleet_attributes_input.UpdateFleetAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if new_game_session_protection_policy is not None:
-            input["new_game_session_protection_policy"] = (
+            input_["new_game_session_protection_policy"] = (
                 new_game_session_protection_policy
             )
         if resource_creation_limit_policy is not None:
-            input["resource_creation_limit_policy"] = resource_creation_limit_policy
+            input_["resource_creation_limit_policy"] = resource_creation_limit_policy
         if metric_groups is not None:
-            input["metric_groups"] = metric_groups
+            input_["metric_groups"] = metric_groups
         if anywhere_configuration is not None:
-            input["anywhere_configuration"] = anywhere_configuration
+            input_["anywhere_configuration"] = anywhere_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7227,21 +7233,21 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_fleet_capacity_input.UpdateFleetCapacityInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.update_fleet_capacity_input.UpdateFleetCapacityInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if desired_instances is not None:
-            input["desired_instances"] = desired_instances
+            input_["desired_instances"] = desired_instances
         if min_size is not None:
-            input["min_size"] = min_size
+            input_["min_size"] = min_size
         if max_size is not None:
-            input["max_size"] = max_size
+            input_["max_size"] = max_size
         if location is not None:
-            input["location"] = location
+            input_["location"] = location
         if managed_capacity_configuration is not None:
-            input["managed_capacity_configuration"] = managed_capacity_configuration
+            input_["managed_capacity_configuration"] = managed_capacity_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7283,17 +7289,17 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_fleet_port_settings_input.UpdateFleetPortSettingsInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
+        input_: aws_sdk_gamelift.types.update_fleet_port_settings_input.UpdateFleetPortSettingsInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
         if inbound_permission_authorizations is not None:
-            input["inbound_permission_authorizations"] = (
+            input_["inbound_permission_authorizations"] = (
                 inbound_permission_authorizations
             )
         if inbound_permission_revocations is not None:
-            input["inbound_permission_revocations"] = inbound_permission_revocations
+            input_["inbound_permission_revocations"] = inbound_permission_revocations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7341,18 +7347,18 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_game_server_input.UpdateGameServerInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
-        input["game_server_id"] = game_server_id
+        input_: aws_sdk_gamelift.types.update_game_server_input.UpdateGameServerInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
+        input_["game_server_id"] = game_server_id
         if game_server_data is not None:
-            input["game_server_data"] = game_server_data
+            input_["game_server_data"] = game_server_data
         if utilization_status is not None:
-            input["utilization_status"] = utilization_status
+            input_["utilization_status"] = utilization_status
         if health_check is not None:
-            input["health_check"] = health_check
+            input_["health_check"] = health_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7400,19 +7406,19 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_game_server_group_input.UpdateGameServerGroupInput = {}  # type: ignore[typeddict-item]
-        input["game_server_group_name"] = game_server_group_name
+        input_: aws_sdk_gamelift.types.update_game_server_group_input.UpdateGameServerGroupInput = {}  # type: ignore[typeddict-item]
+        input_["game_server_group_name"] = game_server_group_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if instance_definitions is not None:
-            input["instance_definitions"] = instance_definitions
+            input_["instance_definitions"] = instance_definitions
         if game_server_protection_policy is not None:
-            input["game_server_protection_policy"] = game_server_protection_policy
+            input_["game_server_protection_policy"] = game_server_protection_policy
         if balancing_strategy is not None:
-            input["balancing_strategy"] = balancing_strategy
+            input_["balancing_strategy"] = balancing_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7466,21 +7472,21 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_game_session_input.UpdateGameSessionInput = {}  # type: ignore[typeddict-item]
-        input["game_session_id"] = game_session_id
+        input_: aws_sdk_gamelift.types.update_game_session_input.UpdateGameSessionInput = {}  # type: ignore[typeddict-item]
+        input_["game_session_id"] = game_session_id
         if maximum_player_session_count is not None:
-            input["maximum_player_session_count"] = maximum_player_session_count
+            input_["maximum_player_session_count"] = maximum_player_session_count
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if player_session_creation_policy is not None:
-            input["player_session_creation_policy"] = player_session_creation_policy
+            input_["player_session_creation_policy"] = player_session_creation_policy
         if protection_policy is not None:
-            input["protection_policy"] = protection_policy
+            input_["protection_policy"] = protection_policy
         if game_properties is not None:
-            input["game_properties"] = game_properties
+            input_["game_properties"] = game_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7542,25 +7548,25 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_game_session_queue_input.UpdateGameSessionQueueInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.update_game_session_queue_input.UpdateGameSessionQueueInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if timeout_in_seconds is not None:
-            input["timeout_in_seconds"] = timeout_in_seconds
+            input_["timeout_in_seconds"] = timeout_in_seconds
         if player_latency_policies is not None:
-            input["player_latency_policies"] = player_latency_policies
+            input_["player_latency_policies"] = player_latency_policies
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
         if filter_configuration is not None:
-            input["filter_configuration"] = filter_configuration
+            input_["filter_configuration"] = filter_configuration
         if priority_configuration is not None:
-            input["priority_configuration"] = priority_configuration
+            input_["priority_configuration"] = priority_configuration
         if custom_event_data is not None:
-            input["custom_event_data"] = custom_event_data
+            input_["custom_event_data"] = custom_event_data
         if notification_target is not None:
-            input["notification_target"] = notification_target
+            input_["notification_target"] = notification_target
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7646,37 +7652,37 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_matchmaking_configuration_input.UpdateMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_gamelift.types.update_matchmaking_configuration_input.UpdateMatchmakingConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if game_session_queue_arns is not None:
-            input["game_session_queue_arns"] = game_session_queue_arns
+            input_["game_session_queue_arns"] = game_session_queue_arns
         if request_timeout_seconds is not None:
-            input["request_timeout_seconds"] = request_timeout_seconds
+            input_["request_timeout_seconds"] = request_timeout_seconds
         if acceptance_timeout_seconds is not None:
-            input["acceptance_timeout_seconds"] = acceptance_timeout_seconds
+            input_["acceptance_timeout_seconds"] = acceptance_timeout_seconds
         if acceptance_required is not None:
-            input["acceptance_required"] = acceptance_required
+            input_["acceptance_required"] = acceptance_required
         if rule_set_name is not None:
-            input["rule_set_name"] = rule_set_name
+            input_["rule_set_name"] = rule_set_name
         if notification_target is not None:
-            input["notification_target"] = notification_target
+            input_["notification_target"] = notification_target
         if additional_player_count is not None:
-            input["additional_player_count"] = additional_player_count
+            input_["additional_player_count"] = additional_player_count
         if custom_event_data is not None:
-            input["custom_event_data"] = custom_event_data
+            input_["custom_event_data"] = custom_event_data
         if game_properties is not None:
-            input["game_properties"] = game_properties
+            input_["game_properties"] = game_properties
         if game_session_data is not None:
-            input["game_session_data"] = game_session_data
+            input_["game_session_data"] = game_session_data
         if backfill_mode is not None:
-            input["backfill_mode"] = backfill_mode
+            input_["backfill_mode"] = backfill_mode
         if flex_match_mode is not None:
-            input["flex_match_mode"] = flex_match_mode
+            input_["flex_match_mode"] = flex_match_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7712,12 +7718,12 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_runtime_configuration_input.UpdateRuntimeConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["fleet_id"] = fleet_id
-        input["runtime_configuration"] = runtime_configuration
+        input_: aws_sdk_gamelift.types.update_runtime_configuration_input.UpdateRuntimeConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["fleet_id"] = fleet_id
+        input_["runtime_configuration"] = runtime_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7765,19 +7771,19 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.update_script_input.UpdateScriptInput = {}  # type: ignore[typeddict-item]
-        input["script_id"] = script_id
+        input_: aws_sdk_gamelift.types.update_script_input.UpdateScriptInput = {}  # type: ignore[typeddict-item]
+        input_["script_id"] = script_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
         if storage_location is not None:
-            input["storage_location"] = storage_location
+            input_["storage_location"] = storage_location
         if zip_file is not None:
-            input["zip_file"] = zip_file
+            input_["zip_file"] = zip_file
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7811,11 +7817,11 @@ class AsyncGameLiftClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_gamelift.types.validate_matchmaking_rule_set_input.ValidateMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
-        input["rule_set_body"] = rule_set_body
+        input_: aws_sdk_gamelift.types.validate_matchmaking_rule_set_input.ValidateMatchmakingRuleSetInput = {}  # type: ignore[typeddict-item]
+        input_["rule_set_body"] = rule_set_body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

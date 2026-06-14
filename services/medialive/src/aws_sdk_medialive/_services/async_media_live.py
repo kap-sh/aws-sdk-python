@@ -497,11 +497,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.accept_input_device_transfer_request.AcceptInputDeviceTransferRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
+        input_: aws_sdk_medialive.types.accept_input_device_transfer_request.AcceptInputDeviceTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -549,18 +549,18 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.batch_delete_request.BatchDeleteRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.batch_delete_request.BatchDeleteRequest = {}  # type: ignore[typeddict-item]
         if channel_ids is not None:
-            input["channel_ids"] = channel_ids
+            input_["channel_ids"] = channel_ids
         if input_ids is not None:
-            input["input_ids"] = input_ids
+            input_["input_ids"] = input_ids
         if input_security_group_ids is not None:
-            input["input_security_group_ids"] = input_security_group_ids
+            input_["input_security_group_ids"] = input_security_group_ids
         if multiplex_ids is not None:
-            input["multiplex_ids"] = multiplex_ids
+            input_["multiplex_ids"] = multiplex_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -600,14 +600,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.batch_start_request.BatchStartRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.batch_start_request.BatchStartRequest = {}  # type: ignore[typeddict-item]
         if channel_ids is not None:
-            input["channel_ids"] = channel_ids
+            input_["channel_ids"] = channel_ids
         if multiplex_ids is not None:
-            input["multiplex_ids"] = multiplex_ids
+            input_["multiplex_ids"] = multiplex_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -647,14 +647,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.batch_stop_request.BatchStopRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.batch_stop_request.BatchStopRequest = {}  # type: ignore[typeddict-item]
         if channel_ids is not None:
-            input["channel_ids"] = channel_ids
+            input_["channel_ids"] = channel_ids
         if multiplex_ids is not None:
-            input["multiplex_ids"] = multiplex_ids
+            input_["multiplex_ids"] = multiplex_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,15 +696,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.batch_update_schedule_request.BatchUpdateScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.batch_update_schedule_request.BatchUpdateScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
         if creates is not None:
-            input["creates"] = creates
+            input_["creates"] = creates
         if deletes is not None:
-            input["deletes"] = deletes
+            input_["deletes"] = deletes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -738,11 +738,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.cancel_input_device_transfer_request.CancelInputDeviceTransferRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
+        input_: aws_sdk_medialive.types.cancel_input_device_transfer_request.CancelInputDeviceTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -776,12 +776,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.claim_device_request.ClaimDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.claim_device_request.ClaimDeviceRequest = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,50 +876,50 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
         if cdi_input_specification is not None:
-            input["cdi_input_specification"] = cdi_input_specification
+            input_["cdi_input_specification"] = cdi_input_specification
         if channel_class is not None:
-            input["channel_class"] = channel_class
+            input_["channel_class"] = channel_class
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
         if encoder_settings is not None:
-            input["encoder_settings"] = encoder_settings
+            input_["encoder_settings"] = encoder_settings
         if input_attachments is not None:
-            input["input_attachments"] = input_attachments
+            input_["input_attachments"] = input_attachments
         if input_specification is not None:
-            input["input_specification"] = input_specification
+            input_["input_specification"] = input_specification
         if log_level is not None:
-            input["log_level"] = log_level
+            input_["log_level"] = log_level
         if maintenance is not None:
-            input["maintenance"] = maintenance
+            input_["maintenance"] = maintenance
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if reserved is not None:
-            input["reserved"] = reserved
+            input_["reserved"] = reserved
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if vpc is not None:
-            input["vpc"] = vpc
+            input_["vpc"] = vpc
         if anywhere_settings is not None:
-            input["anywhere_settings"] = anywhere_settings
+            input_["anywhere_settings"] = anywhere_settings
         if channel_engine_version is not None:
-            input["channel_engine_version"] = channel_engine_version
+            input_["channel_engine_version"] = channel_engine_version
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if linked_channel_settings is not None:
-            input["linked_channel_settings"] = linked_channel_settings
+            input_["linked_channel_settings"] = linked_channel_settings
         if channel_security_groups is not None:
-            input["channel_security_groups"] = channel_security_groups
+            input_["channel_security_groups"] = channel_security_groups
         if inference_settings is not None:
-            input["inference_settings"] = inference_settings
+            input_["inference_settings"] = inference_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -963,19 +963,19 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_channel_placement_group_request.CreateChannelPlacementGroupRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.create_channel_placement_group_request.CreateChannelPlacementGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if nodes is not None:
-            input["nodes"] = nodes
+            input_["nodes"] = nodes
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1036,28 +1036,28 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_cloud_watch_alarm_template_request.CreateCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["comparison_operator"] = comparison_operator
+        input_: aws_sdk_medialive.types.create_cloud_watch_alarm_template_request.CreateCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["comparison_operator"] = comparison_operator
         if datapoints_to_alarm is not None:
-            input["datapoints_to_alarm"] = datapoints_to_alarm
+            input_["datapoints_to_alarm"] = datapoints_to_alarm
         if description is not None:
-            input["description"] = description
-        input["evaluation_periods"] = evaluation_periods
-        input["group_identifier"] = group_identifier
-        input["metric_name"] = metric_name
-        input["name"] = name
-        input["period"] = period
-        input["statistic"] = statistic
+            input_["description"] = description
+        input_["evaluation_periods"] = evaluation_periods
+        input_["group_identifier"] = group_identifier
+        input_["metric_name"] = metric_name
+        input_["name"] = name
+        input_["period"] = period
+        input_["statistic"] = statistic
         if tags is not None:
-            input["tags"] = tags
-        input["target_resource_type"] = target_resource_type
-        input["threshold"] = threshold
-        input["treat_missing_data"] = treat_missing_data
+            input_["tags"] = tags
+        input_["target_resource_type"] = target_resource_type
+        input_["threshold"] = threshold
+        input_["treat_missing_data"] = treat_missing_data
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1100,17 +1100,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_cloud_watch_alarm_template_group_request.CreateCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_cloud_watch_alarm_template_group_request.CreateCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1158,22 +1158,22 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
         if cluster_type is not None:
-            input["cluster_type"] = cluster_type
+            input_["cluster_type"] = cluster_type
         if instance_role_arn is not None:
-            input["instance_role_arn"] = instance_role_arn
+            input_["instance_role_arn"] = instance_role_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if network_settings is not None:
-            input["network_settings"] = network_settings
+            input_["network_settings"] = network_settings
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1222,21 +1222,21 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_event_bridge_rule_template_request.CreateEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_event_bridge_rule_template_request.CreateEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if event_targets is not None:
-            input["event_targets"] = event_targets
-        input["event_type"] = event_type
-        input["group_identifier"] = group_identifier
-        input["name"] = name
+            input_["event_targets"] = event_targets
+        input_["event_type"] = event_type
+        input_["group_identifier"] = group_identifier
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1279,17 +1279,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_event_bridge_rule_template_group_request.CreateEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_event_bridge_rule_template_group_request.CreateEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1375,46 +1375,46 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_input_request.CreateInputRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_input_request.CreateInputRequest = {}  # type: ignore[typeddict-item]
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
         if input_devices is not None:
-            input["input_devices"] = input_devices
+            input_["input_devices"] = input_devices
         if input_security_groups is not None:
-            input["input_security_groups"] = input_security_groups
+            input_["input_security_groups"] = input_security_groups
         if media_connect_flows is not None:
-            input["media_connect_flows"] = media_connect_flows
+            input_["media_connect_flows"] = media_connect_flows
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if vpc is not None:
-            input["vpc"] = vpc
+            input_["vpc"] = vpc
         if srt_settings is not None:
-            input["srt_settings"] = srt_settings
+            input_["srt_settings"] = srt_settings
         if input_network_location is not None:
-            input["input_network_location"] = input_network_location
+            input_["input_network_location"] = input_network_location
         if multicast_settings is not None:
-            input["multicast_settings"] = multicast_settings
+            input_["multicast_settings"] = multicast_settings
         if smpte2110_receiver_group_settings is not None:
-            input["smpte2110_receiver_group_settings"] = (
+            input_["smpte2110_receiver_group_settings"] = (
                 smpte2110_receiver_group_settings
             )
         if sdi_sources is not None:
-            input["sdi_sources"] = sdi_sources
+            input_["sdi_sources"] = sdi_sources
         if router_settings is not None:
-            input["router_settings"] = router_settings
+            input_["router_settings"] = router_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1452,14 +1452,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_input_security_group_request.CreateInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_input_security_group_request.CreateInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if whitelist_rules is not None:
-            input["whitelist_rules"] = whitelist_rules
+            input_["whitelist_rules"] = whitelist_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1501,16 +1501,16 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_multiplex_request.CreateMultiplexRequest = {}  # type: ignore[typeddict-item]
-        input["availability_zones"] = availability_zones
-        input["multiplex_settings"] = multiplex_settings
-        input["name"] = name
-        input["request_id"] = request_id
+        input_: aws_sdk_medialive.types.create_multiplex_request.CreateMultiplexRequest = {}  # type: ignore[typeddict-item]
+        input_["availability_zones"] = availability_zones
+        input_["multiplex_settings"] = multiplex_settings
+        input_["name"] = name
+        input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1550,14 +1550,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_multiplex_program_request.CreateMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
-        input["multiplex_program_settings"] = multiplex_program_settings
-        input["program_name"] = program_name
-        input["request_id"] = request_id
+        input_: aws_sdk_medialive.types.create_multiplex_program_request.CreateMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
+        input_["multiplex_program_settings"] = multiplex_program_settings
+        input_["program_name"] = program_name
+        input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1603,20 +1603,20 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_network_request.CreateNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_network_request.CreateNetworkRequest = {}  # type: ignore[typeddict-item]
         if ip_pools is not None:
-            input["ip_pools"] = ip_pools
+            input_["ip_pools"] = ip_pools
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if routes is not None:
-            input["routes"] = routes
+            input_["routes"] = routes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1662,21 +1662,21 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_node_request.CreateNodeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.create_node_request.CreateNodeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if node_interface_mappings is not None:
-            input["node_interface_mappings"] = node_interface_mappings
+            input_["node_interface_mappings"] = node_interface_mappings
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1722,21 +1722,21 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_node_registration_script_request.CreateNodeRegistrationScriptRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.create_node_registration_script_request.CreateNodeRegistrationScriptRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if node_interface_mappings is not None:
-            input["node_interface_mappings"] = node_interface_mappings
+            input_["node_interface_mappings"] = node_interface_mappings
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1774,15 +1774,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_partner_input_request.CreatePartnerInputRequest = {}  # type: ignore[typeddict-item]
-        input["input_id"] = input_id
+        input_: aws_sdk_medialive.types.create_partner_input_request.CreatePartnerInputRequest = {}  # type: ignore[typeddict-item]
+        input_["input_id"] = input_id
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1824,20 +1824,20 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_sdi_source_request.CreateSdiSourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_sdi_source_request.CreateSdiSourceRequest = {}  # type: ignore[typeddict-item]
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1888,26 +1888,26 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_signal_map_request.CreateSignalMapRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.create_signal_map_request.CreateSignalMapRequest = {}  # type: ignore[typeddict-item]
         if cloud_watch_alarm_template_group_identifiers is not None:
-            input["cloud_watch_alarm_template_group_identifiers"] = (
+            input_["cloud_watch_alarm_template_group_identifiers"] = (
                 cloud_watch_alarm_template_group_identifiers
             )
         if description is not None:
-            input["description"] = description
-        input["discovery_entry_point_arn"] = discovery_entry_point_arn
+            input_["description"] = description
+        input_["discovery_entry_point_arn"] = discovery_entry_point_arn
         if event_bridge_rule_template_group_identifiers is not None:
-            input["event_bridge_rule_template_group_identifiers"] = (
+            input_["event_bridge_rule_template_group_identifiers"] = (
                 event_bridge_rule_template_group_identifiers
             )
-        input["name"] = name
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1936,13 +1936,13 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_medialive.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1976,11 +1976,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2016,12 +2016,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_channel_placement_group_request.DeleteChannelPlacementGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_placement_group_id"] = channel_placement_group_id
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.delete_channel_placement_group_request.DeleteChannelPlacementGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_placement_group_id"] = channel_placement_group_id
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2053,11 +2053,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_cloud_watch_alarm_template_request.DeleteCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.delete_cloud_watch_alarm_template_request.DeleteCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2089,11 +2089,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_cloud_watch_alarm_template_group_request.DeleteCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.delete_cloud_watch_alarm_template_group_request.DeleteCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2127,11 +2127,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2163,11 +2163,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_event_bridge_rule_template_request.DeleteEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.delete_event_bridge_rule_template_request.DeleteEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2199,11 +2199,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_event_bridge_rule_template_group_request.DeleteEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.delete_event_bridge_rule_template_group_request.DeleteEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2237,11 +2237,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_input_request.DeleteInputRequest = {}  # type: ignore[typeddict-item]
-        input["input_id"] = input_id
+        input_: aws_sdk_medialive.types.delete_input_request.DeleteInputRequest = {}  # type: ignore[typeddict-item]
+        input_["input_id"] = input_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2275,11 +2275,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_input_security_group_request.DeleteInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
-        input["input_security_group_id"] = input_security_group_id
+        input_: aws_sdk_medialive.types.delete_input_security_group_request.DeleteInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["input_security_group_id"] = input_security_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2313,11 +2313,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_multiplex_request.DeleteMultiplexRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
+        input_: aws_sdk_medialive.types.delete_multiplex_request.DeleteMultiplexRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2353,12 +2353,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_multiplex_program_request.DeleteMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
-        input["program_name"] = program_name
+        input_: aws_sdk_medialive.types.delete_multiplex_program_request.DeleteMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
+        input_["program_name"] = program_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2392,11 +2392,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_network_request.DeleteNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_medialive.types.delete_network_request.DeleteNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2432,12 +2432,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_node_request.DeleteNodeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["node_id"] = node_id
+        input_: aws_sdk_medialive.types.delete_node_request.DeleteNodeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["node_id"] = node_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2473,11 +2473,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_reservation_request.DeleteReservationRequest = {}  # type: ignore[typeddict-item]
-        input["reservation_id"] = reservation_id
+        input_: aws_sdk_medialive.types.delete_reservation_request.DeleteReservationRequest = {}  # type: ignore[typeddict-item]
+        input_["reservation_id"] = reservation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2511,11 +2511,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_schedule_request.DeleteScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.delete_schedule_request.DeleteScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2549,11 +2549,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_sdi_source_request.DeleteSdiSourceRequest = {}  # type: ignore[typeddict-item]
-        input["sdi_source_id"] = sdi_source_id
+        input_: aws_sdk_medialive.types.delete_sdi_source_request.DeleteSdiSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["sdi_source_id"] = sdi_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2585,11 +2585,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_signal_map_request.DeleteSignalMapRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.delete_signal_map_request.DeleteSignalMapRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2622,12 +2622,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_medialive.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2654,10 +2654,10 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_account_configuration_request.DescribeAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.describe_account_configuration_request.DescribeAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2691,11 +2691,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2731,12 +2731,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_channel_placement_group_request.DescribeChannelPlacementGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_placement_group_id"] = channel_placement_group_id
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.describe_channel_placement_group_request.DescribeChannelPlacementGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_placement_group_id"] = channel_placement_group_id
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2770,11 +2770,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.describe_cluster_request.DescribeClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2808,11 +2808,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_input_request.DescribeInputRequest = {}  # type: ignore[typeddict-item]
-        input["input_id"] = input_id
+        input_: aws_sdk_medialive.types.describe_input_request.DescribeInputRequest = {}  # type: ignore[typeddict-item]
+        input_["input_id"] = input_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2846,11 +2846,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_input_device_request.DescribeInputDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
+        input_: aws_sdk_medialive.types.describe_input_device_request.DescribeInputDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2887,12 +2887,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_input_device_thumbnail_request.DescribeInputDeviceThumbnailRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
-        input["accept"] = accept
+        input_: aws_sdk_medialive.types.describe_input_device_thumbnail_request.DescribeInputDeviceThumbnailRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
+        input_["accept"] = accept
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2926,11 +2926,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_input_security_group_request.DescribeInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
-        input["input_security_group_id"] = input_security_group_id
+        input_: aws_sdk_medialive.types.describe_input_security_group_request.DescribeInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["input_security_group_id"] = input_security_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2966,11 +2966,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_multiplex_request.DescribeMultiplexRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
+        input_: aws_sdk_medialive.types.describe_multiplex_request.DescribeMultiplexRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3006,12 +3006,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_multiplex_program_request.DescribeMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
-        input["program_name"] = program_name
+        input_: aws_sdk_medialive.types.describe_multiplex_program_request.DescribeMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
+        input_["program_name"] = program_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3045,11 +3045,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_network_request.DescribeNetworkRequest = {}  # type: ignore[typeddict-item]
-        input["network_id"] = network_id
+        input_: aws_sdk_medialive.types.describe_network_request.DescribeNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_["network_id"] = network_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3085,12 +3085,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_node_request.DescribeNodeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["node_id"] = node_id
+        input_: aws_sdk_medialive.types.describe_node_request.DescribeNodeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["node_id"] = node_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3124,11 +3124,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_offering_request.DescribeOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["offering_id"] = offering_id
+        input_: aws_sdk_medialive.types.describe_offering_request.DescribeOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["offering_id"] = offering_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3162,11 +3162,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_reservation_request.DescribeReservationRequest = {}  # type: ignore[typeddict-item]
-        input["reservation_id"] = reservation_id
+        input_: aws_sdk_medialive.types.describe_reservation_request.DescribeReservationRequest = {}  # type: ignore[typeddict-item]
+        input_["reservation_id"] = reservation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3202,15 +3202,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_schedule_request.DescribeScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.describe_schedule_request.DescribeScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3269,11 +3269,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_sdi_source_request.DescribeSdiSourceRequest = {}  # type: ignore[typeddict-item]
-        input["sdi_source_id"] = sdi_source_id
+        input_: aws_sdk_medialive.types.describe_sdi_source_request.DescribeSdiSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["sdi_source_id"] = sdi_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3311,13 +3311,13 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.describe_thumbnails_request.DescribeThumbnailsRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
-        input["pipeline_id"] = pipeline_id
-        input["thumbnail_type"] = thumbnail_type
+        input_: aws_sdk_medialive.types.describe_thumbnails_request.DescribeThumbnailsRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
+        input_["pipeline_id"] = pipeline_id
+        input_["thumbnail_type"] = thumbnail_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3351,11 +3351,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.get_cloud_watch_alarm_template_request.GetCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.get_cloud_watch_alarm_template_request.GetCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3389,11 +3389,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.get_cloud_watch_alarm_template_group_request.GetCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.get_cloud_watch_alarm_template_group_request.GetCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3427,11 +3427,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.get_event_bridge_rule_template_request.GetEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.get_event_bridge_rule_template_request.GetEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3465,11 +3465,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.get_event_bridge_rule_template_group_request.GetEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.get_event_bridge_rule_template_group_request.GetEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3503,11 +3503,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.get_signal_map_request.GetSignalMapRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.get_signal_map_request.GetSignalMapRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3547,17 +3547,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_alerts_request.ListAlertsRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.list_alerts_request.ListAlertsRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if state_filter is not None:
-            input["state_filter"] = state_filter
+            input_["state_filter"] = state_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3620,15 +3620,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_channel_placement_groups_request.ListChannelPlacementGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.list_channel_placement_groups_request.ListChannelPlacementGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3682,14 +3682,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3751,18 +3751,18 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_cloud_watch_alarm_template_groups_request.ListCloudWatchAlarmTemplateGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_cloud_watch_alarm_template_groups_request.ListCloudWatchAlarmTemplateGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if signal_map_identifier is not None:
-            input["signal_map_identifier"] = signal_map_identifier
+            input_["signal_map_identifier"] = signal_map_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3832,20 +3832,20 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_cloud_watch_alarm_templates_request.ListCloudWatchAlarmTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_cloud_watch_alarm_templates_request.ListCloudWatchAlarmTemplatesRequest = {}  # type: ignore[typeddict-item]
         if group_identifier is not None:
-            input["group_identifier"] = group_identifier
+            input_["group_identifier"] = group_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if signal_map_identifier is not None:
-            input["signal_map_identifier"] = signal_map_identifier
+            input_["signal_map_identifier"] = signal_map_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3916,17 +3916,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_cluster_alerts_request.ListClusterAlertsRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.list_cluster_alerts_request.ListClusterAlertsRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if state_filter is not None:
-            input["state_filter"] = state_filter
+            input_["state_filter"] = state_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3987,14 +3987,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_clusters_request.ListClustersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4054,16 +4054,16 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_event_bridge_rule_template_groups_request.ListEventBridgeRuleTemplateGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_event_bridge_rule_template_groups_request.ListEventBridgeRuleTemplateGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if signal_map_identifier is not None:
-            input["signal_map_identifier"] = signal_map_identifier
+            input_["signal_map_identifier"] = signal_map_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4129,18 +4129,18 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_event_bridge_rule_templates_request.ListEventBridgeRuleTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_event_bridge_rule_templates_request.ListEventBridgeRuleTemplatesRequest = {}  # type: ignore[typeddict-item]
         if group_identifier is not None:
-            input["group_identifier"] = group_identifier
+            input_["group_identifier"] = group_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if signal_map_identifier is not None:
-            input["signal_map_identifier"] = signal_map_identifier
+            input_["signal_map_identifier"] = signal_map_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4198,14 +4198,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_input_devices_request.ListInputDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_input_devices_request.ListInputDevicesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4260,15 +4260,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_input_device_transfers_request.ListInputDeviceTransfersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_input_device_transfers_request.ListInputDeviceTransfersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["transfer_type"] = transfer_type
+            input_["next_token"] = next_token
+        input_["transfer_type"] = transfer_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4322,14 +4322,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_inputs_request.ListInputsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_inputs_request.ListInputsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4381,14 +4381,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_input_security_groups_request.ListInputSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_input_security_groups_request.ListInputSecurityGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4451,17 +4451,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_multiplex_alerts_request.ListMultiplexAlertsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_multiplex_alerts_request.ListMultiplexAlertsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
-        input["multiplex_id"] = multiplex_id
+            input_["max_results"] = max_results
+        input_["multiplex_id"] = multiplex_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if state_filter is not None:
-            input["state_filter"] = state_filter
+            input_["state_filter"] = state_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4522,14 +4522,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_multiplexes_request.ListMultiplexesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_multiplexes_request.ListMultiplexesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4588,15 +4588,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_multiplex_programs_request.ListMultiplexProgramsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_multiplex_programs_request.ListMultiplexProgramsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
-        input["multiplex_id"] = multiplex_id
+            input_["max_results"] = max_results
+        input_["multiplex_id"] = multiplex_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4655,14 +4655,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_networks_request.ListNetworksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_networks_request.ListNetworksRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4721,15 +4721,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4808,34 +4808,34 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_offerings_request.ListOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_offerings_request.ListOfferingsRequest = {}  # type: ignore[typeddict-item]
         if channel_class is not None:
-            input["channel_class"] = channel_class
+            input_["channel_class"] = channel_class
         if channel_configuration is not None:
-            input["channel_configuration"] = channel_configuration
+            input_["channel_configuration"] = channel_configuration
         if codec is not None:
-            input["codec"] = codec
+            input_["codec"] = codec
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if maximum_bitrate is not None:
-            input["maximum_bitrate"] = maximum_bitrate
+            input_["maximum_bitrate"] = maximum_bitrate
         if maximum_framerate is not None:
-            input["maximum_framerate"] = maximum_framerate
+            input_["maximum_framerate"] = maximum_framerate
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if resolution is not None:
-            input["resolution"] = resolution
+            input_["resolution"] = resolution
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if special_feature is not None:
-            input["special_feature"] = special_feature
+            input_["special_feature"] = special_feature
         if video_quality is not None:
-            input["video_quality"] = video_quality
+            input_["video_quality"] = video_quality
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4928,30 +4928,30 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_reservations_request.ListReservationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_reservations_request.ListReservationsRequest = {}  # type: ignore[typeddict-item]
         if channel_class is not None:
-            input["channel_class"] = channel_class
+            input_["channel_class"] = channel_class
         if codec is not None:
-            input["codec"] = codec
+            input_["codec"] = codec
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if maximum_bitrate is not None:
-            input["maximum_bitrate"] = maximum_bitrate
+            input_["maximum_bitrate"] = maximum_bitrate
         if maximum_framerate is not None:
-            input["maximum_framerate"] = maximum_framerate
+            input_["maximum_framerate"] = maximum_framerate
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if resolution is not None:
-            input["resolution"] = resolution
+            input_["resolution"] = resolution
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if special_feature is not None:
-            input["special_feature"] = special_feature
+            input_["special_feature"] = special_feature
         if video_quality is not None:
-            input["video_quality"] = video_quality
+            input_["video_quality"] = video_quality
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5024,14 +5024,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_sdi_sources_request.ListSdiSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_sdi_sources_request.ListSdiSourcesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5095,22 +5095,22 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_signal_maps_request.ListSignalMapsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_signal_maps_request.ListSignalMapsRequest = {}  # type: ignore[typeddict-item]
         if cloud_watch_alarm_template_group_identifier is not None:
-            input["cloud_watch_alarm_template_group_identifier"] = (
+            input_["cloud_watch_alarm_template_group_identifier"] = (
                 cloud_watch_alarm_template_group_identifier
             )
         if event_bridge_rule_template_group_identifier is not None:
-            input["event_bridge_rule_template_group_identifier"] = (
+            input_["event_bridge_rule_template_group_identifier"] = (
                 event_bridge_rule_template_group_identifier
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5169,11 +5169,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_medialive.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5200,10 +5200,10 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5251,22 +5251,22 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.purchase_offering_request.PurchaseOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["count"] = count
+        input_: aws_sdk_medialive.types.purchase_offering_request.PurchaseOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["count"] = count
         if name is not None:
-            input["name"] = name
-        input["offering_id"] = offering_id
+            input_["name"] = name
+        input_["offering_id"] = offering_id
         if renewal_settings is not None:
-            input["renewal_settings"] = renewal_settings
+            input_["renewal_settings"] = renewal_settings
         if request_id is not None:
-            input["request_id"] = request_id
+            input_["request_id"] = request_id
         if start is not None:
-            input["start"] = start
+            input_["start"] = start
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5306,13 +5306,13 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.reboot_input_device_request.RebootInputDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.reboot_input_device_request.RebootInputDeviceRequest = {}  # type: ignore[typeddict-item]
         if force is not None:
-            input["force"] = force
-        input["input_device_id"] = input_device_id
+            input_["force"] = force
+        input_["input_device_id"] = input_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5346,11 +5346,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.reject_input_device_transfer_request.RejectInputDeviceTransferRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
+        input_: aws_sdk_medialive.types.reject_input_device_transfer_request.RejectInputDeviceTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5388,13 +5388,13 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.restart_channel_pipelines_request.RestartChannelPipelinesRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.restart_channel_pipelines_request.RestartChannelPipelinesRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
         if pipeline_ids is not None:
-            input["pipeline_ids"] = pipeline_ids
+            input_["pipeline_ids"] = pipeline_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5428,11 +5428,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.start_channel_request.StartChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.start_channel_request.StartChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5466,11 +5466,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.start_delete_monitor_deployment_request.StartDeleteMonitorDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_medialive.types.start_delete_monitor_deployment_request.StartDeleteMonitorDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5504,11 +5504,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.start_input_device_request.StartInputDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
+        input_: aws_sdk_medialive.types.start_input_device_request.StartInputDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5542,11 +5542,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.start_input_device_maintenance_window_request.StartInputDeviceMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
+        input_: aws_sdk_medialive.types.start_input_device_maintenance_window_request.StartInputDeviceMaintenanceWindowRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5581,13 +5581,13 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.start_monitor_deployment_request.StartMonitorDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.start_monitor_deployment_request.StartMonitorDeploymentRequest = {}  # type: ignore[typeddict-item]
         if dry_run is not None:
-            input["dry_run"] = dry_run
-        input["identifier"] = identifier
+            input_["dry_run"] = dry_run
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5621,11 +5621,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.start_multiplex_request.StartMultiplexRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
+        input_: aws_sdk_medialive.types.start_multiplex_request.StartMultiplexRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5681,27 +5681,27 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.start_update_signal_map_request.StartUpdateSignalMapRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.start_update_signal_map_request.StartUpdateSignalMapRequest = {}  # type: ignore[typeddict-item]
         if cloud_watch_alarm_template_group_identifiers is not None:
-            input["cloud_watch_alarm_template_group_identifiers"] = (
+            input_["cloud_watch_alarm_template_group_identifiers"] = (
                 cloud_watch_alarm_template_group_identifiers
             )
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if discovery_entry_point_arn is not None:
-            input["discovery_entry_point_arn"] = discovery_entry_point_arn
+            input_["discovery_entry_point_arn"] = discovery_entry_point_arn
         if event_bridge_rule_template_group_identifiers is not None:
-            input["event_bridge_rule_template_group_identifiers"] = (
+            input_["event_bridge_rule_template_group_identifiers"] = (
                 event_bridge_rule_template_group_identifiers
             )
         if force_rediscovery is not None:
-            input["force_rediscovery"] = force_rediscovery
-        input["identifier"] = identifier
+            input_["force_rediscovery"] = force_rediscovery
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5735,11 +5735,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.stop_channel_request.StopChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.stop_channel_request.StopChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_id"] = channel_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5773,11 +5773,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.stop_input_device_request.StopInputDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
+        input_: aws_sdk_medialive.types.stop_input_device_request.StopInputDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5811,11 +5811,11 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.stop_multiplex_request.StopMultiplexRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
+        input_: aws_sdk_medialive.types.stop_multiplex_request.StopMultiplexRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5857,17 +5857,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.transfer_input_device_request.TransferInputDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["input_device_id"] = input_device_id
+        input_: aws_sdk_medialive.types.transfer_input_device_request.TransferInputDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["input_device_id"] = input_device_id
         if target_customer_id is not None:
-            input["target_customer_id"] = target_customer_id
+            input_["target_customer_id"] = target_customer_id
         if target_region is not None:
-            input["target_region"] = target_region
+            input_["target_region"] = target_region
         if transfer_message is not None:
-            input["transfer_message"] = transfer_message
+            input_["transfer_message"] = transfer_message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5899,12 +5899,12 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_account_configuration_request.UpdateAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_account_configuration_request.UpdateAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
         if account_configuration is not None:
-            input["account_configuration"] = account_configuration
+            input_["account_configuration"] = account_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5992,43 +5992,43 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
         if cdi_input_specification is not None:
-            input["cdi_input_specification"] = cdi_input_specification
-        input["channel_id"] = channel_id
+            input_["cdi_input_specification"] = cdi_input_specification
+        input_["channel_id"] = channel_id
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
         if encoder_settings is not None:
-            input["encoder_settings"] = encoder_settings
+            input_["encoder_settings"] = encoder_settings
         if input_attachments is not None:
-            input["input_attachments"] = input_attachments
+            input_["input_attachments"] = input_attachments
         if input_specification is not None:
-            input["input_specification"] = input_specification
+            input_["input_specification"] = input_specification
         if log_level is not None:
-            input["log_level"] = log_level
+            input_["log_level"] = log_level
         if maintenance is not None:
-            input["maintenance"] = maintenance
+            input_["maintenance"] = maintenance
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if channel_engine_version is not None:
-            input["channel_engine_version"] = channel_engine_version
+            input_["channel_engine_version"] = channel_engine_version
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if anywhere_settings is not None:
-            input["anywhere_settings"] = anywhere_settings
+            input_["anywhere_settings"] = anywhere_settings
         if linked_channel_settings is not None:
-            input["linked_channel_settings"] = linked_channel_settings
+            input_["linked_channel_settings"] = linked_channel_settings
         if channel_security_groups is not None:
-            input["channel_security_groups"] = channel_security_groups
+            input_["channel_security_groups"] = channel_security_groups
         if inference_settings is not None:
-            input["inference_settings"] = inference_settings
+            input_["inference_settings"] = inference_settings
         if special_router_settings is not None:
-            input["special_router_settings"] = special_router_settings
+            input_["special_router_settings"] = special_router_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6068,14 +6068,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_channel_class_request.UpdateChannelClassRequest = {}  # type: ignore[typeddict-item]
-        input["channel_class"] = channel_class
-        input["channel_id"] = channel_id
+        input_: aws_sdk_medialive.types.update_channel_class_request.UpdateChannelClassRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_class"] = channel_class
+        input_["channel_id"] = channel_id
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6117,16 +6117,16 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_channel_placement_group_request.UpdateChannelPlacementGroupRequest = {}  # type: ignore[typeddict-item]
-        input["channel_placement_group_id"] = channel_placement_group_id
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.update_channel_placement_group_request.UpdateChannelPlacementGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_placement_group_id"] = channel_placement_group_id
+        input_["cluster_id"] = cluster_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if nodes is not None:
-            input["nodes"] = nodes
+            input_["nodes"] = nodes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6202,35 +6202,35 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_cloud_watch_alarm_template_request.UpdateCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_cloud_watch_alarm_template_request.UpdateCloudWatchAlarmTemplateRequest = {}  # type: ignore[typeddict-item]
         if comparison_operator is not None:
-            input["comparison_operator"] = comparison_operator
+            input_["comparison_operator"] = comparison_operator
         if datapoints_to_alarm is not None:
-            input["datapoints_to_alarm"] = datapoints_to_alarm
+            input_["datapoints_to_alarm"] = datapoints_to_alarm
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if evaluation_periods is not None:
-            input["evaluation_periods"] = evaluation_periods
+            input_["evaluation_periods"] = evaluation_periods
         if group_identifier is not None:
-            input["group_identifier"] = group_identifier
-        input["identifier"] = identifier
+            input_["group_identifier"] = group_identifier
+        input_["identifier"] = identifier
         if metric_name is not None:
-            input["metric_name"] = metric_name
+            input_["metric_name"] = metric_name
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if statistic is not None:
-            input["statistic"] = statistic
+            input_["statistic"] = statistic
         if target_resource_type is not None:
-            input["target_resource_type"] = target_resource_type
+            input_["target_resource_type"] = target_resource_type
         if threshold is not None:
-            input["threshold"] = threshold
+            input_["threshold"] = threshold
         if treat_missing_data is not None:
-            input["treat_missing_data"] = treat_missing_data
+            input_["treat_missing_data"] = treat_missing_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6268,13 +6268,13 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_cloud_watch_alarm_template_group_request.UpdateCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_cloud_watch_alarm_template_group_request.UpdateCloudWatchAlarmTemplateGroupRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["identifier"] = identifier
+            input_["description"] = description
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6314,15 +6314,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if network_settings is not None:
-            input["network_settings"] = network_settings
+            input_["network_settings"] = network_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6374,21 +6374,21 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_event_bridge_rule_template_request.UpdateEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_event_bridge_rule_template_request.UpdateEventBridgeRuleTemplateRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if event_targets is not None:
-            input["event_targets"] = event_targets
+            input_["event_targets"] = event_targets
         if event_type is not None:
-            input["event_type"] = event_type
+            input_["event_type"] = event_type
         if group_identifier is not None:
-            input["group_identifier"] = group_identifier
-        input["identifier"] = identifier
+            input_["group_identifier"] = group_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6426,13 +6426,13 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_event_bridge_rule_template_group_request.UpdateEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_event_bridge_rule_template_group_request.UpdateEventBridgeRuleTemplateGroupRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["identifier"] = identifier
+            input_["description"] = description
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6509,37 +6509,37 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_input_request.UpdateInputRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_input_request.UpdateInputRequest = {}  # type: ignore[typeddict-item]
         if destinations is not None:
-            input["destinations"] = destinations
+            input_["destinations"] = destinations
         if input_devices is not None:
-            input["input_devices"] = input_devices
-        input["input_id"] = input_id
+            input_["input_devices"] = input_devices
+        input_["input_id"] = input_id
         if input_security_groups is not None:
-            input["input_security_groups"] = input_security_groups
+            input_["input_security_groups"] = input_security_groups
         if media_connect_flows is not None:
-            input["media_connect_flows"] = media_connect_flows
+            input_["media_connect_flows"] = media_connect_flows
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if srt_settings is not None:
-            input["srt_settings"] = srt_settings
+            input_["srt_settings"] = srt_settings
         if multicast_settings is not None:
-            input["multicast_settings"] = multicast_settings
+            input_["multicast_settings"] = multicast_settings
         if smpte2110_receiver_group_settings is not None:
-            input["smpte2110_receiver_group_settings"] = (
+            input_["smpte2110_receiver_group_settings"] = (
                 smpte2110_receiver_group_settings
             )
         if sdi_sources is not None:
-            input["sdi_sources"] = sdi_sources
+            input_["sdi_sources"] = sdi_sources
         if special_router_settings is not None:
-            input["special_router_settings"] = special_router_settings
+            input_["special_router_settings"] = special_router_settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6587,19 +6587,19 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_input_device_request.UpdateInputDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_input_device_request.UpdateInputDeviceRequest = {}  # type: ignore[typeddict-item]
         if hd_device_settings is not None:
-            input["hd_device_settings"] = hd_device_settings
-        input["input_device_id"] = input_device_id
+            input_["hd_device_settings"] = hd_device_settings
+        input_["input_device_id"] = input_device_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if uhd_device_settings is not None:
-            input["uhd_device_settings"] = uhd_device_settings
+            input_["uhd_device_settings"] = uhd_device_settings
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6639,15 +6639,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_input_security_group_request.UpdateInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
-        input["input_security_group_id"] = input_security_group_id
+        input_: aws_sdk_medialive.types.update_input_security_group_request.UpdateInputSecurityGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["input_security_group_id"] = input_security_group_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if whitelist_rules is not None:
-            input["whitelist_rules"] = whitelist_rules
+            input_["whitelist_rules"] = whitelist_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6690,17 +6690,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_multiplex_request.UpdateMultiplexRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
+        input_: aws_sdk_medialive.types.update_multiplex_request.UpdateMultiplexRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
         if multiplex_settings is not None:
-            input["multiplex_settings"] = multiplex_settings
+            input_["multiplex_settings"] = multiplex_settings
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if packet_identifiers_mapping is not None:
-            input["packet_identifiers_mapping"] = packet_identifiers_mapping
+            input_["packet_identifiers_mapping"] = packet_identifiers_mapping
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6740,14 +6740,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_multiplex_program_request.UpdateMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
-        input["multiplex_id"] = multiplex_id
+        input_: aws_sdk_medialive.types.update_multiplex_program_request.UpdateMultiplexProgramRequest = {}  # type: ignore[typeddict-item]
+        input_["multiplex_id"] = multiplex_id
         if multiplex_program_settings is not None:
-            input["multiplex_program_settings"] = multiplex_program_settings
-        input["program_name"] = program_name
+            input_["multiplex_program_settings"] = multiplex_program_settings
+        input_["program_name"] = program_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6791,17 +6791,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_network_request.UpdateNetworkRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_network_request.UpdateNetworkRequest = {}  # type: ignore[typeddict-item]
         if ip_pools is not None:
-            input["ip_pools"] = ip_pools
+            input_["ip_pools"] = ip_pools
         if name is not None:
-            input["name"] = name
-        input["network_id"] = network_id
+            input_["name"] = name
+        input_["network_id"] = network_id
         if routes is not None:
-            input["routes"] = routes
+            input_["routes"] = routes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6845,18 +6845,18 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_node_request.UpdateNodeRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
+        input_: aws_sdk_medialive.types.update_node_request.UpdateNodeRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
         if name is not None:
-            input["name"] = name
-        input["node_id"] = node_id
+            input_["name"] = name
+        input_["node_id"] = node_id
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if sdi_source_mappings is not None:
-            input["sdi_source_mappings"] = sdi_source_mappings
+            input_["sdi_source_mappings"] = sdi_source_mappings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6896,14 +6896,14 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_node_state_request.UpdateNodeStateRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_id"] = cluster_id
-        input["node_id"] = node_id
+        input_: aws_sdk_medialive.types.update_node_state_request.UpdateNodeStateRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_id"] = cluster_id
+        input_["node_id"] = node_id
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6945,15 +6945,15 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_reservation_request.UpdateReservationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_reservation_request.UpdateReservationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if renewal_settings is not None:
-            input["renewal_settings"] = renewal_settings
-        input["reservation_id"] = reservation_id
+            input_["renewal_settings"] = renewal_settings
+        input_["reservation_id"] = reservation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6993,17 +6993,17 @@ class AsyncMediaLiveClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medialive.types.update_sdi_source_request.UpdateSdiSourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medialive.types.update_sdi_source_request.UpdateSdiSourceRequest = {}  # type: ignore[typeddict-item]
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if name is not None:
-            input["name"] = name
-        input["sdi_source_id"] = sdi_source_id
+            input_["name"] = name
+        input_["sdi_source_id"] = sdi_source_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

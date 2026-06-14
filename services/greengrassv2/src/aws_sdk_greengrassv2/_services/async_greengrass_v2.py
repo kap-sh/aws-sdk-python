@@ -252,11 +252,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.associate_service_role_to_account_request.AssociateServiceRoleToAccountRequest = {}  # type: ignore[typeddict-item]
-        input["role_arn"] = role_arn
+        input_: aws_sdk_greengrassv2.types.associate_service_role_to_account_request.AssociateServiceRoleToAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,13 +294,13 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.batch_associate_client_device_with_core_device_request.BatchAssociateClientDeviceWithCoreDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.batch_associate_client_device_with_core_device_request.BatchAssociateClientDeviceWithCoreDeviceRequest = {}  # type: ignore[typeddict-item]
         if entries is not None:
-            input["entries"] = entries
-        input["core_device_thing_name"] = core_device_thing_name
+            input_["entries"] = entries
+        input_["core_device_thing_name"] = core_device_thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,13 +338,13 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.batch_disassociate_client_device_from_core_device_request.BatchDisassociateClientDeviceFromCoreDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.batch_disassociate_client_device_from_core_device_request.BatchDisassociateClientDeviceFromCoreDeviceRequest = {}  # type: ignore[typeddict-item]
         if entries is not None:
-            input["entries"] = entries
-        input["core_device_thing_name"] = core_device_thing_name
+            input_["entries"] = entries
+        input_["core_device_thing_name"] = core_device_thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,11 +380,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.cancel_deployment_request.CancelDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_greengrassv2.types.cancel_deployment_request.CancelDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -430,18 +430,18 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.create_component_version_request.CreateComponentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.create_component_version_request.CreateComponentVersionRequest = {}  # type: ignore[typeddict-item]
         if inline_recipe is not None:
-            input["inline_recipe"] = inline_recipe
+            input_["inline_recipe"] = inline_recipe
         if lambda_function is not None:
-            input["lambda_function"] = lambda_function
+            input_["lambda_function"] = lambda_function
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,25 +503,25 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["target_arn"] = target_arn
+        input_: aws_sdk_greengrassv2.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["target_arn"] = target_arn
         if deployment_name is not None:
-            input["deployment_name"] = deployment_name
+            input_["deployment_name"] = deployment_name
         if components is not None:
-            input["components"] = components
+            input_["components"] = components
         if iot_job_configuration is not None:
-            input["iot_job_configuration"] = iot_job_configuration
+            input_["iot_job_configuration"] = iot_job_configuration
         if deployment_policies is not None:
-            input["deployment_policies"] = deployment_policies
+            input_["deployment_policies"] = deployment_policies
         if parent_target_arn is not None:
-            input["parent_target_arn"] = parent_target_arn
+            input_["parent_target_arn"] = parent_target_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,11 +553,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.delete_component_request.DeleteComponentRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_greengrassv2.types.delete_component_request.DeleteComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -589,11 +589,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.delete_core_device_request.DeleteCoreDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["core_device_thing_name"] = core_device_thing_name
+        input_: aws_sdk_greengrassv2.types.delete_core_device_request.DeleteCoreDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["core_device_thing_name"] = core_device_thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,11 +625,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.delete_deployment_request.DeleteDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_greengrassv2.types.delete_deployment_request.DeleteDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -663,11 +663,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.describe_component_request.DescribeComponentRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_greengrassv2.types.describe_component_request.DescribeComponentRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -694,10 +694,10 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.disassociate_service_role_from_account_request.DisassociateServiceRoleFromAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.disassociate_service_role_from_account_request.DisassociateServiceRoleFromAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -735,13 +735,13 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.get_component_request.GetComponentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.get_component_request.GetComponentRequest = {}  # type: ignore[typeddict-item]
         if recipe_output_format is not None:
-            input["recipe_output_format"] = recipe_output_format
-        input["arn"] = arn
+            input_["recipe_output_format"] = recipe_output_format
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -785,16 +785,16 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.get_component_version_artifact_request.GetComponentVersionArtifactRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["artifact_name"] = artifact_name
+        input_: aws_sdk_greengrassv2.types.get_component_version_artifact_request.GetComponentVersionArtifactRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["artifact_name"] = artifact_name
         if s3_endpoint_type is not None:
-            input["s3_endpoint_type"] = s3_endpoint_type
+            input_["s3_endpoint_type"] = s3_endpoint_type
         if iot_endpoint_type is not None:
-            input["iot_endpoint_type"] = iot_endpoint_type
+            input_["iot_endpoint_type"] = iot_endpoint_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -828,11 +828,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.get_connectivity_info_request.GetConnectivityInfoRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_greengrassv2.types.get_connectivity_info_request.GetConnectivityInfoRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -866,11 +866,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.get_core_device_request.GetCoreDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["core_device_thing_name"] = core_device_thing_name
+        input_: aws_sdk_greengrassv2.types.get_core_device_request.GetCoreDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["core_device_thing_name"] = core_device_thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -904,11 +904,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_greengrassv2.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -935,10 +935,10 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.get_service_role_for_account_request.GetServiceRoleForAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.get_service_role_for_account_request.GetServiceRoleForAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -980,15 +980,15 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.list_client_devices_associated_with_core_device_request.ListClientDevicesAssociatedWithCoreDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["core_device_thing_name"] = core_device_thing_name
+        input_: aws_sdk_greengrassv2.types.list_client_devices_associated_with_core_device_request.ListClientDevicesAssociatedWithCoreDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["core_device_thing_name"] = core_device_thing_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1059,16 +1059,16 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.list_components_request.ListComponentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.list_components_request.ListComponentsRequest = {}  # type: ignore[typeddict-item]
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1139,15 +1139,15 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.list_component_versions_request.ListComponentVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_greengrassv2.types.list_component_versions_request.ListComponentVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1228,20 +1228,20 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.list_core_devices_request.ListCoreDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.list_core_devices_request.ListCoreDevicesRequest = {}  # type: ignore[typeddict-item]
         if thing_group_arn is not None:
-            input["thing_group_arn"] = thing_group_arn
+            input_["thing_group_arn"] = thing_group_arn
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if runtime is not None:
-            input["runtime"] = runtime
+            input_["runtime"] = runtime
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1328,20 +1328,20 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if history_filter is not None:
-            input["history_filter"] = history_filter
+            input_["history_filter"] = history_filter
         if parent_target_arn is not None:
-            input["parent_target_arn"] = parent_target_arn
+            input_["parent_target_arn"] = parent_target_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1418,15 +1418,15 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.list_effective_deployments_request.ListEffectiveDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["core_device_thing_name"] = core_device_thing_name
+        input_: aws_sdk_greengrassv2.types.list_effective_deployments_request.ListEffectiveDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["core_device_thing_name"] = core_device_thing_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1499,17 +1499,17 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.list_installed_components_request.ListInstalledComponentsRequest = {}  # type: ignore[typeddict-item]
-        input["core_device_thing_name"] = core_device_thing_name
+        input_: aws_sdk_greengrassv2.types.list_installed_components_request.ListInstalledComponentsRequest = {}  # type: ignore[typeddict-item]
+        input_["core_device_thing_name"] = core_device_thing_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if topology_filter is not None:
-            input["topology_filter"] = topology_filter
+            input_["topology_filter"] = topology_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1574,11 +1574,11 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_greengrassv2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1618,14 +1618,14 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.resolve_component_candidates_request.ResolveComponentCandidatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrassv2.types.resolve_component_candidates_request.ResolveComponentCandidatesRequest = {}  # type: ignore[typeddict-item]
         if platform is not None:
-            input["platform"] = platform
+            input_["platform"] = platform
         if component_candidates is not None:
-            input["component_candidates"] = component_candidates
+            input_["component_candidates"] = component_candidates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1661,12 +1661,12 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_greengrassv2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1702,12 +1702,12 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_greengrassv2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,12 +1743,12 @@ class AsyncGreengrassV2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrassv2.types.update_connectivity_info_request.UpdateConnectivityInfoRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
-        input["connectivity_info"] = connectivity_info
+        input_: aws_sdk_greengrassv2.types.update_connectivity_info_request.UpdateConnectivityInfoRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
+        input_["connectivity_info"] = connectivity_info
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

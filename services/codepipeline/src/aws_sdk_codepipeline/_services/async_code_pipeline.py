@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_codepipeline._auth._signers
+import aws_sdk_codepipeline._auth._sigv4
 from aws_sdk_codepipeline._auth._identity import Credentials
 from aws_sdk_codepipeline._auth._providers import (
     CredentialsProvider,
@@ -297,12 +299,12 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.acknowledge_job_input.AcknowledgeJobInput = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["nonce"] = nonce
+        input_: aws_sdk_codepipeline.types.acknowledge_job_input.AcknowledgeJobInput = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["nonce"] = nonce
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,13 +342,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.acknowledge_third_party_job_input.AcknowledgeThirdPartyJobInput = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["nonce"] = nonce
-        input["client_token"] = client_token
+        input_: aws_sdk_codepipeline.types.acknowledge_third_party_job_input.AcknowledgeThirdPartyJobInput = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["nonce"] = nonce
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,21 +400,21 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.create_custom_action_type_input.CreateCustomActionTypeInput = {}  # type: ignore[typeddict-item]
-        input["category"] = category
-        input["provider"] = provider
-        input["version"] = version
+        input_: aws_sdk_codepipeline.types.create_custom_action_type_input.CreateCustomActionTypeInput = {}  # type: ignore[typeddict-item]
+        input_["category"] = category
+        input_["provider"] = provider
+        input_["version"] = version
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
         if configuration_properties is not None:
-            input["configuration_properties"] = configuration_properties
-        input["input_artifact_details"] = input_artifact_details
-        input["output_artifact_details"] = output_artifact_details
+            input_["configuration_properties"] = configuration_properties
+        input_["input_artifact_details"] = input_artifact_details
+        input_["output_artifact_details"] = output_artifact_details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -448,13 +450,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.create_pipeline_input.CreatePipelineInput = {}  # type: ignore[typeddict-item]
-        input["pipeline"] = pipeline
+        input_: aws_sdk_codepipeline.types.create_pipeline_input.CreatePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline"] = pipeline
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -490,13 +492,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.delete_custom_action_type_input.DeleteCustomActionTypeInput = {}  # type: ignore[typeddict-item]
-        input["category"] = category
-        input["provider"] = provider
-        input["version"] = version
+        input_: aws_sdk_codepipeline.types.delete_custom_action_type_input.DeleteCustomActionTypeInput = {}  # type: ignore[typeddict-item]
+        input_["category"] = category
+        input_["provider"] = provider
+        input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,11 +530,11 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.delete_pipeline_input.DeletePipelineInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codepipeline.types.delete_pipeline_input.DeletePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -566,11 +568,11 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.delete_webhook_input.DeleteWebhookInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codepipeline.types.delete_webhook_input.DeleteWebhookInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -606,12 +608,12 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.deregister_webhook_with_third_party_input.DeregisterWebhookWithThirdPartyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codepipeline.types.deregister_webhook_with_third_party_input.DeregisterWebhookWithThirdPartyInput = {}  # type: ignore[typeddict-item]
         if webhook_name is not None:
-            input["webhook_name"] = webhook_name
+            input_["webhook_name"] = webhook_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -649,14 +651,14 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.disable_stage_transition_input.DisableStageTransitionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["stage_name"] = stage_name
-        input["transition_type"] = transition_type
-        input["reason"] = reason
+        input_: aws_sdk_codepipeline.types.disable_stage_transition_input.DisableStageTransitionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["stage_name"] = stage_name
+        input_["transition_type"] = transition_type
+        input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -692,13 +694,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.enable_stage_transition_input.EnableStageTransitionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["stage_name"] = stage_name
-        input["transition_type"] = transition_type
+        input_: aws_sdk_codepipeline.types.enable_stage_transition_input.EnableStageTransitionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["stage_name"] = stage_name
+        input_["transition_type"] = transition_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -738,14 +740,14 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.get_action_type_input.GetActionTypeInput = {}  # type: ignore[typeddict-item]
-        input["category"] = category
-        input["owner"] = owner
-        input["provider"] = provider
-        input["version"] = version
+        input_: aws_sdk_codepipeline.types.get_action_type_input.GetActionTypeInput = {}  # type: ignore[typeddict-item]
+        input_["category"] = category
+        input_["owner"] = owner
+        input_["provider"] = provider
+        input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -779,11 +781,11 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.get_job_details_input.GetJobDetailsInput = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_codepipeline.types.get_job_details_input.GetJobDetailsInput = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -821,13 +823,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.get_pipeline_input.GetPipelineInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codepipeline.types.get_pipeline_input.GetPipelineInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -863,12 +865,12 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.get_pipeline_execution_input.GetPipelineExecutionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["pipeline_execution_id"] = pipeline_execution_id
+        input_: aws_sdk_codepipeline.types.get_pipeline_execution_input.GetPipelineExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["pipeline_execution_id"] = pipeline_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -902,11 +904,11 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.get_pipeline_state_input.GetPipelineStateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codepipeline.types.get_pipeline_state_input.GetPipelineStateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -942,12 +944,12 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.get_third_party_job_details_input.GetThirdPartyJobDetailsInput = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["client_token"] = client_token
+        input_: aws_sdk_codepipeline.types.get_third_party_job_details_input.GetThirdPartyJobDetailsInput = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -991,17 +993,17 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_action_executions_input.ListActionExecutionsInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_codepipeline.types.list_action_executions_input.ListActionExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1072,16 +1074,16 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_action_types_input.ListActionTypesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codepipeline.types.list_action_types_input.ListActionTypesInput = {}  # type: ignore[typeddict-item]
         if action_owner_filter is not None:
-            input["action_owner_filter"] = action_owner_filter
+            input_["action_owner_filter"] = action_owner_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if region_filter is not None:
-            input["region_filter"] = region_filter
+            input_["region_filter"] = region_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1156,19 +1158,19 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_deploy_action_execution_targets_input.ListDeployActionExecutionTargetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codepipeline.types.list_deploy_action_execution_targets_input.ListDeployActionExecutionTargetsInput = {}  # type: ignore[typeddict-item]
         if pipeline_name is not None:
-            input["pipeline_name"] = pipeline_name
-        input["action_execution_id"] = action_execution_id
+            input_["pipeline_name"] = pipeline_name
+        input_["action_execution_id"] = action_execution_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1245,17 +1247,17 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_pipeline_executions_input.ListPipelineExecutionsInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_codepipeline.types.list_pipeline_executions_input.ListPipelineExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1322,14 +1324,14 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_pipelines_input.ListPipelinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codepipeline.types.list_pipelines_input.ListPipelinesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1396,17 +1398,17 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_rule_executions_input.ListRuleExecutionsInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_codepipeline.types.list_rule_executions_input.ListRuleExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1475,14 +1477,14 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_rule_types_input.ListRuleTypesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codepipeline.types.list_rule_types_input.ListRuleTypesInput = {}  # type: ignore[typeddict-item]
         if rule_owner_filter is not None:
-            input["rule_owner_filter"] = rule_owner_filter
+            input_["rule_owner_filter"] = rule_owner_filter
         if region_filter is not None:
-            input["region_filter"] = region_filter
+            input_["region_filter"] = region_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1522,15 +1524,15 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codepipeline.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1593,14 +1595,14 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.list_webhooks_input.ListWebhooksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codepipeline.types.list_webhooks_input.ListWebhooksInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1661,14 +1663,14 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.override_stage_condition_input.OverrideStageConditionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["stage_name"] = stage_name
-        input["pipeline_execution_id"] = pipeline_execution_id
-        input["condition_type"] = condition_type
+        input_: aws_sdk_codepipeline.types.override_stage_condition_input.OverrideStageConditionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["stage_name"] = stage_name
+        input_["pipeline_execution_id"] = pipeline_execution_id
+        input_["condition_type"] = condition_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1710,15 +1712,15 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.poll_for_jobs_input.PollForJobsInput = {}  # type: ignore[typeddict-item]
-        input["action_type_id"] = action_type_id
+        input_: aws_sdk_codepipeline.types.poll_for_jobs_input.PollForJobsInput = {}  # type: ignore[typeddict-item]
+        input_["action_type_id"] = action_type_id
         if max_batch_size is not None:
-            input["max_batch_size"] = max_batch_size
+            input_["max_batch_size"] = max_batch_size
         if query_param is not None:
-            input["query_param"] = query_param
+            input_["query_param"] = query_param
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1756,13 +1758,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.poll_for_third_party_jobs_input.PollForThirdPartyJobsInput = {}  # type: ignore[typeddict-item]
-        input["action_type_id"] = action_type_id
+        input_: aws_sdk_codepipeline.types.poll_for_third_party_jobs_input.PollForThirdPartyJobsInput = {}  # type: ignore[typeddict-item]
+        input_["action_type_id"] = action_type_id
         if max_batch_size is not None:
-            input["max_batch_size"] = max_batch_size
+            input_["max_batch_size"] = max_batch_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1804,14 +1806,14 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.put_action_revision_input.PutActionRevisionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["stage_name"] = stage_name
-        input["action_name"] = action_name
-        input["action_revision"] = action_revision
+        input_: aws_sdk_codepipeline.types.put_action_revision_input.PutActionRevisionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["stage_name"] = stage_name
+        input_["action_name"] = action_name
+        input_["action_revision"] = action_revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1855,15 +1857,15 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.put_approval_result_input.PutApprovalResultInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["stage_name"] = stage_name
-        input["action_name"] = action_name
-        input["result"] = result
-        input["token"] = token
+        input_: aws_sdk_codepipeline.types.put_approval_result_input.PutApprovalResultInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["stage_name"] = stage_name
+        input_["action_name"] = action_name
+        input_["result"] = result
+        input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1897,12 +1899,12 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.put_job_failure_result_input.PutJobFailureResultInput = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["failure_details"] = failure_details
+        input_: aws_sdk_codepipeline.types.put_job_failure_result_input.PutJobFailureResultInput = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["failure_details"] = failure_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1950,19 +1952,19 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.put_job_success_result_input.PutJobSuccessResultInput = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_codepipeline.types.put_job_success_result_input.PutJobSuccessResultInput = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if current_revision is not None:
-            input["current_revision"] = current_revision
+            input_["current_revision"] = current_revision
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if execution_details is not None:
-            input["execution_details"] = execution_details
+            input_["execution_details"] = execution_details
         if output_variables is not None:
-            input["output_variables"] = output_variables
+            input_["output_variables"] = output_variables
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1998,13 +2000,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.put_third_party_job_failure_result_input.PutThirdPartyJobFailureResultInput = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["client_token"] = client_token
-        input["failure_details"] = failure_details
+        input_: aws_sdk_codepipeline.types.put_third_party_job_failure_result_input.PutThirdPartyJobFailureResultInput = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["client_token"] = client_token
+        input_["failure_details"] = failure_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2050,18 +2052,18 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.put_third_party_job_success_result_input.PutThirdPartyJobSuccessResultInput = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["client_token"] = client_token
+        input_: aws_sdk_codepipeline.types.put_third_party_job_success_result_input.PutThirdPartyJobSuccessResultInput = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["client_token"] = client_token
         if current_revision is not None:
-            input["current_revision"] = current_revision
+            input_["current_revision"] = current_revision
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if execution_details is not None:
-            input["execution_details"] = execution_details
+            input_["execution_details"] = execution_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2097,13 +2099,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.put_webhook_input.PutWebhookInput = {}  # type: ignore[typeddict-item]
-        input["webhook"] = webhook
+        input_: aws_sdk_codepipeline.types.put_webhook_input.PutWebhookInput = {}  # type: ignore[typeddict-item]
+        input_["webhook"] = webhook
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2139,12 +2141,12 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.register_webhook_with_third_party_input.RegisterWebhookWithThirdPartyInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codepipeline.types.register_webhook_with_third_party_input.RegisterWebhookWithThirdPartyInput = {}  # type: ignore[typeddict-item]
         if webhook_name is not None:
-            input["webhook_name"] = webhook_name
+            input_["webhook_name"] = webhook_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2184,14 +2186,14 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.retry_stage_execution_input.RetryStageExecutionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["stage_name"] = stage_name
-        input["pipeline_execution_id"] = pipeline_execution_id
-        input["retry_mode"] = retry_mode
+        input_: aws_sdk_codepipeline.types.retry_stage_execution_input.RetryStageExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["stage_name"] = stage_name
+        input_["pipeline_execution_id"] = pipeline_execution_id
+        input_["retry_mode"] = retry_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2229,13 +2231,13 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.rollback_stage_input.RollbackStageInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["stage_name"] = stage_name
-        input["target_pipeline_execution_id"] = target_pipeline_execution_id
+        input_: aws_sdk_codepipeline.types.rollback_stage_input.RollbackStageInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["stage_name"] = stage_name
+        input_["target_pipeline_execution_id"] = target_pipeline_execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2281,17 +2283,17 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.start_pipeline_execution_input.StartPipelineExecutionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_codepipeline.types.start_pipeline_execution_input.StartPipelineExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if variables is not None:
-            input["variables"] = variables
+            input_["variables"] = variables
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if source_revisions is not None:
-            input["source_revisions"] = source_revisions
+            input_["source_revisions"] = source_revisions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2333,16 +2335,16 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.stop_pipeline_execution_input.StopPipelineExecutionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["pipeline_execution_id"] = pipeline_execution_id
+        input_: aws_sdk_codepipeline.types.stop_pipeline_execution_input.StopPipelineExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["pipeline_execution_id"] = pipeline_execution_id
         if abandon is not None:
-            input["abandon"] = abandon
+            input_["abandon"] = abandon
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2378,12 +2380,12 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_codepipeline.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2419,12 +2421,12 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codepipeline.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2456,11 +2458,11 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.update_action_type_input.UpdateActionTypeInput = {}  # type: ignore[typeddict-item]
-        input["action_type"] = action_type
+        input_: aws_sdk_codepipeline.types.update_action_type_input.UpdateActionTypeInput = {}  # type: ignore[typeddict-item]
+        input_["action_type"] = action_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2494,11 +2496,11 @@ class AsyncCodePipelineClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codepipeline.types.update_pipeline_input.UpdatePipelineInput = {}  # type: ignore[typeddict-item]
-        input["pipeline"] = pipeline
+        input_: aws_sdk_codepipeline.types.update_pipeline_input.UpdatePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline"] = pipeline
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

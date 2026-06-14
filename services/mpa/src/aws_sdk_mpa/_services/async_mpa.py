@@ -16,6 +16,13 @@ from aws_sdk_mpa._auth._providers import (
 )
 from aws_sdk_mpa._auth._zapros_handler import AuthMiddleware
 from aws_sdk_mpa._pagination import resolve_path as _resolve_path
+from aws_sdk_mpa._resources.aws_fluffy_core_service.approval_team import (
+    AsyncApprovalTeam,
+)
+from aws_sdk_mpa._resources.aws_fluffy_core_service.identity_source import (
+    AsyncIdentitySource,
+)
+from aws_sdk_mpa._resources.aws_fluffy_core_service.session import AsyncSession
 from aws_sdk_mpa._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -123,6 +130,10 @@ class AsyncMPAClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.approval_team = AsyncApprovalTeam(self)
+        self.identity_source = AsyncIdentitySource(self)
+        self.session = AsyncSession(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncMPAClientConfig] = None
@@ -177,11 +188,11 @@ class AsyncMPAClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.get_policy_version_request.GetPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_version_arn"] = policy_version_arn
+        input_: aws_sdk_mpa.types.get_policy_version_request.GetPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_version_arn"] = policy_version_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,13 +230,13 @@ class AsyncMPAClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy_name"] = policy_name
-        input["policy_type"] = policy_type
+        input_: aws_sdk_mpa.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy_name"] = policy_name
+        input_["policy_type"] = policy_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,14 +272,14 @@ class AsyncMPAClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,15 +338,15 @@ class AsyncMPAClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_policy_versions_request.ListPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.list_policy_versions_request.ListPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["policy_arn"] = policy_arn
+            input_["next_token"] = next_token
+        input_["policy_arn"] = policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,15 +409,15 @@ class AsyncMPAClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_resource_policies_request.ListResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mpa.types.list_resource_policies_request.ListResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,11 +476,11 @@ class AsyncMPAClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mpa.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,12 +516,12 @@ class AsyncMPAClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mpa.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,12 +557,12 @@ class AsyncMPAClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mpa.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

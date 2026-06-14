@@ -81,21 +81,21 @@ class CfnView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.create_view_input.CreateViewInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.create_view_input.CreateViewInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["view_name"] = view_name
+            input_["client_token"] = client_token
+        input_["view_name"] = view_name
         if included_properties is not None:
-            input["included_properties"] = included_properties
+            input_["included_properties"] = included_properties
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -128,11 +128,11 @@ class CfnView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.get_view_input.GetViewInput = {}  # type: ignore[typeddict-item]
-        input["view_arn"] = view_arn
+        input_: aws_sdk_resource_explorer_2.types.get_view_input.GetViewInput = {}  # type: ignore[typeddict-item]
+        input_["view_arn"] = view_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -173,15 +173,15 @@ class CfnView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.update_view_input.UpdateViewInput = {}  # type: ignore[typeddict-item]
-        input["view_arn"] = view_arn
+        input_: aws_sdk_resource_explorer_2.types.update_view_input.UpdateViewInput = {}  # type: ignore[typeddict-item]
+        input_["view_arn"] = view_arn
         if included_properties is not None:
-            input["included_properties"] = included_properties
+            input_["included_properties"] = included_properties
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,11 +214,11 @@ class CfnView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.delete_view_input.DeleteViewInput = {}  # type: ignore[typeddict-item]
-        input["view_arn"] = view_arn
+        input_: aws_sdk_resource_explorer_2.types.delete_view_input.DeleteViewInput = {}  # type: ignore[typeddict-item]
+        input_["view_arn"] = view_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,14 +253,14 @@ class CfnView:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_views_input.ListViewsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_views_input.ListViewsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -313,21 +313,21 @@ class AsyncCfnView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.create_view_input.CreateViewInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.create_view_input.CreateViewInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["view_name"] = view_name
+            input_["client_token"] = client_token
+        input_["view_name"] = view_name
         if included_properties is not None:
-            input["included_properties"] = included_properties
+            input_["included_properties"] = included_properties
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -361,11 +361,11 @@ class AsyncCfnView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.get_view_input.GetViewInput = {}  # type: ignore[typeddict-item]
-        input["view_arn"] = view_arn
+        input_: aws_sdk_resource_explorer_2.types.get_view_input.GetViewInput = {}  # type: ignore[typeddict-item]
+        input_["view_arn"] = view_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,15 +407,15 @@ class AsyncCfnView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.update_view_input.UpdateViewInput = {}  # type: ignore[typeddict-item]
-        input["view_arn"] = view_arn
+        input_: aws_sdk_resource_explorer_2.types.update_view_input.UpdateViewInput = {}  # type: ignore[typeddict-item]
+        input_["view_arn"] = view_arn
         if included_properties is not None:
-            input["included_properties"] = included_properties
+            input_["included_properties"] = included_properties
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,11 +449,11 @@ class AsyncCfnView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.delete_view_input.DeleteViewInput = {}  # type: ignore[typeddict-item]
-        input["view_arn"] = view_arn
+        input_: aws_sdk_resource_explorer_2.types.delete_view_input.DeleteViewInput = {}  # type: ignore[typeddict-item]
+        input_["view_arn"] = view_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,14 +489,14 @@ class AsyncCfnView:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_resource_explorer_2.types.list_views_input.ListViewsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_explorer_2.types.list_views_input.ListViewsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

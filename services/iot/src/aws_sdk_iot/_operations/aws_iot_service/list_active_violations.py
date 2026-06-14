@@ -83,58 +83,55 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iot.types.list_active_violations_request.ListActiveViolationsRequest,
+    input_: aws_sdk_iot.types.list_active_violations_request.ListActiveViolationsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/active-violations"
     params: dict[str, str] = {}
-    if "thing_name" in input:
-        params["thingName"] = str(input["thing_name"])
-    if "security_profile_name" in input:
-        params["securityProfileName"] = str(input["security_profile_name"])
-    if "behavior_criteria_type" in input:
-        params["behaviorCriteriaType"] = str(input["behavior_criteria_type"])
-    if "list_suppressed_alerts" in input:
-        params["listSuppressedAlerts"] = str(input["list_suppressed_alerts"])
-    if "verification_state" in input:
-        params["verificationState"] = str(input["verification_state"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
+    if "thing_name" in input_:
+        params["thingName"] = str(input_["thing_name"])
+    if "security_profile_name" in input_:
+        params["securityProfileName"] = str(input_["security_profile_name"])
+    if "behavior_criteria_type" in input_:
+        params["behaviorCriteriaType"] = str(input_["behavior_criteria_type"])
+    if "list_suppressed_alerts" in input_:
+        params["listSuppressedAlerts"] = str(input_["list_suppressed_alerts"])
+    if "verification_state" in input_:
+        params["verificationState"] = str(input_["verification_state"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_active_violations(
     options: OperationOptions,
-    input: aws_sdk_iot.types.list_active_violations_request.ListActiveViolationsRequest,
+    input_: aws_sdk_iot.types.list_active_violations_request.ListActiveViolationsRequest,
 ) -> tuple[
     aws_sdk_iot.types.list_active_violations_response.ListActiveViolationsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -143,16 +140,17 @@ def list_active_violations(
 
 async def async_list_active_violations(
     options: AsyncOperationOptions,
-    input: aws_sdk_iot.types.list_active_violations_request.ListActiveViolationsRequest,
+    input_: aws_sdk_iot.types.list_active_violations_request.ListActiveViolationsRequest,
 ) -> tuple[
     aws_sdk_iot.types.list_active_violations_response.ListActiveViolationsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

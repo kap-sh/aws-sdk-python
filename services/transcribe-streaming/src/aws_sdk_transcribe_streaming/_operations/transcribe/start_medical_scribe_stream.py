@@ -16,13 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.start_medical_scribe_stream_response
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_transcribe_streaming.types.start_medical_scribe_stream_request.StartMedicalScribeStreamRequest,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def start_medical_scribe_stream(
     options: OperationOptions,
     input: aws_sdk_transcribe_streaming.types.start_medical_scribe_stream_request.StartMedicalScribeStreamRequest,

@@ -106,29 +106,29 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_pinpoint.types.remove_attributes_request.RemoveAttributesRequest,
+    input_: aws_sdk_pinpoint.types.remove_attributes_request.RemoveAttributesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/") + "/v1/apps/{ApplicationId}/attributes/{AttributeType}"
     )
-    url = url.replace("{ApplicationId}", quote(str(input["application_id"]), safe=""))
-    url = url.replace("{AttributeType}", quote(str(input["attribute_type"]), safe=""))
+    url = url.replace("{ApplicationId}", quote(str(input_["application_id"]), safe=""))
+    url = url.replace("{AttributeType}", quote(str(input_["attribute_type"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "update_attributes_request" in input:
+    if "update_attributes_request" in input_:
         import aws_sdk_pinpoint.types.update_attributes_request
 
         body: bytes | None = json.dumps(
             aws_sdk_pinpoint.types.update_attributes_request.serialize_json(
-                input["update_attributes_request"]
+                input_["update_attributes_request"]
             )
         ).encode()
         headers["content-type"] = "application/json"
@@ -138,26 +138,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def remove_attributes(
     options: OperationOptions,
-    input: aws_sdk_pinpoint.types.remove_attributes_request.RemoveAttributesRequest,
+    input_: aws_sdk_pinpoint.types.remove_attributes_request.RemoveAttributesRequest,
 ) -> tuple[
     aws_sdk_pinpoint.types.remove_attributes_response.RemoveAttributesResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -166,16 +163,17 @@ def remove_attributes(
 
 async def async_remove_attributes(
     options: AsyncOperationOptions,
-    input: aws_sdk_pinpoint.types.remove_attributes_request.RemoveAttributesRequest,
+    input_: aws_sdk_pinpoint.types.remove_attributes_request.RemoveAttributesRequest,
 ) -> tuple[
     aws_sdk_pinpoint.types.remove_attributes_response.RemoveAttributesResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

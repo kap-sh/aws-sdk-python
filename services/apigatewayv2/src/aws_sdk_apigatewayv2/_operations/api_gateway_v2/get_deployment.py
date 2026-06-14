@@ -1,23 +1,22 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetDeployment``."""
 
 from __future__ import annotations
-from typing import TYPE_CHECKING, Never, Any, cast
-from aws_sdk_apigatewayv2._rule_engine._endpoint_rule_set import EndpointParams, resolve
-from aws_sdk_apigatewayv2._rule_engine._endpoint_runtime import apply_label
-import jmespath
-import zapros
-from urllib.parse import quote, urlencode
-from aws_sdk_apigatewayv2.errors import ServiceError, UnknownServiceError
-from aws_sdk_apigatewayv2._protocol.errors import parse_error_metadata_json
+
 import json
+from typing import TYPE_CHECKING, Any, Never
+from urllib.parse import quote
+
+import zapros
+
 import aws_sdk_apigatewayv2._auth._signers
 import aws_sdk_apigatewayv2._auth._sigv4
+from aws_sdk_apigatewayv2._protocol.errors import parse_error_metadata_json
+from aws_sdk_apigatewayv2._rule_engine._endpoint_rule_set import EndpointParams, resolve
 from aws_sdk_apigatewayv2._services._pipeline import (
     AsyncOperationOptions,
     OperationOptions,
 )
-import datetime
-from email.utils import parsedate_to_datetime as _parse_http_date
+from aws_sdk_apigatewayv2.errors import UnknownServiceError
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.get_deployment_request
@@ -80,19 +79,19 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_apigatewayv2.types.get_deployment_request.GetDeploymentRequest,
+    input_: aws_sdk_apigatewayv2.types.get_deployment_request.GetDeploymentRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v2/apis/{ApiId}/deployments/{DeploymentId}"
-    url = url.replace("{ApiId}", quote(str(input["api_id"]), safe=""))
-    url = url.replace("{DeploymentId}", quote(str(input["deployment_id"]), safe=""))
+    url = url.replace("{ApiId}", quote(str(input_["api_id"]), safe=""))
+    url = url.replace("{DeploymentId}", quote(str(input_["deployment_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -100,26 +99,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_deployment(
     options: OperationOptions,
-    input: aws_sdk_apigatewayv2.types.get_deployment_request.GetDeploymentRequest,
+    input_: aws_sdk_apigatewayv2.types.get_deployment_request.GetDeploymentRequest,
 ) -> tuple[
     aws_sdk_apigatewayv2.types.get_deployment_response.GetDeploymentResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -128,16 +124,17 @@ def get_deployment(
 
 async def async_get_deployment(
     options: AsyncOperationOptions,
-    input: aws_sdk_apigatewayv2.types.get_deployment_request.GetDeploymentRequest,
+    input_: aws_sdk_apigatewayv2.types.get_deployment_request.GetDeploymentRequest,
 ) -> tuple[
     aws_sdk_apigatewayv2.types.get_deployment_response.GetDeploymentResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -95,55 +95,52 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_quicksight.types.describe_automation_job_request.DescribeAutomationJobRequest,
+    input_: aws_sdk_quicksight.types.describe_automation_job_request.DescribeAutomationJobRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/accounts/{AwsAccountId}/automation-groups/{AutomationGroupId}/automations/{AutomationId}/jobs/{JobId}"
     )
-    url = url.replace("{AwsAccountId}", quote(str(input["aws_account_id"]), safe=""))
+    url = url.replace("{AwsAccountId}", quote(str(input_["aws_account_id"]), safe=""))
     url = url.replace(
-        "{AutomationGroupId}", quote(str(input["automation_group_id"]), safe="")
+        "{AutomationGroupId}", quote(str(input_["automation_group_id"]), safe="")
     )
-    url = url.replace("{AutomationId}", quote(str(input["automation_id"]), safe=""))
-    url = url.replace("{JobId}", quote(str(input["job_id"]), safe=""))
+    url = url.replace("{AutomationId}", quote(str(input_["automation_id"]), safe=""))
+    url = url.replace("{JobId}", quote(str(input_["job_id"]), safe=""))
     params: dict[str, str] = {}
-    params["includeInputPayload"] = str(input.get("include_input_payload", False))
-    params["includeOutputPayload"] = str(input.get("include_output_payload", False))
+    params["includeInputPayload"] = str(input_.get("include_input_payload", False))
+    params["includeOutputPayload"] = str(input_.get("include_output_payload", False))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def describe_automation_job(
     options: OperationOptions,
-    input: aws_sdk_quicksight.types.describe_automation_job_request.DescribeAutomationJobRequest,
+    input_: aws_sdk_quicksight.types.describe_automation_job_request.DescribeAutomationJobRequest,
 ) -> tuple[
     aws_sdk_quicksight.types.describe_automation_job_response.DescribeAutomationJobResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -152,16 +149,17 @@ def describe_automation_job(
 
 async def async_describe_automation_job(
     options: AsyncOperationOptions,
-    input: aws_sdk_quicksight.types.describe_automation_job_request.DescribeAutomationJobRequest,
+    input_: aws_sdk_quicksight.types.describe_automation_job_request.DescribeAutomationJobRequest,
 ) -> tuple[
     aws_sdk_quicksight.types.describe_automation_job_response.DescribeAutomationJobResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

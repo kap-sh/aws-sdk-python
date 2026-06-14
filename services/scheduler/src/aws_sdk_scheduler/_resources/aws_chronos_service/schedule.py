@@ -112,32 +112,32 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.create_schedule_input.CreateScheduleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.create_schedule_input.CreateScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if group_name is not None:
-            input["group_name"] = group_name
-        input["schedule_expression"] = schedule_expression
+            input_["group_name"] = group_name
+        input_["schedule_expression"] = schedule_expression
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
+            input_["end_date"] = end_date
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if schedule_expression_timezone is not None:
-            input["schedule_expression_timezone"] = schedule_expression_timezone
+            input_["schedule_expression_timezone"] = schedule_expression_timezone
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
-        input["target"] = target
-        input["flexible_time_window"] = flexible_time_window
+            input_["kms_key_arn"] = kms_key_arn
+        input_["target"] = target
+        input_["flexible_time_window"] = flexible_time_window
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if action_after_completion is not None:
-            input["action_after_completion"] = action_after_completion
+            input_["action_after_completion"] = action_after_completion
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -174,13 +174,13 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.get_schedule_input.GetScheduleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.get_schedule_input.GetScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,32 +245,32 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.update_schedule_input.UpdateScheduleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.update_schedule_input.UpdateScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if group_name is not None:
-            input["group_name"] = group_name
-        input["schedule_expression"] = schedule_expression
+            input_["group_name"] = group_name
+        input_["schedule_expression"] = schedule_expression
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
+            input_["end_date"] = end_date
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if schedule_expression_timezone is not None:
-            input["schedule_expression_timezone"] = schedule_expression_timezone
+            input_["schedule_expression_timezone"] = schedule_expression_timezone
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
-        input["target"] = target
-        input["flexible_time_window"] = flexible_time_window
+            input_["kms_key_arn"] = kms_key_arn
+        input_["target"] = target
+        input_["flexible_time_window"] = flexible_time_window
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if action_after_completion is not None:
-            input["action_after_completion"] = action_after_completion
+            input_["action_after_completion"] = action_after_completion
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,15 +311,15 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.delete_schedule_input.DeleteScheduleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.delete_schedule_input.DeleteScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -362,20 +362,20 @@ class Schedule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.list_schedules_input.ListSchedulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_scheduler.types.list_schedules_input.ListSchedulesInput = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,32 +446,32 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.create_schedule_input.CreateScheduleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.create_schedule_input.CreateScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if group_name is not None:
-            input["group_name"] = group_name
-        input["schedule_expression"] = schedule_expression
+            input_["group_name"] = group_name
+        input_["schedule_expression"] = schedule_expression
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
+            input_["end_date"] = end_date
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if schedule_expression_timezone is not None:
-            input["schedule_expression_timezone"] = schedule_expression_timezone
+            input_["schedule_expression_timezone"] = schedule_expression_timezone
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
-        input["target"] = target
-        input["flexible_time_window"] = flexible_time_window
+            input_["kms_key_arn"] = kms_key_arn
+        input_["target"] = target
+        input_["flexible_time_window"] = flexible_time_window
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if action_after_completion is not None:
-            input["action_after_completion"] = action_after_completion
+            input_["action_after_completion"] = action_after_completion
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,13 +509,13 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.get_schedule_input.GetScheduleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.get_schedule_input.GetScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -581,32 +581,32 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.update_schedule_input.UpdateScheduleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.update_schedule_input.UpdateScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if group_name is not None:
-            input["group_name"] = group_name
-        input["schedule_expression"] = schedule_expression
+            input_["group_name"] = group_name
+        input_["schedule_expression"] = schedule_expression
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
+            input_["end_date"] = end_date
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if schedule_expression_timezone is not None:
-            input["schedule_expression_timezone"] = schedule_expression_timezone
+            input_["schedule_expression_timezone"] = schedule_expression_timezone
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
-        input["target"] = target
-        input["flexible_time_window"] = flexible_time_window
+            input_["kms_key_arn"] = kms_key_arn
+        input_["target"] = target
+        input_["flexible_time_window"] = flexible_time_window
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if action_after_completion is not None:
-            input["action_after_completion"] = action_after_completion
+            input_["action_after_completion"] = action_after_completion
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -648,15 +648,15 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.delete_schedule_input.DeleteScheduleInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_scheduler.types.delete_schedule_input.DeleteScheduleInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -700,20 +700,20 @@ class AsyncSchedule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_scheduler.types.list_schedules_input.ListSchedulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_scheduler.types.list_schedules_input.ListSchedulesInput = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if name_prefix is not None:
-            input["name_prefix"] = name_prefix
+            input_["name_prefix"] = name_prefix
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

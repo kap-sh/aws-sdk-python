@@ -102,26 +102,26 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.create_cluster_input.CreateClusterInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dsql.types.create_cluster_input.CreateClusterInput = {}  # type: ignore[typeddict-item]
         if deletion_protection_enabled is not None:
-            input["deletion_protection_enabled"] = deletion_protection_enabled
+            input_["deletion_protection_enabled"] = deletion_protection_enabled
         if kms_encryption_key is not None:
-            input["kms_encryption_key"] = kms_encryption_key
+            input_["kms_encryption_key"] = kms_encryption_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if multi_region_properties is not None:
-            input["multi_region_properties"] = multi_region_properties
+            input_["multi_region_properties"] = multi_region_properties
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
-            input["bypass_policy_lockout_safety_check"] = (
+            input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,11 +159,11 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.get_cluster_input.GetClusterInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.get_cluster_input.GetClusterInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,19 +215,19 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.update_cluster_input.UpdateClusterInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.update_cluster_input.UpdateClusterInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if deletion_protection_enabled is not None:
-            input["deletion_protection_enabled"] = deletion_protection_enabled
+            input_["deletion_protection_enabled"] = deletion_protection_enabled
         if kms_encryption_key is not None:
-            input["kms_encryption_key"] = kms_encryption_key
+            input_["kms_encryption_key"] = kms_encryption_key
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if multi_region_properties is not None:
-            input["multi_region_properties"] = multi_region_properties
+            input_["multi_region_properties"] = multi_region_properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,13 +267,13 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.delete_cluster_input.DeleteClusterInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.delete_cluster_input.DeleteClusterInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -313,14 +313,14 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.list_clusters_input.ListClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dsql.types.list_clusters_input.ListClustersInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -357,15 +357,15 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if expected_policy_version is not None:
-            input["expected_policy_version"] = expected_policy_version
+            input_["expected_policy_version"] = expected_policy_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,11 +398,11 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.get_cluster_policy_input.GetClusterPolicyInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.get_cluster_policy_input.GetClusterPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -440,11 +440,11 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.get_vpc_endpoint_service_name_input.GetVpcEndpointServiceNameInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.get_vpc_endpoint_service_name_input.GetVpcEndpointServiceNameInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,20 +487,20 @@ class Cluster:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.put_cluster_policy_input.PutClusterPolicyInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["policy"] = policy
+        input_: aws_sdk_dsql.types.put_cluster_policy_input.PutClusterPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
-            input["bypass_policy_lockout_safety_check"] = (
+            input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
             )
         if expected_policy_version is not None:
-            input["expected_policy_version"] = expected_policy_version
+            input_["expected_policy_version"] = expected_policy_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -564,26 +564,26 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.create_cluster_input.CreateClusterInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dsql.types.create_cluster_input.CreateClusterInput = {}  # type: ignore[typeddict-item]
         if deletion_protection_enabled is not None:
-            input["deletion_protection_enabled"] = deletion_protection_enabled
+            input_["deletion_protection_enabled"] = deletion_protection_enabled
         if kms_encryption_key is not None:
-            input["kms_encryption_key"] = kms_encryption_key
+            input_["kms_encryption_key"] = kms_encryption_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if multi_region_properties is not None:
-            input["multi_region_properties"] = multi_region_properties
+            input_["multi_region_properties"] = multi_region_properties
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
-            input["bypass_policy_lockout_safety_check"] = (
+            input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -622,11 +622,11 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.get_cluster_input.GetClusterInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.get_cluster_input.GetClusterInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -679,19 +679,19 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.update_cluster_input.UpdateClusterInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.update_cluster_input.UpdateClusterInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if deletion_protection_enabled is not None:
-            input["deletion_protection_enabled"] = deletion_protection_enabled
+            input_["deletion_protection_enabled"] = deletion_protection_enabled
         if kms_encryption_key is not None:
-            input["kms_encryption_key"] = kms_encryption_key
+            input_["kms_encryption_key"] = kms_encryption_key
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if multi_region_properties is not None:
-            input["multi_region_properties"] = multi_region_properties
+            input_["multi_region_properties"] = multi_region_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -732,13 +732,13 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.delete_cluster_input.DeleteClusterInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.delete_cluster_input.DeleteClusterInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -779,14 +779,14 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.list_clusters_input.ListClustersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dsql.types.list_clusters_input.ListClustersInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -824,15 +824,15 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.delete_cluster_policy_input.DeleteClusterPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if expected_policy_version is not None:
-            input["expected_policy_version"] = expected_policy_version
+            input_["expected_policy_version"] = expected_policy_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -866,11 +866,11 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.get_cluster_policy_input.GetClusterPolicyInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.get_cluster_policy_input.GetClusterPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -909,11 +909,11 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.get_vpc_endpoint_service_name_input.GetVpcEndpointServiceNameInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_dsql.types.get_vpc_endpoint_service_name_input.GetVpcEndpointServiceNameInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -957,20 +957,20 @@ class AsyncCluster:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.put_cluster_policy_input.PutClusterPolicyInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["policy"] = policy
+        input_: aws_sdk_dsql.types.put_cluster_policy_input.PutClusterPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["policy"] = policy
         if bypass_policy_lockout_safety_check is not None:
-            input["bypass_policy_lockout_safety_check"] = (
+            input_["bypass_policy_lockout_safety_check"] = (
                 bypass_policy_lockout_safety_check
             )
         if expected_policy_version is not None:
-            input["expected_policy_version"] = expected_policy_version
+            input_["expected_policy_version"] = expected_policy_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

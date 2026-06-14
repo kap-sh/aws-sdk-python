@@ -73,16 +73,16 @@ class ProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["as2_id"] = as2_id
-        input["profile_type"] = profile_type
+        input_: aws_sdk_transfer.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["as2_id"] = as2_id
+        input_["profile_type"] = profile_type
         if certificate_ids is not None:
-            input["certificate_ids"] = certificate_ids
+            input_["certificate_ids"] = certificate_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,11 +115,11 @@ class ProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_profile_request.DescribeProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_transfer.types.describe_profile_request.DescribeProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -156,13 +156,13 @@ class ProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_transfer.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
         if certificate_ids is not None:
-            input["certificate_ids"] = certificate_ids
+            input_["certificate_ids"] = certificate_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -193,11 +193,11 @@ class ProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_transfer.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -236,16 +236,16 @@ class ProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if profile_type is not None:
-            input["profile_type"] = profile_type
+            input_["profile_type"] = profile_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,16 +292,16 @@ class AsyncProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["as2_id"] = as2_id
-        input["profile_type"] = profile_type
+        input_: aws_sdk_transfer.types.create_profile_request.CreateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["as2_id"] = as2_id
+        input_["profile_type"] = profile_type
         if certificate_ids is not None:
-            input["certificate_ids"] = certificate_ids
+            input_["certificate_ids"] = certificate_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,11 +335,11 @@ class AsyncProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_profile_request.DescribeProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_transfer.types.describe_profile_request.DescribeProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,13 +377,13 @@ class AsyncProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_transfer.types.update_profile_request.UpdateProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
         if certificate_ids is not None:
-            input["certificate_ids"] = certificate_ids
+            input_["certificate_ids"] = certificate_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,11 +415,11 @@ class AsyncProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
-        input["profile_id"] = profile_id
+        input_: aws_sdk_transfer.types.delete_profile_request.DeleteProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["profile_id"] = profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,16 +459,16 @@ class AsyncProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_profiles_request.ListProfilesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if profile_type is not None:
-            input["profile_type"] = profile_type
+            input_["profile_type"] = profile_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

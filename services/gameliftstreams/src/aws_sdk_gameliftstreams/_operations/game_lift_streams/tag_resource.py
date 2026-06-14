@@ -88,49 +88,44 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_gameliftstreams.types.tag_resource_request.TagResourceRequest,
+    input_: aws_sdk_gameliftstreams.types.tag_resource_request.TagResourceRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-            Region=options.region,
+            UseFIPS=options.use_fips, Endpoint=options.endpoint, Region=options.region
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/tags/{ResourceArn}"
-    url = url.replace("{ResourceArn}", quote(str(input["resource_arn"]), safe=""))
+    url = url.replace("{ResourceArn}", quote(str(input_["resource_arn"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_gameliftstreams.types.tag_resource_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_gameliftstreams.types.tag_resource_request.serialize_json(input)
+        aws_sdk_gameliftstreams.types.tag_resource_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def tag_resource(
     options: OperationOptions,
-    input: aws_sdk_gameliftstreams.types.tag_resource_request.TagResourceRequest,
+    input_: aws_sdk_gameliftstreams.types.tag_resource_request.TagResourceRequest,
 ) -> tuple[
     aws_sdk_gameliftstreams.types.tag_resource_response.TagResourceResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -139,16 +134,17 @@ def tag_resource(
 
 async def async_tag_resource(
     options: AsyncOperationOptions,
-    input: aws_sdk_gameliftstreams.types.tag_resource_request.TagResourceRequest,
+    input_: aws_sdk_gameliftstreams.types.tag_resource_request.TagResourceRequest,
 ) -> tuple[
     aws_sdk_gameliftstreams.types.tag_resource_response.TagResourceResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

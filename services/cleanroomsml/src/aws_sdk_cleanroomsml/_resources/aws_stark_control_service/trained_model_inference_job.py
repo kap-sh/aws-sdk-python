@@ -117,36 +117,38 @@ class TrainedModelInferenceJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.start_trained_model_inference_job_request.StartTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["name"] = name
-        input["trained_model_arn"] = trained_model_arn
+        input_: aws_sdk_cleanroomsml.types.start_trained_model_inference_job_request.StartTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["name"] = name
+        input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
         if configured_model_algorithm_association_arn is not None:
-            input["configured_model_algorithm_association_arn"] = (
+            input_["configured_model_algorithm_association_arn"] = (
                 configured_model_algorithm_association_arn
             )
-        input["resource_config"] = resource_config
-        input["output_configuration"] = output_configuration
-        input["data_source"] = data_source
+        input_["resource_config"] = resource_config
+        input_["output_configuration"] = output_configuration
+        input_["data_source"] = data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if container_execution_parameters is not None:
-            input["container_execution_parameters"] = container_execution_parameters
+            input_["container_execution_parameters"] = container_execution_parameters
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if ml_model_inference_payer_account_id is not None:
-            input["ml_model_inference_payer_account_id"] = (
+            input_["ml_model_inference_payer_account_id"] = (
                 ml_model_inference_payer_account_id
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,12 +183,12 @@ class TrainedModelInferenceJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_trained_model_inference_job_request.GetTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["trained_model_inference_job_arn"] = trained_model_inference_job_arn
+        input_: aws_sdk_cleanroomsml.types.get_trained_model_inference_job_request.GetTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["trained_model_inference_job_arn"] = trained_model_inference_job_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,19 +235,21 @@ class TrainedModelInferenceJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_trained_model_inference_jobs_request.ListTrainedModelInferenceJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_trained_model_inference_jobs_request.ListTrainedModelInferenceJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
         if trained_model_arn is not None:
-            input["trained_model_arn"] = trained_model_arn
+            input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,12 +282,12 @@ class TrainedModelInferenceJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.cancel_trained_model_inference_job_request.CancelTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["trained_model_inference_job_arn"] = trained_model_inference_job_arn
+        input_: aws_sdk_cleanroomsml.types.cancel_trained_model_inference_job_request.CancelTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["trained_model_inference_job_arn"] = trained_model_inference_job_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -362,36 +366,38 @@ class AsyncTrainedModelInferenceJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.start_trained_model_inference_job_request.StartTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["name"] = name
-        input["trained_model_arn"] = trained_model_arn
+        input_: aws_sdk_cleanroomsml.types.start_trained_model_inference_job_request.StartTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["name"] = name
+        input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
         if configured_model_algorithm_association_arn is not None:
-            input["configured_model_algorithm_association_arn"] = (
+            input_["configured_model_algorithm_association_arn"] = (
                 configured_model_algorithm_association_arn
             )
-        input["resource_config"] = resource_config
-        input["output_configuration"] = output_configuration
-        input["data_source"] = data_source
+        input_["resource_config"] = resource_config
+        input_["output_configuration"] = output_configuration
+        input_["data_source"] = data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if container_execution_parameters is not None:
-            input["container_execution_parameters"] = container_execution_parameters
+            input_["container_execution_parameters"] = container_execution_parameters
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if ml_model_inference_payer_account_id is not None:
-            input["ml_model_inference_payer_account_id"] = (
+            input_["ml_model_inference_payer_account_id"] = (
                 ml_model_inference_payer_account_id
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,12 +433,12 @@ class AsyncTrainedModelInferenceJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_trained_model_inference_job_request.GetTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["trained_model_inference_job_arn"] = trained_model_inference_job_arn
+        input_: aws_sdk_cleanroomsml.types.get_trained_model_inference_job_request.GetTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["trained_model_inference_job_arn"] = trained_model_inference_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,19 +486,21 @@ class AsyncTrainedModelInferenceJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_trained_model_inference_jobs_request.ListTrainedModelInferenceJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_trained_model_inference_jobs_request.ListTrainedModelInferenceJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
         if trained_model_arn is not None:
-            input["trained_model_arn"] = trained_model_arn
+            input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,12 +534,12 @@ class AsyncTrainedModelInferenceJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.cancel_trained_model_inference_job_request.CancelTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["trained_model_inference_job_arn"] = trained_model_inference_job_arn
+        input_: aws_sdk_cleanroomsml.types.cancel_trained_model_inference_job_request.CancelTrainedModelInferenceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["trained_model_inference_job_arn"] = trained_model_inference_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

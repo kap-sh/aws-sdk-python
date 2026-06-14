@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_odb._services._pipeline import (
@@ -215,92 +216,94 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_autonomous_database_input.CreateAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.create_autonomous_database_input.CreateAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
         if odb_network_id is not None:
-            input["odb_network_id"] = odb_network_id
+            input_["odb_network_id"] = odb_network_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if admin_password is not None:
-            input["admin_password"] = admin_password
+            input_["admin_password"] = admin_password
         if compute_count is not None:
-            input["compute_count"] = compute_count
+            input_["compute_count"] = compute_count
         if data_storage_size_in_t_bs is not None:
-            input["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
+            input_["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
         if data_storage_size_in_g_bs is not None:
-            input["data_storage_size_in_g_bs"] = data_storage_size_in_g_bs
+            input_["data_storage_size_in_g_bs"] = data_storage_size_in_g_bs
         if db_workload is not None:
-            input["db_workload"] = db_workload
+            input_["db_workload"] = db_workload
         if is_auto_scaling_enabled is not None:
-            input["is_auto_scaling_enabled"] = is_auto_scaling_enabled
+            input_["is_auto_scaling_enabled"] = is_auto_scaling_enabled
         if is_auto_scaling_for_storage_enabled is not None:
-            input["is_auto_scaling_for_storage_enabled"] = (
+            input_["is_auto_scaling_for_storage_enabled"] = (
                 is_auto_scaling_for_storage_enabled
             )
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if character_set is not None:
-            input["character_set"] = character_set
+            input_["character_set"] = character_set
         if ncharacter_set is not None:
-            input["ncharacter_set"] = ncharacter_set
+            input_["ncharacter_set"] = ncharacter_set
         if db_version is not None:
-            input["db_version"] = db_version
+            input_["db_version"] = db_version
         if database_edition is not None:
-            input["database_edition"] = database_edition
+            input_["database_edition"] = database_edition
         if standby_allowlisted_ips_source is not None:
-            input["standby_allowlisted_ips_source"] = standby_allowlisted_ips_source
+            input_["standby_allowlisted_ips_source"] = standby_allowlisted_ips_source
         if autonomous_maintenance_schedule_type is not None:
-            input["autonomous_maintenance_schedule_type"] = (
+            input_["autonomous_maintenance_schedule_type"] = (
                 autonomous_maintenance_schedule_type
             )
         if backup_retention_period_in_days is not None:
-            input["backup_retention_period_in_days"] = backup_retention_period_in_days
+            input_["backup_retention_period_in_days"] = backup_retention_period_in_days
         if byol_compute_count_limit is not None:
-            input["byol_compute_count_limit"] = byol_compute_count_limit
+            input_["byol_compute_count_limit"] = byol_compute_count_limit
         if cpu_core_count is not None:
-            input["cpu_core_count"] = cpu_core_count
+            input_["cpu_core_count"] = cpu_core_count
         if customer_contacts_to_send_to_oci is not None:
-            input["customer_contacts_to_send_to_oci"] = customer_contacts_to_send_to_oci
+            input_["customer_contacts_to_send_to_oci"] = (
+                customer_contacts_to_send_to_oci
+            )
         if private_endpoint_ip is not None:
-            input["private_endpoint_ip"] = private_endpoint_ip
+            input_["private_endpoint_ip"] = private_endpoint_ip
         if private_endpoint_label is not None:
-            input["private_endpoint_label"] = private_endpoint_label
+            input_["private_endpoint_label"] = private_endpoint_label
         if resource_pool_leader_id is not None:
-            input["resource_pool_leader_id"] = resource_pool_leader_id
+            input_["resource_pool_leader_id"] = resource_pool_leader_id
         if resource_pool_summary is not None:
-            input["resource_pool_summary"] = resource_pool_summary
+            input_["resource_pool_summary"] = resource_pool_summary
         if scheduled_operations is not None:
-            input["scheduled_operations"] = scheduled_operations
+            input_["scheduled_operations"] = scheduled_operations
         if standby_allowlisted_ips is not None:
-            input["standby_allowlisted_ips"] = standby_allowlisted_ips
+            input_["standby_allowlisted_ips"] = standby_allowlisted_ips
         if allowlisted_ips is not None:
-            input["allowlisted_ips"] = allowlisted_ips
+            input_["allowlisted_ips"] = allowlisted_ips
         if transportable_tablespace is not None:
-            input["transportable_tablespace"] = transportable_tablespace
+            input_["transportable_tablespace"] = transportable_tablespace
         if is_backup_retention_locked is not None:
-            input["is_backup_retention_locked"] = is_backup_retention_locked
+            input_["is_backup_retention_locked"] = is_backup_retention_locked
         if is_local_data_guard_enabled is not None:
-            input["is_local_data_guard_enabled"] = is_local_data_guard_enabled
+            input_["is_local_data_guard_enabled"] = is_local_data_guard_enabled
         if is_mtls_connection_required is not None:
-            input["is_mtls_connection_required"] = is_mtls_connection_required
+            input_["is_mtls_connection_required"] = is_mtls_connection_required
         if db_tools_details is not None:
-            input["db_tools_details"] = db_tools_details
+            input_["db_tools_details"] = db_tools_details
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if source_configuration is not None:
-            input["source_configuration"] = source_configuration
+            input_["source_configuration"] = source_configuration
         if encryption_key_provider is not None:
-            input["encryption_key_provider"] = encryption_key_provider
+            input_["encryption_key_provider"] = encryption_key_provider
         if encryption_key_configuration is not None:
-            input["encryption_key_configuration"] = encryption_key_configuration
+            input_["encryption_key_configuration"] = encryption_key_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,11 +336,11 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_autonomous_database_input.GetAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.get_autonomous_database_input.GetAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,105 +491,107 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.update_autonomous_database_input.UpdateAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.update_autonomous_database_input.UpdateAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if admin_password is not None:
-            input["admin_password"] = admin_password
+            input_["admin_password"] = admin_password
         if compute_count is not None:
-            input["compute_count"] = compute_count
+            input_["compute_count"] = compute_count
         if cpu_core_count is not None:
-            input["cpu_core_count"] = cpu_core_count
+            input_["cpu_core_count"] = cpu_core_count
         if data_storage_size_in_t_bs is not None:
-            input["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
+            input_["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
         if data_storage_size_in_g_bs is not None:
-            input["data_storage_size_in_g_bs"] = data_storage_size_in_g_bs
+            input_["data_storage_size_in_g_bs"] = data_storage_size_in_g_bs
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if db_version is not None:
-            input["db_version"] = db_version
+            input_["db_version"] = db_version
         if db_workload is not None:
-            input["db_workload"] = db_workload
+            input_["db_workload"] = db_workload
         if db_tools_details is not None:
-            input["db_tools_details"] = db_tools_details
+            input_["db_tools_details"] = db_tools_details
         if database_edition is not None:
-            input["database_edition"] = database_edition
+            input_["database_edition"] = database_edition
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if is_auto_scaling_enabled is not None:
-            input["is_auto_scaling_enabled"] = is_auto_scaling_enabled
+            input_["is_auto_scaling_enabled"] = is_auto_scaling_enabled
         if is_auto_scaling_for_storage_enabled is not None:
-            input["is_auto_scaling_for_storage_enabled"] = (
+            input_["is_auto_scaling_for_storage_enabled"] = (
                 is_auto_scaling_for_storage_enabled
             )
         if is_backup_retention_locked is not None:
-            input["is_backup_retention_locked"] = is_backup_retention_locked
+            input_["is_backup_retention_locked"] = is_backup_retention_locked
         if is_local_data_guard_enabled is not None:
-            input["is_local_data_guard_enabled"] = is_local_data_guard_enabled
+            input_["is_local_data_guard_enabled"] = is_local_data_guard_enabled
         if is_mtls_connection_required is not None:
-            input["is_mtls_connection_required"] = is_mtls_connection_required
+            input_["is_mtls_connection_required"] = is_mtls_connection_required
         if is_refreshable_clone is not None:
-            input["is_refreshable_clone"] = is_refreshable_clone
+            input_["is_refreshable_clone"] = is_refreshable_clone
         if is_disconnect_peer is not None:
-            input["is_disconnect_peer"] = is_disconnect_peer
+            input_["is_disconnect_peer"] = is_disconnect_peer
         if backup_retention_period_in_days is not None:
-            input["backup_retention_period_in_days"] = backup_retention_period_in_days
+            input_["backup_retention_period_in_days"] = backup_retention_period_in_days
         if byol_compute_count_limit is not None:
-            input["byol_compute_count_limit"] = byol_compute_count_limit
+            input_["byol_compute_count_limit"] = byol_compute_count_limit
         if local_adg_auto_failover_max_data_loss_limit is not None:
-            input["local_adg_auto_failover_max_data_loss_limit"] = (
+            input_["local_adg_auto_failover_max_data_loss_limit"] = (
                 local_adg_auto_failover_max_data_loss_limit
             )
         if autonomous_maintenance_schedule_type is not None:
-            input["autonomous_maintenance_schedule_type"] = (
+            input_["autonomous_maintenance_schedule_type"] = (
                 autonomous_maintenance_schedule_type
             )
         if customer_contacts_to_send_to_oci is not None:
-            input["customer_contacts_to_send_to_oci"] = customer_contacts_to_send_to_oci
+            input_["customer_contacts_to_send_to_oci"] = (
+                customer_contacts_to_send_to_oci
+            )
         if scheduled_operations is not None:
-            input["scheduled_operations"] = scheduled_operations
+            input_["scheduled_operations"] = scheduled_operations
         if long_term_backup_schedule is not None:
-            input["long_term_backup_schedule"] = long_term_backup_schedule
+            input_["long_term_backup_schedule"] = long_term_backup_schedule
         if open_mode is not None:
-            input["open_mode"] = open_mode
+            input_["open_mode"] = open_mode
         if permission_level is not None:
-            input["permission_level"] = permission_level
+            input_["permission_level"] = permission_level
         if refreshable_mode is not None:
-            input["refreshable_mode"] = refreshable_mode
+            input_["refreshable_mode"] = refreshable_mode
         if private_endpoint_ip is not None:
-            input["private_endpoint_ip"] = private_endpoint_ip
+            input_["private_endpoint_ip"] = private_endpoint_ip
         if private_endpoint_label is not None:
-            input["private_endpoint_label"] = private_endpoint_label
+            input_["private_endpoint_label"] = private_endpoint_label
         if peer_db_id is not None:
-            input["peer_db_id"] = peer_db_id
+            input_["peer_db_id"] = peer_db_id
         if resource_pool_leader_id is not None:
-            input["resource_pool_leader_id"] = resource_pool_leader_id
+            input_["resource_pool_leader_id"] = resource_pool_leader_id
         if resource_pool_summary is not None:
-            input["resource_pool_summary"] = resource_pool_summary
+            input_["resource_pool_summary"] = resource_pool_summary
         if standby_allowlisted_ips_source is not None:
-            input["standby_allowlisted_ips_source"] = standby_allowlisted_ips_source
+            input_["standby_allowlisted_ips_source"] = standby_allowlisted_ips_source
         if standby_allowlisted_ips is not None:
-            input["standby_allowlisted_ips"] = standby_allowlisted_ips
+            input_["standby_allowlisted_ips"] = standby_allowlisted_ips
         if allowlisted_ips is not None:
-            input["allowlisted_ips"] = allowlisted_ips
+            input_["allowlisted_ips"] = allowlisted_ips
         if auto_refresh_frequency_in_seconds is not None:
-            input["auto_refresh_frequency_in_seconds"] = (
+            input_["auto_refresh_frequency_in_seconds"] = (
                 auto_refresh_frequency_in_seconds
             )
         if auto_refresh_point_lag_in_seconds is not None:
-            input["auto_refresh_point_lag_in_seconds"] = (
+            input_["auto_refresh_point_lag_in_seconds"] = (
                 auto_refresh_point_lag_in_seconds
             )
         if time_of_auto_refresh_start is not None:
-            input["time_of_auto_refresh_start"] = time_of_auto_refresh_start
+            input_["time_of_auto_refresh_start"] = time_of_auto_refresh_start
         if encryption_key_provider is not None:
-            input["encryption_key_provider"] = encryption_key_provider
+            input_["encryption_key_provider"] = encryption_key_provider
         if encryption_key_configuration is not None:
-            input["encryption_key_configuration"] = encryption_key_configuration
+            input_["encryption_key_configuration"] = encryption_key_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -619,11 +624,11 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_autonomous_database_input.DeleteAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.delete_autonomous_database_input.DeleteAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,14 +663,14 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_databases_input.ListAutonomousDatabasesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_databases_input.ListAutonomousDatabasesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -706,16 +711,16 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_autonomous_database_wallet_input.CreateAutonomousDatabaseWalletInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.create_autonomous_database_wallet_input.CreateAutonomousDatabaseWalletInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if wallet_type is not None:
-            input["wallet_type"] = wallet_type
-        input["password"] = password
+            input_["wallet_type"] = wallet_type
+        input_["password"] = password
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -750,13 +755,13 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.failover_autonomous_database_input.FailoverAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.failover_autonomous_database_input.FailoverAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if peer_db_arn is not None:
-            input["peer_db_arn"] = peer_db_arn
+            input_["peer_db_arn"] = peer_db_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -789,11 +794,11 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_autonomous_database_wallet_details_input.GetAutonomousDatabaseWalletDetailsInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.get_autonomous_database_wallet_details_input.GetAutonomousDatabaseWalletDetailsInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,15 +835,15 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_database_clones_input.ListAutonomousDatabaseClonesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_database_clones_input.ListAutonomousDatabaseClonesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["autonomous_database_id"] = autonomous_database_id
+            input_["next_token"] = next_token
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -875,15 +880,15 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_database_peers_input.ListAutonomousDatabasePeersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_database_peers_input.ListAutonomousDatabasePeersInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["autonomous_database_id"] = autonomous_database_id
+            input_["next_token"] = next_token
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -918,13 +923,13 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.reboot_autonomous_database_input.RebootAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.reboot_autonomous_database_input.RebootAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if is_online_reboot is not None:
-            input["is_online_reboot"] = is_online_reboot
+            input_["is_online_reboot"] = is_online_reboot
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -959,12 +964,12 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.restore_autonomous_database_input.RestoreAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
-        input["timestamp"] = timestamp
+        input_: aws_sdk_odb.types.restore_autonomous_database_input.RestoreAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
+        input_["timestamp"] = timestamp
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,11 +1002,11 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.shrink_autonomous_database_input.ShrinkAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.shrink_autonomous_database_input.ShrinkAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1034,11 +1039,11 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.start_autonomous_database_input.StartAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.start_autonomous_database_input.StartAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1073,11 +1078,11 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.stop_autonomous_database_input.StopAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.stop_autonomous_database_input.StopAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1112,13 +1117,13 @@ class AutonomousDatabaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.switchover_autonomous_database_input.SwitchoverAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.switchover_autonomous_database_input.SwitchoverAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if peer_db_arn is not None:
-            input["peer_db_arn"] = peer_db_arn
+            input_["peer_db_arn"] = peer_db_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1267,92 +1272,94 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_autonomous_database_input.CreateAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.create_autonomous_database_input.CreateAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
         if odb_network_id is not None:
-            input["odb_network_id"] = odb_network_id
+            input_["odb_network_id"] = odb_network_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if admin_password is not None:
-            input["admin_password"] = admin_password
+            input_["admin_password"] = admin_password
         if compute_count is not None:
-            input["compute_count"] = compute_count
+            input_["compute_count"] = compute_count
         if data_storage_size_in_t_bs is not None:
-            input["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
+            input_["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
         if data_storage_size_in_g_bs is not None:
-            input["data_storage_size_in_g_bs"] = data_storage_size_in_g_bs
+            input_["data_storage_size_in_g_bs"] = data_storage_size_in_g_bs
         if db_workload is not None:
-            input["db_workload"] = db_workload
+            input_["db_workload"] = db_workload
         if is_auto_scaling_enabled is not None:
-            input["is_auto_scaling_enabled"] = is_auto_scaling_enabled
+            input_["is_auto_scaling_enabled"] = is_auto_scaling_enabled
         if is_auto_scaling_for_storage_enabled is not None:
-            input["is_auto_scaling_for_storage_enabled"] = (
+            input_["is_auto_scaling_for_storage_enabled"] = (
                 is_auto_scaling_for_storage_enabled
             )
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if character_set is not None:
-            input["character_set"] = character_set
+            input_["character_set"] = character_set
         if ncharacter_set is not None:
-            input["ncharacter_set"] = ncharacter_set
+            input_["ncharacter_set"] = ncharacter_set
         if db_version is not None:
-            input["db_version"] = db_version
+            input_["db_version"] = db_version
         if database_edition is not None:
-            input["database_edition"] = database_edition
+            input_["database_edition"] = database_edition
         if standby_allowlisted_ips_source is not None:
-            input["standby_allowlisted_ips_source"] = standby_allowlisted_ips_source
+            input_["standby_allowlisted_ips_source"] = standby_allowlisted_ips_source
         if autonomous_maintenance_schedule_type is not None:
-            input["autonomous_maintenance_schedule_type"] = (
+            input_["autonomous_maintenance_schedule_type"] = (
                 autonomous_maintenance_schedule_type
             )
         if backup_retention_period_in_days is not None:
-            input["backup_retention_period_in_days"] = backup_retention_period_in_days
+            input_["backup_retention_period_in_days"] = backup_retention_period_in_days
         if byol_compute_count_limit is not None:
-            input["byol_compute_count_limit"] = byol_compute_count_limit
+            input_["byol_compute_count_limit"] = byol_compute_count_limit
         if cpu_core_count is not None:
-            input["cpu_core_count"] = cpu_core_count
+            input_["cpu_core_count"] = cpu_core_count
         if customer_contacts_to_send_to_oci is not None:
-            input["customer_contacts_to_send_to_oci"] = customer_contacts_to_send_to_oci
+            input_["customer_contacts_to_send_to_oci"] = (
+                customer_contacts_to_send_to_oci
+            )
         if private_endpoint_ip is not None:
-            input["private_endpoint_ip"] = private_endpoint_ip
+            input_["private_endpoint_ip"] = private_endpoint_ip
         if private_endpoint_label is not None:
-            input["private_endpoint_label"] = private_endpoint_label
+            input_["private_endpoint_label"] = private_endpoint_label
         if resource_pool_leader_id is not None:
-            input["resource_pool_leader_id"] = resource_pool_leader_id
+            input_["resource_pool_leader_id"] = resource_pool_leader_id
         if resource_pool_summary is not None:
-            input["resource_pool_summary"] = resource_pool_summary
+            input_["resource_pool_summary"] = resource_pool_summary
         if scheduled_operations is not None:
-            input["scheduled_operations"] = scheduled_operations
+            input_["scheduled_operations"] = scheduled_operations
         if standby_allowlisted_ips is not None:
-            input["standby_allowlisted_ips"] = standby_allowlisted_ips
+            input_["standby_allowlisted_ips"] = standby_allowlisted_ips
         if allowlisted_ips is not None:
-            input["allowlisted_ips"] = allowlisted_ips
+            input_["allowlisted_ips"] = allowlisted_ips
         if transportable_tablespace is not None:
-            input["transportable_tablespace"] = transportable_tablespace
+            input_["transportable_tablespace"] = transportable_tablespace
         if is_backup_retention_locked is not None:
-            input["is_backup_retention_locked"] = is_backup_retention_locked
+            input_["is_backup_retention_locked"] = is_backup_retention_locked
         if is_local_data_guard_enabled is not None:
-            input["is_local_data_guard_enabled"] = is_local_data_guard_enabled
+            input_["is_local_data_guard_enabled"] = is_local_data_guard_enabled
         if is_mtls_connection_required is not None:
-            input["is_mtls_connection_required"] = is_mtls_connection_required
+            input_["is_mtls_connection_required"] = is_mtls_connection_required
         if db_tools_details is not None:
-            input["db_tools_details"] = db_tools_details
+            input_["db_tools_details"] = db_tools_details
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if source_configuration is not None:
-            input["source_configuration"] = source_configuration
+            input_["source_configuration"] = source_configuration
         if encryption_key_provider is not None:
-            input["encryption_key_provider"] = encryption_key_provider
+            input_["encryption_key_provider"] = encryption_key_provider
         if encryption_key_configuration is not None:
-            input["encryption_key_configuration"] = encryption_key_configuration
+            input_["encryption_key_configuration"] = encryption_key_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1386,11 +1393,11 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_autonomous_database_input.GetAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.get_autonomous_database_input.GetAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1542,105 +1549,107 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.update_autonomous_database_input.UpdateAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.update_autonomous_database_input.UpdateAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if admin_password is not None:
-            input["admin_password"] = admin_password
+            input_["admin_password"] = admin_password
         if compute_count is not None:
-            input["compute_count"] = compute_count
+            input_["compute_count"] = compute_count
         if cpu_core_count is not None:
-            input["cpu_core_count"] = cpu_core_count
+            input_["cpu_core_count"] = cpu_core_count
         if data_storage_size_in_t_bs is not None:
-            input["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
+            input_["data_storage_size_in_t_bs"] = data_storage_size_in_t_bs
         if data_storage_size_in_g_bs is not None:
-            input["data_storage_size_in_g_bs"] = data_storage_size_in_g_bs
+            input_["data_storage_size_in_g_bs"] = data_storage_size_in_g_bs
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if db_version is not None:
-            input["db_version"] = db_version
+            input_["db_version"] = db_version
         if db_workload is not None:
-            input["db_workload"] = db_workload
+            input_["db_workload"] = db_workload
         if db_tools_details is not None:
-            input["db_tools_details"] = db_tools_details
+            input_["db_tools_details"] = db_tools_details
         if database_edition is not None:
-            input["database_edition"] = database_edition
+            input_["database_edition"] = database_edition
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if is_auto_scaling_enabled is not None:
-            input["is_auto_scaling_enabled"] = is_auto_scaling_enabled
+            input_["is_auto_scaling_enabled"] = is_auto_scaling_enabled
         if is_auto_scaling_for_storage_enabled is not None:
-            input["is_auto_scaling_for_storage_enabled"] = (
+            input_["is_auto_scaling_for_storage_enabled"] = (
                 is_auto_scaling_for_storage_enabled
             )
         if is_backup_retention_locked is not None:
-            input["is_backup_retention_locked"] = is_backup_retention_locked
+            input_["is_backup_retention_locked"] = is_backup_retention_locked
         if is_local_data_guard_enabled is not None:
-            input["is_local_data_guard_enabled"] = is_local_data_guard_enabled
+            input_["is_local_data_guard_enabled"] = is_local_data_guard_enabled
         if is_mtls_connection_required is not None:
-            input["is_mtls_connection_required"] = is_mtls_connection_required
+            input_["is_mtls_connection_required"] = is_mtls_connection_required
         if is_refreshable_clone is not None:
-            input["is_refreshable_clone"] = is_refreshable_clone
+            input_["is_refreshable_clone"] = is_refreshable_clone
         if is_disconnect_peer is not None:
-            input["is_disconnect_peer"] = is_disconnect_peer
+            input_["is_disconnect_peer"] = is_disconnect_peer
         if backup_retention_period_in_days is not None:
-            input["backup_retention_period_in_days"] = backup_retention_period_in_days
+            input_["backup_retention_period_in_days"] = backup_retention_period_in_days
         if byol_compute_count_limit is not None:
-            input["byol_compute_count_limit"] = byol_compute_count_limit
+            input_["byol_compute_count_limit"] = byol_compute_count_limit
         if local_adg_auto_failover_max_data_loss_limit is not None:
-            input["local_adg_auto_failover_max_data_loss_limit"] = (
+            input_["local_adg_auto_failover_max_data_loss_limit"] = (
                 local_adg_auto_failover_max_data_loss_limit
             )
         if autonomous_maintenance_schedule_type is not None:
-            input["autonomous_maintenance_schedule_type"] = (
+            input_["autonomous_maintenance_schedule_type"] = (
                 autonomous_maintenance_schedule_type
             )
         if customer_contacts_to_send_to_oci is not None:
-            input["customer_contacts_to_send_to_oci"] = customer_contacts_to_send_to_oci
+            input_["customer_contacts_to_send_to_oci"] = (
+                customer_contacts_to_send_to_oci
+            )
         if scheduled_operations is not None:
-            input["scheduled_operations"] = scheduled_operations
+            input_["scheduled_operations"] = scheduled_operations
         if long_term_backup_schedule is not None:
-            input["long_term_backup_schedule"] = long_term_backup_schedule
+            input_["long_term_backup_schedule"] = long_term_backup_schedule
         if open_mode is not None:
-            input["open_mode"] = open_mode
+            input_["open_mode"] = open_mode
         if permission_level is not None:
-            input["permission_level"] = permission_level
+            input_["permission_level"] = permission_level
         if refreshable_mode is not None:
-            input["refreshable_mode"] = refreshable_mode
+            input_["refreshable_mode"] = refreshable_mode
         if private_endpoint_ip is not None:
-            input["private_endpoint_ip"] = private_endpoint_ip
+            input_["private_endpoint_ip"] = private_endpoint_ip
         if private_endpoint_label is not None:
-            input["private_endpoint_label"] = private_endpoint_label
+            input_["private_endpoint_label"] = private_endpoint_label
         if peer_db_id is not None:
-            input["peer_db_id"] = peer_db_id
+            input_["peer_db_id"] = peer_db_id
         if resource_pool_leader_id is not None:
-            input["resource_pool_leader_id"] = resource_pool_leader_id
+            input_["resource_pool_leader_id"] = resource_pool_leader_id
         if resource_pool_summary is not None:
-            input["resource_pool_summary"] = resource_pool_summary
+            input_["resource_pool_summary"] = resource_pool_summary
         if standby_allowlisted_ips_source is not None:
-            input["standby_allowlisted_ips_source"] = standby_allowlisted_ips_source
+            input_["standby_allowlisted_ips_source"] = standby_allowlisted_ips_source
         if standby_allowlisted_ips is not None:
-            input["standby_allowlisted_ips"] = standby_allowlisted_ips
+            input_["standby_allowlisted_ips"] = standby_allowlisted_ips
         if allowlisted_ips is not None:
-            input["allowlisted_ips"] = allowlisted_ips
+            input_["allowlisted_ips"] = allowlisted_ips
         if auto_refresh_frequency_in_seconds is not None:
-            input["auto_refresh_frequency_in_seconds"] = (
+            input_["auto_refresh_frequency_in_seconds"] = (
                 auto_refresh_frequency_in_seconds
             )
         if auto_refresh_point_lag_in_seconds is not None:
-            input["auto_refresh_point_lag_in_seconds"] = (
+            input_["auto_refresh_point_lag_in_seconds"] = (
                 auto_refresh_point_lag_in_seconds
             )
         if time_of_auto_refresh_start is not None:
-            input["time_of_auto_refresh_start"] = time_of_auto_refresh_start
+            input_["time_of_auto_refresh_start"] = time_of_auto_refresh_start
         if encryption_key_provider is not None:
-            input["encryption_key_provider"] = encryption_key_provider
+            input_["encryption_key_provider"] = encryption_key_provider
         if encryption_key_configuration is not None:
-            input["encryption_key_configuration"] = encryption_key_configuration
+            input_["encryption_key_configuration"] = encryption_key_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1674,11 +1683,11 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.delete_autonomous_database_input.DeleteAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.delete_autonomous_database_input.DeleteAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1714,14 +1723,14 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_databases_input.ListAutonomousDatabasesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_databases_input.ListAutonomousDatabasesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1763,16 +1772,16 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.create_autonomous_database_wallet_input.CreateAutonomousDatabaseWalletInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.create_autonomous_database_wallet_input.CreateAutonomousDatabaseWalletInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if wallet_type is not None:
-            input["wallet_type"] = wallet_type
-        input["password"] = password
+            input_["wallet_type"] = wallet_type
+        input_["password"] = password
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1808,13 +1817,13 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.failover_autonomous_database_input.FailoverAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.failover_autonomous_database_input.FailoverAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if peer_db_arn is not None:
-            input["peer_db_arn"] = peer_db_arn
+            input_["peer_db_arn"] = peer_db_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1848,11 +1857,11 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.get_autonomous_database_wallet_details_input.GetAutonomousDatabaseWalletDetailsInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.get_autonomous_database_wallet_details_input.GetAutonomousDatabaseWalletDetailsInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1890,15 +1899,15 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_database_clones_input.ListAutonomousDatabaseClonesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_database_clones_input.ListAutonomousDatabaseClonesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["autonomous_database_id"] = autonomous_database_id
+            input_["next_token"] = next_token
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1936,15 +1945,15 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.list_autonomous_database_peers_input.ListAutonomousDatabasePeersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_odb.types.list_autonomous_database_peers_input.ListAutonomousDatabasePeersInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["autonomous_database_id"] = autonomous_database_id
+            input_["next_token"] = next_token
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1980,13 +1989,13 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.reboot_autonomous_database_input.RebootAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.reboot_autonomous_database_input.RebootAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if is_online_reboot is not None:
-            input["is_online_reboot"] = is_online_reboot
+            input_["is_online_reboot"] = is_online_reboot
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2022,12 +2031,12 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.restore_autonomous_database_input.RestoreAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
-        input["timestamp"] = timestamp
+        input_: aws_sdk_odb.types.restore_autonomous_database_input.RestoreAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
+        input_["timestamp"] = timestamp
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2061,11 +2070,11 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.shrink_autonomous_database_input.ShrinkAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.shrink_autonomous_database_input.ShrinkAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2099,11 +2108,11 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.start_autonomous_database_input.StartAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.start_autonomous_database_input.StartAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2139,11 +2148,11 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.stop_autonomous_database_input.StopAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.stop_autonomous_database_input.StopAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2179,13 +2188,13 @@ class AsyncAutonomousDatabaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_odb.types.switchover_autonomous_database_input.SwitchoverAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
-        input["autonomous_database_id"] = autonomous_database_id
+        input_: aws_sdk_odb.types.switchover_autonomous_database_input.SwitchoverAutonomousDatabaseInput = {}  # type: ignore[typeddict-item]
+        input_["autonomous_database_id"] = autonomous_database_id
         if peer_db_arn is not None:
-            input["peer_db_arn"] = peer_db_arn
+            input_["peer_db_arn"] = peer_db_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

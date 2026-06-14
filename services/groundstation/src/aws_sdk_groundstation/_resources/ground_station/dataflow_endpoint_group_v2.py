@@ -68,21 +68,21 @@ class DataflowEndpointGroupV2:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.create_dataflow_endpoint_group_v2_request.CreateDataflowEndpointGroupV2Request = {}  # type: ignore[typeddict-item]
-        input["endpoints"] = endpoints
+        input_: aws_sdk_groundstation.types.create_dataflow_endpoint_group_v2_request.CreateDataflowEndpointGroupV2Request = {}  # type: ignore[typeddict-item]
+        input_["endpoints"] = endpoints
         if contact_pre_pass_duration_seconds is not None:
-            input["contact_pre_pass_duration_seconds"] = (
+            input_["contact_pre_pass_duration_seconds"] = (
                 contact_pre_pass_duration_seconds
             )
         if contact_post_pass_duration_seconds is not None:
-            input["contact_post_pass_duration_seconds"] = (
+            input_["contact_post_pass_duration_seconds"] = (
                 contact_post_pass_duration_seconds
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,21 +131,21 @@ class AsyncDataflowEndpointGroupV2:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.create_dataflow_endpoint_group_v2_request.CreateDataflowEndpointGroupV2Request = {}  # type: ignore[typeddict-item]
-        input["endpoints"] = endpoints
+        input_: aws_sdk_groundstation.types.create_dataflow_endpoint_group_v2_request.CreateDataflowEndpointGroupV2Request = {}  # type: ignore[typeddict-item]
+        input_["endpoints"] = endpoints
         if contact_pre_pass_duration_seconds is not None:
-            input["contact_pre_pass_duration_seconds"] = (
+            input_["contact_pre_pass_duration_seconds"] = (
                 contact_pre_pass_duration_seconds
             )
         if contact_post_pass_duration_seconds is not None:
-            input["contact_post_pass_duration_seconds"] = (
+            input_["contact_post_pass_duration_seconds"] = (
                 contact_post_pass_duration_seconds
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

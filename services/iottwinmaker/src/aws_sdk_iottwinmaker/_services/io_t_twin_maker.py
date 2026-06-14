@@ -287,12 +287,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.batch_put_property_values_request.BatchPutPropertyValuesRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["entries"] = entries
+        input_: aws_sdk_iottwinmaker.types.batch_put_property_values_request.BatchPutPropertyValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["entries"] = entries
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,11 +325,11 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.cancel_metadata_transfer_job_request.CancelMetadataTransferJobRequest = {}  # type: ignore[typeddict-item]
-        input["metadata_transfer_job_id"] = metadata_transfer_job_id
+        input_: aws_sdk_iottwinmaker.types.cancel_metadata_transfer_job_request.CancelMetadataTransferJobRequest = {}  # type: ignore[typeddict-item]
+        input_["metadata_transfer_job_id"] = metadata_transfer_job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,30 +396,30 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.create_component_type_request.CreateComponentTypeRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.create_component_type_request.CreateComponentTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if is_singleton is not None:
-            input["is_singleton"] = is_singleton
-        input["component_type_id"] = component_type_id
+            input_["is_singleton"] = is_singleton
+        input_["component_type_id"] = component_type_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if property_definitions is not None:
-            input["property_definitions"] = property_definitions
+            input_["property_definitions"] = property_definitions
         if extends_from is not None:
-            input["extends_from"] = extends_from
+            input_["extends_from"] = extends_from
         if functions is not None:
-            input["functions"] = functions
+            input_["functions"] = functions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if property_groups is not None:
-            input["property_groups"] = property_groups
+            input_["property_groups"] = property_groups
         if component_type_name is not None:
-            input["component_type_name"] = component_type_name
+            input_["component_type_name"] = component_type_name
         if composite_component_types is not None:
-            input["composite_component_types"] = composite_component_types
+            input_["composite_component_types"] = composite_component_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,24 +474,24 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.create_entity_request.CreateEntityRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.create_entity_request.CreateEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if entity_id is not None:
-            input["entity_id"] = entity_id
-        input["entity_name"] = entity_name
+            input_["entity_id"] = entity_id
+        input_["entity_name"] = entity_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if components is not None:
-            input["components"] = components
+            input_["components"] = components
         if composite_components is not None:
-            input["composite_components"] = composite_components
+            input_["composite_components"] = composite_components
         if parent_entity_id is not None:
-            input["parent_entity_id"] = parent_entity_id
+            input_["parent_entity_id"] = parent_entity_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,16 +532,16 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.create_metadata_transfer_job_request.CreateMetadataTransferJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iottwinmaker.types.create_metadata_transfer_job_request.CreateMetadataTransferJobRequest = {}  # type: ignore[typeddict-item]
         if metadata_transfer_job_id is not None:
-            input["metadata_transfer_job_id"] = metadata_transfer_job_id
+            input_["metadata_transfer_job_id"] = metadata_transfer_job_id
         if description is not None:
-            input["description"] = description
-        input["sources"] = sources
-        input["destination"] = destination
+            input_["description"] = description
+        input_["sources"] = sources
+        input_["destination"] = destination
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,21 +592,21 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.create_scene_request.CreateSceneRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["scene_id"] = scene_id
-        input["content_location"] = content_location
+        input_: aws_sdk_iottwinmaker.types.create_scene_request.CreateSceneRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["scene_id"] = scene_id
+        input_["content_location"] = content_location
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if scene_metadata is not None:
-            input["scene_metadata"] = scene_metadata
+            input_["scene_metadata"] = scene_metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -645,15 +645,15 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.create_sync_job_request.CreateSyncJobRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["sync_source"] = sync_source
-        input["sync_role"] = sync_role
+        input_: aws_sdk_iottwinmaker.types.create_sync_job_request.CreateSyncJobRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["sync_source"] = sync_source
+        input_["sync_role"] = sync_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,19 +698,19 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if s3_location is not None:
-            input["s3_location"] = s3_location
+            input_["s3_location"] = s3_location
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,12 +745,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.delete_component_type_request.DeleteComponentTypeRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["component_type_id"] = component_type_id
+        input_: aws_sdk_iottwinmaker.types.delete_component_type_request.DeleteComponentTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["component_type_id"] = component_type_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -787,14 +787,14 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.delete_entity_request.DeleteEntityRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_iottwinmaker.types.delete_entity_request.DeleteEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["entity_id"] = entity_id
         if is_recursive is not None:
-            input["is_recursive"] = is_recursive
+            input_["is_recursive"] = is_recursive
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,12 +829,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.delete_scene_request.DeleteSceneRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["scene_id"] = scene_id
+        input_: aws_sdk_iottwinmaker.types.delete_scene_request.DeleteSceneRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["scene_id"] = scene_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -869,12 +869,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.delete_sync_job_request.DeleteSyncJobRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["sync_source"] = sync_source
+        input_: aws_sdk_iottwinmaker.types.delete_sync_job_request.DeleteSyncJobRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["sync_source"] = sync_source
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -907,11 +907,11 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,16 +952,16 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.execute_query_request.ExecuteQueryRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["query_statement"] = query_statement
+        input_: aws_sdk_iottwinmaker.types.execute_query_request.ExecuteQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["query_statement"] = query_statement
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,12 +996,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_component_type_request.GetComponentTypeRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["component_type_id"] = component_type_id
+        input_: aws_sdk_iottwinmaker.types.get_component_type_request.GetComponentTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["component_type_id"] = component_type_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1036,12 +1036,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_entity_request.GetEntityRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_iottwinmaker.types.get_entity_request.GetEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["entity_id"] = entity_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1074,11 +1074,11 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_metadata_transfer_job_request.GetMetadataTransferJobRequest = {}  # type: ignore[typeddict-item]
-        input["metadata_transfer_job_id"] = metadata_transfer_job_id
+        input_: aws_sdk_iottwinmaker.types.get_metadata_transfer_job_request.GetMetadataTransferJobRequest = {}  # type: ignore[typeddict-item]
+        input_["metadata_transfer_job_id"] = metadata_transfer_job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1104,10 +1104,10 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_pricing_plan_request.GetPricingPlanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iottwinmaker.types.get_pricing_plan_request.GetPricingPlanRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1166,28 +1166,28 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_property_value_request.GetPropertyValueRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iottwinmaker.types.get_property_value_request.GetPropertyValueRequest = {}  # type: ignore[typeddict-item]
         if component_name is not None:
-            input["component_name"] = component_name
+            input_["component_name"] = component_name
         if component_path is not None:
-            input["component_path"] = component_path
+            input_["component_path"] = component_path
         if component_type_id is not None:
-            input["component_type_id"] = component_type_id
+            input_["component_type_id"] = component_type_id
         if entity_id is not None:
-            input["entity_id"] = entity_id
-        input["selected_properties"] = selected_properties
-        input["workspace_id"] = workspace_id
+            input_["entity_id"] = entity_id
+        input_["selected_properties"] = selected_properties
+        input_["workspace_id"] = workspace_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if property_group_name is not None:
-            input["property_group_name"] = property_group_name
+            input_["property_group_name"] = property_group_name
         if tabular_conditions is not None:
-            input["tabular_conditions"] = tabular_conditions
+            input_["tabular_conditions"] = tabular_conditions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1264,38 +1264,38 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_property_value_history_request.GetPropertyValueHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.get_property_value_history_request.GetPropertyValueHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if entity_id is not None:
-            input["entity_id"] = entity_id
+            input_["entity_id"] = entity_id
         if component_name is not None:
-            input["component_name"] = component_name
+            input_["component_name"] = component_name
         if component_path is not None:
-            input["component_path"] = component_path
+            input_["component_path"] = component_path
         if component_type_id is not None:
-            input["component_type_id"] = component_type_id
-        input["selected_properties"] = selected_properties
+            input_["component_type_id"] = component_type_id
+        input_["selected_properties"] = selected_properties
         if property_filters is not None:
-            input["property_filters"] = property_filters
+            input_["property_filters"] = property_filters
         if start_date_time is not None:
-            input["start_date_time"] = start_date_time
+            input_["start_date_time"] = start_date_time
         if end_date_time is not None:
-            input["end_date_time"] = end_date_time
+            input_["end_date_time"] = end_date_time
         if interpolation is not None:
-            input["interpolation"] = interpolation
+            input_["interpolation"] = interpolation
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if order_by_time is not None:
-            input["order_by_time"] = order_by_time
+            input_["order_by_time"] = order_by_time
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1330,12 +1330,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_scene_request.GetSceneRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["scene_id"] = scene_id
+        input_: aws_sdk_iottwinmaker.types.get_scene_request.GetSceneRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["scene_id"] = scene_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1370,13 +1370,13 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_sync_job_request.GetSyncJobRequest = {}  # type: ignore[typeddict-item]
-        input["sync_source"] = sync_source
+        input_: aws_sdk_iottwinmaker.types.get_sync_job_request.GetSyncJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sync_source"] = sync_source
         if workspace_id is not None:
-            input["workspace_id"] = workspace_id
+            input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1409,11 +1409,11 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.get_workspace_request.GetWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.get_workspace_request.GetWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1458,18 +1458,18 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_components_request.ListComponentsRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_iottwinmaker.types.list_components_request.ListComponentsRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["entity_id"] = entity_id
         if component_path is not None:
-            input["component_path"] = component_path
+            input_["component_path"] = component_path
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1512,17 +1512,17 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_component_types_request.ListComponentTypesRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.list_component_types_request.ListComponentTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1565,17 +1565,17 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_entities_request.ListEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.list_entities_request.ListEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1620,18 +1620,18 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_metadata_transfer_jobs_request.ListMetadataTransferJobsRequest = {}  # type: ignore[typeddict-item]
-        input["source_type"] = source_type
-        input["destination_type"] = destination_type
+        input_: aws_sdk_iottwinmaker.types.list_metadata_transfer_jobs_request.ListMetadataTransferJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["source_type"] = source_type
+        input_["destination_type"] = destination_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1678,20 +1678,20 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_properties_request.ListPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.list_properties_request.ListPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if component_name is not None:
-            input["component_name"] = component_name
+            input_["component_name"] = component_name
         if component_path is not None:
-            input["component_path"] = component_path
-        input["entity_id"] = entity_id
+            input_["component_path"] = component_path
+        input_["entity_id"] = entity_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1730,15 +1730,15 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_scenes_request.ListScenesRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.list_scenes_request.ListScenesRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1777,15 +1777,15 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_sync_jobs_request.ListSyncJobsRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.list_sync_jobs_request.ListSyncJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1830,18 +1830,18 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_sync_resources_request.ListSyncResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["sync_source"] = sync_source
+        input_: aws_sdk_iottwinmaker.types.list_sync_resources_request.ListSyncResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["sync_source"] = sync_source
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1880,15 +1880,15 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iottwinmaker.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1925,14 +1925,14 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iottwinmaker.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1967,12 +1967,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iottwinmaker.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2007,12 +2007,12 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iottwinmaker.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2077,28 +2077,28 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.update_component_type_request.UpdateComponentTypeRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.update_component_type_request.UpdateComponentTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if is_singleton is not None:
-            input["is_singleton"] = is_singleton
-        input["component_type_id"] = component_type_id
+            input_["is_singleton"] = is_singleton
+        input_["component_type_id"] = component_type_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if property_definitions is not None:
-            input["property_definitions"] = property_definitions
+            input_["property_definitions"] = property_definitions
         if extends_from is not None:
-            input["extends_from"] = extends_from
+            input_["extends_from"] = extends_from
         if functions is not None:
-            input["functions"] = functions
+            input_["functions"] = functions
         if property_groups is not None:
-            input["property_groups"] = property_groups
+            input_["property_groups"] = property_groups
         if component_type_name is not None:
-            input["component_type_name"] = component_type_name
+            input_["component_type_name"] = component_type_name
         if composite_component_types is not None:
-            input["composite_component_types"] = composite_component_types
+            input_["composite_component_types"] = composite_component_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2153,22 +2153,22 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.update_entity_request.UpdateEntityRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_iottwinmaker.types.update_entity_request.UpdateEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["entity_id"] = entity_id
         if entity_name is not None:
-            input["entity_name"] = entity_name
+            input_["entity_name"] = entity_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if component_updates is not None:
-            input["component_updates"] = component_updates
+            input_["component_updates"] = component_updates
         if composite_component_updates is not None:
-            input["composite_component_updates"] = composite_component_updates
+            input_["composite_component_updates"] = composite_component_updates
         if parent_entity_update is not None:
-            input["parent_entity_update"] = parent_entity_update
+            input_["parent_entity_update"] = parent_entity_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2205,13 +2205,13 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.update_pricing_plan_request.UpdatePricingPlanRequest = {}  # type: ignore[typeddict-item]
-        input["pricing_mode"] = pricing_mode
+        input_: aws_sdk_iottwinmaker.types.update_pricing_plan_request.UpdatePricingPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["pricing_mode"] = pricing_mode
         if bundle_names is not None:
-            input["bundle_names"] = bundle_names
+            input_["bundle_names"] = bundle_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2260,20 +2260,20 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.update_scene_request.UpdateSceneRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["scene_id"] = scene_id
+        input_: aws_sdk_iottwinmaker.types.update_scene_request.UpdateSceneRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["scene_id"] = scene_id
         if content_location is not None:
-            input["content_location"] = content_location
+            input_["content_location"] = content_location
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if scene_metadata is not None:
-            input["scene_metadata"] = scene_metadata
+            input_["scene_metadata"] = scene_metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2316,17 +2316,17 @@ class IoTTwinMakerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iottwinmaker.types.update_workspace_request.UpdateWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_iottwinmaker.types.update_workspace_request.UpdateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if s3_location is not None:
-            input["s3_location"] = s3_location
+            input_["s3_location"] = s3_location
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

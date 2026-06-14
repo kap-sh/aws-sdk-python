@@ -138,54 +138,51 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput,
+    input_: aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/sparql/stream"
     params: dict[str, str] = {}
-    if "limit" in input:
-        params["limit"] = str(input["limit"])
-    if "iterator_type" in input:
-        params["iteratorType"] = str(input["iterator_type"])
-    if "commit_num" in input:
-        params["commitNum"] = str(input["commit_num"])
-    if "op_num" in input:
-        params["opNum"] = str(input["op_num"])
+    if "limit" in input_:
+        params["limit"] = str(input_["limit"])
+    if "iterator_type" in input_:
+        params["iteratorType"] = str(input_["iterator_type"])
+    if "commit_num" in input_:
+        params["commitNum"] = str(input_["commit_num"])
+    if "op_num" in input_:
+        params["opNum"] = str(input_["op_num"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "encoding" in input:
-        headers["Accept-Encoding"] = str(input["encoding"])
+    if "encoding" in input_:
+        headers["Accept-Encoding"] = str(input_["encoding"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_sparql_stream(
     options: OperationOptions,
-    input: aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput,
+    input_: aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput,
 ) -> tuple[
     aws_sdk_neptunedata.types.get_sparql_stream_output.GetSparqlStreamOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -194,16 +191,17 @@ def get_sparql_stream(
 
 async def async_get_sparql_stream(
     options: AsyncOperationOptions,
-    input: aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput,
+    input_: aws_sdk_neptunedata.types.get_sparql_stream_input.GetSparqlStreamInput,
 ) -> tuple[
     aws_sdk_neptunedata.types.get_sparql_stream_output.GetSparqlStreamOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

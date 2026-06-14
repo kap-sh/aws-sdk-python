@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_machine_learning._auth._signers
+import aws_sdk_machine_learning._auth._sigv4
 from aws_sdk_machine_learning._auth._identity import Credentials
 from aws_sdk_machine_learning._auth._providers import (
     CredentialsProvider,
@@ -242,13 +244,13 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input["tags"] = tags
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_machine_learning.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
+        input_["tags"] = tags
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,16 +293,16 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.create_batch_prediction_input.CreateBatchPredictionInput = {}  # type: ignore[typeddict-item]
-        input["batch_prediction_id"] = batch_prediction_id
+        input_: aws_sdk_machine_learning.types.create_batch_prediction_input.CreateBatchPredictionInput = {}  # type: ignore[typeddict-item]
+        input_["batch_prediction_id"] = batch_prediction_id
         if batch_prediction_name is not None:
-            input["batch_prediction_name"] = batch_prediction_name
-        input["ml_model_id"] = ml_model_id
-        input["batch_prediction_data_source_id"] = batch_prediction_data_source_id
-        input["output_uri"] = output_uri
+            input_["batch_prediction_name"] = batch_prediction_name
+        input_["ml_model_id"] = ml_model_id
+        input_["batch_prediction_data_source_id"] = batch_prediction_data_source_id
+        input_["output_uri"] = output_uri
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,17 +347,17 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.create_data_source_from_rds_input.CreateDataSourceFromRDSInput = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_machine_learning.types.create_data_source_from_rds_input.CreateDataSourceFromRDSInput = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
         if data_source_name is not None:
-            input["data_source_name"] = data_source_name
-        input["rds_data"] = rds_data
-        input["role_arn"] = role_arn
+            input_["data_source_name"] = data_source_name
+        input_["rds_data"] = rds_data
+        input_["role_arn"] = role_arn
         if compute_statistics is not None:
-            input["compute_statistics"] = compute_statistics
+            input_["compute_statistics"] = compute_statistics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -400,17 +402,17 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.create_data_source_from_redshift_input.CreateDataSourceFromRedshiftInput = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_machine_learning.types.create_data_source_from_redshift_input.CreateDataSourceFromRedshiftInput = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
         if data_source_name is not None:
-            input["data_source_name"] = data_source_name
-        input["data_spec"] = data_spec
-        input["role_arn"] = role_arn
+            input_["data_source_name"] = data_source_name
+        input_["data_spec"] = data_spec
+        input_["role_arn"] = role_arn
         if compute_statistics is not None:
-            input["compute_statistics"] = compute_statistics
+            input_["compute_statistics"] = compute_statistics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -453,16 +455,16 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.create_data_source_from_s3_input.CreateDataSourceFromS3Input = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_machine_learning.types.create_data_source_from_s3_input.CreateDataSourceFromS3Input = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
         if data_source_name is not None:
-            input["data_source_name"] = data_source_name
-        input["data_spec"] = data_spec
+            input_["data_source_name"] = data_source_name
+        input_["data_spec"] = data_spec
         if compute_statistics is not None:
-            input["compute_statistics"] = compute_statistics
+            input_["compute_statistics"] = compute_statistics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,15 +507,15 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.create_evaluation_input.CreateEvaluationInput = {}  # type: ignore[typeddict-item]
-        input["evaluation_id"] = evaluation_id
+        input_: aws_sdk_machine_learning.types.create_evaluation_input.CreateEvaluationInput = {}  # type: ignore[typeddict-item]
+        input_["evaluation_id"] = evaluation_id
         if evaluation_name is not None:
-            input["evaluation_name"] = evaluation_name
-        input["ml_model_id"] = ml_model_id
-        input["evaluation_data_source_id"] = evaluation_data_source_id
+            input_["evaluation_name"] = evaluation_name
+        input_["ml_model_id"] = ml_model_id
+        input_["evaluation_data_source_id"] = evaluation_data_source_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -562,21 +564,21 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.create_ml_model_input.CreateMLModelInput = {}  # type: ignore[typeddict-item]
-        input["ml_model_id"] = ml_model_id
+        input_: aws_sdk_machine_learning.types.create_ml_model_input.CreateMLModelInput = {}  # type: ignore[typeddict-item]
+        input_["ml_model_id"] = ml_model_id
         if ml_model_name is not None:
-            input["ml_model_name"] = ml_model_name
-        input["ml_model_type"] = ml_model_type
+            input_["ml_model_name"] = ml_model_name
+        input_["ml_model_type"] = ml_model_type
         if parameters is not None:
-            input["parameters"] = parameters
-        input["training_data_source_id"] = training_data_source_id
+            input_["parameters"] = parameters
+        input_["training_data_source_id"] = training_data_source_id
         if recipe is not None:
-            input["recipe"] = recipe
+            input_["recipe"] = recipe
         if recipe_uri is not None:
-            input["recipe_uri"] = recipe_uri
+            input_["recipe_uri"] = recipe_uri
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,11 +611,11 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.create_realtime_endpoint_input.CreateRealtimeEndpointInput = {}  # type: ignore[typeddict-item]
-        input["ml_model_id"] = ml_model_id
+        input_: aws_sdk_machine_learning.types.create_realtime_endpoint_input.CreateRealtimeEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["ml_model_id"] = ml_model_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -646,11 +648,11 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.delete_batch_prediction_input.DeleteBatchPredictionInput = {}  # type: ignore[typeddict-item]
-        input["batch_prediction_id"] = batch_prediction_id
+        input_: aws_sdk_machine_learning.types.delete_batch_prediction_input.DeleteBatchPredictionInput = {}  # type: ignore[typeddict-item]
+        input_["batch_prediction_id"] = batch_prediction_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,11 +685,11 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.delete_data_source_input.DeleteDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_machine_learning.types.delete_data_source_input.DeleteDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,11 +724,11 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.delete_evaluation_input.DeleteEvaluationInput = {}  # type: ignore[typeddict-item]
-        input["evaluation_id"] = evaluation_id
+        input_: aws_sdk_machine_learning.types.delete_evaluation_input.DeleteEvaluationInput = {}  # type: ignore[typeddict-item]
+        input_["evaluation_id"] = evaluation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,11 +761,11 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.delete_ml_model_input.DeleteMLModelInput = {}  # type: ignore[typeddict-item]
-        input["ml_model_id"] = ml_model_id
+        input_: aws_sdk_machine_learning.types.delete_ml_model_input.DeleteMLModelInput = {}  # type: ignore[typeddict-item]
+        input_["ml_model_id"] = ml_model_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -796,11 +798,11 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.delete_realtime_endpoint_input.DeleteRealtimeEndpointInput = {}  # type: ignore[typeddict-item]
-        input["ml_model_id"] = ml_model_id
+        input_: aws_sdk_machine_learning.types.delete_realtime_endpoint_input.DeleteRealtimeEndpointInput = {}  # type: ignore[typeddict-item]
+        input_["ml_model_id"] = ml_model_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -837,13 +839,13 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.delete_tags_input.DeleteTagsInput = {}  # type: ignore[typeddict-item]
-        input["tag_keys"] = tag_keys
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_machine_learning.types.delete_tags_input.DeleteTagsInput = {}  # type: ignore[typeddict-item]
+        input_["tag_keys"] = tag_keys
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -916,32 +918,32 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.describe_batch_predictions_input.DescribeBatchPredictionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_machine_learning.types.describe_batch_predictions_input.DescribeBatchPredictionsInput = {}  # type: ignore[typeddict-item]
         if filter_variable is not None:
-            input["filter_variable"] = filter_variable
+            input_["filter_variable"] = filter_variable
         if eq is not None:
-            input["eq"] = eq
+            input_["eq"] = eq
         if gt is not None:
-            input["gt"] = gt
+            input_["gt"] = gt
         if lt is not None:
-            input["lt"] = lt
+            input_["lt"] = lt
         if ge is not None:
-            input["ge"] = ge
+            input_["ge"] = ge
         if le is not None:
-            input["le"] = le
+            input_["le"] = le
         if ne is not None:
-            input["ne"] = ne
+            input_["ne"] = ne
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1073,32 +1075,32 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.describe_data_sources_input.DescribeDataSourcesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_machine_learning.types.describe_data_sources_input.DescribeDataSourcesInput = {}  # type: ignore[typeddict-item]
         if filter_variable is not None:
-            input["filter_variable"] = filter_variable
+            input_["filter_variable"] = filter_variable
         if eq is not None:
-            input["eq"] = eq
+            input_["eq"] = eq
         if gt is not None:
-            input["gt"] = gt
+            input_["gt"] = gt
         if lt is not None:
-            input["lt"] = lt
+            input_["lt"] = lt
         if ge is not None:
-            input["ge"] = ge
+            input_["ge"] = ge
         if le is not None:
-            input["le"] = le
+            input_["le"] = le
         if ne is not None:
-            input["ne"] = ne
+            input_["ne"] = ne
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1230,32 +1232,32 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.describe_evaluations_input.DescribeEvaluationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_machine_learning.types.describe_evaluations_input.DescribeEvaluationsInput = {}  # type: ignore[typeddict-item]
         if filter_variable is not None:
-            input["filter_variable"] = filter_variable
+            input_["filter_variable"] = filter_variable
         if eq is not None:
-            input["eq"] = eq
+            input_["eq"] = eq
         if gt is not None:
-            input["gt"] = gt
+            input_["gt"] = gt
         if lt is not None:
-            input["lt"] = lt
+            input_["lt"] = lt
         if ge is not None:
-            input["ge"] = ge
+            input_["ge"] = ge
         if le is not None:
-            input["le"] = le
+            input_["le"] = le
         if ne is not None:
-            input["ne"] = ne
+            input_["ne"] = ne
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1387,32 +1389,32 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.describe_ml_models_input.DescribeMLModelsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_machine_learning.types.describe_ml_models_input.DescribeMLModelsInput = {}  # type: ignore[typeddict-item]
         if filter_variable is not None:
-            input["filter_variable"] = filter_variable
+            input_["filter_variable"] = filter_variable
         if eq is not None:
-            input["eq"] = eq
+            input_["eq"] = eq
         if gt is not None:
-            input["gt"] = gt
+            input_["gt"] = gt
         if lt is not None:
-            input["lt"] = lt
+            input_["lt"] = lt
         if ge is not None:
-            input["ge"] = ge
+            input_["ge"] = ge
         if le is not None:
-            input["le"] = le
+            input_["le"] = le
         if ne is not None:
-            input["ne"] = ne
+            input_["ne"] = ne
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1506,12 +1508,12 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.describe_tags_input.DescribeTagsInput = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_machine_learning.types.describe_tags_input.DescribeTagsInput = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1544,11 +1546,11 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.get_batch_prediction_input.GetBatchPredictionInput = {}  # type: ignore[typeddict-item]
-        input["batch_prediction_id"] = batch_prediction_id
+        input_: aws_sdk_machine_learning.types.get_batch_prediction_input.GetBatchPredictionInput = {}  # type: ignore[typeddict-item]
+        input_["batch_prediction_id"] = batch_prediction_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1583,13 +1585,13 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.get_data_source_input.GetDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_machine_learning.types.get_data_source_input.GetDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
         if verbose is not None:
-            input["verbose"] = verbose
+            input_["verbose"] = verbose
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1622,11 +1624,11 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.get_evaluation_input.GetEvaluationInput = {}  # type: ignore[typeddict-item]
-        input["evaluation_id"] = evaluation_id
+        input_: aws_sdk_machine_learning.types.get_evaluation_input.GetEvaluationInput = {}  # type: ignore[typeddict-item]
+        input_["evaluation_id"] = evaluation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1661,13 +1663,13 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.get_ml_model_input.GetMLModelInput = {}  # type: ignore[typeddict-item]
-        input["ml_model_id"] = ml_model_id
+        input_: aws_sdk_machine_learning.types.get_ml_model_input.GetMLModelInput = {}  # type: ignore[typeddict-item]
+        input_["ml_model_id"] = ml_model_id
         if verbose is not None:
-            input["verbose"] = verbose
+            input_["verbose"] = verbose
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1702,13 +1704,13 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.predict_input.PredictInput = {}  # type: ignore[typeddict-item]
-        input["ml_model_id"] = ml_model_id
-        input["record"] = record
-        input["predict_endpoint"] = predict_endpoint
+        input_: aws_sdk_machine_learning.types.predict_input.PredictInput = {}  # type: ignore[typeddict-item]
+        input_["ml_model_id"] = ml_model_id
+        input_["record"] = record
+        input_["predict_endpoint"] = predict_endpoint
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,12 +1745,12 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.update_batch_prediction_input.UpdateBatchPredictionInput = {}  # type: ignore[typeddict-item]
-        input["batch_prediction_id"] = batch_prediction_id
-        input["batch_prediction_name"] = batch_prediction_name
+        input_: aws_sdk_machine_learning.types.update_batch_prediction_input.UpdateBatchPredictionInput = {}  # type: ignore[typeddict-item]
+        input_["batch_prediction_id"] = batch_prediction_id
+        input_["batch_prediction_name"] = batch_prediction_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1783,12 +1785,12 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.update_data_source_input.UpdateDataSourceInput = {}  # type: ignore[typeddict-item]
-        input["data_source_id"] = data_source_id
-        input["data_source_name"] = data_source_name
+        input_: aws_sdk_machine_learning.types.update_data_source_input.UpdateDataSourceInput = {}  # type: ignore[typeddict-item]
+        input_["data_source_id"] = data_source_id
+        input_["data_source_name"] = data_source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1825,12 +1827,12 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.update_evaluation_input.UpdateEvaluationInput = {}  # type: ignore[typeddict-item]
-        input["evaluation_id"] = evaluation_id
-        input["evaluation_name"] = evaluation_name
+        input_: aws_sdk_machine_learning.types.update_evaluation_input.UpdateEvaluationInput = {}  # type: ignore[typeddict-item]
+        input_["evaluation_id"] = evaluation_id
+        input_["evaluation_name"] = evaluation_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1871,15 +1873,15 @@ class MachineLearningClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_machine_learning.types.update_ml_model_input.UpdateMLModelInput = {}  # type: ignore[typeddict-item]
-        input["ml_model_id"] = ml_model_id
+        input_: aws_sdk_machine_learning.types.update_ml_model_input.UpdateMLModelInput = {}  # type: ignore[typeddict-item]
+        input_["ml_model_id"] = ml_model_id
         if ml_model_name is not None:
-            input["ml_model_name"] = ml_model_name
+            input_["ml_model_name"] = ml_model_name
         if score_threshold is not None:
-            input["score_threshold"] = score_threshold
+            input_["score_threshold"] = score_threshold
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

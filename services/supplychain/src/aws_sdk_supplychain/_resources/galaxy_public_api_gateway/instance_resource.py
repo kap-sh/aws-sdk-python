@@ -101,22 +101,22 @@ class InstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_instance_request.CreateInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_supplychain.types.create_instance_request.CreateInstanceRequest = {}  # type: ignore[typeddict-item]
         if instance_name is not None:
-            input["instance_name"] = instance_name
+            input_["instance_name"] = instance_name
         if instance_description is not None:
-            input["instance_description"] = instance_description
+            input_["instance_description"] = instance_description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if web_app_dns_domain is not None:
-            input["web_app_dns_domain"] = web_app_dns_domain
+            input_["web_app_dns_domain"] = web_app_dns_domain
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,11 +157,11 @@ class InstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_instance_request.GetInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.get_instance_request.GetInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -207,15 +207,15 @@ class InstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.update_instance_request.UpdateInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.update_instance_request.UpdateInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if instance_name is not None:
-            input["instance_name"] = instance_name
+            input_["instance_name"] = instance_name
         if instance_description is not None:
-            input["instance_description"] = instance_description
+            input_["instance_description"] = instance_description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,11 +253,11 @@ class InstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.delete_instance_request.DeleteInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.delete_instance_request.DeleteInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,18 +318,18 @@ class InstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_supplychain.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if instance_name_filter is not None:
-            input["instance_name_filter"] = instance_name_filter
+            input_["instance_name_filter"] = instance_name_filter
         if instance_state_filter is not None:
-            input["instance_state_filter"] = instance_state_filter
+            input_["instance_state_filter"] = instance_state_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,22 +394,22 @@ class AsyncInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_instance_request.CreateInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_supplychain.types.create_instance_request.CreateInstanceRequest = {}  # type: ignore[typeddict-item]
         if instance_name is not None:
-            input["instance_name"] = instance_name
+            input_["instance_name"] = instance_name
         if instance_description is not None:
-            input["instance_description"] = instance_description
+            input_["instance_description"] = instance_description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if web_app_dns_domain is not None:
-            input["web_app_dns_domain"] = web_app_dns_domain
+            input_["web_app_dns_domain"] = web_app_dns_domain
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,11 +451,11 @@ class AsyncInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_instance_request.GetInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.get_instance_request.GetInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,15 +502,15 @@ class AsyncInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.update_instance_request.UpdateInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.update_instance_request.UpdateInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if instance_name is not None:
-            input["instance_name"] = instance_name
+            input_["instance_name"] = instance_name
         if instance_description is not None:
-            input["instance_description"] = instance_description
+            input_["instance_description"] = instance_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -549,11 +549,11 @@ class AsyncInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.delete_instance_request.DeleteInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.delete_instance_request.DeleteInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -615,18 +615,18 @@ class AsyncInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_supplychain.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if instance_name_filter is not None:
-            input["instance_name_filter"] = instance_name_filter
+            input_["instance_name_filter"] = instance_name_filter
         if instance_state_filter is not None:
-            input["instance_state_filter"] = instance_state_filter
+            input_["instance_state_filter"] = instance_state_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -110,30 +110,30 @@ class Permission:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.add_permission_request.AddPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["statement_id"] = statement_id
-        input["action"] = action
-        input["principal"] = principal
+        input_: aws_sdk_lambda.types.add_permission_request.AddPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["statement_id"] = statement_id
+        input_["action"] = action
+        input_["principal"] = principal
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if source_account is not None:
-            input["source_account"] = source_account
+            input_["source_account"] = source_account
         if event_source_token is not None:
-            input["event_source_token"] = event_source_token
+            input_["event_source_token"] = event_source_token
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if principal_org_id is not None:
-            input["principal_org_id"] = principal_org_id
+            input_["principal_org_id"] = principal_org_id
         if function_url_auth_type is not None:
-            input["function_url_auth_type"] = function_url_auth_type
+            input_["function_url_auth_type"] = function_url_auth_type
         if invoked_via_function_url is not None:
-            input["invoked_via_function_url"] = invoked_via_function_url
+            input_["invoked_via_function_url"] = invoked_via_function_url
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -178,16 +178,16 @@ class Permission:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["statement_id"] = statement_id
+        input_: aws_sdk_lambda.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["statement_id"] = statement_id
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,30 +270,30 @@ class AsyncPermission:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.add_permission_request.AddPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["statement_id"] = statement_id
-        input["action"] = action
-        input["principal"] = principal
+        input_: aws_sdk_lambda.types.add_permission_request.AddPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["statement_id"] = statement_id
+        input_["action"] = action
+        input_["principal"] = principal
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
         if source_account is not None:
-            input["source_account"] = source_account
+            input_["source_account"] = source_account
         if event_source_token is not None:
-            input["event_source_token"] = event_source_token
+            input_["event_source_token"] = event_source_token
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if principal_org_id is not None:
-            input["principal_org_id"] = principal_org_id
+            input_["principal_org_id"] = principal_org_id
         if function_url_auth_type is not None:
-            input["function_url_auth_type"] = function_url_auth_type
+            input_["function_url_auth_type"] = function_url_auth_type
         if invoked_via_function_url is not None:
-            input["invoked_via_function_url"] = invoked_via_function_url
+            input_["invoked_via_function_url"] = invoked_via_function_url
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,16 +339,16 @@ class AsyncPermission:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["statement_id"] = statement_id
+        input_: aws_sdk_lambda.types.remove_permission_request.RemovePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["statement_id"] = statement_id
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

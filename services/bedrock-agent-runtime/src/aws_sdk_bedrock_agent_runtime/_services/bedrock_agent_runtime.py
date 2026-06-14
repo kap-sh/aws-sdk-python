@@ -13,6 +13,45 @@ from aws_sdk_bedrock_agent_runtime._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_bedrock_agent_runtime._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.flow_execution_resource import (
+    FlowExecutionResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.flow_resource import (
+    FlowResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.generate_query_resource import (
+    GenerateQueryResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.inference_resource import (
+    InferenceResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.inline_agent_resource import (
+    InlineAgentResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.memory_resource import (
+    MemoryResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.optimize_prompt_resource import (
+    OptimizePromptResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.rerank_resource import (
+    RerankResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.retrieve_and_generate_resource import (
+    RetrieveAndGenerateResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.retrieve_and_generate_stream_resource import (
+    RetrieveAndGenerateStreamResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.retrieve_resource import (
+    RetrieveResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.session_resource import (
+    SessionResource,
+)
+from aws_sdk_bedrock_agent_runtime._resources.amazon_bedrock_agent_run_time_service.tagging_resource import (
+    TaggingResource,
+)
 from aws_sdk_bedrock_agent_runtime._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +129,22 @@ class BedrockAgentRuntimeClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.flow_execution_resource = FlowExecutionResource(self)
+        self.flow_resource = FlowResource(self)
+        self.generate_query_resource = GenerateQueryResource(self)
+        self.inference_resource = InferenceResource(self)
+        self.inline_agent_resource = InlineAgentResource(self)
+        self.memory_resource = MemoryResource(self)
+        self.optimize_prompt_resource = OptimizePromptResource(self)
+        self.rerank_resource = RerankResource(self)
+        self.retrieve_and_generate_resource = RetrieveAndGenerateResource(self)
+        self.retrieve_and_generate_stream_resource = RetrieveAndGenerateStreamResource(
+            self
+        )
+        self.retrieve_resource = RetrieveResource(self)
+        self.session_resource = SessionResource(self)
+        self.tagging_resource = TaggingResource(self)
 
     def operation_options(
         self, config_overrides: Optional[BedrockAgentRuntimeClientConfig] = None

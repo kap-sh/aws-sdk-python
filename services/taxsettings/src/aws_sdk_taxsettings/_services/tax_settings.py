@@ -201,11 +201,11 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.batch_delete_tax_registration_request.BatchDeleteTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_taxsettings.types.batch_delete_tax_registration_request.BatchDeleteTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -238,11 +238,11 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.batch_get_tax_exemptions_request.BatchGetTaxExemptionsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_taxsettings.types.batch_get_tax_exemptions_request.BatchGetTaxExemptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,12 +277,12 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.batch_put_tax_registration_request.BatchPutTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
-        input["tax_registration_entry"] = tax_registration_entry
+        input_: aws_sdk_taxsettings.types.batch_put_tax_registration_request.BatchPutTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
+        input_["tax_registration_entry"] = tax_registration_entry
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,11 +315,11 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.delete_supplemental_tax_registration_request.DeleteSupplementalTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["authority_id"] = authority_id
+        input_: aws_sdk_taxsettings.types.delete_supplemental_tax_registration_request.DeleteSupplementalTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["authority_id"] = authority_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,12 +352,12 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.delete_tax_registration_request.DeleteTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.delete_tax_registration_request.DeleteTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,10 +383,10 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.get_tax_exemption_types_request.GetTaxExemptionTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.get_tax_exemption_types_request.GetTaxExemptionTypesRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,10 +412,10 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.get_tax_inheritance_request.GetTaxInheritanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.get_tax_inheritance_request.GetTaxInheritanceRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -448,12 +448,12 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.get_tax_registration_request.GetTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.get_tax_registration_request.GetTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -490,13 +490,13 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.get_tax_registration_document_request.GetTaxRegistrationDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.get_tax_registration_document_request.GetTaxRegistrationDocumentRequest = {}  # type: ignore[typeddict-item]
         if destination_s3_location is not None:
-            input["destination_s3_location"] = destination_s3_location
-        input["tax_document_metadata"] = tax_document_metadata
+            input_["destination_s3_location"] = destination_s3_location
+        input_["tax_document_metadata"] = tax_document_metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,14 +535,14 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.list_supplemental_tax_registrations_request.ListSupplementalTaxRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.list_supplemental_tax_registrations_request.ListSupplementalTaxRegistrationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -606,14 +606,14 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.list_tax_exemptions_request.ListTaxExemptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.list_tax_exemptions_request.ListTaxExemptionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -677,14 +677,14 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.list_tax_registrations_request.ListTaxRegistrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.list_tax_registrations_request.ListTaxRegistrationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -742,11 +742,11 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.put_supplemental_tax_registration_request.PutSupplementalTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["tax_registration_entry"] = tax_registration_entry
+        input_: aws_sdk_taxsettings.types.put_supplemental_tax_registration_request.PutSupplementalTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["tax_registration_entry"] = tax_registration_entry
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -783,14 +783,14 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.put_tax_exemption_request.PutTaxExemptionRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
-        input["authority"] = authority
-        input["exemption_type"] = exemption_type
-        input["exemption_certificate"] = exemption_certificate
+        input_: aws_sdk_taxsettings.types.put_tax_exemption_request.PutTaxExemptionRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
+        input_["authority"] = authority
+        input_["exemption_type"] = exemption_type
+        input_["exemption_certificate"] = exemption_certificate
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -825,12 +825,12 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.put_tax_inheritance_request.PutTaxInheritanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.put_tax_inheritance_request.PutTaxInheritanceRequest = {}  # type: ignore[typeddict-item]
         if heritage_status is not None:
-            input["heritage_status"] = heritage_status
+            input_["heritage_status"] = heritage_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -865,13 +865,13 @@ class TaxSettingsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_taxsettings.types.put_tax_registration_request.PutTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_taxsettings.types.put_tax_registration_request.PutTaxRegistrationRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
-        input["tax_registration_entry"] = tax_registration_entry
+            input_["account_id"] = account_id
+        input_["tax_registration_entry"] = tax_registration_entry
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

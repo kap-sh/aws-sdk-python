@@ -93,14 +93,14 @@ def build_request(
     options: OperationOptions | AsyncOperationOptions,
     input: aws_sdk_appfabric.types.delete_app_bundle_request.DeleteAppBundleRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/appbundles/{appBundleIdentifier}"
     url = url.replace(
         "{appBundleIdentifier}", quote(str(input["app_bundle_identifier"]), safe="")
@@ -112,11 +112,7 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
@@ -132,6 +128,7 @@ def delete_app_bundle(
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -150,6 +147,7 @@ async def async_delete_app_bundle(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

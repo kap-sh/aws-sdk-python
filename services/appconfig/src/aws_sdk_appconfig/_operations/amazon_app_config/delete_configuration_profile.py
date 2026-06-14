@@ -77,53 +77,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_appconfig.types.delete_configuration_profile_request.DeleteConfigurationProfileRequest,
+    input_: aws_sdk_appconfig.types.delete_configuration_profile_request.DeleteConfigurationProfileRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}"
     )
-    url = url.replace("{ApplicationId}", quote(str(input["application_id"]), safe=""))
+    url = url.replace("{ApplicationId}", quote(str(input_["application_id"]), safe=""))
     url = url.replace(
         "{ConfigurationProfileId}",
-        quote(str(input["configuration_profile_id"]), safe=""),
+        quote(str(input_["configuration_profile_id"]), safe=""),
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "deletion_protection_check" in input:
+    if "deletion_protection_check" in input_:
         headers["x-amzn-deletion-protection-check"] = str(
-            input["deletion_protection_check"]
+            input_["deletion_protection_check"]
         )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_configuration_profile(
     options: OperationOptions,
-    input: aws_sdk_appconfig.types.delete_configuration_profile_request.DeleteConfigurationProfileRequest,
+    input_: aws_sdk_appconfig.types.delete_configuration_profile_request.DeleteConfigurationProfileRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -132,13 +129,14 @@ def delete_configuration_profile(
 
 async def async_delete_configuration_profile(
     options: AsyncOperationOptions,
-    input: aws_sdk_appconfig.types.delete_configuration_profile_request.DeleteConfigurationProfileRequest,
+    input_: aws_sdk_appconfig.types.delete_configuration_profile_request.DeleteConfigurationProfileRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

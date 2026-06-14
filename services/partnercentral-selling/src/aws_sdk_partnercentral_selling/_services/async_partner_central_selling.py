@@ -7,12 +7,41 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_partnercentral_selling._auth._signers
+import aws_sdk_partnercentral_selling._auth._sigv4
 from aws_sdk_partnercentral_selling._auth._identity import Credentials
 from aws_sdk_partnercentral_selling._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_partnercentral_selling._auth._zapros_handler import AuthMiddleware
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.engagement import (
+    AsyncEngagement,
+)
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.engagement_by_accepting_invitation_task import (
+    AsyncEngagementByAcceptingInvitationTask,
+)
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.engagement_from_opportunity_task import (
+    AsyncEngagementFromOpportunityTask,
+)
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.engagement_invitation import (
+    AsyncEngagementInvitation,
+)
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.opportunity import (
+    AsyncOpportunity,
+)
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.opportunity_from_engagement_task import (
+    AsyncOpportunityFromEngagementTask,
+)
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.resource_snapshot import (
+    AsyncResourceSnapshot,
+)
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.resource_snapshot_job import (
+    AsyncResourceSnapshotJob,
+)
+from aws_sdk_partnercentral_selling._resources.aws_partner_central_selling.solution import (
+    AsyncSolution,
+)
 from aws_sdk_partnercentral_selling._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -119,6 +148,18 @@ class AsyncPartnerCentralSellingClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.engagement = AsyncEngagement(self)
+        self.engagement_by_accepting_invitation_task = (
+            AsyncEngagementByAcceptingInvitationTask(self)
+        )
+        self.engagement_from_opportunity_task = AsyncEngagementFromOpportunityTask(self)
+        self.engagement_invitation = AsyncEngagementInvitation(self)
+        self.opportunity = AsyncOpportunity(self)
+        self.opportunity_from_engagement_task = AsyncOpportunityFromEngagementTask(self)
+        self.resource_snapshot = AsyncResourceSnapshot(self)
+        self.resource_snapshot_job = AsyncResourceSnapshotJob(self)
+        self.solution = AsyncSolution(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncPartnerCentralSellingClientConfig] = None
@@ -180,15 +221,15 @@ class AsyncPartnerCentralSellingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.create_engagement_context_request.CreateEngagementContextRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["engagement_identifier"] = engagement_identifier
-        input["client_token"] = client_token
-        input["type"] = type
-        input["payload"] = payload
+        input_: aws_sdk_partnercentral_selling.types.create_engagement_context_request.CreateEngagementContextRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["engagement_identifier"] = engagement_identifier
+        input_["client_token"] = client_token
+        input_["type"] = type
+        input_["payload"] = payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,11 +263,11 @@ class AsyncPartnerCentralSellingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.get_selling_system_settings_request.GetSellingSystemSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.get_selling_system_settings_request.GetSellingSystemSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,11 +301,11 @@ class AsyncPartnerCentralSellingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_partnercentral_selling.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,15 +343,15 @@ class AsyncPartnerCentralSellingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.put_selling_system_settings_request.PutSellingSystemSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.put_selling_system_settings_request.PutSellingSystemSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if resource_snapshot_job_role_identifier is not None:
-            input["resource_snapshot_job_role_identifier"] = (
+            input_["resource_snapshot_job_role_identifier"] = (
                 resource_snapshot_job_role_identifier
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,12 +389,12 @@ class AsyncPartnerCentralSellingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_partnercentral_selling.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -389,12 +430,12 @@ class AsyncPartnerCentralSellingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_partnercentral_selling.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -438,16 +479,16 @@ class AsyncPartnerCentralSellingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.update_engagement_context_request.UpdateEngagementContextRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["engagement_identifier"] = engagement_identifier
-        input["context_identifier"] = context_identifier
-        input["engagement_last_modified_at"] = engagement_last_modified_at
-        input["type"] = type
-        input["payload"] = payload
+        input_: aws_sdk_partnercentral_selling.types.update_engagement_context_request.UpdateEngagementContextRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["engagement_identifier"] = engagement_identifier
+        input_["context_identifier"] = context_identifier
+        input_["engagement_last_modified_at"] = engagement_last_modified_at
+        input_["type"] = type
+        input_["payload"] = payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

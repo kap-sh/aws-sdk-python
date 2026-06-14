@@ -82,50 +82,47 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest,
+    input_: aws_sdk_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/response-headers-policy"
     params: dict[str, str] = {}
-    if "type" in input:
-        params["Type"] = str(input["type"])
-    if "marker" in input:
-        params["Marker"] = str(input["marker"])
-    if "max_items" in input:
-        params["MaxItems"] = str(input["max_items"])
+    if "type" in input_:
+        params["Type"] = str(input_["type"])
+    if "marker" in input_:
+        params["Marker"] = str(input_["marker"])
+    if "max_items" in input_:
+        params["MaxItems"] = str(input_["max_items"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_response_headers_policies(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest,
+    input_: aws_sdk_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.list_response_headers_policies_result.ListResponseHeadersPoliciesResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -134,16 +131,17 @@ def list_response_headers_policies(
 
 async def async_list_response_headers_policies(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest,
+    input_: aws_sdk_cloudfront.types.list_response_headers_policies_request.ListResponseHeadersPoliciesRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.list_response_headers_policies_result.ListResponseHeadersPoliciesResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

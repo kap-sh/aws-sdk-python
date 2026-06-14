@@ -62,14 +62,14 @@ class ApiKey:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.create_workspace_api_key_request.CreateWorkspaceApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
-        input["key_role"] = key_role
-        input["seconds_to_live"] = seconds_to_live
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.create_workspace_api_key_request.CreateWorkspaceApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
+        input_["key_role"] = key_role
+        input_["seconds_to_live"] = seconds_to_live
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -104,12 +104,12 @@ class ApiKey:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.delete_workspace_api_key_request.DeleteWorkspaceApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.delete_workspace_api_key_request.DeleteWorkspaceApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -154,14 +154,14 @@ class AsyncApiKey:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.create_workspace_api_key_request.CreateWorkspaceApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
-        input["key_role"] = key_role
-        input["seconds_to_live"] = seconds_to_live
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.create_workspace_api_key_request.CreateWorkspaceApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
+        input_["key_role"] = key_role
+        input_["seconds_to_live"] = seconds_to_live
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,12 +197,12 @@ class AsyncApiKey:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.delete_workspace_api_key_request.DeleteWorkspaceApiKeyRequest = {}  # type: ignore[typeddict-item]
-        input["key_name"] = key_name
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.delete_workspace_api_key_request.DeleteWorkspaceApiKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["key_name"] = key_name
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -228,11 +228,11 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.cancel_tag_sync_task_input.CancelTagSyncTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_arn"] = task_arn
+        input_: aws_sdk_resource_groups.types.cancel_tag_sync_task_input.CancelTagSyncTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_arn"] = task_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -290,25 +290,25 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.create_group_input.CreateGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_resource_groups.types.create_group_input.CreateGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if resource_query is not None:
-            input["resource_query"] = resource_query
+            input_["resource_query"] = resource_query
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if criticality is not None:
-            input["criticality"] = criticality
+            input_["criticality"] = criticality
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,14 +348,14 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.delete_group_input.DeleteGroupInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.delete_group_input.DeleteGroupInput = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,14 +424,14 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.get_group_input.GetGroupInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.get_group_input.GetGroupInput = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -467,12 +467,12 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.get_group_configuration_input.GetGroupConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.get_group_configuration_input.GetGroupConfigurationInput = {}  # type: ignore[typeddict-item]
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -512,14 +512,14 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.get_group_query_input.GetGroupQueryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.get_group_query_input.GetGroupQueryInput = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,11 +553,11 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.get_tags_input.GetTagsInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_resource_groups.types.get_tags_input.GetTagsInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,11 +591,11 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.get_tag_sync_task_input.GetTagSyncTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_arn"] = task_arn
+        input_: aws_sdk_resource_groups.types.get_tag_sync_task_input.GetTagSyncTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_arn"] = task_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -631,12 +631,12 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.group_resources_input.GroupResourcesInput = {}  # type: ignore[typeddict-item]
-        input["group"] = group
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_resource_groups.types.group_resources_input.GroupResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["group"] = group
+        input_["resource_arns"] = resource_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -682,17 +682,17 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.list_grouping_statuses_input.ListGroupingStatusesInput = {}  # type: ignore[typeddict-item]
-        input["group"] = group
+        input_: aws_sdk_resource_groups.types.list_grouping_statuses_input.ListGroupingStatusesInput = {}  # type: ignore[typeddict-item]
+        input_["group"] = group
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -775,20 +775,20 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.list_group_resources_input.ListGroupResourcesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.list_group_resources_input.ListGroupResourcesInput = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -869,16 +869,16 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.list_groups_input.ListGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.list_groups_input.ListGroupsInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -953,16 +953,16 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.list_tag_sync_tasks_input.ListTagSyncTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.list_tag_sync_tasks_input.ListTagSyncTasksInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1031,14 +1031,14 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.put_group_configuration_input.PutGroupConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.put_group_configuration_input.PutGroupConfigurationInput = {}  # type: ignore[typeddict-item]
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1080,15 +1080,15 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.search_resources_input.SearchResourcesInput = {}  # type: ignore[typeddict-item]
-        input["resource_query"] = resource_query
+        input_: aws_sdk_resource_groups.types.search_resources_input.SearchResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["resource_query"] = resource_query
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1159,18 +1159,18 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.start_tag_sync_task_input.StartTagSyncTaskInput = {}  # type: ignore[typeddict-item]
-        input["group"] = group
+        input_: aws_sdk_resource_groups.types.start_tag_sync_task_input.StartTagSyncTaskInput = {}  # type: ignore[typeddict-item]
+        input_["group"] = group
         if tag_key is not None:
-            input["tag_key"] = tag_key
+            input_["tag_key"] = tag_key
         if tag_value is not None:
-            input["tag_value"] = tag_value
+            input_["tag_value"] = tag_value
         if resource_query is not None:
-            input["resource_query"] = resource_query
-        input["role_arn"] = role_arn
+            input_["resource_query"] = resource_query
+        input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1206,12 +1206,12 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.tag_input.TagInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_resource_groups.types.tag_input.TagInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1249,12 +1249,12 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.ungroup_resources_input.UngroupResourcesInput = {}  # type: ignore[typeddict-item]
-        input["group"] = group
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_resource_groups.types.ungroup_resources_input.UngroupResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["group"] = group
+        input_["resource_arns"] = resource_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1290,12 +1290,12 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.untag_input.UntagInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["keys"] = keys
+        input_: aws_sdk_resource_groups.types.untag_input.UntagInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["keys"] = keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1331,14 +1331,14 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.update_account_settings_input.UpdateAccountSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.update_account_settings_input.UpdateAccountSettingsInput = {}  # type: ignore[typeddict-item]
         if group_lifecycle_events_desired_status is not None:
-            input["group_lifecycle_events_desired_status"] = (
+            input_["group_lifecycle_events_desired_status"] = (
                 group_lifecycle_events_desired_status
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1392,22 +1392,22 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.update_group_input.UpdateGroupInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.update_group_input.UpdateGroupInput = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if criticality is not None:
-            input["criticality"] = criticality
+            input_["criticality"] = criticality
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1451,15 +1451,15 @@ class AsyncResourceGroupsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_resource_groups.types.update_group_query_input.UpdateGroupQueryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_resource_groups.types.update_group_query_input.UpdateGroupQueryInput = {}  # type: ignore[typeddict-item]
         if group_name is not None:
-            input["group_name"] = group_name
+            input_["group_name"] = group_name
         if group is not None:
-            input["group"] = group
-        input["resource_query"] = resource_query
+            input_["group"] = group
+        input_["resource_query"] = resource_query
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

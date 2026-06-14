@@ -87,9 +87,9 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_signin.types.create_o_auth2_token_request.CreateOAuth2TokenRequest,
+    input_: aws_sdk_signin.types.create_o_auth2_token_request.CreateOAuth2TokenRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
@@ -97,16 +97,16 @@ def build_request(
             Region=options.region,
             IsControlPlane=False,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v1/token"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "token_input" in input:
+    if "token_input" in input_:
         import aws_sdk_signin.types.create_o_auth2_token_request_body
 
         body: bytes | None = json.dumps(
             aws_sdk_signin.types.create_o_auth2_token_request_body.serialize_json(
-                input["token_input"]
+                input_["token_input"]
             )
         ).encode()
         headers["content-type"] = "application/json"
@@ -116,26 +116,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def create_o_auth2_token(
     options: OperationOptions,
-    input: aws_sdk_signin.types.create_o_auth2_token_request.CreateOAuth2TokenRequest,
+    input_: aws_sdk_signin.types.create_o_auth2_token_request.CreateOAuth2TokenRequest,
 ) -> tuple[
     aws_sdk_signin.types.create_o_auth2_token_response.CreateOAuth2TokenResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -144,16 +141,17 @@ def create_o_auth2_token(
 
 async def async_create_o_auth2_token(
     options: AsyncOperationOptions,
-    input: aws_sdk_signin.types.create_o_auth2_token_request.CreateOAuth2TokenRequest,
+    input_: aws_sdk_signin.types.create_o_auth2_token_request.CreateOAuth2TokenRequest,
 ) -> tuple[
     aws_sdk_signin.types.create_o_auth2_token_response.CreateOAuth2TokenResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

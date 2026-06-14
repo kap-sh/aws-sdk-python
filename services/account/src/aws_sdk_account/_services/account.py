@@ -13,6 +13,20 @@ from aws_sdk_account._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_account._auth._zapros_handler import AuthMiddleware
+from aws_sdk_account._resources.account.account_name_resource import AccountNameResource
+from aws_sdk_account._resources.account.alternate_contact_resource import (
+    AlternateContactResource,
+)
+from aws_sdk_account._resources.account.commercial_to_gov_cloud_gateway_resource import (
+    CommercialToGovCloudGatewayResource,
+)
+from aws_sdk_account._resources.account.contact_information_resource import (
+    ContactInformationResource,
+)
+from aws_sdk_account._resources.account.primary_email_resource import (
+    PrimaryEmailResource,
+)
+from aws_sdk_account._resources.account.region_opt_resource import RegionOptResource
 from aws_sdk_account._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +104,15 @@ class AccountClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_name_resource = AccountNameResource(self)
+        self.alternate_contact_resource = AlternateContactResource(self)
+        self.commercial_to_gov_cloud_gateway_resource = (
+            CommercialToGovCloudGatewayResource(self)
+        )
+        self.contact_information_resource = ContactInformationResource(self)
+        self.primary_email_resource = PrimaryEmailResource(self)
+        self.region_opt_resource = RegionOptResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AccountClientConfig] = None

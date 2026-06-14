@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_mturk._auth._signers
+import aws_sdk_mturk._auth._sigv4
 from aws_sdk_mturk._auth._identity import Credentials
 from aws_sdk_mturk._auth._providers import (
     CredentialsProvider,
@@ -253,13 +255,13 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.accept_qualification_request_request.AcceptQualificationRequestRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_request_id"] = qualification_request_id
+        input_: aws_sdk_mturk.types.accept_qualification_request_request.AcceptQualificationRequestRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_request_id"] = qualification_request_id
         if integer_value is not None:
-            input["integer_value"] = integer_value
+            input_["integer_value"] = integer_value
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -296,15 +298,15 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.approve_assignment_request.ApproveAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["assignment_id"] = assignment_id
+        input_: aws_sdk_mturk.types.approve_assignment_request.ApproveAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assignment_id"] = assignment_id
         if requester_feedback is not None:
-            input["requester_feedback"] = requester_feedback
+            input_["requester_feedback"] = requester_feedback
         if override_rejection is not None:
-            input["override_rejection"] = override_rejection
+            input_["override_rejection"] = override_rejection
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -343,16 +345,16 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.associate_qualification_with_worker_request.AssociateQualificationWithWorkerRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_type_id"] = qualification_type_id
-        input["worker_id"] = worker_id
+        input_: aws_sdk_mturk.types.associate_qualification_with_worker_request.AssociateQualificationWithWorkerRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_type_id"] = qualification_type_id
+        input_["worker_id"] = worker_id
         if integer_value is not None:
-            input["integer_value"] = integer_value
+            input_["integer_value"] = integer_value
         if send_notification is not None:
-            input["send_notification"] = send_notification
+            input_["send_notification"] = send_notification
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,14 +393,14 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.create_additional_assignments_for_hit_request.CreateAdditionalAssignmentsForHITRequest = {}  # type: ignore[typeddict-item]
-        input["hit_id"] = hit_id
-        input["number_of_additional_assignments"] = number_of_additional_assignments
+        input_: aws_sdk_mturk.types.create_additional_assignments_for_hit_request.CreateAdditionalAssignmentsForHITRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_id"] = hit_id
+        input_["number_of_additional_assignments"] = number_of_additional_assignments
         if unique_request_token is not None:
-            input["unique_request_token"] = unique_request_token
+            input_["unique_request_token"] = unique_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,37 +475,37 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.create_hit_request.CreateHITRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.create_hit_request.CreateHITRequest = {}  # type: ignore[typeddict-item]
         if max_assignments is not None:
-            input["max_assignments"] = max_assignments
+            input_["max_assignments"] = max_assignments
         if auto_approval_delay_in_seconds is not None:
-            input["auto_approval_delay_in_seconds"] = auto_approval_delay_in_seconds
-        input["lifetime_in_seconds"] = lifetime_in_seconds
-        input["assignment_duration_in_seconds"] = assignment_duration_in_seconds
-        input["reward"] = reward
-        input["title"] = title
+            input_["auto_approval_delay_in_seconds"] = auto_approval_delay_in_seconds
+        input_["lifetime_in_seconds"] = lifetime_in_seconds
+        input_["assignment_duration_in_seconds"] = assignment_duration_in_seconds
+        input_["reward"] = reward
+        input_["title"] = title
         if keywords is not None:
-            input["keywords"] = keywords
-        input["description"] = description
+            input_["keywords"] = keywords
+        input_["description"] = description
         if question is not None:
-            input["question"] = question
+            input_["question"] = question
         if requester_annotation is not None:
-            input["requester_annotation"] = requester_annotation
+            input_["requester_annotation"] = requester_annotation
         if qualification_requirements is not None:
-            input["qualification_requirements"] = qualification_requirements
+            input_["qualification_requirements"] = qualification_requirements
         if unique_request_token is not None:
-            input["unique_request_token"] = unique_request_token
+            input_["unique_request_token"] = unique_request_token
         if assignment_review_policy is not None:
-            input["assignment_review_policy"] = assignment_review_policy
+            input_["assignment_review_policy"] = assignment_review_policy
         if hit_review_policy is not None:
-            input["hit_review_policy"] = hit_review_policy
+            input_["hit_review_policy"] = hit_review_policy
         if hit_layout_id is not None:
-            input["hit_layout_id"] = hit_layout_id
+            input_["hit_layout_id"] = hit_layout_id
         if hit_layout_parameters is not None:
-            input["hit_layout_parameters"] = hit_layout_parameters
+            input_["hit_layout_parameters"] = hit_layout_parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,20 +554,20 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.create_hit_type_request.CreateHITTypeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.create_hit_type_request.CreateHITTypeRequest = {}  # type: ignore[typeddict-item]
         if auto_approval_delay_in_seconds is not None:
-            input["auto_approval_delay_in_seconds"] = auto_approval_delay_in_seconds
-        input["assignment_duration_in_seconds"] = assignment_duration_in_seconds
-        input["reward"] = reward
-        input["title"] = title
+            input_["auto_approval_delay_in_seconds"] = auto_approval_delay_in_seconds
+        input_["assignment_duration_in_seconds"] = assignment_duration_in_seconds
+        input_["reward"] = reward
+        input_["title"] = title
         if keywords is not None:
-            input["keywords"] = keywords
-        input["description"] = description
+            input_["keywords"] = keywords
+        input_["description"] = description
         if qualification_requirements is not None:
-            input["qualification_requirements"] = qualification_requirements
+            input_["qualification_requirements"] = qualification_requirements
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,28 +626,28 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.create_hit_with_hit_type_request.CreateHITWithHITTypeRequest = {}  # type: ignore[typeddict-item]
-        input["hit_type_id"] = hit_type_id
+        input_: aws_sdk_mturk.types.create_hit_with_hit_type_request.CreateHITWithHITTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_type_id"] = hit_type_id
         if max_assignments is not None:
-            input["max_assignments"] = max_assignments
-        input["lifetime_in_seconds"] = lifetime_in_seconds
+            input_["max_assignments"] = max_assignments
+        input_["lifetime_in_seconds"] = lifetime_in_seconds
         if question is not None:
-            input["question"] = question
+            input_["question"] = question
         if requester_annotation is not None:
-            input["requester_annotation"] = requester_annotation
+            input_["requester_annotation"] = requester_annotation
         if unique_request_token is not None:
-            input["unique_request_token"] = unique_request_token
+            input_["unique_request_token"] = unique_request_token
         if assignment_review_policy is not None:
-            input["assignment_review_policy"] = assignment_review_policy
+            input_["assignment_review_policy"] = assignment_review_policy
         if hit_review_policy is not None:
-            input["hit_review_policy"] = hit_review_policy
+            input_["hit_review_policy"] = hit_review_policy
         if hit_layout_id is not None:
-            input["hit_layout_id"] = hit_layout_id
+            input_["hit_layout_id"] = hit_layout_id
         if hit_layout_parameters is not None:
-            input["hit_layout_parameters"] = hit_layout_parameters
+            input_["hit_layout_parameters"] = hit_layout_parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -696,27 +698,27 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.create_qualification_type_request.CreateQualificationTypeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mturk.types.create_qualification_type_request.CreateQualificationTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if keywords is not None:
-            input["keywords"] = keywords
-        input["description"] = description
-        input["qualification_type_status"] = qualification_type_status
+            input_["keywords"] = keywords
+        input_["description"] = description
+        input_["qualification_type_status"] = qualification_type_status
         if retry_delay_in_seconds is not None:
-            input["retry_delay_in_seconds"] = retry_delay_in_seconds
+            input_["retry_delay_in_seconds"] = retry_delay_in_seconds
         if test is not None:
-            input["test"] = test
+            input_["test"] = test
         if answer_key is not None:
-            input["answer_key"] = answer_key
+            input_["answer_key"] = answer_key
         if test_duration_in_seconds is not None:
-            input["test_duration_in_seconds"] = test_duration_in_seconds
+            input_["test_duration_in_seconds"] = test_duration_in_seconds
         if auto_granted is not None:
-            input["auto_granted"] = auto_granted
+            input_["auto_granted"] = auto_granted
         if auto_granted_value is not None:
-            input["auto_granted_value"] = auto_granted_value
+            input_["auto_granted_value"] = auto_granted_value
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -751,12 +753,12 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.create_worker_block_request.CreateWorkerBlockRequest = {}  # type: ignore[typeddict-item]
-        input["worker_id"] = worker_id
-        input["reason"] = reason
+        input_: aws_sdk_mturk.types.create_worker_block_request.CreateWorkerBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["worker_id"] = worker_id
+        input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -789,11 +791,11 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.delete_hit_request.DeleteHITRequest = {}  # type: ignore[typeddict-item]
-        input["hit_id"] = hit_id
+        input_: aws_sdk_mturk.types.delete_hit_request.DeleteHITRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_id"] = hit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -826,11 +828,11 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.delete_qualification_type_request.DeleteQualificationTypeRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_type_id"] = qualification_type_id
+        input_: aws_sdk_mturk.types.delete_qualification_type_request.DeleteQualificationTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_type_id"] = qualification_type_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -865,13 +867,13 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.delete_worker_block_request.DeleteWorkerBlockRequest = {}  # type: ignore[typeddict-item]
-        input["worker_id"] = worker_id
+        input_: aws_sdk_mturk.types.delete_worker_block_request.DeleteWorkerBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["worker_id"] = worker_id
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -908,14 +910,14 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.disassociate_qualification_from_worker_request.DisassociateQualificationFromWorkerRequest = {}  # type: ignore[typeddict-item]
-        input["worker_id"] = worker_id
-        input["qualification_type_id"] = qualification_type_id
+        input_: aws_sdk_mturk.types.disassociate_qualification_from_worker_request.DisassociateQualificationFromWorkerRequest = {}  # type: ignore[typeddict-item]
+        input_["worker_id"] = worker_id
+        input_["qualification_type_id"] = qualification_type_id
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -941,10 +943,10 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.get_account_balance_request.GetAccountBalanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.get_account_balance_request.GetAccountBalanceRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -977,11 +979,11 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.get_assignment_request.GetAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["assignment_id"] = assignment_id
+        input_: aws_sdk_mturk.types.get_assignment_request.GetAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assignment_id"] = assignment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1016,12 +1018,12 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.get_file_upload_url_request.GetFileUploadURLRequest = {}  # type: ignore[typeddict-item]
-        input["assignment_id"] = assignment_id
-        input["question_identifier"] = question_identifier
+        input_: aws_sdk_mturk.types.get_file_upload_url_request.GetFileUploadURLRequest = {}  # type: ignore[typeddict-item]
+        input_["assignment_id"] = assignment_id
+        input_["question_identifier"] = question_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1052,11 +1054,11 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.get_hit_request.GetHITRequest = {}  # type: ignore[typeddict-item]
-        input["hit_id"] = hit_id
+        input_: aws_sdk_mturk.types.get_hit_request.GetHITRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_id"] = hit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1091,12 +1093,12 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.get_qualification_score_request.GetQualificationScoreRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_type_id"] = qualification_type_id
-        input["worker_id"] = worker_id
+        input_: aws_sdk_mturk.types.get_qualification_score_request.GetQualificationScoreRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_type_id"] = qualification_type_id
+        input_["worker_id"] = worker_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1129,11 +1131,11 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.get_qualification_type_request.GetQualificationTypeRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_type_id"] = qualification_type_id
+        input_: aws_sdk_mturk.types.get_qualification_type_request.GetQualificationTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_type_id"] = qualification_type_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1175,17 +1177,17 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_assignments_for_hit_request.ListAssignmentsForHITRequest = {}  # type: ignore[typeddict-item]
-        input["hit_id"] = hit_id
+        input_: aws_sdk_mturk.types.list_assignments_for_hit_request.ListAssignmentsForHITRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_id"] = hit_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if assignment_statuses is not None:
-            input["assignment_statuses"] = assignment_statuses
+            input_["assignment_statuses"] = assignment_statuses
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1225,18 +1227,18 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_bonus_payments_request.ListBonusPaymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.list_bonus_payments_request.ListBonusPaymentsRequest = {}  # type: ignore[typeddict-item]
         if hit_id is not None:
-            input["hit_id"] = hit_id
+            input_["hit_id"] = hit_id
         if assignment_id is not None:
-            input["assignment_id"] = assignment_id
+            input_["assignment_id"] = assignment_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,14 +1274,14 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_hi_ts_request.ListHITsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.list_hi_ts_request.ListHITsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1318,15 +1320,15 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_hi_ts_for_qualification_type_request.ListHITsForQualificationTypeRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_type_id"] = qualification_type_id
+        input_: aws_sdk_mturk.types.list_hi_ts_for_qualification_type_request.ListHITsForQualificationTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_type_id"] = qualification_type_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1366,16 +1368,16 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_qualification_requests_request.ListQualificationRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.list_qualification_requests_request.ListQualificationRequestsRequest = {}  # type: ignore[typeddict-item]
         if qualification_type_id is not None:
-            input["qualification_type_id"] = qualification_type_id
+            input_["qualification_type_id"] = qualification_type_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1417,19 +1419,19 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_qualification_types_request.ListQualificationTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.list_qualification_types_request.ListQualificationTypesRequest = {}  # type: ignore[typeddict-item]
         if query is not None:
-            input["query"] = query
-        input["must_be_requestable"] = must_be_requestable
+            input_["query"] = query
+        input_["must_be_requestable"] = must_be_requestable
         if must_be_owned_by_caller is not None:
-            input["must_be_owned_by_caller"] = must_be_owned_by_caller
+            input_["must_be_owned_by_caller"] = must_be_owned_by_caller
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1474,18 +1476,18 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_reviewable_hi_ts_request.ListReviewableHITsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.list_reviewable_hi_ts_request.ListReviewableHITsRequest = {}  # type: ignore[typeddict-item]
         if hit_type_id is not None:
-            input["hit_type_id"] = hit_type_id
+            input_["hit_type_id"] = hit_type_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1532,21 +1534,21 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_review_policy_results_for_hit_request.ListReviewPolicyResultsForHITRequest = {}  # type: ignore[typeddict-item]
-        input["hit_id"] = hit_id
+        input_: aws_sdk_mturk.types.list_review_policy_results_for_hit_request.ListReviewPolicyResultsForHITRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_id"] = hit_id
         if policy_levels is not None:
-            input["policy_levels"] = policy_levels
+            input_["policy_levels"] = policy_levels
         if retrieve_actions is not None:
-            input["retrieve_actions"] = retrieve_actions
+            input_["retrieve_actions"] = retrieve_actions
         if retrieve_results is not None:
-            input["retrieve_results"] = retrieve_results
+            input_["retrieve_results"] = retrieve_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1582,14 +1584,14 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_worker_blocks_request.ListWorkerBlocksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mturk.types.list_worker_blocks_request.ListWorkerBlocksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1632,17 +1634,17 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.list_workers_with_qualification_type_request.ListWorkersWithQualificationTypeRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_type_id"] = qualification_type_id
+        input_: aws_sdk_mturk.types.list_workers_with_qualification_type_request.ListWorkersWithQualificationTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_type_id"] = qualification_type_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1679,13 +1681,13 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.notify_workers_request.NotifyWorkersRequest = {}  # type: ignore[typeddict-item]
-        input["subject"] = subject
-        input["message_text"] = message_text
-        input["worker_ids"] = worker_ids
+        input_: aws_sdk_mturk.types.notify_workers_request.NotifyWorkersRequest = {}  # type: ignore[typeddict-item]
+        input_["subject"] = subject
+        input_["message_text"] = message_text
+        input_["worker_ids"] = worker_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1720,12 +1722,12 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.reject_assignment_request.RejectAssignmentRequest = {}  # type: ignore[typeddict-item]
-        input["assignment_id"] = assignment_id
-        input["requester_feedback"] = requester_feedback
+        input_: aws_sdk_mturk.types.reject_assignment_request.RejectAssignmentRequest = {}  # type: ignore[typeddict-item]
+        input_["assignment_id"] = assignment_id
+        input_["requester_feedback"] = requester_feedback
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1760,13 +1762,13 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.reject_qualification_request_request.RejectQualificationRequestRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_request_id"] = qualification_request_id
+        input_: aws_sdk_mturk.types.reject_qualification_request_request.RejectQualificationRequestRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_request_id"] = qualification_request_id
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1809,16 +1811,16 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.send_bonus_request.SendBonusRequest = {}  # type: ignore[typeddict-item]
-        input["worker_id"] = worker_id
-        input["bonus_amount"] = bonus_amount
-        input["assignment_id"] = assignment_id
-        input["reason"] = reason
+        input_: aws_sdk_mturk.types.send_bonus_request.SendBonusRequest = {}  # type: ignore[typeddict-item]
+        input_["worker_id"] = worker_id
+        input_["bonus_amount"] = bonus_amount
+        input_["assignment_id"] = assignment_id
+        input_["reason"] = reason
         if unique_request_token is not None:
-            input["unique_request_token"] = unique_request_token
+            input_["unique_request_token"] = unique_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1853,12 +1855,12 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.send_test_event_notification_request.SendTestEventNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["notification"] = notification
-        input["test_event_type"] = test_event_type
+        input_: aws_sdk_mturk.types.send_test_event_notification_request.SendTestEventNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["notification"] = notification
+        input_["test_event_type"] = test_event_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1893,12 +1895,12 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.update_expiration_for_hit_request.UpdateExpirationForHITRequest = {}  # type: ignore[typeddict-item]
-        input["hit_id"] = hit_id
-        input["expire_at"] = expire_at
+        input_: aws_sdk_mturk.types.update_expiration_for_hit_request.UpdateExpirationForHITRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_id"] = hit_id
+        input_["expire_at"] = expire_at
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1933,13 +1935,13 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.update_hit_review_status_request.UpdateHITReviewStatusRequest = {}  # type: ignore[typeddict-item]
-        input["hit_id"] = hit_id
+        input_: aws_sdk_mturk.types.update_hit_review_status_request.UpdateHITReviewStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_id"] = hit_id
         if revert is not None:
-            input["revert"] = revert
+            input_["revert"] = revert
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1976,12 +1978,12 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.update_hit_type_of_hit_request.UpdateHITTypeOfHITRequest = {}  # type: ignore[typeddict-item]
-        input["hit_id"] = hit_id
-        input["hit_type_id"] = hit_type_id
+        input_: aws_sdk_mturk.types.update_hit_type_of_hit_request.UpdateHITTypeOfHITRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_id"] = hit_id
+        input_["hit_type_id"] = hit_type_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2020,15 +2022,15 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.update_notification_settings_request.UpdateNotificationSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["hit_type_id"] = hit_type_id
+        input_: aws_sdk_mturk.types.update_notification_settings_request.UpdateNotificationSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["hit_type_id"] = hit_type_id
         if notification is not None:
-            input["notification"] = notification
+            input_["notification"] = notification
         if active is not None:
-            input["active"] = active
+            input_["active"] = active
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2079,27 +2081,27 @@ class MTurkClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mturk.types.update_qualification_type_request.UpdateQualificationTypeRequest = {}  # type: ignore[typeddict-item]
-        input["qualification_type_id"] = qualification_type_id
+        input_: aws_sdk_mturk.types.update_qualification_type_request.UpdateQualificationTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["qualification_type_id"] = qualification_type_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if qualification_type_status is not None:
-            input["qualification_type_status"] = qualification_type_status
+            input_["qualification_type_status"] = qualification_type_status
         if test is not None:
-            input["test"] = test
+            input_["test"] = test
         if answer_key is not None:
-            input["answer_key"] = answer_key
+            input_["answer_key"] = answer_key
         if test_duration_in_seconds is not None:
-            input["test_duration_in_seconds"] = test_duration_in_seconds
+            input_["test_duration_in_seconds"] = test_duration_in_seconds
         if retry_delay_in_seconds is not None:
-            input["retry_delay_in_seconds"] = retry_delay_in_seconds
+            input_["retry_delay_in_seconds"] = retry_delay_in_seconds
         if auto_granted is not None:
-            input["auto_granted"] = auto_granted
+            input_["auto_granted"] = auto_granted
         if auto_granted_value is not None:
-            input["auto_granted_value"] = auto_granted_value
+            input_["auto_granted_value"] = auto_granted_value
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

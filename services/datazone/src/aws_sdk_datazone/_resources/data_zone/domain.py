@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -98,27 +99,27 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_domain_input.CreateDomainInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_domain_input.CreateDomainInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if single_sign_on is not None:
-            input["single_sign_on"] = single_sign_on
+            input_["single_sign_on"] = single_sign_on
         if domain_execution_role is not None:
-            input["domain_execution_role"] = domain_execution_role
+            input_["domain_execution_role"] = domain_execution_role
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if domain_version is not None:
-            input["domain_version"] = domain_version
+            input_["domain_version"] = domain_version
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,11 +152,11 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_domain_input.GetDomainInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_domain_input.GetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,23 +205,23 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_domain_input.UpdateDomainInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_domain_input.UpdateDomainInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if single_sign_on is not None:
-            input["single_sign_on"] = single_sign_on
+            input_["single_sign_on"] = single_sign_on
         if domain_execution_role is not None:
-            input["domain_execution_role"] = domain_execution_role
+            input_["domain_execution_role"] = domain_execution_role
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -257,15 +258,15 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_domain_input.DeleteDomainInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_domain_input.DeleteDomainInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if skip_deletion_check is not None:
-            input["skip_deletion_check"] = skip_deletion_check
+            input_["skip_deletion_check"] = skip_deletion_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,16 +307,16 @@ class Domain:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_domains_input.ListDomainsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datazone.types.list_domains_input.ListDomainsInput = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,27 +379,27 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_domain_input.CreateDomainInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_domain_input.CreateDomainInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if single_sign_on is not None:
-            input["single_sign_on"] = single_sign_on
+            input_["single_sign_on"] = single_sign_on
         if domain_execution_role is not None:
-            input["domain_execution_role"] = domain_execution_role
+            input_["domain_execution_role"] = domain_execution_role
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if domain_version is not None:
-            input["domain_version"] = domain_version
+            input_["domain_version"] = domain_version
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,11 +433,11 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_domain_input.GetDomainInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_domain_input.GetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -486,23 +487,23 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_domain_input.UpdateDomainInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_domain_input.UpdateDomainInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if single_sign_on is not None:
-            input["single_sign_on"] = single_sign_on
+            input_["single_sign_on"] = single_sign_on
         if domain_execution_role is not None:
-            input["domain_execution_role"] = domain_execution_role
+            input_["domain_execution_role"] = domain_execution_role
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -540,15 +541,15 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_domain_input.DeleteDomainInput = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_domain_input.DeleteDomainInput = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if skip_deletion_check is not None:
-            input["skip_deletion_check"] = skip_deletion_check
+            input_["skip_deletion_check"] = skip_deletion_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -590,16 +591,16 @@ class AsyncDomain:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_domains_input.ListDomainsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datazone.types.list_domains_input.ListDomainsInput = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -130,37 +130,37 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["display_name"] = display_name
+        input_: aws_sdk_qbusiness.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["display_name"] = display_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if identity_type is not None:
-            input["identity_type"] = identity_type
+            input_["identity_type"] = identity_type
         if iam_identity_provider_arn is not None:
-            input["iam_identity_provider_arn"] = iam_identity_provider_arn
+            input_["iam_identity_provider_arn"] = iam_identity_provider_arn
         if identity_center_instance_arn is not None:
-            input["identity_center_instance_arn"] = identity_center_instance_arn
+            input_["identity_center_instance_arn"] = identity_center_instance_arn
         if client_ids_for_oidc is not None:
-            input["client_ids_for_oidc"] = client_ids_for_oidc
+            input_["client_ids_for_oidc"] = client_ids_for_oidc
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if attachments_configuration is not None:
-            input["attachments_configuration"] = attachments_configuration
+            input_["attachments_configuration"] = attachments_configuration
         if q_apps_configuration is not None:
-            input["q_apps_configuration"] = q_apps_configuration
+            input_["q_apps_configuration"] = q_apps_configuration
         if personalization_configuration is not None:
-            input["personalization_configuration"] = personalization_configuration
+            input_["personalization_configuration"] = personalization_configuration
         if quick_sight_configuration is not None:
-            input["quick_sight_configuration"] = quick_sight_configuration
+            input_["quick_sight_configuration"] = quick_sight_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -193,11 +193,11 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,27 +260,27 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if identity_center_instance_arn is not None:
-            input["identity_center_instance_arn"] = identity_center_instance_arn
+            input_["identity_center_instance_arn"] = identity_center_instance_arn
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if attachments_configuration is not None:
-            input["attachments_configuration"] = attachments_configuration
+            input_["attachments_configuration"] = attachments_configuration
         if q_apps_configuration is not None:
-            input["q_apps_configuration"] = q_apps_configuration
+            input_["q_apps_configuration"] = q_apps_configuration
         if personalization_configuration is not None:
-            input["personalization_configuration"] = personalization_configuration
+            input_["personalization_configuration"] = personalization_configuration
         if auto_subscription_configuration is not None:
-            input["auto_subscription_configuration"] = auto_subscription_configuration
+            input_["auto_subscription_configuration"] = auto_subscription_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -315,11 +315,11 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,14 +356,14 @@ class ApplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_qbusiness.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -450,37 +450,37 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["display_name"] = display_name
+        input_: aws_sdk_qbusiness.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["display_name"] = display_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if identity_type is not None:
-            input["identity_type"] = identity_type
+            input_["identity_type"] = identity_type
         if iam_identity_provider_arn is not None:
-            input["iam_identity_provider_arn"] = iam_identity_provider_arn
+            input_["iam_identity_provider_arn"] = iam_identity_provider_arn
         if identity_center_instance_arn is not None:
-            input["identity_center_instance_arn"] = identity_center_instance_arn
+            input_["identity_center_instance_arn"] = identity_center_instance_arn
         if client_ids_for_oidc is not None:
-            input["client_ids_for_oidc"] = client_ids_for_oidc
+            input_["client_ids_for_oidc"] = client_ids_for_oidc
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if attachments_configuration is not None:
-            input["attachments_configuration"] = attachments_configuration
+            input_["attachments_configuration"] = attachments_configuration
         if q_apps_configuration is not None:
-            input["q_apps_configuration"] = q_apps_configuration
+            input_["q_apps_configuration"] = q_apps_configuration
         if personalization_configuration is not None:
-            input["personalization_configuration"] = personalization_configuration
+            input_["personalization_configuration"] = personalization_configuration
         if quick_sight_configuration is not None:
-            input["quick_sight_configuration"] = quick_sight_configuration
+            input_["quick_sight_configuration"] = quick_sight_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,11 +514,11 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,27 +582,27 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if identity_center_instance_arn is not None:
-            input["identity_center_instance_arn"] = identity_center_instance_arn
+            input_["identity_center_instance_arn"] = identity_center_instance_arn
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if attachments_configuration is not None:
-            input["attachments_configuration"] = attachments_configuration
+            input_["attachments_configuration"] = attachments_configuration
         if q_apps_configuration is not None:
-            input["q_apps_configuration"] = q_apps_configuration
+            input_["q_apps_configuration"] = q_apps_configuration
         if personalization_configuration is not None:
-            input["personalization_configuration"] = personalization_configuration
+            input_["personalization_configuration"] = personalization_configuration
         if auto_subscription_configuration is not None:
-            input["auto_subscription_configuration"] = auto_subscription_configuration
+            input_["auto_subscription_configuration"] = auto_subscription_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,11 +638,11 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_qbusiness.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -680,14 +680,14 @@ class AsyncApplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_qbusiness.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_qbusiness.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

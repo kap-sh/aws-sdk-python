@@ -78,16 +78,16 @@ class NotificationConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_notification_configuration_request.CreateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["event_type"] = event_type
-        input["destination_name"] = destination_name
+        input_: aws_sdk_iot_managed_integrations.types.create_notification_configuration_request.CreateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type"] = event_type
+        input_["destination_name"] = destination_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -118,11 +118,11 @@ class NotificationConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_notification_configuration_request.DeleteNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["event_type"] = event_type
+        input_: aws_sdk_iot_managed_integrations.types.delete_notification_configuration_request.DeleteNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type"] = event_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -155,11 +155,11 @@ class NotificationConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["event_type"] = event_type
+        input_: aws_sdk_iot_managed_integrations.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type"] = event_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,14 +198,14 @@ class NotificationConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_notification_configurations_request.ListNotificationConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_notification_configurations_request.ListNotificationConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -238,12 +238,12 @@ class NotificationConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_notification_configuration_request.UpdateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["event_type"] = event_type
-        input["destination_name"] = destination_name
+        input_: aws_sdk_iot_managed_integrations.types.update_notification_configuration_request.UpdateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type"] = event_type
+        input_["destination_name"] = destination_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,16 +292,16 @@ class AsyncNotificationConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_notification_configuration_request.CreateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["event_type"] = event_type
-        input["destination_name"] = destination_name
+        input_: aws_sdk_iot_managed_integrations.types.create_notification_configuration_request.CreateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type"] = event_type
+        input_["destination_name"] = destination_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,11 +333,11 @@ class AsyncNotificationConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_notification_configuration_request.DeleteNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["event_type"] = event_type
+        input_: aws_sdk_iot_managed_integrations.types.delete_notification_configuration_request.DeleteNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type"] = event_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,11 +371,11 @@ class AsyncNotificationConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["event_type"] = event_type
+        input_: aws_sdk_iot_managed_integrations.types.get_notification_configuration_request.GetNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type"] = event_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,14 +415,14 @@ class AsyncNotificationConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_notification_configurations_request.ListNotificationConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_notification_configurations_request.ListNotificationConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,12 +456,12 @@ class AsyncNotificationConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_notification_configuration_request.UpdateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["event_type"] = event_type
-        input["destination_name"] = destination_name
+        input_: aws_sdk_iot_managed_integrations.types.update_notification_configuration_request.UpdateNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type"] = event_type
+        input_["destination_name"] = destination_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

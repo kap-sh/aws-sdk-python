@@ -565,19 +565,19 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
-        input["upload_id"] = upload_id
+        input_: aws_sdk_s3.types.abort_multipart_upload_request.AbortMultipartUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
+        input_["upload_id"] = upload_id
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if if_match_initiated_time is not None:
-            input["if_match_initiated_time"] = if_match_initiated_time
+            input_["if_match_initiated_time"] = if_match_initiated_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -685,53 +685,53 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.complete_multipart_upload_request.CompleteMultipartUploadRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.complete_multipart_upload_request.CompleteMultipartUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if multipart_upload is not None:
-            input["multipart_upload"] = multipart_upload
-        input["upload_id"] = upload_id
+            input_["multipart_upload"] = multipart_upload
+        input_["upload_id"] = upload_id
         if checksum_crc32 is not None:
-            input["checksum_crc32"] = checksum_crc32
+            input_["checksum_crc32"] = checksum_crc32
         if checksum_crc32_c is not None:
-            input["checksum_crc32_c"] = checksum_crc32_c
+            input_["checksum_crc32_c"] = checksum_crc32_c
         if checksum_crc64_nvme is not None:
-            input["checksum_crc64_nvme"] = checksum_crc64_nvme
+            input_["checksum_crc64_nvme"] = checksum_crc64_nvme
         if checksum_sha1 is not None:
-            input["checksum_sha1"] = checksum_sha1
+            input_["checksum_sha1"] = checksum_sha1
         if checksum_sha256 is not None:
-            input["checksum_sha256"] = checksum_sha256
+            input_["checksum_sha256"] = checksum_sha256
         if checksum_sha512 is not None:
-            input["checksum_sha512"] = checksum_sha512
+            input_["checksum_sha512"] = checksum_sha512
         if checksum_md5 is not None:
-            input["checksum_md5"] = checksum_md5
+            input_["checksum_md5"] = checksum_md5
         if checksum_xxhash64 is not None:
-            input["checksum_xxhash64"] = checksum_xxhash64
+            input_["checksum_xxhash64"] = checksum_xxhash64
         if checksum_xxhash3 is not None:
-            input["checksum_xxhash3"] = checksum_xxhash3
+            input_["checksum_xxhash3"] = checksum_xxhash3
         if checksum_xxhash128 is not None:
-            input["checksum_xxhash128"] = checksum_xxhash128
+            input_["checksum_xxhash128"] = checksum_xxhash128
         if checksum_type is not None:
-            input["checksum_type"] = checksum_type
+            input_["checksum_type"] = checksum_type
         if mpu_object_size is not None:
-            input["mpu_object_size"] = mpu_object_size
+            input_["mpu_object_size"] = mpu_object_size
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -903,95 +903,97 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.copy_object_request.CopyObjectRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.copy_object_request.CopyObjectRequest = {}  # type: ignore[typeddict-item]
         if acl is not None:
-            input["acl"] = acl
-        input["bucket"] = bucket
+            input_["acl"] = acl
+        input_["bucket"] = bucket
         if cache_control is not None:
-            input["cache_control"] = cache_control
+            input_["cache_control"] = cache_control
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if content_disposition is not None:
-            input["content_disposition"] = content_disposition
+            input_["content_disposition"] = content_disposition
         if content_encoding is not None:
-            input["content_encoding"] = content_encoding
+            input_["content_encoding"] = content_encoding
         if content_language is not None:
-            input["content_language"] = content_language
+            input_["content_language"] = content_language
         if content_type is not None:
-            input["content_type"] = content_type
-        input["copy_source"] = copy_source
+            input_["content_type"] = content_type
+        input_["copy_source"] = copy_source
         if copy_source_if_match is not None:
-            input["copy_source_if_match"] = copy_source_if_match
+            input_["copy_source_if_match"] = copy_source_if_match
         if copy_source_if_modified_since is not None:
-            input["copy_source_if_modified_since"] = copy_source_if_modified_since
+            input_["copy_source_if_modified_since"] = copy_source_if_modified_since
         if copy_source_if_none_match is not None:
-            input["copy_source_if_none_match"] = copy_source_if_none_match
+            input_["copy_source_if_none_match"] = copy_source_if_none_match
         if copy_source_if_unmodified_since is not None:
-            input["copy_source_if_unmodified_since"] = copy_source_if_unmodified_since
+            input_["copy_source_if_unmodified_since"] = copy_source_if_unmodified_since
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
         if grant_full_control is not None:
-            input["grant_full_control"] = grant_full_control
+            input_["grant_full_control"] = grant_full_control
         if grant_read is not None:
-            input["grant_read"] = grant_read
+            input_["grant_read"] = grant_read
         if grant_read_acp is not None:
-            input["grant_read_acp"] = grant_read_acp
+            input_["grant_read_acp"] = grant_read_acp
         if grant_write_acp is not None:
-            input["grant_write_acp"] = grant_write_acp
+            input_["grant_write_acp"] = grant_write_acp
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
-        input["key"] = key
+            input_["if_none_match"] = if_none_match
+        input_["key"] = key
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if metadata_directive is not None:
-            input["metadata_directive"] = metadata_directive
+            input_["metadata_directive"] = metadata_directive
         if tagging_directive is not None:
-            input["tagging_directive"] = tagging_directive
+            input_["tagging_directive"] = tagging_directive
         if server_side_encryption is not None:
-            input["server_side_encryption"] = server_side_encryption
+            input_["server_side_encryption"] = server_side_encryption
         if storage_class is not None:
-            input["storage_class"] = storage_class
+            input_["storage_class"] = storage_class
         if website_redirect_location is not None:
-            input["website_redirect_location"] = website_redirect_location
+            input_["website_redirect_location"] = website_redirect_location
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if ssekms_key_id is not None:
-            input["ssekms_key_id"] = ssekms_key_id
+            input_["ssekms_key_id"] = ssekms_key_id
         if ssekms_encryption_context is not None:
-            input["ssekms_encryption_context"] = ssekms_encryption_context
+            input_["ssekms_encryption_context"] = ssekms_encryption_context
         if bucket_key_enabled is not None:
-            input["bucket_key_enabled"] = bucket_key_enabled
+            input_["bucket_key_enabled"] = bucket_key_enabled
         if copy_source_sse_customer_algorithm is not None:
-            input["copy_source_sse_customer_algorithm"] = (
+            input_["copy_source_sse_customer_algorithm"] = (
                 copy_source_sse_customer_algorithm
             )
         if copy_source_sse_customer_key is not None:
-            input["copy_source_sse_customer_key"] = copy_source_sse_customer_key
+            input_["copy_source_sse_customer_key"] = copy_source_sse_customer_key
         if copy_source_sse_customer_key_md5 is not None:
-            input["copy_source_sse_customer_key_md5"] = copy_source_sse_customer_key_md5
+            input_["copy_source_sse_customer_key_md5"] = (
+                copy_source_sse_customer_key_md5
+            )
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if tagging is not None:
-            input["tagging"] = tagging
+            input_["tagging"] = tagging
         if object_lock_mode is not None:
-            input["object_lock_mode"] = object_lock_mode
+            input_["object_lock_mode"] = object_lock_mode
         if object_lock_retain_until_date is not None:
-            input["object_lock_retain_until_date"] = object_lock_retain_until_date
+            input_["object_lock_retain_until_date"] = object_lock_retain_until_date
         if object_lock_legal_hold_status is not None:
-            input["object_lock_legal_hold_status"] = object_lock_legal_hold_status
+            input_["object_lock_legal_hold_status"] = object_lock_legal_hold_status
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if expected_source_bucket_owner is not None:
-            input["expected_source_bucket_owner"] = expected_source_bucket_owner
+            input_["expected_source_bucket_owner"] = expected_source_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1065,31 +1067,31 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.create_bucket_request.CreateBucketRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.create_bucket_request.CreateBucketRequest = {}  # type: ignore[typeddict-item]
         if acl is not None:
-            input["acl"] = acl
-        input["bucket"] = bucket
+            input_["acl"] = acl
+        input_["bucket"] = bucket
         if create_bucket_configuration is not None:
-            input["create_bucket_configuration"] = create_bucket_configuration
+            input_["create_bucket_configuration"] = create_bucket_configuration
         if grant_full_control is not None:
-            input["grant_full_control"] = grant_full_control
+            input_["grant_full_control"] = grant_full_control
         if grant_read is not None:
-            input["grant_read"] = grant_read
+            input_["grant_read"] = grant_read
         if grant_read_acp is not None:
-            input["grant_read_acp"] = grant_read_acp
+            input_["grant_read_acp"] = grant_read_acp
         if grant_write is not None:
-            input["grant_write"] = grant_write
+            input_["grant_write"] = grant_write
         if grant_write_acp is not None:
-            input["grant_write_acp"] = grant_write_acp
+            input_["grant_write_acp"] = grant_write_acp
         if object_lock_enabled_for_bucket is not None:
-            input["object_lock_enabled_for_bucket"] = object_lock_enabled_for_bucket
+            input_["object_lock_enabled_for_bucket"] = object_lock_enabled_for_bucket
         if object_ownership is not None:
-            input["object_ownership"] = object_ownership
+            input_["object_ownership"] = object_ownership
         if bucket_namespace is not None:
-            input["bucket_namespace"] = bucket_namespace
+            input_["bucket_namespace"] = bucket_namespace
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1130,18 +1132,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.create_bucket_metadata_configuration_request.CreateBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.create_bucket_metadata_configuration_request.CreateBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["metadata_configuration"] = metadata_configuration
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["metadata_configuration"] = metadata_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1182,18 +1184,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.create_bucket_metadata_table_configuration_request.CreateBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.create_bucket_metadata_table_configuration_request.CreateBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["metadata_table_configuration"] = metadata_table_configuration
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["metadata_table_configuration"] = metadata_table_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1323,70 +1325,70 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.create_multipart_upload_request.CreateMultipartUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.create_multipart_upload_request.CreateMultipartUploadRequest = {}  # type: ignore[typeddict-item]
         if acl is not None:
-            input["acl"] = acl
-        input["bucket"] = bucket
+            input_["acl"] = acl
+        input_["bucket"] = bucket
         if cache_control is not None:
-            input["cache_control"] = cache_control
+            input_["cache_control"] = cache_control
         if content_disposition is not None:
-            input["content_disposition"] = content_disposition
+            input_["content_disposition"] = content_disposition
         if content_encoding is not None:
-            input["content_encoding"] = content_encoding
+            input_["content_encoding"] = content_encoding
         if content_language is not None:
-            input["content_language"] = content_language
+            input_["content_language"] = content_language
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
         if grant_full_control is not None:
-            input["grant_full_control"] = grant_full_control
+            input_["grant_full_control"] = grant_full_control
         if grant_read is not None:
-            input["grant_read"] = grant_read
+            input_["grant_read"] = grant_read
         if grant_read_acp is not None:
-            input["grant_read_acp"] = grant_read_acp
+            input_["grant_read_acp"] = grant_read_acp
         if grant_write_acp is not None:
-            input["grant_write_acp"] = grant_write_acp
-        input["key"] = key
+            input_["grant_write_acp"] = grant_write_acp
+        input_["key"] = key
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if server_side_encryption is not None:
-            input["server_side_encryption"] = server_side_encryption
+            input_["server_side_encryption"] = server_side_encryption
         if storage_class is not None:
-            input["storage_class"] = storage_class
+            input_["storage_class"] = storage_class
         if website_redirect_location is not None:
-            input["website_redirect_location"] = website_redirect_location
+            input_["website_redirect_location"] = website_redirect_location
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if ssekms_key_id is not None:
-            input["ssekms_key_id"] = ssekms_key_id
+            input_["ssekms_key_id"] = ssekms_key_id
         if ssekms_encryption_context is not None:
-            input["ssekms_encryption_context"] = ssekms_encryption_context
+            input_["ssekms_encryption_context"] = ssekms_encryption_context
         if bucket_key_enabled is not None:
-            input["bucket_key_enabled"] = bucket_key_enabled
+            input_["bucket_key_enabled"] = bucket_key_enabled
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if tagging is not None:
-            input["tagging"] = tagging
+            input_["tagging"] = tagging
         if object_lock_mode is not None:
-            input["object_lock_mode"] = object_lock_mode
+            input_["object_lock_mode"] = object_lock_mode
         if object_lock_retain_until_date is not None:
-            input["object_lock_retain_until_date"] = object_lock_retain_until_date
+            input_["object_lock_retain_until_date"] = object_lock_retain_until_date
         if object_lock_legal_hold_status is not None:
-            input["object_lock_legal_hold_status"] = object_lock_legal_hold_status
+            input_["object_lock_legal_hold_status"] = object_lock_legal_hold_status
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if checksum_type is not None:
-            input["checksum_type"] = checksum_type
+            input_["checksum_type"] = checksum_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1435,21 +1437,21 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
         if session_mode is not None:
-            input["session_mode"] = session_mode
-        input["bucket"] = bucket
+            input_["session_mode"] = session_mode
+        input_["bucket"] = bucket
         if server_side_encryption is not None:
-            input["server_side_encryption"] = server_side_encryption
+            input_["server_side_encryption"] = server_side_encryption
         if ssekms_key_id is not None:
-            input["ssekms_key_id"] = ssekms_key_id
+            input_["ssekms_key_id"] = ssekms_key_id
         if ssekms_encryption_context is not None:
-            input["ssekms_encryption_context"] = ssekms_encryption_context
+            input_["ssekms_encryption_context"] = ssekms_encryption_context
         if bucket_key_enabled is not None:
-            input["bucket_key_enabled"] = bucket_key_enabled
+            input_["bucket_key_enabled"] = bucket_key_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1488,13 +1490,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_request.DeleteBucketRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_request.DeleteBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1529,14 +1531,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_analytics_configuration_request.DeleteBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.delete_bucket_analytics_configuration_request.DeleteBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1575,13 +1577,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_cors_request.DeleteBucketCorsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_cors_request.DeleteBucketCorsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1614,13 +1616,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_encryption_request.DeleteBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_encryption_request.DeleteBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1655,14 +1657,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_intelligent_tiering_configuration_request.DeleteBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.delete_bucket_intelligent_tiering_configuration_request.DeleteBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1697,14 +1699,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_inventory_configuration_request.DeleteBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.delete_bucket_inventory_configuration_request.DeleteBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,13 +1745,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_lifecycle_request.DeleteBucketLifecycleRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_lifecycle_request.DeleteBucketLifecycleRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1782,13 +1784,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_metadata_configuration_request.DeleteBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_metadata_configuration_request.DeleteBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1821,13 +1823,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_metadata_table_configuration_request.DeleteBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_metadata_table_configuration_request.DeleteBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1862,14 +1864,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_metrics_configuration_request.DeleteBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.delete_bucket_metrics_configuration_request.DeleteBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1902,13 +1904,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_ownership_controls_request.DeleteBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_ownership_controls_request.DeleteBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1947,13 +1949,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_policy_request.DeleteBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_policy_request.DeleteBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1992,13 +1994,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_replication_request.DeleteBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_replication_request.DeleteBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2037,13 +2039,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_tagging_request.DeleteBucketTaggingRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_tagging_request.DeleteBucketTaggingRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2082,13 +2084,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_bucket_website_request.DeleteBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_bucket_website_request.DeleteBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2154,28 +2156,28 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_object_request.DeleteObjectRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.delete_object_request.DeleteObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if mfa is not None:
-            input["mfa"] = mfa
+            input_["mfa"] = mfa
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if bypass_governance_retention is not None:
-            input["bypass_governance_retention"] = bypass_governance_retention
+            input_["bypass_governance_retention"] = bypass_governance_retention
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_match_last_modified_time is not None:
-            input["if_match_last_modified_time"] = if_match_last_modified_time
+            input_["if_match_last_modified_time"] = if_match_last_modified_time
         if if_match_size is not None:
-            input["if_match_size"] = if_match_size
+            input_["if_match_size"] = if_match_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2204,32 +2206,32 @@ class S3Client:
         if_match_size: Optional["aws_sdk_s3.types.if_match_size.IfMatchSize"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input: "aws_sdk_s3.types.delete_object_request.DeleteObjectRequest" = {}  # type: ignore[typeddict-item]
+        input_: "aws_sdk_s3.types.delete_object_request.DeleteObjectRequest" = {}  # type: ignore[typeddict-item]
         if bucket is not None:
-            input["bucket"] = bucket
+            input_["bucket"] = bucket
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if mfa is not None:
-            input["mfa"] = mfa
+            input_["mfa"] = mfa
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if bypass_governance_retention is not None:
-            input["bypass_governance_retention"] = bypass_governance_retention
+            input_["bypass_governance_retention"] = bypass_governance_retention
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_match_last_modified_time is not None:
-            input["if_match_last_modified_time"] = if_match_last_modified_time
+            input_["if_match_last_modified_time"] = if_match_last_modified_time
         if if_match_size is not None:
-            input["if_match_size"] = if_match_size
+            input_["if_match_size"] = if_match_size
 
         import aws_sdk_s3._operations.amazon_s3.delete_object
 
         request = aws_sdk_s3._operations.amazon_s3.delete_object.build_request(
-            options_, input
+            options_, input_
         )
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
@@ -2297,22 +2299,22 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_objects_request.DeleteObjectsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["delete"] = delete
+        input_: aws_sdk_s3.types.delete_objects_request.DeleteObjectsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["delete"] = delete
         if mfa is not None:
-            input["mfa"] = mfa
+            input_["mfa"] = mfa
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if bypass_governance_retention is not None:
-            input["bypass_governance_retention"] = bypass_governance_retention
+            input_["bypass_governance_retention"] = bypass_governance_retention
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2363,16 +2365,16 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_object_tagging_request.DeleteObjectTaggingRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.delete_object_tagging_request.DeleteObjectTaggingRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2405,13 +2407,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.delete_public_access_block_request.DeletePublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.delete_public_access_block_request.DeletePublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2446,13 +2448,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_abac_request.GetBucketAbacRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_abac_request.GetBucketAbacRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2488,15 +2490,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_accelerate_configuration_request.GetBucketAccelerateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_accelerate_configuration_request.GetBucketAccelerateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2531,13 +2533,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_acl_request.GetBucketAclRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_acl_request.GetBucketAclRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2574,14 +2576,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_analytics_configuration_request.GetBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.get_bucket_analytics_configuration_request.GetBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2622,13 +2624,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_cors_request.GetBucketCorsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_cors_request.GetBucketCorsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2663,13 +2665,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_encryption_request.GetBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_encryption_request.GetBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2706,14 +2708,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_intelligent_tiering_configuration_request.GetBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.get_bucket_intelligent_tiering_configuration_request.GetBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2750,14 +2752,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_inventory_configuration_request.GetBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.get_bucket_inventory_configuration_request.GetBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2798,13 +2800,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_lifecycle_configuration_request.GetBucketLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_lifecycle_configuration_request.GetBucketLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2845,13 +2847,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_location_request.GetBucketLocationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_location_request.GetBucketLocationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2886,13 +2888,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_logging_request.GetBucketLoggingRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_logging_request.GetBucketLoggingRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2927,13 +2929,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_metadata_configuration_request.GetBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_metadata_configuration_request.GetBucketMetadataConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2968,13 +2970,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_metadata_table_configuration_request.GetBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_metadata_table_configuration_request.GetBucketMetadataTableConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3011,14 +3013,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_metrics_configuration_request.GetBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.get_bucket_metrics_configuration_request.GetBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3053,13 +3055,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_notification_configuration_request.GetBucketNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_notification_configuration_request.GetBucketNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3094,13 +3096,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_ownership_controls_request.GetBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_ownership_controls_request.GetBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3141,13 +3143,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_policy_request.GetBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_policy_request.GetBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3182,13 +3184,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_policy_status_request.GetBucketPolicyStatusRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_policy_status_request.GetBucketPolicyStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3229,13 +3231,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_replication_request.GetBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_replication_request.GetBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3276,13 +3278,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_request_payment_request.GetBucketRequestPaymentRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_request_payment_request.GetBucketRequestPaymentRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3323,13 +3325,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_tagging_request.GetBucketTaggingRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_tagging_request.GetBucketTaggingRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3370,13 +3372,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_versioning_request.GetBucketVersioningRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_versioning_request.GetBucketVersioningRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3417,13 +3419,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_bucket_website_request.GetBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_bucket_website_request.GetBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3528,50 +3530,50 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_object_request.GetObjectRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_object_request.GetObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_modified_since is not None:
-            input["if_modified_since"] = if_modified_since
+            input_["if_modified_since"] = if_modified_since
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if if_unmodified_since is not None:
-            input["if_unmodified_since"] = if_unmodified_since
-        input["key"] = key
+            input_["if_unmodified_since"] = if_unmodified_since
+        input_["key"] = key
         if range is not None:
-            input["range"] = range
+            input_["range"] = range
         if response_cache_control is not None:
-            input["response_cache_control"] = response_cache_control
+            input_["response_cache_control"] = response_cache_control
         if response_content_disposition is not None:
-            input["response_content_disposition"] = response_content_disposition
+            input_["response_content_disposition"] = response_content_disposition
         if response_content_encoding is not None:
-            input["response_content_encoding"] = response_content_encoding
+            input_["response_content_encoding"] = response_content_encoding
         if response_content_language is not None:
-            input["response_content_language"] = response_content_language
+            input_["response_content_language"] = response_content_language
         if response_content_type is not None:
-            input["response_content_type"] = response_content_type
+            input_["response_content_type"] = response_content_type
         if response_expires is not None:
-            input["response_expires"] = response_expires
+            input_["response_expires"] = response_expires
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if part_number is not None:
-            input["part_number"] = part_number
+            input_["part_number"] = part_number
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if checksum_mode is not None:
-            input["checksum_mode"] = checksum_mode
+            input_["checksum_mode"] = checksum_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3629,54 +3631,54 @@ class S3Client:
         checksum_mode: Optional["aws_sdk_s3.types.checksum_mode.ChecksumMode"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input: "aws_sdk_s3.types.get_object_request.GetObjectRequest" = {}  # type: ignore[typeddict-item]
+        input_: "aws_sdk_s3.types.get_object_request.GetObjectRequest" = {}  # type: ignore[typeddict-item]
         if bucket is not None:
-            input["bucket"] = bucket
+            input_["bucket"] = bucket
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_modified_since is not None:
-            input["if_modified_since"] = if_modified_since
+            input_["if_modified_since"] = if_modified_since
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if if_unmodified_since is not None:
-            input["if_unmodified_since"] = if_unmodified_since
+            input_["if_unmodified_since"] = if_unmodified_since
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if range is not None:
-            input["range"] = range
+            input_["range"] = range
         if response_cache_control is not None:
-            input["response_cache_control"] = response_cache_control
+            input_["response_cache_control"] = response_cache_control
         if response_content_disposition is not None:
-            input["response_content_disposition"] = response_content_disposition
+            input_["response_content_disposition"] = response_content_disposition
         if response_content_encoding is not None:
-            input["response_content_encoding"] = response_content_encoding
+            input_["response_content_encoding"] = response_content_encoding
         if response_content_language is not None:
-            input["response_content_language"] = response_content_language
+            input_["response_content_language"] = response_content_language
         if response_content_type is not None:
-            input["response_content_type"] = response_content_type
+            input_["response_content_type"] = response_content_type
         if response_expires is not None:
-            input["response_expires"] = response_expires
+            input_["response_expires"] = response_expires
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if part_number is not None:
-            input["part_number"] = part_number
+            input_["part_number"] = part_number
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if checksum_mode is not None:
-            input["checksum_mode"] = checksum_mode
+            input_["checksum_mode"] = checksum_mode
 
         import aws_sdk_s3._operations.amazon_s3.get_object
 
         request = aws_sdk_s3._operations.amazon_s3.get_object.build_request(
-            options_, input
+            options_, input_
         )
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
@@ -3734,18 +3736,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_object_acl_request.GetObjectAclRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.get_object_acl_request.GetObjectAclRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3807,29 +3809,29 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_object_attributes_request.GetObjectAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.get_object_attributes_request.GetObjectAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if max_parts is not None:
-            input["max_parts"] = max_parts
+            input_["max_parts"] = max_parts
         if part_number_marker is not None:
-            input["part_number_marker"] = part_number_marker
+            input_["part_number_marker"] = part_number_marker
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
-        input["object_attributes"] = object_attributes
+            input_["expected_bucket_owner"] = expected_bucket_owner
+        input_["object_attributes"] = object_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3871,18 +3873,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_object_legal_hold_request.GetObjectLegalHoldRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.get_object_legal_hold_request.GetObjectLegalHoldRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3917,13 +3919,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_object_lock_configuration_request.GetObjectLockConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_object_lock_configuration_request.GetObjectLockConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3965,18 +3967,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_object_retention_request.GetObjectRetentionRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.get_object_retention_request.GetObjectRetentionRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4028,18 +4030,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_object_tagging_request.GetObjectTaggingRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.get_object_tagging_request.GetObjectTaggingRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4084,16 +4086,16 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_object_torrent_request.GetObjectTorrentRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.get_object_torrent_request.GetObjectTorrentRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4128,13 +4130,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.get_public_access_block_request.GetPublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.get_public_access_block_request.GetPublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4173,13 +4175,13 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.head_bucket_request.HeadBucketRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.head_bucket_request.HeadBucketRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4373,50 +4375,50 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.head_object_request.HeadObjectRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.head_object_request.HeadObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_modified_since is not None:
-            input["if_modified_since"] = if_modified_since
+            input_["if_modified_since"] = if_modified_since
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if if_unmodified_since is not None:
-            input["if_unmodified_since"] = if_unmodified_since
-        input["key"] = key
+            input_["if_unmodified_since"] = if_unmodified_since
+        input_["key"] = key
         if range is not None:
-            input["range"] = range
+            input_["range"] = range
         if response_cache_control is not None:
-            input["response_cache_control"] = response_cache_control
+            input_["response_cache_control"] = response_cache_control
         if response_content_disposition is not None:
-            input["response_content_disposition"] = response_content_disposition
+            input_["response_content_disposition"] = response_content_disposition
         if response_content_encoding is not None:
-            input["response_content_encoding"] = response_content_encoding
+            input_["response_content_encoding"] = response_content_encoding
         if response_content_language is not None:
-            input["response_content_language"] = response_content_language
+            input_["response_content_language"] = response_content_language
         if response_content_type is not None:
-            input["response_content_type"] = response_content_type
+            input_["response_content_type"] = response_content_type
         if response_expires is not None:
-            input["response_expires"] = response_expires
+            input_["response_expires"] = response_expires
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if part_number is not None:
-            input["part_number"] = part_number
+            input_["part_number"] = part_number
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if checksum_mode is not None:
-            input["checksum_mode"] = checksum_mode
+            input_["checksum_mode"] = checksum_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4474,54 +4476,54 @@ class S3Client:
         checksum_mode: Optional["aws_sdk_s3.types.checksum_mode.ChecksumMode"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input: "aws_sdk_s3.types.head_object_request.HeadObjectRequest" = {}  # type: ignore[typeddict-item]
+        input_: "aws_sdk_s3.types.head_object_request.HeadObjectRequest" = {}  # type: ignore[typeddict-item]
         if bucket is not None:
-            input["bucket"] = bucket
+            input_["bucket"] = bucket
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_modified_since is not None:
-            input["if_modified_since"] = if_modified_since
+            input_["if_modified_since"] = if_modified_since
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if if_unmodified_since is not None:
-            input["if_unmodified_since"] = if_unmodified_since
+            input_["if_unmodified_since"] = if_unmodified_since
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if range is not None:
-            input["range"] = range
+            input_["range"] = range
         if response_cache_control is not None:
-            input["response_cache_control"] = response_cache_control
+            input_["response_cache_control"] = response_cache_control
         if response_content_disposition is not None:
-            input["response_content_disposition"] = response_content_disposition
+            input_["response_content_disposition"] = response_content_disposition
         if response_content_encoding is not None:
-            input["response_content_encoding"] = response_content_encoding
+            input_["response_content_encoding"] = response_content_encoding
         if response_content_language is not None:
-            input["response_content_language"] = response_content_language
+            input_["response_content_language"] = response_content_language
         if response_content_type is not None:
-            input["response_content_type"] = response_content_type
+            input_["response_content_type"] = response_content_type
         if response_expires is not None:
-            input["response_expires"] = response_expires
+            input_["response_expires"] = response_expires
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if part_number is not None:
-            input["part_number"] = part_number
+            input_["part_number"] = part_number
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if checksum_mode is not None:
-            input["checksum_mode"] = checksum_mode
+            input_["checksum_mode"] = checksum_mode
 
         import aws_sdk_s3._operations.amazon_s3.head_object
 
         request = aws_sdk_s3._operations.amazon_s3.head_object.build_request(
-            options_, input
+            options_, input_
         )
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
@@ -4822,15 +4824,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_bucket_analytics_configurations_request.ListBucketAnalyticsConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.list_bucket_analytics_configurations_request.ListBucketAnalyticsConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4867,15 +4869,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_bucket_intelligent_tiering_configurations_request.ListBucketIntelligentTieringConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.list_bucket_intelligent_tiering_configurations_request.ListBucketIntelligentTieringConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4912,15 +4914,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_bucket_inventory_configurations_request.ListBucketInventoryConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.list_bucket_inventory_configurations_request.ListBucketInventoryConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4957,15 +4959,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_bucket_metrics_configurations_request.ListBucketMetricsConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.list_bucket_metrics_configurations_request.ListBucketMetricsConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5010,18 +5012,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_buckets_request.ListBucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.list_buckets_request.ListBucketsRequest = {}  # type: ignore[typeddict-item]
         if max_buckets is not None:
-            input["max_buckets"] = max_buckets
+            input_["max_buckets"] = max_buckets
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if bucket_region is not None:
-            input["bucket_region"] = bucket_region
+            input_["bucket_region"] = bucket_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5085,14 +5087,14 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.list_directory_buckets_request.ListDirectoryBucketsRequest = {}  # type: ignore[typeddict-item]
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if max_directory_buckets is not None:
-            input["max_directory_buckets"] = max_directory_buckets
+            input_["max_directory_buckets"] = max_directory_buckets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5176,27 +5178,27 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_multipart_uploads_request.ListMultipartUploadsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.list_multipart_uploads_request.ListMultipartUploadsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if delimiter is not None:
-            input["delimiter"] = delimiter
+            input_["delimiter"] = delimiter
         if encoding_type is not None:
-            input["encoding_type"] = encoding_type
+            input_["encoding_type"] = encoding_type
         if key_marker is not None:
-            input["key_marker"] = key_marker
+            input_["key_marker"] = key_marker
         if max_uploads is not None:
-            input["max_uploads"] = max_uploads
+            input_["max_uploads"] = max_uploads
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if upload_id_marker is not None:
-            input["upload_id_marker"] = upload_id_marker
+            input_["upload_id_marker"] = upload_id_marker
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5252,27 +5254,27 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_objects_request.ListObjectsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.list_objects_request.ListObjectsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if delimiter is not None:
-            input["delimiter"] = delimiter
+            input_["delimiter"] = delimiter
         if encoding_type is not None:
-            input["encoding_type"] = encoding_type
+            input_["encoding_type"] = encoding_type
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_keys is not None:
-            input["max_keys"] = max_keys
+            input_["max_keys"] = max_keys
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if optional_object_attributes is not None:
-            input["optional_object_attributes"] = optional_object_attributes
+            input_["optional_object_attributes"] = optional_object_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5333,31 +5335,31 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_objects_v2_request.ListObjectsV2Request = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.list_objects_v2_request.ListObjectsV2Request = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if delimiter is not None:
-            input["delimiter"] = delimiter
+            input_["delimiter"] = delimiter
         if encoding_type is not None:
-            input["encoding_type"] = encoding_type
+            input_["encoding_type"] = encoding_type
         if max_keys is not None:
-            input["max_keys"] = max_keys
+            input_["max_keys"] = max_keys
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if fetch_owner is not None:
-            input["fetch_owner"] = fetch_owner
+            input_["fetch_owner"] = fetch_owner
         if start_after is not None:
-            input["start_after"] = start_after
+            input_["start_after"] = start_after
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if optional_object_attributes is not None:
-            input["optional_object_attributes"] = optional_object_attributes
+            input_["optional_object_attributes"] = optional_object_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5416,29 +5418,29 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_object_versions_request.ListObjectVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.list_object_versions_request.ListObjectVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if delimiter is not None:
-            input["delimiter"] = delimiter
+            input_["delimiter"] = delimiter
         if encoding_type is not None:
-            input["encoding_type"] = encoding_type
+            input_["encoding_type"] = encoding_type
         if key_marker is not None:
-            input["key_marker"] = key_marker
+            input_["key_marker"] = key_marker
         if max_keys is not None:
-            input["max_keys"] = max_keys
+            input_["max_keys"] = max_keys
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if version_id_marker is not None:
-            input["version_id_marker"] = version_id_marker
+            input_["version_id_marker"] = version_id_marker
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if optional_object_attributes is not None:
-            input["optional_object_attributes"] = optional_object_attributes
+            input_["optional_object_attributes"] = optional_object_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5500,27 +5502,27 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.list_parts_request.ListPartsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.list_parts_request.ListPartsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if max_parts is not None:
-            input["max_parts"] = max_parts
+            input_["max_parts"] = max_parts
         if part_number_marker is not None:
-            input["part_number_marker"] = part_number_marker
-        input["upload_id"] = upload_id
+            input_["part_number_marker"] = part_number_marker
+        input_["upload_id"] = upload_id
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5606,18 +5608,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_abac_request.PutBucketAbacRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_abac_request.PutBucketAbacRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
-        input["abac_status"] = abac_status
+            input_["expected_bucket_owner"] = expected_bucket_owner
+        input_["abac_status"] = abac_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5656,16 +5658,16 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_accelerate_configuration_request.PutBucketAccelerateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["accelerate_configuration"] = accelerate_configuration
+        input_: aws_sdk_s3.types.put_bucket_accelerate_configuration_request.PutBucketAccelerateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["accelerate_configuration"] = accelerate_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5730,31 +5732,31 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_acl_request.PutBucketAclRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.put_bucket_acl_request.PutBucketAclRequest = {}  # type: ignore[typeddict-item]
         if acl is not None:
-            input["acl"] = acl
+            input_["acl"] = acl
         if access_control_policy is not None:
-            input["access_control_policy"] = access_control_policy
-        input["bucket"] = bucket
+            input_["access_control_policy"] = access_control_policy
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if grant_full_control is not None:
-            input["grant_full_control"] = grant_full_control
+            input_["grant_full_control"] = grant_full_control
         if grant_read is not None:
-            input["grant_read"] = grant_read
+            input_["grant_read"] = grant_read
         if grant_read_acp is not None:
-            input["grant_read_acp"] = grant_read_acp
+            input_["grant_read_acp"] = grant_read_acp
         if grant_write is not None:
-            input["grant_write"] = grant_write
+            input_["grant_write"] = grant_write
         if grant_write_acp is not None:
-            input["grant_write_acp"] = grant_write_acp
+            input_["grant_write_acp"] = grant_write_acp
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5791,15 +5793,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
-        input["analytics_configuration"] = analytics_configuration
+        input_: aws_sdk_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
+        input_["analytics_configuration"] = analytics_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5846,18 +5848,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_cors_request.PutBucketCorsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["cors_configuration"] = cors_configuration
+        input_: aws_sdk_s3.types.put_bucket_cors_request.PutBucketCorsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["cors_configuration"] = cors_configuration
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5897,20 +5899,20 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_encryption_request.PutBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_encryption_request.PutBucketEncryptionRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["server_side_encryption_configuration"] = (
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["server_side_encryption_configuration"] = (
             server_side_encryption_configuration
         )
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5947,15 +5949,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_intelligent_tiering_configuration_request.PutBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
+        input_: aws_sdk_s3.types.put_bucket_intelligent_tiering_configuration_request.PutBucketIntelligentTieringConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
-        input["intelligent_tiering_configuration"] = intelligent_tiering_configuration
+            input_["expected_bucket_owner"] = expected_bucket_owner
+        input_["intelligent_tiering_configuration"] = intelligent_tiering_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5992,15 +5994,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_inventory_configuration_request.PutBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
-        input["inventory_configuration"] = inventory_configuration
+        input_: aws_sdk_s3.types.put_bucket_inventory_configuration_request.PutBucketInventoryConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
+        input_["inventory_configuration"] = inventory_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6053,21 +6055,21 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_lifecycle_configuration_request.PutBucketLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_lifecycle_configuration_request.PutBucketLifecycleConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if lifecycle_configuration is not None:
-            input["lifecycle_configuration"] = lifecycle_configuration
+            input_["lifecycle_configuration"] = lifecycle_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if transition_default_minimum_object_size is not None:
-            input["transition_default_minimum_object_size"] = (
+            input_["transition_default_minimum_object_size"] = (
                 transition_default_minimum_object_size
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6114,18 +6116,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_logging_request.PutBucketLoggingRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["bucket_logging_status"] = bucket_logging_status
+        input_: aws_sdk_s3.types.put_bucket_logging_request.PutBucketLoggingRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["bucket_logging_status"] = bucket_logging_status
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6162,15 +6164,15 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_metrics_configuration_request.PutBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["id"] = id
-        input["metrics_configuration"] = metrics_configuration
+        input_: aws_sdk_s3.types.put_bucket_metrics_configuration_request.PutBucketMetricsConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["id"] = id
+        input_["metrics_configuration"] = metrics_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6214,16 +6216,16 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_notification_configuration_request.PutBucketNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["notification_configuration"] = notification_configuration
+        input_: aws_sdk_s3.types.put_bucket_notification_configuration_request.PutBucketNotificationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["notification_configuration"] = notification_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if skip_destination_validation is not None:
-            input["skip_destination_validation"] = skip_destination_validation
+            input_["skip_destination_validation"] = skip_destination_validation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6264,18 +6266,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_ownership_controls_request.PutBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_ownership_controls_request.PutBucketOwnershipControlsRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
-        input["ownership_controls"] = ownership_controls
+            input_["expected_bucket_owner"] = expected_bucket_owner
+        input_["ownership_controls"] = ownership_controls
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6326,22 +6328,22 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_policy_request.PutBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_policy_request.PutBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if confirm_remove_self_bucket_access is not None:
-            input["confirm_remove_self_bucket_access"] = (
+            input_["confirm_remove_self_bucket_access"] = (
                 confirm_remove_self_bucket_access
             )
-        input["policy"] = policy
+        input_["policy"] = policy
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6389,20 +6391,20 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_replication_request.PutBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_replication_request.PutBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["replication_configuration"] = replication_configuration
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["replication_configuration"] = replication_configuration
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6449,18 +6451,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["request_payment_configuration"] = request_payment_configuration
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["request_payment_configuration"] = request_payment_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6507,18 +6509,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_tagging_request.PutBucketTaggingRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_tagging_request.PutBucketTaggingRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["tagging"] = tagging
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["tagging"] = tagging
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6567,20 +6569,20 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_versioning_request.PutBucketVersioningRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_versioning_request.PutBucketVersioningRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if mfa is not None:
-            input["mfa"] = mfa
-        input["versioning_configuration"] = versioning_configuration
+            input_["mfa"] = mfa
+        input_["versioning_configuration"] = versioning_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6627,18 +6629,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_bucket_website_request.PutBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_bucket_website_request.PutBucketWebsiteRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["website_configuration"] = website_configuration
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["website_configuration"] = website_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6840,100 +6842,100 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_object_request.PutObjectRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.put_object_request.PutObjectRequest = {}  # type: ignore[typeddict-item]
         if acl is not None:
-            input["acl"] = acl
+            input_["acl"] = acl
         if body is not None:
-            input["body"] = ensure_sync_iterator(body)  # type: ignore
-        input["bucket"] = bucket
+            input_["body"] = ensure_sync_iterator(body)  # type: ignore
+        input_["bucket"] = bucket
         if cache_control is not None:
-            input["cache_control"] = cache_control
+            input_["cache_control"] = cache_control
         if content_disposition is not None:
-            input["content_disposition"] = content_disposition
+            input_["content_disposition"] = content_disposition
         if content_encoding is not None:
-            input["content_encoding"] = content_encoding
+            input_["content_encoding"] = content_encoding
         if content_language is not None:
-            input["content_language"] = content_language
+            input_["content_language"] = content_language
         if content_length is not None:
-            input["content_length"] = content_length
+            input_["content_length"] = content_length
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if checksum_crc32 is not None:
-            input["checksum_crc32"] = checksum_crc32
+            input_["checksum_crc32"] = checksum_crc32
         if checksum_crc32_c is not None:
-            input["checksum_crc32_c"] = checksum_crc32_c
+            input_["checksum_crc32_c"] = checksum_crc32_c
         if checksum_crc64_nvme is not None:
-            input["checksum_crc64_nvme"] = checksum_crc64_nvme
+            input_["checksum_crc64_nvme"] = checksum_crc64_nvme
         if checksum_sha1 is not None:
-            input["checksum_sha1"] = checksum_sha1
+            input_["checksum_sha1"] = checksum_sha1
         if checksum_sha256 is not None:
-            input["checksum_sha256"] = checksum_sha256
+            input_["checksum_sha256"] = checksum_sha256
         if checksum_sha512 is not None:
-            input["checksum_sha512"] = checksum_sha512
+            input_["checksum_sha512"] = checksum_sha512
         if checksum_md5 is not None:
-            input["checksum_md5"] = checksum_md5
+            input_["checksum_md5"] = checksum_md5
         if checksum_xxhash64 is not None:
-            input["checksum_xxhash64"] = checksum_xxhash64
+            input_["checksum_xxhash64"] = checksum_xxhash64
         if checksum_xxhash3 is not None:
-            input["checksum_xxhash3"] = checksum_xxhash3
+            input_["checksum_xxhash3"] = checksum_xxhash3
         if checksum_xxhash128 is not None:
-            input["checksum_xxhash128"] = checksum_xxhash128
+            input_["checksum_xxhash128"] = checksum_xxhash128
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if grant_full_control is not None:
-            input["grant_full_control"] = grant_full_control
+            input_["grant_full_control"] = grant_full_control
         if grant_read is not None:
-            input["grant_read"] = grant_read
+            input_["grant_read"] = grant_read
         if grant_read_acp is not None:
-            input["grant_read_acp"] = grant_read_acp
+            input_["grant_read_acp"] = grant_read_acp
         if grant_write_acp is not None:
-            input["grant_write_acp"] = grant_write_acp
-        input["key"] = key
+            input_["grant_write_acp"] = grant_write_acp
+        input_["key"] = key
         if write_offset_bytes is not None:
-            input["write_offset_bytes"] = write_offset_bytes
+            input_["write_offset_bytes"] = write_offset_bytes
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if server_side_encryption is not None:
-            input["server_side_encryption"] = server_side_encryption
+            input_["server_side_encryption"] = server_side_encryption
         if storage_class is not None:
-            input["storage_class"] = storage_class
+            input_["storage_class"] = storage_class
         if website_redirect_location is not None:
-            input["website_redirect_location"] = website_redirect_location
+            input_["website_redirect_location"] = website_redirect_location
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if ssekms_key_id is not None:
-            input["ssekms_key_id"] = ssekms_key_id
+            input_["ssekms_key_id"] = ssekms_key_id
         if ssekms_encryption_context is not None:
-            input["ssekms_encryption_context"] = ssekms_encryption_context
+            input_["ssekms_encryption_context"] = ssekms_encryption_context
         if bucket_key_enabled is not None:
-            input["bucket_key_enabled"] = bucket_key_enabled
+            input_["bucket_key_enabled"] = bucket_key_enabled
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if tagging is not None:
-            input["tagging"] = tagging
+            input_["tagging"] = tagging
         if object_lock_mode is not None:
-            input["object_lock_mode"] = object_lock_mode
+            input_["object_lock_mode"] = object_lock_mode
         if object_lock_retain_until_date is not None:
-            input["object_lock_retain_until_date"] = object_lock_retain_until_date
+            input_["object_lock_retain_until_date"] = object_lock_retain_until_date
         if object_lock_legal_hold_status is not None:
-            input["object_lock_legal_hold_status"] = object_lock_legal_hold_status
+            input_["object_lock_legal_hold_status"] = object_lock_legal_hold_status
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7043,102 +7045,102 @@ class S3Client:
         expected_bucket_owner: Optional["aws_sdk_s3.types.account_id.AccountId"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input: "aws_sdk_s3.types.put_object_request.PutObjectRequest" = {}  # type: ignore[typeddict-item]
+        input_: "aws_sdk_s3.types.put_object_request.PutObjectRequest" = {}  # type: ignore[typeddict-item]
         if acl is not None:
-            input["acl"] = acl
+            input_["acl"] = acl
         if bucket is not None:
-            input["bucket"] = bucket
+            input_["bucket"] = bucket
         if cache_control is not None:
-            input["cache_control"] = cache_control
+            input_["cache_control"] = cache_control
         if content_disposition is not None:
-            input["content_disposition"] = content_disposition
+            input_["content_disposition"] = content_disposition
         if content_encoding is not None:
-            input["content_encoding"] = content_encoding
+            input_["content_encoding"] = content_encoding
         if content_language is not None:
-            input["content_language"] = content_language
+            input_["content_language"] = content_language
         if content_length is not None:
-            input["content_length"] = content_length
+            input_["content_length"] = content_length
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if checksum_crc32 is not None:
-            input["checksum_crc32"] = checksum_crc32
+            input_["checksum_crc32"] = checksum_crc32
         if checksum_crc32_c is not None:
-            input["checksum_crc32_c"] = checksum_crc32_c
+            input_["checksum_crc32_c"] = checksum_crc32_c
         if checksum_crc64_nvme is not None:
-            input["checksum_crc64_nvme"] = checksum_crc64_nvme
+            input_["checksum_crc64_nvme"] = checksum_crc64_nvme
         if checksum_sha1 is not None:
-            input["checksum_sha1"] = checksum_sha1
+            input_["checksum_sha1"] = checksum_sha1
         if checksum_sha256 is not None:
-            input["checksum_sha256"] = checksum_sha256
+            input_["checksum_sha256"] = checksum_sha256
         if checksum_sha512 is not None:
-            input["checksum_sha512"] = checksum_sha512
+            input_["checksum_sha512"] = checksum_sha512
         if checksum_md5 is not None:
-            input["checksum_md5"] = checksum_md5
+            input_["checksum_md5"] = checksum_md5
         if checksum_xxhash64 is not None:
-            input["checksum_xxhash64"] = checksum_xxhash64
+            input_["checksum_xxhash64"] = checksum_xxhash64
         if checksum_xxhash3 is not None:
-            input["checksum_xxhash3"] = checksum_xxhash3
+            input_["checksum_xxhash3"] = checksum_xxhash3
         if checksum_xxhash128 is not None:
-            input["checksum_xxhash128"] = checksum_xxhash128
+            input_["checksum_xxhash128"] = checksum_xxhash128
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
         if if_match is not None:
-            input["if_match"] = if_match
+            input_["if_match"] = if_match
         if if_none_match is not None:
-            input["if_none_match"] = if_none_match
+            input_["if_none_match"] = if_none_match
         if grant_full_control is not None:
-            input["grant_full_control"] = grant_full_control
+            input_["grant_full_control"] = grant_full_control
         if grant_read is not None:
-            input["grant_read"] = grant_read
+            input_["grant_read"] = grant_read
         if grant_read_acp is not None:
-            input["grant_read_acp"] = grant_read_acp
+            input_["grant_read_acp"] = grant_read_acp
         if grant_write_acp is not None:
-            input["grant_write_acp"] = grant_write_acp
+            input_["grant_write_acp"] = grant_write_acp
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if write_offset_bytes is not None:
-            input["write_offset_bytes"] = write_offset_bytes
+            input_["write_offset_bytes"] = write_offset_bytes
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if server_side_encryption is not None:
-            input["server_side_encryption"] = server_side_encryption
+            input_["server_side_encryption"] = server_side_encryption
         if storage_class is not None:
-            input["storage_class"] = storage_class
+            input_["storage_class"] = storage_class
         if website_redirect_location is not None:
-            input["website_redirect_location"] = website_redirect_location
+            input_["website_redirect_location"] = website_redirect_location
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if ssekms_key_id is not None:
-            input["ssekms_key_id"] = ssekms_key_id
+            input_["ssekms_key_id"] = ssekms_key_id
         if ssekms_encryption_context is not None:
-            input["ssekms_encryption_context"] = ssekms_encryption_context
+            input_["ssekms_encryption_context"] = ssekms_encryption_context
         if bucket_key_enabled is not None:
-            input["bucket_key_enabled"] = bucket_key_enabled
+            input_["bucket_key_enabled"] = bucket_key_enabled
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if tagging is not None:
-            input["tagging"] = tagging
+            input_["tagging"] = tagging
         if object_lock_mode is not None:
-            input["object_lock_mode"] = object_lock_mode
+            input_["object_lock_mode"] = object_lock_mode
         if object_lock_retain_until_date is not None:
-            input["object_lock_retain_until_date"] = object_lock_retain_until_date
+            input_["object_lock_retain_until_date"] = object_lock_retain_until_date
         if object_lock_legal_hold_status is not None:
-            input["object_lock_legal_hold_status"] = object_lock_legal_hold_status
+            input_["object_lock_legal_hold_status"] = object_lock_legal_hold_status
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         import aws_sdk_s3._operations.amazon_s3.put_object
 
         request = aws_sdk_s3._operations.amazon_s3.put_object.build_request(
-            options_, input
+            options_, input_
         )
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
@@ -7222,36 +7224,36 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_object_acl_request.PutObjectAclRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.put_object_acl_request.PutObjectAclRequest = {}  # type: ignore[typeddict-item]
         if acl is not None:
-            input["acl"] = acl
+            input_["acl"] = acl
         if access_control_policy is not None:
-            input["access_control_policy"] = access_control_policy
-        input["bucket"] = bucket
+            input_["access_control_policy"] = access_control_policy
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if grant_full_control is not None:
-            input["grant_full_control"] = grant_full_control
+            input_["grant_full_control"] = grant_full_control
         if grant_read is not None:
-            input["grant_read"] = grant_read
+            input_["grant_read"] = grant_read
         if grant_read_acp is not None:
-            input["grant_read_acp"] = grant_read_acp
+            input_["grant_read_acp"] = grant_read_acp
         if grant_write is not None:
-            input["grant_write"] = grant_write
+            input_["grant_write"] = grant_write
         if grant_write_acp is not None:
-            input["grant_write_acp"] = grant_write_acp
-        input["key"] = key
+            input_["grant_write_acp"] = grant_write_acp
+        input_["key"] = key
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7303,24 +7305,24 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_object_legal_hold_request.PutObjectLegalHoldRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.put_object_legal_hold_request.PutObjectLegalHoldRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if legal_hold is not None:
-            input["legal_hold"] = legal_hold
+            input_["legal_hold"] = legal_hold
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7368,23 +7370,23 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if object_lock_configuration is not None:
-            input["object_lock_configuration"] = object_lock_configuration
+            input_["object_lock_configuration"] = object_lock_configuration
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7440,26 +7442,26 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_object_retention_request.PutObjectRetentionRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.put_object_retention_request.PutObjectRetentionRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if retention is not None:
-            input["retention"] = retention
+            input_["retention"] = retention
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if bypass_governance_retention is not None:
-            input["bypass_governance_retention"] = bypass_governance_retention
+            input_["bypass_governance_retention"] = bypass_governance_retention
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7516,23 +7518,23 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_object_tagging_request.PutObjectTaggingRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.put_object_tagging_request.PutObjectTaggingRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["tagging"] = tagging
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["tagging"] = tagging
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7573,18 +7575,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.put_public_access_block_request.PutPublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.put_public_access_block_request.PutPublicAccessBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["public_access_block_configuration"] = public_access_block_configuration
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["public_access_block_configuration"] = public_access_block_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7653,31 +7655,31 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.rename_object_request.RenameObjectRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
-        input["rename_source"] = rename_source
+        input_: aws_sdk_s3.types.rename_object_request.RenameObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
+        input_["rename_source"] = rename_source
         if destination_if_match is not None:
-            input["destination_if_match"] = destination_if_match
+            input_["destination_if_match"] = destination_if_match
         if destination_if_none_match is not None:
-            input["destination_if_none_match"] = destination_if_none_match
+            input_["destination_if_none_match"] = destination_if_none_match
         if destination_if_modified_since is not None:
-            input["destination_if_modified_since"] = destination_if_modified_since
+            input_["destination_if_modified_since"] = destination_if_modified_since
         if destination_if_unmodified_since is not None:
-            input["destination_if_unmodified_since"] = destination_if_unmodified_since
+            input_["destination_if_unmodified_since"] = destination_if_unmodified_since
         if source_if_match is not None:
-            input["source_if_match"] = source_if_match
+            input_["source_if_match"] = source_if_match
         if source_if_none_match is not None:
-            input["source_if_none_match"] = source_if_none_match
+            input_["source_if_none_match"] = source_if_none_match
         if source_if_modified_since is not None:
-            input["source_if_modified_since"] = source_if_modified_since
+            input_["source_if_modified_since"] = source_if_modified_since
         if source_if_unmodified_since is not None:
-            input["source_if_unmodified_since"] = source_if_unmodified_since
+            input_["source_if_unmodified_since"] = source_if_unmodified_since
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7732,22 +7734,22 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.restore_object_request.RestoreObjectRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.restore_object_request.RestoreObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if restore_request is not None:
-            input["restore_request"] = restore_request
+            input_["restore_request"] = restore_request
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7810,28 +7812,28 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.select_object_content_request.SelectObjectContentRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.select_object_content_request.SelectObjectContentRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
-        input["expression"] = expression
-        input["expression_type"] = expression_type
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
+        input_["expression"] = expression
+        input_["expression_type"] = expression_type
         if request_progress is not None:
-            input["request_progress"] = request_progress
-        input["input_serialization"] = input_serialization
-        input["output_serialization"] = output_serialization
+            input_["request_progress"] = request_progress
+        input_["input_serialization"] = input_serialization
+        input_["output_serialization"] = output_serialization
         if scan_range is not None:
-            input["scan_range"] = scan_range
+            input_["scan_range"] = scan_range
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7872,18 +7874,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.update_bucket_metadata_inventory_table_configuration_request.UpdateBucketMetadataInventoryTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.update_bucket_metadata_inventory_table_configuration_request.UpdateBucketMetadataInventoryTableConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["inventory_table_configuration"] = inventory_table_configuration
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["inventory_table_configuration"] = inventory_table_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7924,18 +7926,18 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.update_bucket_metadata_journal_table_configuration_request.UpdateBucketMetadataJournalTableConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
+        input_: aws_sdk_s3.types.update_bucket_metadata_journal_table_configuration_request.UpdateBucketMetadataJournalTableConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
-        input["journal_table_configuration"] = journal_table_configuration
+            input_["checksum_algorithm"] = checksum_algorithm
+        input_["journal_table_configuration"] = journal_table_configuration
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7985,23 +7987,23 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["key"] = key
+        input_: aws_sdk_s3.types.update_object_encryption_request.UpdateObjectEncryptionRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["key"] = key
         if version_id is not None:
-            input["version_id"] = version_id
-        input["object_encryption"] = object_encryption
+            input_["version_id"] = version_id
+        input_["object_encryption"] = object_encryption
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8107,52 +8109,52 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.upload_part_request.UploadPartRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_s3.types.upload_part_request.UploadPartRequest = {}  # type: ignore[typeddict-item]
         if body is not None:
-            input["body"] = ensure_sync_iterator(body)  # type: ignore
-        input["bucket"] = bucket
+            input_["body"] = ensure_sync_iterator(body)  # type: ignore
+        input_["bucket"] = bucket
         if content_length is not None:
-            input["content_length"] = content_length
+            input_["content_length"] = content_length
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if checksum_crc32 is not None:
-            input["checksum_crc32"] = checksum_crc32
+            input_["checksum_crc32"] = checksum_crc32
         if checksum_crc32_c is not None:
-            input["checksum_crc32_c"] = checksum_crc32_c
+            input_["checksum_crc32_c"] = checksum_crc32_c
         if checksum_crc64_nvme is not None:
-            input["checksum_crc64_nvme"] = checksum_crc64_nvme
+            input_["checksum_crc64_nvme"] = checksum_crc64_nvme
         if checksum_sha1 is not None:
-            input["checksum_sha1"] = checksum_sha1
+            input_["checksum_sha1"] = checksum_sha1
         if checksum_sha256 is not None:
-            input["checksum_sha256"] = checksum_sha256
+            input_["checksum_sha256"] = checksum_sha256
         if checksum_sha512 is not None:
-            input["checksum_sha512"] = checksum_sha512
+            input_["checksum_sha512"] = checksum_sha512
         if checksum_md5 is not None:
-            input["checksum_md5"] = checksum_md5
+            input_["checksum_md5"] = checksum_md5
         if checksum_xxhash64 is not None:
-            input["checksum_xxhash64"] = checksum_xxhash64
+            input_["checksum_xxhash64"] = checksum_xxhash64
         if checksum_xxhash3 is not None:
-            input["checksum_xxhash3"] = checksum_xxhash3
+            input_["checksum_xxhash3"] = checksum_xxhash3
         if checksum_xxhash128 is not None:
-            input["checksum_xxhash128"] = checksum_xxhash128
-        input["key"] = key
-        input["part_number"] = part_number
-        input["upload_id"] = upload_id
+            input_["checksum_xxhash128"] = checksum_xxhash128
+        input_["key"] = key
+        input_["part_number"] = part_number
+        input_["upload_id"] = upload_id
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8213,56 +8215,56 @@ class S3Client:
         expected_bucket_owner: Optional["aws_sdk_s3.types.account_id.AccountId"] = None,
     ) -> str:
         _, options_ = self.operation_options(config_overrides)
-        input: "aws_sdk_s3.types.upload_part_request.UploadPartRequest" = {}  # type: ignore[typeddict-item]
+        input_: "aws_sdk_s3.types.upload_part_request.UploadPartRequest" = {}  # type: ignore[typeddict-item]
         if bucket is not None:
-            input["bucket"] = bucket
+            input_["bucket"] = bucket
         if content_length is not None:
-            input["content_length"] = content_length
+            input_["content_length"] = content_length
         if content_md5 is not None:
-            input["content_md5"] = content_md5
+            input_["content_md5"] = content_md5
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if checksum_crc32 is not None:
-            input["checksum_crc32"] = checksum_crc32
+            input_["checksum_crc32"] = checksum_crc32
         if checksum_crc32_c is not None:
-            input["checksum_crc32_c"] = checksum_crc32_c
+            input_["checksum_crc32_c"] = checksum_crc32_c
         if checksum_crc64_nvme is not None:
-            input["checksum_crc64_nvme"] = checksum_crc64_nvme
+            input_["checksum_crc64_nvme"] = checksum_crc64_nvme
         if checksum_sha1 is not None:
-            input["checksum_sha1"] = checksum_sha1
+            input_["checksum_sha1"] = checksum_sha1
         if checksum_sha256 is not None:
-            input["checksum_sha256"] = checksum_sha256
+            input_["checksum_sha256"] = checksum_sha256
         if checksum_sha512 is not None:
-            input["checksum_sha512"] = checksum_sha512
+            input_["checksum_sha512"] = checksum_sha512
         if checksum_md5 is not None:
-            input["checksum_md5"] = checksum_md5
+            input_["checksum_md5"] = checksum_md5
         if checksum_xxhash64 is not None:
-            input["checksum_xxhash64"] = checksum_xxhash64
+            input_["checksum_xxhash64"] = checksum_xxhash64
         if checksum_xxhash3 is not None:
-            input["checksum_xxhash3"] = checksum_xxhash3
+            input_["checksum_xxhash3"] = checksum_xxhash3
         if checksum_xxhash128 is not None:
-            input["checksum_xxhash128"] = checksum_xxhash128
+            input_["checksum_xxhash128"] = checksum_xxhash128
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if part_number is not None:
-            input["part_number"] = part_number
+            input_["part_number"] = part_number
         if upload_id is not None:
-            input["upload_id"] = upload_id
+            input_["upload_id"] = upload_id
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
 
         import aws_sdk_s3._operations.amazon_s3.upload_part
 
         request = aws_sdk_s3._operations.amazon_s3.upload_part.build_request(
-            options_, input
+            options_, input_
         )
         signer = (request.context or {}).get("signer")
         if not isinstance(signer, SigV4Signer):
@@ -8374,45 +8376,47 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.upload_part_copy_request.UploadPartCopyRequest = {}  # type: ignore[typeddict-item]
-        input["bucket"] = bucket
-        input["copy_source"] = copy_source
+        input_: aws_sdk_s3.types.upload_part_copy_request.UploadPartCopyRequest = {}  # type: ignore[typeddict-item]
+        input_["bucket"] = bucket
+        input_["copy_source"] = copy_source
         if copy_source_if_match is not None:
-            input["copy_source_if_match"] = copy_source_if_match
+            input_["copy_source_if_match"] = copy_source_if_match
         if copy_source_if_modified_since is not None:
-            input["copy_source_if_modified_since"] = copy_source_if_modified_since
+            input_["copy_source_if_modified_since"] = copy_source_if_modified_since
         if copy_source_if_none_match is not None:
-            input["copy_source_if_none_match"] = copy_source_if_none_match
+            input_["copy_source_if_none_match"] = copy_source_if_none_match
         if copy_source_if_unmodified_since is not None:
-            input["copy_source_if_unmodified_since"] = copy_source_if_unmodified_since
+            input_["copy_source_if_unmodified_since"] = copy_source_if_unmodified_since
         if copy_source_range is not None:
-            input["copy_source_range"] = copy_source_range
-        input["key"] = key
-        input["part_number"] = part_number
-        input["upload_id"] = upload_id
+            input_["copy_source_range"] = copy_source_range
+        input_["key"] = key
+        input_["part_number"] = part_number
+        input_["upload_id"] = upload_id
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if sse_customer_key is not None:
-            input["sse_customer_key"] = sse_customer_key
+            input_["sse_customer_key"] = sse_customer_key
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if copy_source_sse_customer_algorithm is not None:
-            input["copy_source_sse_customer_algorithm"] = (
+            input_["copy_source_sse_customer_algorithm"] = (
                 copy_source_sse_customer_algorithm
             )
         if copy_source_sse_customer_key is not None:
-            input["copy_source_sse_customer_key"] = copy_source_sse_customer_key
+            input_["copy_source_sse_customer_key"] = copy_source_sse_customer_key
         if copy_source_sse_customer_key_md5 is not None:
-            input["copy_source_sse_customer_key_md5"] = copy_source_sse_customer_key_md5
+            input_["copy_source_sse_customer_key_md5"] = (
+                copy_source_sse_customer_key_md5
+            )
         if request_payer is not None:
-            input["request_payer"] = request_payer
+            input_["request_payer"] = request_payer
         if expected_bucket_owner is not None:
-            input["expected_bucket_owner"] = expected_bucket_owner
+            input_["expected_bucket_owner"] = expected_bucket_owner
         if expected_source_bucket_owner is not None:
-            input["expected_source_bucket_owner"] = expected_source_bucket_owner
+            input_["expected_source_bucket_owner"] = expected_source_bucket_owner
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8578,100 +8582,100 @@ class S3Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3.types.write_get_object_response_request.WriteGetObjectResponseRequest = {}  # type: ignore[typeddict-item]
-        input["request_route"] = request_route
-        input["request_token"] = request_token
+        input_: aws_sdk_s3.types.write_get_object_response_request.WriteGetObjectResponseRequest = {}  # type: ignore[typeddict-item]
+        input_["request_route"] = request_route
+        input_["request_token"] = request_token
         if body is not None:
-            input["body"] = ensure_sync_iterator(body)  # type: ignore
+            input_["body"] = ensure_sync_iterator(body)  # type: ignore
         if status_code is not None:
-            input["status_code"] = status_code
+            input_["status_code"] = status_code
         if error_code is not None:
-            input["error_code"] = error_code
+            input_["error_code"] = error_code
         if error_message is not None:
-            input["error_message"] = error_message
+            input_["error_message"] = error_message
         if accept_ranges is not None:
-            input["accept_ranges"] = accept_ranges
+            input_["accept_ranges"] = accept_ranges
         if cache_control is not None:
-            input["cache_control"] = cache_control
+            input_["cache_control"] = cache_control
         if content_disposition is not None:
-            input["content_disposition"] = content_disposition
+            input_["content_disposition"] = content_disposition
         if content_encoding is not None:
-            input["content_encoding"] = content_encoding
+            input_["content_encoding"] = content_encoding
         if content_language is not None:
-            input["content_language"] = content_language
+            input_["content_language"] = content_language
         if content_length is not None:
-            input["content_length"] = content_length
+            input_["content_length"] = content_length
         if content_range is not None:
-            input["content_range"] = content_range
+            input_["content_range"] = content_range
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if checksum_crc32 is not None:
-            input["checksum_crc32"] = checksum_crc32
+            input_["checksum_crc32"] = checksum_crc32
         if checksum_crc32_c is not None:
-            input["checksum_crc32_c"] = checksum_crc32_c
+            input_["checksum_crc32_c"] = checksum_crc32_c
         if checksum_crc64_nvme is not None:
-            input["checksum_crc64_nvme"] = checksum_crc64_nvme
+            input_["checksum_crc64_nvme"] = checksum_crc64_nvme
         if checksum_sha1 is not None:
-            input["checksum_sha1"] = checksum_sha1
+            input_["checksum_sha1"] = checksum_sha1
         if checksum_sha256 is not None:
-            input["checksum_sha256"] = checksum_sha256
+            input_["checksum_sha256"] = checksum_sha256
         if checksum_sha512 is not None:
-            input["checksum_sha512"] = checksum_sha512
+            input_["checksum_sha512"] = checksum_sha512
         if checksum_md5 is not None:
-            input["checksum_md5"] = checksum_md5
+            input_["checksum_md5"] = checksum_md5
         if checksum_xxhash64 is not None:
-            input["checksum_xxhash64"] = checksum_xxhash64
+            input_["checksum_xxhash64"] = checksum_xxhash64
         if checksum_xxhash3 is not None:
-            input["checksum_xxhash3"] = checksum_xxhash3
+            input_["checksum_xxhash3"] = checksum_xxhash3
         if checksum_xxhash128 is not None:
-            input["checksum_xxhash128"] = checksum_xxhash128
+            input_["checksum_xxhash128"] = checksum_xxhash128
         if delete_marker is not None:
-            input["delete_marker"] = delete_marker
+            input_["delete_marker"] = delete_marker
         if e_tag is not None:
-            input["e_tag"] = e_tag
+            input_["e_tag"] = e_tag
         if expires is not None:
-            input["expires"] = expires
+            input_["expires"] = expires
         if expiration is not None:
-            input["expiration"] = expiration
+            input_["expiration"] = expiration
         if last_modified is not None:
-            input["last_modified"] = last_modified
+            input_["last_modified"] = last_modified
         if missing_meta is not None:
-            input["missing_meta"] = missing_meta
+            input_["missing_meta"] = missing_meta
         if metadata is not None:
-            input["metadata"] = metadata
+            input_["metadata"] = metadata
         if object_lock_mode is not None:
-            input["object_lock_mode"] = object_lock_mode
+            input_["object_lock_mode"] = object_lock_mode
         if object_lock_legal_hold_status is not None:
-            input["object_lock_legal_hold_status"] = object_lock_legal_hold_status
+            input_["object_lock_legal_hold_status"] = object_lock_legal_hold_status
         if object_lock_retain_until_date is not None:
-            input["object_lock_retain_until_date"] = object_lock_retain_until_date
+            input_["object_lock_retain_until_date"] = object_lock_retain_until_date
         if parts_count is not None:
-            input["parts_count"] = parts_count
+            input_["parts_count"] = parts_count
         if replication_status is not None:
-            input["replication_status"] = replication_status
+            input_["replication_status"] = replication_status
         if request_charged is not None:
-            input["request_charged"] = request_charged
+            input_["request_charged"] = request_charged
         if restore is not None:
-            input["restore"] = restore
+            input_["restore"] = restore
         if server_side_encryption is not None:
-            input["server_side_encryption"] = server_side_encryption
+            input_["server_side_encryption"] = server_side_encryption
         if sse_customer_algorithm is not None:
-            input["sse_customer_algorithm"] = sse_customer_algorithm
+            input_["sse_customer_algorithm"] = sse_customer_algorithm
         if ssekms_key_id is not None:
-            input["ssekms_key_id"] = ssekms_key_id
+            input_["ssekms_key_id"] = ssekms_key_id
         if sse_customer_key_md5 is not None:
-            input["sse_customer_key_md5"] = sse_customer_key_md5
+            input_["sse_customer_key_md5"] = sse_customer_key_md5
         if storage_class is not None:
-            input["storage_class"] = storage_class
+            input_["storage_class"] = storage_class
         if tag_count is not None:
-            input["tag_count"] = tag_count
+            input_["tag_count"] = tag_count
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
         if bucket_key_enabled is not None:
-            input["bucket_key_enabled"] = bucket_key_enabled
+            input_["bucket_key_enabled"] = bucket_key_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

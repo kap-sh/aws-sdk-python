@@ -99,21 +99,21 @@ class BillingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.create_billing_group_input.CreateBillingGroupInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.create_billing_group_input.CreateBillingGroupInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
-        input["account_grouping"] = account_grouping
-        input["computation_preference"] = computation_preference
+            input_["client_token"] = client_token
+        input_["name"] = name
+        input_["account_grouping"] = account_grouping
+        input_["computation_preference"] = computation_preference
         if primary_account_id is not None:
-            input["primary_account_id"] = primary_account_id
+            input_["primary_account_id"] = primary_account_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,21 +166,21 @@ class BillingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.update_billing_group_input.UpdateBillingGroupInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.update_billing_group_input.UpdateBillingGroupInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if computation_preference is not None:
-            input["computation_preference"] = computation_preference
+            input_["computation_preference"] = computation_preference
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if account_grouping is not None:
-            input["account_grouping"] = account_grouping
+            input_["account_grouping"] = account_grouping
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,11 +213,11 @@ class BillingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.delete_billing_group_input.DeleteBillingGroupInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.delete_billing_group_input.DeleteBillingGroupInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,18 +262,18 @@ class BillingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_billing_groups_input.ListBillingGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_billing_groups_input.ListBillingGroupsInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
+            input_["billing_period"] = billing_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,12 +308,12 @@ class BillingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.associate_accounts_input.AssociateAccountsInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["account_ids"] = account_ids
+        input_: aws_sdk_billingconductor.types.associate_accounts_input.AssociateAccountsInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,12 +348,12 @@ class BillingGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.disassociate_accounts_input.DisassociateAccountsInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["account_ids"] = account_ids
+        input_: aws_sdk_billingconductor.types.disassociate_accounts_input.DisassociateAccountsInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,21 +410,21 @@ class AsyncBillingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.create_billing_group_input.CreateBillingGroupInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.create_billing_group_input.CreateBillingGroupInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
-        input["account_grouping"] = account_grouping
-        input["computation_preference"] = computation_preference
+            input_["client_token"] = client_token
+        input_["name"] = name
+        input_["account_grouping"] = account_grouping
+        input_["computation_preference"] = computation_preference
         if primary_account_id is not None:
-            input["primary_account_id"] = primary_account_id
+            input_["primary_account_id"] = primary_account_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,21 +478,21 @@ class AsyncBillingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.update_billing_group_input.UpdateBillingGroupInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.update_billing_group_input.UpdateBillingGroupInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if computation_preference is not None:
-            input["computation_preference"] = computation_preference
+            input_["computation_preference"] = computation_preference
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if account_grouping is not None:
-            input["account_grouping"] = account_grouping
+            input_["account_grouping"] = account_grouping
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,11 +526,11 @@ class AsyncBillingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.delete_billing_group_input.DeleteBillingGroupInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.delete_billing_group_input.DeleteBillingGroupInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -576,18 +576,18 @@ class AsyncBillingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_billing_groups_input.ListBillingGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_billing_groups_input.ListBillingGroupsInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
+            input_["billing_period"] = billing_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -623,12 +623,12 @@ class AsyncBillingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.associate_accounts_input.AssociateAccountsInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["account_ids"] = account_ids
+        input_: aws_sdk_billingconductor.types.associate_accounts_input.AssociateAccountsInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -664,12 +664,12 @@ class AsyncBillingGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.disassociate_accounts_input.DisassociateAccountsInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["account_ids"] = account_ids
+        input_: aws_sdk_billingconductor.types.disassociate_accounts_input.DisassociateAccountsInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

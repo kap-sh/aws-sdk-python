@@ -380,12 +380,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.accept_account_link_invitation_request.AcceptAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["link_id"] = link_id
+        input_: aws_sdk_workspaces.types.accept_account_link_invitation_request.AcceptAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["link_id"] = link_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def associate_connection_alias(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.associate_connection_alias_result.AssociateConnectionAliasResult":
         """<p>Associates the specified connection alias with the specified directory to enable cross-Region redirection. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p> <note> <p>Before performing this operation, call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html\"> DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p> </note>
@@ -400,11 +400,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.associate_connection_alias_request.AssociateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.associate_connection_alias_request.AssociateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
+        input_["resource_id"] = resource_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def associate_ip_groups(self, directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", group_ids: "aws_sdk_workspaces.types.ip_group_id_list.IpGroupIdList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.associate_ip_groups_result.AssociateIpGroupsResult":
         """<p>Associates the specified IP access control group with the specified directory.</p>
@@ -419,11 +419,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.associate_ip_groups_request.AssociateIpGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["group_ids"] = group_ids
+        input_: aws_sdk_workspaces.types.associate_ip_groups_request.AssociateIpGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["group_ids"] = group_ids
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def associate_workspace_application(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", application_id: "aws_sdk_workspaces.types.work_space_application_id.WorkSpaceApplicationId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.associate_workspace_application_result.AssociateWorkspaceApplicationResult":
         """<p>Associates the specified application to the specified WorkSpace.</p>
@@ -438,11 +438,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.associate_workspace_application_request.AssociateWorkspaceApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["application_id"] = application_id
+        input_: aws_sdk_workspaces.types.associate_workspace_application_request.AssociateWorkspaceApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["application_id"] = application_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def authorize_ip_rules(self, group_id: "aws_sdk_workspaces.types.ip_group_id.IpGroupId", user_rules: "aws_sdk_workspaces.types.ip_rule_list.IpRuleList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.authorize_ip_rules_result.AuthorizeIpRulesResult":
         """<p>Adds one or more rules to the specified IP access control group.</p> <p>This action gives users permission to access their WorkSpaces from the CIDR address ranges specified in the rules.</p>
@@ -457,11 +457,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.authorize_ip_rules_request.AuthorizeIpRulesRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
-        input["user_rules"] = user_rules
+        input_: aws_sdk_workspaces.types.authorize_ip_rules_request.AuthorizeIpRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
+        input_["user_rules"] = user_rules
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def copy_workspace_image(self, name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", source_image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", source_region: "aws_sdk_workspaces.types.region.Region", *, config_overrides: Optional[WorkSpacesClientConfig] = None, description: Optional["aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription"] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.copy_workspace_image_result.CopyWorkspaceImageResult":
         """<p>Copies the specified image from the specified Region to the current Region. For more information about copying images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html\"> Copy a Custom WorkSpaces Image</a>.</p> <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p> <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p> <important> <p>Before copying a shared image, be sure to verify that it has been shared from the correct Amazon Web Services account. To determine if an image has been shared and to see the ID of the Amazon Web Services account that owns an image, use the <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html\">DescribeWorkSpaceImages</a> and <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html\">DescribeWorkspaceImagePermissions</a> API operations. </p> </important>
@@ -479,16 +479,16 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.copy_workspace_image_request.CopyWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_workspaces.types.copy_workspace_image_request.CopyWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["source_image_id"] = source_image_id
-        input["source_region"] = source_region
+            input_["description"] = description
+        input_["source_image_id"] = source_image_id
+        input_["source_region"] = source_region
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_account_link_invitation(self, target_account_id: "aws_sdk_workspaces.types.aws_account.AwsAccount", *, config_overrides: Optional[WorkSpacesClientConfig] = None, client_token: Optional["aws_sdk_workspaces.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces.types.create_account_link_invitation_result.CreateAccountLinkInvitationResult":
         """<p>Creates the account link invitation.</p>
@@ -503,12 +503,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_account_link_invitation_request.CreateAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["target_account_id"] = target_account_id
+        input_: aws_sdk_workspaces.types.create_account_link_invitation_request.CreateAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["target_account_id"] = target_account_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_connect_client_add_in(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", name: "aws_sdk_workspaces.types.add_in_name.AddInName", url: "aws_sdk_workspaces.types.add_in_url.AddInUrl", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.create_connect_client_add_in_result.CreateConnectClientAddInResult":
         """<p>Creates a client-add-in for Connect Customer within a directory. You can create only one Connect Customer client add-in within a directory.</p> <p>This client add-in allows WorkSpaces users to seamlessly connect to Connect Customer.</p>
@@ -524,12 +524,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_connect_client_add_in_request.CreateConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["name"] = name
-        input["url"] = url
+        input_: aws_sdk_workspaces.types.create_connect_client_add_in_request.CreateConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["name"] = name
+        input_["url"] = url
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_connection_alias(self, connection_string: "aws_sdk_workspaces.types.connection_string.ConnectionString", *, config_overrides: Optional[WorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_connection_alias_result.CreateConnectionAliasResult":
         """<p>Creates the specified connection alias for use with cross-Region redirection. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
@@ -544,12 +544,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_connection_alias_request.CreateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
-        input["connection_string"] = connection_string
+        input_: aws_sdk_workspaces.types.create_connection_alias_request.CreateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_string"] = connection_string
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_ip_group(self, group_name: "aws_sdk_workspaces.types.ip_group_name.IpGroupName", *, config_overrides: Optional[WorkSpacesClientConfig] = None, group_desc: Optional["aws_sdk_workspaces.types.ip_group_desc.IpGroupDesc"] = None, user_rules: Optional["aws_sdk_workspaces.types.ip_rule_list.IpRuleList"] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_ip_group_result.CreateIpGroupResult":
         """<p>Creates an IP access control group.</p> <p>An IP access control group provides you with the ability to control the IP addresses from which users are allowed to access their WorkSpaces. To specify the CIDR address ranges, add rules to your IP access control group and then associate the group with your directory. You can add rules when you create the group or at any time using <a>AuthorizeIpRules</a>.</p> <p>There is a default IP access control group associated with your directory. If you don't associate an IP access control group with your directory, the default group is used. The default group includes a default rule that allows users to access their WorkSpaces from anywhere. You cannot modify the default IP access control group for your directory.</p>
@@ -566,16 +566,16 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_ip_group_request.CreateIpGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_name"] = group_name
+        input_: aws_sdk_workspaces.types.create_ip_group_request.CreateIpGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_name"] = group_name
         if group_desc is not None:
-            input["group_desc"] = group_desc
+            input_["group_desc"] = group_desc
         if user_rules is not None:
-            input["user_rules"] = user_rules
+            input_["user_rules"] = user_rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_standby_workspaces(self, primary_region: "aws_sdk_workspaces.types.region.Region", standby_workspaces: "aws_sdk_workspaces.types.standby_workspaces_list.StandbyWorkspacesList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.create_standby_workspaces_result.CreateStandbyWorkspacesResult":
         """<p>Creates a standby WorkSpace in a secondary Region.</p>
@@ -590,11 +590,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_standby_workspaces_request.CreateStandbyWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["primary_region"] = primary_region
-        input["standby_workspaces"] = standby_workspaces
+        input_: aws_sdk_workspaces.types.create_standby_workspaces_request.CreateStandbyWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["primary_region"] = primary_region
+        input_["standby_workspaces"] = standby_workspaces
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_tags(self, resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", tags: "aws_sdk_workspaces.types.tag_list.TagList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.create_tags_result.CreateTagsResult":
         """<p>Creates the specified tags for the specified WorkSpaces resource.</p>
@@ -609,11 +609,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tags"] = tags
+        input_: aws_sdk_workspaces.types.create_tags_request.CreateTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_updated_workspace_image(self, name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", description: "aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription", source_image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_updated_workspace_image_result.CreateUpdatedWorkspaceImageResult":
         """<p>Creates a new updated WorkSpace image based on the specified source image. The new updated WorkSpace image has the latest drivers and other updates required by the Amazon WorkSpaces components.</p> <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces requirements, use <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html\"> DescribeWorkspaceImages</a>.</p> <note> <ul> <li> <p>Only Windows 10, Windows Server 2016, and Windows Server 2019 WorkSpace images can be programmatically updated at this time.</p> </li> <li> <p>Microsoft Windows updates and other application updates are not included in the update process.</p> </li> <li> <p>The source WorkSpace image is not deleted. You can delete the source image after you've verified your new updated image and created a new bundle. </p> </li> </ul> </note>
@@ -630,14 +630,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_updated_workspace_image_request.CreateUpdatedWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["description"] = description
-        input["source_image_id"] = source_image_id
+        input_: aws_sdk_workspaces.types.create_updated_workspace_image_request.CreateUpdatedWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["description"] = description
+        input_["source_image_id"] = source_image_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_workspace_bundle(self, bundle_name: "aws_sdk_workspaces.types.workspace_bundle_name.WorkspaceBundleName", bundle_description: "aws_sdk_workspaces.types.workspace_bundle_description.WorkspaceBundleDescription", image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", compute_type: "aws_sdk_workspaces.types.compute_type.ComputeType", user_storage: "aws_sdk_workspaces.types.user_storage.UserStorage", *, config_overrides: Optional[WorkSpacesClientConfig] = None, root_storage: Optional["aws_sdk_workspaces.types.root_storage.RootStorage"] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_workspace_bundle_result.CreateWorkspaceBundleResult":
         """<p>Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html\"> Create a Custom WorkSpaces Image and Bundle</a>.</p>
@@ -654,18 +654,18 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_workspace_bundle_request.CreateWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
-        input["bundle_name"] = bundle_name
-        input["bundle_description"] = bundle_description
-        input["image_id"] = image_id
-        input["compute_type"] = compute_type
-        input["user_storage"] = user_storage
+        input_: aws_sdk_workspaces.types.create_workspace_bundle_request.CreateWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
+        input_["bundle_name"] = bundle_name
+        input_["bundle_description"] = bundle_description
+        input_["image_id"] = image_id
+        input_["compute_type"] = compute_type
+        input_["user_storage"] = user_storage
         if root_storage is not None:
-            input["root_storage"] = root_storage
+            input_["root_storage"] = root_storage
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_workspace_image(self, name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", description: "aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription", workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.create_workspace_image_result.CreateWorkspaceImageResult":
         """<p>Creates a new WorkSpace image from an existing WorkSpace.</p>
@@ -682,14 +682,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_workspace_image_request.CreateWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["description"] = description
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_workspaces.types.create_workspace_image_request.CreateWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["description"] = description
+        input_["workspace_id"] = workspace_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_workspaces(self, workspaces: "aws_sdk_workspaces.types.workspace_request_list.WorkspaceRequestList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.create_workspaces_result.CreateWorkspacesResult":
         """<p>Creates one or more WorkSpaces.</p> <p>This operation is asynchronous and returns before the WorkSpaces are created.</p> <note> <ul> <li> <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces Core. Contact your account team to be allow-listed to use this value. For more information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p> </li> <li> <p>You don't need to specify the <code>PCOIP</code> protocol for Linux bundles because <code>DCV</code> (formerly WSP) is the default protocol for those bundles.</p> </li> <li> <p>User-decoupled WorkSpaces are only supported by Amazon WorkSpaces Core.</p> </li> <li> <p>Review your running mode to ensure you are using one that is optimal for your needs and budget. For more information on switching running modes, see <a href=\"http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F\"> Can I switch between hourly and monthly billing?</a> </p> </li> </ul> </note>
@@ -703,10 +703,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_workspaces_request.CreateWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["workspaces"] = workspaces
+        input_: aws_sdk_workspaces.types.create_workspaces_request.CreateWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["workspaces"] = workspaces
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def create_workspaces_pool(self, pool_name: "aws_sdk_workspaces.types.workspaces_pool_name.WorkspacesPoolName", description: "aws_sdk_workspaces.types.update_description.UpdateDescription", bundle_id: "aws_sdk_workspaces.types.bundle_id.BundleId", directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", capacity: "aws_sdk_workspaces.types.capacity.Capacity", *, config_overrides: Optional[WorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None, application_settings: Optional["aws_sdk_workspaces.types.application_settings_request.ApplicationSettingsRequest"] = None, timeout_settings: Optional["aws_sdk_workspaces.types.timeout_settings.TimeoutSettings"] = None, running_mode: Optional["aws_sdk_workspaces.types.pools_running_mode.PoolsRunningMode"] = None) -> "aws_sdk_workspaces.types.create_workspaces_pool_result.CreateWorkspacesPoolResult":
         """<p>Creates a pool of WorkSpaces.</p>
@@ -728,22 +728,22 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.create_workspaces_pool_request.CreateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_name"] = pool_name
-        input["description"] = description
-        input["bundle_id"] = bundle_id
-        input["directory_id"] = directory_id
-        input["capacity"] = capacity
+        input_: aws_sdk_workspaces.types.create_workspaces_pool_request.CreateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_name"] = pool_name
+        input_["description"] = description
+        input_["bundle_id"] = bundle_id
+        input_["directory_id"] = directory_id
+        input_["capacity"] = capacity
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if application_settings is not None:
-            input["application_settings"] = application_settings
+            input_["application_settings"] = application_settings
         if timeout_settings is not None:
-            input["timeout_settings"] = timeout_settings
+            input_["timeout_settings"] = timeout_settings
         if running_mode is not None:
-            input["running_mode"] = running_mode
+            input_["running_mode"] = running_mode
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_account_link_invitation(self, link_id: "aws_sdk_workspaces.types.link_id.LinkId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, client_token: Optional["aws_sdk_workspaces.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces.types.delete_account_link_invitation_result.DeleteAccountLinkInvitationResult":
         """<p>Deletes the account link invitation.</p>
@@ -758,12 +758,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.delete_account_link_invitation_request.DeleteAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["link_id"] = link_id
+        input_: aws_sdk_workspaces.types.delete_account_link_invitation_request.DeleteAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["link_id"] = link_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_client_branding(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", platforms: "aws_sdk_workspaces.types.client_device_type_list.ClientDeviceTypeList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_client_branding_result.DeleteClientBrandingResult":
         """<p>Deletes customized client branding. Client branding allows you to customize your WorkSpace's client login portal. You can tailor your login portal company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.</p> <p>After you delete your customized client branding, your login portal reverts to the default client branding.</p>
@@ -778,11 +778,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.delete_client_branding_request.DeleteClientBrandingRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["platforms"] = platforms
+        input_: aws_sdk_workspaces.types.delete_client_branding_request.DeleteClientBrandingRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["platforms"] = platforms
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_connect_client_add_in(self, add_in_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid", resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_connect_client_add_in_result.DeleteConnectClientAddInResult":
         """<p>Deletes a client-add-in for Connect Customer that is configured within a directory.</p>
@@ -797,11 +797,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.delete_connect_client_add_in_request.DeleteConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
-        input["add_in_id"] = add_in_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.delete_connect_client_add_in_request.DeleteConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
+        input_["add_in_id"] = add_in_id
+        input_["resource_id"] = resource_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_connection_alias(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_connection_alias_result.DeleteConnectionAliasResult":
         """<p>Deletes the specified connection alias. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p> <important> <p> <b>If you will no longer be using a fully qualified domain name (FQDN) as the registration code for your WorkSpaces users, you must take certain precautions to prevent potential security issues.</b> For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations\"> Security Considerations if You Stop Using Cross-Region Redirection</a>.</p> </important> <note> <p>To delete a connection alias that has been shared, the shared account must first disassociate the connection alias from any directories it has been associated with. Then you must unshare the connection alias from the account it has been shared with. You can delete a connection alias only after it is no longer shared with any accounts or associated with any directories.</p> </note>
@@ -815,10 +815,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.delete_connection_alias_request.DeleteConnectionAliasRequest = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
+        input_: aws_sdk_workspaces.types.delete_connection_alias_request.DeleteConnectionAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_ip_group(self, group_id: "aws_sdk_workspaces.types.ip_group_id.IpGroupId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_ip_group_result.DeleteIpGroupResult":
         """<p>Deletes the specified IP access control group.</p> <p>You cannot delete an IP access control group that is associated with a directory.</p>
@@ -832,10 +832,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.delete_ip_group_request.DeleteIpGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_workspaces.types.delete_ip_group_request.DeleteIpGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_tags(self, resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", tag_keys: "aws_sdk_workspaces.types.tag_key_list.TagKeyList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_tags_result.DeleteTagsResult":
         """<p>Deletes the specified tags from the specified WorkSpaces resource.</p>
@@ -850,11 +850,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_workspaces.types.delete_tags_request.DeleteTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_keys"] = tag_keys
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_workspace_bundle(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None) -> "aws_sdk_workspaces.types.delete_workspace_bundle_result.DeleteWorkspaceBundleResult":
         """<p>Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html\"> Delete a Custom WorkSpaces Bundle or Image</a>.</p>
@@ -868,11 +868,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.delete_workspace_bundle_request.DeleteWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.delete_workspace_bundle_request.DeleteWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
         if bundle_id is not None:
-            input["bundle_id"] = bundle_id
+            input_["bundle_id"] = bundle_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def delete_workspace_image(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.delete_workspace_image_result.DeleteWorkspaceImageResult":
         """<p>Deletes the specified image from your account. To delete an image, you must first delete any bundles that are associated with the image and unshare the image if it is shared with other accounts. </p>
@@ -886,10 +886,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.delete_workspace_image_request.DeleteWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
-        input["image_id"] = image_id
+        input_: aws_sdk_workspaces.types.delete_workspace_image_request.DeleteWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input_["image_id"] = image_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def deploy_workspace_applications(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, force: Optional["aws_sdk_workspaces.types.boolean_object.BooleanObject"] = None) -> "aws_sdk_workspaces.types.deploy_workspace_applications_result.DeployWorkspaceApplicationsResult":
         """<p>Deploys associated applications to the specified WorkSpace</p>
@@ -904,12 +904,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.deploy_workspace_applications_request.DeployWorkspaceApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_workspaces.types.deploy_workspace_applications_request.DeployWorkspaceApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def deregister_workspace_directory(self, directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.deregister_workspace_directory_result.DeregisterWorkspaceDirectoryResult":
         """<p>Deregisters the specified directory. This operation is asynchronous and returns before the WorkSpace directory is deregistered. If any WorkSpaces are registered to this directory, you must remove them before you can deregister the directory.</p> <note> <p>Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href=\"http://aws.amazon.com/directoryservice/pricing/\">Directory Service pricing terms</a>.</p> <p>To delete empty directories, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html\"> Delete the Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector directory, you can always create a new one when you want to start using WorkSpaces again.</p> </note>
@@ -923,10 +923,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.deregister_workspace_directory_request.DeregisterWorkspaceDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_workspaces.types.deregister_workspace_directory_request.DeregisterWorkspaceDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_account(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_account_result.DescribeAccountResult":
         """<p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for the specified account.</p>
@@ -937,9 +937,9 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_account_request.DescribeAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_account_request.DescribeAccountRequest = {}  # type: ignore[typeddict-item]
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_account_modifications(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_account_modifications_result.DescribeAccountModificationsResult":
         """<p>Retrieves a list that describes modifications to the configuration of Bring Your Own License (BYOL) for the specified account.</p>
@@ -953,11 +953,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_account_modifications_request.DescribeAccountModificationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_account_modifications_request.DescribeAccountModificationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_application_associations(self, application_id: "aws_sdk_workspaces.types.work_space_application_id.WorkSpaceApplicationId", associated_resource_types: "aws_sdk_workspaces.types.application_associated_resource_type_list.ApplicationAssociatedResourceTypeList", *, config_overrides: Optional[WorkSpacesClientConfig] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_application_associations_result.DescribeApplicationAssociationsResult":
         """<p>Describes the associations between the application and the specified associated resources.</p>
@@ -974,15 +974,15 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_application_associations_request.DescribeApplicationAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_application_associations_request.DescribeApplicationAssociationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["application_id"] = application_id
-        input["associated_resource_types"] = associated_resource_types
+            input_["next_token"] = next_token
+        input_["application_id"] = application_id
+        input_["associated_resource_types"] = associated_resource_types
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_applications(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, application_ids: Optional["aws_sdk_workspaces.types.work_space_application_id_list.WorkSpaceApplicationIdList"] = None, compute_type_names: Optional["aws_sdk_workspaces.types.compute_list.ComputeList"] = None, license_type: Optional["aws_sdk_workspaces.types.work_space_application_license_type.WorkSpaceApplicationLicenseType"] = None, operating_system_names: Optional["aws_sdk_workspaces.types.operating_system_name_list.OperatingSystemNameList"] = None, owner: Optional["aws_sdk_workspaces.types.work_space_application_owner.WorkSpaceApplicationOwner"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_applications_result.DescribeApplicationsResult":
         """<p>Describes the specified applications by filtering based on their compute types, license availability, operating systems, and owners.</p>
@@ -1002,23 +1002,23 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_applications_request.DescribeApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_applications_request.DescribeApplicationsRequest = {}  # type: ignore[typeddict-item]
         if application_ids is not None:
-            input["application_ids"] = application_ids
+            input_["application_ids"] = application_ids
         if compute_type_names is not None:
-            input["compute_type_names"] = compute_type_names
+            input_["compute_type_names"] = compute_type_names
         if license_type is not None:
-            input["license_type"] = license_type
+            input_["license_type"] = license_type
         if operating_system_names is not None:
-            input["operating_system_names"] = operating_system_names
+            input_["operating_system_names"] = operating_system_names
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_bundle_associations(self, bundle_id: "aws_sdk_workspaces.types.bundle_id.BundleId", associated_resource_types: "aws_sdk_workspaces.types.bundle_associated_resource_type_list.BundleAssociatedResourceTypeList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_bundle_associations_result.DescribeBundleAssociationsResult":
         """<p>Describes the associations between the applications and the specified bundle.</p>
@@ -1033,11 +1033,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_bundle_associations_request.DescribeBundleAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["bundle_id"] = bundle_id
-        input["associated_resource_types"] = associated_resource_types
+        input_: aws_sdk_workspaces.types.describe_bundle_associations_request.DescribeBundleAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["bundle_id"] = bundle_id
+        input_["associated_resource_types"] = associated_resource_types
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_client_branding(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_client_branding_result.DescribeClientBrandingResult":
         """<p>Describes the specified client branding. Client branding allows you to customize the log in page of various device types for your users. You can add your company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.</p> <note> <p>Only device types that have branding information configured will be shown in the response.</p> </note>
@@ -1051,10 +1051,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_client_branding_request.DescribeClientBrandingRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.describe_client_branding_request.DescribeClientBrandingRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_client_properties(self, resource_ids: "aws_sdk_workspaces.types.resource_id_list.ResourceIdList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_client_properties_result.DescribeClientPropertiesResult":
         """<p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
@@ -1068,10 +1068,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_client_properties_request.DescribeClientPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_ids"] = resource_ids
+        input_: aws_sdk_workspaces.types.describe_client_properties_request.DescribeClientPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_ids"] = resource_ids
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_connect_client_add_ins(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_connect_client_add_ins_result.DescribeConnectClientAddInsResult":
         """<p>Retrieves a list of Connect Customer client add-ins that have been created.</p>
@@ -1087,14 +1087,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_connect_client_add_ins_request.DescribeConnectClientAddInsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.describe_connect_client_add_ins_request.DescribeConnectClientAddInsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_connection_aliases(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, alias_ids: Optional["aws_sdk_workspaces.types.connection_alias_id_list.ConnectionAliasIdList"] = None, resource_id: Optional["aws_sdk_workspaces.types.non_empty_string.NonEmptyString"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_connection_aliases_result.DescribeConnectionAliasesResult":
         """<p>Retrieves a list that describes the connection aliases used for cross-Region redirection. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
@@ -1111,17 +1111,17 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_connection_aliases_request.DescribeConnectionAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_connection_aliases_request.DescribeConnectionAliasesRequest = {}  # type: ignore[typeddict-item]
         if alias_ids is not None:
-            input["alias_ids"] = alias_ids
+            input_["alias_ids"] = alias_ids
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_connection_alias_permissions(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_connection_alias_permissions_result.DescribeConnectionAliasPermissionsResult":
         """<p>Describes the permissions that the owner of a connection alias has granted to another Amazon Web Services account for the specified connection alias. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
@@ -1137,14 +1137,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_connection_alias_permissions_request.DescribeConnectionAliasPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
+        input_: aws_sdk_workspaces.types.describe_connection_alias_permissions_request.DescribeConnectionAliasPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_custom_workspace_image_import(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_custom_workspace_image_import_result.DescribeCustomWorkspaceImageImportResult":
         """<p>Retrieves information about a WorkSpace BYOL image being imported via ImportCustomWorkspaceImage.</p>
@@ -1158,10 +1158,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_custom_workspace_image_import_request.DescribeCustomWorkspaceImageImportRequest = {}  # type: ignore[typeddict-item]
-        input["image_id"] = image_id
+        input_: aws_sdk_workspaces.types.describe_custom_workspace_image_import_request.DescribeCustomWorkspaceImageImportRequest = {}  # type: ignore[typeddict-item]
+        input_["image_id"] = image_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_image_associations(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", associated_resource_types: "aws_sdk_workspaces.types.image_associated_resource_type_list.ImageAssociatedResourceTypeList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_image_associations_result.DescribeImageAssociationsResult":
         """<p>Describes the associations between the applications and the specified image.</p>
@@ -1176,11 +1176,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_image_associations_request.DescribeImageAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["image_id"] = image_id
-        input["associated_resource_types"] = associated_resource_types
+        input_: aws_sdk_workspaces.types.describe_image_associations_request.DescribeImageAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["image_id"] = image_id
+        input_["associated_resource_types"] = associated_resource_types
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_ip_groups(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, group_ids: Optional["aws_sdk_workspaces.types.ip_group_id_list.IpGroupIdList"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_ip_groups_result.DescribeIpGroupsResult":
         """<p>Describes one or more of your IP access control groups.</p>
@@ -1196,15 +1196,15 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_ip_groups_request.DescribeIpGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_ip_groups_request.DescribeIpGroupsRequest = {}  # type: ignore[typeddict-item]
         if group_ids is not None:
-            input["group_ids"] = group_ids
+            input_["group_ids"] = group_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_tags(self, resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_tags_result.DescribeTagsResult":
         """<p>Describes the specified tags for the specified WorkSpaces resource.</p>
@@ -1218,10 +1218,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_workspace_associations(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", associated_resource_types: "aws_sdk_workspaces.types.work_space_associated_resource_type_list.WorkSpaceAssociatedResourceTypeList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_workspace_associations_result.DescribeWorkspaceAssociationsResult":
         """<p>Describes the associations betweens applications and the specified WorkSpace.</p>
@@ -1236,11 +1236,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspace_associations_request.DescribeWorkspaceAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["associated_resource_types"] = associated_resource_types
+        input_: aws_sdk_workspaces.types.describe_workspace_associations_request.DescribeWorkspaceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["associated_resource_types"] = associated_resource_types
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_workspace_bundles(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, bundle_ids: Optional["aws_sdk_workspaces.types.bundle_id_list.BundleIdList"] = None, owner: Optional["aws_sdk_workspaces.types.bundle_owner.BundleOwner"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_workspace_bundles_result.DescribeWorkspaceBundlesResult":
         """<p>Retrieves a list that describes the available WorkSpace bundles.</p> <p>You can filter the results using either bundle ID or owner, but not both.</p>
@@ -1256,15 +1256,15 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspace_bundles_request.DescribeWorkspaceBundlesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_workspace_bundles_request.DescribeWorkspaceBundlesRequest = {}  # type: ignore[typeddict-item]
         if bundle_ids is not None:
-            input["bundle_ids"] = bundle_ids
+            input_["bundle_ids"] = bundle_ids
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def iter_describe_workspace_bundles(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, bundle_ids: Optional["aws_sdk_workspaces.types.bundle_id_list.BundleIdList"] = None, owner: Optional["aws_sdk_workspaces.types.bundle_owner.BundleOwner"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "Iterator[aws_sdk_workspaces.types.workspace_bundle.WorkspaceBundle]":
         _token = next_token
@@ -1297,19 +1297,19 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspace_directories_request.DescribeWorkspaceDirectoriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_workspace_directories_request.DescribeWorkspaceDirectoriesRequest = {}  # type: ignore[typeddict-item]
         if directory_ids is not None:
-            input["directory_ids"] = directory_ids
+            input_["directory_ids"] = directory_ids
         if workspace_directory_names is not None:
-            input["workspace_directory_names"] = workspace_directory_names
+            input_["workspace_directory_names"] = workspace_directory_names
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def iter_describe_workspace_directories(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, directory_ids: Optional["aws_sdk_workspaces.types.directory_id_list.DirectoryIdList"] = None, workspace_directory_names: Optional["aws_sdk_workspaces.types.workspace_directory_name_list.WorkspaceDirectoryNameList"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, filters: Optional["aws_sdk_workspaces.types.describe_workspace_directories_filter_list.DescribeWorkspaceDirectoriesFilterList"] = None) -> "Iterator[aws_sdk_workspaces.types.workspace_directory.WorkspaceDirectory]":
         _token = next_token
@@ -1342,14 +1342,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspace_image_permissions_request.DescribeWorkspaceImagePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["image_id"] = image_id
+        input_: aws_sdk_workspaces.types.describe_workspace_image_permissions_request.DescribeWorkspaceImagePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["image_id"] = image_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_workspace_images(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, image_ids: Optional["aws_sdk_workspaces.types.workspace_image_id_list.WorkspaceImageIdList"] = None, image_type: Optional["aws_sdk_workspaces.types.image_type.ImageType"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.describe_workspace_images_result.DescribeWorkspaceImagesResult":
         """<p>Retrieves a list that describes one or more specified images, if the image identifiers are provided. Otherwise, all images in the account are described. </p>
@@ -1366,17 +1366,17 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspace_images_request.DescribeWorkspaceImagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_workspace_images_request.DescribeWorkspaceImagesRequest = {}  # type: ignore[typeddict-item]
         if image_ids is not None:
-            input["image_ids"] = image_ids
+            input_["image_ids"] = image_ids
         if image_type is not None:
-            input["image_type"] = image_type
+            input_["image_type"] = image_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_workspaces(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, workspace_ids: Optional["aws_sdk_workspaces.types.workspace_id_list.WorkspaceIdList"] = None, directory_id: Optional["aws_sdk_workspaces.types.directory_id.DirectoryId"] = None, user_name: Optional["aws_sdk_workspaces.types.user_name.UserName"] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, workspace_name: Optional["aws_sdk_workspaces.types.workspace_name.WorkspaceName"] = None) -> "aws_sdk_workspaces.types.describe_workspaces_result.DescribeWorkspacesResult":
         """<p>Describes the specified WorkSpaces.</p> <p>You can filter the results by using the bundle identifier, directory identifier, or owner, but you can specify only one filter at a time.</p>
@@ -1396,23 +1396,23 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspaces_request.DescribeWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_workspaces_request.DescribeWorkspacesRequest = {}  # type: ignore[typeddict-item]
         if workspace_ids is not None:
-            input["workspace_ids"] = workspace_ids
+            input_["workspace_ids"] = workspace_ids
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
         if bundle_id is not None:
-            input["bundle_id"] = bundle_id
+            input_["bundle_id"] = bundle_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if workspace_name is not None:
-            input["workspace_name"] = workspace_name
+            input_["workspace_name"] = workspace_name
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def iter_describe_workspaces(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, workspace_ids: Optional["aws_sdk_workspaces.types.workspace_id_list.WorkspaceIdList"] = None, directory_id: Optional["aws_sdk_workspaces.types.directory_id.DirectoryId"] = None, user_name: Optional["aws_sdk_workspaces.types.user_name.UserName"] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, workspace_name: Optional["aws_sdk_workspaces.types.workspace_name.WorkspaceName"] = None) -> "Iterator[aws_sdk_workspaces.types.workspace.Workspace]":
         _token = next_token
@@ -1446,13 +1446,13 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspaces_connection_status_request.DescribeWorkspacesConnectionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_workspaces_connection_status_request.DescribeWorkspacesConnectionStatusRequest = {}  # type: ignore[typeddict-item]
         if workspace_ids is not None:
-            input["workspace_ids"] = workspace_ids
+            input_["workspace_ids"] = workspace_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_workspace_snapshots(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.describe_workspace_snapshots_result.DescribeWorkspaceSnapshotsResult":
         """<p>Describes the snapshots for the specified WorkSpace.</p>
@@ -1466,10 +1466,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspace_snapshots_request.DescribeWorkspaceSnapshotsRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_workspaces.types.describe_workspace_snapshots_request.DescribeWorkspaceSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_workspaces_pools(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, pool_ids: Optional["aws_sdk_workspaces.types.workspaces_pool_ids.WorkspacesPoolIds"] = None, filters: Optional["aws_sdk_workspaces.types.describe_workspaces_pools_filters.DescribeWorkspacesPoolsFilters"] = None, limit: Optional["aws_sdk_workspaces.types.limit.Limit"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_workspaces_pools_result.DescribeWorkspacesPoolsResult":
         """<p>Describes the specified WorkSpaces Pools.</p>
@@ -1486,17 +1486,17 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspaces_pools_request.DescribeWorkspacesPoolsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.describe_workspaces_pools_request.DescribeWorkspacesPoolsRequest = {}  # type: ignore[typeddict-item]
         if pool_ids is not None:
-            input["pool_ids"] = pool_ids
+            input_["pool_ids"] = pool_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def describe_workspaces_pool_sessions(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, user_id: Optional["aws_sdk_workspaces.types.workspaces_pool_user_id.WorkspacesPoolUserId"] = None, limit: Optional["aws_sdk_workspaces.types.limit50.Limit50"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None) -> "aws_sdk_workspaces.types.describe_workspaces_pool_sessions_result.DescribeWorkspacesPoolSessionsResult":
         """<p>Retrieves a list that describes the streaming sessions for a specified pool.</p>
@@ -1513,16 +1513,16 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.describe_workspaces_pool_sessions_request.DescribeWorkspacesPoolSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["pool_id"] = pool_id
+        input_: aws_sdk_workspaces.types.describe_workspaces_pool_sessions_request.DescribeWorkspacesPoolSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_id"] = pool_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def disassociate_connection_alias(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.disassociate_connection_alias_result.DisassociateConnectionAliasResult":
         """<p>Disassociates a connection alias from a directory. Disassociating a connection alias disables cross-Region redirection between two directories in different Regions. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p> <note> <p>Before performing this operation, call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html\"> DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p> </note>
@@ -1536,10 +1536,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.disassociate_connection_alias_request.DisassociateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
+        input_: aws_sdk_workspaces.types.disassociate_connection_alias_request.DisassociateConnectionAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def disassociate_ip_groups(self, directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", group_ids: "aws_sdk_workspaces.types.ip_group_id_list.IpGroupIdList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.disassociate_ip_groups_result.DisassociateIpGroupsResult":
         """<p>Disassociates the specified IP access control group from the specified directory.</p>
@@ -1554,11 +1554,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.disassociate_ip_groups_request.DisassociateIpGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["group_ids"] = group_ids
+        input_: aws_sdk_workspaces.types.disassociate_ip_groups_request.DisassociateIpGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["group_ids"] = group_ids
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def disassociate_workspace_application(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", application_id: "aws_sdk_workspaces.types.work_space_application_id.WorkSpaceApplicationId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.disassociate_workspace_application_result.DisassociateWorkspaceApplicationResult":
         """<p>Disassociates the specified application from a WorkSpace.</p>
@@ -1573,11 +1573,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.disassociate_workspace_application_request.DisassociateWorkspaceApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["application_id"] = application_id
+        input_: aws_sdk_workspaces.types.disassociate_workspace_application_request.DisassociateWorkspaceApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["application_id"] = application_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def get_account_link(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, link_id: Optional["aws_sdk_workspaces.types.link_id.LinkId"] = None, linked_account_id: Optional["aws_sdk_workspaces.types.aws_account.AwsAccount"] = None) -> "aws_sdk_workspaces.types.get_account_link_result.GetAccountLinkResult":
         """<p>Retrieves account link information.</p>
@@ -1592,13 +1592,13 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.get_account_link_request.GetAccountLinkRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.get_account_link_request.GetAccountLinkRequest = {}  # type: ignore[typeddict-item]
         if link_id is not None:
-            input["link_id"] = link_id
+            input_["link_id"] = link_id
         if linked_account_id is not None:
-            input["linked_account_id"] = linked_account_id
+            input_["linked_account_id"] = linked_account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def import_client_branding(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, device_type_windows: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None, device_type_osx: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None, device_type_android: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None, device_type_ios: Optional["aws_sdk_workspaces.types.ios_import_client_branding_attributes.IosImportClientBrandingAttributes"] = None, device_type_linux: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None, device_type_web: Optional["aws_sdk_workspaces.types.default_import_client_branding_attributes.DefaultImportClientBrandingAttributes"] = None) -> "aws_sdk_workspaces.types.import_client_branding_result.ImportClientBrandingResult":
         """<p>Imports client branding. Client branding allows you to customize your WorkSpace's client login portal. You can tailor your login portal company logo, the support email address, support link, link to reset password, and a custom message for users trying to sign in.</p> <p>After you import client branding, the default branding experience for the specified platform type is replaced with the imported experience</p> <note> <ul> <li> <p>You must specify at least one platform type when importing client branding.</p> </li> <li> <p>You can import up to 6 MB of data with each request. If your request exceeds this limit, you can import client branding for different platform types using separate requests.</p> </li> <li> <p>In each platform type, the <code>SupportEmail</code> and <code>SupportLink</code> parameters are mutually exclusive. You can specify only one parameter for each platform type, but not both.</p> </li> <li> <p>Imported data can take up to a minute to appear in the WorkSpaces client.</p> </li> </ul> </note>
@@ -1618,22 +1618,22 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.import_client_branding_request.ImportClientBrandingRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.import_client_branding_request.ImportClientBrandingRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if device_type_windows is not None:
-            input["device_type_windows"] = device_type_windows
+            input_["device_type_windows"] = device_type_windows
         if device_type_osx is not None:
-            input["device_type_osx"] = device_type_osx
+            input_["device_type_osx"] = device_type_osx
         if device_type_android is not None:
-            input["device_type_android"] = device_type_android
+            input_["device_type_android"] = device_type_android
         if device_type_ios is not None:
-            input["device_type_ios"] = device_type_ios
+            input_["device_type_ios"] = device_type_ios
         if device_type_linux is not None:
-            input["device_type_linux"] = device_type_linux
+            input_["device_type_linux"] = device_type_linux
         if device_type_web is not None:
-            input["device_type_web"] = device_type_web
+            input_["device_type_web"] = device_type_web
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def import_custom_workspace_image(self, image_name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", image_description: "aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription", compute_type: "aws_sdk_workspaces.types.image_compute_type.ImageComputeType", protocol: "aws_sdk_workspaces.types.custom_image_protocol.CustomImageProtocol", image_source: "aws_sdk_workspaces.types.image_source_identifier.ImageSourceIdentifier", infrastructure_configuration_arn: "aws_sdk_workspaces.types.infrastructure_configuration_arn.InfrastructureConfigurationArn", platform: "aws_sdk_workspaces.types.platform.Platform", os_version: "aws_sdk_workspaces.types.os_version.OSVersion", *, config_overrides: Optional[WorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None) -> "aws_sdk_workspaces.types.import_custom_workspace_image_result.ImportCustomWorkspaceImageResult":
         """<p>Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into Amazon WorkSpaces using EC2 Image Builder. The image must be an already licensed image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring Your Own Windows Desktop Licenses</a>. </p>
@@ -1655,19 +1655,19 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.import_custom_workspace_image_request.ImportCustomWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
-        input["image_name"] = image_name
-        input["image_description"] = image_description
-        input["compute_type"] = compute_type
-        input["protocol"] = protocol
-        input["image_source"] = image_source
-        input["infrastructure_configuration_arn"] = infrastructure_configuration_arn
-        input["platform"] = platform
-        input["os_version"] = os_version
+        input_: aws_sdk_workspaces.types.import_custom_workspace_image_request.ImportCustomWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input_["image_name"] = image_name
+        input_["image_description"] = image_description
+        input_["compute_type"] = compute_type
+        input_["protocol"] = protocol
+        input_["image_source"] = image_source
+        input_["infrastructure_configuration_arn"] = infrastructure_configuration_arn
+        input_["platform"] = platform
+        input_["os_version"] = os_version
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def import_workspace_image(self, ec2_image_id: "aws_sdk_workspaces.types.ec2_image_id.Ec2ImageId", ingestion_process: "aws_sdk_workspaces.types.workspace_image_ingestion_process.WorkspaceImageIngestionProcess", image_name: "aws_sdk_workspaces.types.workspace_image_name.WorkspaceImageName", image_description: "aws_sdk_workspaces.types.workspace_image_description.WorkspaceImageDescription", *, config_overrides: Optional[WorkSpacesClientConfig] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None, applications: Optional["aws_sdk_workspaces.types.application_list.ApplicationList"] = None) -> "aws_sdk_workspaces.types.import_workspace_image_result.ImportWorkspaceImageResult":
         """<p>Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring Your Own Windows Desktop Licenses</a>.</p>
@@ -1686,17 +1686,17 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.import_workspace_image_request.ImportWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
-        input["ec2_image_id"] = ec2_image_id
-        input["ingestion_process"] = ingestion_process
-        input["image_name"] = image_name
-        input["image_description"] = image_description
+        input_: aws_sdk_workspaces.types.import_workspace_image_request.ImportWorkspaceImageRequest = {}  # type: ignore[typeddict-item]
+        input_["ec2_image_id"] = ec2_image_id
+        input_["ingestion_process"] = ingestion_process
+        input_["image_name"] = image_name
+        input_["image_description"] = image_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if applications is not None:
-            input["applications"] = applications
+            input_["applications"] = applications
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_account_links(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, link_status_filter: Optional["aws_sdk_workspaces.types.link_status_filter_list.LinkStatusFilterList"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "aws_sdk_workspaces.types.list_account_links_result.ListAccountLinksResult":
         """<p>Lists all account links.</p>
@@ -1712,15 +1712,15 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.list_account_links_request.ListAccountLinksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.list_account_links_request.ListAccountLinksRequest = {}  # type: ignore[typeddict-item]
         if link_status_filter is not None:
-            input["link_status_filter"] = link_status_filter
+            input_["link_status_filter"] = link_status_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def iter_list_account_links(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, link_status_filter: Optional["aws_sdk_workspaces.types.link_status_filter_list.LinkStatusFilterList"] = None, next_token: Optional["aws_sdk_workspaces.types.pagination_token.PaginationToken"] = None, max_results: Optional["aws_sdk_workspaces.types.limit.Limit"] = None) -> "Iterator[aws_sdk_workspaces.types.account_link.AccountLink]":
         _token = next_token
@@ -1751,14 +1751,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.list_available_management_cidr_ranges_request.ListAvailableManagementCidrRangesRequest = {}  # type: ignore[typeddict-item]
-        input["management_cidr_range_constraint"] = management_cidr_range_constraint
+        input_: aws_sdk_workspaces.types.list_available_management_cidr_ranges_request.ListAvailableManagementCidrRangesRequest = {}  # type: ignore[typeddict-item]
+        input_["management_cidr_range_constraint"] = management_cidr_range_constraint
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def migrate_workspace(self, source_workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", bundle_id: "aws_sdk_workspaces.types.bundle_id.BundleId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.migrate_workspace_result.MigrateWorkspaceResult":
         """<p>Migrates a WorkSpace from one operating system or bundle type to another, while retaining the data on the user volume.</p> <p>The migration process recreates the WorkSpace by using a new root volume from the target bundle image and the user volume from the last available snapshot of the original WorkSpace. During migration, the original <code>D:\Users\%USERNAME%</code> user profile folder is renamed to <code>D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated</code>. A new <code>D:\Users\%USERNAME%\</code> folder is generated by the new OS. Certain files in the old user profile are moved to the new user profile.</p> <p>For available migration scenarios, details about what happens during migration, and best practices, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html\">Migrate a WorkSpace</a>.</p>
@@ -1773,11 +1773,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.migrate_workspace_request.MigrateWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["source_workspace_id"] = source_workspace_id
-        input["bundle_id"] = bundle_id
+        input_: aws_sdk_workspaces.types.migrate_workspace_request.MigrateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_workspace_id"] = source_workspace_id
+        input_["bundle_id"] = bundle_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_account(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, dedicated_tenancy_support: Optional["aws_sdk_workspaces.types.dedicated_tenancy_support_enum.DedicatedTenancySupportEnum"] = None, dedicated_tenancy_management_cidr_range: Optional["aws_sdk_workspaces.types.dedicated_tenancy_management_cidr_range.DedicatedTenancyManagementCidrRange"] = None) -> "aws_sdk_workspaces.types.modify_account_result.ModifyAccountResult":
         """<p>Modifies the configuration of Bring Your Own License (BYOL) for the specified account.</p>
@@ -1792,13 +1792,13 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_account_request.ModifyAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.modify_account_request.ModifyAccountRequest = {}  # type: ignore[typeddict-item]
         if dedicated_tenancy_support is not None:
-            input["dedicated_tenancy_support"] = dedicated_tenancy_support
+            input_["dedicated_tenancy_support"] = dedicated_tenancy_support
         if dedicated_tenancy_management_cidr_range is not None:
-            input["dedicated_tenancy_management_cidr_range"] = dedicated_tenancy_management_cidr_range
+            input_["dedicated_tenancy_management_cidr_range"] = dedicated_tenancy_management_cidr_range
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_certificate_based_auth_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, certificate_based_auth_properties: Optional["aws_sdk_workspaces.types.certificate_based_auth_properties.CertificateBasedAuthProperties"] = None, properties_to_delete: Optional["aws_sdk_workspaces.types.deletable_certificate_based_auth_properties_list.DeletableCertificateBasedAuthPropertiesList"] = None) -> "aws_sdk_workspaces.types.modify_certificate_based_auth_properties_result.ModifyCertificateBasedAuthPropertiesResult":
         """<p>Modifies the properties of the certificate-based authentication you want to use with your WorkSpaces.</p>
@@ -1814,14 +1814,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_certificate_based_auth_properties_request.ModifyCertificateBasedAuthPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.modify_certificate_based_auth_properties_request.ModifyCertificateBasedAuthPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if certificate_based_auth_properties is not None:
-            input["certificate_based_auth_properties"] = certificate_based_auth_properties
+            input_["certificate_based_auth_properties"] = certificate_based_auth_properties
         if properties_to_delete is not None:
-            input["properties_to_delete"] = properties_to_delete
+            input_["properties_to_delete"] = properties_to_delete
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_client_properties(self, resource_id: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString", client_properties: "aws_sdk_workspaces.types.client_properties.ClientProperties", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_client_properties_result.ModifyClientPropertiesResult":
         """<p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
@@ -1836,11 +1836,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_client_properties_request.ModifyClientPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["client_properties"] = client_properties
+        input_: aws_sdk_workspaces.types.modify_client_properties_request.ModifyClientPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["client_properties"] = client_properties
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_endpoint_encryption_mode(self, directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", endpoint_encryption_mode: "aws_sdk_workspaces.types.endpoint_encryption_mode.EndpointEncryptionMode", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_endpoint_encryption_mode_response.ModifyEndpointEncryptionModeResponse":
         """<p>Modifies the endpoint encryption mode that allows you to configure the specified directory between Standard TLS and FIPS 140-2 validated mode. </p>
@@ -1855,11 +1855,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_endpoint_encryption_mode_request.ModifyEndpointEncryptionModeRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["endpoint_encryption_mode"] = endpoint_encryption_mode
+        input_: aws_sdk_workspaces.types.modify_endpoint_encryption_mode_request.ModifyEndpointEncryptionModeRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["endpoint_encryption_mode"] = endpoint_encryption_mode
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_saml_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, saml_properties: Optional["aws_sdk_workspaces.types.saml_properties.SamlProperties"] = None, properties_to_delete: Optional["aws_sdk_workspaces.types.deletable_saml_properties_list.DeletableSamlPropertiesList"] = None) -> "aws_sdk_workspaces.types.modify_saml_properties_result.ModifySamlPropertiesResult":
         """<p>Modifies multiple properties related to SAML 2.0 authentication, including the enablement status, user access URL, and relay state parameter name that are used for configuring federation with an SAML 2.0 identity provider.</p>
@@ -1875,14 +1875,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_saml_properties_request.ModifySamlPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.modify_saml_properties_request.ModifySamlPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if saml_properties is not None:
-            input["saml_properties"] = saml_properties
+            input_["saml_properties"] = saml_properties
         if properties_to_delete is not None:
-            input["properties_to_delete"] = properties_to_delete
+            input_["properties_to_delete"] = properties_to_delete
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_selfservice_permissions(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", selfservice_permissions: "aws_sdk_workspaces.types.selfservice_permissions.SelfservicePermissions", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_selfservice_permissions_result.ModifySelfservicePermissionsResult":
         """<p>Modifies the self-service WorkSpace management capabilities for your users. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html\">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
@@ -1897,11 +1897,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_selfservice_permissions_request.ModifySelfservicePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["selfservice_permissions"] = selfservice_permissions
+        input_: aws_sdk_workspaces.types.modify_selfservice_permissions_request.ModifySelfservicePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["selfservice_permissions"] = selfservice_permissions
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_streaming_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, streaming_properties: Optional["aws_sdk_workspaces.types.streaming_properties.StreamingProperties"] = None) -> "aws_sdk_workspaces.types.modify_streaming_properties_result.ModifyStreamingPropertiesResult":
         """<p>Modifies the specified streaming properties.</p>
@@ -1916,12 +1916,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_streaming_properties_request.ModifyStreamingPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.modify_streaming_properties_request.ModifyStreamingPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
         if streaming_properties is not None:
-            input["streaming_properties"] = streaming_properties
+            input_["streaming_properties"] = streaming_properties
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_workspace_access_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", workspace_access_properties: "aws_sdk_workspaces.types.workspace_access_properties.WorkspaceAccessProperties", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_workspace_access_properties_result.ModifyWorkspaceAccessPropertiesResult":
         """<p>Specifies which devices and operating systems users can use to access their WorkSpaces. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access\"> Control Device Access</a>.</p>
@@ -1936,11 +1936,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_workspace_access_properties_request.ModifyWorkspaceAccessPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["workspace_access_properties"] = workspace_access_properties
+        input_: aws_sdk_workspaces.types.modify_workspace_access_properties_request.ModifyWorkspaceAccessPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["workspace_access_properties"] = workspace_access_properties
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_workspace_creation_properties(self, resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", workspace_creation_properties: "aws_sdk_workspaces.types.workspace_creation_properties.WorkspaceCreationProperties", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_workspace_creation_properties_result.ModifyWorkspaceCreationPropertiesResult":
         """<p>Modify the default properties used to create WorkSpaces.</p>
@@ -1955,11 +1955,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_workspace_creation_properties_request.ModifyWorkspaceCreationPropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["workspace_creation_properties"] = workspace_creation_properties
+        input_: aws_sdk_workspaces.types.modify_workspace_creation_properties_request.ModifyWorkspaceCreationPropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["workspace_creation_properties"] = workspace_creation_properties
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_workspace_properties(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, workspace_properties: Optional["aws_sdk_workspaces.types.workspace_properties.WorkspaceProperties"] = None, data_replication: Optional["aws_sdk_workspaces.types.data_replication.DataReplication"] = None) -> "aws_sdk_workspaces.types.modify_workspace_properties_result.ModifyWorkspacePropertiesResult":
         """<p>Modifies the specified WorkSpace properties. For important information about how to modify the size of the root and user volumes, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html\"> Modify a WorkSpace</a>. </p> <note> <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces Core. Contact your account team to be allow-listed to use this value. For more information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p> </note>
@@ -1975,14 +1975,14 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_workspace_properties_request.ModifyWorkspacePropertiesRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_workspaces.types.modify_workspace_properties_request.ModifyWorkspacePropertiesRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
         if workspace_properties is not None:
-            input["workspace_properties"] = workspace_properties
+            input_["workspace_properties"] = workspace_properties
         if data_replication is not None:
-            input["data_replication"] = data_replication
+            input_["data_replication"] = data_replication
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def modify_workspace_state(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", workspace_state: "aws_sdk_workspaces.types.target_workspace_state.TargetWorkspaceState", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.modify_workspace_state_result.ModifyWorkspaceStateResult":
         """<p>Sets the state of the specified WorkSpace.</p> <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not stopped. Users cannot log into a WorkSpace in the <code>ADMIN_MAINTENANCE</code> state.</p>
@@ -1997,11 +1997,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.modify_workspace_state_request.ModifyWorkspaceStateRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["workspace_state"] = workspace_state
+        input_: aws_sdk_workspaces.types.modify_workspace_state_request.ModifyWorkspaceStateRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["workspace_state"] = workspace_state
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def reboot_workspaces(self, reboot_workspace_requests: "aws_sdk_workspaces.types.reboot_workspace_requests.RebootWorkspaceRequests", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.reboot_workspaces_result.RebootWorkspacesResult":
         """<p>Reboots the specified WorkSpaces.</p> <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code>, <code>UNHEALTHY</code>, or <code>REBOOTING</code>. Reboot a WorkSpace in the <code>REBOOTING</code> state only if your WorkSpace has been stuck in the <code>REBOOTING</code> state for over 20 minutes.</p> <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>
@@ -2015,10 +2015,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.reboot_workspaces_request.RebootWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["reboot_workspace_requests"] = reboot_workspace_requests
+        input_: aws_sdk_workspaces.types.reboot_workspaces_request.RebootWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["reboot_workspace_requests"] = reboot_workspace_requests
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def rebuild_workspaces(self, rebuild_workspace_requests: "aws_sdk_workspaces.types.rebuild_workspace_requests.RebuildWorkspaceRequests", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.rebuild_workspaces_result.RebuildWorkspacesResult":
         """<p>Rebuilds the specified WorkSpace.</p> <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>, <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or <code>REBOOTING</code>.</p> <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html\">Rebuild a WorkSpace</a>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.</p>
@@ -2032,10 +2032,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.rebuild_workspaces_request.RebuildWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["rebuild_workspace_requests"] = rebuild_workspace_requests
+        input_: aws_sdk_workspaces.types.rebuild_workspaces_request.RebuildWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["rebuild_workspace_requests"] = rebuild_workspace_requests
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def register_workspace_directory(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, directory_id: Optional["aws_sdk_workspaces.types.directory_id.DirectoryId"] = None, subnet_ids: Optional["aws_sdk_workspaces.types.subnet_ids.SubnetIds"] = None, enable_self_service: Optional["aws_sdk_workspaces.types.boolean_object.BooleanObject"] = None, tenancy: Optional["aws_sdk_workspaces.types.tenancy.Tenancy"] = None, tags: Optional["aws_sdk_workspaces.types.tag_list.TagList"] = None, workspace_directory_name: Optional["aws_sdk_workspaces.types.workspace_directory_name.WorkspaceDirectoryName"] = None, workspace_directory_description: Optional["aws_sdk_workspaces.types.workspace_directory_description.WorkspaceDirectoryDescription"] = None, user_identity_type: Optional["aws_sdk_workspaces.types.user_identity_type.UserIdentityType"] = None, idc_instance_arn: Optional["aws_sdk_workspaces.types.arn.ARN"] = None, microsoft_entra_config: Optional["aws_sdk_workspaces.types.microsoft_entra_config.MicrosoftEntraConfig"] = None, workspace_type: Optional["aws_sdk_workspaces.types.workspace_type.WorkspaceType"] = None, active_directory_config: Optional["aws_sdk_workspaces.types.active_directory_config.ActiveDirectoryConfig"] = None) -> "aws_sdk_workspaces.types.register_workspace_directory_result.RegisterWorkspaceDirectoryResult":
         """<p>Registers the specified directory. This operation is asynchronous and returns before the WorkSpace directory is registered. If this is the first time you are registering a directory, you will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role\"> Creating the workspaces_DefaultRole Role</a>.</p>
@@ -2060,33 +2060,33 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.register_workspace_directory_request.RegisterWorkspaceDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.register_workspace_directory_request.RegisterWorkspaceDirectoryRequest = {}  # type: ignore[typeddict-item]
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if enable_self_service is not None:
-            input["enable_self_service"] = enable_self_service
+            input_["enable_self_service"] = enable_self_service
         if tenancy is not None:
-            input["tenancy"] = tenancy
+            input_["tenancy"] = tenancy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if workspace_directory_name is not None:
-            input["workspace_directory_name"] = workspace_directory_name
+            input_["workspace_directory_name"] = workspace_directory_name
         if workspace_directory_description is not None:
-            input["workspace_directory_description"] = workspace_directory_description
+            input_["workspace_directory_description"] = workspace_directory_description
         if user_identity_type is not None:
-            input["user_identity_type"] = user_identity_type
+            input_["user_identity_type"] = user_identity_type
         if idc_instance_arn is not None:
-            input["idc_instance_arn"] = idc_instance_arn
+            input_["idc_instance_arn"] = idc_instance_arn
         if microsoft_entra_config is not None:
-            input["microsoft_entra_config"] = microsoft_entra_config
+            input_["microsoft_entra_config"] = microsoft_entra_config
         if workspace_type is not None:
-            input["workspace_type"] = workspace_type
+            input_["workspace_type"] = workspace_type
         if active_directory_config is not None:
-            input["active_directory_config"] = active_directory_config
+            input_["active_directory_config"] = active_directory_config
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def reject_account_link_invitation(self, link_id: "aws_sdk_workspaces.types.link_id.LinkId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, client_token: Optional["aws_sdk_workspaces.types.client_token.ClientToken"] = None) -> "aws_sdk_workspaces.types.reject_account_link_invitation_result.RejectAccountLinkInvitationResult":
         """<p>Rejects the account link invitation.</p>
@@ -2101,12 +2101,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.reject_account_link_invitation_request.RejectAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["link_id"] = link_id
+        input_: aws_sdk_workspaces.types.reject_account_link_invitation_request.RejectAccountLinkInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["link_id"] = link_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def restore_workspace(self, workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.restore_workspace_result.RestoreWorkspaceResult":
         """<p>Restores the specified WorkSpace to its last known healthy state.</p> <p>You cannot restore a WorkSpace unless its state is <code> AVAILABLE</code>, <code>ERROR</code>, <code>UNHEALTHY</code>, or <code>STOPPED</code>.</p> <p>Restoring a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/restore-workspace.html\">Restore a WorkSpace</a>.</p> <p>This operation is asynchronous and returns before the WorkSpace is completely restored.</p>
@@ -2120,10 +2120,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.restore_workspace_request.RestoreWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_workspaces.types.restore_workspace_request.RestoreWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def revoke_ip_rules(self, group_id: "aws_sdk_workspaces.types.ip_group_id.IpGroupId", user_rules: "aws_sdk_workspaces.types.ip_revoked_rule_list.IpRevokedRuleList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.revoke_ip_rules_result.RevokeIpRulesResult":
         """<p>Removes one or more rules from the specified IP access control group.</p>
@@ -2138,11 +2138,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.revoke_ip_rules_request.RevokeIpRulesRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
-        input["user_rules"] = user_rules
+        input_: aws_sdk_workspaces.types.revoke_ip_rules_request.RevokeIpRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
+        input_["user_rules"] = user_rules
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def start_workspaces(self, start_workspace_requests: "aws_sdk_workspaces.types.start_workspace_requests.StartWorkspaceRequests", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.start_workspaces_result.StartWorkspacesResult":
         """<p>Starts the specified WorkSpaces.</p> <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> or <code>Manual</code> and a state of <code>STOPPED</code>.</p>
@@ -2156,10 +2156,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.start_workspaces_request.StartWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["start_workspace_requests"] = start_workspace_requests
+        input_: aws_sdk_workspaces.types.start_workspaces_request.StartWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["start_workspace_requests"] = start_workspace_requests
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def start_workspaces_pool(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.start_workspaces_pool_result.StartWorkspacesPoolResult":
         """<p>Starts the specified pool.</p> <p>You cannot start a pool unless it has a running mode of <code>AutoStop</code> and a state of <code>STOPPED</code>.</p>
@@ -2173,10 +2173,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.start_workspaces_pool_request.StartWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_id"] = pool_id
+        input_: aws_sdk_workspaces.types.start_workspaces_pool_request.StartWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_id"] = pool_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def stop_workspaces(self, stop_workspace_requests: "aws_sdk_workspaces.types.stop_workspace_requests.StopWorkspaceRequests", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.stop_workspaces_result.StopWorkspacesResult":
         """<p>Stops the specified WorkSpaces.</p> <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> or <code>Manual</code> and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
@@ -2190,10 +2190,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.stop_workspaces_request.StopWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["stop_workspace_requests"] = stop_workspace_requests
+        input_: aws_sdk_workspaces.types.stop_workspaces_request.StopWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["stop_workspace_requests"] = stop_workspace_requests
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def stop_workspaces_pool(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.stop_workspaces_pool_result.StopWorkspacesPoolResult":
         """<p>Stops the specified pool.</p> <p>You cannot stop a WorkSpace pool unless it has a running mode of <code>AutoStop</code> and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
@@ -2207,10 +2207,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.stop_workspaces_pool_request.StopWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_id"] = pool_id
+        input_: aws_sdk_workspaces.types.stop_workspaces_pool_request.StopWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_id"] = pool_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def terminate_workspaces(self, terminate_workspace_requests: "aws_sdk_workspaces.types.terminate_workspace_requests.TerminateWorkspaceRequests", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.terminate_workspaces_result.TerminateWorkspacesResult":
         """<p>Terminates the specified WorkSpaces.</p> <important> <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is destroyed. If you need to archive any user data, contact Amazon Web Services Support before terminating the WorkSpace.</p> </important> <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p> <p>This operation is asynchronous and returns before the WorkSpaces have been completely terminated. After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\"> DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has been successfully terminated.</p> <note> <p>Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30 consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href=\"http://aws.amazon.com/directoryservice/pricing/\">Directory Service pricing terms</a>.</p> <p>To delete empty directories, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html\"> Delete the Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector directory, you can always create a new one when you want to start using WorkSpaces again.</p> </note>
@@ -2224,10 +2224,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.terminate_workspaces_request.TerminateWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["terminate_workspace_requests"] = terminate_workspace_requests
+        input_: aws_sdk_workspaces.types.terminate_workspaces_request.TerminateWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["terminate_workspace_requests"] = terminate_workspace_requests
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def terminate_workspaces_pool(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.terminate_workspaces_pool_result.TerminateWorkspacesPoolResult":
         """<p>Terminates the specified pool.</p>
@@ -2241,10 +2241,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.terminate_workspaces_pool_request.TerminateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_id"] = pool_id
+        input_: aws_sdk_workspaces.types.terminate_workspaces_pool_request.TerminateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_id"] = pool_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def terminate_workspaces_pool_session(self, session_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.terminate_workspaces_pool_session_result.TerminateWorkspacesPoolSessionResult":
         """<p>Terminates the pool session.</p>
@@ -2258,10 +2258,10 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.terminate_workspaces_pool_session_request.TerminateWorkspacesPoolSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_id"] = session_id
+        input_: aws_sdk_workspaces.types.terminate_workspaces_pool_session_request.TerminateWorkspacesPoolSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_id"] = session_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update_connect_client_add_in(self, add_in_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid", resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, name: Optional["aws_sdk_workspaces.types.add_in_name.AddInName"] = None, url: Optional["aws_sdk_workspaces.types.add_in_url.AddInUrl"] = None) -> "aws_sdk_workspaces.types.update_connect_client_add_in_result.UpdateConnectClientAddInResult":
         """<p>Updates a Connect Customer client add-in. Use this action to update the name and endpoint URL of a Connect Customer client add-in.</p>
@@ -2278,15 +2278,15 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.update_connect_client_add_in_request.UpdateConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
-        input["add_in_id"] = add_in_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workspaces.types.update_connect_client_add_in_request.UpdateConnectClientAddInRequest = {}  # type: ignore[typeddict-item]
+        input_["add_in_id"] = add_in_id
+        input_["resource_id"] = resource_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if url is not None:
-            input["url"] = url
+            input_["url"] = url
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update_connection_alias_permission(self, alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId", connection_alias_permission: "aws_sdk_workspaces.types.connection_alias_permission.ConnectionAliasPermission", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.update_connection_alias_permission_result.UpdateConnectionAliasPermissionResult":
         """<p>Shares or unshares a connection alias with one account by specifying whether that account has permission to associate the connection alias with a directory. If the association permission is granted, the connection alias is shared with that account. If the association permission is revoked, the connection alias is unshared with the account. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html\"> Cross-Region Redirection for Amazon WorkSpaces</a>.</p> <note> <ul> <li> <p>Before performing this operation, call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html\"> DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p> </li> <li> <p>To delete a connection alias that has been shared, the shared account must first disassociate the connection alias from any directories it has been associated with. Then you must unshare the connection alias from the account it has been shared with. You can delete a connection alias only after it is no longer shared with any accounts or associated with any directories.</p> </li> </ul> </note>
@@ -2301,11 +2301,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.update_connection_alias_permission_request.UpdateConnectionAliasPermissionRequest = {}  # type: ignore[typeddict-item]
-        input["alias_id"] = alias_id
-        input["connection_alias_permission"] = connection_alias_permission
+        input_: aws_sdk_workspaces.types.update_connection_alias_permission_request.UpdateConnectionAliasPermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["alias_id"] = alias_id
+        input_["connection_alias_permission"] = connection_alias_permission
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update_rules_of_ip_group(self, group_id: "aws_sdk_workspaces.types.ip_group_id.IpGroupId", user_rules: "aws_sdk_workspaces.types.ip_rule_list.IpRuleList", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.update_rules_of_ip_group_result.UpdateRulesOfIpGroupResult":
         """<p>Replaces the current rules of the specified IP access control group with the specified rules.</p>
@@ -2320,11 +2320,11 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.update_rules_of_ip_group_request.UpdateRulesOfIpGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
-        input["user_rules"] = user_rules
+        input_: aws_sdk_workspaces.types.update_rules_of_ip_group_request.UpdateRulesOfIpGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
+        input_["user_rules"] = user_rules
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update_workspace_bundle(self, *, config_overrides: Optional[WorkSpacesClientConfig] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None, image_id: Optional["aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId"] = None) -> "aws_sdk_workspaces.types.update_workspace_bundle_result.UpdateWorkspaceBundleResult":
         """<p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html\"> Update a Custom WorkSpaces Bundle</a>.</p> <important> <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're based on. To update existing WorkSpaces that are based on a bundle that you've updated, you must either rebuild the WorkSpaces or delete and recreate them.</p> </important>
@@ -2339,13 +2339,13 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.update_workspace_bundle_request.UpdateWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces.types.update_workspace_bundle_request.UpdateWorkspaceBundleRequest = {}  # type: ignore[typeddict-item]
         if bundle_id is not None:
-            input["bundle_id"] = bundle_id
+            input_["bundle_id"] = bundle_id
         if image_id is not None:
-            input["image_id"] = image_id
+            input_["image_id"] = image_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update_workspace_image_permission(self, image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId", allow_copy_image: "aws_sdk_workspaces.types.boolean_object.BooleanObject", shared_account_id: "aws_sdk_workspaces.types.aws_account.AwsAccount", *, config_overrides: Optional[WorkSpacesClientConfig] = None) -> "aws_sdk_workspaces.types.update_workspace_image_permission_result.UpdateWorkspaceImagePermissionResult":
         """<p>Shares or unshares an image with one account in the same Amazon Web Services Region by specifying whether that account has permission to copy the image. If the copy image permission is granted, the image is shared with that account. If the copy image permission is revoked, the image is unshared with the account.</p> <p>After an image has been shared, the recipient account can copy the image to other Regions as needed.</p> <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p> <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p> <p>For more information about sharing images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html\"> Share or Unshare a Custom WorkSpaces Image</a>.</p> <note> <ul> <li> <p>To delete an image that has been shared, you must unshare the image before you delete it.</p> </li> <li> <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images across accounts in Amazon Web Services GovCloud (US), contact Amazon Web Services Support.</p> </li> </ul> </note>
@@ -2361,12 +2361,12 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.update_workspace_image_permission_request.UpdateWorkspaceImagePermissionRequest = {}  # type: ignore[typeddict-item]
-        input["image_id"] = image_id
-        input["allow_copy_image"] = allow_copy_image
-        input["shared_account_id"] = shared_account_id
+        input_: aws_sdk_workspaces.types.update_workspace_image_permission_request.UpdateWorkspaceImagePermissionRequest = {}  # type: ignore[typeddict-item]
+        input_["image_id"] = image_id
+        input_["allow_copy_image"] = allow_copy_image
+        input_["shared_account_id"] = shared_account_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def update_workspaces_pool(self, pool_id: "aws_sdk_workspaces.types.workspaces_pool_id.WorkspacesPoolId", *, config_overrides: Optional[WorkSpacesClientConfig] = None, description: Optional["aws_sdk_workspaces.types.update_description.UpdateDescription"] = None, bundle_id: Optional["aws_sdk_workspaces.types.bundle_id.BundleId"] = None, directory_id: Optional["aws_sdk_workspaces.types.directory_id.DirectoryId"] = None, capacity: Optional["aws_sdk_workspaces.types.capacity.Capacity"] = None, application_settings: Optional["aws_sdk_workspaces.types.application_settings_request.ApplicationSettingsRequest"] = None, timeout_settings: Optional["aws_sdk_workspaces.types.timeout_settings.TimeoutSettings"] = None, running_mode: Optional["aws_sdk_workspaces.types.pools_running_mode.PoolsRunningMode"] = None) -> "aws_sdk_workspaces.types.update_workspaces_pool_result.UpdateWorkspacesPoolResult":
         """<p>Updates the specified pool.</p>
@@ -2387,24 +2387,24 @@ class WorkSpacesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces.types.update_workspaces_pool_request.UpdateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_id"] = pool_id
+        input_: aws_sdk_workspaces.types.update_workspaces_pool_request.UpdateWorkspacesPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_id"] = pool_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if bundle_id is not None:
-            input["bundle_id"] = bundle_id
+            input_["bundle_id"] = bundle_id
         if directory_id is not None:
-            input["directory_id"] = directory_id
+            input_["directory_id"] = directory_id
         if capacity is not None:
-            input["capacity"] = capacity
+            input_["capacity"] = capacity
         if application_settings is not None:
-            input["application_settings"] = application_settings
+            input_["application_settings"] = application_settings
         if timeout_settings is not None:
-            input["timeout_settings"] = timeout_settings
+            input_["timeout_settings"] = timeout_settings
         if running_mode is not None:
-            input["running_mode"] = running_mode
+            input_["running_mode"] = running_mode
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def __enter__(self) -> Self:
         return self

@@ -57,11 +57,11 @@ class Configuration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.describe_workspace_configuration_request.DescribeWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.describe_workspace_configuration_request.DescribeWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -100,14 +100,14 @@ class Configuration:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.update_workspace_configuration_request.UpdateWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration"] = configuration
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.update_workspace_configuration_request.UpdateWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration"] = configuration
+        input_["workspace_id"] = workspace_id
         if grafana_version is not None:
-            input["grafana_version"] = grafana_version
+            input_["grafana_version"] = grafana_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -146,11 +146,11 @@ class AsyncConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.describe_workspace_configuration_request.DescribeWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.describe_workspace_configuration_request.DescribeWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -190,14 +190,14 @@ class AsyncConfiguration:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.update_workspace_configuration_request.UpdateWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration"] = configuration
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.update_workspace_configuration_request.UpdateWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration"] = configuration
+        input_["workspace_id"] = workspace_id
         if grafana_version is not None:
-            input["grafana_version"] = grafana_version
+            input_["grafana_version"] = grafana_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

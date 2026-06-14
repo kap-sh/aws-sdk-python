@@ -103,26 +103,26 @@ class AnalysisTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_analysis_template_input.CreateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanrooms.types.create_analysis_template_input.CreateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["membership_identifier"] = membership_identifier
-        input["name"] = name
-        input["format"] = format
-        input["source"] = source
+            input_["description"] = description
+        input_["membership_identifier"] = membership_identifier
+        input_["name"] = name
+        input_["format"] = format
+        input_["source"] = source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if analysis_parameters is not None:
-            input["analysis_parameters"] = analysis_parameters
+            input_["analysis_parameters"] = analysis_parameters
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
         if error_message_configuration is not None:
-            input["error_message_configuration"] = error_message_configuration
+            input_["error_message_configuration"] = error_message_configuration
         if synthetic_data_parameters is not None:
-            input["synthetic_data_parameters"] = synthetic_data_parameters
+            input_["synthetic_data_parameters"] = synthetic_data_parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,12 +157,12 @@ class AnalysisTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_analysis_template_input.GetAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["analysis_template_identifier"] = analysis_template_identifier
+        input_: aws_sdk_cleanrooms.types.get_analysis_template_input.GetAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["analysis_template_identifier"] = analysis_template_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,14 +201,14 @@ class AnalysisTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_analysis_template_input.UpdateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["analysis_template_identifier"] = analysis_template_identifier
+        input_: aws_sdk_cleanrooms.types.update_analysis_template_input.UpdateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["analysis_template_identifier"] = analysis_template_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,12 +243,12 @@ class AnalysisTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_analysis_template_input.DeleteAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["analysis_template_identifier"] = analysis_template_identifier
+        input_: aws_sdk_cleanrooms.types.delete_analysis_template_input.DeleteAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["analysis_template_identifier"] = analysis_template_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,15 +287,15 @@ class AnalysisTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_analysis_templates_input.ListAnalysisTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_analysis_templates_input.ListAnalysisTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -361,26 +361,26 @@ class AsyncAnalysisTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_analysis_template_input.CreateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanrooms.types.create_analysis_template_input.CreateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["membership_identifier"] = membership_identifier
-        input["name"] = name
-        input["format"] = format
-        input["source"] = source
+            input_["description"] = description
+        input_["membership_identifier"] = membership_identifier
+        input_["name"] = name
+        input_["format"] = format
+        input_["source"] = source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if analysis_parameters is not None:
-            input["analysis_parameters"] = analysis_parameters
+            input_["analysis_parameters"] = analysis_parameters
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
         if error_message_configuration is not None:
-            input["error_message_configuration"] = error_message_configuration
+            input_["error_message_configuration"] = error_message_configuration
         if synthetic_data_parameters is not None:
-            input["synthetic_data_parameters"] = synthetic_data_parameters
+            input_["synthetic_data_parameters"] = synthetic_data_parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,12 +416,12 @@ class AsyncAnalysisTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_analysis_template_input.GetAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["analysis_template_identifier"] = analysis_template_identifier
+        input_: aws_sdk_cleanrooms.types.get_analysis_template_input.GetAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["analysis_template_identifier"] = analysis_template_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,14 +461,14 @@ class AsyncAnalysisTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_analysis_template_input.UpdateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["analysis_template_identifier"] = analysis_template_identifier
+        input_: aws_sdk_cleanrooms.types.update_analysis_template_input.UpdateAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["analysis_template_identifier"] = analysis_template_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -504,12 +504,12 @@ class AsyncAnalysisTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_analysis_template_input.DeleteAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["analysis_template_identifier"] = analysis_template_identifier
+        input_: aws_sdk_cleanrooms.types.delete_analysis_template_input.DeleteAnalysisTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["analysis_template_identifier"] = analysis_template_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -549,15 +549,15 @@ class AsyncAnalysisTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_analysis_templates_input.ListAnalysisTemplatesInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_analysis_templates_input.ListAnalysisTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

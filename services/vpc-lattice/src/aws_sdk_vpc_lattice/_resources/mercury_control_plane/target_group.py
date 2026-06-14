@@ -94,18 +94,18 @@ class TargetGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_target_group_request.CreateTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_vpc_lattice.types.create_target_group_request.CreateTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
         if config is not None:
-            input["config"] = config
+            input_["config"] = config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -138,11 +138,11 @@ class TargetGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_target_group_request.GetTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
+        input_: aws_sdk_vpc_lattice.types.get_target_group_request.GetTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -177,12 +177,12 @@ class TargetGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_target_group_request.UpdateTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
-        input["health_check"] = health_check
+        input_: aws_sdk_vpc_lattice.types.update_target_group_request.UpdateTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
+        input_["health_check"] = health_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,11 +215,11 @@ class TargetGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_target_group_request.DeleteTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_target_group_request.DeleteTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -264,18 +264,18 @@ class TargetGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_target_groups_request.ListTargetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_target_groups_request.ListTargetGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if vpc_identifier is not None:
-            input["vpc_identifier"] = vpc_identifier
+            input_["vpc_identifier"] = vpc_identifier
         if target_group_type is not None:
-            input["target_group_type"] = target_group_type
+            input_["target_group_type"] = target_group_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,12 +310,12 @@ class TargetGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.deregister_targets_request.DeregisterTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
-        input["targets"] = targets
+        input_: aws_sdk_vpc_lattice.types.deregister_targets_request.DeregisterTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
+        input_["targets"] = targets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,17 +356,17 @@ class TargetGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_targets_request.ListTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
+        input_: aws_sdk_vpc_lattice.types.list_targets_request.ListTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,12 +401,12 @@ class TargetGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.register_targets_request.RegisterTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
-        input["targets"] = targets
+        input_: aws_sdk_vpc_lattice.types.register_targets_request.RegisterTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
+        input_["targets"] = targets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,18 +457,18 @@ class AsyncTargetGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_target_group_request.CreateTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_vpc_lattice.types.create_target_group_request.CreateTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
         if config is not None:
-            input["config"] = config
+            input_["config"] = config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,11 +502,11 @@ class AsyncTargetGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_target_group_request.GetTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
+        input_: aws_sdk_vpc_lattice.types.get_target_group_request.GetTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,12 +542,12 @@ class AsyncTargetGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_target_group_request.UpdateTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
-        input["health_check"] = health_check
+        input_: aws_sdk_vpc_lattice.types.update_target_group_request.UpdateTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
+        input_["health_check"] = health_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -581,11 +581,11 @@ class AsyncTargetGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_target_group_request.DeleteTargetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_target_group_request.DeleteTargetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -631,18 +631,18 @@ class AsyncTargetGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_target_groups_request.ListTargetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_target_groups_request.ListTargetGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if vpc_identifier is not None:
-            input["vpc_identifier"] = vpc_identifier
+            input_["vpc_identifier"] = vpc_identifier
         if target_group_type is not None:
-            input["target_group_type"] = target_group_type
+            input_["target_group_type"] = target_group_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,12 +678,12 @@ class AsyncTargetGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.deregister_targets_request.DeregisterTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
-        input["targets"] = targets
+        input_: aws_sdk_vpc_lattice.types.deregister_targets_request.DeregisterTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
+        input_["targets"] = targets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -725,17 +725,17 @@ class AsyncTargetGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_targets_request.ListTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
+        input_: aws_sdk_vpc_lattice.types.list_targets_request.ListTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,12 +771,12 @@ class AsyncTargetGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.register_targets_request.RegisterTargetsRequest = {}  # type: ignore[typeddict-item]
-        input["target_group_identifier"] = target_group_identifier
-        input["targets"] = targets
+        input_: aws_sdk_vpc_lattice.types.register_targets_request.RegisterTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_["target_group_identifier"] = target_group_identifier
+        input_["targets"] = targets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

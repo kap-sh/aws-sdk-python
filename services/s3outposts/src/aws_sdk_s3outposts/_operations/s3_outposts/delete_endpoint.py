@@ -88,45 +88,42 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
+    input_: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/S3Outposts/DeleteEndpoint"
     params: dict[str, str] = {}
-    if "endpoint_id" in input:
-        params["endpointId"] = str(input["endpoint_id"])
-    if "outpost_id" in input:
-        params["outpostId"] = str(input["outpost_id"])
+    if "endpoint_id" in input_:
+        params["endpointId"] = str(input_["endpoint_id"])
+    if "outpost_id" in input_:
+        params["outpostId"] = str(input_["outpost_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_endpoint(
     options: OperationOptions,
-    input: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
+    input_: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -135,13 +132,14 @@ def delete_endpoint(
 
 async def async_delete_endpoint(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
+    input_: aws_sdk_s3outposts.types.delete_endpoint_request.DeleteEndpointRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

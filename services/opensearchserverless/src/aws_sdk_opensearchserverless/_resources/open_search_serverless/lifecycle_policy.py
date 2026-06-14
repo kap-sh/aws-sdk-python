@@ -80,19 +80,19 @@ class LifecyclePolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_lifecycle_policy_request.UpdateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
-        input["policy_version"] = policy_version
+        input_: aws_sdk_opensearchserverless.types.update_lifecycle_policy_request.UpdateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
+        input_["policy_version"] = policy_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,14 +131,14 @@ class LifecyclePolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,17 +179,17 @@ class LifecyclePolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_lifecycle_policies_request.ListLifecyclePoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_opensearchserverless.types.list_lifecycle_policies_request.ListLifecyclePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if resources is not None:
-            input["resources"] = resources
+            input_["resources"] = resources
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,19 +244,19 @@ class AsyncLifecyclePolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_lifecycle_policy_request.UpdateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
-        input["policy_version"] = policy_version
+        input_: aws_sdk_opensearchserverless.types.update_lifecycle_policy_request.UpdateLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
+        input_["policy_version"] = policy_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -296,14 +296,14 @@ class AsyncLifecyclePolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.delete_lifecycle_policy_request.DeleteLifecyclePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,17 +345,17 @@ class AsyncLifecyclePolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_lifecycle_policies_request.ListLifecyclePoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_opensearchserverless.types.list_lifecycle_policies_request.ListLifecyclePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if resources is not None:
-            input["resources"] = resources
+            input_["resources"] = resources
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

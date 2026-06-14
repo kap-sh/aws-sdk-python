@@ -76,15 +76,15 @@ class KnowledgeBaseDocumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_knowledge_base_documents_request.DeleteKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.delete_knowledge_base_documents_request.DeleteKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["document_identifiers"] = document_identifiers
+            input_["client_token"] = client_token
+        input_["document_identifiers"] = document_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,13 +121,13 @@ class KnowledgeBaseDocumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_knowledge_base_documents_request.GetKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
-        input["document_identifiers"] = document_identifiers
+        input_: aws_sdk_bedrock_agent.types.get_knowledge_base_documents_request.GetKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
+        input_["document_identifiers"] = document_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,15 +168,15 @@ class KnowledgeBaseDocumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.ingest_knowledge_base_documents_request.IngestKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.ingest_knowledge_base_documents_request.IngestKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["documents"] = documents
+            input_["client_token"] = client_token
+        input_["documents"] = documents
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,16 +217,16 @@ class KnowledgeBaseDocumentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_knowledge_base_documents_request.ListKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.list_knowledge_base_documents_request.ListKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,15 +273,15 @@ class AsyncKnowledgeBaseDocumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_knowledge_base_documents_request.DeleteKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.delete_knowledge_base_documents_request.DeleteKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["document_identifiers"] = document_identifiers
+            input_["client_token"] = client_token
+        input_["document_identifiers"] = document_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,13 +319,13 @@ class AsyncKnowledgeBaseDocumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_knowledge_base_documents_request.GetKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
-        input["document_identifiers"] = document_identifiers
+        input_: aws_sdk_bedrock_agent.types.get_knowledge_base_documents_request.GetKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
+        input_["document_identifiers"] = document_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -367,15 +367,15 @@ class AsyncKnowledgeBaseDocumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.ingest_knowledge_base_documents_request.IngestKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.ingest_knowledge_base_documents_request.IngestKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["documents"] = documents
+            input_["client_token"] = client_token
+        input_["documents"] = documents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,16 +417,16 @@ class AsyncKnowledgeBaseDocumentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_knowledge_base_documents_request.ListKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.list_knowledge_base_documents_request.ListKnowledgeBaseDocumentsRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_waf._auth._signers
+import aws_sdk_waf._auth._sigv4
 from aws_sdk_waf._auth._identity import Credentials
 from aws_sdk_waf._auth._providers import (
     CredentialsProvider,
@@ -336,12 +338,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_byte_match_set_request.CreateByteMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_byte_match_set_request.CreateByteMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,12 +378,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_geo_match_set_request.CreateGeoMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_geo_match_set_request.CreateGeoMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,12 +424,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_ip_set_request.CreateIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_ip_set_request.CreateIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -472,17 +474,17 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_rate_based_rule_request.CreateRateBasedRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["metric_name"] = metric_name
-        input["rate_key"] = rate_key
-        input["rate_limit"] = rate_limit
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_rate_based_rule_request.CreateRateBasedRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["metric_name"] = metric_name
+        input_["rate_key"] = rate_key
+        input_["rate_limit"] = rate_limit
+        input_["change_token"] = change_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -519,12 +521,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_regex_match_set_request.CreateRegexMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_regex_match_set_request.CreateRegexMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,12 +561,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_regex_pattern_set_request.CreateRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_regex_pattern_set_request.CreateRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,15 +611,15 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["metric_name"] = metric_name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["metric_name"] = metric_name
+        input_["change_token"] = change_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -656,15 +658,15 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_rule_group_request.CreateRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["metric_name"] = metric_name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_rule_group_request.CreateRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["metric_name"] = metric_name
+        input_["change_token"] = change_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -705,12 +707,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_size_constraint_set_request.CreateSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_size_constraint_set_request.CreateSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -751,12 +753,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_sql_injection_match_set_request.CreateSqlInjectionMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_sql_injection_match_set_request.CreateSqlInjectionMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,16 +805,16 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_web_acl_request.CreateWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["metric_name"] = metric_name
-        input["default_action"] = default_action
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_web_acl_request.CreateWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["metric_name"] = metric_name
+        input_["default_action"] = default_action
+        input_["change_token"] = change_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -849,13 +851,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_web_acl_migration_stack_request.CreateWebACLMigrationStackRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_id"] = web_acl_id
-        input["s3_bucket_name"] = s3_bucket_name
-        input["ignore_unsupported_type"] = ignore_unsupported_type
+        input_: aws_sdk_waf.types.create_web_acl_migration_stack_request.CreateWebACLMigrationStackRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_id"] = web_acl_id
+        input_["s3_bucket_name"] = s3_bucket_name
+        input_["ignore_unsupported_type"] = ignore_unsupported_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -896,12 +898,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.create_xss_match_set_request.CreateXssMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.create_xss_match_set_request.CreateXssMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -942,12 +944,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_byte_match_set_request.DeleteByteMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["byte_match_set_id"] = byte_match_set_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_byte_match_set_request.DeleteByteMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["byte_match_set_id"] = byte_match_set_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -982,12 +984,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_geo_match_set_request.DeleteGeoMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["geo_match_set_id"] = geo_match_set_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_geo_match_set_request.DeleteGeoMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["geo_match_set_id"] = geo_match_set_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1028,12 +1030,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_ip_set_request.DeleteIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["ip_set_id"] = ip_set_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_ip_set_request.DeleteIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["ip_set_id"] = ip_set_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1066,11 +1068,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_logging_configuration_request.DeleteLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_waf.types.delete_logging_configuration_request.DeleteLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1103,11 +1105,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_permission_policy_request.DeletePermissionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_waf.types.delete_permission_policy_request.DeletePermissionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1144,12 +1146,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_rate_based_rule_request.DeleteRateBasedRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_rate_based_rule_request.DeleteRateBasedRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1186,12 +1188,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_regex_match_set_request.DeleteRegexMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["regex_match_set_id"] = regex_match_set_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_regex_match_set_request.DeleteRegexMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["regex_match_set_id"] = regex_match_set_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1226,12 +1228,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_regex_pattern_set_request.DeleteRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
-        input["regex_pattern_set_id"] = regex_pattern_set_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_regex_pattern_set_request.DeleteRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
+        input_["regex_pattern_set_id"] = regex_pattern_set_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,12 +1274,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1312,12 +1314,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_rule_group_request.DeleteRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["rule_group_id"] = rule_group_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_rule_group_request.DeleteRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_group_id"] = rule_group_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1358,12 +1360,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_size_constraint_set_request.DeleteSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
-        input["size_constraint_set_id"] = size_constraint_set_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_size_constraint_set_request.DeleteSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
+        input_["size_constraint_set_id"] = size_constraint_set_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1404,12 +1406,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_sql_injection_match_set_request.DeleteSqlInjectionMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["sql_injection_match_set_id"] = sql_injection_match_set_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_sql_injection_match_set_request.DeleteSqlInjectionMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["sql_injection_match_set_id"] = sql_injection_match_set_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1450,12 +1452,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_web_acl_request.DeleteWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_id"] = web_acl_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_web_acl_request.DeleteWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_id"] = web_acl_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1496,12 +1498,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.delete_xss_match_set_request.DeleteXssMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["xss_match_set_id"] = xss_match_set_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.delete_xss_match_set_request.DeleteXssMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["xss_match_set_id"] = xss_match_set_id
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1540,11 +1542,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_byte_match_set_request.GetByteMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["byte_match_set_id"] = byte_match_set_id
+        input_: aws_sdk_waf.types.get_byte_match_set_request.GetByteMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["byte_match_set_id"] = byte_match_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1577,10 +1579,10 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_change_token_request.GetChangeTokenRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.get_change_token_request.GetChangeTokenRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1619,11 +1621,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_change_token_status_request.GetChangeTokenStatusRequest = {}  # type: ignore[typeddict-item]
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.get_change_token_status_request.GetChangeTokenStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1656,11 +1658,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_geo_match_set_request.GetGeoMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["geo_match_set_id"] = geo_match_set_id
+        input_: aws_sdk_waf.types.get_geo_match_set_request.GetGeoMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["geo_match_set_id"] = geo_match_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1699,11 +1701,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_ip_set_request.GetIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["ip_set_id"] = ip_set_id
+        input_: aws_sdk_waf.types.get_ip_set_request.GetIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["ip_set_id"] = ip_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1736,11 +1738,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_logging_configuration_request.GetLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_waf.types.get_logging_configuration_request.GetLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1773,11 +1775,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_permission_policy_request.GetPermissionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_waf.types.get_permission_policy_request.GetPermissionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1810,11 +1812,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_rate_based_rule_request.GetRateBasedRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
+        input_: aws_sdk_waf.types.get_rate_based_rule_request.GetRateBasedRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1849,13 +1851,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_rate_based_rule_managed_keys_request.GetRateBasedRuleManagedKeysRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
+        input_: aws_sdk_waf.types.get_rate_based_rule_managed_keys_request.GetRateBasedRuleManagedKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1888,11 +1890,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_regex_match_set_request.GetRegexMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["regex_match_set_id"] = regex_match_set_id
+        input_: aws_sdk_waf.types.get_regex_match_set_request.GetRegexMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["regex_match_set_id"] = regex_match_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1925,11 +1927,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_regex_pattern_set_request.GetRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
-        input["regex_pattern_set_id"] = regex_pattern_set_id
+        input_: aws_sdk_waf.types.get_regex_pattern_set_request.GetRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
+        input_["regex_pattern_set_id"] = regex_pattern_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1966,11 +1968,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_rule_request.GetRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
+        input_: aws_sdk_waf.types.get_rule_request.GetRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2003,11 +2005,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_rule_group_request.GetRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["rule_group_id"] = rule_group_id
+        input_: aws_sdk_waf.types.get_rule_group_request.GetRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_group_id"] = rule_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2046,14 +2048,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_sampled_requests_request.GetSampledRequestsRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_id"] = web_acl_id
-        input["rule_id"] = rule_id
-        input["time_window"] = time_window
-        input["max_items"] = max_items
+        input_: aws_sdk_waf.types.get_sampled_requests_request.GetSampledRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_id"] = web_acl_id
+        input_["rule_id"] = rule_id
+        input_["time_window"] = time_window
+        input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2092,11 +2094,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_size_constraint_set_request.GetSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
-        input["size_constraint_set_id"] = size_constraint_set_id
+        input_: aws_sdk_waf.types.get_size_constraint_set_request.GetSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
+        input_["size_constraint_set_id"] = size_constraint_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2135,11 +2137,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_sql_injection_match_set_request.GetSqlInjectionMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["sql_injection_match_set_id"] = sql_injection_match_set_id
+        input_: aws_sdk_waf.types.get_sql_injection_match_set_request.GetSqlInjectionMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["sql_injection_match_set_id"] = sql_injection_match_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2178,11 +2180,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_web_acl_request.GetWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_id"] = web_acl_id
+        input_: aws_sdk_waf.types.get_web_acl_request.GetWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_id"] = web_acl_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2221,11 +2223,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.get_xss_match_set_request.GetXssMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["xss_match_set_id"] = xss_match_set_id
+        input_: aws_sdk_waf.types.get_xss_match_set_request.GetXssMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["xss_match_set_id"] = xss_match_set_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2262,16 +2264,16 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_activated_rules_in_rule_group_request.ListActivatedRulesInRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_activated_rules_in_rule_group_request.ListActivatedRulesInRuleGroupRequest = {}  # type: ignore[typeddict-item]
         if rule_group_id is not None:
-            input["rule_group_id"] = rule_group_id
+            input_["rule_group_id"] = rule_group_id
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2306,14 +2308,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_byte_match_sets_request.ListByteMatchSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_byte_match_sets_request.ListByteMatchSetsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2348,14 +2350,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_geo_match_sets_request.ListGeoMatchSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_geo_match_sets_request.ListGeoMatchSetsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2396,14 +2398,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_ip_sets_request.ListIPSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_ip_sets_request.ListIPSetsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2438,14 +2440,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_logging_configurations_request.ListLoggingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_logging_configurations_request.ListLoggingConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2480,14 +2482,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_rate_based_rules_request.ListRateBasedRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_rate_based_rules_request.ListRateBasedRulesRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2522,14 +2524,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_regex_match_sets_request.ListRegexMatchSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_regex_match_sets_request.ListRegexMatchSetsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2564,14 +2566,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_regex_pattern_sets_request.ListRegexPatternSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_regex_pattern_sets_request.ListRegexPatternSetsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2606,14 +2608,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_rule_groups_request.ListRuleGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_rule_groups_request.ListRuleGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2654,14 +2656,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2702,14 +2704,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_size_constraint_sets_request.ListSizeConstraintSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_size_constraint_sets_request.ListSizeConstraintSetsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2750,14 +2752,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_sql_injection_match_sets_request.ListSqlInjectionMatchSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_sql_injection_match_sets_request.ListSqlInjectionMatchSetsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2792,14 +2794,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_subscribed_rule_groups_request.ListSubscribedRuleGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_subscribed_rule_groups_request.ListSubscribedRuleGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2838,15 +2840,15 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
-        input["resource_arn"] = resource_arn
+            input_["limit"] = limit
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2887,14 +2889,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_web_ac_ls_request.ListWebACLsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_web_ac_ls_request.ListWebACLsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2935,14 +2937,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.list_xss_match_sets_request.ListXssMatchSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_waf.types.list_xss_match_sets_request.ListXssMatchSetsRequest = {}  # type: ignore[typeddict-item]
         if next_marker is not None:
-            input["next_marker"] = next_marker
+            input_["next_marker"] = next_marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2975,11 +2977,11 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.put_logging_configuration_request.PutLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["logging_configuration"] = logging_configuration
+        input_: aws_sdk_waf.types.put_logging_configuration_request.PutLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["logging_configuration"] = logging_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3014,12 +3016,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.put_permission_policy_request.PutPermissionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_waf.types.put_permission_policy_request.PutPermissionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3054,12 +3056,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_waf.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3094,12 +3096,12 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_waf.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3142,13 +3144,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_byte_match_set_request.UpdateByteMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["byte_match_set_id"] = byte_match_set_id
-        input["change_token"] = change_token
-        input["updates"] = updates
+        input_: aws_sdk_waf.types.update_byte_match_set_request.UpdateByteMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["byte_match_set_id"] = byte_match_set_id
+        input_["change_token"] = change_token
+        input_["updates"] = updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3185,13 +3187,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_geo_match_set_request.UpdateGeoMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["geo_match_set_id"] = geo_match_set_id
-        input["change_token"] = change_token
-        input["updates"] = updates
+        input_: aws_sdk_waf.types.update_geo_match_set_request.UpdateGeoMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["geo_match_set_id"] = geo_match_set_id
+        input_["change_token"] = change_token
+        input_["updates"] = updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3234,13 +3236,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_ip_set_request.UpdateIPSetRequest = {}  # type: ignore[typeddict-item]
-        input["ip_set_id"] = ip_set_id
-        input["change_token"] = change_token
-        input["updates"] = updates
+        input_: aws_sdk_waf.types.update_ip_set_request.UpdateIPSetRequest = {}  # type: ignore[typeddict-item]
+        input_["ip_set_id"] = ip_set_id
+        input_["change_token"] = change_token
+        input_["updates"] = updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3281,14 +3283,14 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_rate_based_rule_request.UpdateRateBasedRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
-        input["change_token"] = change_token
-        input["updates"] = updates
-        input["rate_limit"] = rate_limit
+        input_: aws_sdk_waf.types.update_rate_based_rule_request.UpdateRateBasedRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
+        input_["change_token"] = change_token
+        input_["updates"] = updates
+        input_["rate_limit"] = rate_limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3327,13 +3329,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_regex_match_set_request.UpdateRegexMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["regex_match_set_id"] = regex_match_set_id
-        input["updates"] = updates
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.update_regex_match_set_request.UpdateRegexMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["regex_match_set_id"] = regex_match_set_id
+        input_["updates"] = updates
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3370,13 +3372,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_regex_pattern_set_request.UpdateRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
-        input["regex_pattern_set_id"] = regex_pattern_set_id
-        input["updates"] = updates
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.update_regex_pattern_set_request.UpdateRegexPatternSetRequest = {}  # type: ignore[typeddict-item]
+        input_["regex_pattern_set_id"] = regex_pattern_set_id
+        input_["updates"] = updates
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3419,13 +3421,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
-        input["change_token"] = change_token
-        input["updates"] = updates
+        input_: aws_sdk_waf.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
+        input_["change_token"] = change_token
+        input_["updates"] = updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3462,13 +3464,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_rule_group_request.UpdateRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["rule_group_id"] = rule_group_id
-        input["updates"] = updates
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.update_rule_group_request.UpdateRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_group_id"] = rule_group_id
+        input_["updates"] = updates
+        input_["change_token"] = change_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3511,13 +3513,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_size_constraint_set_request.UpdateSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
-        input["size_constraint_set_id"] = size_constraint_set_id
-        input["change_token"] = change_token
-        input["updates"] = updates
+        input_: aws_sdk_waf.types.update_size_constraint_set_request.UpdateSizeConstraintSetRequest = {}  # type: ignore[typeddict-item]
+        input_["size_constraint_set_id"] = size_constraint_set_id
+        input_["change_token"] = change_token
+        input_["updates"] = updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3560,13 +3562,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_sql_injection_match_set_request.UpdateSqlInjectionMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["sql_injection_match_set_id"] = sql_injection_match_set_id
-        input["change_token"] = change_token
-        input["updates"] = updates
+        input_: aws_sdk_waf.types.update_sql_injection_match_set_request.UpdateSqlInjectionMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["sql_injection_match_set_id"] = sql_injection_match_set_id
+        input_["change_token"] = change_token
+        input_["updates"] = updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3611,16 +3613,16 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_web_acl_request.UpdateWebACLRequest = {}  # type: ignore[typeddict-item]
-        input["web_acl_id"] = web_acl_id
-        input["change_token"] = change_token
+        input_: aws_sdk_waf.types.update_web_acl_request.UpdateWebACLRequest = {}  # type: ignore[typeddict-item]
+        input_["web_acl_id"] = web_acl_id
+        input_["change_token"] = change_token
         if updates is not None:
-            input["updates"] = updates
+            input_["updates"] = updates
         if default_action is not None:
-            input["default_action"] = default_action
+            input_["default_action"] = default_action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3663,13 +3665,13 @@ class WAFClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_waf.types.update_xss_match_set_request.UpdateXssMatchSetRequest = {}  # type: ignore[typeddict-item]
-        input["xss_match_set_id"] = xss_match_set_id
-        input["change_token"] = change_token
-        input["updates"] = updates
+        input_: aws_sdk_waf.types.update_xss_match_set_request.UpdateXssMatchSetRequest = {}  # type: ignore[typeddict-item]
+        input_["xss_match_set_id"] = xss_match_set_id
+        input_["change_token"] = change_token
+        input_["updates"] = updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

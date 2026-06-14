@@ -98,16 +98,16 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.associate_agent_knowledge_base_request.AssociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["knowledge_base_id"] = knowledge_base_id
-        input["description"] = description
+        input_: aws_sdk_bedrock_agent.types.associate_agent_knowledge_base_request.AssociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["description"] = description
         if knowledge_base_state is not None:
-            input["knowledge_base_state"] = knowledge_base_state
+            input_["knowledge_base_state"] = knowledge_base_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -158,21 +158,21 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
-        input["knowledge_base_configuration"] = knowledge_base_configuration
+            input_["description"] = description
+        input_["role_arn"] = role_arn
+        input_["knowledge_base_configuration"] = knowledge_base_configuration
         if storage_configuration is not None:
-            input["storage_configuration"] = storage_configuration
+            input_["storage_configuration"] = storage_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,11 +205,11 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,13 +246,13 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.disassociate_agent_knowledge_base_request.DisassociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.disassociate_agent_knowledge_base_request.DisassociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -289,13 +289,13 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_knowledge_base_request.GetAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_knowledge_base_request.GetAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,11 +328,11 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,16 +373,16 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_knowledge_bases_request.ListAgentKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.list_agent_knowledge_bases_request.ListAgentKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,14 +419,14 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -471,17 +471,17 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_knowledge_base_request.UpdateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.update_agent_knowledge_base_request.UpdateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["knowledge_base_id"] = knowledge_base_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if knowledge_base_state is not None:
-            input["knowledge_base_state"] = knowledge_base_state
+            input_["knowledge_base_state"] = knowledge_base_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,18 +528,18 @@ class KnowledgeBaseResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_knowledge_base_request.UpdateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.update_knowledge_base_request.UpdateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
-        input["knowledge_base_configuration"] = knowledge_base_configuration
+            input_["description"] = description
+        input_["role_arn"] = role_arn
+        input_["knowledge_base_configuration"] = knowledge_base_configuration
         if storage_configuration is not None:
-            input["storage_configuration"] = storage_configuration
+            input_["storage_configuration"] = storage_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -588,16 +588,16 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.associate_agent_knowledge_base_request.AssociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["knowledge_base_id"] = knowledge_base_id
-        input["description"] = description
+        input_: aws_sdk_bedrock_agent.types.associate_agent_knowledge_base_request.AssociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["description"] = description
         if knowledge_base_state is not None:
-            input["knowledge_base_state"] = knowledge_base_state
+            input_["knowledge_base_state"] = knowledge_base_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -649,21 +649,21 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.create_knowledge_base_request.CreateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
-        input["knowledge_base_configuration"] = knowledge_base_configuration
+            input_["description"] = description
+        input_["role_arn"] = role_arn
+        input_["knowledge_base_configuration"] = knowledge_base_configuration
         if storage_configuration is not None:
-            input["storage_configuration"] = storage_configuration
+            input_["storage_configuration"] = storage_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -697,11 +697,11 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.delete_knowledge_base_request.DeleteKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -739,13 +739,13 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.disassociate_agent_knowledge_base_request.DisassociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.disassociate_agent_knowledge_base_request.DisassociateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -783,13 +783,13 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_knowledge_base_request.GetAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_knowledge_base_request.GetAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -823,11 +823,11 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.get_knowledge_base_request.GetKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -869,16 +869,16 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_knowledge_bases_request.ListAgentKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.list_agent_knowledge_bases_request.ListAgentKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -916,14 +916,14 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.list_knowledge_bases_request.ListKnowledgeBasesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -969,17 +969,17 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_knowledge_base_request.UpdateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.update_agent_knowledge_base_request.UpdateAgentKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["knowledge_base_id"] = knowledge_base_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if knowledge_base_state is not None:
-            input["knowledge_base_state"] = knowledge_base_state
+            input_["knowledge_base_state"] = knowledge_base_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1027,18 +1027,18 @@ class AsyncKnowledgeBaseResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_knowledge_base_request.UpdateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.update_knowledge_base_request.UpdateKnowledgeBaseRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
-        input["knowledge_base_configuration"] = knowledge_base_configuration
+            input_["description"] = description
+        input_["role_arn"] = role_arn
+        input_["knowledge_base_configuration"] = knowledge_base_configuration
         if storage_configuration is not None:
-            input["storage_configuration"] = storage_configuration
+            input_["storage_configuration"] = storage_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

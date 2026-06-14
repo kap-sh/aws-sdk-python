@@ -155,11 +155,11 @@ class KinesisVideoWebRTCStorageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_webrtc_storage.types.join_storage_session_input.JoinStorageSessionInput = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_kinesis_video_webrtc_storage.types.join_storage_session_input.JoinStorageSessionInput = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -192,12 +192,12 @@ class KinesisVideoWebRTCStorageClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_video_webrtc_storage.types.join_storage_session_as_viewer_input.JoinStorageSessionAsViewerInput = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["client_id"] = client_id
+        input_: aws_sdk_kinesis_video_webrtc_storage.types.join_storage_session_as_viewer_input.JoinStorageSessionAsViewerInput = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["client_id"] = client_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

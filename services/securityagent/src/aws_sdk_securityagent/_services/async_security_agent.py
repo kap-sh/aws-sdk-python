@@ -16,6 +16,18 @@ from aws_sdk_securityagent._auth._providers import (
 )
 from aws_sdk_securityagent._auth._zapros_handler import AuthMiddleware
 from aws_sdk_securityagent._pagination import resolve_path as _resolve_path
+from aws_sdk_securityagent._resources.security_agent.agent_space_resource import (
+    AsyncAgentSpaceResource,
+)
+from aws_sdk_securityagent._resources.security_agent.application_resource import (
+    AsyncApplicationResource,
+)
+from aws_sdk_securityagent._resources.security_agent.integration_resource import (
+    AsyncIntegrationResource,
+)
+from aws_sdk_securityagent._resources.security_agent.target_domain_resource import (
+    AsyncTargetDomainResource,
+)
 from aws_sdk_securityagent._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -227,6 +239,11 @@ class AsyncSecurityAgentClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.agent_space_resource = AsyncAgentSpaceResource(self)
+        self.application_resource = AsyncApplicationResource(self)
+        self.integration_resource = AsyncIntegrationResource(self)
+        self.target_domain_resource = AsyncTargetDomainResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncSecurityAgentClientConfig] = None
@@ -287,14 +304,14 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.add_artifact_input.AddArtifactInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["artifact_content"] = artifact_content
-        input["artifact_type"] = artifact_type
-        input["file_name"] = file_name
+        input_: aws_sdk_securityagent.types.add_artifact_input.AddArtifactInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["artifact_content"] = artifact_content
+        input_["artifact_type"] = artifact_type
+        input_["file_name"] = file_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,12 +347,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_delete_code_reviews_input.BatchDeleteCodeReviewsInput = {}  # type: ignore[typeddict-item]
-        input["code_review_ids"] = code_review_ids
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.batch_delete_code_reviews_input.BatchDeleteCodeReviewsInput = {}  # type: ignore[typeddict-item]
+        input_["code_review_ids"] = code_review_ids
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,12 +388,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_delete_pentests_input.BatchDeletePentestsInput = {}  # type: ignore[typeddict-item]
-        input["pentest_ids"] = pentest_ids
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.batch_delete_pentests_input.BatchDeletePentestsInput = {}  # type: ignore[typeddict-item]
+        input_["pentest_ids"] = pentest_ids
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,12 +429,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_artifact_metadata_input.BatchGetArtifactMetadataInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["artifact_ids"] = artifact_ids
+        input_: aws_sdk_securityagent.types.batch_get_artifact_metadata_input.BatchGetArtifactMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["artifact_ids"] = artifact_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -453,12 +470,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_code_review_jobs_input.BatchGetCodeReviewJobsInput = {}  # type: ignore[typeddict-item]
-        input["code_review_job_ids"] = code_review_job_ids
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.batch_get_code_review_jobs_input.BatchGetCodeReviewJobsInput = {}  # type: ignore[typeddict-item]
+        input_["code_review_job_ids"] = code_review_job_ids
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -494,12 +511,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_code_review_job_tasks_input.BatchGetCodeReviewJobTasksInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["code_review_job_task_ids"] = code_review_job_task_ids
+        input_: aws_sdk_securityagent.types.batch_get_code_review_job_tasks_input.BatchGetCodeReviewJobTasksInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["code_review_job_task_ids"] = code_review_job_task_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,12 +552,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_code_reviews_input.BatchGetCodeReviewsInput = {}  # type: ignore[typeddict-item]
-        input["code_review_ids"] = code_review_ids
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.batch_get_code_reviews_input.BatchGetCodeReviewsInput = {}  # type: ignore[typeddict-item]
+        input_["code_review_ids"] = code_review_ids
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -576,12 +593,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_findings_input.BatchGetFindingsInput = {}  # type: ignore[typeddict-item]
-        input["finding_ids"] = finding_ids
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.batch_get_findings_input.BatchGetFindingsInput = {}  # type: ignore[typeddict-item]
+        input_["finding_ids"] = finding_ids
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,12 +634,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_pentest_jobs_input.BatchGetPentestJobsInput = {}  # type: ignore[typeddict-item]
-        input["pentest_job_ids"] = pentest_job_ids
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.batch_get_pentest_jobs_input.BatchGetPentestJobsInput = {}  # type: ignore[typeddict-item]
+        input_["pentest_job_ids"] = pentest_job_ids
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,12 +675,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_pentest_job_tasks_input.BatchGetPentestJobTasksInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["task_ids"] = task_ids
+        input_: aws_sdk_securityagent.types.batch_get_pentest_job_tasks_input.BatchGetPentestJobTasksInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["task_ids"] = task_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -699,12 +716,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.batch_get_pentests_input.BatchGetPentestsInput = {}  # type: ignore[typeddict-item]
-        input["pentest_ids"] = pentest_ids
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.batch_get_pentests_input.BatchGetPentestsInput = {}  # type: ignore[typeddict-item]
+        input_["pentest_ids"] = pentest_ids
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,19 +771,19 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_code_review_input.CreateCodeReviewInput = {}  # type: ignore[typeddict-item]
-        input["title"] = title
-        input["agent_space_id"] = agent_space_id
-        input["assets"] = assets
+        input_: aws_sdk_securityagent.types.create_code_review_input.CreateCodeReviewInput = {}  # type: ignore[typeddict-item]
+        input_["title"] = title
+        input_["agent_space_id"] = agent_space_id
+        input_["assets"] = assets
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if log_config is not None:
-            input["log_config"] = log_config
+            input_["log_config"] = log_config
         if code_remediation_strategy is not None:
-            input["code_remediation_strategy"] = code_remediation_strategy
+            input_["code_remediation_strategy"] = code_remediation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -810,16 +827,16 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_membership_request.CreateMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["agent_space_id"] = agent_space_id
-        input["membership_id"] = membership_id
-        input["member_type"] = member_type
+        input_: aws_sdk_securityagent.types.create_membership_request.CreateMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["agent_space_id"] = agent_space_id
+        input_["membership_id"] = membership_id
+        input_["member_type"] = member_type
         if config is not None:
-            input["config"] = config
+            input_["config"] = config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -879,26 +896,26 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.create_pentest_input.CreatePentestInput = {}  # type: ignore[typeddict-item]
-        input["title"] = title
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.create_pentest_input.CreatePentestInput = {}  # type: ignore[typeddict-item]
+        input_["title"] = title
+        input_["agent_space_id"] = agent_space_id
         if assets is not None:
-            input["assets"] = assets
+            input_["assets"] = assets
         if exclude_risk_types is not None:
-            input["exclude_risk_types"] = exclude_risk_types
+            input_["exclude_risk_types"] = exclude_risk_types
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if log_config is not None:
-            input["log_config"] = log_config
+            input_["log_config"] = log_config
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if network_traffic_config is not None:
-            input["network_traffic_config"] = network_traffic_config
+            input_["network_traffic_config"] = network_traffic_config
         if code_remediation_strategy is not None:
-            input["code_remediation_strategy"] = code_remediation_strategy
+            input_["code_remediation_strategy"] = code_remediation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -934,12 +951,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_artifact_input.DeleteArtifactInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["artifact_id"] = artifact_id
+        input_: aws_sdk_securityagent.types.delete_artifact_input.DeleteArtifactInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["artifact_id"] = artifact_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -981,15 +998,15 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.delete_membership_request.DeleteMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["agent_space_id"] = agent_space_id
-        input["membership_id"] = membership_id
+        input_: aws_sdk_securityagent.types.delete_membership_request.DeleteMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["agent_space_id"] = agent_space_id
+        input_["membership_id"] = membership_id
         if member_type is not None:
-            input["member_type"] = member_type
+            input_["member_type"] = member_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1025,12 +1042,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.get_artifact_input.GetArtifactInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["artifact_id"] = artifact_id
+        input_: aws_sdk_securityagent.types.get_artifact_input.GetArtifactInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["artifact_id"] = artifact_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1064,11 +1081,11 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.initiate_provider_registration_input.InitiateProviderRegistrationInput = {}  # type: ignore[typeddict-item]
-        input["provider"] = provider
+        input_: aws_sdk_securityagent.types.initiate_provider_registration_input.InitiateProviderRegistrationInput = {}  # type: ignore[typeddict-item]
+        input_["provider"] = provider
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1108,15 +1125,15 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_artifacts_input.ListArtifactsInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.list_artifacts_input.ListArtifactsInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1183,16 +1200,16 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_code_review_jobs_for_code_review_input.ListCodeReviewJobsForCodeReviewInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_code_review_jobs_for_code_review_input.ListCodeReviewJobsForCodeReviewInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
-        input["code_review_id"] = code_review_id
-        input["agent_space_id"] = agent_space_id
+            input_["max_results"] = max_results
+        input_["code_review_id"] = code_review_id
+        input_["agent_space_id"] = agent_space_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1265,21 +1282,21 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_code_review_job_tasks_input.ListCodeReviewJobTasksInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.list_code_review_job_tasks_input.ListCodeReviewJobTasksInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if code_review_job_id is not None:
-            input["code_review_job_id"] = code_review_job_id
+            input_["code_review_job_id"] = code_review_job_id
         if step_name is not None:
-            input["step_name"] = step_name
+            input_["step_name"] = step_name
         if category_name is not None:
-            input["category_name"] = category_name
+            input_["category_name"] = category_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1350,15 +1367,15 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_code_reviews_input.ListCodeReviewsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_code_reviews_input.ListCodeReviewsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["agent_space_id"] = agent_space_id
+            input_["next_token"] = next_token
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1427,18 +1444,18 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_discovered_endpoints_input.ListDiscoveredEndpointsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_discovered_endpoints_input.ListDiscoveredEndpointsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
-        input["pentest_job_id"] = pentest_job_id
-        input["agent_space_id"] = agent_space_id
+            input_["max_results"] = max_results
+        input_["pentest_job_id"] = pentest_job_id
+        input_["agent_space_id"] = agent_space_id
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1525,29 +1542,29 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_findings_input.ListFindingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_findings_input.ListFindingsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if pentest_job_id is not None:
-            input["pentest_job_id"] = pentest_job_id
+            input_["pentest_job_id"] = pentest_job_id
         if code_review_job_id is not None:
-            input["code_review_job_id"] = code_review_job_id
-        input["agent_space_id"] = agent_space_id
+            input_["code_review_job_id"] = code_review_job_id
+        input_["agent_space_id"] = agent_space_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if risk_type is not None:
-            input["risk_type"] = risk_type
+            input_["risk_type"] = risk_type
         if risk_level is not None:
-            input["risk_level"] = risk_level
+            input_["risk_level"] = risk_level
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if confidence is not None:
-            input["confidence"] = confidence
+            input_["confidence"] = confidence
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1638,19 +1655,19 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_integrated_resources_input.ListIntegratedResourcesInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.list_integrated_resources_input.ListIntegratedResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if integration_id is not None:
-            input["integration_id"] = integration_id
+            input_["integration_id"] = integration_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1731,18 +1748,18 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_memberships_request.ListMembershipsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.list_memberships_request.ListMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["agent_space_id"] = agent_space_id
         if member_type is not None:
-            input["member_type"] = member_type
+            input_["member_type"] = member_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1815,16 +1832,16 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_pentest_jobs_for_pentest_input.ListPentestJobsForPentestInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_pentest_jobs_for_pentest_input.ListPentestJobsForPentestInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
-        input["pentest_id"] = pentest_id
-        input["agent_space_id"] = agent_space_id
+            input_["max_results"] = max_results
+        input_["pentest_id"] = pentest_id
+        input_["agent_space_id"] = agent_space_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1897,21 +1914,21 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_pentest_job_tasks_input.ListPentestJobTasksInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.list_pentest_job_tasks_input.ListPentestJobTasksInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if pentest_job_id is not None:
-            input["pentest_job_id"] = pentest_job_id
+            input_["pentest_job_id"] = pentest_job_id
         if step_name is not None:
-            input["step_name"] = step_name
+            input_["step_name"] = step_name
         if category_name is not None:
-            input["category_name"] = category_name
+            input_["category_name"] = category_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1982,15 +1999,15 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_pentests_input.ListPentestsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securityagent.types.list_pentests_input.ListPentestsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["agent_space_id"] = agent_space_id
+            input_["next_token"] = next_token
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2049,11 +2066,11 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_securityagent.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2093,16 +2110,16 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.start_code_remediation_input.StartCodeRemediationInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.start_code_remediation_input.StartCodeRemediationInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if pentest_job_id is not None:
-            input["pentest_job_id"] = pentest_job_id
+            input_["pentest_job_id"] = pentest_job_id
         if code_review_job_id is not None:
-            input["code_review_job_id"] = code_review_job_id
-        input["finding_ids"] = finding_ids
+            input_["code_review_job_id"] = code_review_job_id
+        input_["finding_ids"] = finding_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2138,12 +2155,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.start_code_review_job_input.StartCodeReviewJobInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["code_review_id"] = code_review_id
+        input_: aws_sdk_securityagent.types.start_code_review_job_input.StartCodeReviewJobInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["code_review_id"] = code_review_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2179,12 +2196,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.start_pentest_job_input.StartPentestJobInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["pentest_id"] = pentest_id
+        input_: aws_sdk_securityagent.types.start_pentest_job_input.StartPentestJobInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["pentest_id"] = pentest_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2220,12 +2237,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.stop_code_review_job_input.StopCodeReviewJobInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["code_review_job_id"] = code_review_job_id
+        input_: aws_sdk_securityagent.types.stop_code_review_job_input.StopCodeReviewJobInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["code_review_job_id"] = code_review_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2261,12 +2278,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.stop_pentest_job_input.StopPentestJobInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["pentest_job_id"] = pentest_job_id
+        input_: aws_sdk_securityagent.types.stop_pentest_job_input.StopPentestJobInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["pentest_job_id"] = pentest_job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2302,12 +2319,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_securityagent.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2343,12 +2360,12 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_securityagent.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2400,22 +2417,22 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_code_review_input.UpdateCodeReviewInput = {}  # type: ignore[typeddict-item]
-        input["code_review_id"] = code_review_id
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.update_code_review_input.UpdateCodeReviewInput = {}  # type: ignore[typeddict-item]
+        input_["code_review_id"] = code_review_id
+        input_["agent_space_id"] = agent_space_id
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if assets is not None:
-            input["assets"] = assets
+            input_["assets"] = assets
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if log_config is not None:
-            input["log_config"] = log_config
+            input_["log_config"] = log_config
         if code_remediation_strategy is not None:
-            input["code_remediation_strategy"] = code_remediation_strategy
+            input_["code_remediation_strategy"] = code_remediation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2457,16 +2474,16 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_finding_input.UpdateFindingInput = {}  # type: ignore[typeddict-item]
-        input["finding_id"] = finding_id
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.update_finding_input.UpdateFindingInput = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
+        input_["agent_space_id"] = agent_space_id
         if risk_level is not None:
-            input["risk_level"] = risk_level
+            input_["risk_level"] = risk_level
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2504,13 +2521,13 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_integrated_resources_input.UpdateIntegratedResourcesInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["integration_id"] = integration_id
-        input["items"] = items
+        input_: aws_sdk_securityagent.types.update_integrated_resources_input.UpdateIntegratedResourcesInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["integration_id"] = integration_id
+        input_["items"] = items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2572,28 +2589,28 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.update_pentest_input.UpdatePentestInput = {}  # type: ignore[typeddict-item]
-        input["pentest_id"] = pentest_id
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_securityagent.types.update_pentest_input.UpdatePentestInput = {}  # type: ignore[typeddict-item]
+        input_["pentest_id"] = pentest_id
+        input_["agent_space_id"] = agent_space_id
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if assets is not None:
-            input["assets"] = assets
+            input_["assets"] = assets
         if exclude_risk_types is not None:
-            input["exclude_risk_types"] = exclude_risk_types
+            input_["exclude_risk_types"] = exclude_risk_types
         if service_role is not None:
-            input["service_role"] = service_role
+            input_["service_role"] = service_role
         if log_config is not None:
-            input["log_config"] = log_config
+            input_["log_config"] = log_config
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if network_traffic_config is not None:
-            input["network_traffic_config"] = network_traffic_config
+            input_["network_traffic_config"] = network_traffic_config
         if code_remediation_strategy is not None:
-            input["code_remediation_strategy"] = code_remediation_strategy
+            input_["code_remediation_strategy"] = code_remediation_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2627,11 +2644,11 @@ class AsyncSecurityAgentClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securityagent.types.verify_target_domain_input.VerifyTargetDomainInput = {}  # type: ignore[typeddict-item]
-        input["target_domain_id"] = target_domain_id
+        input_: aws_sdk_securityagent.types.verify_target_domain_input.VerifyTargetDomainInput = {}  # type: ignore[typeddict-item]
+        input_["target_domain_id"] = target_domain_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

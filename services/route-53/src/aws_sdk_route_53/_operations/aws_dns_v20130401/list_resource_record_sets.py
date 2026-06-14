@@ -72,53 +72,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest,
+    input_: aws_sdk_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/hostedzone/{HostedZoneId}/rrset"
-    url = url.replace("{HostedZoneId}", quote(str(input["hosted_zone_id"]), safe=""))
+    url = url.replace("{HostedZoneId}", quote(str(input_["hosted_zone_id"]), safe=""))
     params: dict[str, str] = {}
-    if "start_record_name" in input:
-        params["name"] = str(input["start_record_name"])
-    if "start_record_type" in input:
-        params["type"] = str(input["start_record_type"])
-    if "start_record_identifier" in input:
-        params["identifier"] = str(input["start_record_identifier"])
-    if "max_items" in input:
-        params["maxitems"] = str(input["max_items"])
+    if "start_record_name" in input_:
+        params["name"] = str(input_["start_record_name"])
+    if "start_record_type" in input_:
+        params["type"] = str(input_["start_record_type"])
+    if "start_record_identifier" in input_:
+        params["identifier"] = str(input_["start_record_identifier"])
+    if "max_items" in input_:
+        params["maxitems"] = str(input_["max_items"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_resource_record_sets(
     options: OperationOptions,
-    input: aws_sdk_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest,
+    input_: aws_sdk_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest,
 ) -> tuple[
     aws_sdk_route_53.types.list_resource_record_sets_response.ListResourceRecordSetsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -127,16 +124,17 @@ def list_resource_record_sets(
 
 async def async_list_resource_record_sets(
     options: AsyncOperationOptions,
-    input: aws_sdk_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest,
+    input_: aws_sdk_route_53.types.list_resource_record_sets_request.ListResourceRecordSetsRequest,
 ) -> tuple[
     aws_sdk_route_53.types.list_resource_record_sets_response.ListResourceRecordSetsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

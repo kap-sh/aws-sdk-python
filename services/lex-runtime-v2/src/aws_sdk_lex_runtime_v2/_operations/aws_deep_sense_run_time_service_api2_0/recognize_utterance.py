@@ -141,59 +141,56 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_lex_runtime_v2.types.recognize_utterance_request.RecognizeUtteranceRequest,
+    input_: aws_sdk_lex_runtime_v2.types.recognize_utterance_request.RecognizeUtteranceRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance"
     )
-    url = url.replace("{botId}", quote(str(input["bot_id"]), safe=""))
-    url = url.replace("{botAliasId}", quote(str(input["bot_alias_id"]), safe=""))
-    url = url.replace("{localeId}", quote(str(input["locale_id"]), safe=""))
-    url = url.replace("{sessionId}", quote(str(input["session_id"]), safe=""))
+    url = url.replace("{botId}", quote(str(input_["bot_id"]), safe=""))
+    url = url.replace("{botAliasId}", quote(str(input_["bot_alias_id"]), safe=""))
+    url = url.replace("{localeId}", quote(str(input_["locale_id"]), safe=""))
+    url = url.replace("{sessionId}", quote(str(input_["session_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "session_state" in input:
-        headers["x-amz-lex-session-state"] = str(input["session_state"])
-    if "request_attributes" in input:
-        headers["x-amz-lex-request-attributes"] = str(input["request_attributes"])
-    if "request_content_type" in input:
-        headers["Content-Type"] = str(input["request_content_type"])
-    if "response_content_type" in input:
-        headers["Response-Content-Type"] = str(input["response_content_type"])
-    body = input["input_stream"]
+    if "session_state" in input_:
+        headers["x-amz-lex-session-state"] = str(input_["session_state"])
+    if "request_attributes" in input_:
+        headers["x-amz-lex-request-attributes"] = str(input_["request_attributes"])
+    if "request_content_type" in input_:
+        headers["Content-Type"] = str(input_["request_content_type"])
+    if "response_content_type" in input_:
+        headers["Response-Content-Type"] = str(input_["response_content_type"])
+    body = input_["input_stream"]
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def recognize_utterance(
     options: OperationOptions,
-    input: aws_sdk_lex_runtime_v2.types.recognize_utterance_request.RecognizeUtteranceRequest,
+    input_: aws_sdk_lex_runtime_v2.types.recognize_utterance_request.RecognizeUtteranceRequest,
 ) -> tuple[
     aws_sdk_lex_runtime_v2.types.recognize_utterance_response.RecognizeUtteranceResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -202,16 +199,17 @@ def recognize_utterance(
 
 async def async_recognize_utterance(
     options: AsyncOperationOptions,
-    input: aws_sdk_lex_runtime_v2.types.recognize_utterance_request.RecognizeUtteranceRequest,
+    input_: aws_sdk_lex_runtime_v2.types.recognize_utterance_request.RecognizeUtteranceRequest,
 ) -> tuple[
     aws_sdk_lex_runtime_v2.types.recognize_utterance_response.RecognizeUtteranceResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

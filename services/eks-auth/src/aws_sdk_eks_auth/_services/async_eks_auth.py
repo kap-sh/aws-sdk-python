@@ -155,12 +155,12 @@ class AsyncEKSAuthClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_eks_auth.types.assume_role_for_pod_identity_request.AssumeRoleForPodIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["token"] = token
+        input_: aws_sdk_eks_auth.types.assume_role_for_pod_identity_request.AssumeRoleForPodIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["token"] = token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

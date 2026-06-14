@@ -84,14 +84,14 @@ class SchemaVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_schema_version_request.GetSchemaVersionRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["schema_versioned_id"] = schema_versioned_id
+        input_: aws_sdk_iot_managed_integrations.types.get_schema_version_request.GetSchemaVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["schema_versioned_id"] = schema_versioned_id
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,23 +159,23 @@ class SchemaVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_schema_versions_request.ListSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_iot_managed_integrations.types.list_schema_versions_request.ListSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if schema_id is not None:
-            input["schema_id"] = schema_id
+            input_["schema_id"] = schema_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
         if semantic_version is not None:
-            input["semantic_version"] = semantic_version
+            input_["semantic_version"] = semantic_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,14 +231,14 @@ class AsyncSchemaVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_schema_version_request.GetSchemaVersionRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
-        input["schema_versioned_id"] = schema_versioned_id
+        input_: aws_sdk_iot_managed_integrations.types.get_schema_version_request.GetSchemaVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
+        input_["schema_versioned_id"] = schema_versioned_id
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -307,23 +307,23 @@ class AsyncSchemaVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_schema_versions_request.ListSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_iot_managed_integrations.types.list_schema_versions_request.ListSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if schema_id is not None:
-            input["schema_id"] = schema_id
+            input_["schema_id"] = schema_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if visibility is not None:
-            input["visibility"] = visibility
+            input_["visibility"] = visibility
         if semantic_version is not None:
-            input["semantic_version"] = semantic_version
+            input_["semantic_version"] = semantic_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

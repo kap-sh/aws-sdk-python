@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import ensure_async_iterator
 from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import ensure_sync_iterator
+import datetime
 from aws_sdk_bedrock_agentcore._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_bedrock_agentcore._auth._signers
 import aws_sdk_bedrock_agentcore._auth._sigv4
@@ -30,15 +31,15 @@ class RegistryRecordResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.search_registry_records_request.SearchRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["search_query"] = search_query
-        input["registry_ids"] = registry_ids
+        input_: aws_sdk_bedrock_agentcore.types.search_registry_records_request.SearchRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["search_query"] = search_query
+        input_["registry_ids"] = registry_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncRegistryRecordResource:
@@ -59,13 +60,13 @@ class AsyncRegistryRecordResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.search_registry_records_request.SearchRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["search_query"] = search_query
-        input["registry_ids"] = registry_ids
+        input_: aws_sdk_bedrock_agentcore.types.search_registry_records_request.SearchRegistryRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["search_query"] = search_query
+        input_["registry_ids"] = registry_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

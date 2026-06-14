@@ -63,14 +63,14 @@ class License:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.associate_license_request.AssociateLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["license_type"] = license_type
+        input_: aws_sdk_grafana.types.associate_license_request.AssociateLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["license_type"] = license_type
         if grafana_token is not None:
-            input["grafana_token"] = grafana_token
+            input_["grafana_token"] = grafana_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -105,12 +105,12 @@ class License:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.disassociate_license_request.DisassociateLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["license_type"] = license_type
+        input_: aws_sdk_grafana.types.disassociate_license_request.DisassociateLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["license_type"] = license_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -155,14 +155,14 @@ class AsyncLicense:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.associate_license_request.AssociateLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["license_type"] = license_type
+        input_: aws_sdk_grafana.types.associate_license_request.AssociateLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["license_type"] = license_type
         if grafana_token is not None:
-            input["grafana_token"] = grafana_token
+            input_["grafana_token"] = grafana_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,12 +198,12 @@ class AsyncLicense:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.disassociate_license_request.DisassociateLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
-        input["license_type"] = license_type
+        input_: aws_sdk_grafana.types.disassociate_license_request.DisassociateLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
+        input_["license_type"] = license_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -79,17 +79,17 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["vpc_information"] = vpc_information
+        input_: aws_sdk_pca_connector_ad.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["vpc_information"] = vpc_information
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,11 +122,11 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.get_connector_request.GetConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.get_connector_request.GetConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_arn"] = connector_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,11 +157,11 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_arn"] = connector_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,14 +202,14 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pca_connector_ad.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -258,17 +258,17 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["certificate_authority_arn"] = certificate_authority_arn
-        input["vpc_information"] = vpc_information
+        input_: aws_sdk_pca_connector_ad.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["certificate_authority_arn"] = certificate_authority_arn
+        input_["vpc_information"] = vpc_information
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,11 +302,11 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.get_connector_request.GetConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.get_connector_request.GetConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_arn"] = connector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,11 +338,11 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_arn"] = connector_arn
+        input_: aws_sdk_pca_connector_ad.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_arn"] = connector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,14 +384,14 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_pca_connector_ad.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pca_connector_ad.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

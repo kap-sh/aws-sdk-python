@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_workmail._auth._signers
+import aws_sdk_workmail._auth._sigv4
 from aws_sdk_workmail._auth._identity import Credentials
 from aws_sdk_workmail._auth._providers import (
     CredentialsProvider,
@@ -426,13 +428,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.associate_delegate_to_resource_request.AssociateDelegateToResourceRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["resource_id"] = resource_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_workmail.types.associate_delegate_to_resource_request.AssociateDelegateToResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["resource_id"] = resource_id
+        input_["entity_id"] = entity_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,13 +472,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.associate_member_to_group_request.AssociateMemberToGroupRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["group_id"] = group_id
-        input["member_id"] = member_id
+        input_: aws_sdk_workmail.types.associate_member_to_group_request.AssociateMemberToGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["group_id"] = group_id
+        input_["member_id"] = member_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -512,12 +514,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.assume_impersonation_role_request.AssumeImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["impersonation_role_id"] = impersonation_role_id
+        input_: aws_sdk_workmail.types.assume_impersonation_role_request.AssumeImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["impersonation_role_id"] = impersonation_role_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -555,13 +557,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.cancel_mailbox_export_job_request.CancelMailboxExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["job_id"] = job_id
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.cancel_mailbox_export_job_request.CancelMailboxExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["job_id"] = job_id
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,13 +601,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
-        input["alias"] = alias
+        input_: aws_sdk_workmail.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
+        input_["alias"] = alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -653,18 +655,18 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_availability_configuration_request.CreateAvailabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workmail.types.create_availability_configuration_request.CreateAvailabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["organization_id"] = organization_id
-        input["domain_name"] = domain_name
+            input_["client_token"] = client_token
+        input_["organization_id"] = organization_id
+        input_["domain_name"] = domain_name
         if ews_provider is not None:
-            input["ews_provider"] = ews_provider
+            input_["ews_provider"] = ews_provider
         if lambda_provider is not None:
-            input["lambda_provider"] = lambda_provider
+            input_["lambda_provider"] = lambda_provider
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -704,14 +706,14 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["name"] = name
+        input_: aws_sdk_workmail.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["name"] = name
         if hidden_from_global_address_list is not None:
-            input["hidden_from_global_address_list"] = hidden_from_global_address_list
+            input_["hidden_from_global_address_list"] = hidden_from_global_address_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -751,14 +753,14 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_identity_center_application_request.CreateIdentityCenterApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["instance_arn"] = instance_arn
+        input_: aws_sdk_workmail.types.create_identity_center_application_request.CreateIdentityCenterApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["instance_arn"] = instance_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,18 +808,18 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_impersonation_role_request.CreateImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workmail.types.create_impersonation_role_request.CreateImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["organization_id"] = organization_id
-        input["name"] = name
-        input["type"] = type
+            input_["client_token"] = client_token
+        input_["organization_id"] = organization_id
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
-        input["rules"] = rules
+            input_["description"] = description
+        input_["rules"] = rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -895,33 +897,33 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_mobile_device_access_rule_request.CreateMobileDeviceAccessRuleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.create_mobile_device_access_rule_request.CreateMobileDeviceAccessRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["effect"] = effect
+            input_["description"] = description
+        input_["effect"] = effect
         if device_types is not None:
-            input["device_types"] = device_types
+            input_["device_types"] = device_types
         if not_device_types is not None:
-            input["not_device_types"] = not_device_types
+            input_["not_device_types"] = not_device_types
         if device_models is not None:
-            input["device_models"] = device_models
+            input_["device_models"] = device_models
         if not_device_models is not None:
-            input["not_device_models"] = not_device_models
+            input_["not_device_models"] = not_device_models
         if device_operating_systems is not None:
-            input["device_operating_systems"] = device_operating_systems
+            input_["device_operating_systems"] = device_operating_systems
         if not_device_operating_systems is not None:
-            input["not_device_operating_systems"] = not_device_operating_systems
+            input_["not_device_operating_systems"] = not_device_operating_systems
         if device_user_agents is not None:
-            input["device_user_agents"] = device_user_agents
+            input_["device_user_agents"] = device_user_agents
         if not_device_user_agents is not None:
-            input["not_device_user_agents"] = not_device_user_agents
+            input_["not_device_user_agents"] = not_device_user_agents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -973,21 +975,21 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_organization_request.CreateOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workmail.types.create_organization_request.CreateOrganizationRequest = {}  # type: ignore[typeddict-item]
         if directory_id is not None:
-            input["directory_id"] = directory_id
-        input["alias"] = alias
+            input_["directory_id"] = directory_id
+        input_["alias"] = alias
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if domains is not None:
-            input["domains"] = domains
+            input_["domains"] = domains
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if enable_interoperability is not None:
-            input["enable_interoperability"] = enable_interoperability
+            input_["enable_interoperability"] = enable_interoperability
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1033,17 +1035,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_resource_request.CreateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_workmail.types.create_resource_request.CreateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if hidden_from_global_address_list is not None:
-            input["hidden_from_global_address_list"] = hidden_from_global_address_list
+            input_["hidden_from_global_address_list"] = hidden_from_global_address_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1101,25 +1103,25 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["name"] = name
-        input["display_name"] = display_name
+        input_: aws_sdk_workmail.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["name"] = name
+        input_["display_name"] = display_name
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if first_name is not None:
-            input["first_name"] = first_name
+            input_["first_name"] = first_name
         if last_name is not None:
-            input["last_name"] = last_name
+            input_["last_name"] = last_name
         if hidden_from_global_address_list is not None:
-            input["hidden_from_global_address_list"] = hidden_from_global_address_list
+            input_["hidden_from_global_address_list"] = hidden_from_global_address_list
         if identity_provider_user_id is not None:
-            input["identity_provider_user_id"] = identity_provider_user_id
+            input_["identity_provider_user_id"] = identity_provider_user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1155,12 +1157,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_access_control_rule_request.DeleteAccessControlRuleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["name"] = name
+        input_: aws_sdk_workmail.types.delete_access_control_rule_request.DeleteAccessControlRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1198,13 +1200,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
-        input["alias"] = alias
+        input_: aws_sdk_workmail.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
+        input_["alias"] = alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1240,12 +1242,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_availability_configuration_request.DeleteAvailabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_workmail.types.delete_availability_configuration_request.DeleteAvailabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1279,11 +1281,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_email_monitoring_configuration_request.DeleteEmailMonitoringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.delete_email_monitoring_configuration_request.DeleteEmailMonitoringConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1319,12 +1321,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["group_id"] = group_id
+        input_: aws_sdk_workmail.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["group_id"] = group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1358,11 +1360,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_identity_center_application_request.DeleteIdentityCenterApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
+        input_: aws_sdk_workmail.types.delete_identity_center_application_request.DeleteIdentityCenterApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1396,11 +1398,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_identity_provider_configuration_request.DeleteIdentityProviderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.delete_identity_provider_configuration_request.DeleteIdentityProviderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1436,12 +1438,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_impersonation_role_request.DeleteImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["impersonation_role_id"] = impersonation_role_id
+        input_: aws_sdk_workmail.types.delete_impersonation_role_request.DeleteImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["impersonation_role_id"] = impersonation_role_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1479,13 +1481,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_mailbox_permissions_request.DeleteMailboxPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
-        input["grantee_id"] = grantee_id
+        input_: aws_sdk_workmail.types.delete_mailbox_permissions_request.DeleteMailboxPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
+        input_["grantee_id"] = grantee_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1523,13 +1525,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_mobile_device_access_override_request.DeleteMobileDeviceAccessOverrideRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
-        input["device_id"] = device_id
+        input_: aws_sdk_workmail.types.delete_mobile_device_access_override_request.DeleteMobileDeviceAccessOverrideRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
+        input_["device_id"] = device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1565,12 +1567,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_mobile_device_access_rule_request.DeleteMobileDeviceAccessRuleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["mobile_device_access_rule_id"] = mobile_device_access_rule_id
+        input_: aws_sdk_workmail.types.delete_mobile_device_access_rule_request.DeleteMobileDeviceAccessRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["mobile_device_access_rule_id"] = mobile_device_access_rule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1618,20 +1620,20 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_organization_request.DeleteOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workmail.types.delete_organization_request.DeleteOrganizationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["organization_id"] = organization_id
-        input["delete_directory"] = delete_directory
+            input_["client_token"] = client_token
+        input_["organization_id"] = organization_id
+        input_["delete_directory"] = delete_directory
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
         if delete_identity_center_application is not None:
-            input["delete_identity_center_application"] = (
+            input_["delete_identity_center_application"] = (
                 delete_identity_center_application
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1667,12 +1669,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_personal_access_token_request.DeletePersonalAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["personal_access_token_id"] = personal_access_token_id
+        input_: aws_sdk_workmail.types.delete_personal_access_token_request.DeletePersonalAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["personal_access_token_id"] = personal_access_token_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1708,12 +1710,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_resource_request.DeleteResourceRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workmail.types.delete_resource_request.DeleteResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1749,12 +1751,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_retention_policy_request.DeleteRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["id"] = id
+        input_: aws_sdk_workmail.types.delete_retention_policy_request.DeleteRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1790,12 +1792,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
+        input_: aws_sdk_workmail.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1831,12 +1833,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.deregister_from_work_mail_request.DeregisterFromWorkMailRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_workmail.types.deregister_from_work_mail_request.DeregisterFromWorkMailRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1872,12 +1874,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.deregister_mail_domain_request.DeregisterMailDomainRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_workmail.types.deregister_mail_domain_request.DeregisterMailDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1911,11 +1913,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_email_monitoring_configuration_request.DescribeEmailMonitoringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.describe_email_monitoring_configuration_request.DescribeEmailMonitoringConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1951,12 +1953,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_entity_request.DescribeEntityRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["email"] = email
+        input_: aws_sdk_workmail.types.describe_entity_request.DescribeEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["email"] = email
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1992,12 +1994,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["group_id"] = group_id
+        input_: aws_sdk_workmail.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["group_id"] = group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2031,11 +2033,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_identity_provider_configuration_request.DescribeIdentityProviderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.describe_identity_provider_configuration_request.DescribeIdentityProviderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2069,11 +2071,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_inbound_dmarc_settings_request.DescribeInboundDmarcSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.describe_inbound_dmarc_settings_request.DescribeInboundDmarcSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2109,12 +2111,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_mailbox_export_job_request.DescribeMailboxExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.describe_mailbox_export_job_request.DescribeMailboxExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2148,11 +2150,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_organization_request.DescribeOrganizationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.describe_organization_request.DescribeOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2188,12 +2190,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_resource_request.DescribeResourceRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workmail.types.describe_resource_request.DescribeResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2229,12 +2231,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
+        input_: aws_sdk_workmail.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2272,13 +2274,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.disassociate_delegate_from_resource_request.DisassociateDelegateFromResourceRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["resource_id"] = resource_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_workmail.types.disassociate_delegate_from_resource_request.DisassociateDelegateFromResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["resource_id"] = resource_id
+        input_["entity_id"] = entity_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2316,13 +2318,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.disassociate_member_from_group_request.DisassociateMemberFromGroupRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["group_id"] = group_id
-        input["member_id"] = member_id
+        input_: aws_sdk_workmail.types.disassociate_member_from_group_request.DisassociateMemberFromGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["group_id"] = group_id
+        input_["member_id"] = member_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2368,17 +2370,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_access_control_effect_request.GetAccessControlEffectRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["ip_address"] = ip_address
-        input["action"] = action
+        input_: aws_sdk_workmail.types.get_access_control_effect_request.GetAccessControlEffectRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["ip_address"] = ip_address
+        input_["action"] = action
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if impersonation_role_id is not None:
-            input["impersonation_role_id"] = impersonation_role_id
+            input_["impersonation_role_id"] = impersonation_role_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2412,11 +2414,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_default_retention_policy_request.GetDefaultRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.get_default_retention_policy_request.GetDefaultRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2452,12 +2454,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_impersonation_role_request.GetImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["impersonation_role_id"] = impersonation_role_id
+        input_: aws_sdk_workmail.types.get_impersonation_role_request.GetImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["impersonation_role_id"] = impersonation_role_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2495,13 +2497,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_impersonation_role_effect_request.GetImpersonationRoleEffectRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["impersonation_role_id"] = impersonation_role_id
-        input["target_user"] = target_user
+        input_: aws_sdk_workmail.types.get_impersonation_role_effect_request.GetImpersonationRoleEffectRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["impersonation_role_id"] = impersonation_role_id
+        input_["target_user"] = target_user
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2539,12 +2541,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_mailbox_details_request.GetMailboxDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
+        input_: aws_sdk_workmail.types.get_mailbox_details_request.GetMailboxDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2580,12 +2582,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_mail_domain_request.GetMailDomainRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_workmail.types.get_mail_domain_request.GetMailDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2633,19 +2635,19 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_mobile_device_access_effect_request.GetMobileDeviceAccessEffectRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.get_mobile_device_access_effect_request.GetMobileDeviceAccessEffectRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if device_type is not None:
-            input["device_type"] = device_type
+            input_["device_type"] = device_type
         if device_model is not None:
-            input["device_model"] = device_model
+            input_["device_model"] = device_model
         if device_operating_system is not None:
-            input["device_operating_system"] = device_operating_system
+            input_["device_operating_system"] = device_operating_system
         if device_user_agent is not None:
-            input["device_user_agent"] = device_user_agent
+            input_["device_user_agent"] = device_user_agent
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2683,13 +2685,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_mobile_device_access_override_request.GetMobileDeviceAccessOverrideRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
-        input["device_id"] = device_id
+        input_: aws_sdk_workmail.types.get_mobile_device_access_override_request.GetMobileDeviceAccessOverrideRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
+        input_["device_id"] = device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2725,12 +2727,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.get_personal_access_token_metadata_request.GetPersonalAccessTokenMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["personal_access_token_id"] = personal_access_token_id
+        input_: aws_sdk_workmail.types.get_personal_access_token_metadata_request.GetPersonalAccessTokenMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["personal_access_token_id"] = personal_access_token_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2764,11 +2766,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_access_control_rules_request.ListAccessControlRulesRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_access_control_rules_request.ListAccessControlRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2808,16 +2810,16 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_workmail.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2855,15 +2857,15 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_availability_configurations_request.ListAvailabilityConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_availability_configurations_request.ListAvailabilityConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2926,16 +2928,16 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_group_members_request.ListGroupMembersRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["group_id"] = group_id
+        input_: aws_sdk_workmail.types.list_group_members_request.ListGroupMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["group_id"] = group_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2977,17 +2979,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3031,18 +3033,18 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_groups_for_entity_request.ListGroupsForEntityRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_workmail.types.list_groups_for_entity_request.ListGroupsForEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3080,15 +3082,15 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_impersonation_roles_request.ListImpersonationRolesRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_impersonation_roles_request.ListImpersonationRolesRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3126,15 +3128,15 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_mailbox_export_jobs_request.ListMailboxExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_mailbox_export_jobs_request.ListMailboxExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3174,16 +3176,16 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_mailbox_permissions_request.ListMailboxPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_workmail.types.list_mailbox_permissions_request.ListMailboxPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3221,15 +3223,15 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_mail_domains_request.ListMailDomainsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_mail_domains_request.ListMailDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3273,19 +3275,19 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_mobile_device_access_overrides_request.ListMobileDeviceAccessOverridesRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_mobile_device_access_overrides_request.ListMobileDeviceAccessOverridesRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if device_id is not None:
-            input["device_id"] = device_id
+            input_["device_id"] = device_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3319,11 +3321,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_mobile_device_access_rules_request.ListMobileDeviceAccessRulesRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_mobile_device_access_rules_request.ListMobileDeviceAccessRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3359,14 +3361,14 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_organizations_request.ListOrganizationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workmail.types.list_organizations_request.ListOrganizationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3408,17 +3410,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_personal_access_tokens_request.ListPersonalAccessTokensRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_personal_access_tokens_request.ListPersonalAccessTokensRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3485,16 +3487,16 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_resource_delegates_request.ListResourceDelegatesRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workmail.types.list_resource_delegates_request.ListResourceDelegatesRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["resource_id"] = resource_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3536,17 +3538,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_resources_request.ListResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_resources_request.ListResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3580,11 +3582,11 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_workmail.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3626,17 +3628,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3698,30 +3700,30 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.put_access_control_rule_request.PutAccessControlRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["effect"] = effect
-        input["description"] = description
+        input_: aws_sdk_workmail.types.put_access_control_rule_request.PutAccessControlRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["effect"] = effect
+        input_["description"] = description
         if ip_ranges is not None:
-            input["ip_ranges"] = ip_ranges
+            input_["ip_ranges"] = ip_ranges
         if not_ip_ranges is not None:
-            input["not_ip_ranges"] = not_ip_ranges
+            input_["not_ip_ranges"] = not_ip_ranges
         if actions is not None:
-            input["actions"] = actions
+            input_["actions"] = actions
         if not_actions is not None:
-            input["not_actions"] = not_actions
+            input_["not_actions"] = not_actions
         if user_ids is not None:
-            input["user_ids"] = user_ids
+            input_["user_ids"] = user_ids
         if not_user_ids is not None:
-            input["not_user_ids"] = not_user_ids
-        input["organization_id"] = organization_id
+            input_["not_user_ids"] = not_user_ids
+        input_["organization_id"] = organization_id
         if impersonation_role_ids is not None:
-            input["impersonation_role_ids"] = impersonation_role_ids
+            input_["impersonation_role_ids"] = impersonation_role_ids
         if not_impersonation_role_ids is not None:
-            input["not_impersonation_role_ids"] = not_impersonation_role_ids
+            input_["not_impersonation_role_ids"] = not_impersonation_role_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3759,14 +3761,14 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.put_email_monitoring_configuration_request.PutEmailMonitoringConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.put_email_monitoring_configuration_request.PutEmailMonitoringConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
-        input["log_group_arn"] = log_group_arn
+            input_["role_arn"] = role_arn
+        input_["log_group_arn"] = log_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3806,16 +3808,16 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.put_identity_provider_configuration_request.PutIdentityProviderConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["authentication_mode"] = authentication_mode
-        input["identity_center_configuration"] = identity_center_configuration
-        input["personal_access_token_configuration"] = (
+        input_: aws_sdk_workmail.types.put_identity_provider_configuration_request.PutIdentityProviderConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["authentication_mode"] = authentication_mode
+        input_["identity_center_configuration"] = identity_center_configuration
+        input_["personal_access_token_configuration"] = (
             personal_access_token_configuration
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3851,12 +3853,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.put_inbound_dmarc_settings_request.PutInboundDmarcSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["enforced"] = enforced
+        input_: aws_sdk_workmail.types.put_inbound_dmarc_settings_request.PutInboundDmarcSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["enforced"] = enforced
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3896,14 +3898,14 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.put_mailbox_permissions_request.PutMailboxPermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
-        input["grantee_id"] = grantee_id
-        input["permission_values"] = permission_values
+        input_: aws_sdk_workmail.types.put_mailbox_permissions_request.PutMailboxPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
+        input_["grantee_id"] = grantee_id
+        input_["permission_values"] = permission_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3947,16 +3949,16 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.put_mobile_device_access_override_request.PutMobileDeviceAccessOverrideRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
-        input["device_id"] = device_id
-        input["effect"] = effect
+        input_: aws_sdk_workmail.types.put_mobile_device_access_override_request.PutMobileDeviceAccessOverrideRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
+        input_["device_id"] = device_id
+        input_["effect"] = effect
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4000,17 +4002,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.put_retention_policy_request.PutRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.put_retention_policy_request.PutRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if id is not None:
-            input["id"] = id
-        input["name"] = name
+            input_["id"] = id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["folder_configurations"] = folder_configurations
+            input_["description"] = description
+        input_["folder_configurations"] = folder_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4050,14 +4052,14 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.register_mail_domain_request.RegisterMailDomainRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workmail.types.register_mail_domain_request.RegisterMailDomainRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["organization_id"] = organization_id
-        input["domain_name"] = domain_name
+            input_["client_token"] = client_token
+        input_["organization_id"] = organization_id
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4095,13 +4097,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.register_to_work_mail_request.RegisterToWorkMailRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
-        input["email"] = email
+        input_: aws_sdk_workmail.types.register_to_work_mail_request.RegisterToWorkMailRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
+        input_["email"] = email
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4139,13 +4141,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.reset_password_request.ResetPasswordRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
-        input["password"] = password
+        input_: aws_sdk_workmail.types.reset_password_request.ResetPasswordRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
+        input_["password"] = password
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4193,19 +4195,19 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.start_mailbox_export_job_request.StartMailboxExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
+        input_: aws_sdk_workmail.types.start_mailbox_export_job_request.StartMailboxExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
-        input["kms_key_arn"] = kms_key_arn
-        input["s3_bucket_name"] = s3_bucket_name
-        input["s3_prefix"] = s3_prefix
+            input_["description"] = description
+        input_["role_arn"] = role_arn
+        input_["kms_key_arn"] = kms_key_arn
+        input_["s3_bucket_name"] = s3_bucket_name
+        input_["s3_prefix"] = s3_prefix
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4241,12 +4243,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_workmail.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4288,17 +4290,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.test_availability_configuration_request.TestAvailabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
+        input_: aws_sdk_workmail.types.test_availability_configuration_request.TestAvailabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
         if ews_provider is not None:
-            input["ews_provider"] = ews_provider
+            input_["ews_provider"] = ews_provider
         if lambda_provider is not None:
-            input["lambda_provider"] = lambda_provider
+            input_["lambda_provider"] = lambda_provider
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4334,12 +4336,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_workmail.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4383,16 +4385,16 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_availability_configuration_request.UpdateAvailabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_workmail.types.update_availability_configuration_request.UpdateAvailabilityConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["domain_name"] = domain_name
         if ews_provider is not None:
-            input["ews_provider"] = ews_provider
+            input_["ews_provider"] = ews_provider
         if lambda_provider is not None:
-            input["lambda_provider"] = lambda_provider
+            input_["lambda_provider"] = lambda_provider
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4428,12 +4430,12 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_default_mail_domain_request.UpdateDefaultMailDomainRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["domain_name"] = domain_name
+        input_: aws_sdk_workmail.types.update_default_mail_domain_request.UpdateDefaultMailDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["domain_name"] = domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4473,14 +4475,14 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["group_id"] = group_id
+        input_: aws_sdk_workmail.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["group_id"] = group_id
         if hidden_from_global_address_list is not None:
-            input["hidden_from_global_address_list"] = hidden_from_global_address_list
+            input_["hidden_from_global_address_list"] = hidden_from_global_address_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4526,17 +4528,17 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_impersonation_role_request.UpdateImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["impersonation_role_id"] = impersonation_role_id
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_workmail.types.update_impersonation_role_request.UpdateImpersonationRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["impersonation_role_id"] = impersonation_role_id
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
-        input["rules"] = rules
+            input_["description"] = description
+        input_["rules"] = rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4574,13 +4576,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_mailbox_quota_request.UpdateMailboxQuotaRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
-        input["mailbox_quota"] = mailbox_quota
+        input_: aws_sdk_workmail.types.update_mailbox_quota_request.UpdateMailboxQuotaRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
+        input_["mailbox_quota"] = mailbox_quota
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4656,32 +4658,32 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_mobile_device_access_rule_request.UpdateMobileDeviceAccessRuleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["mobile_device_access_rule_id"] = mobile_device_access_rule_id
-        input["name"] = name
+        input_: aws_sdk_workmail.types.update_mobile_device_access_rule_request.UpdateMobileDeviceAccessRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["mobile_device_access_rule_id"] = mobile_device_access_rule_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["effect"] = effect
+            input_["description"] = description
+        input_["effect"] = effect
         if device_types is not None:
-            input["device_types"] = device_types
+            input_["device_types"] = device_types
         if not_device_types is not None:
-            input["not_device_types"] = not_device_types
+            input_["not_device_types"] = not_device_types
         if device_models is not None:
-            input["device_models"] = device_models
+            input_["device_models"] = device_models
         if not_device_models is not None:
-            input["not_device_models"] = not_device_models
+            input_["not_device_models"] = not_device_models
         if device_operating_systems is not None:
-            input["device_operating_systems"] = device_operating_systems
+            input_["device_operating_systems"] = device_operating_systems
         if not_device_operating_systems is not None:
-            input["not_device_operating_systems"] = not_device_operating_systems
+            input_["not_device_operating_systems"] = not_device_operating_systems
         if device_user_agents is not None:
-            input["device_user_agents"] = device_user_agents
+            input_["device_user_agents"] = device_user_agents
         if not_device_user_agents is not None:
-            input["not_device_user_agents"] = not_device_user_agents
+            input_["not_device_user_agents"] = not_device_user_agents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4719,13 +4721,13 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_primary_email_address_request.UpdatePrimaryEmailAddressRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["entity_id"] = entity_id
-        input["email"] = email
+        input_: aws_sdk_workmail.types.update_primary_email_address_request.UpdatePrimaryEmailAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["entity_id"] = entity_id
+        input_["email"] = email
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4777,22 +4779,22 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_resource_request.UpdateResourceRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_workmail.types.update_resource_request.UpdateResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["resource_id"] = resource_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if booking_options is not None:
-            input["booking_options"] = booking_options
+            input_["booking_options"] = booking_options
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if hidden_from_global_address_list is not None:
-            input["hidden_from_global_address_list"] = hidden_from_global_address_list
+            input_["hidden_from_global_address_list"] = hidden_from_global_address_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4880,44 +4882,44 @@ class AsyncWorkMailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmail.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["organization_id"] = organization_id
-        input["user_id"] = user_id
+        input_: aws_sdk_workmail.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_id"] = organization_id
+        input_["user_id"] = user_id
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if first_name is not None:
-            input["first_name"] = first_name
+            input_["first_name"] = first_name
         if last_name is not None:
-            input["last_name"] = last_name
+            input_["last_name"] = last_name
         if hidden_from_global_address_list is not None:
-            input["hidden_from_global_address_list"] = hidden_from_global_address_list
+            input_["hidden_from_global_address_list"] = hidden_from_global_address_list
         if initials is not None:
-            input["initials"] = initials
+            input_["initials"] = initials
         if telephone is not None:
-            input["telephone"] = telephone
+            input_["telephone"] = telephone
         if street is not None:
-            input["street"] = street
+            input_["street"] = street
         if job_title is not None:
-            input["job_title"] = job_title
+            input_["job_title"] = job_title
         if city is not None:
-            input["city"] = city
+            input_["city"] = city
         if company is not None:
-            input["company"] = company
+            input_["company"] = company
         if zip_code is not None:
-            input["zip_code"] = zip_code
+            input_["zip_code"] = zip_code
         if department is not None:
-            input["department"] = department
+            input_["department"] = department
         if country is not None:
-            input["country"] = country
+            input_["country"] = country
         if office is not None:
-            input["office"] = office
+            input_["office"] = office
         if identity_provider_user_id is not None:
-            input["identity_provider_user_id"] = identity_provider_user_id
+            input_["identity_provider_user_id"] = identity_provider_user_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

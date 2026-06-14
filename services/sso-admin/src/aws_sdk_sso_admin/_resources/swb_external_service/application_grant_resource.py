@@ -64,13 +64,13 @@ class ApplicationGrantResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sso_admin.types.put_application_grant_request.PutApplicationGrantRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
-        input["grant_type"] = grant_type
-        input["grant"] = grant
+        input_: aws_sdk_sso_admin.types.put_application_grant_request.PutApplicationGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
+        input_["grant_type"] = grant_type
+        input_["grant"] = grant
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -105,12 +105,12 @@ class ApplicationGrantResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sso_admin.types.get_application_grant_request.GetApplicationGrantRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
-        input["grant_type"] = grant_type
+        input_: aws_sdk_sso_admin.types.get_application_grant_request.GetApplicationGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
+        input_["grant_type"] = grant_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -143,12 +143,12 @@ class ApplicationGrantResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sso_admin.types.delete_application_grant_request.DeleteApplicationGrantRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
-        input["grant_type"] = grant_type
+        input_: aws_sdk_sso_admin.types.delete_application_grant_request.DeleteApplicationGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
+        input_["grant_type"] = grant_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -183,13 +183,13 @@ class ApplicationGrantResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sso_admin.types.list_application_grants_request.ListApplicationGrantsRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
+        input_: aws_sdk_sso_admin.types.list_application_grants_request.ListApplicationGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,13 +230,13 @@ class AsyncApplicationGrantResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sso_admin.types.put_application_grant_request.PutApplicationGrantRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
-        input["grant_type"] = grant_type
-        input["grant"] = grant
+        input_: aws_sdk_sso_admin.types.put_application_grant_request.PutApplicationGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
+        input_["grant_type"] = grant_type
+        input_["grant"] = grant
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -272,12 +272,12 @@ class AsyncApplicationGrantResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sso_admin.types.get_application_grant_request.GetApplicationGrantRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
-        input["grant_type"] = grant_type
+        input_: aws_sdk_sso_admin.types.get_application_grant_request.GetApplicationGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
+        input_["grant_type"] = grant_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,12 +311,12 @@ class AsyncApplicationGrantResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sso_admin.types.delete_application_grant_request.DeleteApplicationGrantRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
-        input["grant_type"] = grant_type
+        input_: aws_sdk_sso_admin.types.delete_application_grant_request.DeleteApplicationGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
+        input_["grant_type"] = grant_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -352,13 +352,13 @@ class AsyncApplicationGrantResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sso_admin.types.list_application_grants_request.ListApplicationGrantsRequest = {}  # type: ignore[typeddict-item]
-        input["application_arn"] = application_arn
+        input_: aws_sdk_sso_admin.types.list_application_grants_request.ListApplicationGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_arn"] = application_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

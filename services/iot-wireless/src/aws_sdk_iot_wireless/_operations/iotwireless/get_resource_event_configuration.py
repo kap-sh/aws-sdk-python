@@ -95,49 +95,46 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iot_wireless.types.get_resource_event_configuration_request.GetResourceEventConfigurationRequest,
+    input_: aws_sdk_iot_wireless.types.get_resource_event_configuration_request.GetResourceEventConfigurationRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/event-configurations/{Identifier}"
-    url = url.replace("{Identifier}", quote(str(input["identifier"]), safe=""))
+    url = url.replace("{Identifier}", quote(str(input_["identifier"]), safe=""))
     params: dict[str, str] = {}
-    if "identifier_type" in input:
-        params["identifierType"] = str(input["identifier_type"])
-    if "partner_type" in input:
-        params["partnerType"] = str(input["partner_type"])
+    if "identifier_type" in input_:
+        params["identifierType"] = str(input_["identifier_type"])
+    if "partner_type" in input_:
+        params["partnerType"] = str(input_["partner_type"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_resource_event_configuration(
     options: OperationOptions,
-    input: aws_sdk_iot_wireless.types.get_resource_event_configuration_request.GetResourceEventConfigurationRequest,
+    input_: aws_sdk_iot_wireless.types.get_resource_event_configuration_request.GetResourceEventConfigurationRequest,
 ) -> tuple[
     aws_sdk_iot_wireless.types.get_resource_event_configuration_response.GetResourceEventConfigurationResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -146,16 +143,17 @@ def get_resource_event_configuration(
 
 async def async_get_resource_event_configuration(
     options: AsyncOperationOptions,
-    input: aws_sdk_iot_wireless.types.get_resource_event_configuration_request.GetResourceEventConfigurationRequest,
+    input_: aws_sdk_iot_wireless.types.get_resource_event_configuration_request.GetResourceEventConfigurationRequest,
 ) -> tuple[
     aws_sdk_iot_wireless.types.get_resource_event_configuration_response.GetResourceEventConfigurationResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

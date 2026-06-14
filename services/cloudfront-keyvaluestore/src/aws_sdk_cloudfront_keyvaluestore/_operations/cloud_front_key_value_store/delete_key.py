@@ -106,48 +106,45 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest,
+    input_: aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            KvsARN=input.get("kvs_arn"),
+            KvsARN=input_.get("kvs_arn"),
             Region=options.region,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/key-value-stores/{KvsARN}/keys/{Key}"
-    url = apply_label(url, "{KvsARN}", str(input["kvs_arn"]))
-    url = url.replace("{Key}", quote(str(input["key"]), safe=""))
+    url = apply_label(url, "{KvsARN}", str(input_["kvs_arn"]))
+    url = url.replace("{Key}", quote(str(input_["key"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "if_match" in input:
-        headers["If-Match"] = str(input["if_match"])
+    if "if_match" in input_:
+        headers["If-Match"] = str(input_["if_match"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_key(
     options: OperationOptions,
-    input: aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest,
+    input_: aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest,
 ) -> tuple[
     aws_sdk_cloudfront_keyvaluestore.types.delete_key_response.DeleteKeyResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -156,16 +153,17 @@ def delete_key(
 
 async def async_delete_key(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest,
+    input_: aws_sdk_cloudfront_keyvaluestore.types.delete_key_request.DeleteKeyRequest,
 ) -> tuple[
     aws_sdk_cloudfront_keyvaluestore.types.delete_key_response.DeleteKeyResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

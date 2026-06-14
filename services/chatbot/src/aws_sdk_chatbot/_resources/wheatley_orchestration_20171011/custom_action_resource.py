@@ -91,20 +91,20 @@ class CustomActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.create_custom_action_request.CreateCustomActionRequest = {}  # type: ignore[typeddict-item]
-        input["definition"] = definition
+        input_: aws_sdk_chatbot.types.create_custom_action_request.CreateCustomActionRequest = {}  # type: ignore[typeddict-item]
+        input_["definition"] = definition
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
         if attachments is not None:
-            input["attachments"] = attachments
+            input_["attachments"] = attachments
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
-        input["action_name"] = action_name
+            input_["client_token"] = client_token
+        input_["action_name"] = action_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,11 +142,11 @@ class CustomActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.get_custom_action_request.GetCustomActionRequest = {}  # type: ignore[typeddict-item]
-        input["custom_action_arn"] = custom_action_arn
+        input_: aws_sdk_chatbot.types.get_custom_action_request.GetCustomActionRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_action_arn"] = custom_action_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -195,16 +195,16 @@ class CustomActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.update_custom_action_request.UpdateCustomActionRequest = {}  # type: ignore[typeddict-item]
-        input["custom_action_arn"] = custom_action_arn
-        input["definition"] = definition
+        input_: aws_sdk_chatbot.types.update_custom_action_request.UpdateCustomActionRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_action_arn"] = custom_action_arn
+        input_["definition"] = definition
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
         if attachments is not None:
-            input["attachments"] = attachments
+            input_["attachments"] = attachments
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -242,11 +242,11 @@ class CustomActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_custom_action_request.DeleteCustomActionRequest = {}  # type: ignore[typeddict-item]
-        input["custom_action_arn"] = custom_action_arn
+        input_: aws_sdk_chatbot.types.delete_custom_action_request.DeleteCustomActionRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_action_arn"] = custom_action_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,14 +286,14 @@ class CustomActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.list_custom_actions_request.ListCustomActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.list_custom_actions_request.ListCustomActionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,20 +356,20 @@ class AsyncCustomActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.create_custom_action_request.CreateCustomActionRequest = {}  # type: ignore[typeddict-item]
-        input["definition"] = definition
+        input_: aws_sdk_chatbot.types.create_custom_action_request.CreateCustomActionRequest = {}  # type: ignore[typeddict-item]
+        input_["definition"] = definition
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
         if attachments is not None:
-            input["attachments"] = attachments
+            input_["attachments"] = attachments
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
-        input["action_name"] = action_name
+            input_["client_token"] = client_token
+        input_["action_name"] = action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,11 +408,11 @@ class AsyncCustomActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.get_custom_action_request.GetCustomActionRequest = {}  # type: ignore[typeddict-item]
-        input["custom_action_arn"] = custom_action_arn
+        input_: aws_sdk_chatbot.types.get_custom_action_request.GetCustomActionRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_action_arn"] = custom_action_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,16 +462,16 @@ class AsyncCustomActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.update_custom_action_request.UpdateCustomActionRequest = {}  # type: ignore[typeddict-item]
-        input["custom_action_arn"] = custom_action_arn
-        input["definition"] = definition
+        input_: aws_sdk_chatbot.types.update_custom_action_request.UpdateCustomActionRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_action_arn"] = custom_action_arn
+        input_["definition"] = definition
         if alias_name is not None:
-            input["alias_name"] = alias_name
+            input_["alias_name"] = alias_name
         if attachments is not None:
-            input["attachments"] = attachments
+            input_["attachments"] = attachments
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,11 +510,11 @@ class AsyncCustomActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.delete_custom_action_request.DeleteCustomActionRequest = {}  # type: ignore[typeddict-item]
-        input["custom_action_arn"] = custom_action_arn
+        input_: aws_sdk_chatbot.types.delete_custom_action_request.DeleteCustomActionRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_action_arn"] = custom_action_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -555,14 +555,14 @@ class AsyncCustomActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_chatbot.types.list_custom_actions_request.ListCustomActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chatbot.types.list_custom_actions_request.ListCustomActionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -82,18 +82,18 @@ class RelayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_relay_request.CreateRelayRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_relay_request.CreateRelayRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["relay_name"] = relay_name
-        input["server_name"] = server_name
-        input["server_port"] = server_port
-        input["authentication"] = authentication
+            input_["client_token"] = client_token
+        input_["relay_name"] = relay_name
+        input_["server_name"] = server_name
+        input_["server_port"] = server_port
+        input_["authentication"] = authentication
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -126,11 +126,11 @@ class RelayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_relay_request.GetRelayRequest = {}  # type: ignore[typeddict-item]
-        input["relay_id"] = relay_id
+        input_: aws_sdk_mailmanager.types.get_relay_request.GetRelayRequest = {}  # type: ignore[typeddict-item]
+        input_["relay_id"] = relay_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -177,19 +177,19 @@ class RelayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_relay_request.UpdateRelayRequest = {}  # type: ignore[typeddict-item]
-        input["relay_id"] = relay_id
+        input_: aws_sdk_mailmanager.types.update_relay_request.UpdateRelayRequest = {}  # type: ignore[typeddict-item]
+        input_["relay_id"] = relay_id
         if relay_name is not None:
-            input["relay_name"] = relay_name
+            input_["relay_name"] = relay_name
         if server_name is not None:
-            input["server_name"] = server_name
+            input_["server_name"] = server_name
         if server_port is not None:
-            input["server_port"] = server_port
+            input_["server_port"] = server_port
         if authentication is not None:
-            input["authentication"] = authentication
+            input_["authentication"] = authentication
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,11 +222,11 @@ class RelayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_relay_request.DeleteRelayRequest = {}  # type: ignore[typeddict-item]
-        input["relay_id"] = relay_id
+        input_: aws_sdk_mailmanager.types.delete_relay_request.DeleteRelayRequest = {}  # type: ignore[typeddict-item]
+        input_["relay_id"] = relay_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,14 +263,14 @@ class RelayResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_relays_request.ListRelaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_relays_request.ListRelaysRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -321,18 +321,18 @@ class AsyncRelayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_relay_request.CreateRelayRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_relay_request.CreateRelayRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["relay_name"] = relay_name
-        input["server_name"] = server_name
-        input["server_port"] = server_port
-        input["authentication"] = authentication
+            input_["client_token"] = client_token
+        input_["relay_name"] = relay_name
+        input_["server_name"] = server_name
+        input_["server_port"] = server_port
+        input_["authentication"] = authentication
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,11 +366,11 @@ class AsyncRelayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_relay_request.GetRelayRequest = {}  # type: ignore[typeddict-item]
-        input["relay_id"] = relay_id
+        input_: aws_sdk_mailmanager.types.get_relay_request.GetRelayRequest = {}  # type: ignore[typeddict-item]
+        input_["relay_id"] = relay_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,19 +418,19 @@ class AsyncRelayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_relay_request.UpdateRelayRequest = {}  # type: ignore[typeddict-item]
-        input["relay_id"] = relay_id
+        input_: aws_sdk_mailmanager.types.update_relay_request.UpdateRelayRequest = {}  # type: ignore[typeddict-item]
+        input_["relay_id"] = relay_id
         if relay_name is not None:
-            input["relay_name"] = relay_name
+            input_["relay_name"] = relay_name
         if server_name is not None:
-            input["server_name"] = server_name
+            input_["server_name"] = server_name
         if server_port is not None:
-            input["server_port"] = server_port
+            input_["server_port"] = server_port
         if authentication is not None:
-            input["authentication"] = authentication
+            input_["authentication"] = authentication
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,11 +464,11 @@ class AsyncRelayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_relay_request.DeleteRelayRequest = {}  # type: ignore[typeddict-item]
-        input["relay_id"] = relay_id
+        input_: aws_sdk_mailmanager.types.delete_relay_request.DeleteRelayRequest = {}  # type: ignore[typeddict-item]
+        input_["relay_id"] = relay_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -506,14 +506,14 @@ class AsyncRelayResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_relays_request.ListRelaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_relays_request.ListRelaysRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

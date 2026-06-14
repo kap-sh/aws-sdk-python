@@ -59,11 +59,11 @@ class Session:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_arn"] = session_arn
+        input_: aws_sdk_mpa.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_arn"] = session_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -96,11 +96,11 @@ class Session:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.cancel_session_request.CancelSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_arn"] = session_arn
+        input_: aws_sdk_mpa.types.cancel_session_request.CancelSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_arn"] = session_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -139,17 +139,17 @@ class Session:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["approval_team_arn"] = approval_team_arn
+        input_: aws_sdk_mpa.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["approval_team_arn"] = approval_team_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,11 +188,11 @@ class AsyncSession:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_arn"] = session_arn
+        input_: aws_sdk_mpa.types.get_session_request.GetSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_arn"] = session_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,11 +226,11 @@ class AsyncSession:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.cancel_session_request.CancelSessionRequest = {}  # type: ignore[typeddict-item]
-        input["session_arn"] = session_arn
+        input_: aws_sdk_mpa.types.cancel_session_request.CancelSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["session_arn"] = session_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,17 +270,17 @@ class AsyncSession:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["approval_team_arn"] = approval_team_arn
+        input_: aws_sdk_mpa.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["approval_team_arn"] = approval_team_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -122,51 +122,51 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput,
+    input_: aws_sdk_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/endpoints/{EndpointName}/invocations"
-    url = url.replace("{EndpointName}", quote(str(input["endpoint_name"]), safe=""))
+    url = url.replace("{EndpointName}", quote(str(input_["endpoint_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "content_type" in input:
-        headers["Content-Type"] = str(input["content_type"])
-    if "accept" in input:
-        headers["Accept"] = str(input["accept"])
-    if "custom_attributes" in input:
-        headers["X-Amzn-SageMaker-Custom-Attributes"] = str(input["custom_attributes"])
-    if "target_model" in input:
-        headers["X-Amzn-SageMaker-Target-Model"] = str(input["target_model"])
-    if "target_variant" in input:
-        headers["X-Amzn-SageMaker-Target-Variant"] = str(input["target_variant"])
-    if "target_container_hostname" in input:
+    if "content_type" in input_:
+        headers["Content-Type"] = str(input_["content_type"])
+    if "accept" in input_:
+        headers["Accept"] = str(input_["accept"])
+    if "custom_attributes" in input_:
+        headers["X-Amzn-SageMaker-Custom-Attributes"] = str(input_["custom_attributes"])
+    if "target_model" in input_:
+        headers["X-Amzn-SageMaker-Target-Model"] = str(input_["target_model"])
+    if "target_variant" in input_:
+        headers["X-Amzn-SageMaker-Target-Variant"] = str(input_["target_variant"])
+    if "target_container_hostname" in input_:
         headers["X-Amzn-SageMaker-Target-Container-Hostname"] = str(
-            input["target_container_hostname"]
+            input_["target_container_hostname"]
         )
-    if "inference_id" in input:
-        headers["X-Amzn-SageMaker-Inference-Id"] = str(input["inference_id"])
-    if "enable_explanations" in input:
+    if "inference_id" in input_:
+        headers["X-Amzn-SageMaker-Inference-Id"] = str(input_["inference_id"])
+    if "enable_explanations" in input_:
         headers["X-Amzn-SageMaker-Enable-Explanations"] = str(
-            input["enable_explanations"]
+            input_["enable_explanations"]
         )
-    if "inference_component_name" in input:
+    if "inference_component_name" in input_:
         headers["X-Amzn-SageMaker-Inference-Component"] = str(
-            input["inference_component_name"]
+            input_["inference_component_name"]
         )
-    if "session_id" in input:
-        headers["X-Amzn-SageMaker-Session-Id"] = str(input["session_id"])
-    if "body" in input:
+    if "session_id" in input_:
+        headers["X-Amzn-SageMaker-Session-Id"] = str(input_["session_id"])
+    if "body" in input_:
         import aws_sdk_sagemaker_runtime.types.body_blob
 
         body: bytes | None = json.dumps(
-            aws_sdk_sagemaker_runtime.types.body_blob.serialize_json(input["body"])
+            aws_sdk_sagemaker_runtime.types.body_blob.serialize_json(input_["body"])
         ).encode()
         headers["content-type"] = "application/json"
     else:
@@ -175,26 +175,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def invoke_endpoint(
     options: OperationOptions,
-    input: aws_sdk_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput,
+    input_: aws_sdk_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput,
 ) -> tuple[
     aws_sdk_sagemaker_runtime.types.invoke_endpoint_output.InvokeEndpointOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -203,16 +200,17 @@ def invoke_endpoint(
 
 async def async_invoke_endpoint(
     options: AsyncOperationOptions,
-    input: aws_sdk_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput,
+    input_: aws_sdk_sagemaker_runtime.types.invoke_endpoint_input.InvokeEndpointInput,
 ) -> tuple[
     aws_sdk_sagemaker_runtime.types.invoke_endpoint_output.InvokeEndpointOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

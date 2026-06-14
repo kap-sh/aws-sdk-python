@@ -326,12 +326,12 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.cancel_capacity_task_input.CancelCapacityTaskInput = {}  # type: ignore[typeddict-item]
-        input["capacity_task_id"] = capacity_task_id
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.cancel_capacity_task_input.CancelCapacityTaskInput = {}  # type: ignore[typeddict-item]
+        input_["capacity_task_id"] = capacity_task_id
+        input_["outpost_identifier"] = outpost_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,11 +364,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.cancel_order_input.CancelOrderInput = {}  # type: ignore[typeddict-item]
-        input["order_id"] = order_id
+        input_: aws_sdk_outposts.types.cancel_order_input.CancelOrderInput = {}  # type: ignore[typeddict-item]
+        input_["order_id"] = order_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,16 +411,16 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.create_order_input.CreateOrderInput = {}  # type: ignore[typeddict-item]
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.create_order_input.CreateOrderInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_identifier"] = outpost_identifier
         if line_items is not None:
-            input["line_items"] = line_items
-        input["payment_option"] = payment_option
+            input_["line_items"] = line_items
+        input_["payment_option"] = payment_option
         if payment_term is not None:
-            input["payment_term"] = payment_term
+            input_["payment_term"] = payment_term
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -469,22 +469,22 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.create_outpost_input.CreateOutpostInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_outposts.types.create_outpost_input.CreateOutpostInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["site_id"] = site_id
+            input_["description"] = description
+        input_["site_id"] = site_id
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if availability_zone_id is not None:
-            input["availability_zone_id"] = availability_zone_id
+            input_["availability_zone_id"] = availability_zone_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if supported_hardware_type is not None:
-            input["supported_hardware_type"] = supported_hardware_type
+            input_["supported_hardware_type"] = supported_hardware_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,22 +539,22 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.create_quote_input.CreateQuoteInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.create_quote_input.CreateQuoteInput = {}  # type: ignore[typeddict-item]
         if outpost_identifier is not None:
-            input["outpost_identifier"] = outpost_identifier
-        input["country_code"] = country_code
-        input["requested_capacities"] = requested_capacities
+            input_["outpost_identifier"] = outpost_identifier
+        input_["country_code"] = country_code
+        input_["requested_capacities"] = requested_capacities
         if requested_constraints is not None:
-            input["requested_constraints"] = requested_constraints
+            input_["requested_constraints"] = requested_constraints
         if requested_payment_options is not None:
-            input["requested_payment_options"] = requested_payment_options
+            input_["requested_payment_options"] = requested_payment_options
         if requested_payment_terms is not None:
-            input["requested_payment_terms"] = requested_payment_terms
+            input_["requested_payment_terms"] = requested_payment_terms
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,15 +595,15 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.create_renewal_input.CreateRenewalInput = {}  # type: ignore[typeddict-item]
-        input["payment_option"] = payment_option
-        input["payment_term"] = payment_term
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.create_renewal_input.CreateRenewalInput = {}  # type: ignore[typeddict-item]
+        input_["payment_option"] = payment_option
+        input_["payment_term"] = payment_term
+        input_["outpost_identifier"] = outpost_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -650,23 +650,23 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.create_site_input.CreateSiteInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_outposts.types.create_site_input.CreateSiteInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if operating_address is not None:
-            input["operating_address"] = operating_address
+            input_["operating_address"] = operating_address
         if shipping_address is not None:
-            input["shipping_address"] = shipping_address
+            input_["shipping_address"] = shipping_address
         if rack_physical_properties is not None:
-            input["rack_physical_properties"] = rack_physical_properties
+            input_["rack_physical_properties"] = rack_physical_properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -699,11 +699,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.delete_outpost_input.DeleteOutpostInput = {}  # type: ignore[typeddict-item]
-        input["outpost_id"] = outpost_id
+        input_: aws_sdk_outposts.types.delete_outpost_input.DeleteOutpostInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_id"] = outpost_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -736,11 +736,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.delete_quote_input.DeleteQuoteInput = {}  # type: ignore[typeddict-item]
-        input["quote_identifier"] = quote_identifier
+        input_: aws_sdk_outposts.types.delete_quote_input.DeleteQuoteInput = {}  # type: ignore[typeddict-item]
+        input_["quote_identifier"] = quote_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -773,11 +773,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.delete_site_input.DeleteSiteInput = {}  # type: ignore[typeddict-item]
-        input["site_id"] = site_id
+        input_: aws_sdk_outposts.types.delete_site_input.DeleteSiteInput = {}  # type: ignore[typeddict-item]
+        input_["site_id"] = site_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -812,12 +812,12 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_capacity_task_input.GetCapacityTaskInput = {}  # type: ignore[typeddict-item]
-        input["capacity_task_id"] = capacity_task_id
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.get_capacity_task_input.GetCapacityTaskInput = {}  # type: ignore[typeddict-item]
+        input_["capacity_task_id"] = capacity_task_id
+        input_["outpost_identifier"] = outpost_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -850,11 +850,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_catalog_item_input.GetCatalogItemInput = {}  # type: ignore[typeddict-item]
-        input["catalog_item_id"] = catalog_item_id
+        input_: aws_sdk_outposts.types.get_catalog_item_input.GetCatalogItemInput = {}  # type: ignore[typeddict-item]
+        input_["catalog_item_id"] = catalog_item_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -887,11 +887,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_outposts.types.get_connection_request.GetConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -924,11 +924,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_order_input.GetOrderInput = {}  # type: ignore[typeddict-item]
-        input["order_id"] = order_id
+        input_: aws_sdk_outposts.types.get_order_input.GetOrderInput = {}  # type: ignore[typeddict-item]
+        input_["order_id"] = order_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -961,11 +961,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_outpost_input.GetOutpostInput = {}  # type: ignore[typeddict-item]
-        input["outpost_id"] = outpost_id
+        input_: aws_sdk_outposts.types.get_outpost_input.GetOutpostInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_id"] = outpost_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1002,15 +1002,15 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_outpost_billing_information_input.GetOutpostBillingInformationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.get_outpost_billing_information_input.GetOutpostBillingInformationInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["outpost_identifier"] = outpost_identifier
+            input_["max_results"] = max_results
+        input_["outpost_identifier"] = outpost_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1072,15 +1072,15 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_outpost_instance_types_input.GetOutpostInstanceTypesInput = {}  # type: ignore[typeddict-item]
-        input["outpost_id"] = outpost_id
+        input_: aws_sdk_outposts.types.get_outpost_instance_types_input.GetOutpostInstanceTypesInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_id"] = outpost_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1146,19 +1146,19 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_outpost_supported_instance_types_input.GetOutpostSupportedInstanceTypesInput = {}  # type: ignore[typeddict-item]
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.get_outpost_supported_instance_types_input.GetOutpostSupportedInstanceTypesInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_identifier"] = outpost_identifier
         if order_id is not None:
-            input["order_id"] = order_id
+            input_["order_id"] = order_id
         if asset_id is not None:
-            input["asset_id"] = asset_id
+            input_["asset_id"] = asset_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1220,11 +1220,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_quote_input.GetQuoteInput = {}  # type: ignore[typeddict-item]
-        input["quote_identifier"] = quote_identifier
+        input_: aws_sdk_outposts.types.get_quote_input.GetQuoteInput = {}  # type: ignore[typeddict-item]
+        input_["quote_identifier"] = quote_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1257,11 +1257,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_renewal_pricing_input.GetRenewalPricingInput = {}  # type: ignore[typeddict-item]
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.get_renewal_pricing_input.GetRenewalPricingInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_identifier"] = outpost_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1292,11 +1292,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_site_input.GetSiteInput = {}  # type: ignore[typeddict-item]
-        input["site_id"] = site_id
+        input_: aws_sdk_outposts.types.get_site_input.GetSiteInput = {}  # type: ignore[typeddict-item]
+        input_["site_id"] = site_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1331,12 +1331,12 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.get_site_address_input.GetSiteAddressInput = {}  # type: ignore[typeddict-item]
-        input["site_id"] = site_id
-        input["address_type"] = address_type
+        input_: aws_sdk_outposts.types.get_site_address_input.GetSiteAddressInput = {}  # type: ignore[typeddict-item]
+        input_["site_id"] = site_id
+        input_["address_type"] = address_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1389,23 +1389,23 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_asset_instances_input.ListAssetInstancesInput = {}  # type: ignore[typeddict-item]
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.list_asset_instances_input.ListAssetInstancesInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_identifier"] = outpost_identifier
         if asset_id_filter is not None:
-            input["asset_id_filter"] = asset_id_filter
+            input_["asset_id_filter"] = asset_id_filter
         if instance_type_filter is not None:
-            input["instance_type_filter"] = instance_type_filter
+            input_["instance_type_filter"] = instance_type_filter
         if account_id_filter is not None:
-            input["account_id_filter"] = account_id_filter
+            input_["account_id_filter"] = account_id_filter
         if aws_service_filter is not None:
-            input["aws_service_filter"] = aws_service_filter
+            input_["aws_service_filter"] = aws_service_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1493,21 +1493,21 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_assets_input.ListAssetsInput = {}  # type: ignore[typeddict-item]
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.list_assets_input.ListAssetsInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_identifier"] = outpost_identifier
         if host_id_filter is not None:
-            input["host_id_filter"] = host_id_filter
+            input_["host_id_filter"] = host_id_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
         if asset_type_filter is not None:
-            input["asset_type_filter"] = asset_type_filter
+            input_["asset_type_filter"] = asset_type_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1581,16 +1581,16 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_blocking_instances_for_capacity_task_input.ListBlockingInstancesForCapacityTaskInput = {}  # type: ignore[typeddict-item]
-        input["outpost_identifier"] = outpost_identifier
-        input["capacity_task_id"] = capacity_task_id
+        input_: aws_sdk_outposts.types.list_blocking_instances_for_capacity_task_input.ListBlockingInstancesForCapacityTaskInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_identifier"] = outpost_identifier
+        input_["capacity_task_id"] = capacity_task_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1660,18 +1660,18 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_capacity_tasks_input.ListCapacityTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.list_capacity_tasks_input.ListCapacityTasksInput = {}  # type: ignore[typeddict-item]
         if outpost_identifier_filter is not None:
-            input["outpost_identifier_filter"] = outpost_identifier_filter
+            input_["outpost_identifier_filter"] = outpost_identifier_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if capacity_task_status_filter is not None:
-            input["capacity_task_status_filter"] = capacity_task_status_filter
+            input_["capacity_task_status_filter"] = capacity_task_status_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1749,20 +1749,20 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_catalog_items_input.ListCatalogItemsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.list_catalog_items_input.ListCatalogItemsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if item_class_filter is not None:
-            input["item_class_filter"] = item_class_filter
+            input_["item_class_filter"] = item_class_filter
         if supported_storage_filter is not None:
-            input["supported_storage_filter"] = supported_storage_filter
+            input_["supported_storage_filter"] = supported_storage_filter
         if ec2_family_filter is not None:
-            input["ec2_family_filter"] = ec2_family_filter
+            input_["ec2_family_filter"] = ec2_family_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1838,16 +1838,16 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_orderable_instance_types_input.ListOrderableInstanceTypesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.list_orderable_instance_types_input.ListOrderableInstanceTypesInput = {}  # type: ignore[typeddict-item]
         if outpost_generation_filter is not None:
-            input["outpost_generation_filter"] = outpost_generation_filter
+            input_["outpost_generation_filter"] = outpost_generation_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1913,16 +1913,16 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_orders_input.ListOrdersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.list_orders_input.ListOrdersInput = {}  # type: ignore[typeddict-item]
         if outpost_identifier_filter is not None:
-            input["outpost_identifier_filter"] = outpost_identifier_filter
+            input_["outpost_identifier_filter"] = outpost_identifier_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1996,20 +1996,20 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_outposts_input.ListOutpostsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.list_outposts_input.ListOutpostsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if life_cycle_status_filter is not None:
-            input["life_cycle_status_filter"] = life_cycle_status_filter
+            input_["life_cycle_status_filter"] = life_cycle_status_filter
         if availability_zone_filter is not None:
-            input["availability_zone_filter"] = availability_zone_filter
+            input_["availability_zone_filter"] = availability_zone_filter
         if availability_zone_id_filter is not None:
-            input["availability_zone_id_filter"] = availability_zone_id_filter
+            input_["availability_zone_id_filter"] = availability_zone_id_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2081,14 +2081,14 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_quotes_input.ListQuotesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.list_quotes_input.ListQuotesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2158,24 +2158,24 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_sites_input.ListSitesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.list_sites_input.ListSitesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if operating_address_country_code_filter is not None:
-            input["operating_address_country_code_filter"] = (
+            input_["operating_address_country_code_filter"] = (
                 operating_address_country_code_filter
             )
         if operating_address_state_or_region_filter is not None:
-            input["operating_address_state_or_region_filter"] = (
+            input_["operating_address_state_or_region_filter"] = (
                 operating_address_state_or_region_filter
             )
         if operating_address_city_filter is not None:
-            input["operating_address_city_filter"] = operating_address_city_filter
+            input_["operating_address_city_filter"] = operating_address_city_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2243,11 +2243,11 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_outposts.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2296,24 +2296,24 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.start_capacity_task_input.StartCapacityTaskInput = {}  # type: ignore[typeddict-item]
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.start_capacity_task_input.StartCapacityTaskInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_identifier"] = outpost_identifier
         if order_id is not None:
-            input["order_id"] = order_id
+            input_["order_id"] = order_id
         if asset_id is not None:
-            input["asset_id"] = asset_id
-        input["instance_pools"] = instance_pools
+            input_["asset_id"] = asset_id
+        input_["instance_pools"] = instance_pools
         if instances_to_exclude is not None:
-            input["instances_to_exclude"] = instances_to_exclude
+            input_["instances_to_exclude"] = instances_to_exclude
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if task_action_on_blocking_instances is not None:
-            input["task_action_on_blocking_instances"] = (
+            input_["task_action_on_blocking_instances"] = (
                 task_action_on_blocking_instances
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2354,15 +2354,15 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.start_connection_request.StartConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_outposts.types.start_connection_request.StartConnectionRequest = {}  # type: ignore[typeddict-item]
         if device_serial_number is not None:
-            input["device_serial_number"] = device_serial_number
-        input["asset_id"] = asset_id
-        input["client_public_key"] = client_public_key
-        input["network_interface_device_index"] = network_interface_device_index
+            input_["device_serial_number"] = device_serial_number
+        input_["asset_id"] = asset_id
+        input_["client_public_key"] = client_public_key
+        input_["network_interface_device_index"] = network_interface_device_index
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2399,13 +2399,13 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.start_outpost_decommission_input.StartOutpostDecommissionInput = {}  # type: ignore[typeddict-item]
-        input["outpost_identifier"] = outpost_identifier
+        input_: aws_sdk_outposts.types.start_outpost_decommission_input.StartOutpostDecommissionInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_identifier"] = outpost_identifier
         if validate_only is not None:
-            input["validate_only"] = validate_only
+            input_["validate_only"] = validate_only
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2440,12 +2440,12 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_outposts.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2480,12 +2480,12 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_outposts.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2526,17 +2526,17 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.update_outpost_input.UpdateOutpostInput = {}  # type: ignore[typeddict-item]
-        input["outpost_id"] = outpost_id
+        input_: aws_sdk_outposts.types.update_outpost_input.UpdateOutpostInput = {}  # type: ignore[typeddict-item]
+        input_["outpost_id"] = outpost_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if supported_hardware_type is not None:
-            input["supported_hardware_type"] = supported_hardware_type
+            input_["supported_hardware_type"] = supported_hardware_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2597,25 +2597,25 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.update_quote_input.UpdateQuoteInput = {}  # type: ignore[typeddict-item]
-        input["quote_identifier"] = quote_identifier
+        input_: aws_sdk_outposts.types.update_quote_input.UpdateQuoteInput = {}  # type: ignore[typeddict-item]
+        input_["quote_identifier"] = quote_identifier
         if outpost_identifier is not None:
-            input["outpost_identifier"] = outpost_identifier
+            input_["outpost_identifier"] = outpost_identifier
         if country_code is not None:
-            input["country_code"] = country_code
+            input_["country_code"] = country_code
         if requested_capacities is not None:
-            input["requested_capacities"] = requested_capacities
+            input_["requested_capacities"] = requested_capacities
         if requested_constraints is not None:
-            input["requested_constraints"] = requested_constraints
+            input_["requested_constraints"] = requested_constraints
         if requested_payment_options is not None:
-            input["requested_payment_options"] = requested_payment_options
+            input_["requested_payment_options"] = requested_payment_options
         if requested_payment_terms is not None:
-            input["requested_payment_terms"] = requested_payment_terms
+            input_["requested_payment_terms"] = requested_payment_terms
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2654,17 +2654,17 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.update_site_input.UpdateSiteInput = {}  # type: ignore[typeddict-item]
-        input["site_id"] = site_id
+        input_: aws_sdk_outposts.types.update_site_input.UpdateSiteInput = {}  # type: ignore[typeddict-item]
+        input_["site_id"] = site_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2701,13 +2701,13 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.update_site_address_input.UpdateSiteAddressInput = {}  # type: ignore[typeddict-item]
-        input["site_id"] = site_id
-        input["address_type"] = address_type
-        input["address"] = address
+        input_: aws_sdk_outposts.types.update_site_address_input.UpdateSiteAddressInput = {}  # type: ignore[typeddict-item]
+        input_["site_id"] = site_id
+        input_["address_type"] = address_type
+        input_["address"] = address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2772,29 +2772,29 @@ class OutpostsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_outposts.types.update_site_rack_physical_properties_input.UpdateSiteRackPhysicalPropertiesInput = {}  # type: ignore[typeddict-item]
-        input["site_id"] = site_id
+        input_: aws_sdk_outposts.types.update_site_rack_physical_properties_input.UpdateSiteRackPhysicalPropertiesInput = {}  # type: ignore[typeddict-item]
+        input_["site_id"] = site_id
         if power_draw_kva is not None:
-            input["power_draw_kva"] = power_draw_kva
+            input_["power_draw_kva"] = power_draw_kva
         if power_phase is not None:
-            input["power_phase"] = power_phase
+            input_["power_phase"] = power_phase
         if power_connector is not None:
-            input["power_connector"] = power_connector
+            input_["power_connector"] = power_connector
         if power_feed_drop is not None:
-            input["power_feed_drop"] = power_feed_drop
+            input_["power_feed_drop"] = power_feed_drop
         if uplink_gbps is not None:
-            input["uplink_gbps"] = uplink_gbps
+            input_["uplink_gbps"] = uplink_gbps
         if uplink_count is not None:
-            input["uplink_count"] = uplink_count
+            input_["uplink_count"] = uplink_count
         if fiber_optic_cable_type is not None:
-            input["fiber_optic_cable_type"] = fiber_optic_cable_type
+            input_["fiber_optic_cable_type"] = fiber_optic_cable_type
         if optical_standard is not None:
-            input["optical_standard"] = optical_standard
+            input_["optical_standard"] = optical_standard
         if maximum_supported_weight_lbs is not None:
-            input["maximum_supported_weight_lbs"] = maximum_supported_weight_lbs
+            input_["maximum_supported_weight_lbs"] = maximum_supported_weight_lbs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

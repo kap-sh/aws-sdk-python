@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_transcribe._auth._signers
+import aws_sdk_transcribe._auth._sigv4
 from aws_sdk_transcribe._auth._identity import Credentials
 from aws_sdk_transcribe._auth._providers import (
     CredentialsProvider,
@@ -291,16 +293,16 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.create_call_analytics_category_request.CreateCallAnalyticsCategoryRequest = {}  # type: ignore[typeddict-item]
-        input["category_name"] = category_name
-        input["rules"] = rules
+        input_: aws_sdk_transcribe.types.create_call_analytics_category_request.CreateCallAnalyticsCategoryRequest = {}  # type: ignore[typeddict-item]
+        input_["category_name"] = category_name
+        input_["rules"] = rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if input_type is not None:
-            input["input_type"] = input_type
+            input_["input_type"] = input_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,16 +344,16 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.create_language_model_request.CreateLanguageModelRequest = {}  # type: ignore[typeddict-item]
-        input["language_code"] = language_code
-        input["base_model_name"] = base_model_name
-        input["model_name"] = model_name
-        input["input_data_config"] = input_data_config
+        input_: aws_sdk_transcribe.types.create_language_model_request.CreateLanguageModelRequest = {}  # type: ignore[typeddict-item]
+        input_["language_code"] = language_code
+        input_["base_model_name"] = base_model_name
+        input_["model_name"] = model_name
+        input_["input_data_config"] = input_data_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,15 +393,15 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.create_medical_vocabulary_request.CreateMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_name"] = vocabulary_name
-        input["language_code"] = language_code
-        input["vocabulary_file_uri"] = vocabulary_file_uri
+        input_: aws_sdk_transcribe.types.create_medical_vocabulary_request.CreateMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_name"] = vocabulary_name
+        input_["language_code"] = language_code
+        input_["vocabulary_file_uri"] = vocabulary_file_uri
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,20 +447,20 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.create_vocabulary_request.CreateVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_name"] = vocabulary_name
-        input["language_code"] = language_code
+        input_: aws_sdk_transcribe.types.create_vocabulary_request.CreateVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_name"] = vocabulary_name
+        input_["language_code"] = language_code
         if phrases is not None:
-            input["phrases"] = phrases
+            input_["phrases"] = phrases
         if vocabulary_file_uri is not None:
-            input["vocabulary_file_uri"] = vocabulary_file_uri
+            input_["vocabulary_file_uri"] = vocabulary_file_uri
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if data_access_role_arn is not None:
-            input["data_access_role_arn"] = data_access_role_arn
+            input_["data_access_role_arn"] = data_access_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -504,20 +506,20 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.create_vocabulary_filter_request.CreateVocabularyFilterRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_filter_name"] = vocabulary_filter_name
-        input["language_code"] = language_code
+        input_: aws_sdk_transcribe.types.create_vocabulary_filter_request.CreateVocabularyFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_filter_name"] = vocabulary_filter_name
+        input_["language_code"] = language_code
         if words is not None:
-            input["words"] = words
+            input_["words"] = words
         if vocabulary_filter_file_uri is not None:
-            input["vocabulary_filter_file_uri"] = vocabulary_filter_file_uri
+            input_["vocabulary_filter_file_uri"] = vocabulary_filter_file_uri
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if data_access_role_arn is not None:
-            input["data_access_role_arn"] = data_access_role_arn
+            input_["data_access_role_arn"] = data_access_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -551,11 +553,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_call_analytics_category_request.DeleteCallAnalyticsCategoryRequest = {}  # type: ignore[typeddict-item]
-        input["category_name"] = category_name
+        input_: aws_sdk_transcribe.types.delete_call_analytics_category_request.DeleteCallAnalyticsCategoryRequest = {}  # type: ignore[typeddict-item]
+        input_["category_name"] = category_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -589,11 +591,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_call_analytics_job_request.DeleteCallAnalyticsJobRequest = {}  # type: ignore[typeddict-item]
-        input["call_analytics_job_name"] = call_analytics_job_name
+        input_: aws_sdk_transcribe.types.delete_call_analytics_job_request.DeleteCallAnalyticsJobRequest = {}  # type: ignore[typeddict-item]
+        input_["call_analytics_job_name"] = call_analytics_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,11 +627,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_language_model_request.DeleteLanguageModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_transcribe.types.delete_language_model_request.DeleteLanguageModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -661,11 +663,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_medical_scribe_job_request.DeleteMedicalScribeJobRequest = {}  # type: ignore[typeddict-item]
-        input["medical_scribe_job_name"] = medical_scribe_job_name
+        input_: aws_sdk_transcribe.types.delete_medical_scribe_job_request.DeleteMedicalScribeJobRequest = {}  # type: ignore[typeddict-item]
+        input_["medical_scribe_job_name"] = medical_scribe_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -697,11 +699,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_medical_transcription_job_request.DeleteMedicalTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
-        input["medical_transcription_job_name"] = medical_transcription_job_name
+        input_: aws_sdk_transcribe.types.delete_medical_transcription_job_request.DeleteMedicalTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["medical_transcription_job_name"] = medical_transcription_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -733,11 +735,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_medical_vocabulary_request.DeleteMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_name"] = vocabulary_name
+        input_: aws_sdk_transcribe.types.delete_medical_vocabulary_request.DeleteMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_name"] = vocabulary_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -769,11 +771,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_transcription_job_request.DeleteTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
-        input["transcription_job_name"] = transcription_job_name
+        input_: aws_sdk_transcribe.types.delete_transcription_job_request.DeleteTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["transcription_job_name"] = transcription_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -805,11 +807,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_vocabulary_request.DeleteVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_name"] = vocabulary_name
+        input_: aws_sdk_transcribe.types.delete_vocabulary_request.DeleteVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_name"] = vocabulary_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -841,11 +843,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.delete_vocabulary_filter_request.DeleteVocabularyFilterRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_filter_name"] = vocabulary_filter_name
+        input_: aws_sdk_transcribe.types.delete_vocabulary_filter_request.DeleteVocabularyFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_filter_name"] = vocabulary_filter_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -879,11 +881,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.describe_language_model_request.DescribeLanguageModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_name"] = model_name
+        input_: aws_sdk_transcribe.types.describe_language_model_request.DescribeLanguageModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_name"] = model_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -917,11 +919,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.get_call_analytics_category_request.GetCallAnalyticsCategoryRequest = {}  # type: ignore[typeddict-item]
-        input["category_name"] = category_name
+        input_: aws_sdk_transcribe.types.get_call_analytics_category_request.GetCallAnalyticsCategoryRequest = {}  # type: ignore[typeddict-item]
+        input_["category_name"] = category_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -955,11 +957,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.get_call_analytics_job_request.GetCallAnalyticsJobRequest = {}  # type: ignore[typeddict-item]
-        input["call_analytics_job_name"] = call_analytics_job_name
+        input_: aws_sdk_transcribe.types.get_call_analytics_job_request.GetCallAnalyticsJobRequest = {}  # type: ignore[typeddict-item]
+        input_["call_analytics_job_name"] = call_analytics_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -993,11 +995,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.get_medical_scribe_job_request.GetMedicalScribeJobRequest = {}  # type: ignore[typeddict-item]
-        input["medical_scribe_job_name"] = medical_scribe_job_name
+        input_: aws_sdk_transcribe.types.get_medical_scribe_job_request.GetMedicalScribeJobRequest = {}  # type: ignore[typeddict-item]
+        input_["medical_scribe_job_name"] = medical_scribe_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1031,11 +1033,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.get_medical_transcription_job_request.GetMedicalTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
-        input["medical_transcription_job_name"] = medical_transcription_job_name
+        input_: aws_sdk_transcribe.types.get_medical_transcription_job_request.GetMedicalTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["medical_transcription_job_name"] = medical_transcription_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,11 +1071,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.get_medical_vocabulary_request.GetMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_name"] = vocabulary_name
+        input_: aws_sdk_transcribe.types.get_medical_vocabulary_request.GetMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_name"] = vocabulary_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1107,11 +1109,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.get_transcription_job_request.GetTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
-        input["transcription_job_name"] = transcription_job_name
+        input_: aws_sdk_transcribe.types.get_transcription_job_request.GetTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["transcription_job_name"] = transcription_job_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1145,11 +1147,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.get_vocabulary_request.GetVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_name"] = vocabulary_name
+        input_: aws_sdk_transcribe.types.get_vocabulary_request.GetVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_name"] = vocabulary_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1183,11 +1185,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.get_vocabulary_filter_request.GetVocabularyFilterRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_filter_name"] = vocabulary_filter_name
+        input_: aws_sdk_transcribe.types.get_vocabulary_filter_request.GetVocabularyFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_filter_name"] = vocabulary_filter_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1223,14 +1225,14 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_call_analytics_categories_request.ListCallAnalyticsCategoriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_call_analytics_categories_request.ListCallAnalyticsCategoriesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1274,18 +1276,18 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_call_analytics_jobs_request.ListCallAnalyticsJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_call_analytics_jobs_request.ListCallAnalyticsJobsRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if job_name_contains is not None:
-            input["job_name_contains"] = job_name_contains
+            input_["job_name_contains"] = job_name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1327,18 +1329,18 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_language_models_request.ListLanguageModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_language_models_request.ListLanguageModelsRequest = {}  # type: ignore[typeddict-item]
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1382,18 +1384,18 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_medical_scribe_jobs_request.ListMedicalScribeJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_medical_scribe_jobs_request.ListMedicalScribeJobsRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if job_name_contains is not None:
-            input["job_name_contains"] = job_name_contains
+            input_["job_name_contains"] = job_name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1437,18 +1439,18 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_medical_transcription_jobs_request.ListMedicalTranscriptionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_medical_transcription_jobs_request.ListMedicalTranscriptionJobsRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if job_name_contains is not None:
-            input["job_name_contains"] = job_name_contains
+            input_["job_name_contains"] = job_name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1492,18 +1494,18 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_medical_vocabularies_request.ListMedicalVocabulariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_medical_vocabularies_request.ListMedicalVocabulariesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if state_equals is not None:
-            input["state_equals"] = state_equals
+            input_["state_equals"] = state_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1537,11 +1539,11 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_transcribe.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1585,18 +1587,18 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_transcription_jobs_request.ListTranscriptionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_transcription_jobs_request.ListTranscriptionJobsRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if job_name_contains is not None:
-            input["job_name_contains"] = job_name_contains
+            input_["job_name_contains"] = job_name_contains
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1640,18 +1642,18 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_vocabularies_request.ListVocabulariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_vocabularies_request.ListVocabulariesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if state_equals is not None:
-            input["state_equals"] = state_equals
+            input_["state_equals"] = state_equals
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1691,16 +1693,16 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.list_vocabulary_filters_request.ListVocabularyFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transcribe.types.list_vocabulary_filters_request.ListVocabularyFiltersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_contains is not None:
-            input["name_contains"] = name_contains
+            input_["name_contains"] = name_contains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1756,24 +1758,24 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.start_call_analytics_job_request.StartCallAnalyticsJobRequest = {}  # type: ignore[typeddict-item]
-        input["call_analytics_job_name"] = call_analytics_job_name
-        input["media"] = media
+        input_: aws_sdk_transcribe.types.start_call_analytics_job_request.StartCallAnalyticsJobRequest = {}  # type: ignore[typeddict-item]
+        input_["call_analytics_job_name"] = call_analytics_job_name
+        input_["media"] = media
         if output_location is not None:
-            input["output_location"] = output_location
+            input_["output_location"] = output_location
         if output_encryption_kms_key_id is not None:
-            input["output_encryption_kms_key_id"] = output_encryption_kms_key_id
+            input_["output_encryption_kms_key_id"] = output_encryption_kms_key_id
         if data_access_role_arn is not None:
-            input["data_access_role_arn"] = data_access_role_arn
+            input_["data_access_role_arn"] = data_access_role_arn
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if channel_definitions is not None:
-            input["channel_definitions"] = channel_definitions
+            input_["channel_definitions"] = channel_definitions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1832,25 +1834,25 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.start_medical_scribe_job_request.StartMedicalScribeJobRequest = {}  # type: ignore[typeddict-item]
-        input["medical_scribe_job_name"] = medical_scribe_job_name
-        input["media"] = media
-        input["output_bucket_name"] = output_bucket_name
+        input_: aws_sdk_transcribe.types.start_medical_scribe_job_request.StartMedicalScribeJobRequest = {}  # type: ignore[typeddict-item]
+        input_["medical_scribe_job_name"] = medical_scribe_job_name
+        input_["media"] = media
+        input_["output_bucket_name"] = output_bucket_name
         if output_encryption_kms_key_id is not None:
-            input["output_encryption_kms_key_id"] = output_encryption_kms_key_id
+            input_["output_encryption_kms_key_id"] = output_encryption_kms_key_id
         if kms_encryption_context is not None:
-            input["kms_encryption_context"] = kms_encryption_context
-        input["data_access_role_arn"] = data_access_role_arn
-        input["settings"] = settings
+            input_["kms_encryption_context"] = kms_encryption_context
+        input_["data_access_role_arn"] = data_access_role_arn
+        input_["settings"] = settings
         if channel_definitions is not None:
-            input["channel_definitions"] = channel_definitions
+            input_["channel_definitions"] = channel_definitions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if medical_scribe_context is not None:
-            input["medical_scribe_context"] = medical_scribe_context
+            input_["medical_scribe_context"] = medical_scribe_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1921,32 +1923,32 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.start_medical_transcription_job_request.StartMedicalTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
-        input["medical_transcription_job_name"] = medical_transcription_job_name
-        input["language_code"] = language_code
+        input_: aws_sdk_transcribe.types.start_medical_transcription_job_request.StartMedicalTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["medical_transcription_job_name"] = medical_transcription_job_name
+        input_["language_code"] = language_code
         if media_sample_rate_hertz is not None:
-            input["media_sample_rate_hertz"] = media_sample_rate_hertz
+            input_["media_sample_rate_hertz"] = media_sample_rate_hertz
         if media_format is not None:
-            input["media_format"] = media_format
-        input["media"] = media
-        input["output_bucket_name"] = output_bucket_name
+            input_["media_format"] = media_format
+        input_["media"] = media
+        input_["output_bucket_name"] = output_bucket_name
         if output_key is not None:
-            input["output_key"] = output_key
+            input_["output_key"] = output_key
         if output_encryption_kms_key_id is not None:
-            input["output_encryption_kms_key_id"] = output_encryption_kms_key_id
+            input_["output_encryption_kms_key_id"] = output_encryption_kms_key_id
         if kms_encryption_context is not None:
-            input["kms_encryption_context"] = kms_encryption_context
+            input_["kms_encryption_context"] = kms_encryption_context
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
         if content_identification_type is not None:
-            input["content_identification_type"] = content_identification_type
-        input["specialty"] = specialty
-        input["type"] = type
+            input_["content_identification_type"] = content_identification_type
+        input_["specialty"] = specialty
+        input_["type"] = type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2044,48 +2046,48 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.start_transcription_job_request.StartTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
-        input["transcription_job_name"] = transcription_job_name
+        input_: aws_sdk_transcribe.types.start_transcription_job_request.StartTranscriptionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["transcription_job_name"] = transcription_job_name
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if media_sample_rate_hertz is not None:
-            input["media_sample_rate_hertz"] = media_sample_rate_hertz
+            input_["media_sample_rate_hertz"] = media_sample_rate_hertz
         if media_format is not None:
-            input["media_format"] = media_format
-        input["media"] = media
+            input_["media_format"] = media_format
+        input_["media"] = media
         if output_bucket_name is not None:
-            input["output_bucket_name"] = output_bucket_name
+            input_["output_bucket_name"] = output_bucket_name
         if output_key is not None:
-            input["output_key"] = output_key
+            input_["output_key"] = output_key
         if output_encryption_kms_key_id is not None:
-            input["output_encryption_kms_key_id"] = output_encryption_kms_key_id
+            input_["output_encryption_kms_key_id"] = output_encryption_kms_key_id
         if kms_encryption_context is not None:
-            input["kms_encryption_context"] = kms_encryption_context
+            input_["kms_encryption_context"] = kms_encryption_context
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
         if model_settings is not None:
-            input["model_settings"] = model_settings
+            input_["model_settings"] = model_settings
         if job_execution_settings is not None:
-            input["job_execution_settings"] = job_execution_settings
+            input_["job_execution_settings"] = job_execution_settings
         if content_redaction is not None:
-            input["content_redaction"] = content_redaction
+            input_["content_redaction"] = content_redaction
         if identify_language is not None:
-            input["identify_language"] = identify_language
+            input_["identify_language"] = identify_language
         if identify_multiple_languages is not None:
-            input["identify_multiple_languages"] = identify_multiple_languages
+            input_["identify_multiple_languages"] = identify_multiple_languages
         if language_options is not None:
-            input["language_options"] = language_options
+            input_["language_options"] = language_options
         if subtitles is not None:
-            input["subtitles"] = subtitles
+            input_["subtitles"] = subtitles
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if language_id_settings is not None:
-            input["language_id_settings"] = language_id_settings
+            input_["language_id_settings"] = language_id_settings
         if toxicity_detection is not None:
-            input["toxicity_detection"] = toxicity_detection
+            input_["toxicity_detection"] = toxicity_detection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2121,12 +2123,12 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_transcribe.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2162,12 +2164,12 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_transcribe.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2205,14 +2207,14 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.update_call_analytics_category_request.UpdateCallAnalyticsCategoryRequest = {}  # type: ignore[typeddict-item]
-        input["category_name"] = category_name
-        input["rules"] = rules
+        input_: aws_sdk_transcribe.types.update_call_analytics_category_request.UpdateCallAnalyticsCategoryRequest = {}  # type: ignore[typeddict-item]
+        input_["category_name"] = category_name
+        input_["rules"] = rules
         if input_type is not None:
-            input["input_type"] = input_type
+            input_["input_type"] = input_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2250,13 +2252,13 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.update_medical_vocabulary_request.UpdateMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_name"] = vocabulary_name
-        input["language_code"] = language_code
-        input["vocabulary_file_uri"] = vocabulary_file_uri
+        input_: aws_sdk_transcribe.types.update_medical_vocabulary_request.UpdateMedicalVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_name"] = vocabulary_name
+        input_["language_code"] = language_code
+        input_["vocabulary_file_uri"] = vocabulary_file_uri
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2300,18 +2302,18 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.update_vocabulary_request.UpdateVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_name"] = vocabulary_name
-        input["language_code"] = language_code
+        input_: aws_sdk_transcribe.types.update_vocabulary_request.UpdateVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_name"] = vocabulary_name
+        input_["language_code"] = language_code
         if phrases is not None:
-            input["phrases"] = phrases
+            input_["phrases"] = phrases
         if vocabulary_file_uri is not None:
-            input["vocabulary_file_uri"] = vocabulary_file_uri
+            input_["vocabulary_file_uri"] = vocabulary_file_uri
         if data_access_role_arn is not None:
-            input["data_access_role_arn"] = data_access_role_arn
+            input_["data_access_role_arn"] = data_access_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2353,17 +2355,17 @@ class AsyncTranscribeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_transcribe.types.update_vocabulary_filter_request.UpdateVocabularyFilterRequest = {}  # type: ignore[typeddict-item]
-        input["vocabulary_filter_name"] = vocabulary_filter_name
+        input_: aws_sdk_transcribe.types.update_vocabulary_filter_request.UpdateVocabularyFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["vocabulary_filter_name"] = vocabulary_filter_name
         if words is not None:
-            input["words"] = words
+            input_["words"] = words
         if vocabulary_filter_file_uri is not None:
-            input["vocabulary_filter_file_uri"] = vocabulary_filter_file_uri
+            input_["vocabulary_filter_file_uri"] = vocabulary_filter_file_uri
         if data_access_role_arn is not None:
-            input["data_access_role_arn"] = data_access_role_arn
+            input_["data_access_role_arn"] = data_access_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

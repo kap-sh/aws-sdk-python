@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_elastic_load_balancing._auth._signers
+import aws_sdk_elastic_load_balancing._auth._sigv4
 from aws_sdk_elastic_load_balancing._auth._identity import Credentials
 from aws_sdk_elastic_load_balancing._auth._providers import (
     CredentialsProvider,
@@ -248,12 +250,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_names"] = load_balancer_names
-        input["tags"] = tags
+        input_: aws_sdk_elastic_load_balancing.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_names"] = load_balancer_names
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,12 +297,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.apply_security_groups_to_load_balancer_input.ApplySecurityGroupsToLoadBalancerInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["security_groups"] = security_groups
+        input_: aws_sdk_elastic_load_balancing.types.apply_security_groups_to_load_balancer_input.ApplySecurityGroupsToLoadBalancerInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["security_groups"] = security_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,12 +344,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.attach_load_balancer_to_subnets_input.AttachLoadBalancerToSubnetsInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["subnets"] = subnets
+        input_: aws_sdk_elastic_load_balancing.types.attach_load_balancer_to_subnets_input.AttachLoadBalancerToSubnetsInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["subnets"] = subnets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -389,12 +391,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.configure_health_check_input.ConfigureHealthCheckInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["health_check"] = health_check
+        input_: aws_sdk_elastic_load_balancing.types.configure_health_check_input.ConfigureHealthCheckInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["health_check"] = health_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -438,13 +440,13 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_input.CreateAppCookieStickinessPolicyInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["policy_name"] = policy_name
-        input["cookie_name"] = cookie_name
+        input_: aws_sdk_elastic_load_balancing.types.create_app_cookie_stickiness_policy_input.CreateAppCookieStickinessPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["policy_name"] = policy_name
+        input_["cookie_name"] = cookie_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -490,14 +492,14 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.create_lb_cookie_stickiness_policy_input.CreateLBCookieStickinessPolicyInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["policy_name"] = policy_name
+        input_: aws_sdk_elastic_load_balancing.types.create_lb_cookie_stickiness_policy_input.CreateLBCookieStickinessPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["policy_name"] = policy_name
         if cookie_expiration_period is not None:
-            input["cookie_expiration_period"] = cookie_expiration_period
+            input_["cookie_expiration_period"] = cookie_expiration_period
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -573,22 +575,22 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.create_access_point_input.CreateAccessPointInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["listeners"] = listeners
+        input_: aws_sdk_elastic_load_balancing.types.create_access_point_input.CreateAccessPointInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["listeners"] = listeners
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if subnets is not None:
-            input["subnets"] = subnets
+            input_["subnets"] = subnets
         if security_groups is not None:
-            input["security_groups"] = security_groups
+            input_["security_groups"] = security_groups
         if scheme is not None:
-            input["scheme"] = scheme
+            input_["scheme"] = scheme
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -634,12 +636,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.create_load_balancer_listener_input.CreateLoadBalancerListenerInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["listeners"] = listeners
+        input_: aws_sdk_elastic_load_balancing.types.create_load_balancer_listener_input.CreateLoadBalancerListenerInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["listeners"] = listeners
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -695,15 +697,15 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.create_load_balancer_policy_input.CreateLoadBalancerPolicyInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["policy_name"] = policy_name
-        input["policy_type_name"] = policy_type_name
+        input_: aws_sdk_elastic_load_balancing.types.create_load_balancer_policy_input.CreateLoadBalancerPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["policy_name"] = policy_name
+        input_["policy_type_name"] = policy_type_name
         if policy_attributes is not None:
-            input["policy_attributes"] = policy_attributes
+            input_["policy_attributes"] = policy_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,11 +745,11 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.delete_access_point_input.DeleteAccessPointInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
+        input_: aws_sdk_elastic_load_balancing.types.delete_access_point_input.DeleteAccessPointInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -789,12 +791,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.delete_load_balancer_listener_input.DeleteLoadBalancerListenerInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["load_balancer_ports"] = load_balancer_ports
+        input_: aws_sdk_elastic_load_balancing.types.delete_load_balancer_listener_input.DeleteLoadBalancerListenerInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["load_balancer_ports"] = load_balancer_ports
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -836,12 +838,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.delete_load_balancer_policy_input.DeleteLoadBalancerPolicyInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["policy_name"] = policy_name
+        input_: aws_sdk_elastic_load_balancing.types.delete_load_balancer_policy_input.DeleteLoadBalancerPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["policy_name"] = policy_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -883,12 +885,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.deregister_end_points_input.DeregisterEndPointsInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["instances"] = instances
+        input_: aws_sdk_elastic_load_balancing.types.deregister_end_points_input.DeregisterEndPointsInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["instances"] = instances
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -926,14 +928,14 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.describe_account_limits_input.DescribeAccountLimitsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_load_balancing.types.describe_account_limits_input.DescribeAccountLimitsInput = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -977,13 +979,13 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.describe_end_point_state_input.DescribeEndPointStateInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
+        input_: aws_sdk_elastic_load_balancing.types.describe_end_point_state_input.DescribeEndPointStateInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
         if instances is not None:
-            input["instances"] = instances
+            input_["instances"] = instances
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1023,11 +1025,11 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.describe_load_balancer_attributes_input.DescribeLoadBalancerAttributesInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
+        input_: aws_sdk_elastic_load_balancing.types.describe_load_balancer_attributes_input.DescribeLoadBalancerAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1073,14 +1075,14 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.describe_load_balancer_policies_input.DescribeLoadBalancerPoliciesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_load_balancing.types.describe_load_balancer_policies_input.DescribeLoadBalancerPoliciesInput = {}  # type: ignore[typeddict-item]
         if load_balancer_name is not None:
-            input["load_balancer_name"] = load_balancer_name
+            input_["load_balancer_name"] = load_balancer_name
         if policy_names is not None:
-            input["policy_names"] = policy_names
+            input_["policy_names"] = policy_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,12 +1124,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.describe_load_balancer_policy_types_input.DescribeLoadBalancerPolicyTypesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_load_balancing.types.describe_load_balancer_policy_types_input.DescribeLoadBalancerPolicyTypesInput = {}  # type: ignore[typeddict-item]
         if policy_type_names is not None:
-            input["policy_type_names"] = policy_type_names
+            input_["policy_type_names"] = policy_type_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1175,16 +1177,16 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.describe_access_points_input.DescribeAccessPointsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_load_balancing.types.describe_access_points_input.DescribeAccessPointsInput = {}  # type: ignore[typeddict-item]
         if load_balancer_names is not None:
-            input["load_balancer_names"] = load_balancer_names
+            input_["load_balancer_names"] = load_balancer_names
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1251,11 +1253,11 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.describe_tags_input.DescribeTagsInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_names"] = load_balancer_names
+        input_: aws_sdk_elastic_load_balancing.types.describe_tags_input.DescribeTagsInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_names"] = load_balancer_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1297,12 +1299,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.detach_load_balancer_from_subnets_input.DetachLoadBalancerFromSubnetsInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["subnets"] = subnets
+        input_: aws_sdk_elastic_load_balancing.types.detach_load_balancer_from_subnets_input.DetachLoadBalancerFromSubnetsInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["subnets"] = subnets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1344,12 +1346,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.remove_availability_zones_input.RemoveAvailabilityZonesInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["availability_zones"] = availability_zones
+        input_: aws_sdk_elastic_load_balancing.types.remove_availability_zones_input.RemoveAvailabilityZonesInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["availability_zones"] = availability_zones
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1391,12 +1393,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.add_availability_zones_input.AddAvailabilityZonesInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["availability_zones"] = availability_zones
+        input_: aws_sdk_elastic_load_balancing.types.add_availability_zones_input.AddAvailabilityZonesInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["availability_zones"] = availability_zones
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1442,12 +1444,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.modify_load_balancer_attributes_input.ModifyLoadBalancerAttributesInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["load_balancer_attributes"] = load_balancer_attributes
+        input_: aws_sdk_elastic_load_balancing.types.modify_load_balancer_attributes_input.ModifyLoadBalancerAttributesInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["load_balancer_attributes"] = load_balancer_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1489,12 +1491,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.register_end_points_input.RegisterEndPointsInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["instances"] = instances
+        input_: aws_sdk_elastic_load_balancing.types.register_end_points_input.RegisterEndPointsInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["instances"] = instances
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1536,12 +1538,12 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_names"] = load_balancer_names
-        input["tags"] = tags
+        input_: aws_sdk_elastic_load_balancing.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_names"] = load_balancer_names
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1585,13 +1587,13 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.set_load_balancer_listener_ssl_certificate_input.SetLoadBalancerListenerSSLCertificateInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["load_balancer_port"] = load_balancer_port
-        input["ssl_certificate_id"] = ssl_certificate_id
+        input_: aws_sdk_elastic_load_balancing.types.set_load_balancer_listener_ssl_certificate_input.SetLoadBalancerListenerSSLCertificateInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["load_balancer_port"] = load_balancer_port
+        input_["ssl_certificate_id"] = ssl_certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1635,13 +1637,13 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.set_load_balancer_policies_for_backend_server_input.SetLoadBalancerPoliciesForBackendServerInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["instance_port"] = instance_port
-        input["policy_names"] = policy_names
+        input_: aws_sdk_elastic_load_balancing.types.set_load_balancer_policies_for_backend_server_input.SetLoadBalancerPoliciesForBackendServerInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["instance_port"] = instance_port
+        input_["policy_names"] = policy_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1685,13 +1687,13 @@ class AsyncElasticLoadBalancingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_load_balancing.types.set_load_balancer_policies_of_listener_input.SetLoadBalancerPoliciesOfListenerInput = {}  # type: ignore[typeddict-item]
-        input["load_balancer_name"] = load_balancer_name
-        input["load_balancer_port"] = load_balancer_port
-        input["policy_names"] = policy_names
+        input_: aws_sdk_elastic_load_balancing.types.set_load_balancer_policies_of_listener_input.SetLoadBalancerPoliciesOfListenerInput = {}  # type: ignore[typeddict-item]
+        input_["load_balancer_name"] = load_balancer_name
+        input_["load_balancer_port"] = load_balancer_port
+        input_["policy_names"] = policy_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

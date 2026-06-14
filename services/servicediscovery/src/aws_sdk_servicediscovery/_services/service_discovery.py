@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_servicediscovery._auth._signers
+import aws_sdk_servicediscovery._auth._sigv4
 from aws_sdk_servicediscovery._auth._identity import Credentials
 from aws_sdk_servicediscovery._auth._providers import (
     CredentialsProvider,
@@ -262,17 +264,17 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.create_http_namespace_request.CreateHttpNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_servicediscovery.types.create_http_namespace_request.CreateHttpNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,20 +329,20 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.create_private_dns_namespace_request.CreatePrivateDnsNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_servicediscovery.types.create_private_dns_namespace_request.CreatePrivateDnsNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
         if description is not None:
-            input["description"] = description
-        input["vpc"] = vpc
+            input_["description"] = description
+        input_["vpc"] = vpc
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,19 +395,19 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.create_public_dns_namespace_request.CreatePublicDnsNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_servicediscovery.types.create_public_dns_namespace_request.CreatePublicDnsNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,27 +478,27 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_servicediscovery.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if namespace_id is not None:
-            input["namespace_id"] = namespace_id
+            input_["namespace_id"] = namespace_id
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
+            input_["creator_request_id"] = creator_request_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dns_config is not None:
-            input["dns_config"] = dns_config
+            input_["dns_config"] = dns_config
         if health_check_config is not None:
-            input["health_check_config"] = health_check_config
+            input_["health_check_config"] = health_check_config
         if health_check_custom_config is not None:
-            input["health_check_custom_config"] = health_check_custom_config
+            input_["health_check_custom_config"] = health_check_custom_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,11 +541,11 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_servicediscovery.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,11 +588,11 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_servicediscovery.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -635,12 +637,12 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.delete_service_attributes_request.DeleteServiceAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
-        input["attributes"] = attributes
+        input_: aws_sdk_servicediscovery.types.delete_service_attributes_request.DeleteServiceAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
+        input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -685,12 +687,12 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.deregister_instance_request.DeregisterInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_servicediscovery.types.deregister_instance_request.DeregisterInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -755,22 +757,22 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.discover_instances_request.DiscoverInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["service_name"] = service_name
+        input_: aws_sdk_servicediscovery.types.discover_instances_request.DiscoverInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["service_name"] = service_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if query_parameters is not None:
-            input["query_parameters"] = query_parameters
+            input_["query_parameters"] = query_parameters
         if optional_parameters is not None:
-            input["optional_parameters"] = optional_parameters
+            input_["optional_parameters"] = optional_parameters
         if health_status is not None:
-            input["health_status"] = health_status
+            input_["health_status"] = health_status
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -819,14 +821,14 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.discover_instances_revision_request.DiscoverInstancesRevisionRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["service_name"] = service_name
+        input_: aws_sdk_servicediscovery.types.discover_instances_revision_request.DiscoverInstancesRevisionRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["service_name"] = service_name
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -871,12 +873,12 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.get_instance_request.GetInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_servicediscovery.types.get_instance_request.GetInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -931,17 +933,17 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.get_instances_health_status_request.GetInstancesHealthStatusRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
+        input_: aws_sdk_servicediscovery.types.get_instances_health_status_request.GetInstancesHealthStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
         if instances is not None:
-            input["instances"] = instances
+            input_["instances"] = instances
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -974,11 +976,11 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_servicediscovery.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1021,13 +1023,13 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.get_operation_request.GetOperationRequest = {}  # type: ignore[typeddict-item]
-        input["operation_id"] = operation_id
+        input_: aws_sdk_servicediscovery.types.get_operation_request.GetOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["operation_id"] = operation_id
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1066,11 +1068,11 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_servicediscovery.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1113,11 +1115,11 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.get_service_attributes_request.GetServiceAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
+        input_: aws_sdk_servicediscovery.types.get_service_attributes_request.GetServiceAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,15 +1170,15 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
+        input_: aws_sdk_servicediscovery.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1231,16 +1233,16 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_servicediscovery.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1291,16 +1293,16 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.list_operations_request.ListOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_servicediscovery.types.list_operations_request.ListOperationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1349,16 +1351,16 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_servicediscovery.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1397,11 +1399,11 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_servicediscovery.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1452,15 +1454,15 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.register_instance_request.RegisterInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_servicediscovery.types.register_instance_request.RegisterInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
+        input_["instance_id"] = instance_id
         if creator_request_id is not None:
-            input["creator_request_id"] = creator_request_id
-        input["attributes"] = attributes
+            input_["creator_request_id"] = creator_request_id
+        input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1501,12 +1503,12 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_servicediscovery.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1547,12 +1549,12 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_servicediscovery.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1601,14 +1603,14 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.update_http_namespace_request.UpdateHttpNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_servicediscovery.types.update_http_namespace_request.UpdateHttpNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if updater_request_id is not None:
-            input["updater_request_id"] = updater_request_id
-        input["namespace"] = namespace
+            input_["updater_request_id"] = updater_request_id
+        input_["namespace"] = namespace
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1653,13 +1655,13 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.update_instance_custom_health_status_request.UpdateInstanceCustomHealthStatusRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
-        input["instance_id"] = instance_id
-        input["status"] = status
+        input_: aws_sdk_servicediscovery.types.update_instance_custom_health_status_request.UpdateInstanceCustomHealthStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
+        input_["instance_id"] = instance_id
+        input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1708,14 +1710,14 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.update_private_dns_namespace_request.UpdatePrivateDnsNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_servicediscovery.types.update_private_dns_namespace_request.UpdatePrivateDnsNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if updater_request_id is not None:
-            input["updater_request_id"] = updater_request_id
-        input["namespace"] = namespace
+            input_["updater_request_id"] = updater_request_id
+        input_["namespace"] = namespace
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1764,14 +1766,14 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.update_public_dns_namespace_request.UpdatePublicDnsNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_servicediscovery.types.update_public_dns_namespace_request.UpdatePublicDnsNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if updater_request_id is not None:
-            input["updater_request_id"] = updater_request_id
-        input["namespace"] = namespace
+            input_["updater_request_id"] = updater_request_id
+        input_["namespace"] = namespace
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1816,12 +1818,12 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["service"] = service
+        input_: aws_sdk_servicediscovery.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["service"] = service
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1866,12 +1868,12 @@ class ServiceDiscoveryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_servicediscovery.types.update_service_attributes_request.UpdateServiceAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["service_id"] = service_id
-        input["attributes"] = attributes
+        input_: aws_sdk_servicediscovery.types.update_service_attributes_request.UpdateServiceAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["service_id"] = service_id
+        input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

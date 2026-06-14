@@ -73,56 +73,53 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_route_53.types.test_dns_answer_request.TestDNSAnswerRequest,
+    input_: aws_sdk_route_53.types.test_dns_answer_request.TestDNSAnswerRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/testdnsanswer"
     params: dict[str, str] = {}
-    if "hosted_zone_id" in input:
-        params["hostedzoneid"] = str(input["hosted_zone_id"])
-    if "record_name" in input:
-        params["recordname"] = str(input["record_name"])
-    if "record_type" in input:
-        params["recordtype"] = str(input["record_type"])
-    if "resolver_ip" in input:
-        params["resolverip"] = str(input["resolver_ip"])
-    if "edns0_client_subnet_ip" in input:
-        params["edns0clientsubnetip"] = str(input["edns0_client_subnet_ip"])
-    if "edns0_client_subnet_mask" in input:
-        params["edns0clientsubnetmask"] = str(input["edns0_client_subnet_mask"])
+    if "hosted_zone_id" in input_:
+        params["hostedzoneid"] = str(input_["hosted_zone_id"])
+    if "record_name" in input_:
+        params["recordname"] = str(input_["record_name"])
+    if "record_type" in input_:
+        params["recordtype"] = str(input_["record_type"])
+    if "resolver_ip" in input_:
+        params["resolverip"] = str(input_["resolver_ip"])
+    if "edns0_client_subnet_ip" in input_:
+        params["edns0clientsubnetip"] = str(input_["edns0_client_subnet_ip"])
+    if "edns0_client_subnet_mask" in input_:
+        params["edns0clientsubnetmask"] = str(input_["edns0_client_subnet_mask"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def test_dns_answer(
     options: OperationOptions,
-    input: aws_sdk_route_53.types.test_dns_answer_request.TestDNSAnswerRequest,
+    input_: aws_sdk_route_53.types.test_dns_answer_request.TestDNSAnswerRequest,
 ) -> tuple[
     aws_sdk_route_53.types.test_dns_answer_response.TestDNSAnswerResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -131,16 +128,17 @@ def test_dns_answer(
 
 async def async_test_dns_answer(
     options: AsyncOperationOptions,
-    input: aws_sdk_route_53.types.test_dns_answer_request.TestDNSAnswerRequest,
+    input_: aws_sdk_route_53.types.test_dns_answer_request.TestDNSAnswerRequest,
 ) -> tuple[
     aws_sdk_route_53.types.test_dns_answer_response.TestDNSAnswerResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

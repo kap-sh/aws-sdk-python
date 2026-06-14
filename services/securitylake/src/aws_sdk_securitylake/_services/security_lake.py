@@ -16,6 +16,8 @@ from aws_sdk_securitylake._auth._providers import (
 )
 from aws_sdk_securitylake._auth._zapros_handler import AuthMiddleware
 from aws_sdk_securitylake._pagination import resolve_path as _resolve_path
+from aws_sdk_securitylake._resources.security_lake.data_lake import DataLake
+from aws_sdk_securitylake._resources.security_lake.subscriber import Subscriber
 from aws_sdk_securitylake._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -127,6 +129,9 @@ class SecurityLakeClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.data_lake = DataLake(self)
+        self.subscriber = Subscriber(self)
 
     def operation_options(
         self, config_overrides: Optional[SecurityLakeClientConfig] = None
@@ -187,14 +192,14 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_data_lake_exception_subscription_request.CreateDataLakeExceptionSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_protocol"] = subscription_protocol
-        input["notification_endpoint"] = notification_endpoint
+        input_: aws_sdk_securitylake.types.create_data_lake_exception_subscription_request.CreateDataLakeExceptionSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_protocol"] = subscription_protocol
+        input_["notification_endpoint"] = notification_endpoint
         if exception_time_to_live is not None:
-            input["exception_time_to_live"] = exception_time_to_live
+            input_["exception_time_to_live"] = exception_time_to_live
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,10 +225,10 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_data_lake_exception_subscription_request.DeleteDataLakeExceptionSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.delete_data_lake_exception_subscription_request.DeleteDataLakeExceptionSubscriptionRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,10 +254,10 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.deregister_data_lake_delegated_administrator_request.DeregisterDataLakeDelegatedAdministratorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.deregister_data_lake_delegated_administrator_request.DeregisterDataLakeDelegatedAdministratorRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,10 +283,10 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.get_data_lake_exception_subscription_request.GetDataLakeExceptionSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.get_data_lake_exception_subscription_request.GetDataLakeExceptionSubscriptionRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,16 +325,16 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.list_data_lake_exceptions_request.ListDataLakeExceptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.list_data_lake_exceptions_request.ListDataLakeExceptionsRequest = {}  # type: ignore[typeddict-item]
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,11 +392,11 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_securitylake.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,11 +429,11 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.register_data_lake_delegated_administrator_request.RegisterDataLakeDelegatedAdministratorRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_securitylake.types.register_data_lake_delegated_administrator_request.RegisterDataLakeDelegatedAdministratorRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,12 +468,12 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_securitylake.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,12 +508,12 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_securitylake.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -545,14 +550,14 @@ class SecurityLakeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.update_data_lake_exception_subscription_request.UpdateDataLakeExceptionSubscriptionRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_protocol"] = subscription_protocol
-        input["notification_endpoint"] = notification_endpoint
+        input_: aws_sdk_securitylake.types.update_data_lake_exception_subscription_request.UpdateDataLakeExceptionSubscriptionRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_protocol"] = subscription_protocol
+        input_["notification_endpoint"] = notification_endpoint
         if exception_time_to_live is not None:
-            input["exception_time_to_live"] = exception_time_to_live
+            input_["exception_time_to_live"] = exception_time_to_live
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

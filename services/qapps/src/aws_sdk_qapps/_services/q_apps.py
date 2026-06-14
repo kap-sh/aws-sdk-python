@@ -244,12 +244,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.associate_library_item_review_input.AssociateLibraryItemReviewInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["library_item_id"] = library_item_id
+        input_: aws_sdk_qapps.types.associate_library_item_review_input.AssociateLibraryItemReviewInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["library_item_id"] = library_item_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,12 +287,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.associate_q_app_with_user_input.AssociateQAppWithUserInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
+        input_: aws_sdk_qapps.types.associate_q_app_with_user_input.AssociateQAppWithUserInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,12 +330,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.batch_create_category_input.BatchCreateCategoryInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["categories"] = categories
+        input_: aws_sdk_qapps.types.batch_create_category_input.BatchCreateCategoryInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["categories"] = categories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,12 +373,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.batch_delete_category_input.BatchDeleteCategoryInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["categories"] = categories
+        input_: aws_sdk_qapps.types.batch_delete_category_input.BatchDeleteCategoryInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["categories"] = categories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,12 +416,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.batch_update_category_input.BatchUpdateCategoryInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["categories"] = categories
+        input_: aws_sdk_qapps.types.batch_update_category_input.BatchUpdateCategoryInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["categories"] = categories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,14 +465,14 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.create_library_item_input.CreateLibraryItemInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
-        input["app_version"] = app_version
-        input["categories"] = categories
+        input_: aws_sdk_qapps.types.create_library_item_input.CreateLibraryItemInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
+        input_["app_version"] = app_version
+        input_["categories"] = categories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -525,18 +525,18 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.create_presigned_url_input.CreatePresignedUrlInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["card_id"] = card_id
-        input["app_id"] = app_id
-        input["file_contents_sha256"] = file_contents_sha256
-        input["file_name"] = file_name
-        input["scope"] = scope
+        input_: aws_sdk_qapps.types.create_presigned_url_input.CreatePresignedUrlInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["card_id"] = card_id
+        input_["app_id"] = app_id
+        input_["file_contents_sha256"] = file_contents_sha256
+        input_["file_name"] = file_name
+        input_["scope"] = scope
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,17 +582,17 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.create_q_app_input.CreateQAppInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["title"] = title
+        input_: aws_sdk_qapps.types.create_q_app_input.CreateQAppInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["title"] = title
         if description is not None:
-            input["description"] = description
-        input["app_definition"] = app_definition
+            input_["description"] = description
+        input_["app_definition"] = app_definition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,12 +630,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.delete_library_item_input.DeleteLibraryItemInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["library_item_id"] = library_item_id
+        input_: aws_sdk_qapps.types.delete_library_item_input.DeleteLibraryItemInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["library_item_id"] = library_item_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -673,12 +673,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.delete_q_app_input.DeleteQAppInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
+        input_: aws_sdk_qapps.types.delete_q_app_input.DeleteQAppInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -718,12 +718,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.describe_q_app_permissions_input.DescribeQAppPermissionsInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
+        input_: aws_sdk_qapps.types.describe_q_app_permissions_input.DescribeQAppPermissionsInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,12 +761,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.disassociate_library_item_review_input.DisassociateLibraryItemReviewInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["library_item_id"] = library_item_id
+        input_: aws_sdk_qapps.types.disassociate_library_item_review_input.DisassociateLibraryItemReviewInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["library_item_id"] = library_item_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -804,12 +804,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.disassociate_q_app_from_user_input.DisassociateQAppFromUserInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
+        input_: aws_sdk_qapps.types.disassociate_q_app_from_user_input.DisassociateQAppFromUserInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -844,12 +844,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.export_q_app_session_data_input.ExportQAppSessionDataInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["session_id"] = session_id
+        input_: aws_sdk_qapps.types.export_q_app_session_data_input.ExportQAppSessionDataInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -891,14 +891,14 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.get_library_item_input.GetLibraryItemInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["library_item_id"] = library_item_id
+        input_: aws_sdk_qapps.types.get_library_item_input.GetLibraryItemInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["library_item_id"] = library_item_id
         if app_id is not None:
-            input["app_id"] = app_id
+            input_["app_id"] = app_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -938,14 +938,14 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.get_q_app_input.GetQAppInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
+        input_: aws_sdk_qapps.types.get_q_app_input.GetQAppInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
         if app_version is not None:
-            input["app_version"] = app_version
+            input_["app_version"] = app_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -985,12 +985,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.get_q_app_session_input.GetQAppSessionInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["session_id"] = session_id
+        input_: aws_sdk_qapps.types.get_q_app_session_input.GetQAppSessionInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1030,12 +1030,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.get_q_app_session_metadata_input.GetQAppSessionMetadataInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["session_id"] = session_id
+        input_: aws_sdk_qapps.types.get_q_app_session_metadata_input.GetQAppSessionMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1088,18 +1088,18 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.import_document_input.ImportDocumentInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["card_id"] = card_id
-        input["app_id"] = app_id
-        input["file_contents_base64"] = file_contents_base64
-        input["file_name"] = file_name
-        input["scope"] = scope
+        input_: aws_sdk_qapps.types.import_document_input.ImportDocumentInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["card_id"] = card_id
+        input_["app_id"] = app_id
+        input_["file_contents_base64"] = file_contents_base64
+        input_["file_name"] = file_name
+        input_["scope"] = scope
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1137,11 +1137,11 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.list_categories_input.ListCategoriesInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_qapps.types.list_categories_input.ListCategoriesInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1187,17 +1187,17 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.list_library_items_input.ListLibraryItemsInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_qapps.types.list_library_items_input.ListLibraryItemsInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if category_id is not None:
-            input["category_id"] = category_id
+            input_["category_id"] = category_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1271,15 +1271,15 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.list_q_apps_input.ListQAppsInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_qapps.types.list_q_apps_input.ListQAppsInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1339,12 +1339,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.list_q_app_session_data_input.ListQAppSessionDataInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["session_id"] = session_id
+        input_: aws_sdk_qapps.types.list_q_app_session_data_input.ListQAppSessionDataInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1382,11 +1382,11 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_qapps.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1423,13 +1423,13 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.predict_q_app_input.PredictQAppInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_qapps.types.predict_q_app_input.PredictQAppInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1479,19 +1479,19 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.start_q_app_session_input.StartQAppSessionInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
-        input["app_version"] = app_version
+        input_: aws_sdk_qapps.types.start_q_app_session_input.StartQAppSessionInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
+        input_["app_version"] = app_version
         if initial_values is not None:
-            input["initial_values"] = initial_values
+            input_["initial_values"] = initial_values
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1524,12 +1524,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.stop_q_app_session_input.StopQAppSessionInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["session_id"] = session_id
+        input_: aws_sdk_qapps.types.stop_q_app_session_input.StopQAppSessionInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1569,12 +1569,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_qapps.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1614,12 +1614,12 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_qapps.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1667,16 +1667,16 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.update_library_item_input.UpdateLibraryItemInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["library_item_id"] = library_item_id
+        input_: aws_sdk_qapps.types.update_library_item_input.UpdateLibraryItemInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["library_item_id"] = library_item_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if categories is not None:
-            input["categories"] = categories
+            input_["categories"] = categories
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1716,14 +1716,14 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.update_library_item_metadata_input.UpdateLibraryItemMetadataInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["library_item_id"] = library_item_id
+        input_: aws_sdk_qapps.types.update_library_item_metadata_input.UpdateLibraryItemMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["library_item_id"] = library_item_id
         if is_verified is not None:
-            input["is_verified"] = is_verified
+            input_["is_verified"] = is_verified
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1774,18 +1774,18 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.update_q_app_input.UpdateQAppInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
+        input_: aws_sdk_qapps.types.update_q_app_input.UpdateQAppInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if app_definition is not None:
-            input["app_definition"] = app_definition
+            input_["app_definition"] = app_definition
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1836,16 +1836,16 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.update_q_app_permissions_input.UpdateQAppPermissionsInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["app_id"] = app_id
+        input_: aws_sdk_qapps.types.update_q_app_permissions_input.UpdateQAppPermissionsInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["app_id"] = app_id
         if grant_permissions is not None:
-            input["grant_permissions"] = grant_permissions
+            input_["grant_permissions"] = grant_permissions
         if revoke_permissions is not None:
-            input["revoke_permissions"] = revoke_permissions
+            input_["revoke_permissions"] = revoke_permissions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1882,14 +1882,14 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.update_q_app_session_input.UpdateQAppSessionInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["session_id"] = session_id
+        input_: aws_sdk_qapps.types.update_q_app_session_input.UpdateQAppSessionInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["session_id"] = session_id
         if values is not None:
-            input["values"] = values
+            input_["values"] = values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1933,15 +1933,15 @@ class QAppsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_qapps.types.update_q_app_session_metadata_input.UpdateQAppSessionMetadataInput = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["session_id"] = session_id
+        input_: aws_sdk_qapps.types.update_q_app_session_metadata_input.UpdateQAppSessionMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["session_id"] = session_id
         if session_name is not None:
-            input["session_name"] = session_name
-        input["sharing_configuration"] = sharing_configuration
+            input_["session_name"] = session_name
+        input_["sharing_configuration"] = sharing_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

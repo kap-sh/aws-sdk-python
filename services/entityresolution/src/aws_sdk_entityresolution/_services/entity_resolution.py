@@ -285,17 +285,17 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.add_policy_statement_input.AddPolicyStatementInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["statement_id"] = statement_id
-        input["effect"] = effect
-        input["action"] = action
-        input["principal"] = principal
+        input_: aws_sdk_entityresolution.types.add_policy_statement_input.AddPolicyStatementInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["statement_id"] = statement_id
+        input_["effect"] = effect
+        input_["action"] = action
+        input_["principal"] = principal
         if condition is not None:
-            input["condition"] = condition
+            input_["condition"] = condition
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,14 +332,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.batch_delete_unique_id_input.BatchDeleteUniqueIdInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.batch_delete_unique_id_input.BatchDeleteUniqueIdInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
         if input_source is not None:
-            input["input_source"] = input_source
-        input["unique_ids"] = unique_ids
+            input_["input_source"] = input_source
+        input_["unique_ids"] = unique_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,23 +394,23 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.create_id_mapping_workflow_input.CreateIdMappingWorkflowInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.create_id_mapping_workflow_input.CreateIdMappingWorkflowInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
         if description is not None:
-            input["description"] = description
-        input["input_source_config"] = input_source_config
+            input_["description"] = description
+        input_["input_source_config"] = input_source_config
         if output_source_config is not None:
-            input["output_source_config"] = output_source_config
-        input["id_mapping_techniques"] = id_mapping_techniques
+            input_["output_source_config"] = output_source_config
+        input_["id_mapping_techniques"] = id_mapping_techniques
         if incremental_run_config is not None:
-            input["incremental_run_config"] = incremental_run_config
+            input_["incremental_run_config"] = incremental_run_config
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,22 +461,22 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.create_id_namespace_input.CreateIdNamespaceInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_name"] = id_namespace_name
+        input_: aws_sdk_entityresolution.types.create_id_namespace_input.CreateIdNamespaceInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_name"] = id_namespace_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if input_source_config is not None:
-            input["input_source_config"] = input_source_config
+            input_["input_source_config"] = input_source_config
         if id_mapping_workflow_properties is not None:
-            input["id_mapping_workflow_properties"] = id_mapping_workflow_properties
-        input["type"] = type
+            input_["id_mapping_workflow_properties"] = id_mapping_workflow_properties
+        input_["type"] = type
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,21 +527,21 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.create_matching_workflow_input.CreateMatchingWorkflowInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.create_matching_workflow_input.CreateMatchingWorkflowInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
         if description is not None:
-            input["description"] = description
-        input["input_source_config"] = input_source_config
-        input["output_source_config"] = output_source_config
-        input["resolution_techniques"] = resolution_techniques
+            input_["description"] = description
+        input_["input_source_config"] = input_source_config
+        input_["output_source_config"] = output_source_config
+        input_["resolution_techniques"] = resolution_techniques
         if incremental_run_config is not None:
-            input["incremental_run_config"] = incremental_run_config
-        input["role_arn"] = role_arn
+            input_["incremental_run_config"] = incremental_run_config
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,16 +582,16 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.create_schema_mapping_input.CreateSchemaMappingInput = {}  # type: ignore[typeddict-item]
-        input["schema_name"] = schema_name
+        input_: aws_sdk_entityresolution.types.create_schema_mapping_input.CreateSchemaMappingInput = {}  # type: ignore[typeddict-item]
+        input_["schema_name"] = schema_name
         if description is not None:
-            input["description"] = description
-        input["mapped_input_fields"] = mapped_input_fields
+            input_["description"] = description
+        input_["mapped_input_fields"] = mapped_input_fields
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,11 +624,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.delete_id_mapping_workflow_input.DeleteIdMappingWorkflowInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.delete_id_mapping_workflow_input.DeleteIdMappingWorkflowInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -661,11 +661,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.delete_id_namespace_input.DeleteIdNamespaceInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_name"] = id_namespace_name
+        input_: aws_sdk_entityresolution.types.delete_id_namespace_input.DeleteIdNamespaceInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_name"] = id_namespace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,11 +698,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.delete_matching_workflow_input.DeleteMatchingWorkflowInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.delete_matching_workflow_input.DeleteMatchingWorkflowInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -737,12 +737,12 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.delete_policy_statement_input.DeletePolicyStatementInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["statement_id"] = statement_id
+        input_: aws_sdk_entityresolution.types.delete_policy_statement_input.DeletePolicyStatementInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["statement_id"] = statement_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -775,11 +775,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.delete_schema_mapping_input.DeleteSchemaMappingInput = {}  # type: ignore[typeddict-item]
-        input["schema_name"] = schema_name
+        input_: aws_sdk_entityresolution.types.delete_schema_mapping_input.DeleteSchemaMappingInput = {}  # type: ignore[typeddict-item]
+        input_["schema_name"] = schema_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -820,14 +820,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.generate_match_id_input.GenerateMatchIdInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
-        input["records"] = records
+        input_: aws_sdk_entityresolution.types.generate_match_id_input.GenerateMatchIdInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
+        input_["records"] = records
         if processing_type is not None:
-            input["processing_type"] = processing_type
+            input_["processing_type"] = processing_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -864,12 +864,12 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_id_mapping_job_input.GetIdMappingJobInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
-        input["job_id"] = job_id
+        input_: aws_sdk_entityresolution.types.get_id_mapping_job_input.GetIdMappingJobInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -902,11 +902,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_id_mapping_workflow_input.GetIdMappingWorkflowInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.get_id_mapping_workflow_input.GetIdMappingWorkflowInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -939,11 +939,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_id_namespace_input.GetIdNamespaceInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_name"] = id_namespace_name
+        input_: aws_sdk_entityresolution.types.get_id_namespace_input.GetIdNamespaceInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_name"] = id_namespace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -980,14 +980,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_match_id_input.GetMatchIdInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
-        input["record"] = record
+        input_: aws_sdk_entityresolution.types.get_match_id_input.GetMatchIdInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
+        input_["record"] = record
         if apply_normalization is not None:
-            input["apply_normalization"] = apply_normalization
+            input_["apply_normalization"] = apply_normalization
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1022,12 +1022,12 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_matching_job_input.GetMatchingJobInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
-        input["job_id"] = job_id
+        input_: aws_sdk_entityresolution.types.get_matching_job_input.GetMatchingJobInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1060,11 +1060,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_matching_workflow_input.GetMatchingWorkflowInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.get_matching_workflow_input.GetMatchingWorkflowInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1097,11 +1097,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_policy_input.GetPolicyInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_entityresolution.types.get_policy_input.GetPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1136,12 +1136,12 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_provider_service_input.GetProviderServiceInput = {}  # type: ignore[typeddict-item]
-        input["provider_name"] = provider_name
-        input["provider_service_name"] = provider_service_name
+        input_: aws_sdk_entityresolution.types.get_provider_service_input.GetProviderServiceInput = {}  # type: ignore[typeddict-item]
+        input_["provider_name"] = provider_name
+        input_["provider_service_name"] = provider_service_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1174,11 +1174,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.get_schema_mapping_input.GetSchemaMappingInput = {}  # type: ignore[typeddict-item]
-        input["schema_name"] = schema_name
+        input_: aws_sdk_entityresolution.types.get_schema_mapping_input.GetSchemaMappingInput = {}  # type: ignore[typeddict-item]
+        input_["schema_name"] = schema_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1217,15 +1217,15 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.list_id_mapping_jobs_input.ListIdMappingJobsInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.list_id_mapping_jobs_input.ListIdMappingJobsInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1287,14 +1287,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.list_id_mapping_workflows_input.ListIdMappingWorkflowsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_entityresolution.types.list_id_mapping_workflows_input.ListIdMappingWorkflowsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1354,14 +1354,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.list_id_namespaces_input.ListIdNamespacesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_entityresolution.types.list_id_namespaces_input.ListIdNamespacesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1423,15 +1423,15 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.list_matching_jobs_input.ListMatchingJobsInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.list_matching_jobs_input.ListMatchingJobsInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1493,14 +1493,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.list_matching_workflows_input.ListMatchingWorkflowsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_entityresolution.types.list_matching_workflows_input.ListMatchingWorkflowsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1564,16 +1564,16 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.list_provider_services_input.ListProviderServicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_entityresolution.types.list_provider_services_input.ListProviderServicesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1637,14 +1637,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.list_schema_mappings_input.ListSchemaMappingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_entityresolution.types.list_schema_mappings_input.ListSchemaMappingsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1700,11 +1700,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_entityresolution.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,14 +1743,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.put_policy_input.PutPolicyInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_entityresolution.types.put_policy_input.PutPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if token is not None:
-            input["token"] = token
-        input["policy"] = policy
+            input_["token"] = token
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1789,15 +1789,15 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.start_id_mapping_job_input.StartIdMappingJobInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.start_id_mapping_job_input.StartIdMappingJobInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
         if output_source_config is not None:
-            input["output_source_config"] = output_source_config
+            input_["output_source_config"] = output_source_config
         if job_type is not None:
-            input["job_type"] = job_type
+            input_["job_type"] = job_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1830,11 +1830,11 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.start_matching_job_input.StartMatchingJobInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.start_matching_job_input.StartMatchingJobInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1869,12 +1869,12 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_entityresolution.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1909,12 +1909,12 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_entityresolution.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1967,21 +1967,21 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.update_id_mapping_workflow_input.UpdateIdMappingWorkflowInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.update_id_mapping_workflow_input.UpdateIdMappingWorkflowInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
         if description is not None:
-            input["description"] = description
-        input["input_source_config"] = input_source_config
+            input_["description"] = description
+        input_["input_source_config"] = input_source_config
         if output_source_config is not None:
-            input["output_source_config"] = output_source_config
-        input["id_mapping_techniques"] = id_mapping_techniques
+            input_["output_source_config"] = output_source_config
+        input_["id_mapping_techniques"] = id_mapping_techniques
         if incremental_run_config is not None:
-            input["incremental_run_config"] = incremental_run_config
+            input_["incremental_run_config"] = incremental_run_config
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2028,19 +2028,19 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.update_id_namespace_input.UpdateIdNamespaceInput = {}  # type: ignore[typeddict-item]
-        input["id_namespace_name"] = id_namespace_name
+        input_: aws_sdk_entityresolution.types.update_id_namespace_input.UpdateIdNamespaceInput = {}  # type: ignore[typeddict-item]
+        input_["id_namespace_name"] = id_namespace_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if input_source_config is not None:
-            input["input_source_config"] = input_source_config
+            input_["input_source_config"] = input_source_config
         if id_mapping_workflow_properties is not None:
-            input["id_mapping_workflow_properties"] = id_mapping_workflow_properties
+            input_["id_mapping_workflow_properties"] = id_mapping_workflow_properties
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2089,19 +2089,19 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.update_matching_workflow_input.UpdateMatchingWorkflowInput = {}  # type: ignore[typeddict-item]
-        input["workflow_name"] = workflow_name
+        input_: aws_sdk_entityresolution.types.update_matching_workflow_input.UpdateMatchingWorkflowInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_name"] = workflow_name
         if description is not None:
-            input["description"] = description
-        input["input_source_config"] = input_source_config
-        input["output_source_config"] = output_source_config
-        input["resolution_techniques"] = resolution_techniques
+            input_["description"] = description
+        input_["input_source_config"] = input_source_config
+        input_["output_source_config"] = output_source_config
+        input_["resolution_techniques"] = resolution_techniques
         if incremental_run_config is not None:
-            input["incremental_run_config"] = incremental_run_config
-        input["role_arn"] = role_arn
+            input_["incremental_run_config"] = incremental_run_config
+        input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2140,14 +2140,14 @@ class EntityResolutionClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_entityresolution.types.update_schema_mapping_input.UpdateSchemaMappingInput = {}  # type: ignore[typeddict-item]
-        input["schema_name"] = schema_name
+        input_: aws_sdk_entityresolution.types.update_schema_mapping_input.UpdateSchemaMappingInput = {}  # type: ignore[typeddict-item]
+        input_["schema_name"] = schema_name
         if description is not None:
-            input["description"] = description
-        input["mapped_input_fields"] = mapped_input_fields
+            input_["description"] = description
+        input_["mapped_input_fields"] = mapped_input_fields
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

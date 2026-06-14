@@ -366,12 +366,12 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.associate_role_to_group_request.AssociateRoleToGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
-        input["role_arn"] = role_arn
+        input_: aws_sdk_greengrass.types.associate_role_to_group_request.AssociateRoleToGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
+        input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,11 +404,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.associate_service_role_to_account_request.AssociateServiceRoleToAccountRequest = {}  # type: ignore[typeddict-item]
-        input["role_arn"] = role_arn
+        input_: aws_sdk_greengrass.types.associate_service_role_to_account_request.AssociateServiceRoleToAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,18 +451,18 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_connector_definition_request.CreateConnectorDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_connector_definition_request.CreateConnectorDefinitionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
-            input["initial_version"] = initial_version
+            input_["initial_version"] = initial_version
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,15 +503,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_connector_definition_version_request.CreateConnectorDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_connector_definition_version_request.CreateConnectorDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["connector_definition_id"] = connector_definition_id
+            input_["amzn_client_token"] = amzn_client_token
+        input_["connector_definition_id"] = connector_definition_id
         if connectors is not None:
-            input["connectors"] = connectors
+            input_["connectors"] = connectors
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,18 +554,18 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_core_definition_request.CreateCoreDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_core_definition_request.CreateCoreDefinitionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
-            input["initial_version"] = initial_version
+            input_["initial_version"] = initial_version
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,15 +604,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_core_definition_version_request.CreateCoreDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_core_definition_version_request.CreateCoreDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["core_definition_id"] = core_definition_id
+            input_["amzn_client_token"] = amzn_client_token
+        input_["core_definition_id"] = core_definition_id
         if cores is not None:
-            input["cores"] = cores
+            input_["cores"] = cores
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -655,18 +655,18 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
-        input["deployment_type"] = deployment_type
-        input["group_id"] = group_id
+            input_["deployment_id"] = deployment_id
+        input_["deployment_type"] = deployment_type
+        input_["group_id"] = group_id
         if group_version_id is not None:
-            input["group_version_id"] = group_version_id
+            input_["group_version_id"] = group_version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -709,18 +709,18 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_device_definition_request.CreateDeviceDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_device_definition_request.CreateDeviceDefinitionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
-            input["initial_version"] = initial_version
+            input_["initial_version"] = initial_version
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,15 +761,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_device_definition_version_request.CreateDeviceDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_device_definition_version_request.CreateDeviceDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["device_definition_id"] = device_definition_id
+            input_["amzn_client_token"] = amzn_client_token
+        input_["device_definition_id"] = device_definition_id
         if devices is not None:
-            input["devices"] = devices
+            input_["devices"] = devices
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -812,18 +812,18 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_function_definition_request.CreateFunctionDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_function_definition_request.CreateFunctionDefinitionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
-            input["initial_version"] = initial_version
+            input_["initial_version"] = initial_version
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -868,17 +868,17 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_function_definition_version_request.CreateFunctionDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_function_definition_version_request.CreateFunctionDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if default_config is not None:
-            input["default_config"] = default_config
-        input["function_definition_id"] = function_definition_id
+            input_["default_config"] = default_config
+        input_["function_definition_id"] = function_definition_id
         if functions is not None:
-            input["functions"] = functions
+            input_["functions"] = functions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -921,17 +921,17 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
-            input["initial_version"] = initial_version
-        input["name"] = name
+            input_["initial_version"] = initial_version
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -968,13 +968,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_group_certificate_authority_request.CreateGroupCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_group_certificate_authority_request.CreateGroupCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["group_id"] = group_id
+            input_["amzn_client_token"] = amzn_client_token
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1039,29 +1039,31 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_group_version_request.CreateGroupVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_group_version_request.CreateGroupVersionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if connector_definition_version_arn is not None:
-            input["connector_definition_version_arn"] = connector_definition_version_arn
+            input_["connector_definition_version_arn"] = (
+                connector_definition_version_arn
+            )
         if core_definition_version_arn is not None:
-            input["core_definition_version_arn"] = core_definition_version_arn
+            input_["core_definition_version_arn"] = core_definition_version_arn
         if device_definition_version_arn is not None:
-            input["device_definition_version_arn"] = device_definition_version_arn
+            input_["device_definition_version_arn"] = device_definition_version_arn
         if function_definition_version_arn is not None:
-            input["function_definition_version_arn"] = function_definition_version_arn
-        input["group_id"] = group_id
+            input_["function_definition_version_arn"] = function_definition_version_arn
+        input_["group_id"] = group_id
         if logger_definition_version_arn is not None:
-            input["logger_definition_version_arn"] = logger_definition_version_arn
+            input_["logger_definition_version_arn"] = logger_definition_version_arn
         if resource_definition_version_arn is not None:
-            input["resource_definition_version_arn"] = resource_definition_version_arn
+            input_["resource_definition_version_arn"] = resource_definition_version_arn
         if subscription_definition_version_arn is not None:
-            input["subscription_definition_version_arn"] = (
+            input_["subscription_definition_version_arn"] = (
                 subscription_definition_version_arn
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1104,18 +1106,18 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_logger_definition_request.CreateLoggerDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_logger_definition_request.CreateLoggerDefinitionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
-            input["initial_version"] = initial_version
+            input_["initial_version"] = initial_version
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1156,15 +1158,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_logger_definition_version_request.CreateLoggerDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_logger_definition_version_request.CreateLoggerDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["logger_definition_id"] = logger_definition_id
+            input_["amzn_client_token"] = amzn_client_token
+        input_["logger_definition_id"] = logger_definition_id
         if loggers is not None:
-            input["loggers"] = loggers
+            input_["loggers"] = loggers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1207,18 +1209,18 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_resource_definition_request.CreateResourceDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_resource_definition_request.CreateResourceDefinitionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
-            input["initial_version"] = initial_version
+            input_["initial_version"] = initial_version
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1259,15 +1261,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_resource_definition_version_request.CreateResourceDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_resource_definition_version_request.CreateResourceDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["resource_definition_id"] = resource_definition_id
+            input_["amzn_client_token"] = amzn_client_token
+        input_["resource_definition_id"] = resource_definition_id
         if resources is not None:
-            input["resources"] = resources
+            input_["resources"] = resources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1310,19 +1312,19 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_software_update_job_request.CreateSoftwareUpdateJobRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["s3_url_signer_role"] = s3_url_signer_role
-        input["software_to_update"] = software_to_update
+            input_["amzn_client_token"] = amzn_client_token
+        input_["s3_url_signer_role"] = s3_url_signer_role
+        input_["software_to_update"] = software_to_update
         if update_agent_log_level is not None:
-            input["update_agent_log_level"] = update_agent_log_level
-        input["update_targets"] = update_targets
-        input["update_targets_architecture"] = update_targets_architecture
-        input["update_targets_operating_system"] = update_targets_operating_system
+            input_["update_agent_log_level"] = update_agent_log_level
+        input_["update_targets"] = update_targets
+        input_["update_targets_architecture"] = update_targets_architecture
+        input_["update_targets_operating_system"] = update_targets_operating_system
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1365,18 +1367,18 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_subscription_definition_request.CreateSubscriptionDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_subscription_definition_request.CreateSubscriptionDefinitionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if initial_version is not None:
-            input["initial_version"] = initial_version
+            input_["initial_version"] = initial_version
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1417,15 +1419,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.create_subscription_definition_version_request.CreateSubscriptionDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.create_subscription_definition_version_request.CreateSubscriptionDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["subscription_definition_id"] = subscription_definition_id
+            input_["amzn_client_token"] = amzn_client_token
+        input_["subscription_definition_id"] = subscription_definition_id
         if subscriptions is not None:
-            input["subscriptions"] = subscriptions
+            input_["subscriptions"] = subscriptions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1458,11 +1460,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.delete_connector_definition_request.DeleteConnectorDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["connector_definition_id"] = connector_definition_id
+        input_: aws_sdk_greengrass.types.delete_connector_definition_request.DeleteConnectorDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_definition_id"] = connector_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1495,11 +1497,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.delete_core_definition_request.DeleteCoreDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["core_definition_id"] = core_definition_id
+        input_: aws_sdk_greengrass.types.delete_core_definition_request.DeleteCoreDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["core_definition_id"] = core_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1532,11 +1534,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.delete_device_definition_request.DeleteDeviceDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["device_definition_id"] = device_definition_id
+        input_: aws_sdk_greengrass.types.delete_device_definition_request.DeleteDeviceDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["device_definition_id"] = device_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1569,11 +1571,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.delete_function_definition_request.DeleteFunctionDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["function_definition_id"] = function_definition_id
+        input_: aws_sdk_greengrass.types.delete_function_definition_request.DeleteFunctionDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_definition_id"] = function_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1606,11 +1608,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1643,11 +1645,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.delete_logger_definition_request.DeleteLoggerDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["logger_definition_id"] = logger_definition_id
+        input_: aws_sdk_greengrass.types.delete_logger_definition_request.DeleteLoggerDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["logger_definition_id"] = logger_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1680,11 +1682,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.delete_resource_definition_request.DeleteResourceDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_definition_id"] = resource_definition_id
+        input_: aws_sdk_greengrass.types.delete_resource_definition_request.DeleteResourceDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_definition_id"] = resource_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1717,11 +1719,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.delete_subscription_definition_request.DeleteSubscriptionDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_definition_id"] = subscription_definition_id
+        input_: aws_sdk_greengrass.types.delete_subscription_definition_request.DeleteSubscriptionDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_definition_id"] = subscription_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1754,11 +1756,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.disassociate_role_from_group_request.DisassociateRoleFromGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.disassociate_role_from_group_request.DisassociateRoleFromGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1784,10 +1786,10 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.disassociate_service_role_from_account_request.DisassociateServiceRoleFromAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.disassociate_service_role_from_account_request.DisassociateServiceRoleFromAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1820,11 +1822,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_associated_role_request.GetAssociatedRoleRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.get_associated_role_request.GetAssociatedRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1857,11 +1859,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_bulk_deployment_status_request.GetBulkDeploymentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["bulk_deployment_id"] = bulk_deployment_id
+        input_: aws_sdk_greengrass.types.get_bulk_deployment_status_request.GetBulkDeploymentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["bulk_deployment_id"] = bulk_deployment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1894,11 +1896,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_connectivity_info_request.GetConnectivityInfoRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_greengrass.types.get_connectivity_info_request.GetConnectivityInfoRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1931,11 +1933,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_connector_definition_request.GetConnectorDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["connector_definition_id"] = connector_definition_id
+        input_: aws_sdk_greengrass.types.get_connector_definition_request.GetConnectorDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_definition_id"] = connector_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1972,14 +1974,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_connector_definition_version_request.GetConnectorDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["connector_definition_id"] = connector_definition_id
-        input["connector_definition_version_id"] = connector_definition_version_id
+        input_: aws_sdk_greengrass.types.get_connector_definition_version_request.GetConnectorDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_definition_id"] = connector_definition_id
+        input_["connector_definition_version_id"] = connector_definition_version_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2012,11 +2014,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_core_definition_request.GetCoreDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["core_definition_id"] = core_definition_id
+        input_: aws_sdk_greengrass.types.get_core_definition_request.GetCoreDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["core_definition_id"] = core_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2051,12 +2053,12 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_core_definition_version_request.GetCoreDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["core_definition_id"] = core_definition_id
-        input["core_definition_version_id"] = core_definition_version_id
+        input_: aws_sdk_greengrass.types.get_core_definition_version_request.GetCoreDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["core_definition_id"] = core_definition_id
+        input_["core_definition_version_id"] = core_definition_version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2091,12 +2093,12 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_deployment_status_request.GetDeploymentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.get_deployment_status_request.GetDeploymentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2129,11 +2131,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_device_definition_request.GetDeviceDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["device_definition_id"] = device_definition_id
+        input_: aws_sdk_greengrass.types.get_device_definition_request.GetDeviceDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["device_definition_id"] = device_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2170,14 +2172,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_device_definition_version_request.GetDeviceDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["device_definition_id"] = device_definition_id
-        input["device_definition_version_id"] = device_definition_version_id
+        input_: aws_sdk_greengrass.types.get_device_definition_version_request.GetDeviceDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["device_definition_id"] = device_definition_id
+        input_["device_definition_version_id"] = device_definition_version_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2210,11 +2212,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_function_definition_request.GetFunctionDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["function_definition_id"] = function_definition_id
+        input_: aws_sdk_greengrass.types.get_function_definition_request.GetFunctionDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_definition_id"] = function_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2251,14 +2253,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_function_definition_version_request.GetFunctionDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["function_definition_id"] = function_definition_id
-        input["function_definition_version_id"] = function_definition_version_id
+        input_: aws_sdk_greengrass.types.get_function_definition_version_request.GetFunctionDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_definition_id"] = function_definition_id
+        input_["function_definition_version_id"] = function_definition_version_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2291,11 +2293,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.get_group_request.GetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2330,12 +2332,12 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_group_certificate_authority_request.GetGroupCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_authority_id"] = certificate_authority_id
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.get_group_certificate_authority_request.GetGroupCertificateAuthorityRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_authority_id"] = certificate_authority_id
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2368,11 +2370,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_group_certificate_configuration_request.GetGroupCertificateConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.get_group_certificate_configuration_request.GetGroupCertificateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2407,12 +2409,12 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_group_version_request.GetGroupVersionRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
-        input["group_version_id"] = group_version_id
+        input_: aws_sdk_greengrass.types.get_group_version_request.GetGroupVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
+        input_["group_version_id"] = group_version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2445,11 +2447,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_logger_definition_request.GetLoggerDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["logger_definition_id"] = logger_definition_id
+        input_: aws_sdk_greengrass.types.get_logger_definition_request.GetLoggerDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["logger_definition_id"] = logger_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2486,14 +2488,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_logger_definition_version_request.GetLoggerDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["logger_definition_id"] = logger_definition_id
-        input["logger_definition_version_id"] = logger_definition_version_id
+        input_: aws_sdk_greengrass.types.get_logger_definition_version_request.GetLoggerDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["logger_definition_id"] = logger_definition_id
+        input_["logger_definition_version_id"] = logger_definition_version_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2526,11 +2528,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_resource_definition_request.GetResourceDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_definition_id"] = resource_definition_id
+        input_: aws_sdk_greengrass.types.get_resource_definition_request.GetResourceDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_definition_id"] = resource_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2565,12 +2567,12 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_resource_definition_version_request.GetResourceDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_definition_id"] = resource_definition_id
-        input["resource_definition_version_id"] = resource_definition_version_id
+        input_: aws_sdk_greengrass.types.get_resource_definition_version_request.GetResourceDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_definition_id"] = resource_definition_id
+        input_["resource_definition_version_id"] = resource_definition_version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2596,10 +2598,10 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_service_role_for_account_request.GetServiceRoleForAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.get_service_role_for_account_request.GetServiceRoleForAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2632,11 +2634,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_subscription_definition_request.GetSubscriptionDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["subscription_definition_id"] = subscription_definition_id
+        input_: aws_sdk_greengrass.types.get_subscription_definition_request.GetSubscriptionDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["subscription_definition_id"] = subscription_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2673,14 +2675,16 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_subscription_definition_version_request.GetSubscriptionDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.get_subscription_definition_version_request.GetSubscriptionDefinitionVersionRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
-        input["subscription_definition_id"] = subscription_definition_id
-        input["subscription_definition_version_id"] = subscription_definition_version_id
+            input_["next_token"] = next_token
+        input_["subscription_definition_id"] = subscription_definition_id
+        input_["subscription_definition_version_id"] = (
+            subscription_definition_version_id
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2713,11 +2717,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.get_thing_runtime_configuration_request.GetThingRuntimeConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_greengrass.types.get_thing_runtime_configuration_request.GetThingRuntimeConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2754,15 +2758,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_bulk_deployment_detailed_reports_request.ListBulkDeploymentDetailedReportsRequest = {}  # type: ignore[typeddict-item]
-        input["bulk_deployment_id"] = bulk_deployment_id
+        input_: aws_sdk_greengrass.types.list_bulk_deployment_detailed_reports_request.ListBulkDeploymentDetailedReportsRequest = {}  # type: ignore[typeddict-item]
+        input_["bulk_deployment_id"] = bulk_deployment_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2797,14 +2801,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_bulk_deployments_request.ListBulkDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_bulk_deployments_request.ListBulkDeploymentsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2839,14 +2843,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_connector_definitions_request.ListConnectorDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_connector_definitions_request.ListConnectorDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2883,15 +2887,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_connector_definition_versions_request.ListConnectorDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["connector_definition_id"] = connector_definition_id
+        input_: aws_sdk_greengrass.types.list_connector_definition_versions_request.ListConnectorDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_definition_id"] = connector_definition_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2926,14 +2930,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_core_definitions_request.ListCoreDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_core_definitions_request.ListCoreDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2970,15 +2974,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_core_definition_versions_request.ListCoreDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["core_definition_id"] = core_definition_id
+        input_: aws_sdk_greengrass.types.list_core_definition_versions_request.ListCoreDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["core_definition_id"] = core_definition_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3015,15 +3019,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3058,14 +3062,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_device_definitions_request.ListDeviceDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_device_definitions_request.ListDeviceDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3102,15 +3106,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_device_definition_versions_request.ListDeviceDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["device_definition_id"] = device_definition_id
+        input_: aws_sdk_greengrass.types.list_device_definition_versions_request.ListDeviceDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["device_definition_id"] = device_definition_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3145,14 +3149,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_function_definitions_request.ListFunctionDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_function_definitions_request.ListFunctionDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3189,15 +3193,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_function_definition_versions_request.ListFunctionDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["function_definition_id"] = function_definition_id
+        input_: aws_sdk_greengrass.types.list_function_definition_versions_request.ListFunctionDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["function_definition_id"] = function_definition_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3230,11 +3234,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_group_certificate_authorities_request.ListGroupCertificateAuthoritiesRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.list_group_certificate_authorities_request.ListGroupCertificateAuthoritiesRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3269,14 +3273,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3313,15 +3317,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_group_versions_request.ListGroupVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.list_group_versions_request.ListGroupVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3356,14 +3360,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_logger_definitions_request.ListLoggerDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_logger_definitions_request.ListLoggerDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3400,15 +3404,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_logger_definition_versions_request.ListLoggerDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["logger_definition_id"] = logger_definition_id
+        input_: aws_sdk_greengrass.types.list_logger_definition_versions_request.ListLoggerDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["logger_definition_id"] = logger_definition_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3443,14 +3447,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_resource_definitions_request.ListResourceDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_resource_definitions_request.ListResourceDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3487,15 +3491,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_resource_definition_versions_request.ListResourceDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_resource_definition_versions_request.ListResourceDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_definition_id"] = resource_definition_id
+            input_["next_token"] = next_token
+        input_["resource_definition_id"] = resource_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3530,14 +3534,14 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_subscription_definitions_request.ListSubscriptionDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_subscription_definitions_request.ListSubscriptionDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3574,15 +3578,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_subscription_definition_versions_request.ListSubscriptionDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.list_subscription_definition_versions_request.ListSubscriptionDefinitionVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["subscription_definition_id"] = subscription_definition_id
+            input_["next_token"] = next_token
+        input_["subscription_definition_id"] = subscription_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3615,11 +3619,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_greengrass.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3658,15 +3662,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.reset_deployments_request.ResetDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.reset_deployments_request.ResetDeploymentsRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
+            input_["amzn_client_token"] = amzn_client_token
         if force is not None:
-            input["force"] = force
-        input["group_id"] = group_id
+            input_["force"] = force
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3707,16 +3711,16 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.start_bulk_deployment_request.StartBulkDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.start_bulk_deployment_request.StartBulkDeploymentRequest = {}  # type: ignore[typeddict-item]
         if amzn_client_token is not None:
-            input["amzn_client_token"] = amzn_client_token
-        input["execution_role_arn"] = execution_role_arn
-        input["input_file_uri"] = input_file_uri
+            input_["amzn_client_token"] = amzn_client_token
+        input_["execution_role_arn"] = execution_role_arn
+        input_["input_file_uri"] = input_file_uri
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3749,11 +3753,11 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.stop_bulk_deployment_request.StopBulkDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["bulk_deployment_id"] = bulk_deployment_id
+        input_: aws_sdk_greengrass.types.stop_bulk_deployment_request.StopBulkDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["bulk_deployment_id"] = bulk_deployment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3785,13 +3789,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_greengrass.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3824,12 +3828,12 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_greengrass.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3866,13 +3870,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_connectivity_info_request.UpdateConnectivityInfoRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.update_connectivity_info_request.UpdateConnectivityInfoRequest = {}  # type: ignore[typeddict-item]
         if connectivity_info is not None:
-            input["connectivity_info"] = connectivity_info
-        input["thing_name"] = thing_name
+            input_["connectivity_info"] = connectivity_info
+        input_["thing_name"] = thing_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3907,13 +3911,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_connector_definition_request.UpdateConnectorDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["connector_definition_id"] = connector_definition_id
+        input_: aws_sdk_greengrass.types.update_connector_definition_request.UpdateConnectorDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_definition_id"] = connector_definition_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3948,13 +3952,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_core_definition_request.UpdateCoreDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["core_definition_id"] = core_definition_id
+        input_: aws_sdk_greengrass.types.update_core_definition_request.UpdateCoreDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["core_definition_id"] = core_definition_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3989,13 +3993,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_device_definition_request.UpdateDeviceDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["device_definition_id"] = device_definition_id
+        input_: aws_sdk_greengrass.types.update_device_definition_request.UpdateDeviceDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["device_definition_id"] = device_definition_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4030,13 +4034,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_function_definition_request.UpdateFunctionDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["function_definition_id"] = function_definition_id
+        input_: aws_sdk_greengrass.types.update_function_definition_request.UpdateFunctionDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_definition_id"] = function_definition_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4071,13 +4075,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["group_id"] = group_id
+        input_: aws_sdk_greengrass.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["group_id"] = group_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4114,15 +4118,15 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_group_certificate_configuration_request.UpdateGroupCertificateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.update_group_certificate_configuration_request.UpdateGroupCertificateConfigurationRequest = {}  # type: ignore[typeddict-item]
         if certificate_expiry_in_milliseconds is not None:
-            input["certificate_expiry_in_milliseconds"] = (
+            input_["certificate_expiry_in_milliseconds"] = (
                 certificate_expiry_in_milliseconds
             )
-        input["group_id"] = group_id
+        input_["group_id"] = group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4157,13 +4161,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_logger_definition_request.UpdateLoggerDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["logger_definition_id"] = logger_definition_id
+        input_: aws_sdk_greengrass.types.update_logger_definition_request.UpdateLoggerDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["logger_definition_id"] = logger_definition_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4198,13 +4202,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_resource_definition_request.UpdateResourceDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.update_resource_definition_request.UpdateResourceDefinitionRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["resource_definition_id"] = resource_definition_id
+            input_["name"] = name
+        input_["resource_definition_id"] = resource_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4239,13 +4243,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_subscription_definition_request.UpdateSubscriptionDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.update_subscription_definition_request.UpdateSubscriptionDefinitionRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["subscription_definition_id"] = subscription_definition_id
+            input_["name"] = name
+        input_["subscription_definition_id"] = subscription_definition_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4282,13 +4286,13 @@ class GreengrassClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_greengrass.types.update_thing_runtime_configuration_request.UpdateThingRuntimeConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_greengrass.types.update_thing_runtime_configuration_request.UpdateThingRuntimeConfigurationRequest = {}  # type: ignore[typeddict-item]
         if telemetry_configuration is not None:
-            input["telemetry_configuration"] = telemetry_configuration
-        input["thing_name"] = thing_name
+            input_["telemetry_configuration"] = telemetry_configuration
+        input_["thing_name"] = thing_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

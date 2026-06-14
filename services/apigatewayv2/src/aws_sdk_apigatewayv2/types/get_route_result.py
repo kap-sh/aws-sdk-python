@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetRouteResult``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -12,8 +13,8 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.route_parameters
     import aws_sdk_apigatewayv2.types.selection_expression
     import aws_sdk_apigatewayv2.types.selection_key
-    import aws_sdk_apigatewayv2.types.string_with_length_between1_and128
     import aws_sdk_apigatewayv2.types.string_with_length_between1_and64
+    import aws_sdk_apigatewayv2.types.string_with_length_between1_and128
 
 
 class GetRouteResult(TypedDict):

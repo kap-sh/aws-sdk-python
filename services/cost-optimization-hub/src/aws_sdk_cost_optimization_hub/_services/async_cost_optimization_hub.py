@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_cost_optimization_hub._auth._signers
+import aws_sdk_cost_optimization_hub._auth._sigv4
 from aws_sdk_cost_optimization_hub._auth._identity import Credentials
 from aws_sdk_cost_optimization_hub._auth._providers import (
     CredentialsProvider,
@@ -179,10 +181,10 @@ class AsyncCostOptimizationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_optimization_hub.types.get_preferences_request.GetPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_optimization_hub.types.get_preferences_request.GetPreferencesRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -216,11 +218,11 @@ class AsyncCostOptimizationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_optimization_hub.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["recommendation_id"] = recommendation_id
+        input_: aws_sdk_cost_optimization_hub.types.get_recommendation_request.GetRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["recommendation_id"] = recommendation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -268,20 +270,20 @@ class AsyncCostOptimizationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_optimization_hub.types.list_efficiency_metrics_request.ListEfficiencyMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_optimization_hub.types.list_efficiency_metrics_request.ListEfficiencyMetricsRequest = {}  # type: ignore[typeddict-item]
         if group_by is not None:
-            input["group_by"] = group_by
-        input["granularity"] = granularity
-        input["time_period"] = time_period
+            input_["group_by"] = group_by
+        input_["granularity"] = granularity
+        input_["time_period"] = time_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,18 +360,18 @@ class AsyncCostOptimizationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_optimization_hub.types.list_enrollment_statuses_request.ListEnrollmentStatusesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_optimization_hub.types.list_enrollment_statuses_request.ListEnrollmentStatusesRequest = {}  # type: ignore[typeddict-item]
         if include_organization_info is not None:
-            input["include_organization_info"] = include_organization_info
+            input_["include_organization_info"] = include_organization_info
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,20 +446,20 @@ class AsyncCostOptimizationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_optimization_hub.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_optimization_hub.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
         if include_all_recommendations is not None:
-            input["include_all_recommendations"] = include_all_recommendations
+            input_["include_all_recommendations"] = include_all_recommendations
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -533,19 +535,19 @@ class AsyncCostOptimizationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_optimization_hub.types.list_recommendation_summaries_request.ListRecommendationSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_optimization_hub.types.list_recommendation_summaries_request.ListRecommendationSummariesRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
-        input["group_by"] = group_by
+            input_["filter"] = filter
+        input_["group_by"] = group_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if metrics is not None:
-            input["metrics"] = metrics
+            input_["metrics"] = metrics
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -612,13 +614,13 @@ class AsyncCostOptimizationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_optimization_hub.types.update_enrollment_status_request.UpdateEnrollmentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["status"] = status
+        input_: aws_sdk_cost_optimization_hub.types.update_enrollment_status_request.UpdateEnrollmentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["status"] = status
         if include_member_accounts is not None:
-            input["include_member_accounts"] = include_member_accounts
+            input_["include_member_accounts"] = include_member_accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,18 +664,18 @@ class AsyncCostOptimizationHubClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cost_optimization_hub.types.update_preferences_request.UpdatePreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cost_optimization_hub.types.update_preferences_request.UpdatePreferencesRequest = {}  # type: ignore[typeddict-item]
         if savings_estimation_mode is not None:
-            input["savings_estimation_mode"] = savings_estimation_mode
+            input_["savings_estimation_mode"] = savings_estimation_mode
         if member_account_discount_visibility is not None:
-            input["member_account_discount_visibility"] = (
+            input_["member_account_discount_visibility"] = (
                 member_account_discount_visibility
             )
         if preferred_commitment is not None:
-            input["preferred_commitment"] = preferred_commitment
+            input_["preferred_commitment"] = preferred_commitment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

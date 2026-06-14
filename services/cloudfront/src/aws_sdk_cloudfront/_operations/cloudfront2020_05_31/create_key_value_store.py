@@ -104,60 +104,57 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest,
+    input_: aws_sdk_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/key-value-store"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("CreateKeyValueStoreRequest")
-    if "name" in input:
-        SubElement(root, "Name").text = str(input["name"])
-    if "comment" in input:
-        SubElement(root, "Comment").text = str(input["comment"])
-    if "import_source" in input:
+    if "name" in input_:
+        SubElement(root, "Name").text = str(input_["name"])
+    if "comment" in input_:
+        SubElement(root, "Comment").text = str(input_["comment"])
+    if "import_source" in input_:
         import aws_sdk_cloudfront.types.import_source
 
         aws_sdk_cloudfront.types.import_source.serialize_xml(
-            input["import_source"], root, "ImportSource"
+            input_["import_source"], root, "ImportSource"
         )
-    if "tags" in input:
+    if "tags" in input_:
         import aws_sdk_cloudfront.types.tags
 
-        aws_sdk_cloudfront.types.tags.serialize_xml(input["tags"], root, "Tags")
+        aws_sdk_cloudfront.types.tags.serialize_xml(input_["tags"], root, "Tags")
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def create_key_value_store(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest,
+    input_: aws_sdk_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.create_key_value_store_result.CreateKeyValueStoreResult,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -166,16 +163,17 @@ def create_key_value_store(
 
 async def async_create_key_value_store(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest,
+    input_: aws_sdk_cloudfront.types.create_key_value_store_request.CreateKeyValueStoreRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.create_key_value_store_result.CreateKeyValueStoreResult,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

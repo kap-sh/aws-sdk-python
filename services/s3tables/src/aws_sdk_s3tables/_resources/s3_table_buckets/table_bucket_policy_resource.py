@@ -57,11 +57,11 @@ class TableBucketPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_bucket_policy_request.DeleteTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.delete_table_bucket_policy_request.DeleteTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -94,11 +94,11 @@ class TableBucketPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_policy_request.GetTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_policy_request.GetTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,12 +131,12 @@ class TableBucketPolicyResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_policy_request.PutTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["resource_policy"] = resource_policy
+        input_: aws_sdk_s3tables.types.put_table_bucket_policy_request.PutTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["resource_policy"] = resource_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -173,11 +173,11 @@ class AsyncTableBucketPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_bucket_policy_request.DeleteTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.delete_table_bucket_policy_request.DeleteTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,11 +211,11 @@ class AsyncTableBucketPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_policy_request.GetTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_policy_request.GetTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,12 +249,12 @@ class AsyncTableBucketPolicyResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_policy_request.PutTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["resource_policy"] = resource_policy
+        input_: aws_sdk_s3tables.types.put_table_bucket_policy_request.PutTableBucketPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["resource_policy"] = resource_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

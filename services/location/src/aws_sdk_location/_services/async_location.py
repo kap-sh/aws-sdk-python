@@ -13,6 +13,26 @@ from aws_sdk_location._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_location._auth._zapros_handler import AuthMiddleware
+from aws_sdk_location._resources.location_service.api_key_resource import (
+    AsyncApiKeyResource,
+)
+from aws_sdk_location._resources.location_service.generic_resource import (
+    AsyncGenericResource,
+)
+from aws_sdk_location._resources.location_service.geofence_collection_resource import (
+    AsyncGeofenceCollectionResource,
+)
+from aws_sdk_location._resources.location_service.job_resource import AsyncJobResource
+from aws_sdk_location._resources.location_service.map_resource import AsyncMapResource
+from aws_sdk_location._resources.location_service.place_index_resource import (
+    AsyncPlaceIndexResource,
+)
+from aws_sdk_location._resources.location_service.route_calculator_resource import (
+    AsyncRouteCalculatorResource,
+)
+from aws_sdk_location._resources.location_service.tracker_resource import (
+    AsyncTrackerResource,
+)
 from aws_sdk_location._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -92,6 +112,15 @@ class AsyncLocationClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.api_key_resource = AsyncApiKeyResource(self)
+        self.generic_resource = AsyncGenericResource(self)
+        self.geofence_collection_resource = AsyncGeofenceCollectionResource(self)
+        self.job_resource = AsyncJobResource(self)
+        self.map_resource = AsyncMapResource(self)
+        self.place_index_resource = AsyncPlaceIndexResource(self)
+        self.route_calculator_resource = AsyncRouteCalculatorResource(self)
+        self.tracker_resource = AsyncTrackerResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncLocationClientConfig] = None

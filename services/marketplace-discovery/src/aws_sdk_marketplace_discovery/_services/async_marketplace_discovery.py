@@ -197,11 +197,11 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.get_listing_input.GetListingInput = {}  # type: ignore[typeddict-item]
-        input["listing_id"] = listing_id
+        input_: aws_sdk_marketplace_discovery.types.get_listing_input.GetListingInput = {}  # type: ignore[typeddict-item]
+        input_["listing_id"] = listing_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -249,11 +249,11 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.get_offer_input.GetOfferInput = {}  # type: ignore[typeddict-item]
-        input["offer_id"] = offer_id
+        input_: aws_sdk_marketplace_discovery.types.get_offer_input.GetOfferInput = {}  # type: ignore[typeddict-item]
+        input_["offer_id"] = offer_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,11 +292,11 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.get_offer_set_input.GetOfferSetInput = {}  # type: ignore[typeddict-item]
-        input["offer_set_id"] = offer_set_id
+        input_: aws_sdk_marketplace_discovery.types.get_offer_set_input.GetOfferSetInput = {}  # type: ignore[typeddict-item]
+        input_["offer_set_id"] = offer_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -367,15 +367,15 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.get_offer_terms_input.GetOfferTermsInput = {}  # type: ignore[typeddict-item]
-        input["offer_id"] = offer_id
+        input_: aws_sdk_marketplace_discovery.types.get_offer_terms_input.GetOfferTermsInput = {}  # type: ignore[typeddict-item]
+        input_["offer_id"] = offer_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,11 +445,11 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.get_product_input.GetProductInput = {}  # type: ignore[typeddict-item]
-        input["product_id"] = product_id
+        input_: aws_sdk_marketplace_discovery.types.get_product_input.GetProductInput = {}  # type: ignore[typeddict-item]
+        input_["product_id"] = product_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,15 +527,15 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput = {}  # type: ignore[typeddict-item]
-        input["product_id"] = product_id
+        input_: aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput = {}  # type: ignore[typeddict-item]
+        input_["product_id"] = product_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -612,16 +612,16 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.list_purchase_options_input.ListPurchaseOptionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_marketplace_discovery.types.list_purchase_options_input.ListPurchaseOptionsInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -708,18 +708,18 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.search_facets_input.SearchFacetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_marketplace_discovery.types.search_facets_input.SearchFacetsInput = {}  # type: ignore[typeddict-item]
         if search_text is not None:
-            input["search_text"] = search_text
+            input_["search_text"] = search_text
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if facet_types is not None:
-            input["facet_types"] = facet_types
+            input_["facet_types"] = facet_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -814,22 +814,22 @@ class AsyncMarketplaceDiscoveryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_marketplace_discovery.types.search_listings_input.SearchListingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_marketplace_discovery.types.search_listings_input.SearchListingsInput = {}  # type: ignore[typeddict-item]
         if search_text is not None:
-            input["search_text"] = search_text
+            input_["search_text"] = search_text
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

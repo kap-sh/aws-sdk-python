@@ -16,13 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime_http2.types.invoke_endpoint_with_bidirectional_stream_output
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_sagemaker_runtime_http2.types.invoke_endpoint_with_bidirectional_stream_input.InvokeEndpointWithBidirectionalStreamInput,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def invoke_endpoint_with_bidirectional_stream(
     options: OperationOptions,
     input: aws_sdk_sagemaker_runtime_http2.types.invoke_endpoint_with_bidirectional_stream_input.InvokeEndpointWithBidirectionalStreamInput,

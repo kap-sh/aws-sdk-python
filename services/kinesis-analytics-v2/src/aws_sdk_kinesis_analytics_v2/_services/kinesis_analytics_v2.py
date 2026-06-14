@@ -274,16 +274,16 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.add_application_cloud_watch_logging_option_request.AddApplicationCloudWatchLoggingOptionRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.add_application_cloud_watch_logging_option_request.AddApplicationCloudWatchLoggingOptionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if current_application_version_id is not None:
-            input["current_application_version_id"] = current_application_version_id
-        input["cloud_watch_logging_option"] = cloud_watch_logging_option
+            input_["current_application_version_id"] = current_application_version_id
+        input_["cloud_watch_logging_option"] = cloud_watch_logging_option
         if conditional_token is not None:
-            input["conditional_token"] = conditional_token
+            input_["conditional_token"] = conditional_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,13 +320,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.add_application_input_request.AddApplicationInputRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_application_version_id"] = current_application_version_id
-        input["input"] = input
+        input_: aws_sdk_kinesis_analytics_v2.types.add_application_input_request.AddApplicationInputRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_application_version_id"] = current_application_version_id
+        input_["input"] = input
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,14 +365,14 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_request.AddApplicationInputProcessingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_application_version_id"] = current_application_version_id
-        input["input_id"] = input_id
-        input["input_processing_configuration"] = input_processing_configuration
+        input_: aws_sdk_kinesis_analytics_v2.types.add_application_input_processing_configuration_request.AddApplicationInputProcessingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_application_version_id"] = current_application_version_id
+        input_["input_id"] = input_id
+        input_["input_processing_configuration"] = input_processing_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -409,13 +409,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.add_application_output_request.AddApplicationOutputRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_application_version_id"] = current_application_version_id
-        input["output"] = output
+        input_: aws_sdk_kinesis_analytics_v2.types.add_application_output_request.AddApplicationOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_application_version_id"] = current_application_version_id
+        input_["output"] = output
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -452,13 +452,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.add_application_reference_data_source_request.AddApplicationReferenceDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_application_version_id"] = current_application_version_id
-        input["reference_data_source"] = reference_data_source
+        input_: aws_sdk_kinesis_analytics_v2.types.add_application_reference_data_source_request.AddApplicationReferenceDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_application_version_id"] = current_application_version_id
+        input_["reference_data_source"] = reference_data_source
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,16 +501,16 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.add_application_vpc_configuration_request.AddApplicationVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.add_application_vpc_configuration_request.AddApplicationVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if current_application_version_id is not None:
-            input["current_application_version_id"] = current_application_version_id
-        input["vpc_configuration"] = vpc_configuration
+            input_["current_application_version_id"] = current_application_version_id
+        input_["vpc_configuration"] = vpc_configuration
         if conditional_token is not None:
-            input["conditional_token"] = conditional_token
+            input_["conditional_token"] = conditional_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,23 +565,23 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if application_description is not None:
-            input["application_description"] = application_description
-        input["runtime_environment"] = runtime_environment
-        input["service_execution_role"] = service_execution_role
+            input_["application_description"] = application_description
+        input_["runtime_environment"] = runtime_environment
+        input_["service_execution_role"] = service_execution_role
         if application_configuration is not None:
-            input["application_configuration"] = application_configuration
+            input_["application_configuration"] = application_configuration
         if cloud_watch_logging_options is not None:
-            input["cloud_watch_logging_options"] = cloud_watch_logging_options
+            input_["cloud_watch_logging_options"] = cloud_watch_logging_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if application_mode is not None:
-            input["application_mode"] = application_mode
+            input_["application_mode"] = application_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,16 +620,16 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.create_application_presigned_url_request.CreateApplicationPresignedUrlRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["url_type"] = url_type
+        input_: aws_sdk_kinesis_analytics_v2.types.create_application_presigned_url_request.CreateApplicationPresignedUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["url_type"] = url_type
         if session_expiration_duration_in_seconds is not None:
-            input["session_expiration_duration_in_seconds"] = (
+            input_["session_expiration_duration_in_seconds"] = (
                 session_expiration_duration_in_seconds
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -664,12 +664,12 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.create_application_snapshot_request.CreateApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_kinesis_analytics_v2.types.create_application_snapshot_request.CreateApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["snapshot_name"] = snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -704,12 +704,12 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["create_timestamp"] = create_timestamp
+        input_: aws_sdk_kinesis_analytics_v2.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["create_timestamp"] = create_timestamp
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -752,16 +752,16 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.delete_application_cloud_watch_logging_option_request.DeleteApplicationCloudWatchLoggingOptionRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.delete_application_cloud_watch_logging_option_request.DeleteApplicationCloudWatchLoggingOptionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if current_application_version_id is not None:
-            input["current_application_version_id"] = current_application_version_id
-        input["cloud_watch_logging_option_id"] = cloud_watch_logging_option_id
+            input_["current_application_version_id"] = current_application_version_id
+        input_["cloud_watch_logging_option_id"] = cloud_watch_logging_option_id
         if conditional_token is not None:
-            input["conditional_token"] = conditional_token
+            input_["conditional_token"] = conditional_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -798,13 +798,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.delete_application_input_processing_configuration_request.DeleteApplicationInputProcessingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_application_version_id"] = current_application_version_id
-        input["input_id"] = input_id
+        input_: aws_sdk_kinesis_analytics_v2.types.delete_application_input_processing_configuration_request.DeleteApplicationInputProcessingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_application_version_id"] = current_application_version_id
+        input_["input_id"] = input_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -841,13 +841,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.delete_application_output_request.DeleteApplicationOutputRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_application_version_id"] = current_application_version_id
-        input["output_id"] = output_id
+        input_: aws_sdk_kinesis_analytics_v2.types.delete_application_output_request.DeleteApplicationOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_application_version_id"] = current_application_version_id
+        input_["output_id"] = output_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -884,13 +884,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.delete_application_reference_data_source_request.DeleteApplicationReferenceDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_application_version_id"] = current_application_version_id
-        input["reference_id"] = reference_id
+        input_: aws_sdk_kinesis_analytics_v2.types.delete_application_reference_data_source_request.DeleteApplicationReferenceDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_application_version_id"] = current_application_version_id
+        input_["reference_id"] = reference_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -927,13 +927,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.delete_application_snapshot_request.DeleteApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["snapshot_name"] = snapshot_name
-        input["snapshot_creation_timestamp"] = snapshot_creation_timestamp
+        input_: aws_sdk_kinesis_analytics_v2.types.delete_application_snapshot_request.DeleteApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["snapshot_name"] = snapshot_name
+        input_["snapshot_creation_timestamp"] = snapshot_creation_timestamp
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -976,16 +976,16 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.delete_application_vpc_configuration_request.DeleteApplicationVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.delete_application_vpc_configuration_request.DeleteApplicationVpcConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if current_application_version_id is not None:
-            input["current_application_version_id"] = current_application_version_id
-        input["vpc_configuration_id"] = vpc_configuration_id
+            input_["current_application_version_id"] = current_application_version_id
+        input_["vpc_configuration_id"] = vpc_configuration_id
         if conditional_token is not None:
-            input["conditional_token"] = conditional_token
+            input_["conditional_token"] = conditional_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1022,13 +1022,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.describe_application_request.DescribeApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.describe_application_request.DescribeApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if include_additional_details is not None:
-            input["include_additional_details"] = include_additional_details
+            input_["include_additional_details"] = include_additional_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1058,12 +1058,12 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.describe_application_operation_request.DescribeApplicationOperationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["operation_id"] = operation_id
+        input_: aws_sdk_kinesis_analytics_v2.types.describe_application_operation_request.DescribeApplicationOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["operation_id"] = operation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1098,12 +1098,12 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.describe_application_snapshot_request.DescribeApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_kinesis_analytics_v2.types.describe_application_snapshot_request.DescribeApplicationSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["snapshot_name"] = snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1138,12 +1138,12 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.describe_application_version_request.DescribeApplicationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["application_version_id"] = application_version_id
+        input_: aws_sdk_kinesis_analytics_v2.types.describe_application_version_request.DescribeApplicationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["application_version_id"] = application_version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1192,21 +1192,21 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.discover_input_schema_request.DiscoverInputSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_analytics_v2.types.discover_input_schema_request.DiscoverInputSchemaRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
-        input["service_execution_role"] = service_execution_role
+            input_["resource_arn"] = resource_arn
+        input_["service_execution_role"] = service_execution_role
         if input_starting_position_configuration is not None:
-            input["input_starting_position_configuration"] = (
+            input_["input_starting_position_configuration"] = (
                 input_starting_position_configuration
             )
         if s3_configuration is not None:
-            input["s3_configuration"] = s3_configuration
+            input_["s3_configuration"] = s3_configuration
         if input_processing_configuration is not None:
-            input["input_processing_configuration"] = input_processing_configuration
+            input_["input_processing_configuration"] = input_processing_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1247,19 +1247,19 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.list_application_operations_request.ListApplicationOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.list_application_operations_request.ListApplicationOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if operation is not None:
-            input["operation"] = operation
+            input_["operation"] = operation
         if operation_status is not None:
-            input["operation_status"] = operation_status
+            input_["operation_status"] = operation_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1333,14 +1333,14 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis_analytics_v2.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1406,15 +1406,15 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.list_application_snapshots_request.ListApplicationSnapshotsRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.list_application_snapshots_request.ListApplicationSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1484,15 +1484,15 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1552,11 +1552,11 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kinesis_analytics_v2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1591,12 +1591,12 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.rollback_application_request.RollbackApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["current_application_version_id"] = current_application_version_id
+        input_: aws_sdk_kinesis_analytics_v2.types.rollback_application_request.RollbackApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["current_application_version_id"] = current_application_version_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1633,13 +1633,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if run_configuration is not None:
-            input["run_configuration"] = run_configuration
+            input_["run_configuration"] = run_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1676,13 +1676,13 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1717,12 +1717,12 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_kinesis_analytics_v2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1757,12 +1757,12 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_kinesis_analytics_v2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1823,27 +1823,29 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
+        input_: aws_sdk_kinesis_analytics_v2.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
         if current_application_version_id is not None:
-            input["current_application_version_id"] = current_application_version_id
+            input_["current_application_version_id"] = current_application_version_id
         if application_configuration_update is not None:
-            input["application_configuration_update"] = application_configuration_update
+            input_["application_configuration_update"] = (
+                application_configuration_update
+            )
         if service_execution_role_update is not None:
-            input["service_execution_role_update"] = service_execution_role_update
+            input_["service_execution_role_update"] = service_execution_role_update
         if run_configuration_update is not None:
-            input["run_configuration_update"] = run_configuration_update
+            input_["run_configuration_update"] = run_configuration_update
         if cloud_watch_logging_option_updates is not None:
-            input["cloud_watch_logging_option_updates"] = (
+            input_["cloud_watch_logging_option_updates"] = (
                 cloud_watch_logging_option_updates
             )
         if conditional_token is not None:
-            input["conditional_token"] = conditional_token
+            input_["conditional_token"] = conditional_token
         if runtime_environment_update is not None:
-            input["runtime_environment_update"] = runtime_environment_update
+            input_["runtime_environment_update"] = runtime_environment_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1878,14 +1880,14 @@ class KinesisAnalyticsV2Client:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_request.UpdateApplicationMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["application_name"] = application_name
-        input["application_maintenance_configuration_update"] = (
+        input_: aws_sdk_kinesis_analytics_v2.types.update_application_maintenance_configuration_request.UpdateApplicationMaintenanceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_name"] = application_name
+        input_["application_maintenance_configuration_update"] = (
             application_maintenance_configuration_update
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

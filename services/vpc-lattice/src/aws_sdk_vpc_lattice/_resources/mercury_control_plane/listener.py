@@ -88,20 +88,20 @@ class Listener:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_listener_request.CreateListenerRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["name"] = name
-        input["protocol"] = protocol
+        input_: aws_sdk_vpc_lattice.types.create_listener_request.CreateListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["name"] = name
+        input_["protocol"] = protocol
         if port is not None:
-            input["port"] = port
-        input["default_action"] = default_action
+            input_["port"] = port
+        input_["default_action"] = default_action
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,12 +136,12 @@ class Listener:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_listener_request.GetListenerRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
+        input_: aws_sdk_vpc_lattice.types.get_listener_request.GetListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -178,13 +178,13 @@ class Listener:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_listener_request.UpdateListenerRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["default_action"] = default_action
+        input_: aws_sdk_vpc_lattice.types.update_listener_request.UpdateListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["default_action"] = default_action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,12 +219,12 @@ class Listener:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_listener_request.DeleteListenerRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_listener_request.DeleteListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,15 +263,15 @@ class Listener:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_listeners_request.ListListenersRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_vpc_lattice.types.list_listeners_request.ListListenersRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,20 +324,20 @@ class AsyncListener:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_listener_request.CreateListenerRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["name"] = name
-        input["protocol"] = protocol
+        input_: aws_sdk_vpc_lattice.types.create_listener_request.CreateListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["name"] = name
+        input_["protocol"] = protocol
         if port is not None:
-            input["port"] = port
-        input["default_action"] = default_action
+            input_["port"] = port
+        input_["default_action"] = default_action
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,12 +373,12 @@ class AsyncListener:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_listener_request.GetListenerRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
+        input_: aws_sdk_vpc_lattice.types.get_listener_request.GetListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,13 +416,13 @@ class AsyncListener:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_listener_request.UpdateListenerRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
-        input["default_action"] = default_action
+        input_: aws_sdk_vpc_lattice.types.update_listener_request.UpdateListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
+        input_["default_action"] = default_action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,12 +458,12 @@ class AsyncListener:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_listener_request.DeleteListenerRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
-        input["listener_identifier"] = listener_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_listener_request.DeleteListenerRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
+        input_["listener_identifier"] = listener_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,15 +503,15 @@ class AsyncListener:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_listeners_request.ListListenersRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_vpc_lattice.types.list_listeners_request.ListListenersRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -222,20 +222,20 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.create_savings_plan_request.CreateSavingsPlanRequest = {}  # type: ignore[typeddict-item]
-        input["savings_plan_offering_id"] = savings_plan_offering_id
-        input["commitment"] = commitment
+        input_: aws_sdk_savingsplans.types.create_savings_plan_request.CreateSavingsPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["savings_plan_offering_id"] = savings_plan_offering_id
+        input_["commitment"] = commitment
         if upfront_payment_amount is not None:
-            input["upfront_payment_amount"] = upfront_payment_amount
+            input_["upfront_payment_amount"] = upfront_payment_amount
         if purchase_time is not None:
-            input["purchase_time"] = purchase_time
+            input_["purchase_time"] = purchase_time
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,11 +269,11 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.delete_queued_savings_plan_request.DeleteQueuedSavingsPlanRequest = {}  # type: ignore[typeddict-item]
-        input["savings_plan_id"] = savings_plan_id
+        input_: aws_sdk_savingsplans.types.delete_queued_savings_plan_request.DeleteQueuedSavingsPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["savings_plan_id"] = savings_plan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,17 +319,17 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.describe_savings_plan_rates_request.DescribeSavingsPlanRatesRequest = {}  # type: ignore[typeddict-item]
-        input["savings_plan_id"] = savings_plan_id
+        input_: aws_sdk_savingsplans.types.describe_savings_plan_rates_request.DescribeSavingsPlanRatesRequest = {}  # type: ignore[typeddict-item]
+        input_["savings_plan_id"] = savings_plan_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,22 +385,22 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.describe_savings_plans_request.DescribeSavingsPlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_savingsplans.types.describe_savings_plans_request.DescribeSavingsPlansRequest = {}  # type: ignore[typeddict-item]
         if savings_plan_arns is not None:
-            input["savings_plan_arns"] = savings_plan_arns
+            input_["savings_plan_arns"] = savings_plan_arns
         if savings_plan_ids is not None:
-            input["savings_plan_ids"] = savings_plan_ids
+            input_["savings_plan_ids"] = savings_plan_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,30 +470,30 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.describe_savings_plans_offering_rates_request.DescribeSavingsPlansOfferingRatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_savingsplans.types.describe_savings_plans_offering_rates_request.DescribeSavingsPlansOfferingRatesRequest = {}  # type: ignore[typeddict-item]
         if savings_plan_offering_ids is not None:
-            input["savings_plan_offering_ids"] = savings_plan_offering_ids
+            input_["savings_plan_offering_ids"] = savings_plan_offering_ids
         if savings_plan_payment_options is not None:
-            input["savings_plan_payment_options"] = savings_plan_payment_options
+            input_["savings_plan_payment_options"] = savings_plan_payment_options
         if savings_plan_types is not None:
-            input["savings_plan_types"] = savings_plan_types
+            input_["savings_plan_types"] = savings_plan_types
         if products is not None:
-            input["products"] = products
+            input_["products"] = products
         if service_codes is not None:
-            input["service_codes"] = service_codes
+            input_["service_codes"] = service_codes
         if usage_types is not None:
-            input["usage_types"] = usage_types
+            input_["usage_types"] = usage_types
         if operations is not None:
-            input["operations"] = operations
+            input_["operations"] = operations
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -573,36 +573,36 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.describe_savings_plans_offerings_request.DescribeSavingsPlansOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_savingsplans.types.describe_savings_plans_offerings_request.DescribeSavingsPlansOfferingsRequest = {}  # type: ignore[typeddict-item]
         if offering_ids is not None:
-            input["offering_ids"] = offering_ids
+            input_["offering_ids"] = offering_ids
         if payment_options is not None:
-            input["payment_options"] = payment_options
+            input_["payment_options"] = payment_options
         if product_type is not None:
-            input["product_type"] = product_type
+            input_["product_type"] = product_type
         if plan_types is not None:
-            input["plan_types"] = plan_types
+            input_["plan_types"] = plan_types
         if durations is not None:
-            input["durations"] = durations
+            input_["durations"] = durations
         if currencies is not None:
-            input["currencies"] = currencies
+            input_["currencies"] = currencies
         if descriptions is not None:
-            input["descriptions"] = descriptions
+            input_["descriptions"] = descriptions
         if service_codes is not None:
-            input["service_codes"] = service_codes
+            input_["service_codes"] = service_codes
         if usage_types is not None:
-            input["usage_types"] = usage_types
+            input_["usage_types"] = usage_types
         if operations is not None:
-            input["operations"] = operations
+            input_["operations"] = operations
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,11 +636,11 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_savingsplans.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,13 +678,13 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.return_savings_plan_request.ReturnSavingsPlanRequest = {}  # type: ignore[typeddict-item]
-        input["savings_plan_id"] = savings_plan_id
+        input_: aws_sdk_savingsplans.types.return_savings_plan_request.ReturnSavingsPlanRequest = {}  # type: ignore[typeddict-item]
+        input_["savings_plan_id"] = savings_plan_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -720,12 +720,12 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_savingsplans.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,12 +761,12 @@ class AsyncsavingsplansClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_savingsplans.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_savingsplans.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

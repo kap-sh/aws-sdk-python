@@ -94,18 +94,18 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_configured_table_association_input.CreateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cleanrooms.types.create_configured_table_association_input.CreateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_identifier"] = configured_table_identifier
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -140,14 +140,14 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_configured_table_association_input.GetConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_configured_table_association_input.GetConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,18 +188,18 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_configured_table_association_input.UpdateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.update_configured_table_association_input.UpdateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -234,14 +234,14 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_configured_table_association_input.DeleteConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.delete_configured_table_association_input.DeleteConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,15 +280,15 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_configured_table_associations_input.ListConfiguredTableAssociationsInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_configured_table_associations_input.ListConfiguredTableAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,16 +327,16 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_configured_table_association_analysis_rule_input.CreateConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.create_configured_table_association_analysis_rule_input.CreateConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["analysis_rule_type"] = analysis_rule_type
-        input["analysis_rule_policy"] = analysis_rule_policy
+        input_["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_policy"] = analysis_rule_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,15 +373,15 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_configured_table_association_analysis_rule_input.DeleteConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.delete_configured_table_association_analysis_rule_input.DeleteConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_type"] = analysis_rule_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,15 +418,15 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_configured_table_association_analysis_rule_input.GetConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_configured_table_association_analysis_rule_input.GetConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_type"] = analysis_rule_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,16 +465,16 @@ class ConfiguredTableAssociationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_configured_table_association_analysis_rule_input.UpdateConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.update_configured_table_association_analysis_rule_input.UpdateConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["analysis_rule_type"] = analysis_rule_type
-        input["analysis_rule_policy"] = analysis_rule_policy
+        input_["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_policy"] = analysis_rule_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -525,18 +525,18 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_configured_table_association_input.CreateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cleanrooms.types.create_configured_table_association_input.CreateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_identifier"] = configured_table_identifier
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,14 +572,14 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_configured_table_association_input.GetConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_configured_table_association_input.GetConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -621,18 +621,18 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_configured_table_association_input.UpdateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.update_configured_table_association_input.UpdateConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,14 +668,14 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_configured_table_association_input.DeleteConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.delete_configured_table_association_input.DeleteConfiguredTableAssociationInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,15 +715,15 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_configured_table_associations_input.ListConfiguredTableAssociationsInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_configured_table_associations_input.ListConfiguredTableAssociationsInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,16 +763,16 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_configured_table_association_analysis_rule_input.CreateConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.create_configured_table_association_analysis_rule_input.CreateConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["analysis_rule_type"] = analysis_rule_type
-        input["analysis_rule_policy"] = analysis_rule_policy
+        input_["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_policy"] = analysis_rule_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -810,15 +810,15 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_configured_table_association_analysis_rule_input.DeleteConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.delete_configured_table_association_analysis_rule_input.DeleteConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_type"] = analysis_rule_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -856,15 +856,15 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_configured_table_association_analysis_rule_input.GetConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.get_configured_table_association_analysis_rule_input.GetConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_type"] = analysis_rule_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -904,16 +904,16 @@ class AsyncConfiguredTableAssociationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_configured_table_association_analysis_rule_input.UpdateConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_table_association_identifier"] = (
+        input_: aws_sdk_cleanrooms.types.update_configured_table_association_analysis_rule_input.UpdateConfiguredTableAssociationAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_table_association_identifier"] = (
             configured_table_association_identifier
         )
-        input["analysis_rule_type"] = analysis_rule_type
-        input["analysis_rule_policy"] = analysis_rule_policy
+        input_["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_policy"] = analysis_rule_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

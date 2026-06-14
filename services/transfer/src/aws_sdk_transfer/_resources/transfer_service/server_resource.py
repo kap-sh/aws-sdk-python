@@ -139,46 +139,48 @@ class ServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_server_request.CreateServerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_server_request.CreateServerRequest = {}  # type: ignore[typeddict-item]
         if certificate is not None:
-            input["certificate"] = certificate
+            input_["certificate"] = certificate
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if endpoint_details is not None:
-            input["endpoint_details"] = endpoint_details
+            input_["endpoint_details"] = endpoint_details
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if host_key is not None:
-            input["host_key"] = host_key
+            input_["host_key"] = host_key
         if identity_provider_details is not None:
-            input["identity_provider_details"] = identity_provider_details
+            input_["identity_provider_details"] = identity_provider_details
         if identity_provider_type is not None:
-            input["identity_provider_type"] = identity_provider_type
+            input_["identity_provider_type"] = identity_provider_type
         if logging_role is not None:
-            input["logging_role"] = logging_role
+            input_["logging_role"] = logging_role
         if post_authentication_login_banner is not None:
-            input["post_authentication_login_banner"] = post_authentication_login_banner
+            input_["post_authentication_login_banner"] = (
+                post_authentication_login_banner
+            )
         if pre_authentication_login_banner is not None:
-            input["pre_authentication_login_banner"] = pre_authentication_login_banner
+            input_["pre_authentication_login_banner"] = pre_authentication_login_banner
         if protocols is not None:
-            input["protocols"] = protocols
+            input_["protocols"] = protocols
         if protocol_details is not None:
-            input["protocol_details"] = protocol_details
+            input_["protocol_details"] = protocol_details
         if security_policy_name is not None:
-            input["security_policy_name"] = security_policy_name
+            input_["security_policy_name"] = security_policy_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if workflow_details is not None:
-            input["workflow_details"] = workflow_details
+            input_["workflow_details"] = workflow_details
         if structured_log_destinations is not None:
-            input["structured_log_destinations"] = structured_log_destinations
+            input_["structured_log_destinations"] = structured_log_destinations
         if s3_storage_options is not None:
-            input["s3_storage_options"] = s3_storage_options
+            input_["s3_storage_options"] = s3_storage_options
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,11 +213,11 @@ class ServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_server_request.DescribeServerRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.describe_server_request.DescribeServerRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -306,43 +308,45 @@ class ServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_server_request.UpdateServerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.update_server_request.UpdateServerRequest = {}  # type: ignore[typeddict-item]
         if certificate is not None:
-            input["certificate"] = certificate
+            input_["certificate"] = certificate
         if protocol_details is not None:
-            input["protocol_details"] = protocol_details
+            input_["protocol_details"] = protocol_details
         if endpoint_details is not None:
-            input["endpoint_details"] = endpoint_details
+            input_["endpoint_details"] = endpoint_details
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if host_key is not None:
-            input["host_key"] = host_key
+            input_["host_key"] = host_key
         if identity_provider_details is not None:
-            input["identity_provider_details"] = identity_provider_details
+            input_["identity_provider_details"] = identity_provider_details
         if logging_role is not None:
-            input["logging_role"] = logging_role
+            input_["logging_role"] = logging_role
         if post_authentication_login_banner is not None:
-            input["post_authentication_login_banner"] = post_authentication_login_banner
+            input_["post_authentication_login_banner"] = (
+                post_authentication_login_banner
+            )
         if pre_authentication_login_banner is not None:
-            input["pre_authentication_login_banner"] = pre_authentication_login_banner
+            input_["pre_authentication_login_banner"] = pre_authentication_login_banner
         if protocols is not None:
-            input["protocols"] = protocols
+            input_["protocols"] = protocols
         if security_policy_name is not None:
-            input["security_policy_name"] = security_policy_name
-        input["server_id"] = server_id
+            input_["security_policy_name"] = security_policy_name
+        input_["server_id"] = server_id
         if workflow_details is not None:
-            input["workflow_details"] = workflow_details
+            input_["workflow_details"] = workflow_details
         if structured_log_destinations is not None:
-            input["structured_log_destinations"] = structured_log_destinations
+            input_["structured_log_destinations"] = structured_log_destinations
         if s3_storage_options is not None:
-            input["s3_storage_options"] = s3_storage_options
+            input_["s3_storage_options"] = s3_storage_options
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if identity_provider_type is not None:
-            input["identity_provider_type"] = identity_provider_type
+            input_["identity_provider_type"] = identity_provider_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,11 +377,11 @@ class ServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_server_request.DeleteServerRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.delete_server_request.DeleteServerRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,14 +416,14 @@ class ServerResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_servers_request.ListServersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_servers_request.ListServersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,46 +522,48 @@ class AsyncServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_server_request.CreateServerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_server_request.CreateServerRequest = {}  # type: ignore[typeddict-item]
         if certificate is not None:
-            input["certificate"] = certificate
+            input_["certificate"] = certificate
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if endpoint_details is not None:
-            input["endpoint_details"] = endpoint_details
+            input_["endpoint_details"] = endpoint_details
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if host_key is not None:
-            input["host_key"] = host_key
+            input_["host_key"] = host_key
         if identity_provider_details is not None:
-            input["identity_provider_details"] = identity_provider_details
+            input_["identity_provider_details"] = identity_provider_details
         if identity_provider_type is not None:
-            input["identity_provider_type"] = identity_provider_type
+            input_["identity_provider_type"] = identity_provider_type
         if logging_role is not None:
-            input["logging_role"] = logging_role
+            input_["logging_role"] = logging_role
         if post_authentication_login_banner is not None:
-            input["post_authentication_login_banner"] = post_authentication_login_banner
+            input_["post_authentication_login_banner"] = (
+                post_authentication_login_banner
+            )
         if pre_authentication_login_banner is not None:
-            input["pre_authentication_login_banner"] = pre_authentication_login_banner
+            input_["pre_authentication_login_banner"] = pre_authentication_login_banner
         if protocols is not None:
-            input["protocols"] = protocols
+            input_["protocols"] = protocols
         if protocol_details is not None:
-            input["protocol_details"] = protocol_details
+            input_["protocol_details"] = protocol_details
         if security_policy_name is not None:
-            input["security_policy_name"] = security_policy_name
+            input_["security_policy_name"] = security_policy_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if workflow_details is not None:
-            input["workflow_details"] = workflow_details
+            input_["workflow_details"] = workflow_details
         if structured_log_destinations is not None:
-            input["structured_log_destinations"] = structured_log_destinations
+            input_["structured_log_destinations"] = structured_log_destinations
         if s3_storage_options is not None:
-            input["s3_storage_options"] = s3_storage_options
+            input_["s3_storage_options"] = s3_storage_options
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,11 +597,11 @@ class AsyncServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_server_request.DescribeServerRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.describe_server_request.DescribeServerRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -687,43 +693,45 @@ class AsyncServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_server_request.UpdateServerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.update_server_request.UpdateServerRequest = {}  # type: ignore[typeddict-item]
         if certificate is not None:
-            input["certificate"] = certificate
+            input_["certificate"] = certificate
         if protocol_details is not None:
-            input["protocol_details"] = protocol_details
+            input_["protocol_details"] = protocol_details
         if endpoint_details is not None:
-            input["endpoint_details"] = endpoint_details
+            input_["endpoint_details"] = endpoint_details
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if host_key is not None:
-            input["host_key"] = host_key
+            input_["host_key"] = host_key
         if identity_provider_details is not None:
-            input["identity_provider_details"] = identity_provider_details
+            input_["identity_provider_details"] = identity_provider_details
         if logging_role is not None:
-            input["logging_role"] = logging_role
+            input_["logging_role"] = logging_role
         if post_authentication_login_banner is not None:
-            input["post_authentication_login_banner"] = post_authentication_login_banner
+            input_["post_authentication_login_banner"] = (
+                post_authentication_login_banner
+            )
         if pre_authentication_login_banner is not None:
-            input["pre_authentication_login_banner"] = pre_authentication_login_banner
+            input_["pre_authentication_login_banner"] = pre_authentication_login_banner
         if protocols is not None:
-            input["protocols"] = protocols
+            input_["protocols"] = protocols
         if security_policy_name is not None:
-            input["security_policy_name"] = security_policy_name
-        input["server_id"] = server_id
+            input_["security_policy_name"] = security_policy_name
+        input_["server_id"] = server_id
         if workflow_details is not None:
-            input["workflow_details"] = workflow_details
+            input_["workflow_details"] = workflow_details
         if structured_log_destinations is not None:
-            input["structured_log_destinations"] = structured_log_destinations
+            input_["structured_log_destinations"] = structured_log_destinations
         if s3_storage_options is not None:
-            input["s3_storage_options"] = s3_storage_options
+            input_["s3_storage_options"] = s3_storage_options
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if identity_provider_type is not None:
-            input["identity_provider_type"] = identity_provider_type
+            input_["identity_provider_type"] = identity_provider_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -755,11 +763,11 @@ class AsyncServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_server_request.DeleteServerRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
+        input_: aws_sdk_transfer.types.delete_server_request.DeleteServerRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -795,14 +803,14 @@ class AsyncServerResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_servers_request.ListServersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_servers_request.ListServersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

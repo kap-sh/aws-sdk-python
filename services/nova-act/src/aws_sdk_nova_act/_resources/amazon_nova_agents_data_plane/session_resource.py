@@ -67,14 +67,14 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
+        input_: aws_sdk_nova_act.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,18 +115,18 @@ class SessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
+        input_: aws_sdk_nova_act.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -171,14 +171,14 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
+        input_: aws_sdk_nova_act.types.create_session_request.CreateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,18 +220,18 @@ class AsyncSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_nova_act.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_definition_name"] = workflow_definition_name
-        input["workflow_run_id"] = workflow_run_id
+        input_: aws_sdk_nova_act.types.list_sessions_request.ListSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_definition_name"] = workflow_definition_name
+        input_["workflow_run_id"] = workflow_run_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

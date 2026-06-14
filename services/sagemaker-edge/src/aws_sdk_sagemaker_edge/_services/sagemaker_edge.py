@@ -166,12 +166,12 @@ class SagemakerEdgeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_edge.types.get_deployments_request.GetDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["device_name"] = device_name
-        input["device_fleet_name"] = device_fleet_name
+        input_: aws_sdk_sagemaker_edge.types.get_deployments_request.GetDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["device_name"] = device_name
+        input_["device_fleet_name"] = device_fleet_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,12 +206,12 @@ class SagemakerEdgeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_edge.types.get_device_registration_request.GetDeviceRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["device_name"] = device_name
-        input["device_fleet_name"] = device_fleet_name
+        input_: aws_sdk_sagemaker_edge.types.get_device_registration_request.GetDeviceRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["device_name"] = device_name
+        input_["device_fleet_name"] = device_fleet_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -256,19 +256,19 @@ class SagemakerEdgeClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_edge.types.send_heartbeat_request.SendHeartbeatRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker_edge.types.send_heartbeat_request.SendHeartbeatRequest = {}  # type: ignore[typeddict-item]
         if agent_metrics is not None:
-            input["agent_metrics"] = agent_metrics
+            input_["agent_metrics"] = agent_metrics
         if models is not None:
-            input["models"] = models
-        input["agent_version"] = agent_version
-        input["device_name"] = device_name
-        input["device_fleet_name"] = device_fleet_name
+            input_["models"] = models
+        input_["agent_version"] = agent_version
+        input_["device_name"] = device_name
+        input_["device_fleet_name"] = device_fleet_name
         if deployment_result is not None:
-            input["deployment_result"] = deployment_result
+            input_["deployment_result"] = deployment_result
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

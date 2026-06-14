@@ -112,31 +112,31 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_agent_action_group_request.CreateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["action_group_name"] = action_group_name
+        input_: aws_sdk_bedrock_agent.types.create_agent_action_group_request.CreateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["action_group_name"] = action_group_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parent_action_group_signature is not None:
-            input["parent_action_group_signature"] = parent_action_group_signature
+            input_["parent_action_group_signature"] = parent_action_group_signature
         if parent_action_group_signature_params is not None:
-            input["parent_action_group_signature_params"] = (
+            input_["parent_action_group_signature_params"] = (
                 parent_action_group_signature_params
             )
         if action_group_executor is not None:
-            input["action_group_executor"] = action_group_executor
+            input_["action_group_executor"] = action_group_executor
         if api_schema is not None:
-            input["api_schema"] = api_schema
+            input_["api_schema"] = api_schema
         if action_group_state is not None:
-            input["action_group_state"] = action_group_state
+            input_["action_group_state"] = action_group_state
         if function_schema is not None:
-            input["function_schema"] = function_schema
+            input_["function_schema"] = function_schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -175,15 +175,15 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_agent_action_group_request.DeleteAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["action_group_id"] = action_group_id
+        input_: aws_sdk_bedrock_agent.types.delete_agent_action_group_request.DeleteAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["action_group_id"] = action_group_id
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,13 +220,13 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_action_group_request.GetAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["action_group_id"] = action_group_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_action_group_request.GetAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["action_group_id"] = action_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,16 +267,16 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_action_groups_request.ListAgentActionGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.list_agent_action_groups_request.ListAgentActionGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -341,30 +341,30 @@ class ActionGroupResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_action_group_request.UpdateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["action_group_id"] = action_group_id
-        input["action_group_name"] = action_group_name
+        input_: aws_sdk_bedrock_agent.types.update_agent_action_group_request.UpdateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["action_group_id"] = action_group_id
+        input_["action_group_name"] = action_group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parent_action_group_signature is not None:
-            input["parent_action_group_signature"] = parent_action_group_signature
+            input_["parent_action_group_signature"] = parent_action_group_signature
         if parent_action_group_signature_params is not None:
-            input["parent_action_group_signature_params"] = (
+            input_["parent_action_group_signature_params"] = (
                 parent_action_group_signature_params
             )
         if action_group_executor is not None:
-            input["action_group_executor"] = action_group_executor
+            input_["action_group_executor"] = action_group_executor
         if action_group_state is not None:
-            input["action_group_state"] = action_group_state
+            input_["action_group_state"] = action_group_state
         if api_schema is not None:
-            input["api_schema"] = api_schema
+            input_["api_schema"] = api_schema
         if function_schema is not None:
-            input["function_schema"] = function_schema
+            input_["function_schema"] = function_schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,31 +437,31 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_agent_action_group_request.CreateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["action_group_name"] = action_group_name
+        input_: aws_sdk_bedrock_agent.types.create_agent_action_group_request.CreateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["action_group_name"] = action_group_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parent_action_group_signature is not None:
-            input["parent_action_group_signature"] = parent_action_group_signature
+            input_["parent_action_group_signature"] = parent_action_group_signature
         if parent_action_group_signature_params is not None:
-            input["parent_action_group_signature_params"] = (
+            input_["parent_action_group_signature_params"] = (
                 parent_action_group_signature_params
             )
         if action_group_executor is not None:
-            input["action_group_executor"] = action_group_executor
+            input_["action_group_executor"] = action_group_executor
         if api_schema is not None:
-            input["api_schema"] = api_schema
+            input_["api_schema"] = api_schema
         if action_group_state is not None:
-            input["action_group_state"] = action_group_state
+            input_["action_group_state"] = action_group_state
         if function_schema is not None:
-            input["function_schema"] = function_schema
+            input_["function_schema"] = function_schema
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -501,15 +501,15 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_agent_action_group_request.DeleteAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["action_group_id"] = action_group_id
+        input_: aws_sdk_bedrock_agent.types.delete_agent_action_group_request.DeleteAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["action_group_id"] = action_group_id
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -547,13 +547,13 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_action_group_request.GetAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["action_group_id"] = action_group_id
+        input_: aws_sdk_bedrock_agent.types.get_agent_action_group_request.GetAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["action_group_id"] = action_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,16 +595,16 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_action_groups_request.ListAgentActionGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.list_agent_action_groups_request.ListAgentActionGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -670,30 +670,30 @@ class AsyncActionGroupResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_agent_action_group_request.UpdateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
-        input["action_group_id"] = action_group_id
-        input["action_group_name"] = action_group_name
+        input_: aws_sdk_bedrock_agent.types.update_agent_action_group_request.UpdateAgentActionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
+        input_["action_group_id"] = action_group_id
+        input_["action_group_name"] = action_group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parent_action_group_signature is not None:
-            input["parent_action_group_signature"] = parent_action_group_signature
+            input_["parent_action_group_signature"] = parent_action_group_signature
         if parent_action_group_signature_params is not None:
-            input["parent_action_group_signature_params"] = (
+            input_["parent_action_group_signature_params"] = (
                 parent_action_group_signature_params
             )
         if action_group_executor is not None:
-            input["action_group_executor"] = action_group_executor
+            input_["action_group_executor"] = action_group_executor
         if action_group_state is not None:
-            input["action_group_state"] = action_group_state
+            input_["action_group_state"] = action_group_state
         if api_schema is not None:
-            input["api_schema"] = api_schema
+            input_["api_schema"] = api_schema
         if function_schema is not None:
-            input["function_schema"] = function_schema
+            input_["function_schema"] = function_schema
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

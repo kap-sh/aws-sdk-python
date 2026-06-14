@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_security_ir._auth._signers
@@ -141,27 +142,27 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.create_case_request.CreateCaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.create_case_request.CreateCaseRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["resolver_type"] = resolver_type
-        input["title"] = title
-        input["description"] = description
-        input["engagement_type"] = engagement_type
-        input["reported_incident_start_date"] = reported_incident_start_date
-        input["impacted_accounts"] = impacted_accounts
-        input["watchers"] = watchers
+            input_["client_token"] = client_token
+        input_["resolver_type"] = resolver_type
+        input_["title"] = title
+        input_["description"] = description
+        input_["engagement_type"] = engagement_type
+        input_["reported_incident_start_date"] = reported_incident_start_date
+        input_["impacted_accounts"] = impacted_accounts
+        input_["watchers"] = watchers
         if threat_actor_ip_addresses is not None:
-            input["threat_actor_ip_addresses"] = threat_actor_ip_addresses
+            input_["threat_actor_ip_addresses"] = threat_actor_ip_addresses
         if impacted_services is not None:
-            input["impacted_services"] = impacted_services
+            input_["impacted_services"] = impacted_services
         if impacted_aws_regions is not None:
-            input["impacted_aws_regions"] = impacted_aws_regions
+            input_["impacted_aws_regions"] = impacted_aws_regions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -199,11 +200,11 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.get_case_request.GetCaseRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_security_ir.types.get_case_request.GetCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,45 +298,47 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_case_request.UpdateCaseRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_security_ir.types.update_case_request.UpdateCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if reported_incident_start_date is not None:
-            input["reported_incident_start_date"] = reported_incident_start_date
+            input_["reported_incident_start_date"] = reported_incident_start_date
         if actual_incident_start_date is not None:
-            input["actual_incident_start_date"] = actual_incident_start_date
+            input_["actual_incident_start_date"] = actual_incident_start_date
         if engagement_type is not None:
-            input["engagement_type"] = engagement_type
+            input_["engagement_type"] = engagement_type
         if watchers_to_add is not None:
-            input["watchers_to_add"] = watchers_to_add
+            input_["watchers_to_add"] = watchers_to_add
         if watchers_to_delete is not None:
-            input["watchers_to_delete"] = watchers_to_delete
+            input_["watchers_to_delete"] = watchers_to_delete
         if threat_actor_ip_addresses_to_add is not None:
-            input["threat_actor_ip_addresses_to_add"] = threat_actor_ip_addresses_to_add
+            input_["threat_actor_ip_addresses_to_add"] = (
+                threat_actor_ip_addresses_to_add
+            )
         if threat_actor_ip_addresses_to_delete is not None:
-            input["threat_actor_ip_addresses_to_delete"] = (
+            input_["threat_actor_ip_addresses_to_delete"] = (
                 threat_actor_ip_addresses_to_delete
             )
         if impacted_services_to_add is not None:
-            input["impacted_services_to_add"] = impacted_services_to_add
+            input_["impacted_services_to_add"] = impacted_services_to_add
         if impacted_services_to_delete is not None:
-            input["impacted_services_to_delete"] = impacted_services_to_delete
+            input_["impacted_services_to_delete"] = impacted_services_to_delete
         if impacted_aws_regions_to_add is not None:
-            input["impacted_aws_regions_to_add"] = impacted_aws_regions_to_add
+            input_["impacted_aws_regions_to_add"] = impacted_aws_regions_to_add
         if impacted_aws_regions_to_delete is not None:
-            input["impacted_aws_regions_to_delete"] = impacted_aws_regions_to_delete
+            input_["impacted_aws_regions_to_delete"] = impacted_aws_regions_to_delete
         if impacted_accounts_to_add is not None:
-            input["impacted_accounts_to_add"] = impacted_accounts_to_add
+            input_["impacted_accounts_to_add"] = impacted_accounts_to_add
         if impacted_accounts_to_delete is not None:
-            input["impacted_accounts_to_delete"] = impacted_accounts_to_delete
+            input_["impacted_accounts_to_delete"] = impacted_accounts_to_delete
         if case_metadata is not None:
-            input["case_metadata"] = case_metadata
+            input_["case_metadata"] = case_metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,14 +378,14 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_cases_request.ListCasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_cases_request.ListCasesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,11 +423,11 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.close_case_request.CloseCaseRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_security_ir.types.close_case_request.CloseCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,14 +469,14 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.create_case_comment_request.CreateCaseCommentRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_security_ir.types.create_case_comment_request.CreateCaseCommentRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["body"] = body
+            input_["client_token"] = client_token
+        input_["body"] = body
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,12 +516,12 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.get_case_attachment_download_url_request.GetCaseAttachmentDownloadUrlRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_security_ir.types.get_case_attachment_download_url_request.GetCaseAttachmentDownloadUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["attachment_id"] = attachment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -562,15 +565,15 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.get_case_attachment_upload_url_request.GetCaseAttachmentUploadUrlRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["file_name"] = file_name
-        input["content_length"] = content_length
+        input_: aws_sdk_security_ir.types.get_case_attachment_upload_url_request.GetCaseAttachmentUploadUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["file_name"] = file_name
+        input_["content_length"] = content_length
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -612,15 +615,15 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_case_edits_request.ListCaseEditsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_case_edits_request.ListCaseEditsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["case_id"] = case_id
+            input_["max_results"] = max_results
+        input_["case_id"] = case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,15 +665,15 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_comments_request.ListCommentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_comments_request.ListCommentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["case_id"] = case_id
+            input_["max_results"] = max_results
+        input_["case_id"] = case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -712,15 +715,15 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_investigations_request.ListInvestigationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_investigations_request.ListInvestigationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["case_id"] = case_id
+            input_["max_results"] = max_results
+        input_["case_id"] = case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -769,15 +772,15 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.send_feedback_request.SendFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["result_id"] = result_id
-        input["usefulness"] = usefulness
+        input_: aws_sdk_security_ir.types.send_feedback_request.SendFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["result_id"] = result_id
+        input_["usefulness"] = usefulness
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -819,13 +822,13 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_case_comment_request.UpdateCaseCommentRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["comment_id"] = comment_id
-        input["body"] = body
+        input_: aws_sdk_security_ir.types.update_case_comment_request.UpdateCaseCommentRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["comment_id"] = comment_id
+        input_["body"] = body
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -867,12 +870,12 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_case_status_request.UpdateCaseStatusRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["case_status"] = case_status
+        input_: aws_sdk_security_ir.types.update_case_status_request.UpdateCaseStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["case_status"] = case_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -912,12 +915,12 @@ class Case:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_resolver_type_request.UpdateResolverTypeRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["resolver_type"] = resolver_type
+        input_: aws_sdk_security_ir.types.update_resolver_type_request.UpdateResolverTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["resolver_type"] = resolver_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -989,27 +992,27 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.create_case_request.CreateCaseRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.create_case_request.CreateCaseRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["resolver_type"] = resolver_type
-        input["title"] = title
-        input["description"] = description
-        input["engagement_type"] = engagement_type
-        input["reported_incident_start_date"] = reported_incident_start_date
-        input["impacted_accounts"] = impacted_accounts
-        input["watchers"] = watchers
+            input_["client_token"] = client_token
+        input_["resolver_type"] = resolver_type
+        input_["title"] = title
+        input_["description"] = description
+        input_["engagement_type"] = engagement_type
+        input_["reported_incident_start_date"] = reported_incident_start_date
+        input_["impacted_accounts"] = impacted_accounts
+        input_["watchers"] = watchers
         if threat_actor_ip_addresses is not None:
-            input["threat_actor_ip_addresses"] = threat_actor_ip_addresses
+            input_["threat_actor_ip_addresses"] = threat_actor_ip_addresses
         if impacted_services is not None:
-            input["impacted_services"] = impacted_services
+            input_["impacted_services"] = impacted_services
         if impacted_aws_regions is not None:
-            input["impacted_aws_regions"] = impacted_aws_regions
+            input_["impacted_aws_regions"] = impacted_aws_regions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1048,11 +1051,11 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.get_case_request.GetCaseRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_security_ir.types.get_case_request.GetCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1147,45 +1150,47 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_case_request.UpdateCaseRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_security_ir.types.update_case_request.UpdateCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if reported_incident_start_date is not None:
-            input["reported_incident_start_date"] = reported_incident_start_date
+            input_["reported_incident_start_date"] = reported_incident_start_date
         if actual_incident_start_date is not None:
-            input["actual_incident_start_date"] = actual_incident_start_date
+            input_["actual_incident_start_date"] = actual_incident_start_date
         if engagement_type is not None:
-            input["engagement_type"] = engagement_type
+            input_["engagement_type"] = engagement_type
         if watchers_to_add is not None:
-            input["watchers_to_add"] = watchers_to_add
+            input_["watchers_to_add"] = watchers_to_add
         if watchers_to_delete is not None:
-            input["watchers_to_delete"] = watchers_to_delete
+            input_["watchers_to_delete"] = watchers_to_delete
         if threat_actor_ip_addresses_to_add is not None:
-            input["threat_actor_ip_addresses_to_add"] = threat_actor_ip_addresses_to_add
+            input_["threat_actor_ip_addresses_to_add"] = (
+                threat_actor_ip_addresses_to_add
+            )
         if threat_actor_ip_addresses_to_delete is not None:
-            input["threat_actor_ip_addresses_to_delete"] = (
+            input_["threat_actor_ip_addresses_to_delete"] = (
                 threat_actor_ip_addresses_to_delete
             )
         if impacted_services_to_add is not None:
-            input["impacted_services_to_add"] = impacted_services_to_add
+            input_["impacted_services_to_add"] = impacted_services_to_add
         if impacted_services_to_delete is not None:
-            input["impacted_services_to_delete"] = impacted_services_to_delete
+            input_["impacted_services_to_delete"] = impacted_services_to_delete
         if impacted_aws_regions_to_add is not None:
-            input["impacted_aws_regions_to_add"] = impacted_aws_regions_to_add
+            input_["impacted_aws_regions_to_add"] = impacted_aws_regions_to_add
         if impacted_aws_regions_to_delete is not None:
-            input["impacted_aws_regions_to_delete"] = impacted_aws_regions_to_delete
+            input_["impacted_aws_regions_to_delete"] = impacted_aws_regions_to_delete
         if impacted_accounts_to_add is not None:
-            input["impacted_accounts_to_add"] = impacted_accounts_to_add
+            input_["impacted_accounts_to_add"] = impacted_accounts_to_add
         if impacted_accounts_to_delete is not None:
-            input["impacted_accounts_to_delete"] = impacted_accounts_to_delete
+            input_["impacted_accounts_to_delete"] = impacted_accounts_to_delete
         if case_metadata is not None:
-            input["case_metadata"] = case_metadata
+            input_["case_metadata"] = case_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1226,14 +1231,14 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_cases_request.ListCasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_cases_request.ListCasesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,11 +1277,11 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.close_case_request.CloseCaseRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_security_ir.types.close_case_request.CloseCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1319,14 +1324,14 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.create_case_comment_request.CreateCaseCommentRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
+        input_: aws_sdk_security_ir.types.create_case_comment_request.CreateCaseCommentRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["body"] = body
+            input_["client_token"] = client_token
+        input_["body"] = body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1367,12 +1372,12 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.get_case_attachment_download_url_request.GetCaseAttachmentDownloadUrlRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["attachment_id"] = attachment_id
+        input_: aws_sdk_security_ir.types.get_case_attachment_download_url_request.GetCaseAttachmentDownloadUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["attachment_id"] = attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1417,15 +1422,15 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.get_case_attachment_upload_url_request.GetCaseAttachmentUploadUrlRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["file_name"] = file_name
-        input["content_length"] = content_length
+        input_: aws_sdk_security_ir.types.get_case_attachment_upload_url_request.GetCaseAttachmentUploadUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["file_name"] = file_name
+        input_["content_length"] = content_length
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1468,15 +1473,15 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_case_edits_request.ListCaseEditsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_case_edits_request.ListCaseEditsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["case_id"] = case_id
+            input_["max_results"] = max_results
+        input_["case_id"] = case_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1519,15 +1524,15 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_comments_request.ListCommentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_comments_request.ListCommentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["case_id"] = case_id
+            input_["max_results"] = max_results
+        input_["case_id"] = case_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1570,15 +1575,15 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.list_investigations_request.ListInvestigationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_security_ir.types.list_investigations_request.ListInvestigationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["case_id"] = case_id
+            input_["max_results"] = max_results
+        input_["case_id"] = case_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1628,15 +1633,15 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.send_feedback_request.SendFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["result_id"] = result_id
-        input["usefulness"] = usefulness
+        input_: aws_sdk_security_ir.types.send_feedback_request.SendFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["result_id"] = result_id
+        input_["usefulness"] = usefulness
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1679,13 +1684,13 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_case_comment_request.UpdateCaseCommentRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["comment_id"] = comment_id
-        input["body"] = body
+        input_: aws_sdk_security_ir.types.update_case_comment_request.UpdateCaseCommentRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["comment_id"] = comment_id
+        input_["body"] = body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1728,12 +1733,12 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_case_status_request.UpdateCaseStatusRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["case_status"] = case_status
+        input_: aws_sdk_security_ir.types.update_case_status_request.UpdateCaseStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["case_status"] = case_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1774,12 +1779,12 @@ class AsyncCase:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_security_ir.types.update_resolver_type_request.UpdateResolverTypeRequest = {}  # type: ignore[typeddict-item]
-        input["case_id"] = case_id
-        input["resolver_type"] = resolver_type
+        input_: aws_sdk_security_ir.types.update_resolver_type_request.UpdateResolverTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["case_id"] = case_id
+        input_["resolver_type"] = resolver_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

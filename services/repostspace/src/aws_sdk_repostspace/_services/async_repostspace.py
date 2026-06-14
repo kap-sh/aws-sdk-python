@@ -224,14 +224,14 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.batch_add_channel_role_to_accessors_input.BatchAddChannelRoleToAccessorsInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["channel_id"] = channel_id
-        input["accessor_ids"] = accessor_ids
-        input["channel_role"] = channel_role
+        input_: aws_sdk_repostspace.types.batch_add_channel_role_to_accessors_input.BatchAddChannelRoleToAccessorsInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["channel_id"] = channel_id
+        input_["accessor_ids"] = accessor_ids
+        input_["channel_role"] = channel_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,13 +274,13 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.batch_add_role_input.BatchAddRoleInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["accessor_ids"] = accessor_ids
-        input["role"] = role
+        input_: aws_sdk_repostspace.types.batch_add_role_input.BatchAddRoleInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["accessor_ids"] = accessor_ids
+        input_["role"] = role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,14 +325,14 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.batch_remove_channel_role_from_accessors_input.BatchRemoveChannelRoleFromAccessorsInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["channel_id"] = channel_id
-        input["accessor_ids"] = accessor_ids
-        input["channel_role"] = channel_role
+        input_: aws_sdk_repostspace.types.batch_remove_channel_role_from_accessors_input.BatchRemoveChannelRoleFromAccessorsInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["channel_id"] = channel_id
+        input_["accessor_ids"] = accessor_ids
+        input_["channel_role"] = channel_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,13 +375,13 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.batch_remove_role_input.BatchRemoveRoleInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["accessor_ids"] = accessor_ids
-        input["role"] = role
+        input_: aws_sdk_repostspace.types.batch_remove_role_input.BatchRemoveRoleInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["accessor_ids"] = accessor_ids
+        input_["role"] = role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,14 +426,14 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.create_channel_input.CreateChannelInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["channel_name"] = channel_name
+        input_: aws_sdk_repostspace.types.create_channel_input.CreateChannelInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["channel_name"] = channel_name
         if channel_description is not None:
-            input["channel_description"] = channel_description
+            input_["channel_description"] = channel_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,23 +485,23 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.create_space_input.CreateSpaceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["subdomain"] = subdomain
-        input["tier"] = tier
+        input_: aws_sdk_repostspace.types.create_space_input.CreateSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["subdomain"] = subdomain
+        input_["tier"] = tier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if user_kms_key is not None:
-            input["user_kms_key"] = user_kms_key
+            input_["user_kms_key"] = user_kms_key
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if supported_email_domains is not None:
-            input["supported_email_domains"] = supported_email_domains
+            input_["supported_email_domains"] = supported_email_domains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -533,11 +533,11 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.delete_space_input.DeleteSpaceInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
+        input_: aws_sdk_repostspace.types.delete_space_input.DeleteSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -571,12 +571,12 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.deregister_admin_input.DeregisterAdminInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["admin_id"] = admin_id
+        input_: aws_sdk_repostspace.types.deregister_admin_input.DeregisterAdminInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["admin_id"] = admin_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,12 +617,12 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.get_channel_input.GetChannelInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["channel_id"] = channel_id
+        input_: aws_sdk_repostspace.types.get_channel_input.GetChannelInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["channel_id"] = channel_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -656,11 +656,11 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.get_space_input.GetSpaceInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
+        input_: aws_sdk_repostspace.types.get_space_input.GetSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -705,15 +705,15 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.list_channels_input.ListChannelsInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
+        input_: aws_sdk_repostspace.types.list_channels_input.ListChannelsInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -776,14 +776,14 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.list_spaces_input.ListSpacesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_repostspace.types.list_spaces_input.ListSpacesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,11 +840,11 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_repostspace.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -878,12 +878,12 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.register_admin_input.RegisterAdminInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["admin_id"] = admin_id
+        input_: aws_sdk_repostspace.types.register_admin_input.RegisterAdminInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["admin_id"] = admin_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -921,14 +921,14 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.send_invites_input.SendInvitesInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["accessor_ids"] = accessor_ids
-        input["title"] = title
-        input["body"] = body
+        input_: aws_sdk_repostspace.types.send_invites_input.SendInvitesInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["accessor_ids"] = accessor_ids
+        input_["title"] = title
+        input_["body"] = body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -964,12 +964,12 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_repostspace.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1005,12 +1005,12 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_repostspace.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1057,15 +1057,15 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.update_channel_input.UpdateChannelInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
-        input["channel_id"] = channel_id
-        input["channel_name"] = channel_name
+        input_: aws_sdk_repostspace.types.update_channel_input.UpdateChannelInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
+        input_["channel_id"] = channel_id
+        input_["channel_name"] = channel_name
         if channel_description is not None:
-            input["channel_description"] = channel_description
+            input_["channel_description"] = channel_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1109,19 +1109,19 @@ class AsyncrepostspaceClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_repostspace.types.update_space_input.UpdateSpaceInput = {}  # type: ignore[typeddict-item]
-        input["space_id"] = space_id
+        input_: aws_sdk_repostspace.types.update_space_input.UpdateSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["space_id"] = space_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if supported_email_domains is not None:
-            input["supported_email_domains"] = supported_email_domains
+            input_["supported_email_domains"] = supported_email_domains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

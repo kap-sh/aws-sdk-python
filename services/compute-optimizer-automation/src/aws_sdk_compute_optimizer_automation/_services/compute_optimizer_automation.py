@@ -8,6 +8,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_compute_optimizer_automation._auth._signers
+import aws_sdk_compute_optimizer_automation._auth._sigv4
 from aws_sdk_compute_optimizer_automation._auth._identity import Credentials
 from aws_sdk_compute_optimizer_automation._auth._providers import (
     CredentialsProvider,
@@ -235,13 +237,13 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.associate_accounts_request.AssociateAccountsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_compute_optimizer_automation.types.associate_accounts_request.AssociateAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -304,27 +306,27 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.create_automation_rule_request.CreateAutomationRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_compute_optimizer_automation.types.create_automation_rule_request.CreateAutomationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["rule_type"] = rule_type
+            input_["description"] = description
+        input_["rule_type"] = rule_type
         if organization_configuration is not None:
-            input["organization_configuration"] = organization_configuration
+            input_["organization_configuration"] = organization_configuration
         if priority is not None:
-            input["priority"] = priority
-        input["recommended_action_types"] = recommended_action_types
+            input_["priority"] = priority
+        input_["recommended_action_types"] = recommended_action_types
         if criteria is not None:
-            input["criteria"] = criteria
-        input["schedule"] = schedule
-        input["status"] = status
+            input_["criteria"] = criteria
+        input_["schedule"] = schedule
+        input_["status"] = status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -363,14 +365,14 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.delete_automation_rule_request.DeleteAutomationRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_arn"] = rule_arn
-        input["rule_revision"] = rule_revision
+        input_: aws_sdk_compute_optimizer_automation.types.delete_automation_rule_request.DeleteAutomationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_arn"] = rule_arn
+        input_["rule_revision"] = rule_revision
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,13 +409,13 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.disassociate_accounts_request.DisassociateAccountsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_compute_optimizer_automation.types.disassociate_accounts_request.DisassociateAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,11 +448,11 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.get_automation_event_request.GetAutomationEventRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
+        input_: aws_sdk_compute_optimizer_automation.types.get_automation_event_request.GetAutomationEventRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,11 +485,11 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.get_automation_rule_request.GetAutomationRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_arn"] = rule_arn
+        input_: aws_sdk_compute_optimizer_automation.types.get_automation_rule_request.GetAutomationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_arn"] = rule_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -515,10 +517,10 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.get_enrollment_configuration_request.GetEnrollmentConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer_automation.types.get_enrollment_configuration_request.GetEnrollmentConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -555,14 +557,14 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer_automation.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -632,20 +634,20 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_automation_events_request.ListAutomationEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer_automation.types.list_automation_events_request.ListAutomationEventsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if start_time_inclusive is not None:
-            input["start_time_inclusive"] = start_time_inclusive
+            input_["start_time_inclusive"] = start_time_inclusive
         if end_time_exclusive is not None:
-            input["end_time_exclusive"] = end_time_exclusive
+            input_["end_time_exclusive"] = end_time_exclusive
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,15 +717,15 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_automation_event_steps_request.ListAutomationEventStepsRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
+        input_: aws_sdk_compute_optimizer_automation.types.list_automation_event_steps_request.ListAutomationEventStepsRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -793,20 +795,20 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_automation_event_summaries_request.ListAutomationEventSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer_automation.types.list_automation_event_summaries_request.ListAutomationEventSummariesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if start_date_inclusive is not None:
-            input["start_date_inclusive"] = start_date_inclusive
+            input_["start_date_inclusive"] = start_date_inclusive
         if end_date_exclusive is not None:
-            input["end_date_exclusive"] = end_date_exclusive
+            input_["end_date_exclusive"] = end_date_exclusive
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -886,20 +888,20 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_automation_rule_preview_request.ListAutomationRulePreviewRequest = {}  # type: ignore[typeddict-item]
-        input["rule_type"] = rule_type
+        input_: aws_sdk_compute_optimizer_automation.types.list_automation_rule_preview_request.ListAutomationRulePreviewRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_type"] = rule_type
         if organization_scope is not None:
-            input["organization_scope"] = organization_scope
-        input["recommended_action_types"] = recommended_action_types
+            input_["organization_scope"] = organization_scope
+        input_["recommended_action_types"] = recommended_action_types
         if criteria is not None:
-            input["criteria"] = criteria
+            input_["criteria"] = criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -982,20 +984,20 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_automation_rule_preview_summaries_request.ListAutomationRulePreviewSummariesRequest = {}  # type: ignore[typeddict-item]
-        input["rule_type"] = rule_type
+        input_: aws_sdk_compute_optimizer_automation.types.list_automation_rule_preview_summaries_request.ListAutomationRulePreviewSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_type"] = rule_type
         if organization_scope is not None:
-            input["organization_scope"] = organization_scope
-        input["recommended_action_types"] = recommended_action_types
+            input_["organization_scope"] = organization_scope
+        input_["recommended_action_types"] = recommended_action_types
         if criteria is not None:
-            input["criteria"] = criteria
+            input_["criteria"] = criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1071,16 +1073,16 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_automation_rules_request.ListAutomationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer_automation.types.list_automation_rules_request.ListAutomationRulesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1148,16 +1150,16 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_recommended_actions_request.ListRecommendedActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer_automation.types.list_recommended_actions_request.ListRecommendedActionsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1225,16 +1227,16 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_recommended_action_summaries_request.ListRecommendedActionSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_compute_optimizer_automation.types.list_recommended_action_summaries_request.ListRecommendedActionSummariesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1294,11 +1296,11 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_compute_optimizer_automation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1335,13 +1337,13 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.rollback_automation_event_request.RollbackAutomationEventRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
+        input_: aws_sdk_compute_optimizer_automation.types.rollback_automation_event_request.RollbackAutomationEventRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1378,13 +1380,13 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.start_automation_event_request.StartAutomationEventRequest = {}  # type: ignore[typeddict-item]
-        input["recommended_action_id"] = recommended_action_id
+        input_: aws_sdk_compute_optimizer_automation.types.start_automation_event_request.StartAutomationEventRequest = {}  # type: ignore[typeddict-item]
+        input_["recommended_action_id"] = recommended_action_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1425,15 +1427,15 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["rule_revision"] = rule_revision
-        input["tags"] = tags
+        input_: aws_sdk_compute_optimizer_automation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["rule_revision"] = rule_revision
+        input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1474,15 +1476,15 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["rule_revision"] = rule_revision
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_compute_optimizer_automation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["rule_revision"] = rule_revision
+        input_["tag_keys"] = tag_keys
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1554,32 +1556,32 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.update_automation_rule_request.UpdateAutomationRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_arn"] = rule_arn
-        input["rule_revision"] = rule_revision
+        input_: aws_sdk_compute_optimizer_automation.types.update_automation_rule_request.UpdateAutomationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_arn"] = rule_arn
+        input_["rule_revision"] = rule_revision
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rule_type is not None:
-            input["rule_type"] = rule_type
+            input_["rule_type"] = rule_type
         if organization_configuration is not None:
-            input["organization_configuration"] = organization_configuration
+            input_["organization_configuration"] = organization_configuration
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if recommended_action_types is not None:
-            input["recommended_action_types"] = recommended_action_types
+            input_["recommended_action_types"] = recommended_action_types
         if criteria is not None:
-            input["criteria"] = criteria
+            input_["criteria"] = criteria
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1616,13 +1618,13 @@ class ComputeOptimizerAutomationClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_compute_optimizer_automation.types.update_enrollment_configuration_request.UpdateEnrollmentConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["status"] = status
+        input_: aws_sdk_compute_optimizer_automation.types.update_enrollment_configuration_request.UpdateEnrollmentConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["status"] = status
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -107,38 +107,44 @@ class ReplicationConfigurationTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.create_replication_configuration_template_request.CreateReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["staging_area_subnet_id"] = staging_area_subnet_id
+        input_: aws_sdk_drs.types.create_replication_configuration_template_request.CreateReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["staging_area_subnet_id"] = staging_area_subnet_id
         if associate_default_security_group is not None:
-            input["associate_default_security_group"] = associate_default_security_group
-        input["replication_servers_security_groups_i_ds"] = (
+            input_["associate_default_security_group"] = (
+                associate_default_security_group
+            )
+        input_["replication_servers_security_groups_i_ds"] = (
             replication_servers_security_groups_i_ds
         )
         if replication_server_instance_type is not None:
-            input["replication_server_instance_type"] = replication_server_instance_type
+            input_["replication_server_instance_type"] = (
+                replication_server_instance_type
+            )
         if use_dedicated_replication_server is not None:
-            input["use_dedicated_replication_server"] = use_dedicated_replication_server
+            input_["use_dedicated_replication_server"] = (
+                use_dedicated_replication_server
+            )
         if default_large_staging_disk_type is not None:
-            input["default_large_staging_disk_type"] = default_large_staging_disk_type
-        input["ebs_encryption"] = ebs_encryption
+            input_["default_large_staging_disk_type"] = default_large_staging_disk_type
+        input_["ebs_encryption"] = ebs_encryption
         if ebs_encryption_key_arn is not None:
-            input["ebs_encryption_key_arn"] = ebs_encryption_key_arn
-        input["bandwidth_throttling"] = bandwidth_throttling
+            input_["ebs_encryption_key_arn"] = ebs_encryption_key_arn
+        input_["bandwidth_throttling"] = bandwidth_throttling
         if data_plane_routing is not None:
-            input["data_plane_routing"] = data_plane_routing
+            input_["data_plane_routing"] = data_plane_routing
         if create_public_ip is not None:
-            input["create_public_ip"] = create_public_ip
-        input["staging_area_tags"] = staging_area_tags
-        input["pit_policy"] = pit_policy
+            input_["create_public_ip"] = create_public_ip
+        input_["staging_area_tags"] = staging_area_tags
+        input_["pit_policy"] = pit_policy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if auto_replicate_new_disks is not None:
-            input["auto_replicate_new_disks"] = auto_replicate_new_disks
+            input_["auto_replicate_new_disks"] = auto_replicate_new_disks
         if internet_protocol is not None:
-            input["internet_protocol"] = internet_protocol
+            input_["internet_protocol"] = internet_protocol
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,47 +223,53 @@ class ReplicationConfigurationTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.update_replication_configuration_template_request.UpdateReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["replication_configuration_template_id"] = (
+        input_: aws_sdk_drs.types.update_replication_configuration_template_request.UpdateReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["replication_configuration_template_id"] = (
             replication_configuration_template_id
         )
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if staging_area_subnet_id is not None:
-            input["staging_area_subnet_id"] = staging_area_subnet_id
+            input_["staging_area_subnet_id"] = staging_area_subnet_id
         if associate_default_security_group is not None:
-            input["associate_default_security_group"] = associate_default_security_group
+            input_["associate_default_security_group"] = (
+                associate_default_security_group
+            )
         if replication_servers_security_groups_i_ds is not None:
-            input["replication_servers_security_groups_i_ds"] = (
+            input_["replication_servers_security_groups_i_ds"] = (
                 replication_servers_security_groups_i_ds
             )
         if replication_server_instance_type is not None:
-            input["replication_server_instance_type"] = replication_server_instance_type
+            input_["replication_server_instance_type"] = (
+                replication_server_instance_type
+            )
         if use_dedicated_replication_server is not None:
-            input["use_dedicated_replication_server"] = use_dedicated_replication_server
+            input_["use_dedicated_replication_server"] = (
+                use_dedicated_replication_server
+            )
         if default_large_staging_disk_type is not None:
-            input["default_large_staging_disk_type"] = default_large_staging_disk_type
+            input_["default_large_staging_disk_type"] = default_large_staging_disk_type
         if ebs_encryption is not None:
-            input["ebs_encryption"] = ebs_encryption
+            input_["ebs_encryption"] = ebs_encryption
         if ebs_encryption_key_arn is not None:
-            input["ebs_encryption_key_arn"] = ebs_encryption_key_arn
+            input_["ebs_encryption_key_arn"] = ebs_encryption_key_arn
         if bandwidth_throttling is not None:
-            input["bandwidth_throttling"] = bandwidth_throttling
+            input_["bandwidth_throttling"] = bandwidth_throttling
         if data_plane_routing is not None:
-            input["data_plane_routing"] = data_plane_routing
+            input_["data_plane_routing"] = data_plane_routing
         if create_public_ip is not None:
-            input["create_public_ip"] = create_public_ip
+            input_["create_public_ip"] = create_public_ip
         if staging_area_tags is not None:
-            input["staging_area_tags"] = staging_area_tags
+            input_["staging_area_tags"] = staging_area_tags
         if pit_policy is not None:
-            input["pit_policy"] = pit_policy
+            input_["pit_policy"] = pit_policy
         if auto_replicate_new_disks is not None:
-            input["auto_replicate_new_disks"] = auto_replicate_new_disks
+            input_["auto_replicate_new_disks"] = auto_replicate_new_disks
         if internet_protocol is not None:
-            input["internet_protocol"] = internet_protocol
+            input_["internet_protocol"] = internet_protocol
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -290,13 +302,13 @@ class ReplicationConfigurationTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_replication_configuration_template_request.DeleteReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["replication_configuration_template_id"] = (
+        input_: aws_sdk_drs.types.delete_replication_configuration_template_request.DeleteReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["replication_configuration_template_id"] = (
             replication_configuration_template_id
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,18 +351,18 @@ class ReplicationConfigurationTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.describe_replication_configuration_templates_request.DescribeReplicationConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.describe_replication_configuration_templates_request.DescribeReplicationConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
         if replication_configuration_template_i_ds is not None:
-            input["replication_configuration_template_i_ds"] = (
+            input_["replication_configuration_template_i_ds"] = (
                 replication_configuration_template_i_ds
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,38 +439,44 @@ class AsyncReplicationConfigurationTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.create_replication_configuration_template_request.CreateReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["staging_area_subnet_id"] = staging_area_subnet_id
+        input_: aws_sdk_drs.types.create_replication_configuration_template_request.CreateReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["staging_area_subnet_id"] = staging_area_subnet_id
         if associate_default_security_group is not None:
-            input["associate_default_security_group"] = associate_default_security_group
-        input["replication_servers_security_groups_i_ds"] = (
+            input_["associate_default_security_group"] = (
+                associate_default_security_group
+            )
+        input_["replication_servers_security_groups_i_ds"] = (
             replication_servers_security_groups_i_ds
         )
         if replication_server_instance_type is not None:
-            input["replication_server_instance_type"] = replication_server_instance_type
+            input_["replication_server_instance_type"] = (
+                replication_server_instance_type
+            )
         if use_dedicated_replication_server is not None:
-            input["use_dedicated_replication_server"] = use_dedicated_replication_server
+            input_["use_dedicated_replication_server"] = (
+                use_dedicated_replication_server
+            )
         if default_large_staging_disk_type is not None:
-            input["default_large_staging_disk_type"] = default_large_staging_disk_type
-        input["ebs_encryption"] = ebs_encryption
+            input_["default_large_staging_disk_type"] = default_large_staging_disk_type
+        input_["ebs_encryption"] = ebs_encryption
         if ebs_encryption_key_arn is not None:
-            input["ebs_encryption_key_arn"] = ebs_encryption_key_arn
-        input["bandwidth_throttling"] = bandwidth_throttling
+            input_["ebs_encryption_key_arn"] = ebs_encryption_key_arn
+        input_["bandwidth_throttling"] = bandwidth_throttling
         if data_plane_routing is not None:
-            input["data_plane_routing"] = data_plane_routing
+            input_["data_plane_routing"] = data_plane_routing
         if create_public_ip is not None:
-            input["create_public_ip"] = create_public_ip
-        input["staging_area_tags"] = staging_area_tags
-        input["pit_policy"] = pit_policy
+            input_["create_public_ip"] = create_public_ip
+        input_["staging_area_tags"] = staging_area_tags
+        input_["pit_policy"] = pit_policy
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if auto_replicate_new_disks is not None:
-            input["auto_replicate_new_disks"] = auto_replicate_new_disks
+            input_["auto_replicate_new_disks"] = auto_replicate_new_disks
         if internet_protocol is not None:
-            input["internet_protocol"] = internet_protocol
+            input_["internet_protocol"] = internet_protocol
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,47 +556,53 @@ class AsyncReplicationConfigurationTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.update_replication_configuration_template_request.UpdateReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["replication_configuration_template_id"] = (
+        input_: aws_sdk_drs.types.update_replication_configuration_template_request.UpdateReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["replication_configuration_template_id"] = (
             replication_configuration_template_id
         )
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
         if staging_area_subnet_id is not None:
-            input["staging_area_subnet_id"] = staging_area_subnet_id
+            input_["staging_area_subnet_id"] = staging_area_subnet_id
         if associate_default_security_group is not None:
-            input["associate_default_security_group"] = associate_default_security_group
+            input_["associate_default_security_group"] = (
+                associate_default_security_group
+            )
         if replication_servers_security_groups_i_ds is not None:
-            input["replication_servers_security_groups_i_ds"] = (
+            input_["replication_servers_security_groups_i_ds"] = (
                 replication_servers_security_groups_i_ds
             )
         if replication_server_instance_type is not None:
-            input["replication_server_instance_type"] = replication_server_instance_type
+            input_["replication_server_instance_type"] = (
+                replication_server_instance_type
+            )
         if use_dedicated_replication_server is not None:
-            input["use_dedicated_replication_server"] = use_dedicated_replication_server
+            input_["use_dedicated_replication_server"] = (
+                use_dedicated_replication_server
+            )
         if default_large_staging_disk_type is not None:
-            input["default_large_staging_disk_type"] = default_large_staging_disk_type
+            input_["default_large_staging_disk_type"] = default_large_staging_disk_type
         if ebs_encryption is not None:
-            input["ebs_encryption"] = ebs_encryption
+            input_["ebs_encryption"] = ebs_encryption
         if ebs_encryption_key_arn is not None:
-            input["ebs_encryption_key_arn"] = ebs_encryption_key_arn
+            input_["ebs_encryption_key_arn"] = ebs_encryption_key_arn
         if bandwidth_throttling is not None:
-            input["bandwidth_throttling"] = bandwidth_throttling
+            input_["bandwidth_throttling"] = bandwidth_throttling
         if data_plane_routing is not None:
-            input["data_plane_routing"] = data_plane_routing
+            input_["data_plane_routing"] = data_plane_routing
         if create_public_ip is not None:
-            input["create_public_ip"] = create_public_ip
+            input_["create_public_ip"] = create_public_ip
         if staging_area_tags is not None:
-            input["staging_area_tags"] = staging_area_tags
+            input_["staging_area_tags"] = staging_area_tags
         if pit_policy is not None:
-            input["pit_policy"] = pit_policy
+            input_["pit_policy"] = pit_policy
         if auto_replicate_new_disks is not None:
-            input["auto_replicate_new_disks"] = auto_replicate_new_disks
+            input_["auto_replicate_new_disks"] = auto_replicate_new_disks
         if internet_protocol is not None:
-            input["internet_protocol"] = internet_protocol
+            input_["internet_protocol"] = internet_protocol
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -612,13 +636,13 @@ class AsyncReplicationConfigurationTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_replication_configuration_template_request.DeleteReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["replication_configuration_template_id"] = (
+        input_: aws_sdk_drs.types.delete_replication_configuration_template_request.DeleteReplicationConfigurationTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["replication_configuration_template_id"] = (
             replication_configuration_template_id
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,18 +686,18 @@ class AsyncReplicationConfigurationTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.describe_replication_configuration_templates_request.DescribeReplicationConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.describe_replication_configuration_templates_request.DescribeReplicationConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
         if replication_configuration_template_i_ds is not None:
-            input["replication_configuration_template_i_ds"] = (
+            input_["replication_configuration_template_i_ds"] = (
                 replication_configuration_template_i_ds
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

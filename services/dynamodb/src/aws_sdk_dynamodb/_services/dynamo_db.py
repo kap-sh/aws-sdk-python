@@ -389,13 +389,13 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput = {}  # type: ignore[typeddict-item]
-        input["statements"] = statements
+        input_: aws_sdk_dynamodb.types.batch_execute_statement_input.BatchExecuteStatementInput = {}  # type: ignore[typeddict-item]
+        input_["statements"] = statements
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,13 +437,13 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.batch_get_item_input.BatchGetItemInput = {}  # type: ignore[typeddict-item]
-        input["request_items"] = request_items
+        input_: aws_sdk_dynamodb.types.batch_get_item_input.BatchGetItemInput = {}  # type: ignore[typeddict-item]
+        input_["request_items"] = request_items
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,15 +489,15 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.batch_write_item_input.BatchWriteItemInput = {}  # type: ignore[typeddict-item]
-        input["request_items"] = request_items
+        input_: aws_sdk_dynamodb.types.batch_write_item_input.BatchWriteItemInput = {}  # type: ignore[typeddict-item]
+        input_["request_items"] = request_items
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if return_item_collection_metrics is not None:
-            input["return_item_collection_metrics"] = return_item_collection_metrics
+            input_["return_item_collection_metrics"] = return_item_collection_metrics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,12 +532,12 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.create_backup_input.CreateBackupInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["backup_name"] = backup_name
+        input_: aws_sdk_dynamodb.types.create_backup_input.CreateBackupInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["backup_name"] = backup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,12 +572,12 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.create_global_table_input.CreateGlobalTableInput = {}  # type: ignore[typeddict-item]
-        input["global_table_name"] = global_table_name
-        input["replication_group"] = replication_group
+        input_: aws_sdk_dynamodb.types.create_global_table_input.CreateGlobalTableInput = {}  # type: ignore[typeddict-item]
+        input_["global_table_name"] = global_table_name
+        input_["replication_group"] = replication_group
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,45 +668,45 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.create_table_input.CreateTableInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.create_table_input.CreateTableInput = {}  # type: ignore[typeddict-item]
         if attribute_definitions is not None:
-            input["attribute_definitions"] = attribute_definitions
-        input["table_name"] = table_name
+            input_["attribute_definitions"] = attribute_definitions
+        input_["table_name"] = table_name
         if key_schema is not None:
-            input["key_schema"] = key_schema
+            input_["key_schema"] = key_schema
         if local_secondary_indexes is not None:
-            input["local_secondary_indexes"] = local_secondary_indexes
+            input_["local_secondary_indexes"] = local_secondary_indexes
         if global_secondary_indexes is not None:
-            input["global_secondary_indexes"] = global_secondary_indexes
+            input_["global_secondary_indexes"] = global_secondary_indexes
         if billing_mode is not None:
-            input["billing_mode"] = billing_mode
+            input_["billing_mode"] = billing_mode
         if provisioned_throughput is not None:
-            input["provisioned_throughput"] = provisioned_throughput
+            input_["provisioned_throughput"] = provisioned_throughput
         if stream_specification is not None:
-            input["stream_specification"] = stream_specification
+            input_["stream_specification"] = stream_specification
         if sse_specification is not None:
-            input["sse_specification"] = sse_specification
+            input_["sse_specification"] = sse_specification
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if table_class is not None:
-            input["table_class"] = table_class
+            input_["table_class"] = table_class
         if deletion_protection_enabled is not None:
-            input["deletion_protection_enabled"] = deletion_protection_enabled
+            input_["deletion_protection_enabled"] = deletion_protection_enabled
         if warm_throughput is not None:
-            input["warm_throughput"] = warm_throughput
+            input_["warm_throughput"] = warm_throughput
         if resource_policy is not None:
-            input["resource_policy"] = resource_policy
+            input_["resource_policy"] = resource_policy
         if on_demand_throughput is not None:
-            input["on_demand_throughput"] = on_demand_throughput
+            input_["on_demand_throughput"] = on_demand_throughput
         if global_table_source_arn is not None:
-            input["global_table_source_arn"] = global_table_source_arn
+            input_["global_table_source_arn"] = global_table_source_arn
         if global_table_settings_replication_mode is not None:
-            input["global_table_settings_replication_mode"] = (
+            input_["global_table_settings_replication_mode"] = (
                 global_table_settings_replication_mode
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -739,11 +739,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.delete_backup_input.DeleteBackupInput = {}  # type: ignore[typeddict-item]
-        input["backup_arn"] = backup_arn
+        input_: aws_sdk_dynamodb.types.delete_backup_input.DeleteBackupInput = {}  # type: ignore[typeddict-item]
+        input_["backup_arn"] = backup_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -819,32 +819,32 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.delete_item_input.DeleteItemInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["key"] = key
+        input_: aws_sdk_dynamodb.types.delete_item_input.DeleteItemInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["key"] = key
         if expected is not None:
-            input["expected"] = expected
+            input_["expected"] = expected
         if conditional_operator is not None:
-            input["conditional_operator"] = conditional_operator
+            input_["conditional_operator"] = conditional_operator
         if return_values is not None:
-            input["return_values"] = return_values
+            input_["return_values"] = return_values
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if return_item_collection_metrics is not None:
-            input["return_item_collection_metrics"] = return_item_collection_metrics
+            input_["return_item_collection_metrics"] = return_item_collection_metrics
         if condition_expression is not None:
-            input["condition_expression"] = condition_expression
+            input_["condition_expression"] = condition_expression
         if expression_attribute_names is not None:
-            input["expression_attribute_names"] = expression_attribute_names
+            input_["expression_attribute_names"] = expression_attribute_names
         if expression_attribute_values is not None:
-            input["expression_attribute_values"] = expression_attribute_values
+            input_["expression_attribute_values"] = expression_attribute_values
         if return_values_on_condition_check_failure is not None:
-            input["return_values_on_condition_check_failure"] = (
+            input_["return_values_on_condition_check_failure"] = (
                 return_values_on_condition_check_failure
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -881,13 +881,13 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_dynamodb.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if expected_revision_id is not None:
-            input["expected_revision_id"] = expected_revision_id
+            input_["expected_revision_id"] = expected_revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -926,11 +926,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.delete_table_input.DeleteTableInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.delete_table_input.DeleteTableInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -963,11 +963,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_backup_input.DescribeBackupInput = {}  # type: ignore[typeddict-item]
-        input["backup_arn"] = backup_arn
+        input_: aws_sdk_dynamodb.types.describe_backup_input.DescribeBackupInput = {}  # type: ignore[typeddict-item]
+        input_["backup_arn"] = backup_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1000,11 +1000,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_continuous_backups_input.DescribeContinuousBackupsInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.describe_continuous_backups_input.DescribeContinuousBackupsInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1039,13 +1039,13 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_contributor_insights_input.DescribeContributorInsightsInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.describe_contributor_insights_input.DescribeContributorInsightsInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
         if index_name is not None:
-            input["index_name"] = index_name
+            input_["index_name"] = index_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1071,10 +1071,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1107,11 +1107,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_export_input.DescribeExportInput = {}  # type: ignore[typeddict-item]
-        input["export_arn"] = export_arn
+        input_: aws_sdk_dynamodb.types.describe_export_input.DescribeExportInput = {}  # type: ignore[typeddict-item]
+        input_["export_arn"] = export_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1146,11 +1146,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_global_table_input.DescribeGlobalTableInput = {}  # type: ignore[typeddict-item]
-        input["global_table_name"] = global_table_name
+        input_: aws_sdk_dynamodb.types.describe_global_table_input.DescribeGlobalTableInput = {}  # type: ignore[typeddict-item]
+        input_["global_table_name"] = global_table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1183,11 +1183,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_global_table_settings_input.DescribeGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
-        input["global_table_name"] = global_table_name
+        input_: aws_sdk_dynamodb.types.describe_global_table_settings_input.DescribeGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
+        input_["global_table_name"] = global_table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1220,11 +1220,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_import_input.DescribeImportInput = {}  # type: ignore[typeddict-item]
-        input["import_arn"] = import_arn
+        input_: aws_sdk_dynamodb.types.describe_import_input.DescribeImportInput = {}  # type: ignore[typeddict-item]
+        input_["import_arn"] = import_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1257,11 +1257,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_kinesis_streaming_destination_input.DescribeKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.describe_kinesis_streaming_destination_input.DescribeKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1294,10 +1294,10 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_limits_input.DescribeLimitsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.describe_limits_input.DescribeLimitsInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1330,11 +1330,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_table_input.DescribeTableInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.describe_table_input.DescribeTableInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1407,11 +1407,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_table_replica_auto_scaling_input.DescribeTableReplicaAutoScalingInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.describe_table_replica_auto_scaling_input.DescribeTableReplicaAutoScalingInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1444,11 +1444,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.describe_time_to_live_input.DescribeTimeToLiveInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.describe_time_to_live_input.DescribeTimeToLiveInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,16 +1487,16 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.kinesis_streaming_destination_input.KinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["stream_arn"] = stream_arn
+        input_: aws_sdk_dynamodb.types.kinesis_streaming_destination_input.KinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["stream_arn"] = stream_arn
         if enable_kinesis_streaming_configuration is not None:
-            input["enable_kinesis_streaming_configuration"] = (
+            input_["enable_kinesis_streaming_configuration"] = (
                 enable_kinesis_streaming_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1535,16 +1535,16 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.kinesis_streaming_destination_input.KinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["stream_arn"] = stream_arn
+        input_: aws_sdk_dynamodb.types.kinesis_streaming_destination_input.KinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["stream_arn"] = stream_arn
         if enable_kinesis_streaming_configuration is not None:
-            input["enable_kinesis_streaming_configuration"] = (
+            input_["enable_kinesis_streaming_configuration"] = (
                 enable_kinesis_streaming_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1600,25 +1600,25 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.execute_statement_input.ExecuteStatementInput = {}  # type: ignore[typeddict-item]
-        input["statement"] = statement
+        input_: aws_sdk_dynamodb.types.execute_statement_input.ExecuteStatementInput = {}  # type: ignore[typeddict-item]
+        input_["statement"] = statement
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if consistent_read is not None:
-            input["consistent_read"] = consistent_read
+            input_["consistent_read"] = consistent_read
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if return_values_on_condition_check_failure is not None:
-            input["return_values_on_condition_check_failure"] = (
+            input_["return_values_on_condition_check_failure"] = (
                 return_values_on_condition_check_failure
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1659,15 +1659,15 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.execute_transaction_input.ExecuteTransactionInput = {}  # type: ignore[typeddict-item]
-        input["transact_statements"] = transact_statements
+        input_: aws_sdk_dynamodb.types.execute_transaction_input.ExecuteTransactionInput = {}  # type: ignore[typeddict-item]
+        input_["transact_statements"] = transact_statements
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1732,30 +1732,32 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
-        input["table_arn"] = table_arn
+        input_: aws_sdk_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
+        input_["table_arn"] = table_arn
         if export_time is not None:
-            input["export_time"] = export_time
+            input_["export_time"] = export_time
         if client_token is not None:
-            input["client_token"] = client_token
-        input["s3_bucket"] = s3_bucket
+            input_["client_token"] = client_token
+        input_["s3_bucket"] = s3_bucket
         if s3_bucket_owner is not None:
-            input["s3_bucket_owner"] = s3_bucket_owner
+            input_["s3_bucket_owner"] = s3_bucket_owner
         if s3_prefix is not None:
-            input["s3_prefix"] = s3_prefix
+            input_["s3_prefix"] = s3_prefix
         if s3_sse_algorithm is not None:
-            input["s3_sse_algorithm"] = s3_sse_algorithm
+            input_["s3_sse_algorithm"] = s3_sse_algorithm
         if s3_sse_kms_key_id is not None:
-            input["s3_sse_kms_key_id"] = s3_sse_kms_key_id
+            input_["s3_sse_kms_key_id"] = s3_sse_kms_key_id
         if export_format is not None:
-            input["export_format"] = export_format
+            input_["export_format"] = export_format
         if export_type is not None:
-            input["export_type"] = export_type
+            input_["export_type"] = export_type
         if incremental_export_specification is not None:
-            input["incremental_export_specification"] = incremental_export_specification
+            input_["incremental_export_specification"] = (
+                incremental_export_specification
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1813,22 +1815,22 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.get_item_input.GetItemInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["key"] = key
+        input_: aws_sdk_dynamodb.types.get_item_input.GetItemInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["key"] = key
         if attributes_to_get is not None:
-            input["attributes_to_get"] = attributes_to_get
+            input_["attributes_to_get"] = attributes_to_get
         if consistent_read is not None:
-            input["consistent_read"] = consistent_read
+            input_["consistent_read"] = consistent_read
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if projection_expression is not None:
-            input["projection_expression"] = projection_expression
+            input_["projection_expression"] = projection_expression
         if expression_attribute_names is not None:
-            input["expression_attribute_names"] = expression_attribute_names
+            input_["expression_attribute_names"] = expression_attribute_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1861,11 +1863,11 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_dynamodb.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1914,19 +1916,19 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.import_table_input.ImportTableInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.import_table_input.ImportTableInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["s3_bucket_source"] = s3_bucket_source
-        input["input_format"] = input_format
+            input_["client_token"] = client_token
+        input_["s3_bucket_source"] = s3_bucket_source
+        input_["input_format"] = input_format
         if input_format_options is not None:
-            input["input_format_options"] = input_format_options
+            input_["input_format_options"] = input_format_options
         if input_compression_type is not None:
-            input["input_compression_type"] = input_compression_type
-        input["table_creation_parameters"] = table_creation_parameters
+            input_["input_compression_type"] = input_compression_type
+        input_["table_creation_parameters"] = table_creation_parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,22 +1981,22 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.list_backups_input.ListBackupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.list_backups_input.ListBackupsInput = {}  # type: ignore[typeddict-item]
         if table_name is not None:
-            input["table_name"] = table_name
+            input_["table_name"] = table_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if time_range_lower_bound is not None:
-            input["time_range_lower_bound"] = time_range_lower_bound
+            input_["time_range_lower_bound"] = time_range_lower_bound
         if time_range_upper_bound is not None:
-            input["time_range_upper_bound"] = time_range_upper_bound
+            input_["time_range_upper_bound"] = time_range_upper_bound
         if exclusive_start_backup_arn is not None:
-            input["exclusive_start_backup_arn"] = exclusive_start_backup_arn
+            input_["exclusive_start_backup_arn"] = exclusive_start_backup_arn
         if backup_type is not None:
-            input["backup_type"] = backup_type
+            input_["backup_type"] = backup_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2035,16 +2037,16 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.list_contributor_insights_input.ListContributorInsightsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.list_contributor_insights_input.ListContributorInsightsInput = {}  # type: ignore[typeddict-item]
         if table_name is not None:
-            input["table_name"] = table_name
+            input_["table_name"] = table_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2085,16 +2087,16 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.list_exports_input.ListExportsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.list_exports_input.ListExportsInput = {}  # type: ignore[typeddict-item]
         if table_arn is not None:
-            input["table_arn"] = table_arn
+            input_["table_arn"] = table_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2135,18 +2137,18 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.list_global_tables_input.ListGlobalTablesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.list_global_tables_input.ListGlobalTablesInput = {}  # type: ignore[typeddict-item]
         if exclusive_start_global_table_name is not None:
-            input["exclusive_start_global_table_name"] = (
+            input_["exclusive_start_global_table_name"] = (
                 exclusive_start_global_table_name
             )
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if region_name is not None:
-            input["region_name"] = region_name
+            input_["region_name"] = region_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2187,16 +2189,16 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.list_imports_input.ListImportsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.list_imports_input.ListImportsInput = {}  # type: ignore[typeddict-item]
         if table_arn is not None:
-            input["table_arn"] = table_arn
+            input_["table_arn"] = table_arn
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2241,14 +2243,14 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.list_tables_input.ListTablesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.list_tables_input.ListTablesInput = {}  # type: ignore[typeddict-item]
         if exclusive_start_table_name is not None:
-            input["exclusive_start_table_name"] = exclusive_start_table_name
+            input_["exclusive_start_table_name"] = exclusive_start_table_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2310,13 +2312,13 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.list_tags_of_resource_input.ListTagsOfResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_dynamodb.types.list_tags_of_resource_input.ListTagsOfResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2390,32 +2392,32 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.put_item_input.PutItemInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["item"] = item
+        input_: aws_sdk_dynamodb.types.put_item_input.PutItemInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["item"] = item
         if expected is not None:
-            input["expected"] = expected
+            input_["expected"] = expected
         if return_values is not None:
-            input["return_values"] = return_values
+            input_["return_values"] = return_values
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if return_item_collection_metrics is not None:
-            input["return_item_collection_metrics"] = return_item_collection_metrics
+            input_["return_item_collection_metrics"] = return_item_collection_metrics
         if conditional_operator is not None:
-            input["conditional_operator"] = conditional_operator
+            input_["conditional_operator"] = conditional_operator
         if condition_expression is not None:
-            input["condition_expression"] = condition_expression
+            input_["condition_expression"] = condition_expression
         if expression_attribute_names is not None:
-            input["expression_attribute_names"] = expression_attribute_names
+            input_["expression_attribute_names"] = expression_attribute_names
         if expression_attribute_values is not None:
-            input["expression_attribute_values"] = expression_attribute_values
+            input_["expression_attribute_values"] = expression_attribute_values
         if return_values_on_condition_check_failure is not None:
-            input["return_values_on_condition_check_failure"] = (
+            input_["return_values_on_condition_check_failure"] = (
                 return_values_on_condition_check_failure
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2458,18 +2460,18 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_dynamodb.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
         if expected_revision_id is not None:
-            input["expected_revision_id"] = expected_revision_id
+            input_["expected_revision_id"] = expected_revision_id
         if confirm_remove_self_resource_access is not None:
-            input["confirm_remove_self_resource_access"] = (
+            input_["confirm_remove_self_resource_access"] = (
                 confirm_remove_self_resource_access
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2563,43 +2565,43 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.query_input.QueryInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.query_input.QueryInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
         if index_name is not None:
-            input["index_name"] = index_name
+            input_["index_name"] = index_name
         if select is not None:
-            input["select"] = select
+            input_["select"] = select
         if attributes_to_get is not None:
-            input["attributes_to_get"] = attributes_to_get
+            input_["attributes_to_get"] = attributes_to_get
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if consistent_read is not None:
-            input["consistent_read"] = consistent_read
+            input_["consistent_read"] = consistent_read
         if key_conditions is not None:
-            input["key_conditions"] = key_conditions
+            input_["key_conditions"] = key_conditions
         if query_filter is not None:
-            input["query_filter"] = query_filter
+            input_["query_filter"] = query_filter
         if conditional_operator is not None:
-            input["conditional_operator"] = conditional_operator
+            input_["conditional_operator"] = conditional_operator
         if scan_index_forward is not None:
-            input["scan_index_forward"] = scan_index_forward
+            input_["scan_index_forward"] = scan_index_forward
         if exclusive_start_key is not None:
-            input["exclusive_start_key"] = exclusive_start_key
+            input_["exclusive_start_key"] = exclusive_start_key
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if projection_expression is not None:
-            input["projection_expression"] = projection_expression
+            input_["projection_expression"] = projection_expression
         if filter_expression is not None:
-            input["filter_expression"] = filter_expression
+            input_["filter_expression"] = filter_expression
         if key_condition_expression is not None:
-            input["key_condition_expression"] = key_condition_expression
+            input_["key_condition_expression"] = key_condition_expression
         if expression_attribute_names is not None:
-            input["expression_attribute_names"] = expression_attribute_names
+            input_["expression_attribute_names"] = expression_attribute_names
         if expression_attribute_values is not None:
-            input["expression_attribute_values"] = expression_attribute_values
+            input_["expression_attribute_values"] = expression_attribute_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2734,24 +2736,24 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.restore_table_from_backup_input.RestoreTableFromBackupInput = {}  # type: ignore[typeddict-item]
-        input["target_table_name"] = target_table_name
-        input["backup_arn"] = backup_arn
+        input_: aws_sdk_dynamodb.types.restore_table_from_backup_input.RestoreTableFromBackupInput = {}  # type: ignore[typeddict-item]
+        input_["target_table_name"] = target_table_name
+        input_["backup_arn"] = backup_arn
         if billing_mode_override is not None:
-            input["billing_mode_override"] = billing_mode_override
+            input_["billing_mode_override"] = billing_mode_override
         if global_secondary_index_override is not None:
-            input["global_secondary_index_override"] = global_secondary_index_override
+            input_["global_secondary_index_override"] = global_secondary_index_override
         if local_secondary_index_override is not None:
-            input["local_secondary_index_override"] = local_secondary_index_override
+            input_["local_secondary_index_override"] = local_secondary_index_override
         if provisioned_throughput_override is not None:
-            input["provisioned_throughput_override"] = provisioned_throughput_override
+            input_["provisioned_throughput_override"] = provisioned_throughput_override
         if on_demand_throughput_override is not None:
-            input["on_demand_throughput_override"] = on_demand_throughput_override
+            input_["on_demand_throughput_override"] = on_demand_throughput_override
         if sse_specification_override is not None:
-            input["sse_specification_override"] = sse_specification_override
+            input_["sse_specification_override"] = sse_specification_override
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2819,31 +2821,31 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.restore_table_to_point_in_time_input.RestoreTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.restore_table_to_point_in_time_input.RestoreTableToPointInTimeInput = {}  # type: ignore[typeddict-item]
         if source_table_arn is not None:
-            input["source_table_arn"] = source_table_arn
+            input_["source_table_arn"] = source_table_arn
         if source_table_name is not None:
-            input["source_table_name"] = source_table_name
-        input["target_table_name"] = target_table_name
+            input_["source_table_name"] = source_table_name
+        input_["target_table_name"] = target_table_name
         if use_latest_restorable_time is not None:
-            input["use_latest_restorable_time"] = use_latest_restorable_time
+            input_["use_latest_restorable_time"] = use_latest_restorable_time
         if restore_date_time is not None:
-            input["restore_date_time"] = restore_date_time
+            input_["restore_date_time"] = restore_date_time
         if billing_mode_override is not None:
-            input["billing_mode_override"] = billing_mode_override
+            input_["billing_mode_override"] = billing_mode_override
         if global_secondary_index_override is not None:
-            input["global_secondary_index_override"] = global_secondary_index_override
+            input_["global_secondary_index_override"] = global_secondary_index_override
         if local_secondary_index_override is not None:
-            input["local_secondary_index_override"] = local_secondary_index_override
+            input_["local_secondary_index_override"] = local_secondary_index_override
         if provisioned_throughput_override is not None:
-            input["provisioned_throughput_override"] = provisioned_throughput_override
+            input_["provisioned_throughput_override"] = provisioned_throughput_override
         if on_demand_throughput_override is not None:
-            input["on_demand_throughput_override"] = on_demand_throughput_override
+            input_["on_demand_throughput_override"] = on_demand_throughput_override
         if sse_specification_override is not None:
-            input["sse_specification_override"] = sse_specification_override
+            input_["sse_specification_override"] = sse_specification_override
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2931,41 +2933,41 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.scan_input.ScanInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.scan_input.ScanInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
         if index_name is not None:
-            input["index_name"] = index_name
+            input_["index_name"] = index_name
         if attributes_to_get is not None:
-            input["attributes_to_get"] = attributes_to_get
+            input_["attributes_to_get"] = attributes_to_get
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if select is not None:
-            input["select"] = select
+            input_["select"] = select
         if scan_filter is not None:
-            input["scan_filter"] = scan_filter
+            input_["scan_filter"] = scan_filter
         if conditional_operator is not None:
-            input["conditional_operator"] = conditional_operator
+            input_["conditional_operator"] = conditional_operator
         if exclusive_start_key is not None:
-            input["exclusive_start_key"] = exclusive_start_key
+            input_["exclusive_start_key"] = exclusive_start_key
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if total_segments is not None:
-            input["total_segments"] = total_segments
+            input_["total_segments"] = total_segments
         if segment is not None:
-            input["segment"] = segment
+            input_["segment"] = segment
         if projection_expression is not None:
-            input["projection_expression"] = projection_expression
+            input_["projection_expression"] = projection_expression
         if filter_expression is not None:
-            input["filter_expression"] = filter_expression
+            input_["filter_expression"] = filter_expression
         if expression_attribute_names is not None:
-            input["expression_attribute_names"] = expression_attribute_names
+            input_["expression_attribute_names"] = expression_attribute_names
         if expression_attribute_values is not None:
-            input["expression_attribute_values"] = expression_attribute_values
+            input_["expression_attribute_values"] = expression_attribute_values
         if consistent_read is not None:
-            input["consistent_read"] = consistent_read
+            input_["consistent_read"] = consistent_read
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3069,12 +3071,12 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_dynamodb.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3111,13 +3113,13 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.transact_get_items_input.TransactGetItemsInput = {}  # type: ignore[typeddict-item]
-        input["transact_items"] = transact_items
+        input_: aws_sdk_dynamodb.types.transact_get_items_input.TransactGetItemsInput = {}  # type: ignore[typeddict-item]
+        input_["transact_items"] = transact_items
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3161,17 +3163,17 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.transact_write_items_input.TransactWriteItemsInput = {}  # type: ignore[typeddict-item]
-        input["transact_items"] = transact_items
+        input_: aws_sdk_dynamodb.types.transact_write_items_input.TransactWriteItemsInput = {}  # type: ignore[typeddict-item]
+        input_["transact_items"] = transact_items
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if return_item_collection_metrics is not None:
-            input["return_item_collection_metrics"] = return_item_collection_metrics
+            input_["return_item_collection_metrics"] = return_item_collection_metrics
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3204,12 +3206,12 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_dynamodb.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3244,14 +3246,14 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_continuous_backups_input.UpdateContinuousBackupsInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["point_in_time_recovery_specification"] = (
+        input_: aws_sdk_dynamodb.types.update_continuous_backups_input.UpdateContinuousBackupsInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["point_in_time_recovery_specification"] = (
             point_in_time_recovery_specification
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3292,16 +3294,16 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_contributor_insights_input.UpdateContributorInsightsInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
+        input_: aws_sdk_dynamodb.types.update_contributor_insights_input.UpdateContributorInsightsInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
         if index_name is not None:
-            input["index_name"] = index_name
-        input["contributor_insights_action"] = contributor_insights_action
+            input_["index_name"] = index_name
+        input_["contributor_insights_action"] = contributor_insights_action
         if contributor_insights_mode is not None:
-            input["contributor_insights_mode"] = contributor_insights_mode
+            input_["contributor_insights_mode"] = contributor_insights_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3336,12 +3338,12 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_global_table_input.UpdateGlobalTableInput = {}  # type: ignore[typeddict-item]
-        input["global_table_name"] = global_table_name
-        input["replica_updates"] = replica_updates
+        input_: aws_sdk_dynamodb.types.update_global_table_input.UpdateGlobalTableInput = {}  # type: ignore[typeddict-item]
+        input_["global_table_name"] = global_table_name
+        input_["replica_updates"] = replica_updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3394,30 +3396,30 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
-        input["global_table_name"] = global_table_name
+        input_: aws_sdk_dynamodb.types.update_global_table_settings_input.UpdateGlobalTableSettingsInput = {}  # type: ignore[typeddict-item]
+        input_["global_table_name"] = global_table_name
         if global_table_billing_mode is not None:
-            input["global_table_billing_mode"] = global_table_billing_mode
+            input_["global_table_billing_mode"] = global_table_billing_mode
         if global_table_provisioned_write_capacity_units is not None:
-            input["global_table_provisioned_write_capacity_units"] = (
+            input_["global_table_provisioned_write_capacity_units"] = (
                 global_table_provisioned_write_capacity_units
             )
         if (
             global_table_provisioned_write_capacity_auto_scaling_settings_update
             is not None
         ):
-            input[
+            input_[
                 "global_table_provisioned_write_capacity_auto_scaling_settings_update"
             ] = global_table_provisioned_write_capacity_auto_scaling_settings_update
         if global_table_global_secondary_index_settings_update is not None:
-            input["global_table_global_secondary_index_settings_update"] = (
+            input_["global_table_global_secondary_index_settings_update"] = (
                 global_table_global_secondary_index_settings_update
             )
         if replica_settings_update is not None:
-            input["replica_settings_update"] = replica_settings_update
+            input_["replica_settings_update"] = replica_settings_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3501,36 +3503,36 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_item_input.UpdateItemInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["key"] = key
+        input_: aws_sdk_dynamodb.types.update_item_input.UpdateItemInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["key"] = key
         if attribute_updates is not None:
-            input["attribute_updates"] = attribute_updates
+            input_["attribute_updates"] = attribute_updates
         if expected is not None:
-            input["expected"] = expected
+            input_["expected"] = expected
         if conditional_operator is not None:
-            input["conditional_operator"] = conditional_operator
+            input_["conditional_operator"] = conditional_operator
         if return_values is not None:
-            input["return_values"] = return_values
+            input_["return_values"] = return_values
         if return_consumed_capacity is not None:
-            input["return_consumed_capacity"] = return_consumed_capacity
+            input_["return_consumed_capacity"] = return_consumed_capacity
         if return_item_collection_metrics is not None:
-            input["return_item_collection_metrics"] = return_item_collection_metrics
+            input_["return_item_collection_metrics"] = return_item_collection_metrics
         if update_expression is not None:
-            input["update_expression"] = update_expression
+            input_["update_expression"] = update_expression
         if condition_expression is not None:
-            input["condition_expression"] = condition_expression
+            input_["condition_expression"] = condition_expression
         if expression_attribute_names is not None:
-            input["expression_attribute_names"] = expression_attribute_names
+            input_["expression_attribute_names"] = expression_attribute_names
         if expression_attribute_values is not None:
-            input["expression_attribute_values"] = expression_attribute_values
+            input_["expression_attribute_values"] = expression_attribute_values
         if return_values_on_condition_check_failure is not None:
-            input["return_values_on_condition_check_failure"] = (
+            input_["return_values_on_condition_check_failure"] = (
                 return_values_on_condition_check_failure
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3569,16 +3571,16 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_kinesis_streaming_destination_input.UpdateKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["stream_arn"] = stream_arn
+        input_: aws_sdk_dynamodb.types.update_kinesis_streaming_destination_input.UpdateKinesisStreamingDestinationInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["stream_arn"] = stream_arn
         if update_kinesis_streaming_configuration is not None:
-            input["update_kinesis_streaming_configuration"] = (
+            input_["update_kinesis_streaming_configuration"] = (
                 update_kinesis_streaming_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3665,41 +3667,41 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_table_input.UpdateTableInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.update_table_input.UpdateTableInput = {}  # type: ignore[typeddict-item]
         if attribute_definitions is not None:
-            input["attribute_definitions"] = attribute_definitions
-        input["table_name"] = table_name
+            input_["attribute_definitions"] = attribute_definitions
+        input_["table_name"] = table_name
         if billing_mode is not None:
-            input["billing_mode"] = billing_mode
+            input_["billing_mode"] = billing_mode
         if provisioned_throughput is not None:
-            input["provisioned_throughput"] = provisioned_throughput
+            input_["provisioned_throughput"] = provisioned_throughput
         if global_secondary_index_updates is not None:
-            input["global_secondary_index_updates"] = global_secondary_index_updates
+            input_["global_secondary_index_updates"] = global_secondary_index_updates
         if stream_specification is not None:
-            input["stream_specification"] = stream_specification
+            input_["stream_specification"] = stream_specification
         if sse_specification is not None:
-            input["sse_specification"] = sse_specification
+            input_["sse_specification"] = sse_specification
         if replica_updates is not None:
-            input["replica_updates"] = replica_updates
+            input_["replica_updates"] = replica_updates
         if table_class is not None:
-            input["table_class"] = table_class
+            input_["table_class"] = table_class
         if deletion_protection_enabled is not None:
-            input["deletion_protection_enabled"] = deletion_protection_enabled
+            input_["deletion_protection_enabled"] = deletion_protection_enabled
         if multi_region_consistency is not None:
-            input["multi_region_consistency"] = multi_region_consistency
+            input_["multi_region_consistency"] = multi_region_consistency
         if global_table_witness_updates is not None:
-            input["global_table_witness_updates"] = global_table_witness_updates
+            input_["global_table_witness_updates"] = global_table_witness_updates
         if on_demand_throughput is not None:
-            input["on_demand_throughput"] = on_demand_throughput
+            input_["on_demand_throughput"] = on_demand_throughput
         if warm_throughput is not None:
-            input["warm_throughput"] = warm_throughput
+            input_["warm_throughput"] = warm_throughput
         if global_table_settings_replication_mode is not None:
-            input["global_table_settings_replication_mode"] = (
+            input_["global_table_settings_replication_mode"] = (
                 global_table_settings_replication_mode
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3743,19 +3745,19 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_dynamodb.types.update_table_replica_auto_scaling_input.UpdateTableReplicaAutoScalingInput = {}  # type: ignore[typeddict-item]
         if global_secondary_index_updates is not None:
-            input["global_secondary_index_updates"] = global_secondary_index_updates
-        input["table_name"] = table_name
+            input_["global_secondary_index_updates"] = global_secondary_index_updates
+        input_["table_name"] = table_name
         if provisioned_write_capacity_auto_scaling_update is not None:
-            input["provisioned_write_capacity_auto_scaling_update"] = (
+            input_["provisioned_write_capacity_auto_scaling_update"] = (
                 provisioned_write_capacity_auto_scaling_update
             )
         if replica_updates is not None:
-            input["replica_updates"] = replica_updates
+            input_["replica_updates"] = replica_updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3790,12 +3792,12 @@ class DynamoDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_dynamodb.types.update_time_to_live_input.UpdateTimeToLiveInput = {}  # type: ignore[typeddict-item]
-        input["table_name"] = table_name
-        input["time_to_live_specification"] = time_to_live_specification
+        input_: aws_sdk_dynamodb.types.update_time_to_live_input.UpdateTimeToLiveInput = {}  # type: ignore[typeddict-item]
+        input_["table_name"] = table_name
+        input_["time_to_live_specification"] = time_to_live_specification
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -16,13 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.start_conversation_response
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_lex_runtime_v2.types.start_conversation_request.StartConversationRequest,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def start_conversation(
     options: OperationOptions,
     input: aws_sdk_lex_runtime_v2.types.start_conversation_request.StartConversationRequest,

@@ -72,11 +72,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.list_objects_request.ListObjectsRequest,
+    input_: aws_sdk_s3.types.list_objects_request.ListObjectsRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -86,7 +86,7 @@ def build_request(
             UseGlobalEndpoint=options.use_global_endpoint,
             UseObjectLambdaEndpoint=options.use_object_lambda_endpoint,
             Key=options.key,
-            Prefix=input.get("prefix"),
+            Prefix=input_.get("prefix"),
             CopySource=options.copy_source,
             DisableAccessPoints=options.disable_access_points,
             DisableMultiRegionAccessPoints=options.disable_multi_region_access_points,
@@ -96,26 +96,26 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
     params: dict[str, str] = {}
-    if "delimiter" in input:
-        params["delimiter"] = str(input["delimiter"])
-    if "encoding_type" in input:
-        params["encoding-type"] = str(input["encoding_type"])
-    if "marker" in input:
-        params["marker"] = str(input["marker"])
-    if "max_keys" in input:
-        params["max-keys"] = str(input["max_keys"])
-    if "prefix" in input:
-        params["prefix"] = str(input["prefix"])
+    if "delimiter" in input_:
+        params["delimiter"] = str(input_["delimiter"])
+    if "encoding_type" in input_:
+        params["encoding-type"] = str(input_["encoding_type"])
+    if "marker" in input_:
+        params["marker"] = str(input_["marker"])
+    if "max_keys" in input_:
+        params["max-keys"] = str(input_["max_keys"])
+    if "prefix" in input_:
+        params["prefix"] = str(input_["prefix"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "request_payer" in input:
-        headers["x-amz-request-payer"] = str(input["request_payer"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    if "optional_object_attributes" in input:
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = str(input_["request_payer"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    if "optional_object_attributes" in input_:
         headers["x-amz-optional-object-attributes"] = str(
-            input["optional_object_attributes"]
+            input_["optional_object_attributes"]
         )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -128,9 +128,9 @@ def build_request(
 
 def list_objects(
     options: OperationOptions,
-    input: aws_sdk_s3.types.list_objects_request.ListObjectsRequest,
+    input_: aws_sdk_s3.types.list_objects_request.ListObjectsRequest,
 ) -> tuple[aws_sdk_s3.types.list_objects_output.ListObjectsOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -144,9 +144,9 @@ def list_objects(
 
 async def async_list_objects(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.list_objects_request.ListObjectsRequest,
+    input_: aws_sdk_s3.types.list_objects_request.ListObjectsRequest,
 ) -> tuple[aws_sdk_s3.types.list_objects_output.ListObjectsOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

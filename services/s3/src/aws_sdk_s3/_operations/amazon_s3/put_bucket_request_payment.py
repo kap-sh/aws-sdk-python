@@ -48,11 +48,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest,
+    input_: aws_sdk_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -72,21 +72,21 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}?requestPayment"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "content_md5" in input:
-        headers["Content-MD5"] = str(input["content_md5"])
-    if "checksum_algorithm" in input:
-        headers["x-amz-sdk-checksum-algorithm"] = str(input["checksum_algorithm"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    if "request_payment_configuration" in input:
+    if "content_md5" in input_:
+        headers["Content-MD5"] = str(input_["content_md5"])
+    if "checksum_algorithm" in input_:
+        headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    if "request_payment_configuration" in input_:
         import aws_sdk_s3.types.request_payment_configuration
 
         payload_root = Element("_")
         aws_sdk_s3.types.request_payment_configuration.serialize_xml(
-            input["request_payment_configuration"],
+            input_["request_payment_configuration"],
             payload_root,
             "RequestPaymentConfiguration",
         )
@@ -104,9 +104,9 @@ def build_request(
 
 def put_bucket_request_payment(
     options: OperationOptions,
-    input: aws_sdk_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest,
+    input_: aws_sdk_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -120,9 +120,9 @@ def put_bucket_request_payment(
 
 async def async_put_bucket_request_payment(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest,
+    input_: aws_sdk_s3.types.put_bucket_request_payment_request.PutBucketRequestPaymentRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

@@ -7,12 +7,23 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_backup_gateway._auth._signers
+import aws_sdk_backup_gateway._auth._sigv4
 from aws_sdk_backup_gateway._auth._identity import Credentials
 from aws_sdk_backup_gateway._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_backup_gateway._auth._zapros_handler import AuthMiddleware
+from aws_sdk_backup_gateway._resources.backup_on_premises_v20210101.gateway_resource import (
+    GatewayResource,
+)
+from aws_sdk_backup_gateway._resources.backup_on_premises_v20210101.hypervisor_resource import (
+    HypervisorResource,
+)
+from aws_sdk_backup_gateway._resources.backup_on_premises_v20210101.virtual_machine_resource import (
+    VirtualMachineResource,
+)
 from aws_sdk_backup_gateway._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -104,6 +115,10 @@ class BackupGatewayClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.gateway_resource = GatewayResource(self)
+        self.hypervisor_resource = HypervisorResource(self)
+        self.virtual_machine_resource = VirtualMachineResource(self)
 
     def operation_options(
         self, config_overrides: Optional[BackupGatewayClientConfig] = None

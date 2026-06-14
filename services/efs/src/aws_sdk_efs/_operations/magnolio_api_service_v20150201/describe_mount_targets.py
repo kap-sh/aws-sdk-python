@@ -89,54 +89,51 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_efs.types.describe_mount_targets_request.DescribeMountTargetsRequest,
+    input_: aws_sdk_efs.types.describe_mount_targets_request.DescribeMountTargetsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2015-02-01/mount-targets"
     params: dict[str, str] = {}
-    if "max_items" in input:
-        params["MaxItems"] = str(input["max_items"])
-    if "marker" in input:
-        params["Marker"] = str(input["marker"])
-    if "file_system_id" in input:
-        params["FileSystemId"] = str(input["file_system_id"])
-    if "mount_target_id" in input:
-        params["MountTargetId"] = str(input["mount_target_id"])
-    if "access_point_id" in input:
-        params["AccessPointId"] = str(input["access_point_id"])
+    if "max_items" in input_:
+        params["MaxItems"] = str(input_["max_items"])
+    if "marker" in input_:
+        params["Marker"] = str(input_["marker"])
+    if "file_system_id" in input_:
+        params["FileSystemId"] = str(input_["file_system_id"])
+    if "mount_target_id" in input_:
+        params["MountTargetId"] = str(input_["mount_target_id"])
+    if "access_point_id" in input_:
+        params["AccessPointId"] = str(input_["access_point_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def describe_mount_targets(
     options: OperationOptions,
-    input: aws_sdk_efs.types.describe_mount_targets_request.DescribeMountTargetsRequest,
+    input_: aws_sdk_efs.types.describe_mount_targets_request.DescribeMountTargetsRequest,
 ) -> tuple[
     aws_sdk_efs.types.describe_mount_targets_response.DescribeMountTargetsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -145,16 +142,17 @@ def describe_mount_targets(
 
 async def async_describe_mount_targets(
     options: AsyncOperationOptions,
-    input: aws_sdk_efs.types.describe_mount_targets_request.DescribeMountTargetsRequest,
+    input_: aws_sdk_efs.types.describe_mount_targets_request.DescribeMountTargetsRequest,
 ) -> tuple[
     aws_sdk_efs.types.describe_mount_targets_response.DescribeMountTargetsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

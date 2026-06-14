@@ -169,14 +169,14 @@ class AsyncCloudTrailDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudtrail_data.types.put_audit_events_request.PutAuditEventsRequest = {}  # type: ignore[typeddict-item]
-        input["audit_events"] = audit_events
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_cloudtrail_data.types.put_audit_events_request.PutAuditEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["audit_events"] = audit_events
+        input_["channel_arn"] = channel_arn
         if external_id is not None:
-            input["external_id"] = external_id
+            input_["external_id"] = external_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -16,6 +16,38 @@ from aws_sdk_notifications._auth._providers import (
 )
 from aws_sdk_notifications._auth._zapros_handler import AuthMiddleware
 from aws_sdk_notifications._pagination import resolve_path as _resolve_path
+from aws_sdk_notifications._resources.notifications.channel import AsyncChannel
+from aws_sdk_notifications._resources.notifications.event_rule import AsyncEventRule
+from aws_sdk_notifications._resources.notifications.managed_notification_account_contact_association import (
+    AsyncManagedNotificationAccountContactAssociation,
+)
+from aws_sdk_notifications._resources.notifications.managed_notification_additional_channel_association import (
+    AsyncManagedNotificationAdditionalChannelAssociation,
+)
+from aws_sdk_notifications._resources.notifications.managed_notification_child_event_resource import (
+    AsyncManagedNotificationChildEventResource,
+)
+from aws_sdk_notifications._resources.notifications.managed_notification_configuration import (
+    AsyncManagedNotificationConfiguration,
+)
+from aws_sdk_notifications._resources.notifications.managed_notification_event_resource import (
+    AsyncManagedNotificationEventResource,
+)
+from aws_sdk_notifications._resources.notifications.notification_configuration import (
+    AsyncNotificationConfiguration,
+)
+from aws_sdk_notifications._resources.notifications.notification_event_resource import (
+    AsyncNotificationEventResource,
+)
+from aws_sdk_notifications._resources.notifications.notification_hub import (
+    AsyncNotificationHub,
+)
+from aws_sdk_notifications._resources.notifications.organization_access import (
+    AsyncOrganizationAccess,
+)
+from aws_sdk_notifications._resources.notifications.organizational_unit import (
+    AsyncOrganizationalUnit,
+)
 from aws_sdk_notifications._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -116,6 +148,29 @@ class AsyncNotificationsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.channel = AsyncChannel(self)
+        self.event_rule = AsyncEventRule(self)
+        self.managed_notification_account_contact_association = (
+            AsyncManagedNotificationAccountContactAssociation(self)
+        )
+        self.managed_notification_additional_channel_association = (
+            AsyncManagedNotificationAdditionalChannelAssociation(self)
+        )
+        self.managed_notification_child_event_resource = (
+            AsyncManagedNotificationChildEventResource(self)
+        )
+        self.managed_notification_configuration = AsyncManagedNotificationConfiguration(
+            self
+        )
+        self.managed_notification_event_resource = (
+            AsyncManagedNotificationEventResource(self)
+        )
+        self.notification_configuration = AsyncNotificationConfiguration(self)
+        self.notification_event_resource = AsyncNotificationEventResource(self)
+        self.notification_hub = AsyncNotificationHub(self)
+        self.organization_access = AsyncOrganizationAccess(self)
+        self.organizational_unit = AsyncOrganizationalUnit(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncNotificationsClientConfig] = None
@@ -174,17 +229,17 @@ class AsyncNotificationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_managed_notification_channel_associations_request.ListManagedNotificationChannelAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["managed_notification_configuration_arn"] = (
+        input_: aws_sdk_notifications.types.list_managed_notification_channel_associations_request.ListManagedNotificationChannelAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["managed_notification_configuration_arn"] = (
             managed_notification_configuration_arn
         )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -257,21 +312,21 @@ class AsyncNotificationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_member_accounts_request.ListMemberAccountsRequest = {}  # type: ignore[typeddict-item]
-        input["notification_configuration_arn"] = notification_configuration_arn
+        input_: aws_sdk_notifications.types.list_member_accounts_request.ListMemberAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_["notification_configuration_arn"] = notification_configuration_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if member_account is not None:
-            input["member_account"] = member_account
+            input_["member_account"] = member_account
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if organizational_unit_id is not None:
-            input["organizational_unit_id"] = organizational_unit_id
+            input_["organizational_unit_id"] = organizational_unit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,11 +395,11 @@ class AsyncNotificationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_notifications.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,12 +435,12 @@ class AsyncNotificationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_notifications.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,12 +476,12 @@ class AsyncNotificationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_notifications.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_notifications.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

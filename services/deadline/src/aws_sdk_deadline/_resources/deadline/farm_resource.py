@@ -124,21 +124,21 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_farm_request.CreateFarmRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.create_farm_request.CreateFarmRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["display_name"] = display_name
+            input_["client_token"] = client_token
+        input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if cost_scale_factor is not None:
-            input["cost_scale_factor"] = cost_scale_factor
+            input_["cost_scale_factor"] = cost_scale_factor
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -171,11 +171,11 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_farm_request.GetFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.get_farm_request.GetFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -218,17 +218,17 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_farm_request.UpdateFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.update_farm_request.UpdateFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if cost_scale_factor is not None:
-            input["cost_scale_factor"] = cost_scale_factor
+            input_["cost_scale_factor"] = cost_scale_factor
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,11 +261,11 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_farm_request.DeleteFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.delete_farm_request.DeleteFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -304,16 +304,16 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_farms_request.ListFarmsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.list_farms_request.ListFarmsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if principal_id is not None:
-            input["principal_id"] = principal_id
+            input_["principal_id"] = principal_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,17 +356,17 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.associate_member_to_farm_request.AssociateMemberToFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["principal_type"] = principal_type
-        input["identity_store_id"] = identity_store_id
-        input["membership_level"] = membership_level
-        input["principal_id"] = principal_id
+        input_: aws_sdk_deadline.types.associate_member_to_farm_request.AssociateMemberToFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["principal_type"] = principal_type
+        input_["identity_store_id"] = identity_store_id
+        input_["membership_level"] = membership_level
+        input_["principal_id"] = principal_id
         if identity_center_region is not None:
-            input["identity_center_region"] = identity_center_region
+            input_["identity_center_region"] = identity_center_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,18 +411,18 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_limit_request.CreateLimitRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.create_limit_request.CreateLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["display_name"] = display_name
-        input["amount_requirement_name"] = amount_requirement_name
-        input["max_count"] = max_count
+            input_["client_token"] = client_token
+        input_["display_name"] = display_name
+        input_["amount_requirement_name"] = amount_requirement_name
+        input_["max_count"] = max_count
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -467,17 +467,17 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_storage_profile_request.CreateStorageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.create_storage_profile_request.CreateStorageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["display_name"] = display_name
-        input["os_family"] = os_family
+            input_["client_token"] = client_token
+        input_["display_name"] = display_name
+        input_["os_family"] = os_family
         if file_system_locations is not None:
-            input["file_system_locations"] = file_system_locations
+            input_["file_system_locations"] = file_system_locations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -512,12 +512,12 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_limit_request.DeleteLimitRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.delete_limit_request.DeleteLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["limit_id"] = limit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,12 +552,12 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_storage_profile_request.DeleteStorageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["storage_profile_id"] = storage_profile_id
+        input_: aws_sdk_deadline.types.delete_storage_profile_request.DeleteStorageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["storage_profile_id"] = storage_profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,12 +592,12 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.disassociate_member_from_farm_request.DisassociateMemberFromFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["principal_id"] = principal_id
+        input_: aws_sdk_deadline.types.disassociate_member_from_farm_request.DisassociateMemberFromFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["principal_id"] = principal_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -632,12 +632,12 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_limit_request.GetLimitRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.get_limit_request.GetLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["limit_id"] = limit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,12 +674,12 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_storage_profile_request.GetStorageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["storage_profile_id"] = storage_profile_id
+        input_: aws_sdk_deadline.types.get_storage_profile_request.GetStorageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["storage_profile_id"] = storage_profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -716,15 +716,15 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_farm_members_request.ListFarmMembersRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.list_farm_members_request.ListFarmMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,15 +761,15 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_limits_request.ListLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.list_limits_request.ListLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,15 +806,15 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_storage_profiles_request.ListStorageProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.list_storage_profiles_request.ListStorageProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -857,18 +857,18 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_limit_request.UpdateLimitRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.update_limit_request.UpdateLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["limit_id"] = limit_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if max_count is not None:
-            input["max_count"] = max_count
+            input_["max_count"] = max_count
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -923,22 +923,22 @@ class FarmResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_storage_profile_request.UpdateStorageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["storage_profile_id"] = storage_profile_id
+        input_: aws_sdk_deadline.types.update_storage_profile_request.UpdateStorageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["storage_profile_id"] = storage_profile_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if os_family is not None:
-            input["os_family"] = os_family
+            input_["os_family"] = os_family
         if file_system_locations_to_add is not None:
-            input["file_system_locations_to_add"] = file_system_locations_to_add
+            input_["file_system_locations_to_add"] = file_system_locations_to_add
         if file_system_locations_to_remove is not None:
-            input["file_system_locations_to_remove"] = file_system_locations_to_remove
+            input_["file_system_locations_to_remove"] = file_system_locations_to_remove
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -991,21 +991,21 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_farm_request.CreateFarmRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.create_farm_request.CreateFarmRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["display_name"] = display_name
+            input_["client_token"] = client_token
+        input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if cost_scale_factor is not None:
-            input["cost_scale_factor"] = cost_scale_factor
+            input_["cost_scale_factor"] = cost_scale_factor
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1039,11 +1039,11 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_farm_request.GetFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.get_farm_request.GetFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1087,17 +1087,17 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_farm_request.UpdateFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.update_farm_request.UpdateFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if cost_scale_factor is not None:
-            input["cost_scale_factor"] = cost_scale_factor
+            input_["cost_scale_factor"] = cost_scale_factor
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1131,11 +1131,11 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_farm_request.DeleteFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.delete_farm_request.DeleteFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1175,16 +1175,16 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_farms_request.ListFarmsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_deadline.types.list_farms_request.ListFarmsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if principal_id is not None:
-            input["principal_id"] = principal_id
+            input_["principal_id"] = principal_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1228,17 +1228,17 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.associate_member_to_farm_request.AssociateMemberToFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["principal_type"] = principal_type
-        input["identity_store_id"] = identity_store_id
-        input["membership_level"] = membership_level
-        input["principal_id"] = principal_id
+        input_: aws_sdk_deadline.types.associate_member_to_farm_request.AssociateMemberToFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["principal_type"] = principal_type
+        input_["identity_store_id"] = identity_store_id
+        input_["membership_level"] = membership_level
+        input_["principal_id"] = principal_id
         if identity_center_region is not None:
-            input["identity_center_region"] = identity_center_region
+            input_["identity_center_region"] = identity_center_region
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1284,18 +1284,18 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_limit_request.CreateLimitRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.create_limit_request.CreateLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["display_name"] = display_name
-        input["amount_requirement_name"] = amount_requirement_name
-        input["max_count"] = max_count
+            input_["client_token"] = client_token
+        input_["display_name"] = display_name
+        input_["amount_requirement_name"] = amount_requirement_name
+        input_["max_count"] = max_count
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1341,17 +1341,17 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.create_storage_profile_request.CreateStorageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.create_storage_profile_request.CreateStorageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["display_name"] = display_name
-        input["os_family"] = os_family
+            input_["client_token"] = client_token
+        input_["display_name"] = display_name
+        input_["os_family"] = os_family
         if file_system_locations is not None:
-            input["file_system_locations"] = file_system_locations
+            input_["file_system_locations"] = file_system_locations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1387,12 +1387,12 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_limit_request.DeleteLimitRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.delete_limit_request.DeleteLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["limit_id"] = limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1428,12 +1428,12 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.delete_storage_profile_request.DeleteStorageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["storage_profile_id"] = storage_profile_id
+        input_: aws_sdk_deadline.types.delete_storage_profile_request.DeleteStorageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["storage_profile_id"] = storage_profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1469,12 +1469,12 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.disassociate_member_from_farm_request.DisassociateMemberFromFarmRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["principal_id"] = principal_id
+        input_: aws_sdk_deadline.types.disassociate_member_from_farm_request.DisassociateMemberFromFarmRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["principal_id"] = principal_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1510,12 +1510,12 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_limit_request.GetLimitRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.get_limit_request.GetLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["limit_id"] = limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1553,12 +1553,12 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.get_storage_profile_request.GetStorageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["storage_profile_id"] = storage_profile_id
+        input_: aws_sdk_deadline.types.get_storage_profile_request.GetStorageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["storage_profile_id"] = storage_profile_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1596,15 +1596,15 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_farm_members_request.ListFarmMembersRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.list_farm_members_request.ListFarmMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1642,15 +1642,15 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_limits_request.ListLimitsRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.list_limits_request.ListLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1688,15 +1688,15 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.list_storage_profiles_request.ListStorageProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
+        input_: aws_sdk_deadline.types.list_storage_profiles_request.ListStorageProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1740,18 +1740,18 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_limit_request.UpdateLimitRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["limit_id"] = limit_id
+        input_: aws_sdk_deadline.types.update_limit_request.UpdateLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["limit_id"] = limit_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if max_count is not None:
-            input["max_count"] = max_count
+            input_["max_count"] = max_count
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1807,22 +1807,22 @@ class AsyncFarmResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_deadline.types.update_storage_profile_request.UpdateStorageProfileRequest = {}  # type: ignore[typeddict-item]
-        input["farm_id"] = farm_id
-        input["storage_profile_id"] = storage_profile_id
+        input_: aws_sdk_deadline.types.update_storage_profile_request.UpdateStorageProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["farm_id"] = farm_id
+        input_["storage_profile_id"] = storage_profile_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if os_family is not None:
-            input["os_family"] = os_family
+            input_["os_family"] = os_family
         if file_system_locations_to_add is not None:
-            input["file_system_locations_to_add"] = file_system_locations_to_add
+            input_["file_system_locations_to_add"] = file_system_locations_to_add
         if file_system_locations_to_remove is not None:
-            input["file_system_locations_to_remove"] = file_system_locations_to_remove
+            input_["file_system_locations_to_remove"] = file_system_locations_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

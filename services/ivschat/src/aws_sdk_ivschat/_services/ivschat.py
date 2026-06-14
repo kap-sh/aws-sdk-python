@@ -223,18 +223,18 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.create_chat_token_request.CreateChatTokenRequest = {}  # type: ignore[typeddict-item]
-        input["room_identifier"] = room_identifier
-        input["user_id"] = user_id
+        input_: aws_sdk_ivschat.types.create_chat_token_request.CreateChatTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["room_identifier"] = room_identifier
+        input_["user_id"] = user_id
         if capabilities is not None:
-            input["capabilities"] = capabilities
+            input_["capabilities"] = capabilities
         if session_duration_in_minutes is not None:
-            input["session_duration_in_minutes"] = session_duration_in_minutes
+            input_["session_duration_in_minutes"] = session_duration_in_minutes
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,15 +273,15 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.create_logging_configuration_request.CreateLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivschat.types.create_logging_configuration_request.CreateLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["destination_configuration"] = destination_configuration
+            input_["name"] = name
+        input_["destination_configuration"] = destination_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,24 +332,24 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.create_room_request.CreateRoomRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivschat.types.create_room_request.CreateRoomRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if maximum_message_rate_per_second is not None:
-            input["maximum_message_rate_per_second"] = maximum_message_rate_per_second
+            input_["maximum_message_rate_per_second"] = maximum_message_rate_per_second
         if maximum_message_length is not None:
-            input["maximum_message_length"] = maximum_message_length
+            input_["maximum_message_length"] = maximum_message_length
         if message_review_handler is not None:
-            input["message_review_handler"] = message_review_handler
+            input_["message_review_handler"] = message_review_handler
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if logging_configuration_identifiers is not None:
-            input["logging_configuration_identifiers"] = (
+            input_["logging_configuration_identifiers"] = (
                 logging_configuration_identifiers
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,11 +380,11 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.delete_logging_configuration_request.DeleteLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_ivschat.types.delete_logging_configuration_request.DeleteLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -421,14 +421,14 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.delete_message_request.DeleteMessageRequest = {}  # type: ignore[typeddict-item]
-        input["room_identifier"] = room_identifier
-        input["id"] = id
+        input_: aws_sdk_ivschat.types.delete_message_request.DeleteMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["room_identifier"] = room_identifier
+        input_["id"] = id
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,11 +459,11 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.delete_room_request.DeleteRoomRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_ivschat.types.delete_room_request.DeleteRoomRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,14 +500,14 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.disconnect_user_request.DisconnectUserRequest = {}  # type: ignore[typeddict-item]
-        input["room_identifier"] = room_identifier
-        input["user_id"] = user_id
+        input_: aws_sdk_ivschat.types.disconnect_user_request.DisconnectUserRequest = {}  # type: ignore[typeddict-item]
+        input_["room_identifier"] = room_identifier
+        input_["user_id"] = user_id
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -540,11 +540,11 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.get_logging_configuration_request.GetLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_ivschat.types.get_logging_configuration_request.GetLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -577,11 +577,11 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.get_room_request.GetRoomRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_ivschat.types.get_room_request.GetRoomRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,14 +620,14 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.list_logging_configurations_request.ListLoggingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivschat.types.list_logging_configurations_request.ListLoggingConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -676,20 +676,22 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.list_rooms_request.ListRoomsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivschat.types.list_rooms_request.ListRoomsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if message_review_handler_uri is not None:
-            input["message_review_handler_uri"] = message_review_handler_uri
+            input_["message_review_handler_uri"] = message_review_handler_uri
         if logging_configuration_identifier is not None:
-            input["logging_configuration_identifier"] = logging_configuration_identifier
+            input_["logging_configuration_identifier"] = (
+                logging_configuration_identifier
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,11 +724,11 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ivschat.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -765,14 +767,14 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.send_event_request.SendEventRequest = {}  # type: ignore[typeddict-item]
-        input["room_identifier"] = room_identifier
-        input["event_name"] = event_name
+        input_: aws_sdk_ivschat.types.send_event_request.SendEventRequest = {}  # type: ignore[typeddict-item]
+        input_["room_identifier"] = room_identifier
+        input_["event_name"] = event_name
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -807,12 +809,12 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_ivschat.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -847,12 +849,12 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ivschat.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -893,15 +895,15 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.update_logging_configuration_request.UpdateLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_ivschat.types.update_logging_configuration_request.UpdateLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if destination_configuration is not None:
-            input["destination_configuration"] = destination_configuration
+            input_["destination_configuration"] = destination_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,23 +954,23 @@ class ivschatClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivschat.types.update_room_request.UpdateRoomRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_ivschat.types.update_room_request.UpdateRoomRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if maximum_message_rate_per_second is not None:
-            input["maximum_message_rate_per_second"] = maximum_message_rate_per_second
+            input_["maximum_message_rate_per_second"] = maximum_message_rate_per_second
         if maximum_message_length is not None:
-            input["maximum_message_length"] = maximum_message_length
+            input_["maximum_message_length"] = maximum_message_length
         if message_review_handler is not None:
-            input["message_review_handler"] = message_review_handler
+            input_["message_review_handler"] = message_review_handler
         if logging_configuration_identifiers is not None:
-            input["logging_configuration_identifiers"] = (
+            input_["logging_configuration_identifiers"] = (
                 logging_configuration_identifiers
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

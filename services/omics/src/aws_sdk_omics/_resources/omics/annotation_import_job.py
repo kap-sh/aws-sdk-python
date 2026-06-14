@@ -87,21 +87,21 @@ class AnnotationImportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_annotation_import_request.StartAnnotationImportRequest = {}  # type: ignore[typeddict-item]
-        input["destination_name"] = destination_name
-        input["role_arn"] = role_arn
-        input["items"] = items
+        input_: aws_sdk_omics.types.start_annotation_import_request.StartAnnotationImportRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_name"] = destination_name
+        input_["role_arn"] = role_arn
+        input_["items"] = items
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if format_options is not None:
-            input["format_options"] = format_options
+            input_["format_options"] = format_options
         if run_left_normalization is not None:
-            input["run_left_normalization"] = run_left_normalization
+            input_["run_left_normalization"] = run_left_normalization
         if annotation_fields is not None:
-            input["annotation_fields"] = annotation_fields
+            input_["annotation_fields"] = annotation_fields
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,11 +136,11 @@ class AnnotationImportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_annotation_import_request.GetAnnotationImportRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_omics.types.get_annotation_import_request.GetAnnotationImportRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -173,11 +173,11 @@ class AnnotationImportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.cancel_annotation_import_request.CancelAnnotationImportRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_omics.types.cancel_annotation_import_request.CancelAnnotationImportRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -218,18 +218,18 @@ class AnnotationImportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_annotation_import_jobs_request.ListAnnotationImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_annotation_import_jobs_request.ListAnnotationImportJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,21 +286,21 @@ class AsyncAnnotationImportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_annotation_import_request.StartAnnotationImportRequest = {}  # type: ignore[typeddict-item]
-        input["destination_name"] = destination_name
-        input["role_arn"] = role_arn
-        input["items"] = items
+        input_: aws_sdk_omics.types.start_annotation_import_request.StartAnnotationImportRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_name"] = destination_name
+        input_["role_arn"] = role_arn
+        input_["items"] = items
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if format_options is not None:
-            input["format_options"] = format_options
+            input_["format_options"] = format_options
         if run_left_normalization is not None:
-            input["run_left_normalization"] = run_left_normalization
+            input_["run_left_normalization"] = run_left_normalization
         if annotation_fields is not None:
-            input["annotation_fields"] = annotation_fields
+            input_["annotation_fields"] = annotation_fields
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -336,11 +336,11 @@ class AsyncAnnotationImportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_annotation_import_request.GetAnnotationImportRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_omics.types.get_annotation_import_request.GetAnnotationImportRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,11 +374,11 @@ class AsyncAnnotationImportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.cancel_annotation_import_request.CancelAnnotationImportRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_omics.types.cancel_annotation_import_request.CancelAnnotationImportRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,18 +420,18 @@ class AsyncAnnotationImportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_annotation_import_jobs_request.ListAnnotationImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_annotation_import_jobs_request.ListAnnotationImportJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

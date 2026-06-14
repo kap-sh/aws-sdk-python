@@ -258,11 +258,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.associate_certificate_request.AssociateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconvert.types.associate_certificate_request.AssociateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -296,11 +296,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediaconvert.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,36 +380,36 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
         if acceleration_settings is not None:
-            input["acceleration_settings"] = acceleration_settings
+            input_["acceleration_settings"] = acceleration_settings
         if billing_tags_source is not None:
-            input["billing_tags_source"] = billing_tags_source
+            input_["billing_tags_source"] = billing_tags_source
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if hop_destinations is not None:
-            input["hop_destinations"] = hop_destinations
+            input_["hop_destinations"] = hop_destinations
         if job_engine_version is not None:
-            input["job_engine_version"] = job_engine_version
+            input_["job_engine_version"] = job_engine_version
         if job_template is not None:
-            input["job_template"] = job_template
+            input_["job_template"] = job_template
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if queue is not None:
-            input["queue"] = queue
-        input["role"] = role
-        input["settings"] = settings
+            input_["queue"] = queue
+        input_["role"] = role
+        input_["settings"] = settings
         if simulate_reserved_queue is not None:
-            input["simulate_reserved_queue"] = simulate_reserved_queue
+            input_["simulate_reserved_queue"] = simulate_reserved_queue
         if status_update_interval is not None:
-            input["status_update_interval"] = status_update_interval
+            input_["status_update_interval"] = status_update_interval
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if user_metadata is not None:
-            input["user_metadata"] = user_metadata
+            input_["user_metadata"] = user_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -471,28 +471,28 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.create_job_template_request.CreateJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.create_job_template_request.CreateJobTemplateRequest = {}  # type: ignore[typeddict-item]
         if acceleration_settings is not None:
-            input["acceleration_settings"] = acceleration_settings
+            input_["acceleration_settings"] = acceleration_settings
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if hop_destinations is not None:
-            input["hop_destinations"] = hop_destinations
-        input["name"] = name
+            input_["hop_destinations"] = hop_destinations
+        input_["name"] = name
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if queue is not None:
-            input["queue"] = queue
-        input["settings"] = settings
+            input_["queue"] = queue
+        input_["settings"] = settings
         if status_update_interval is not None:
-            input["status_update_interval"] = status_update_interval
+            input_["status_update_interval"] = status_update_interval
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -536,18 +536,18 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.create_preset_request.CreatePresetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.create_preset_request.CreatePresetRequest = {}  # type: ignore[typeddict-item]
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if description is not None:
-            input["description"] = description
-        input["name"] = name
-        input["settings"] = settings
+            input_["description"] = description
+        input_["name"] = name
+        input_["settings"] = settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -605,25 +605,25 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.create_queue_request.CreateQueueRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.create_queue_request.CreateQueueRequest = {}  # type: ignore[typeddict-item]
         if concurrent_jobs is not None:
-            input["concurrent_jobs"] = concurrent_jobs
+            input_["concurrent_jobs"] = concurrent_jobs
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if maximum_concurrent_feeds is not None:
-            input["maximum_concurrent_feeds"] = maximum_concurrent_feeds
-        input["name"] = name
+            input_["maximum_concurrent_feeds"] = maximum_concurrent_feeds
+        input_["name"] = name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if reservation_plan_settings is not None:
-            input["reservation_plan_settings"] = reservation_plan_settings
+            input_["reservation_plan_settings"] = reservation_plan_settings
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -659,12 +659,12 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.create_resource_share_request.CreateResourceShareRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["support_case_id"] = support_case_id
+        input_: aws_sdk_mediaconvert.types.create_resource_share_request.CreateResourceShareRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["support_case_id"] = support_case_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,11 +698,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.delete_job_template_request.DeleteJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediaconvert.types.delete_job_template_request.DeleteJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -729,10 +729,10 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -766,11 +766,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.delete_preset_request.DeletePresetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediaconvert.types.delete_preset_request.DeletePresetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -804,11 +804,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.delete_queue_request.DeleteQueueRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediaconvert.types.delete_queue_request.DeleteQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,16 +848,16 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -916,11 +916,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.disassociate_certificate_request.DisassociateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconvert.types.disassociate_certificate_request.DisassociateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -954,11 +954,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediaconvert.types.get_job_request.GetJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -992,11 +992,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.get_jobs_query_results_request.GetJobsQueryResultsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_mediaconvert.types.get_jobs_query_results_request.GetJobsQueryResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1030,11 +1030,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.get_job_template_request.GetJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediaconvert.types.get_job_template_request.GetJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1061,10 +1061,10 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1098,11 +1098,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.get_preset_request.GetPresetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediaconvert.types.get_preset_request.GetPresetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1136,11 +1136,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.get_queue_request.GetQueueRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediaconvert.types.get_queue_request.GetQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1184,20 +1184,20 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
         if queue is not None:
-            input["queue"] = queue
+            input_["queue"] = queue
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,20 +1272,20 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.list_job_templates_request.ListJobTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.list_job_templates_request.ListJobTemplatesRequest = {}  # type: ignore[typeddict-item]
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if list_by is not None:
-            input["list_by"] = list_by
+            input_["list_by"] = list_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1362,20 +1362,20 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.list_presets_request.ListPresetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.list_presets_request.ListPresetsRequest = {}  # type: ignore[typeddict-item]
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if list_by is not None:
-            input["list_by"] = list_by
+            input_["list_by"] = list_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1450,18 +1450,18 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.list_queues_request.ListQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.list_queues_request.ListQueuesRequest = {}  # type: ignore[typeddict-item]
         if list_by is not None:
-            input["list_by"] = list_by
+            input_["list_by"] = list_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1524,11 +1524,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconvert.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1566,14 +1566,14 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1634,12 +1634,12 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.probe_request.ProbeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.probe_request.ProbeRequest = {}  # type: ignore[typeddict-item]
         if input_files is not None:
-            input["input_files"] = input_files
+            input_["input_files"] = input_files
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1673,11 +1673,11 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.put_policy_request.PutPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy"] = policy
+        input_: aws_sdk_mediaconvert.types.put_policy_request.PutPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1723,22 +1723,22 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.search_jobs_request.SearchJobsRequest = {}  # type: ignore[typeddict-item]
         if input_file is not None:
-            input["input_file"] = input_file
+            input_["input_file"] = input_file
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
         if queue is not None:
-            input["queue"] = queue
+            input_["queue"] = queue
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1813,18 +1813,18 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.start_jobs_query_request.StartJobsQueryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.start_jobs_query_request.StartJobsQueryRequest = {}  # type: ignore[typeddict-item]
         if filter_list is not None:
-            input["filter_list"] = filter_list
+            input_["filter_list"] = filter_list
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if order is not None:
-            input["order"] = order
+            input_["order"] = order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1860,12 +1860,12 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_mediaconvert.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1903,13 +1903,13 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_mediaconvert.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1969,27 +1969,27 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.update_job_template_request.UpdateJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.update_job_template_request.UpdateJobTemplateRequest = {}  # type: ignore[typeddict-item]
         if acceleration_settings is not None:
-            input["acceleration_settings"] = acceleration_settings
+            input_["acceleration_settings"] = acceleration_settings
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if hop_destinations is not None:
-            input["hop_destinations"] = hop_destinations
-        input["name"] = name
+            input_["hop_destinations"] = hop_destinations
+        input_["name"] = name
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if queue is not None:
-            input["queue"] = queue
+            input_["queue"] = queue
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
         if status_update_interval is not None:
-            input["status_update_interval"] = status_update_interval
+            input_["status_update_interval"] = status_update_interval
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2031,17 +2031,17 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.update_preset_request.UpdatePresetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.update_preset_request.UpdatePresetRequest = {}  # type: ignore[typeddict-item]
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2091,21 +2091,21 @@ class AsyncMediaConvertClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mediaconvert.types.update_queue_request.UpdateQueueRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconvert.types.update_queue_request.UpdateQueueRequest = {}  # type: ignore[typeddict-item]
         if concurrent_jobs is not None:
-            input["concurrent_jobs"] = concurrent_jobs
+            input_["concurrent_jobs"] = concurrent_jobs
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if maximum_concurrent_feeds is not None:
-            input["maximum_concurrent_feeds"] = maximum_concurrent_feeds
-        input["name"] = name
+            input_["maximum_concurrent_feeds"] = maximum_concurrent_feeds
+        input_["name"] = name
         if reservation_plan_settings is not None:
-            input["reservation_plan_settings"] = reservation_plan_settings
+            input_["reservation_plan_settings"] = reservation_plan_settings
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -98,66 +98,63 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_networkmanager.types.get_network_telemetry_request.GetNetworkTelemetryRequest,
+    input_: aws_sdk_networkmanager.types.get_network_telemetry_request.GetNetworkTelemetryRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/global-networks/{GlobalNetworkId}/network-telemetry"
     )
     url = url.replace(
-        "{GlobalNetworkId}", quote(str(input["global_network_id"]), safe="")
+        "{GlobalNetworkId}", quote(str(input_["global_network_id"]), safe="")
     )
     params: dict[str, str] = {}
-    if "core_network_id" in input:
-        params["coreNetworkId"] = str(input["core_network_id"])
-    if "registered_gateway_arn" in input:
-        params["registeredGatewayArn"] = str(input["registered_gateway_arn"])
-    if "aws_region" in input:
-        params["awsRegion"] = str(input["aws_region"])
-    if "account_id" in input:
-        params["accountId"] = str(input["account_id"])
-    if "resource_type" in input:
-        params["resourceType"] = str(input["resource_type"])
-    if "resource_arn" in input:
-        params["resourceArn"] = str(input["resource_arn"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
+    if "core_network_id" in input_:
+        params["coreNetworkId"] = str(input_["core_network_id"])
+    if "registered_gateway_arn" in input_:
+        params["registeredGatewayArn"] = str(input_["registered_gateway_arn"])
+    if "aws_region" in input_:
+        params["awsRegion"] = str(input_["aws_region"])
+    if "account_id" in input_:
+        params["accountId"] = str(input_["account_id"])
+    if "resource_type" in input_:
+        params["resourceType"] = str(input_["resource_type"])
+    if "resource_arn" in input_:
+        params["resourceArn"] = str(input_["resource_arn"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_network_telemetry(
     options: OperationOptions,
-    input: aws_sdk_networkmanager.types.get_network_telemetry_request.GetNetworkTelemetryRequest,
+    input_: aws_sdk_networkmanager.types.get_network_telemetry_request.GetNetworkTelemetryRequest,
 ) -> tuple[
     aws_sdk_networkmanager.types.get_network_telemetry_response.GetNetworkTelemetryResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -166,16 +163,17 @@ def get_network_telemetry(
 
 async def async_get_network_telemetry(
     options: AsyncOperationOptions,
-    input: aws_sdk_networkmanager.types.get_network_telemetry_request.GetNetworkTelemetryRequest,
+    input_: aws_sdk_networkmanager.types.get_network_telemetry_request.GetNetworkTelemetryRequest,
 ) -> tuple[
     aws_sdk_networkmanager.types.get_network_telemetry_response.GetNetworkTelemetryResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -79,21 +79,21 @@ class ServiceTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_service_template_input.CreateServiceTemplateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.create_service_template_input.CreateServiceTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if pipeline_provisioning is not None:
-            input["pipeline_provisioning"] = pipeline_provisioning
+            input_["pipeline_provisioning"] = pipeline_provisioning
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -126,11 +126,11 @@ class ServiceTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_template_input.GetServiceTemplateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.get_service_template_input.GetServiceTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -167,15 +167,15 @@ class ServiceTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_template_input.UpdateServiceTemplateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.update_service_template_input.UpdateServiceTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,11 +208,11 @@ class ServiceTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_service_template_input.DeleteServiceTemplateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.delete_service_template_input.DeleteServiceTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,14 +251,14 @@ class ServiceTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_service_templates_input.ListServiceTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_service_templates_input.ListServiceTemplatesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,21 +309,21 @@ class AsyncServiceTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_service_template_input.CreateServiceTemplateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.create_service_template_input.CreateServiceTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption_key is not None:
-            input["encryption_key"] = encryption_key
+            input_["encryption_key"] = encryption_key
         if pipeline_provisioning is not None:
-            input["pipeline_provisioning"] = pipeline_provisioning
+            input_["pipeline_provisioning"] = pipeline_provisioning
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -357,11 +357,11 @@ class AsyncServiceTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_template_input.GetServiceTemplateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.get_service_template_input.GetServiceTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -399,15 +399,15 @@ class AsyncServiceTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_template_input.UpdateServiceTemplateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.update_service_template_input.UpdateServiceTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,11 +441,11 @@ class AsyncServiceTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_service_template_input.DeleteServiceTemplateInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.delete_service_template_input.DeleteServiceTemplateInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,14 +485,14 @@ class AsyncServiceTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_service_templates_input.ListServiceTemplatesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_service_templates_input.ListServiceTemplatesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

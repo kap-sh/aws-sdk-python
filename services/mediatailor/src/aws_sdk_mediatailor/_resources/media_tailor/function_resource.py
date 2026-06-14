@@ -89,24 +89,24 @@ class FunctionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.put_function_request.PutFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_id"] = function_id
-        input["function_type"] = function_type
+        input_: aws_sdk_mediatailor.types.put_function_request.PutFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_id"] = function_id
+        input_["function_type"] = function_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if http_request_configuration is not None:
-            input["http_request_configuration"] = http_request_configuration
+            input_["http_request_configuration"] = http_request_configuration
         if custom_output_configuration is not None:
-            input["custom_output_configuration"] = custom_output_configuration
+            input_["custom_output_configuration"] = custom_output_configuration
         if sequential_executor_configuration is not None:
-            input["sequential_executor_configuration"] = (
+            input_["sequential_executor_configuration"] = (
                 sequential_executor_configuration
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -139,11 +139,11 @@ class FunctionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_id"] = function_id
+        input_: aws_sdk_mediatailor.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_id"] = function_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,11 +176,11 @@ class FunctionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_id"] = function_id
+        input_: aws_sdk_mediatailor.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_id"] = function_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,14 +217,14 @@ class FunctionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,24 +283,24 @@ class AsyncFunctionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.put_function_request.PutFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_id"] = function_id
-        input["function_type"] = function_type
+        input_: aws_sdk_mediatailor.types.put_function_request.PutFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_id"] = function_id
+        input_["function_type"] = function_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if http_request_configuration is not None:
-            input["http_request_configuration"] = http_request_configuration
+            input_["http_request_configuration"] = http_request_configuration
         if custom_output_configuration is not None:
-            input["custom_output_configuration"] = custom_output_configuration
+            input_["custom_output_configuration"] = custom_output_configuration
         if sequential_executor_configuration is not None:
-            input["sequential_executor_configuration"] = (
+            input_["sequential_executor_configuration"] = (
                 sequential_executor_configuration
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,11 +334,11 @@ class AsyncFunctionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_id"] = function_id
+        input_: aws_sdk_mediatailor.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_id"] = function_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,11 +372,11 @@ class AsyncFunctionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_id"] = function_id
+        input_: aws_sdk_mediatailor.types.delete_function_request.DeleteFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_id"] = function_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,14 +414,14 @@ class AsyncFunctionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

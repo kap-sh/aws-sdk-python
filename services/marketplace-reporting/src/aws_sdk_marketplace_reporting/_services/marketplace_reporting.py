@@ -13,6 +13,9 @@ from aws_sdk_marketplace_reporting._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_marketplace_reporting._auth._zapros_handler import AuthMiddleware
+from aws_sdk_marketplace_reporting._resources.aws_marketplace_reporting.dashboard import (
+    Dashboard,
+)
 from aws_sdk_marketplace_reporting._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +93,8 @@ class MarketplaceReportingClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.dashboard = Dashboard(self)
 
     def operation_options(
         self, config_overrides: Optional[MarketplaceReportingClientConfig] = None

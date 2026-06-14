@@ -89,20 +89,20 @@ class VectorEnrichmentJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.start_vector_enrichment_job_input.StartVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker_geospatial.types.start_vector_enrichment_job_input.StartVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["input_config"] = input_config
-        input["job_config"] = job_config
-        input["execution_role_arn"] = execution_role_arn
+            input_["kms_key_id"] = kms_key_id
+        input_["input_config"] = input_config
+        input_["job_config"] = job_config
+        input_["execution_role_arn"] = execution_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -135,11 +135,11 @@ class VectorEnrichmentJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.get_vector_enrichment_job_input.GetVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.get_vector_enrichment_job_input.GetVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -172,11 +172,11 @@ class VectorEnrichmentJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.delete_vector_enrichment_job_input.DeleteVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.delete_vector_enrichment_job_input.DeleteVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -221,20 +221,20 @@ class VectorEnrichmentJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.list_vector_enrichment_job_input.ListVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker_geospatial.types.list_vector_enrichment_job_input.ListVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,15 +273,15 @@ class VectorEnrichmentJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.export_vector_enrichment_job_input.ExportVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.export_vector_enrichment_job_input.ExportVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["execution_role_arn"] = execution_role_arn
-        input["output_config"] = output_config
+            input_["client_token"] = client_token
+        input_["execution_role_arn"] = execution_role_arn
+        input_["output_config"] = output_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,11 +314,11 @@ class VectorEnrichmentJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.stop_vector_enrichment_job_input.StopVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.stop_vector_enrichment_job_input.StopVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,20 +371,20 @@ class AsyncVectorEnrichmentJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.start_vector_enrichment_job_input.StartVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sagemaker_geospatial.types.start_vector_enrichment_job_input.StartVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["input_config"] = input_config
-        input["job_config"] = job_config
-        input["execution_role_arn"] = execution_role_arn
+            input_["kms_key_id"] = kms_key_id
+        input_["input_config"] = input_config
+        input_["job_config"] = job_config
+        input_["execution_role_arn"] = execution_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,11 +418,11 @@ class AsyncVectorEnrichmentJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.get_vector_enrichment_job_input.GetVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.get_vector_enrichment_job_input.GetVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,11 +456,11 @@ class AsyncVectorEnrichmentJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.delete_vector_enrichment_job_input.DeleteVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.delete_vector_enrichment_job_input.DeleteVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -506,20 +506,20 @@ class AsyncVectorEnrichmentJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.list_vector_enrichment_job_input.ListVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sagemaker_geospatial.types.list_vector_enrichment_job_input.ListVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
         if status_equals is not None:
-            input["status_equals"] = status_equals
+            input_["status_equals"] = status_equals
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,15 +559,15 @@ class AsyncVectorEnrichmentJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.export_vector_enrichment_job_input.ExportVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.export_vector_enrichment_job_input.ExportVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["execution_role_arn"] = execution_role_arn
-        input["output_config"] = output_config
+            input_["client_token"] = client_token
+        input_["execution_role_arn"] = execution_role_arn
+        input_["output_config"] = output_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -601,11 +601,11 @@ class AsyncVectorEnrichmentJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_sagemaker_geospatial.types.stop_vector_enrichment_job_input.StopVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_sagemaker_geospatial.types.stop_vector_enrichment_job_input.StopVectorEnrichmentJobInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

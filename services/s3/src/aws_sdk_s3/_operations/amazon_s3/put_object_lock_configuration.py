@@ -62,11 +62,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest,
+    input_: aws_sdk_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -86,25 +86,25 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}?object-lock"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "request_payer" in input:
-        headers["x-amz-request-payer"] = str(input["request_payer"])
-    if "token" in input:
-        headers["x-amz-bucket-object-lock-token"] = str(input["token"])
-    if "content_md5" in input:
-        headers["Content-MD5"] = str(input["content_md5"])
-    if "checksum_algorithm" in input:
-        headers["x-amz-sdk-checksum-algorithm"] = str(input["checksum_algorithm"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    if "object_lock_configuration" in input:
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = str(input_["request_payer"])
+    if "token" in input_:
+        headers["x-amz-bucket-object-lock-token"] = str(input_["token"])
+    if "content_md5" in input_:
+        headers["Content-MD5"] = str(input_["content_md5"])
+    if "checksum_algorithm" in input_:
+        headers["x-amz-sdk-checksum-algorithm"] = str(input_["checksum_algorithm"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    if "object_lock_configuration" in input_:
         import aws_sdk_s3.types.object_lock_configuration
 
         payload_root = Element("_")
         aws_sdk_s3.types.object_lock_configuration.serialize_xml(
-            input["object_lock_configuration"], payload_root, "ObjectLockConfiguration"
+            input_["object_lock_configuration"], payload_root, "ObjectLockConfiguration"
         )
         body: bytes | None = tostring(payload_root[0])
         headers["content-type"] = "application/xml"
@@ -120,12 +120,12 @@ def build_request(
 
 def put_object_lock_configuration(
     options: OperationOptions,
-    input: aws_sdk_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest,
+    input_: aws_sdk_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest,
 ) -> tuple[
     aws_sdk_s3.types.put_object_lock_configuration_output.PutObjectLockConfigurationOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -139,12 +139,12 @@ def put_object_lock_configuration(
 
 async def async_put_object_lock_configuration(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest,
+    input_: aws_sdk_s3.types.put_object_lock_configuration_request.PutObjectLockConfigurationRequest,
 ) -> tuple[
     aws_sdk_s3.types.put_object_lock_configuration_output.PutObjectLockConfigurationOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

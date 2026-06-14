@@ -101,60 +101,55 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput,
+    input_: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            Region=options.region,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
+            Region=options.region, UseFIPS=options.use_fips, Endpoint=options.endpoint
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v2/domains/{domainIdentifier}/notifications"
     url = url.replace(
-        "{domainIdentifier}", quote(str(input["domain_identifier"]), safe="")
+        "{domainIdentifier}", quote(str(input_["domain_identifier"]), safe="")
     )
     params: dict[str, str] = {}
-    if "type" in input:
-        params["type"] = str(input["type"])
-    if "after_timestamp" in input:
-        params["afterTimestamp"] = str(input["after_timestamp"])
-    if "before_timestamp" in input:
-        params["beforeTimestamp"] = str(input["before_timestamp"])
-    if "subjects" in input:
-        params["subjects"] = str(input["subjects"])
-    if "task_status" in input:
-        params["taskStatus"] = str(input["task_status"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
+    if "type" in input_:
+        params["type"] = str(input_["type"])
+    if "after_timestamp" in input_:
+        params["afterTimestamp"] = str(input_["after_timestamp"])
+    if "before_timestamp" in input_:
+        params["beforeTimestamp"] = str(input_["before_timestamp"])
+    if "subjects" in input_:
+        params["subjects"] = str(input_["subjects"])
+    if "task_status" in input_:
+        params["taskStatus"] = str(input_["task_status"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_notifications(
     options: OperationOptions,
-    input: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput,
+    input_: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput,
 ) -> tuple[
     aws_sdk_datazone.types.list_notifications_output.ListNotificationsOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -163,16 +158,17 @@ def list_notifications(
 
 async def async_list_notifications(
     options: AsyncOperationOptions,
-    input: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput,
+    input_: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput,
 ) -> tuple[
     aws_sdk_datazone.types.list_notifications_output.ListNotificationsOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -242,63 +242,63 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if runtime is not None:
-            input["runtime"] = runtime
-        input["role"] = role
+            input_["runtime"] = runtime
+        input_["role"] = role
         if handler is not None:
-            input["handler"] = handler
-        input["code"] = code
+            input_["handler"] = handler
+        input_["code"] = code
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if memory_size is not None:
-            input["memory_size"] = memory_size
+            input_["memory_size"] = memory_size
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if package_type is not None:
-            input["package_type"] = package_type
+            input_["package_type"] = package_type
         if dead_letter_config is not None:
-            input["dead_letter_config"] = dead_letter_config
+            input_["dead_letter_config"] = dead_letter_config
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tracing_config is not None:
-            input["tracing_config"] = tracing_config
+            input_["tracing_config"] = tracing_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if layers is not None:
-            input["layers"] = layers
+            input_["layers"] = layers
         if file_system_configs is not None:
-            input["file_system_configs"] = file_system_configs
+            input_["file_system_configs"] = file_system_configs
         if image_config is not None:
-            input["image_config"] = image_config
+            input_["image_config"] = image_config
         if code_signing_config_arn is not None:
-            input["code_signing_config_arn"] = code_signing_config_arn
+            input_["code_signing_config_arn"] = code_signing_config_arn
         if architectures is not None:
-            input["architectures"] = architectures
+            input_["architectures"] = architectures
         if ephemeral_storage is not None:
-            input["ephemeral_storage"] = ephemeral_storage
+            input_["ephemeral_storage"] = ephemeral_storage
         if snap_start is not None:
-            input["snap_start"] = snap_start
+            input_["snap_start"] = snap_start
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if capacity_provider_config is not None:
-            input["capacity_provider_config"] = capacity_provider_config
+            input_["capacity_provider_config"] = capacity_provider_config
         if publish_to is not None:
-            input["publish_to"] = publish_to
+            input_["publish_to"] = publish_to
         if durable_config is not None:
-            input["durable_config"] = durable_config
+            input_["durable_config"] = durable_config
         if tenancy_config is not None:
-            input["tenancy_config"] = tenancy_config
+            input_["tenancy_config"] = tenancy_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,18 +347,18 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
         if master_region is not None:
-            input["master_region"] = master_region
+            input_["master_region"] = master_region
         if function_version is not None:
-            input["function_version"] = function_version
+            input_["function_version"] = function_version
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -401,18 +401,18 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
-        input["auth_type"] = auth_type
+            input_["qualifier"] = qualifier
+        input_["auth_type"] = auth_type
         if cors is not None:
-            input["cors"] = cors
+            input_["cors"] = cors
         if invoke_mode is not None:
-            input["invoke_mode"] = invoke_mode
+            input_["invoke_mode"] = invoke_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,11 +449,11 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,13 +488,13 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -533,11 +533,11 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,13 +574,13 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,15 +617,15 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -670,15 +670,15 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_provisioned_concurrency_configs_request.ListProvisionedConcurrencyConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_provisioned_concurrency_configs_request.ListProvisionedConcurrencyConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -717,12 +717,12 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_concurrency_request.PutFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["reserved_concurrent_executions"] = reserved_concurrent_executions
+        input_: aws_sdk_lambda.types.put_function_concurrency_request.PutFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["reserved_concurrent_executions"] = reserved_concurrent_executions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -791,33 +791,33 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_function_code_request.UpdateFunctionCodeRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.update_function_code_request.UpdateFunctionCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if zip_file is not None:
-            input["zip_file"] = zip_file
+            input_["zip_file"] = zip_file
         if s3_bucket is not None:
-            input["s3_bucket"] = s3_bucket
+            input_["s3_bucket"] = s3_bucket
         if s3_key is not None:
-            input["s3_key"] = s3_key
+            input_["s3_key"] = s3_key
         if s3_object_version is not None:
-            input["s3_object_version"] = s3_object_version
+            input_["s3_object_version"] = s3_object_version
         if image_uri is not None:
-            input["image_uri"] = image_uri
+            input_["image_uri"] = image_uri
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if architectures is not None:
-            input["architectures"] = architectures
+            input_["architectures"] = architectures
         if source_kms_key_arn is not None:
-            input["source_kms_key_arn"] = source_kms_key_arn
+            input_["source_kms_key_arn"] = source_kms_key_arn
         if publish_to is not None:
-            input["publish_to"] = publish_to
+            input_["publish_to"] = publish_to
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -910,51 +910,51 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_function_configuration_request.UpdateFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.update_function_configuration_request.UpdateFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if handler is not None:
-            input["handler"] = handler
+            input_["handler"] = handler
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if memory_size is not None:
-            input["memory_size"] = memory_size
+            input_["memory_size"] = memory_size
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if runtime is not None:
-            input["runtime"] = runtime
+            input_["runtime"] = runtime
         if dead_letter_config is not None:
-            input["dead_letter_config"] = dead_letter_config
+            input_["dead_letter_config"] = dead_letter_config
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tracing_config is not None:
-            input["tracing_config"] = tracing_config
+            input_["tracing_config"] = tracing_config
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if layers is not None:
-            input["layers"] = layers
+            input_["layers"] = layers
         if file_system_configs is not None:
-            input["file_system_configs"] = file_system_configs
+            input_["file_system_configs"] = file_system_configs
         if image_config is not None:
-            input["image_config"] = image_config
+            input_["image_config"] = image_config
         if ephemeral_storage is not None:
-            input["ephemeral_storage"] = ephemeral_storage
+            input_["ephemeral_storage"] = ephemeral_storage
         if snap_start is not None:
-            input["snap_start"] = snap_start
+            input_["snap_start"] = snap_start
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if capacity_provider_config is not None:
-            input["capacity_provider_config"] = capacity_provider_config
+            input_["capacity_provider_config"] = capacity_provider_config
         if durable_config is not None:
-            input["durable_config"] = durable_config
+            input_["durable_config"] = durable_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -999,19 +999,19 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if auth_type is not None:
-            input["auth_type"] = auth_type
+            input_["auth_type"] = auth_type
         if cors is not None:
-            input["cors"] = cors
+            input_["cors"] = cors
         if invoke_mode is not None:
-            input["invoke_mode"] = invoke_mode
+            input_["invoke_mode"] = invoke_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1042,11 +1042,11 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1089,13 +1089,13 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1128,11 +1128,11 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_code_signing_config_request.GetFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_code_signing_config_request.GetFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1175,13 +1175,13 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_configuration_request.GetFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_configuration_request.GetFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1214,11 +1214,11 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_recursion_config_request.GetFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_recursion_config_request.GetFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1253,12 +1253,12 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_scaling_config_request.GetFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
+        input_: aws_sdk_lambda.types.get_function_scaling_config_request.GetFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1301,13 +1301,13 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1344,13 +1344,13 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_runtime_management_config_request.GetRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_runtime_management_config_request.GetRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1413,25 +1413,25 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.invocation_request.InvocationRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.invocation_request.InvocationRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if invocation_type is not None:
-            input["invocation_type"] = invocation_type
+            input_["invocation_type"] = invocation_type
         if log_type is not None:
-            input["log_type"] = log_type
+            input_["log_type"] = log_type
         if client_context is not None:
-            input["client_context"] = client_context
+            input_["client_context"] = client_context
         if durable_execution_name is not None:
-            input["durable_execution_name"] = durable_execution_name
+            input_["durable_execution_name"] = durable_execution_name
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if tenant_id is not None:
-            input["tenant_id"] = tenant_id
+            input_["tenant_id"] = tenant_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1472,12 +1472,12 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.invoke_async_request.InvokeAsyncRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["invoke_args"] = ensure_sync_iterator(invoke_args)  # type: ignore
+        input_: aws_sdk_lambda.types.invoke_async_request.InvokeAsyncRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["invoke_args"] = ensure_sync_iterator(invoke_args)  # type: ignore
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1526,23 +1526,23 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if invocation_type is not None:
-            input["invocation_type"] = invocation_type
+            input_["invocation_type"] = invocation_type
         if log_type is not None:
-            input["log_type"] = log_type
+            input_["log_type"] = log_type
         if client_context is not None:
-            input["client_context"] = client_context
+            input_["client_context"] = client_context
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if tenant_id is not None:
-            input["tenant_id"] = tenant_id
+            input_["tenant_id"] = tenant_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1577,12 +1577,12 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_code_signing_config_request.PutFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.put_function_code_signing_config_request.PutFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
+        input_["function_name"] = function_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1617,12 +1617,12 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_recursion_config_request.PutFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["recursive_loop"] = recursive_loop
+        input_: aws_sdk_lambda.types.put_function_recursion_config_request.PutFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["recursive_loop"] = recursive_loop
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1661,14 +1661,14 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_scaling_config_request.PutFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
+        input_: aws_sdk_lambda.types.put_function_scaling_config_request.PutFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
         if function_scaling_config is not None:
-            input["function_scaling_config"] = function_scaling_config
+            input_["function_scaling_config"] = function_scaling_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1711,16 +1711,16 @@ class Function:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_runtime_management_config_request.PutRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.put_runtime_management_config_request.PutRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
-        input["update_runtime_on"] = update_runtime_on
+            input_["qualifier"] = qualifier
+        input_["update_runtime_on"] = update_runtime_on
         if runtime_version_arn is not None:
-            input["runtime_version_arn"] = runtime_version_arn
+            input_["runtime_version_arn"] = runtime_version_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1841,63 +1841,63 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.create_function_request.CreateFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if runtime is not None:
-            input["runtime"] = runtime
-        input["role"] = role
+            input_["runtime"] = runtime
+        input_["role"] = role
         if handler is not None:
-            input["handler"] = handler
-        input["code"] = code
+            input_["handler"] = handler
+        input_["code"] = code
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if memory_size is not None:
-            input["memory_size"] = memory_size
+            input_["memory_size"] = memory_size
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if package_type is not None:
-            input["package_type"] = package_type
+            input_["package_type"] = package_type
         if dead_letter_config is not None:
-            input["dead_letter_config"] = dead_letter_config
+            input_["dead_letter_config"] = dead_letter_config
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tracing_config is not None:
-            input["tracing_config"] = tracing_config
+            input_["tracing_config"] = tracing_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if layers is not None:
-            input["layers"] = layers
+            input_["layers"] = layers
         if file_system_configs is not None:
-            input["file_system_configs"] = file_system_configs
+            input_["file_system_configs"] = file_system_configs
         if image_config is not None:
-            input["image_config"] = image_config
+            input_["image_config"] = image_config
         if code_signing_config_arn is not None:
-            input["code_signing_config_arn"] = code_signing_config_arn
+            input_["code_signing_config_arn"] = code_signing_config_arn
         if architectures is not None:
-            input["architectures"] = architectures
+            input_["architectures"] = architectures
         if ephemeral_storage is not None:
-            input["ephemeral_storage"] = ephemeral_storage
+            input_["ephemeral_storage"] = ephemeral_storage
         if snap_start is not None:
-            input["snap_start"] = snap_start
+            input_["snap_start"] = snap_start
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if capacity_provider_config is not None:
-            input["capacity_provider_config"] = capacity_provider_config
+            input_["capacity_provider_config"] = capacity_provider_config
         if publish_to is not None:
-            input["publish_to"] = publish_to
+            input_["publish_to"] = publish_to
         if durable_config is not None:
-            input["durable_config"] = durable_config
+            input_["durable_config"] = durable_config
         if tenancy_config is not None:
-            input["tenancy_config"] = tenancy_config
+            input_["tenancy_config"] = tenancy_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1947,18 +1947,18 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_functions_request.ListFunctionsRequest = {}  # type: ignore[typeddict-item]
         if master_region is not None:
-            input["master_region"] = master_region
+            input_["master_region"] = master_region
         if function_version is not None:
-            input["function_version"] = function_version
+            input_["function_version"] = function_version
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2002,18 +2002,18 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.create_function_url_config_request.CreateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
-        input["auth_type"] = auth_type
+            input_["qualifier"] = qualifier
+        input_["auth_type"] = auth_type
         if cors is not None:
-            input["cors"] = cors
+            input_["cors"] = cors
         if invoke_mode is not None:
-            input["invoke_mode"] = invoke_mode
+            input_["invoke_mode"] = invoke_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2051,11 +2051,11 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.delete_function_concurrency_request.DeleteFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2091,13 +2091,13 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.delete_function_url_config_request.DeleteFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2137,11 +2137,11 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_concurrency_request.GetFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2179,13 +2179,13 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_url_config_request.GetFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2223,15 +2223,15 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_function_url_configs_request.ListFunctionUrlConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2277,15 +2277,15 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_provisioned_concurrency_configs_request.ListProvisionedConcurrencyConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_provisioned_concurrency_configs_request.ListProvisionedConcurrencyConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2325,12 +2325,12 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_concurrency_request.PutFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["reserved_concurrent_executions"] = reserved_concurrent_executions
+        input_: aws_sdk_lambda.types.put_function_concurrency_request.PutFunctionConcurrencyRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["reserved_concurrent_executions"] = reserved_concurrent_executions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2400,33 +2400,33 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_function_code_request.UpdateFunctionCodeRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.update_function_code_request.UpdateFunctionCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if zip_file is not None:
-            input["zip_file"] = zip_file
+            input_["zip_file"] = zip_file
         if s3_bucket is not None:
-            input["s3_bucket"] = s3_bucket
+            input_["s3_bucket"] = s3_bucket
         if s3_key is not None:
-            input["s3_key"] = s3_key
+            input_["s3_key"] = s3_key
         if s3_object_version is not None:
-            input["s3_object_version"] = s3_object_version
+            input_["s3_object_version"] = s3_object_version
         if image_uri is not None:
-            input["image_uri"] = image_uri
+            input_["image_uri"] = image_uri
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if architectures is not None:
-            input["architectures"] = architectures
+            input_["architectures"] = architectures
         if source_kms_key_arn is not None:
-            input["source_kms_key_arn"] = source_kms_key_arn
+            input_["source_kms_key_arn"] = source_kms_key_arn
         if publish_to is not None:
-            input["publish_to"] = publish_to
+            input_["publish_to"] = publish_to
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2520,51 +2520,51 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_function_configuration_request.UpdateFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.update_function_configuration_request.UpdateFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if handler is not None:
-            input["handler"] = handler
+            input_["handler"] = handler
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
         if memory_size is not None:
-            input["memory_size"] = memory_size
+            input_["memory_size"] = memory_size
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if environment is not None:
-            input["environment"] = environment
+            input_["environment"] = environment
         if runtime is not None:
-            input["runtime"] = runtime
+            input_["runtime"] = runtime
         if dead_letter_config is not None:
-            input["dead_letter_config"] = dead_letter_config
+            input_["dead_letter_config"] = dead_letter_config
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tracing_config is not None:
-            input["tracing_config"] = tracing_config
+            input_["tracing_config"] = tracing_config
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if layers is not None:
-            input["layers"] = layers
+            input_["layers"] = layers
         if file_system_configs is not None:
-            input["file_system_configs"] = file_system_configs
+            input_["file_system_configs"] = file_system_configs
         if image_config is not None:
-            input["image_config"] = image_config
+            input_["image_config"] = image_config
         if ephemeral_storage is not None:
-            input["ephemeral_storage"] = ephemeral_storage
+            input_["ephemeral_storage"] = ephemeral_storage
         if snap_start is not None:
-            input["snap_start"] = snap_start
+            input_["snap_start"] = snap_start
         if logging_config is not None:
-            input["logging_config"] = logging_config
+            input_["logging_config"] = logging_config
         if capacity_provider_config is not None:
-            input["capacity_provider_config"] = capacity_provider_config
+            input_["capacity_provider_config"] = capacity_provider_config
         if durable_config is not None:
-            input["durable_config"] = durable_config
+            input_["durable_config"] = durable_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2610,19 +2610,19 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.update_function_url_config_request.UpdateFunctionUrlConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if auth_type is not None:
-            input["auth_type"] = auth_type
+            input_["auth_type"] = auth_type
         if cors is not None:
-            input["cors"] = cors
+            input_["cors"] = cors
         if invoke_mode is not None:
-            input["invoke_mode"] = invoke_mode
+            input_["invoke_mode"] = invoke_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2654,11 +2654,11 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.delete_function_code_signing_config_request.DeleteFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2702,13 +2702,13 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_request.GetFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2742,11 +2742,11 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_code_signing_config_request.GetFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_code_signing_config_request.GetFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2790,13 +2790,13 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_configuration_request.GetFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_configuration_request.GetFunctionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2830,11 +2830,11 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_recursion_config_request.GetFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_function_recursion_config_request.GetFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2870,12 +2870,12 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_function_scaling_config_request.GetFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
+        input_: aws_sdk_lambda.types.get_function_scaling_config_request.GetFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2919,13 +2919,13 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2963,13 +2963,13 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_runtime_management_config_request.GetRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.get_runtime_management_config_request.GetRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3033,25 +3033,25 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.invocation_request.InvocationRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.invocation_request.InvocationRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if invocation_type is not None:
-            input["invocation_type"] = invocation_type
+            input_["invocation_type"] = invocation_type
         if log_type is not None:
-            input["log_type"] = log_type
+            input_["log_type"] = log_type
         if client_context is not None:
-            input["client_context"] = client_context
+            input_["client_context"] = client_context
         if durable_execution_name is not None:
-            input["durable_execution_name"] = durable_execution_name
+            input_["durable_execution_name"] = durable_execution_name
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if tenant_id is not None:
-            input["tenant_id"] = tenant_id
+            input_["tenant_id"] = tenant_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3093,12 +3093,12 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.invoke_async_request.InvokeAsyncRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["invoke_args"] = ensure_async_iterator(invoke_args)  # type: ignore
+        input_: aws_sdk_lambda.types.invoke_async_request.InvokeAsyncRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["invoke_args"] = ensure_async_iterator(invoke_args)  # type: ignore
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3148,23 +3148,23 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if invocation_type is not None:
-            input["invocation_type"] = invocation_type
+            input_["invocation_type"] = invocation_type
         if log_type is not None:
-            input["log_type"] = log_type
+            input_["log_type"] = log_type
         if client_context is not None:
-            input["client_context"] = client_context
+            input_["client_context"] = client_context
         if qualifier is not None:
-            input["qualifier"] = qualifier
+            input_["qualifier"] = qualifier
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if tenant_id is not None:
-            input["tenant_id"] = tenant_id
+            input_["tenant_id"] = tenant_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3200,12 +3200,12 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_code_signing_config_request.PutFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.put_function_code_signing_config_request.PutFunctionCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
+        input_["function_name"] = function_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3241,12 +3241,12 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_recursion_config_request.PutFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["recursive_loop"] = recursive_loop
+        input_: aws_sdk_lambda.types.put_function_recursion_config_request.PutFunctionRecursionConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["recursive_loop"] = recursive_loop
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3286,14 +3286,14 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_function_scaling_config_request.PutFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
+        input_: aws_sdk_lambda.types.put_function_scaling_config_request.PutFunctionScalingConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
         if function_scaling_config is not None:
-            input["function_scaling_config"] = function_scaling_config
+            input_["function_scaling_config"] = function_scaling_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3337,16 +3337,16 @@ class AsyncFunction:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_runtime_management_config_request.PutRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.put_runtime_management_config_request.PutRuntimeManagementConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if qualifier is not None:
-            input["qualifier"] = qualifier
-        input["update_runtime_on"] = update_runtime_on
+            input_["qualifier"] = qualifier
+        input_["update_runtime_on"] = update_runtime_on
         if runtime_version_arn is not None:
-            input["runtime_version_arn"] = runtime_version_arn
+            input_["runtime_version_arn"] = runtime_version_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

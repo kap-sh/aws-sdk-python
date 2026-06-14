@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import ensure_async_iterator
 from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import ensure_sync_iterator
+import datetime
 from aws_sdk_bedrock_agentcore._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_bedrock_agentcore._auth._signers
 import aws_sdk_bedrock_agentcore._auth._sigv4
@@ -40,20 +41,20 @@ class ProcessPaymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.process_payment_request.ProcessPaymentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.process_payment_request.ProcessPaymentRequest = {}  # type: ignore[typeddict-item]
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if agent_name is not None:
-            input["agent_name"] = agent_name
-        input["payment_manager_arn"] = payment_manager_arn
-        input["payment_session_id"] = payment_session_id
-        input["payment_instrument_id"] = payment_instrument_id
-        input["payment_type"] = payment_type
-        input["payment_input"] = payment_input
+            input_["agent_name"] = agent_name
+        input_["payment_manager_arn"] = payment_manager_arn
+        input_["payment_session_id"] = payment_session_id
+        input_["payment_instrument_id"] = payment_instrument_id
+        input_["payment_type"] = payment_type
+        input_["payment_input"] = payment_input
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncProcessPaymentResource:
@@ -78,18 +79,18 @@ class AsyncProcessPaymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.process_payment_request.ProcessPaymentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.process_payment_request.ProcessPaymentRequest = {}  # type: ignore[typeddict-item]
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if agent_name is not None:
-            input["agent_name"] = agent_name
-        input["payment_manager_arn"] = payment_manager_arn
-        input["payment_session_id"] = payment_session_id
-        input["payment_instrument_id"] = payment_instrument_id
-        input["payment_type"] = payment_type
-        input["payment_input"] = payment_input
+            input_["agent_name"] = agent_name
+        input_["payment_manager_arn"] = payment_manager_arn
+        input_["payment_session_id"] = payment_session_id
+        input_["payment_instrument_id"] = payment_instrument_id
+        input_["payment_type"] = payment_type
+        input_["payment_input"] = payment_input
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

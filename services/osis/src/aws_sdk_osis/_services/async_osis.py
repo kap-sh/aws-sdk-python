@@ -248,26 +248,26 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.create_pipeline_request.CreatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
-        input["min_units"] = min_units
-        input["max_units"] = max_units
-        input["pipeline_configuration_body"] = pipeline_configuration_body
+        input_: aws_sdk_osis.types.create_pipeline_request.CreatePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
+        input_["min_units"] = min_units
+        input_["max_units"] = max_units
+        input_["pipeline_configuration_body"] = pipeline_configuration_body
         if log_publishing_options is not None:
-            input["log_publishing_options"] = log_publishing_options
+            input_["log_publishing_options"] = log_publishing_options
         if vpc_options is not None:
-            input["vpc_options"] = vpc_options
+            input_["vpc_options"] = vpc_options
         if buffer_options is not None:
-            input["buffer_options"] = buffer_options
+            input_["buffer_options"] = buffer_options
         if encryption_at_rest_options is not None:
-            input["encryption_at_rest_options"] = encryption_at_rest_options
+            input_["encryption_at_rest_options"] = encryption_at_rest_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if pipeline_role_arn is not None:
-            input["pipeline_role_arn"] = pipeline_role_arn
+            input_["pipeline_role_arn"] = pipeline_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,12 +303,12 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.create_pipeline_endpoint_request.CreatePipelineEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_arn"] = pipeline_arn
-        input["vpc_options"] = vpc_options
+        input_: aws_sdk_osis.types.create_pipeline_endpoint_request.CreatePipelineEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_arn"] = pipeline_arn
+        input_["vpc_options"] = vpc_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,11 +342,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.delete_pipeline_request.DeletePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_osis.types.delete_pipeline_request.DeletePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,11 +380,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.delete_pipeline_endpoint_request.DeletePipelineEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_id"] = endpoint_id
+        input_: aws_sdk_osis.types.delete_pipeline_endpoint_request.DeletePipelineEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_id"] = endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,11 +418,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_osis.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,11 +456,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.get_pipeline_request.GetPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_osis.types.get_pipeline_request.GetPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,13 +496,13 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.get_pipeline_blueprint_request.GetPipelineBlueprintRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_name"] = blueprint_name
+        input_: aws_sdk_osis.types.get_pipeline_blueprint_request.GetPipelineBlueprintRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_name"] = blueprint_name
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -536,11 +536,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.get_pipeline_change_progress_request.GetPipelineChangeProgressRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_osis.types.get_pipeline_change_progress_request.GetPipelineChangeProgressRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,11 +574,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_osis.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -605,10 +605,10 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.list_pipeline_blueprints_request.ListPipelineBlueprintsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_osis.types.list_pipeline_blueprints_request.ListPipelineBlueprintsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -644,14 +644,14 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.list_pipeline_endpoint_connections_request.ListPipelineEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_osis.types.list_pipeline_endpoint_connections_request.ListPipelineEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -708,14 +708,14 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.list_pipeline_endpoints_request.ListPipelineEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_osis.types.list_pipeline_endpoints_request.ListPipelineEndpointsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -772,14 +772,14 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.list_pipelines_request.ListPipelinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_osis.types.list_pipelines_request.ListPipelinesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -815,11 +815,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_osis.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -855,12 +855,12 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_osis.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -896,12 +896,12 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.revoke_pipeline_endpoint_connections_request.RevokePipelineEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_arn"] = pipeline_arn
-        input["endpoint_ids"] = endpoint_ids
+        input_: aws_sdk_osis.types.revoke_pipeline_endpoint_connections_request.RevokePipelineEndpointConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_arn"] = pipeline_arn
+        input_["endpoint_ids"] = endpoint_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -935,11 +935,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.start_pipeline_request.StartPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_osis.types.start_pipeline_request.StartPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -973,11 +973,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.stop_pipeline_request.StopPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_osis.types.stop_pipeline_request.StopPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1013,12 +1013,12 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_osis.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1054,12 +1054,12 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_osis.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1117,25 +1117,25 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.update_pipeline_request.UpdatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_name"] = pipeline_name
+        input_: aws_sdk_osis.types.update_pipeline_request.UpdatePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_name"] = pipeline_name
         if min_units is not None:
-            input["min_units"] = min_units
+            input_["min_units"] = min_units
         if max_units is not None:
-            input["max_units"] = max_units
+            input_["max_units"] = max_units
         if pipeline_configuration_body is not None:
-            input["pipeline_configuration_body"] = pipeline_configuration_body
+            input_["pipeline_configuration_body"] = pipeline_configuration_body
         if log_publishing_options is not None:
-            input["log_publishing_options"] = log_publishing_options
+            input_["log_publishing_options"] = log_publishing_options
         if buffer_options is not None:
-            input["buffer_options"] = buffer_options
+            input_["buffer_options"] = buffer_options
         if encryption_at_rest_options is not None:
-            input["encryption_at_rest_options"] = encryption_at_rest_options
+            input_["encryption_at_rest_options"] = encryption_at_rest_options
         if pipeline_role_arn is not None:
-            input["pipeline_role_arn"] = pipeline_role_arn
+            input_["pipeline_role_arn"] = pipeline_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1169,11 +1169,11 @@ class AsyncOSISClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_osis.types.validate_pipeline_request.ValidatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_configuration_body"] = pipeline_configuration_body
+        input_: aws_sdk_osis.types.validate_pipeline_request.ValidatePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_configuration_body"] = pipeline_configuration_body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

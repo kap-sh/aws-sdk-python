@@ -1,14 +1,10 @@
 """Generated from Smithy shape ``com.amazonaws.appconfigdata#StringMap``."""
 
 from typing import TYPE_CHECKING, TypeAlias
-
 if TYPE_CHECKING:
     import aws_sdk_appconfigdata.types.string
 
-StringMap: TypeAlias = dict[
-    "aws_sdk_appconfigdata.types.string.String",
-    "aws_sdk_appconfigdata.types.string.String",
-]
+StringMap: TypeAlias = dict["aws_sdk_appconfigdata.types.string.String", "aws_sdk_appconfigdata.types.string.String"]
 
 
 # --- restJson1 ser/de ---

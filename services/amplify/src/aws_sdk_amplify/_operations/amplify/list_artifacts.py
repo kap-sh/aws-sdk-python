@@ -88,52 +88,49 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_amplify.types.list_artifacts_request.ListArtifactsRequest,
+    input_: aws_sdk_amplify.types.list_artifacts_request.ListArtifactsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts"
     )
-    url = url.replace("{appId}", quote(str(input["app_id"]), safe=""))
-    url = url.replace("{branchName}", quote(str(input["branch_name"]), safe=""))
-    url = url.replace("{jobId}", quote(str(input["job_id"]), safe=""))
+    url = url.replace("{appId}", quote(str(input_["app_id"]), safe=""))
+    url = url.replace("{branchName}", quote(str(input_["branch_name"]), safe=""))
+    url = url.replace("{jobId}", quote(str(input_["job_id"]), safe=""))
     params: dict[str, str] = {}
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    params["maxResults"] = str(input.get("max_results", 0))
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    params["maxResults"] = str(input_.get("max_results", 0))
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_artifacts(
     options: OperationOptions,
-    input: aws_sdk_amplify.types.list_artifacts_request.ListArtifactsRequest,
+    input_: aws_sdk_amplify.types.list_artifacts_request.ListArtifactsRequest,
 ) -> tuple[
     aws_sdk_amplify.types.list_artifacts_result.ListArtifactsResult, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -142,15 +139,16 @@ def list_artifacts(
 
 async def async_list_artifacts(
     options: AsyncOperationOptions,
-    input: aws_sdk_amplify.types.list_artifacts_request.ListArtifactsRequest,
+    input_: aws_sdk_amplify.types.list_artifacts_request.ListArtifactsRequest,
 ) -> tuple[
     aws_sdk_amplify.types.list_artifacts_result.ListArtifactsResult, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

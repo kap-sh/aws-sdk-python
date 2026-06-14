@@ -92,22 +92,22 @@ class GlobalResolver:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_global_resolver_input.CreateGlobalResolverInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.create_global_resolver_input.CreateGlobalResolverInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
-        input["name"] = name
+            input_["ip_address_type"] = ip_address_type
+        input_["name"] = name
         if observability_region is not None:
-            input["observability_region"] = observability_region
-        input["regions"] = regions
+            input_["observability_region"] = observability_region
+        input_["regions"] = regions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -140,11 +140,11 @@ class GlobalResolver:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_global_resolver_input.GetGlobalResolverInput = {}  # type: ignore[typeddict-item]
-        input["global_resolver_id"] = global_resolver_id
+        input_: aws_sdk_route53globalresolver.types.get_global_resolver_input.GetGlobalResolverInput = {}  # type: ignore[typeddict-item]
+        input_["global_resolver_id"] = global_resolver_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -195,21 +195,21 @@ class GlobalResolver:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_global_resolver_input.UpdateGlobalResolverInput = {}  # type: ignore[typeddict-item]
-        input["global_resolver_id"] = global_resolver_id
+        input_: aws_sdk_route53globalresolver.types.update_global_resolver_input.UpdateGlobalResolverInput = {}  # type: ignore[typeddict-item]
+        input_["global_resolver_id"] = global_resolver_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if observability_region is not None:
-            input["observability_region"] = observability_region
+            input_["observability_region"] = observability_region
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -242,11 +242,11 @@ class GlobalResolver:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_global_resolver_input.DeleteGlobalResolverInput = {}  # type: ignore[typeddict-item]
-        input["global_resolver_id"] = global_resolver_id
+        input_: aws_sdk_route53globalresolver.types.delete_global_resolver_input.DeleteGlobalResolverInput = {}  # type: ignore[typeddict-item]
+        input_["global_resolver_id"] = global_resolver_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,14 +281,14 @@ class GlobalResolver:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_global_resolvers_input.ListGlobalResolversInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_global_resolvers_input.ListGlobalResolversInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,22 +347,22 @@ class AsyncGlobalResolver:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_global_resolver_input.CreateGlobalResolverInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.create_global_resolver_input.CreateGlobalResolverInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
-        input["name"] = name
+            input_["ip_address_type"] = ip_address_type
+        input_["name"] = name
         if observability_region is not None:
-            input["observability_region"] = observability_region
-        input["regions"] = regions
+            input_["observability_region"] = observability_region
+        input_["regions"] = regions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,11 +396,11 @@ class AsyncGlobalResolver:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_global_resolver_input.GetGlobalResolverInput = {}  # type: ignore[typeddict-item]
-        input["global_resolver_id"] = global_resolver_id
+        input_: aws_sdk_route53globalresolver.types.get_global_resolver_input.GetGlobalResolverInput = {}  # type: ignore[typeddict-item]
+        input_["global_resolver_id"] = global_resolver_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -452,21 +452,21 @@ class AsyncGlobalResolver:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_global_resolver_input.UpdateGlobalResolverInput = {}  # type: ignore[typeddict-item]
-        input["global_resolver_id"] = global_resolver_id
+        input_: aws_sdk_route53globalresolver.types.update_global_resolver_input.UpdateGlobalResolverInput = {}  # type: ignore[typeddict-item]
+        input_["global_resolver_id"] = global_resolver_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if observability_region is not None:
-            input["observability_region"] = observability_region
+            input_["observability_region"] = observability_region
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,11 +500,11 @@ class AsyncGlobalResolver:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_global_resolver_input.DeleteGlobalResolverInput = {}  # type: ignore[typeddict-item]
-        input["global_resolver_id"] = global_resolver_id
+        input_: aws_sdk_route53globalresolver.types.delete_global_resolver_input.DeleteGlobalResolverInput = {}  # type: ignore[typeddict-item]
+        input_["global_resolver_id"] = global_resolver_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -540,14 +540,14 @@ class AsyncGlobalResolver:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_global_resolvers_input.ListGlobalResolversInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_global_resolvers_input.ListGlobalResolversInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

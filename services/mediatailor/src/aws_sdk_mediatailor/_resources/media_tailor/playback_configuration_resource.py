@@ -141,47 +141,49 @@ class PlaybackConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.put_playback_configuration_request.PutPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.put_playback_configuration_request.PutPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
         if ad_decision_server_url is not None:
-            input["ad_decision_server_url"] = ad_decision_server_url
+            input_["ad_decision_server_url"] = ad_decision_server_url
         if avail_suppression is not None:
-            input["avail_suppression"] = avail_suppression
+            input_["avail_suppression"] = avail_suppression
         if bumper is not None:
-            input["bumper"] = bumper
+            input_["bumper"] = bumper
         if cdn_configuration is not None:
-            input["cdn_configuration"] = cdn_configuration
+            input_["cdn_configuration"] = cdn_configuration
         if configuration_aliases is not None:
-            input["configuration_aliases"] = configuration_aliases
+            input_["configuration_aliases"] = configuration_aliases
         if dash_configuration is not None:
-            input["dash_configuration"] = dash_configuration
+            input_["dash_configuration"] = dash_configuration
         if insertion_mode is not None:
-            input["insertion_mode"] = insertion_mode
+            input_["insertion_mode"] = insertion_mode
         if live_pre_roll_configuration is not None:
-            input["live_pre_roll_configuration"] = live_pre_roll_configuration
+            input_["live_pre_roll_configuration"] = live_pre_roll_configuration
         if manifest_processing_rules is not None:
-            input["manifest_processing_rules"] = manifest_processing_rules
-        input["name"] = name
+            input_["manifest_processing_rules"] = manifest_processing_rules
+        input_["name"] = name
         if personalization_threshold_seconds is not None:
-            input["personalization_threshold_seconds"] = (
+            input_["personalization_threshold_seconds"] = (
                 personalization_threshold_seconds
             )
         if slate_ad_url is not None:
-            input["slate_ad_url"] = slate_ad_url
+            input_["slate_ad_url"] = slate_ad_url
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if transcode_profile_name is not None:
-            input["transcode_profile_name"] = transcode_profile_name
+            input_["transcode_profile_name"] = transcode_profile_name
         if video_content_source_url is not None:
-            input["video_content_source_url"] = video_content_source_url
+            input_["video_content_source_url"] = video_content_source_url
         if ad_conditioning_configuration is not None:
-            input["ad_conditioning_configuration"] = ad_conditioning_configuration
+            input_["ad_conditioning_configuration"] = ad_conditioning_configuration
         if ad_decision_server_configuration is not None:
-            input["ad_decision_server_configuration"] = ad_decision_server_configuration
+            input_["ad_decision_server_configuration"] = (
+                ad_decision_server_configuration
+            )
         if function_mapping is not None:
-            input["function_mapping"] = function_mapping
+            input_["function_mapping"] = function_mapping
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,11 +216,11 @@ class PlaybackConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.get_playback_configuration_request.GetPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediatailor.types.get_playback_configuration_request.GetPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,11 +253,11 @@ class PlaybackConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_playback_configuration_request.DeletePlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediatailor.types.delete_playback_configuration_request.DeletePlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -292,14 +294,14 @@ class PlaybackConfigurationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_playback_configurations_request.ListPlaybackConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_playback_configurations_request.ListPlaybackConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,47 +404,49 @@ class AsyncPlaybackConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.put_playback_configuration_request.PutPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.put_playback_configuration_request.PutPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
         if ad_decision_server_url is not None:
-            input["ad_decision_server_url"] = ad_decision_server_url
+            input_["ad_decision_server_url"] = ad_decision_server_url
         if avail_suppression is not None:
-            input["avail_suppression"] = avail_suppression
+            input_["avail_suppression"] = avail_suppression
         if bumper is not None:
-            input["bumper"] = bumper
+            input_["bumper"] = bumper
         if cdn_configuration is not None:
-            input["cdn_configuration"] = cdn_configuration
+            input_["cdn_configuration"] = cdn_configuration
         if configuration_aliases is not None:
-            input["configuration_aliases"] = configuration_aliases
+            input_["configuration_aliases"] = configuration_aliases
         if dash_configuration is not None:
-            input["dash_configuration"] = dash_configuration
+            input_["dash_configuration"] = dash_configuration
         if insertion_mode is not None:
-            input["insertion_mode"] = insertion_mode
+            input_["insertion_mode"] = insertion_mode
         if live_pre_roll_configuration is not None:
-            input["live_pre_roll_configuration"] = live_pre_roll_configuration
+            input_["live_pre_roll_configuration"] = live_pre_roll_configuration
         if manifest_processing_rules is not None:
-            input["manifest_processing_rules"] = manifest_processing_rules
-        input["name"] = name
+            input_["manifest_processing_rules"] = manifest_processing_rules
+        input_["name"] = name
         if personalization_threshold_seconds is not None:
-            input["personalization_threshold_seconds"] = (
+            input_["personalization_threshold_seconds"] = (
                 personalization_threshold_seconds
             )
         if slate_ad_url is not None:
-            input["slate_ad_url"] = slate_ad_url
+            input_["slate_ad_url"] = slate_ad_url
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if transcode_profile_name is not None:
-            input["transcode_profile_name"] = transcode_profile_name
+            input_["transcode_profile_name"] = transcode_profile_name
         if video_content_source_url is not None:
-            input["video_content_source_url"] = video_content_source_url
+            input_["video_content_source_url"] = video_content_source_url
         if ad_conditioning_configuration is not None:
-            input["ad_conditioning_configuration"] = ad_conditioning_configuration
+            input_["ad_conditioning_configuration"] = ad_conditioning_configuration
         if ad_decision_server_configuration is not None:
-            input["ad_decision_server_configuration"] = ad_decision_server_configuration
+            input_["ad_decision_server_configuration"] = (
+                ad_decision_server_configuration
+            )
         if function_mapping is not None:
-            input["function_mapping"] = function_mapping
+            input_["function_mapping"] = function_mapping
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,11 +480,11 @@ class AsyncPlaybackConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.get_playback_configuration_request.GetPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediatailor.types.get_playback_configuration_request.GetPlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,11 +518,11 @@ class AsyncPlaybackConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_playback_configuration_request.DeletePlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mediatailor.types.delete_playback_configuration_request.DeletePlaybackConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -556,14 +560,14 @@ class AsyncPlaybackConfigurationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_playback_configurations_request.ListPlaybackConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_playback_configurations_request.ListPlaybackConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -237,15 +237,15 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.create_cell_request.CreateCellRequest = {}  # type: ignore[typeddict-item]
-        input["cell_name"] = cell_name
+        input_: aws_sdk_route53_recovery_readiness.types.create_cell_request.CreateCellRequest = {}  # type: ignore[typeddict-item]
+        input_["cell_name"] = cell_name
         if cells is not None:
-            input["cells"] = cells
+            input_["cells"] = cells
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,11 +279,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.create_cross_account_authorization_request.CreateCrossAccountAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["cross_account_authorization"] = cross_account_authorization
+        input_: aws_sdk_route53_recovery_readiness.types.create_cross_account_authorization_request.CreateCrossAccountAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["cross_account_authorization"] = cross_account_authorization
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -320,14 +320,14 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.create_readiness_check_request.CreateReadinessCheckRequest = {}  # type: ignore[typeddict-item]
-        input["readiness_check_name"] = readiness_check_name
-        input["resource_set_name"] = resource_set_name
+        input_: aws_sdk_route53_recovery_readiness.types.create_readiness_check_request.CreateReadinessCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["readiness_check_name"] = readiness_check_name
+        input_["resource_set_name"] = resource_set_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,15 +366,15 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.create_recovery_group_request.CreateRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.create_recovery_group_request.CreateRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
         if cells is not None:
-            input["cells"] = cells
-        input["recovery_group_name"] = recovery_group_name
+            input_["cells"] = cells
+        input_["recovery_group_name"] = recovery_group_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,15 +414,15 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.create_resource_set_request.CreateResourceSetRequest = {}  # type: ignore[typeddict-item]
-        input["resource_set_name"] = resource_set_name
-        input["resource_set_type"] = resource_set_type
-        input["resources"] = resources
+        input_: aws_sdk_route53_recovery_readiness.types.create_resource_set_request.CreateResourceSetRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_set_name"] = resource_set_name
+        input_["resource_set_type"] = resource_set_type
+        input_["resources"] = resources
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -454,11 +454,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.delete_cell_request.DeleteCellRequest = {}  # type: ignore[typeddict-item]
-        input["cell_name"] = cell_name
+        input_: aws_sdk_route53_recovery_readiness.types.delete_cell_request.DeleteCellRequest = {}  # type: ignore[typeddict-item]
+        input_["cell_name"] = cell_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,11 +492,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.delete_cross_account_authorization_request.DeleteCrossAccountAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["cross_account_authorization"] = cross_account_authorization
+        input_: aws_sdk_route53_recovery_readiness.types.delete_cross_account_authorization_request.DeleteCrossAccountAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["cross_account_authorization"] = cross_account_authorization
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,11 +528,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.delete_readiness_check_request.DeleteReadinessCheckRequest = {}  # type: ignore[typeddict-item]
-        input["readiness_check_name"] = readiness_check_name
+        input_: aws_sdk_route53_recovery_readiness.types.delete_readiness_check_request.DeleteReadinessCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["readiness_check_name"] = readiness_check_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -564,11 +564,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.delete_recovery_group_request.DeleteRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_group_name"] = recovery_group_name
+        input_: aws_sdk_route53_recovery_readiness.types.delete_recovery_group_request.DeleteRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_group_name"] = recovery_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -600,11 +600,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.delete_resource_set_request.DeleteResourceSetRequest = {}  # type: ignore[typeddict-item]
-        input["resource_set_name"] = resource_set_name
+        input_: aws_sdk_route53_recovery_readiness.types.delete_resource_set_request.DeleteResourceSetRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_set_name"] = resource_set_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -646,15 +646,15 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_architecture_recommendations_request.GetArchitectureRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.get_architecture_recommendations_request.GetArchitectureRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["recovery_group_name"] = recovery_group_name
+            input_["next_token"] = next_token
+        input_["recovery_group_name"] = recovery_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -688,11 +688,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_cell_request.GetCellRequest = {}  # type: ignore[typeddict-item]
-        input["cell_name"] = cell_name
+        input_: aws_sdk_route53_recovery_readiness.types.get_cell_request.GetCellRequest = {}  # type: ignore[typeddict-item]
+        input_["cell_name"] = cell_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -734,15 +734,15 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_cell_readiness_summary_request.GetCellReadinessSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["cell_name"] = cell_name
+        input_: aws_sdk_route53_recovery_readiness.types.get_cell_readiness_summary_request.GetCellReadinessSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["cell_name"] = cell_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,11 +803,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_readiness_check_request.GetReadinessCheckRequest = {}  # type: ignore[typeddict-item]
-        input["readiness_check_name"] = readiness_check_name
+        input_: aws_sdk_route53_recovery_readiness.types.get_readiness_check_request.GetReadinessCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["readiness_check_name"] = readiness_check_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,16 +851,16 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_readiness_check_resource_status_request.GetReadinessCheckResourceStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.get_readiness_check_resource_status_request.GetReadinessCheckResourceStatusRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["readiness_check_name"] = readiness_check_name
-        input["resource_identifier"] = resource_identifier
+            input_["next_token"] = next_token
+        input_["readiness_check_name"] = readiness_check_name
+        input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -933,15 +933,15 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_readiness_check_status_request.GetReadinessCheckStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.get_readiness_check_status_request.GetReadinessCheckStatusRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["readiness_check_name"] = readiness_check_name
+            input_["next_token"] = next_token
+        input_["readiness_check_name"] = readiness_check_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1002,11 +1002,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_recovery_group_request.GetRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_group_name"] = recovery_group_name
+        input_: aws_sdk_route53_recovery_readiness.types.get_recovery_group_request.GetRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_group_name"] = recovery_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1048,15 +1048,15 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_recovery_group_readiness_summary_request.GetRecoveryGroupReadinessSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.get_recovery_group_readiness_summary_request.GetRecoveryGroupReadinessSummaryRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["recovery_group_name"] = recovery_group_name
+            input_["next_token"] = next_token
+        input_["recovery_group_name"] = recovery_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1117,11 +1117,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.get_resource_set_request.GetResourceSetRequest = {}  # type: ignore[typeddict-item]
-        input["resource_set_name"] = resource_set_name
+        input_: aws_sdk_route53_recovery_readiness.types.get_resource_set_request.GetResourceSetRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_set_name"] = resource_set_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1163,14 +1163,14 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.list_cells_request.ListCellsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.list_cells_request.ListCellsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1237,14 +1237,14 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.list_cross_account_authorizations_request.ListCrossAccountAuthorizationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.list_cross_account_authorizations_request.ListCrossAccountAuthorizationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1309,14 +1309,14 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.list_readiness_checks_request.ListReadinessChecksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.list_readiness_checks_request.ListReadinessChecksRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1381,14 +1381,14 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.list_recovery_groups_request.ListRecoveryGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.list_recovery_groups_request.ListRecoveryGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1453,14 +1453,14 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.list_resource_sets_request.ListResourceSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.list_resource_sets_request.ListResourceSetsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1531,16 +1531,16 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53_recovery_readiness.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1603,11 +1603,11 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.list_tags_for_resources_request.ListTagsForResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_route53_recovery_readiness.types.list_tags_for_resources_request.ListTagsForResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1643,12 +1643,12 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_route53_recovery_readiness.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1682,12 +1682,12 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_route53_recovery_readiness.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1723,12 +1723,12 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.update_cell_request.UpdateCellRequest = {}  # type: ignore[typeddict-item]
-        input["cell_name"] = cell_name
-        input["cells"] = cells
+        input_: aws_sdk_route53_recovery_readiness.types.update_cell_request.UpdateCellRequest = {}  # type: ignore[typeddict-item]
+        input_["cell_name"] = cell_name
+        input_["cells"] = cells
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1764,12 +1764,12 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.update_readiness_check_request.UpdateReadinessCheckRequest = {}  # type: ignore[typeddict-item]
-        input["readiness_check_name"] = readiness_check_name
-        input["resource_set_name"] = resource_set_name
+        input_: aws_sdk_route53_recovery_readiness.types.update_readiness_check_request.UpdateReadinessCheckRequest = {}  # type: ignore[typeddict-item]
+        input_["readiness_check_name"] = readiness_check_name
+        input_["resource_set_name"] = resource_set_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1805,12 +1805,12 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.update_recovery_group_request.UpdateRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
-        input["cells"] = cells
-        input["recovery_group_name"] = recovery_group_name
+        input_: aws_sdk_route53_recovery_readiness.types.update_recovery_group_request.UpdateRecoveryGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["cells"] = cells
+        input_["recovery_group_name"] = recovery_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1848,13 +1848,13 @@ class AsyncRoute53RecoveryReadinessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53_recovery_readiness.types.update_resource_set_request.UpdateResourceSetRequest = {}  # type: ignore[typeddict-item]
-        input["resource_set_name"] = resource_set_name
-        input["resource_set_type"] = resource_set_type
-        input["resources"] = resources
+        input_: aws_sdk_route53_recovery_readiness.types.update_resource_set_request.UpdateResourceSetRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_set_name"] = resource_set_name
+        input_["resource_set_type"] = resource_set_type
+        input_["resources"] = resources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

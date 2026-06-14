@@ -104,54 +104,51 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_networkmanager.types.disassociate_link_request.DisassociateLinkRequest,
+    input_: aws_sdk_networkmanager.types.disassociate_link_request.DisassociateLinkRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/global-networks/{GlobalNetworkId}/link-associations"
     )
     url = url.replace(
-        "{GlobalNetworkId}", quote(str(input["global_network_id"]), safe="")
+        "{GlobalNetworkId}", quote(str(input_["global_network_id"]), safe="")
     )
     params: dict[str, str] = {}
-    if "device_id" in input:
-        params["deviceId"] = str(input["device_id"])
-    if "link_id" in input:
-        params["linkId"] = str(input["link_id"])
+    if "device_id" in input_:
+        params["deviceId"] = str(input_["device_id"])
+    if "link_id" in input_:
+        params["linkId"] = str(input_["link_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def disassociate_link(
     options: OperationOptions,
-    input: aws_sdk_networkmanager.types.disassociate_link_request.DisassociateLinkRequest,
+    input_: aws_sdk_networkmanager.types.disassociate_link_request.DisassociateLinkRequest,
 ) -> tuple[
     aws_sdk_networkmanager.types.disassociate_link_response.DisassociateLinkResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -160,16 +157,17 @@ def disassociate_link(
 
 async def async_disassociate_link(
     options: AsyncOperationOptions,
-    input: aws_sdk_networkmanager.types.disassociate_link_request.DisassociateLinkRequest,
+    input_: aws_sdk_networkmanager.types.disassociate_link_request.DisassociateLinkRequest,
 ) -> tuple[
     aws_sdk_networkmanager.types.disassociate_link_response.DisassociateLinkResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

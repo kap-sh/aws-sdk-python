@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_data_pipeline._auth._signers
+import aws_sdk_data_pipeline._auth._sigv4
 from aws_sdk_data_pipeline._auth._identity import Credentials
 from aws_sdk_data_pipeline._auth._providers import (
     CredentialsProvider,
@@ -217,15 +219,15 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.activate_pipeline_input.ActivatePipelineInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
+        input_: aws_sdk_data_pipeline.types.activate_pipeline_input.ActivatePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
         if parameter_values is not None:
-            input["parameter_values"] = parameter_values
+            input_["parameter_values"] = parameter_values
         if start_timestamp is not None:
-            input["start_timestamp"] = start_timestamp
+            input_["start_timestamp"] = start_timestamp
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,12 +262,12 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
-        input["tags"] = tags
+        input_: aws_sdk_data_pipeline.types.add_tags_input.AddTagsInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -304,16 +306,16 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.create_pipeline_input.CreatePipelineInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["unique_id"] = unique_id
+        input_: aws_sdk_data_pipeline.types.create_pipeline_input.CreatePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["unique_id"] = unique_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,13 +352,13 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.deactivate_pipeline_input.DeactivatePipelineInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
+        input_: aws_sdk_data_pipeline.types.deactivate_pipeline_input.DeactivatePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
         if cancel_active is not None:
-            input["cancel_active"] = cancel_active
+            input_["cancel_active"] = cancel_active
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,11 +389,11 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.delete_pipeline_input.DeletePipelineInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
+        input_: aws_sdk_data_pipeline.types.delete_pipeline_input.DeletePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,16 +434,16 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.describe_objects_input.DescribeObjectsInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
-        input["object_ids"] = object_ids
+        input_: aws_sdk_data_pipeline.types.describe_objects_input.DescribeObjectsInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
+        input_["object_ids"] = object_ids
         if evaluate_expressions is not None:
-            input["evaluate_expressions"] = evaluate_expressions
+            input_["evaluate_expressions"] = evaluate_expressions
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,11 +505,11 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.describe_pipelines_input.DescribePipelinesInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_ids"] = pipeline_ids
+        input_: aws_sdk_data_pipeline.types.describe_pipelines_input.DescribePipelinesInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_ids"] = pipeline_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,13 +546,13 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.evaluate_expression_input.EvaluateExpressionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
-        input["object_id"] = object_id
-        input["expression"] = expression
+        input_: aws_sdk_data_pipeline.types.evaluate_expression_input.EvaluateExpressionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
+        input_["object_id"] = object_id
+        input_["expression"] = expression
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -585,13 +587,13 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.get_pipeline_definition_input.GetPipelineDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
+        input_: aws_sdk_data_pipeline.types.get_pipeline_definition_input.GetPipelineDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,12 +626,12 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.list_pipelines_input.ListPipelinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_data_pipeline.types.list_pipelines_input.ListPipelinesInput = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -687,15 +689,15 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.poll_for_task_input.PollForTaskInput = {}  # type: ignore[typeddict-item]
-        input["worker_group"] = worker_group
+        input_: aws_sdk_data_pipeline.types.poll_for_task_input.PollForTaskInput = {}  # type: ignore[typeddict-item]
+        input_["worker_group"] = worker_group
         if hostname is not None:
-            input["hostname"] = hostname
+            input_["hostname"] = hostname
         if instance_identity is not None:
-            input["instance_identity"] = instance_identity
+            input_["instance_identity"] = instance_identity
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -738,16 +740,16 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.put_pipeline_definition_input.PutPipelineDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
-        input["pipeline_objects"] = pipeline_objects
+        input_: aws_sdk_data_pipeline.types.put_pipeline_definition_input.PutPipelineDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
+        input_["pipeline_objects"] = pipeline_objects
         if parameter_objects is not None:
-            input["parameter_objects"] = parameter_objects
+            input_["parameter_objects"] = parameter_objects
         if parameter_values is not None:
-            input["parameter_values"] = parameter_values
+            input_["parameter_values"] = parameter_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,18 +790,18 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.query_objects_input.QueryObjectsInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
+        input_: aws_sdk_data_pipeline.types.query_objects_input.QueryObjectsInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
         if query is not None:
-            input["query"] = query
-        input["sphere"] = sphere
+            input_["query"] = query
+        input_["sphere"] = sphere
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -861,12 +863,12 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_data_pipeline.types.remove_tags_input.RemoveTagsInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -901,13 +903,13 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.report_task_progress_input.ReportTaskProgressInput = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_data_pipeline.types.report_task_progress_input.ReportTaskProgressInput = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -944,15 +946,15 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.report_task_runner_heartbeat_input.ReportTaskRunnerHeartbeatInput = {}  # type: ignore[typeddict-item]
-        input["taskrunner_id"] = taskrunner_id
+        input_: aws_sdk_data_pipeline.types.report_task_runner_heartbeat_input.ReportTaskRunnerHeartbeatInput = {}  # type: ignore[typeddict-item]
+        input_["taskrunner_id"] = taskrunner_id
         if worker_group is not None:
-            input["worker_group"] = worker_group
+            input_["worker_group"] = worker_group
         if hostname is not None:
-            input["hostname"] = hostname
+            input_["hostname"] = hostname
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,13 +989,13 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.set_status_input.SetStatusInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
-        input["object_ids"] = object_ids
-        input["status"] = status
+        input_: aws_sdk_data_pipeline.types.set_status_input.SetStatusInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
+        input_["object_ids"] = object_ids
+        input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1036,18 +1038,18 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.set_task_status_input.SetTaskStatusInput = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
-        input["task_status"] = task_status
+        input_: aws_sdk_data_pipeline.types.set_task_status_input.SetTaskStatusInput = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
+        input_["task_status"] = task_status
         if error_id is not None:
-            input["error_id"] = error_id
+            input_["error_id"] = error_id
         if error_message is not None:
-            input["error_message"] = error_message
+            input_["error_message"] = error_message
         if error_stack_trace is not None:
-            input["error_stack_trace"] = error_stack_trace
+            input_["error_stack_trace"] = error_stack_trace
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1090,16 +1092,16 @@ class DataPipelineClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_data_pipeline.types.validate_pipeline_definition_input.ValidatePipelineDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
-        input["pipeline_objects"] = pipeline_objects
+        input_: aws_sdk_data_pipeline.types.validate_pipeline_definition_input.ValidatePipelineDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
+        input_["pipeline_objects"] = pipeline_objects
         if parameter_objects is not None:
-            input["parameter_objects"] = parameter_objects
+            input_["parameter_objects"] = parameter_objects
         if parameter_values is not None:
-            input["parameter_values"] = parameter_values
+            input_["parameter_values"] = parameter_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

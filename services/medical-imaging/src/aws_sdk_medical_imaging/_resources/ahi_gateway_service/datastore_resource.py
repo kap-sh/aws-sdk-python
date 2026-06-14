@@ -89,21 +89,21 @@ class DatastoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.create_datastore_request.CreateDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medical_imaging.types.create_datastore_request.CreateDatastoreRequest = {}  # type: ignore[typeddict-item]
         if datastore_name is not None:
-            input["datastore_name"] = datastore_name
-        input["client_token"] = client_token
+            input_["datastore_name"] = datastore_name
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if lambda_authorizer_arn is not None:
-            input["lambda_authorizer_arn"] = lambda_authorizer_arn
+            input_["lambda_authorizer_arn"] = lambda_authorizer_arn
         if lossless_storage_format is not None:
-            input["lossless_storage_format"] = lossless_storage_format
+            input_["lossless_storage_format"] = lossless_storage_format
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,11 +136,11 @@ class DatastoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.get_datastore_request.GetDatastoreRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_medical_imaging.types.get_datastore_request.GetDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -173,11 +173,11 @@ class DatastoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.delete_datastore_request.DeleteDatastoreRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_medical_imaging.types.delete_datastore_request.DeleteDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,16 +220,16 @@ class DatastoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.list_datastores_request.ListDatastoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medical_imaging.types.list_datastores_request.ListDatastoresRequest = {}  # type: ignore[typeddict-item]
         if datastore_status is not None:
-            input["datastore_status"] = datastore_status
+            input_["datastore_status"] = datastore_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,21 +286,21 @@ class AsyncDatastoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.create_datastore_request.CreateDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medical_imaging.types.create_datastore_request.CreateDatastoreRequest = {}  # type: ignore[typeddict-item]
         if datastore_name is not None:
-            input["datastore_name"] = datastore_name
-        input["client_token"] = client_token
+            input_["datastore_name"] = datastore_name
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if lambda_authorizer_arn is not None:
-            input["lambda_authorizer_arn"] = lambda_authorizer_arn
+            input_["lambda_authorizer_arn"] = lambda_authorizer_arn
         if lossless_storage_format is not None:
-            input["lossless_storage_format"] = lossless_storage_format
+            input_["lossless_storage_format"] = lossless_storage_format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,11 +334,11 @@ class AsyncDatastoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.get_datastore_request.GetDatastoreRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_medical_imaging.types.get_datastore_request.GetDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,11 +372,11 @@ class AsyncDatastoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.delete_datastore_request.DeleteDatastoreRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_medical_imaging.types.delete_datastore_request.DeleteDatastoreRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,16 +420,16 @@ class AsyncDatastoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.list_datastores_request.ListDatastoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medical_imaging.types.list_datastores_request.ListDatastoresRequest = {}  # type: ignore[typeddict-item]
         if datastore_status is not None:
-            input["datastore_status"] = datastore_status
+            input_["datastore_status"] = datastore_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

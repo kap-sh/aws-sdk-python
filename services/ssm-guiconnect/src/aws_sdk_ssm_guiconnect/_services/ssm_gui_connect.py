@@ -13,6 +13,25 @@ from aws_sdk_ssm_guiconnect._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_ssm_guiconnect._auth._zapros_handler import AuthMiddleware
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.connection import Connection
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.connection_access import (
+    ConnectionAccess,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.connection_preferences import (
+    ConnectionPreferences,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.connections_collection import (
+    ConnectionsCollection,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.modify_connection_preferences import (
+    ModifyConnectionPreferences,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.modify_recording_preferences import (
+    ModifyRecordingPreferences,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.recording_preferences import (
+    RecordingPreferences,
+)
 from aws_sdk_ssm_guiconnect._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +109,14 @@ class SSMGuiConnectClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.connection = Connection(self)
+        self.connection_access = ConnectionAccess(self)
+        self.connection_preferences = ConnectionPreferences(self)
+        self.connections_collection = ConnectionsCollection(self)
+        self.modify_connection_preferences = ModifyConnectionPreferences(self)
+        self.modify_recording_preferences = ModifyRecordingPreferences(self)
+        self.recording_preferences = RecordingPreferences(self)
 
     def operation_options(
         self, config_overrides: Optional[SSMGuiConnectClientConfig] = None

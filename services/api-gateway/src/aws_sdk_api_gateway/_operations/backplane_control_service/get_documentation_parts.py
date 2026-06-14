@@ -91,56 +91,53 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_api_gateway.types.get_documentation_parts_request.GetDocumentationPartsRequest,
+    input_: aws_sdk_api_gateway.types.get_documentation_parts_request.GetDocumentationPartsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/restapis/{restApiId}/documentation/parts"
-    url = url.replace("{restApiId}", quote(str(input["rest_api_id"]), safe=""))
+    url = url.replace("{restApiId}", quote(str(input_["rest_api_id"]), safe=""))
     params: dict[str, str] = {}
-    if "type" in input:
-        params["type"] = str(input["type"])
-    if "name_query" in input:
-        params["name"] = str(input["name_query"])
-    if "path" in input:
-        params["path"] = str(input["path"])
-    if "position" in input:
-        params["position"] = str(input["position"])
-    if "limit" in input:
-        params["limit"] = str(input["limit"])
-    if "location_status" in input:
-        params["locationStatus"] = str(input["location_status"])
+    if "type" in input_:
+        params["type"] = str(input_["type"])
+    if "name_query" in input_:
+        params["name"] = str(input_["name_query"])
+    if "path" in input_:
+        params["path"] = str(input_["path"])
+    if "position" in input_:
+        params["position"] = str(input_["position"])
+    if "limit" in input_:
+        params["limit"] = str(input_["limit"])
+    if "location_status" in input_:
+        params["locationStatus"] = str(input_["location_status"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_documentation_parts(
     options: OperationOptions,
-    input: aws_sdk_api_gateway.types.get_documentation_parts_request.GetDocumentationPartsRequest,
+    input_: aws_sdk_api_gateway.types.get_documentation_parts_request.GetDocumentationPartsRequest,
 ) -> tuple[
     aws_sdk_api_gateway.types.documentation_parts.DocumentationParts, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -149,15 +146,16 @@ def get_documentation_parts(
 
 async def async_get_documentation_parts(
     options: AsyncOperationOptions,
-    input: aws_sdk_api_gateway.types.get_documentation_parts_request.GetDocumentationPartsRequest,
+    input_: aws_sdk_api_gateway.types.get_documentation_parts_request.GetDocumentationPartsRequest,
 ) -> tuple[
     aws_sdk_api_gateway.types.documentation_parts.DocumentationParts, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

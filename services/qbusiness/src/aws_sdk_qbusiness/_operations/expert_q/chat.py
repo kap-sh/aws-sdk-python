@@ -16,13 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.chat_output
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_qbusiness.types.chat_input.ChatInput,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def chat(
     options: OperationOptions, input: aws_sdk_qbusiness.types.chat_input.ChatInput
 ) -> tuple[aws_sdk_qbusiness.types.chat_output.ChatOutput, zapros.Response]:

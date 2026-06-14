@@ -101,66 +101,61 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_datazone.types.list_rules_input.ListRulesInput,
+    input_: aws_sdk_datazone.types.list_rules_input.ListRulesInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            Region=options.region,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
+            Region=options.region, UseFIPS=options.use_fips, Endpoint=options.endpoint
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/v2/domains/{domainIdentifier}/list-rules/{targetType}/{targetIdentifier}"
     )
     url = url.replace(
-        "{domainIdentifier}", quote(str(input["domain_identifier"]), safe="")
+        "{domainIdentifier}", quote(str(input_["domain_identifier"]), safe="")
     )
-    url = url.replace("{targetType}", quote(str(input["target_type"]), safe=""))
+    url = url.replace("{targetType}", quote(str(input_["target_type"]), safe=""))
     url = url.replace(
-        "{targetIdentifier}", quote(str(input["target_identifier"]), safe="")
+        "{targetIdentifier}", quote(str(input_["target_identifier"]), safe="")
     )
     params: dict[str, str] = {}
-    if "rule_type" in input:
-        params["ruleType"] = str(input["rule_type"])
-    if "action" in input:
-        params["ruleAction"] = str(input["action"])
-    if "project_ids" in input:
-        params["projectIds"] = str(input["project_ids"])
-    if "asset_types" in input:
-        params["assetTypes"] = str(input["asset_types"])
-    if "data_product" in input:
-        params["dataProduct"] = str(input["data_product"])
-    if "include_cascaded" in input:
-        params["includeCascaded"] = str(input["include_cascaded"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
+    if "rule_type" in input_:
+        params["ruleType"] = str(input_["rule_type"])
+    if "action" in input_:
+        params["ruleAction"] = str(input_["action"])
+    if "project_ids" in input_:
+        params["projectIds"] = str(input_["project_ids"])
+    if "asset_types" in input_:
+        params["assetTypes"] = str(input_["asset_types"])
+    if "data_product" in input_:
+        params["dataProduct"] = str(input_["data_product"])
+    if "include_cascaded" in input_:
+        params["includeCascaded"] = str(input_["include_cascaded"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_rules(
     options: OperationOptions,
-    input: aws_sdk_datazone.types.list_rules_input.ListRulesInput,
+    input_: aws_sdk_datazone.types.list_rules_input.ListRulesInput,
 ) -> tuple[aws_sdk_datazone.types.list_rules_output.ListRulesOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -169,13 +164,14 @@ def list_rules(
 
 async def async_list_rules(
     options: AsyncOperationOptions,
-    input: aws_sdk_datazone.types.list_rules_input.ListRulesInput,
+    input_: aws_sdk_datazone.types.list_rules_input.ListRulesInput,
 ) -> tuple[aws_sdk_datazone.types.list_rules_output.ListRulesOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

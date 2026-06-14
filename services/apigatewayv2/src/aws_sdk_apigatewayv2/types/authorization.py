@@ -1,6 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#Authorization``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
@@ -13,7 +14,7 @@ class Authorization(TypedDict):
         "aws_sdk_apigatewayv2.types.cognito_config.CognitoConfig"
     ]
     """<p>The Amazon Cognito configuration.</p>"""
-    none: NotRequired["aws_sdk_apigatewayv2.types.none.None"]
+    none: NotRequired["aws_sdk_apigatewayv2.types.none.None_"]
     """<p>Provide no authorization for your portal. This makes your portal publicly accesible on the web.</p>"""
 
 

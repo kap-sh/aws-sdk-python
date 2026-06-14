@@ -247,31 +247,31 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_thin_client.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["desktop_arn"] = desktop_arn
+            input_["name"] = name
+        input_["desktop_arn"] = desktop_arn
         if desktop_endpoint is not None:
-            input["desktop_endpoint"] = desktop_endpoint
+            input_["desktop_endpoint"] = desktop_endpoint
         if software_set_update_schedule is not None:
-            input["software_set_update_schedule"] = software_set_update_schedule
+            input_["software_set_update_schedule"] = software_set_update_schedule
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
+            input_["maintenance_window"] = maintenance_window
         if software_set_update_mode is not None:
-            input["software_set_update_mode"] = software_set_update_mode
+            input_["software_set_update_mode"] = software_set_update_mode
         if desired_software_set_id is not None:
-            input["desired_software_set_id"] = desired_software_set_id
+            input_["desired_software_set_id"] = desired_software_set_id
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if device_creation_tags is not None:
-            input["device_creation_tags"] = device_creation_tags
+            input_["device_creation_tags"] = device_creation_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,13 +308,13 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.delete_device_request.DeleteDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_workspaces_thin_client.types.delete_device_request.DeleteDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -351,13 +351,13 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_workspaces_thin_client.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,15 +398,15 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.deregister_device_request.DeregisterDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_workspaces_thin_client.types.deregister_device_request.DeregisterDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if target_device_status is not None:
-            input["target_device_status"] = target_device_status
+            input_["target_device_status"] = target_device_status
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -439,11 +439,11 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.get_device_request.GetDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_workspaces_thin_client.types.get_device_request.GetDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -476,11 +476,11 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_workspaces_thin_client.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,11 +513,11 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.get_software_set_request.GetSoftwareSetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_workspaces_thin_client.types.get_software_set_request.GetSoftwareSetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -558,14 +558,14 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_thin_client.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -629,14 +629,14 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_thin_client.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -700,14 +700,14 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.list_software_sets_request.ListSoftwareSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_thin_client.types.list_software_sets_request.ListSoftwareSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -765,11 +765,11 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_workspaces_thin_client.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,12 +806,12 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_workspaces_thin_client.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,12 +846,12 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_workspaces_thin_client.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -896,17 +896,17 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.update_device_request.UpdateDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_workspaces_thin_client.types.update_device_request.UpdateDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if desired_software_set_id is not None:
-            input["desired_software_set_id"] = desired_software_set_id
+            input_["desired_software_set_id"] = desired_software_set_id
         if software_set_update_schedule is not None:
-            input["software_set_update_schedule"] = software_set_update_schedule
+            input_["software_set_update_schedule"] = software_set_update_schedule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -969,27 +969,27 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_workspaces_thin_client.types.update_environment_request.UpdateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if desktop_arn is not None:
-            input["desktop_arn"] = desktop_arn
+            input_["desktop_arn"] = desktop_arn
         if desktop_endpoint is not None:
-            input["desktop_endpoint"] = desktop_endpoint
+            input_["desktop_endpoint"] = desktop_endpoint
         if software_set_update_schedule is not None:
-            input["software_set_update_schedule"] = software_set_update_schedule
+            input_["software_set_update_schedule"] = software_set_update_schedule
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
+            input_["maintenance_window"] = maintenance_window
         if software_set_update_mode is not None:
-            input["software_set_update_mode"] = software_set_update_mode
+            input_["software_set_update_mode"] = software_set_update_mode
         if desired_software_set_id is not None:
-            input["desired_software_set_id"] = desired_software_set_id
+            input_["desired_software_set_id"] = desired_software_set_id
         if device_creation_tags is not None:
-            input["device_creation_tags"] = device_creation_tags
+            input_["device_creation_tags"] = device_creation_tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1024,12 +1024,12 @@ class WorkSpacesThinClientClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_thin_client.types.update_software_set_request.UpdateSoftwareSetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["validation_status"] = validation_status
+        input_: aws_sdk_workspaces_thin_client.types.update_software_set_request.UpdateSoftwareSetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["validation_status"] = validation_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

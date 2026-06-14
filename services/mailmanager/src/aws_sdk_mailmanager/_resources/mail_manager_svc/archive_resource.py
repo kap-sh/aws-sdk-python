@@ -82,19 +82,19 @@ class ArchiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_archive_request.CreateArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_archive_request.CreateArchiveRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["archive_name"] = archive_name
+            input_["client_token"] = client_token
+        input_["archive_name"] = archive_name
         if retention is not None:
-            input["retention"] = retention
+            input_["retention"] = retention
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -127,11 +127,11 @@ class ArchiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_archive_request.GetArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_id"] = archive_id
+        input_: aws_sdk_mailmanager.types.get_archive_request.GetArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_id"] = archive_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -172,15 +172,15 @@ class ArchiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_archive_request.UpdateArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_id"] = archive_id
+        input_: aws_sdk_mailmanager.types.update_archive_request.UpdateArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_id"] = archive_id
         if archive_name is not None:
-            input["archive_name"] = archive_name
+            input_["archive_name"] = archive_name
         if retention is not None:
-            input["retention"] = retention
+            input_["retention"] = retention
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,11 +213,11 @@ class ArchiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_archive_request.DeleteArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_id"] = archive_id
+        input_: aws_sdk_mailmanager.types.delete_archive_request.DeleteArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_id"] = archive_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,14 +254,14 @@ class ArchiveResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_archives_request.ListArchivesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_archives_request.ListArchivesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,19 +312,19 @@ class AsyncArchiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.create_archive_request.CreateArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.create_archive_request.CreateArchiveRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["archive_name"] = archive_name
+            input_["client_token"] = client_token
+        input_["archive_name"] = archive_name
         if retention is not None:
-            input["retention"] = retention
+            input_["retention"] = retention
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,11 +358,11 @@ class AsyncArchiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.get_archive_request.GetArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_id"] = archive_id
+        input_: aws_sdk_mailmanager.types.get_archive_request.GetArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_id"] = archive_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,15 +404,15 @@ class AsyncArchiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.update_archive_request.UpdateArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_id"] = archive_id
+        input_: aws_sdk_mailmanager.types.update_archive_request.UpdateArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_id"] = archive_id
         if archive_name is not None:
-            input["archive_name"] = archive_name
+            input_["archive_name"] = archive_name
         if retention is not None:
-            input["retention"] = retention
+            input_["retention"] = retention
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,11 +446,11 @@ class AsyncArchiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.delete_archive_request.DeleteArchiveRequest = {}  # type: ignore[typeddict-item]
-        input["archive_id"] = archive_id
+        input_: aws_sdk_mailmanager.types.delete_archive_request.DeleteArchiveRequest = {}  # type: ignore[typeddict-item]
+        input_["archive_id"] = archive_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -488,14 +488,14 @@ class AsyncArchiveResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mailmanager.types.list_archives_request.ListArchivesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mailmanager.types.list_archives_request.ListArchivesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

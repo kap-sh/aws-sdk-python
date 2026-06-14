@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_forecastquery._auth._signers
+import aws_sdk_forecastquery._auth._sigv4
 from aws_sdk_forecastquery._auth._identity import Credentials
 from aws_sdk_forecastquery._auth._providers import (
     CredentialsProvider,
@@ -168,18 +170,18 @@ class forecastqueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecastquery.types.query_forecast_request.QueryForecastRequest = {}  # type: ignore[typeddict-item]
-        input["forecast_arn"] = forecast_arn
+        input_: aws_sdk_forecastquery.types.query_forecast_request.QueryForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["forecast_arn"] = forecast_arn
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
-        input["filters"] = filters
+            input_["end_date"] = end_date
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,18 +222,18 @@ class forecastqueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_forecastquery.types.query_what_if_forecast_request.QueryWhatIfForecastRequest = {}  # type: ignore[typeddict-item]
-        input["what_if_forecast_arn"] = what_if_forecast_arn
+        input_: aws_sdk_forecastquery.types.query_what_if_forecast_request.QueryWhatIfForecastRequest = {}  # type: ignore[typeddict-item]
+        input_["what_if_forecast_arn"] = what_if_forecast_arn
         if start_date is not None:
-            input["start_date"] = start_date
+            input_["start_date"] = start_date
         if end_date is not None:
-            input["end_date"] = end_date
-        input["filters"] = filters
+            input_["end_date"] = end_date
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

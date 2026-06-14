@@ -15,6 +15,33 @@ from aws_sdk_s3tables._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_s3tables._auth._zapros_handler import AuthMiddleware
+from aws_sdk_s3tables._resources.s3_table_buckets.namespace_resource import (
+    AsyncNamespaceResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_bucket_encryption_resource import (
+    AsyncTableBucketEncryptionResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_bucket_policy_resource import (
+    AsyncTableBucketPolicyResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_bucket_replication_resource import (
+    AsyncTableBucketReplicationResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_bucket_resource import (
+    AsyncTableBucketResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_encryption_resource import (
+    AsyncTableEncryptionResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_policy_resource import (
+    AsyncTablePolicyResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_replication_resource import (
+    AsyncTableReplicationResource,
+)
+from aws_sdk_s3tables._resources.s3_table_buckets.table_resource import (
+    AsyncTableResource,
+)
 from aws_sdk_s3tables._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -108,6 +135,18 @@ class AsyncS3TablesClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.namespace_resource = AsyncNamespaceResource(self)
+        self.table_bucket_encryption_resource = AsyncTableBucketEncryptionResource(self)
+        self.table_bucket_policy_resource = AsyncTableBucketPolicyResource(self)
+        self.table_bucket_replication_resource = AsyncTableBucketReplicationResource(
+            self
+        )
+        self.table_bucket_resource = AsyncTableBucketResource(self)
+        self.table_encryption_resource = AsyncTableEncryptionResource(self)
+        self.table_policy_resource = AsyncTablePolicyResource(self)
+        self.table_replication_resource = AsyncTableReplicationResource(self)
+        self.table_resource = AsyncTableResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncS3TablesClientConfig] = None
@@ -165,11 +204,11 @@ class AsyncS3TablesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_s3tables.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,12 +244,12 @@ class AsyncS3TablesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_s3tables.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,12 +285,12 @@ class AsyncS3TablesClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_s3tables.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

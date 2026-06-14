@@ -86,19 +86,19 @@ class ConfiguredModelAlgorithmAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_configured_model_algorithm_association_request.CreateConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_model_algorithm_arn"] = configured_model_algorithm_arn
-        input["name"] = name
+        input_: aws_sdk_cleanroomsml.types.create_configured_model_algorithm_association_request.CreateConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_model_algorithm_arn"] = configured_model_algorithm_arn
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if privacy_configuration is not None:
-            input["privacy_configuration"] = privacy_configuration
+            input_["privacy_configuration"] = privacy_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,14 +133,14 @@ class ConfiguredModelAlgorithmAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["configured_model_algorithm_association_arn"] = (
+        input_: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_model_algorithm_association_arn"] = (
             configured_model_algorithm_association_arn
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -173,14 +173,14 @@ class ConfiguredModelAlgorithmAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_configured_model_algorithm_association_request.DeleteConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["configured_model_algorithm_association_arn"] = (
+        input_: aws_sdk_cleanroomsml.types.delete_configured_model_algorithm_association_request.DeleteConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_model_algorithm_association_arn"] = (
             configured_model_algorithm_association_arn
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,15 +219,15 @@ class ConfiguredModelAlgorithmAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_configured_model_algorithm_associations_request.ListConfiguredModelAlgorithmAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_configured_model_algorithm_associations_request.ListConfiguredModelAlgorithmAssociationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,14 +262,14 @@ class ConfiguredModelAlgorithmAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_collaboration_configured_model_algorithm_association_request.GetCollaborationConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["configured_model_algorithm_association_arn"] = (
+        input_: aws_sdk_cleanroomsml.types.get_collaboration_configured_model_algorithm_association_request.GetCollaborationConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_model_algorithm_association_arn"] = (
             configured_model_algorithm_association_arn
         )
-        input["collaboration_identifier"] = collaboration_identifier
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -322,19 +322,19 @@ class AsyncConfiguredModelAlgorithmAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_configured_model_algorithm_association_request.CreateConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_model_algorithm_arn"] = configured_model_algorithm_arn
-        input["name"] = name
+        input_: aws_sdk_cleanroomsml.types.create_configured_model_algorithm_association_request.CreateConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_model_algorithm_arn"] = configured_model_algorithm_arn
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if privacy_configuration is not None:
-            input["privacy_configuration"] = privacy_configuration
+            input_["privacy_configuration"] = privacy_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,14 +370,14 @@ class AsyncConfiguredModelAlgorithmAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["configured_model_algorithm_association_arn"] = (
+        input_: aws_sdk_cleanroomsml.types.get_configured_model_algorithm_association_request.GetConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_model_algorithm_association_arn"] = (
             configured_model_algorithm_association_arn
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,14 +411,14 @@ class AsyncConfiguredModelAlgorithmAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_configured_model_algorithm_association_request.DeleteConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["configured_model_algorithm_association_arn"] = (
+        input_: aws_sdk_cleanroomsml.types.delete_configured_model_algorithm_association_request.DeleteConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_model_algorithm_association_arn"] = (
             configured_model_algorithm_association_arn
         )
-        input["membership_identifier"] = membership_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,15 +458,15 @@ class AsyncConfiguredModelAlgorithmAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_configured_model_algorithm_associations_request.ListConfiguredModelAlgorithmAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_configured_model_algorithm_associations_request.ListConfiguredModelAlgorithmAssociationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,14 +502,14 @@ class AsyncConfiguredModelAlgorithmAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_collaboration_configured_model_algorithm_association_request.GetCollaborationConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["configured_model_algorithm_association_arn"] = (
+        input_: aws_sdk_cleanroomsml.types.get_collaboration_configured_model_algorithm_association_request.GetCollaborationConfiguredModelAlgorithmAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_model_algorithm_association_arn"] = (
             configured_model_algorithm_association_arn
         )
-        input["collaboration_identifier"] = collaboration_identifier
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

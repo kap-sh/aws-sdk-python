@@ -62,15 +62,15 @@ class ServicePipelineOutputResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_service_pipeline_outputs_input.ListServicePipelineOutputsInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.list_service_pipeline_outputs_input.ListServicePipelineOutputsInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
+            input_["deployment_id"] = deployment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -117,15 +117,15 @@ class AsyncServicePipelineOutputResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_service_pipeline_outputs_input.ListServicePipelineOutputsInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
+        input_: aws_sdk_proton.types.list_service_pipeline_outputs_input.ListServicePipelineOutputsInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if deployment_id is not None:
-            input["deployment_id"] = deployment_id
+            input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

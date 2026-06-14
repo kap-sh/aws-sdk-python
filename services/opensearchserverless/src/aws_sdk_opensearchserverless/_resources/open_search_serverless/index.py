@@ -68,14 +68,14 @@ class Index:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearchserverless.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_name"] = index_name
         if index_schema is not None:
-            input["index_schema"] = index_schema
+            input_["index_schema"] = index_schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -110,12 +110,12 @@ class Index:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.get_index_request.GetIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearchserverless.types.get_index_request.GetIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_name"] = index_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -154,14 +154,14 @@ class Index:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_index_request.UpdateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearchserverless.types.update_index_request.UpdateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_name"] = index_name
         if index_schema is not None:
-            input["index_schema"] = index_schema
+            input_["index_schema"] = index_schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,12 +196,12 @@ class Index:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_index_request.DeleteIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearchserverless.types.delete_index_request.DeleteIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_name"] = index_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,14 +246,14 @@ class AsyncIndex:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearchserverless.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_name"] = index_name
         if index_schema is not None:
-            input["index_schema"] = index_schema
+            input_["index_schema"] = index_schema
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -289,12 +289,12 @@ class AsyncIndex:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.get_index_request.GetIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearchserverless.types.get_index_request.GetIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_name"] = index_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,14 +334,14 @@ class AsyncIndex:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_index_request.UpdateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearchserverless.types.update_index_request.UpdateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_name"] = index_name
         if index_schema is not None:
-            input["index_schema"] = index_schema
+            input_["index_schema"] = index_schema
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,12 +377,12 @@ class AsyncIndex:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_index_request.DeleteIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_name"] = index_name
+        input_: aws_sdk_opensearchserverless.types.delete_index_request.DeleteIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_name"] = index_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

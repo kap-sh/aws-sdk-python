@@ -63,13 +63,13 @@ class TableBucketReplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_bucket_replication_request.DeleteTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.delete_table_bucket_replication_request.DeleteTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
         if version_token is not None:
-            input["version_token"] = version_token
+            input_["version_token"] = version_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -102,11 +102,11 @@ class TableBucketReplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_replication_request.GetTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_replication_request.GetTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -145,14 +145,14 @@ class TableBucketReplicationResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
         if version_token is not None:
-            input["version_token"] = version_token
-        input["configuration"] = configuration
+            input_["version_token"] = version_token
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -193,13 +193,13 @@ class AsyncTableBucketReplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_table_bucket_replication_request.DeleteTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.delete_table_bucket_replication_request.DeleteTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
         if version_token is not None:
-            input["version_token"] = version_token
+            input_["version_token"] = version_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,11 +233,11 @@ class AsyncTableBucketReplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_table_bucket_replication_request.GetTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.get_table_bucket_replication_request.GetTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,14 +277,14 @@ class AsyncTableBucketReplicationResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.put_table_bucket_replication_request.PutTableBucketReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
         if version_token is not None:
-            input["version_token"] = version_token
-        input["configuration"] = configuration
+            input_["version_token"] = version_token
+        input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

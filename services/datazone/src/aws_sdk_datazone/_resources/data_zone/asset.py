@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -104,28 +105,28 @@ class Asset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_asset_input.CreateAssetInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.create_asset_input.CreateAssetInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["domain_identifier"] = domain_identifier
         if external_identifier is not None:
-            input["external_identifier"] = external_identifier
-        input["type_identifier"] = type_identifier
+            input_["external_identifier"] = external_identifier
+        input_["type_identifier"] = type_identifier
         if type_revision is not None:
-            input["type_revision"] = type_revision
+            input_["type_revision"] = type_revision
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if forms_input is not None:
-            input["forms_input"] = forms_input
-        input["owning_project_identifier"] = owning_project_identifier
+            input_["forms_input"] = forms_input
+        input_["owning_project_identifier"] = owning_project_identifier
         if prediction_configuration is not None:
-            input["prediction_configuration"] = prediction_configuration
+            input_["prediction_configuration"] = prediction_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -162,14 +163,14 @@ class Asset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_asset_input.GetAssetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_asset_input.GetAssetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,12 +205,12 @@ class Asset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_asset_input.DeleteAssetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_asset_input.DeleteAssetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -268,25 +269,25 @@ class Asset:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_asset_revision_input.CreateAssetRevisionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.create_asset_revision_input.CreateAssetRevisionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if type_revision is not None:
-            input["type_revision"] = type_revision
+            input_["type_revision"] = type_revision
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if forms_input is not None:
-            input["forms_input"] = forms_input
+            input_["forms_input"] = forms_input
         if prediction_configuration is not None:
-            input["prediction_configuration"] = prediction_configuration
+            input_["prediction_configuration"] = prediction_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -355,28 +356,28 @@ class AsyncAsset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_asset_input.CreateAssetInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.create_asset_input.CreateAssetInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["domain_identifier"] = domain_identifier
         if external_identifier is not None:
-            input["external_identifier"] = external_identifier
-        input["type_identifier"] = type_identifier
+            input_["external_identifier"] = external_identifier
+        input_["type_identifier"] = type_identifier
         if type_revision is not None:
-            input["type_revision"] = type_revision
+            input_["type_revision"] = type_revision
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if forms_input is not None:
-            input["forms_input"] = forms_input
-        input["owning_project_identifier"] = owning_project_identifier
+            input_["forms_input"] = forms_input
+        input_["owning_project_identifier"] = owning_project_identifier
         if prediction_configuration is not None:
-            input["prediction_configuration"] = prediction_configuration
+            input_["prediction_configuration"] = prediction_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,14 +415,14 @@ class AsyncAsset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_asset_input.GetAssetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_asset_input.GetAssetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,12 +458,12 @@ class AsyncAsset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_asset_input.DeleteAssetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_asset_input.DeleteAssetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,25 +523,25 @@ class AsyncAsset:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_asset_revision_input.CreateAssetRevisionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.create_asset_revision_input.CreateAssetRevisionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if type_revision is not None:
-            input["type_revision"] = type_revision
+            input_["type_revision"] = type_revision
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if forms_input is not None:
-            input["forms_input"] = forms_input
+            input_["forms_input"] = forms_input
         if prediction_configuration is not None:
-            input["prediction_configuration"] = prediction_configuration
+            input_["prediction_configuration"] = prediction_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

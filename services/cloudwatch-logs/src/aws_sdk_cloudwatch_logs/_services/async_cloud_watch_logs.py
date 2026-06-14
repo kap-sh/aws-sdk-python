@@ -547,15 +547,15 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.associate_kms_key_request.AssociateKmsKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.associate_kms_key_request.AssociateKmsKeyRequest = {}  # type: ignore[typeddict-item]
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
-        input["kms_key_id"] = kms_key_id
+            input_["log_group_name"] = log_group_name
+        input_["kms_key_id"] = kms_key_id
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,12 +591,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.associate_source_to_s3_table_integration_request.AssociateSourceToS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_arn"] = integration_arn
-        input["data_source"] = data_source
+        input_: aws_sdk_cloudwatch_logs.types.associate_source_to_s3_table_integration_request.AssociateSourceToS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_arn"] = integration_arn
+        input_["data_source"] = data_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -628,11 +628,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.cancel_export_task_request.CancelExportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_cloudwatch_logs.types.cancel_export_task_request.CancelExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -666,11 +666,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.cancel_import_task_request.CancelImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["import_id"] = import_id
+        input_: aws_sdk_cloudwatch_logs.types.cancel_import_task_request.CancelImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["import_id"] = import_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,20 +722,20 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.create_delivery_request.CreateDeliveryRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_source_name"] = delivery_source_name
-        input["delivery_destination_arn"] = delivery_destination_arn
+        input_: aws_sdk_cloudwatch_logs.types.create_delivery_request.CreateDeliveryRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_source_name"] = delivery_source_name
+        input_["delivery_destination_arn"] = delivery_destination_arn
         if record_fields is not None:
-            input["record_fields"] = record_fields
+            input_["record_fields"] = record_fields
         if field_delimiter is not None:
-            input["field_delimiter"] = field_delimiter
+            input_["field_delimiter"] = field_delimiter
         if s3_delivery_configuration is not None:
-            input["s3_delivery_configuration"] = s3_delivery_configuration
+            input_["s3_delivery_configuration"] = s3_delivery_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -787,20 +787,20 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.create_export_task_request.CreateExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.create_export_task_request.CreateExportTaskRequest = {}  # type: ignore[typeddict-item]
         if task_name is not None:
-            input["task_name"] = task_name
-        input["log_group_name"] = log_group_name
+            input_["task_name"] = task_name
+        input_["log_group_name"] = log_group_name
         if log_stream_name_prefix is not None:
-            input["log_stream_name_prefix"] = log_stream_name_prefix
-        input["from"] = from_
-        input["to"] = to
-        input["destination"] = destination
+            input_["log_stream_name_prefix"] = log_stream_name_prefix
+        input_["from"] = from_
+        input_["to"] = to
+        input_["destination"] = destination
         if destination_prefix is not None:
-            input["destination_prefix"] = destination_prefix
+            input_["destination_prefix"] = destination_prefix
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,14 +840,14 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.create_import_task_request.CreateImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["import_source_arn"] = import_source_arn
-        input["import_role_arn"] = import_role_arn
+        input_: aws_sdk_cloudwatch_logs.types.create_import_task_request.CreateImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["import_source_arn"] = import_source_arn
+        input_["import_role_arn"] = import_role_arn
         if import_filter is not None:
-            input["import_filter"] = import_filter
+            input_["import_filter"] = import_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -903,23 +903,23 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.create_log_anomaly_detector_request.CreateLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_arn_list"] = log_group_arn_list
+        input_: aws_sdk_cloudwatch_logs.types.create_log_anomaly_detector_request.CreateLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_arn_list"] = log_group_arn_list
         if detector_name is not None:
-            input["detector_name"] = detector_name
+            input_["detector_name"] = detector_name
         if evaluation_frequency is not None:
-            input["evaluation_frequency"] = evaluation_frequency
+            input_["evaluation_frequency"] = evaluation_frequency
         if filter_pattern is not None:
-            input["filter_pattern"] = filter_pattern
+            input_["filter_pattern"] = filter_pattern
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if anomaly_visibility_time is not None:
-            input["anomaly_visibility_time"] = anomaly_visibility_time
+            input_["anomaly_visibility_time"] = anomaly_visibility_time
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -965,19 +965,19 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.create_log_group_request.CreateLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
+        input_: aws_sdk_cloudwatch_logs.types.create_log_group_request.CreateLogGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if log_group_class is not None:
-            input["log_group_class"] = log_group_class
+            input_["log_group_class"] = log_group_class
         if deletion_protection_enabled is not None:
-            input["deletion_protection_enabled"] = deletion_protection_enabled
+            input_["deletion_protection_enabled"] = deletion_protection_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1011,12 +1011,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.create_log_stream_request.CreateLogStreamRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["log_stream_name"] = log_stream_name
+        input_: aws_sdk_cloudwatch_logs.types.create_log_stream_request.CreateLogStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["log_stream_name"] = log_stream_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1062,18 +1062,18 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.create_lookup_table_request.CreateLookupTableRequest = {}  # type: ignore[typeddict-item]
-        input["lookup_table_name"] = lookup_table_name
+        input_: aws_sdk_cloudwatch_logs.types.create_lookup_table_request.CreateLookupTableRequest = {}  # type: ignore[typeddict-item]
+        input_["lookup_table_name"] = lookup_table_name
         if description is not None:
-            input["description"] = description
-        input["table_body"] = table_body
+            input_["description"] = description
+        input_["table_body"] = table_body
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1149,33 +1149,33 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.create_scheduled_query_request.CreateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_logs.types.create_scheduled_query_request.CreateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["query_language"] = query_language
-        input["query_string"] = query_string
+            input_["description"] = description
+        input_["query_language"] = query_language
+        input_["query_string"] = query_string
         if log_group_identifiers is not None:
-            input["log_group_identifiers"] = log_group_identifiers
-        input["schedule_expression"] = schedule_expression
+            input_["log_group_identifiers"] = log_group_identifiers
+        input_["schedule_expression"] = schedule_expression
         if timezone is not None:
-            input["timezone"] = timezone
+            input_["timezone"] = timezone
         if start_time_offset is not None:
-            input["start_time_offset"] = start_time_offset
+            input_["start_time_offset"] = start_time_offset
         if destination_configuration is not None:
-            input["destination_configuration"] = destination_configuration
+            input_["destination_configuration"] = destination_configuration
         if schedule_start_time is not None:
-            input["schedule_start_time"] = schedule_start_time
+            input_["schedule_start_time"] = schedule_start_time
         if schedule_end_time is not None:
-            input["schedule_end_time"] = schedule_end_time
-        input["execution_role_arn"] = execution_role_arn
+            input_["schedule_end_time"] = schedule_end_time
+        input_["execution_role_arn"] = execution_role_arn
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1209,12 +1209,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_account_policy_request.DeleteAccountPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["policy_type"] = policy_type
+        input_: aws_sdk_cloudwatch_logs.types.delete_account_policy_request.DeleteAccountPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["policy_type"] = policy_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1246,11 +1246,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_data_protection_policy_request.DeleteDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
+        input_: aws_sdk_cloudwatch_logs.types.delete_data_protection_policy_request.DeleteDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1282,11 +1282,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_delivery_request.DeleteDeliveryRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudwatch_logs.types.delete_delivery_request.DeleteDeliveryRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1318,11 +1318,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_delivery_destination_request.DeleteDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_logs.types.delete_delivery_destination_request.DeleteDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1354,11 +1354,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_delivery_destination_policy_request.DeleteDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_destination_name"] = delivery_destination_name
+        input_: aws_sdk_cloudwatch_logs.types.delete_delivery_destination_policy_request.DeleteDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_destination_name"] = delivery_destination_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1390,11 +1390,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_delivery_source_request.DeleteDeliverySourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_logs.types.delete_delivery_source_request.DeleteDeliverySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1426,11 +1426,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["destination_name"] = destination_name
+        input_: aws_sdk_cloudwatch_logs.types.delete_destination_request.DeleteDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_name"] = destination_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1464,11 +1464,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_index_policy_request.DeleteIndexPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
+        input_: aws_sdk_cloudwatch_logs.types.delete_index_policy_request.DeleteIndexPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1504,13 +1504,13 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_name"] = integration_name
+        input_: aws_sdk_cloudwatch_logs.types.delete_integration_request.DeleteIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_name"] = integration_name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1542,11 +1542,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_log_anomaly_detector_request.DeleteLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["anomaly_detector_arn"] = anomaly_detector_arn
+        input_: aws_sdk_cloudwatch_logs.types.delete_log_anomaly_detector_request.DeleteLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["anomaly_detector_arn"] = anomaly_detector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1578,11 +1578,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_log_group_request.DeleteLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
+        input_: aws_sdk_cloudwatch_logs.types.delete_log_group_request.DeleteLogGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1616,12 +1616,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_log_stream_request.DeleteLogStreamRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["log_stream_name"] = log_stream_name
+        input_: aws_sdk_cloudwatch_logs.types.delete_log_stream_request.DeleteLogStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["log_stream_name"] = log_stream_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1653,11 +1653,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_lookup_table_request.DeleteLookupTableRequest = {}  # type: ignore[typeddict-item]
-        input["lookup_table_arn"] = lookup_table_arn
+        input_: aws_sdk_cloudwatch_logs.types.delete_lookup_table_request.DeleteLookupTableRequest = {}  # type: ignore[typeddict-item]
+        input_["lookup_table_arn"] = lookup_table_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1691,12 +1691,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_metric_filter_request.DeleteMetricFilterRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["filter_name"] = filter_name
+        input_: aws_sdk_cloudwatch_logs.types.delete_metric_filter_request.DeleteMetricFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["filter_name"] = filter_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1730,11 +1730,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_query_definition_request.DeleteQueryDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["query_definition_id"] = query_definition_id
+        input_: aws_sdk_cloudwatch_logs.types.delete_query_definition_request.DeleteQueryDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["query_definition_id"] = query_definition_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1774,16 +1774,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if policy_name is not None:
-            input["policy_name"] = policy_name
+            input_["policy_name"] = policy_name
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if expected_revision_id is not None:
-            input["expected_revision_id"] = expected_revision_id
+            input_["expected_revision_id"] = expected_revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1815,11 +1815,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_retention_policy_request.DeleteRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
+        input_: aws_sdk_cloudwatch_logs.types.delete_retention_policy_request.DeleteRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1853,11 +1853,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_scheduled_query_request.DeleteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudwatch_logs.types.delete_scheduled_query_request.DeleteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1891,12 +1891,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_subscription_filter_request.DeleteSubscriptionFilterRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["filter_name"] = filter_name
+        input_: aws_sdk_cloudwatch_logs.types.delete_subscription_filter_request.DeleteSubscriptionFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["filter_name"] = filter_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1928,11 +1928,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.delete_transformer_request.DeleteTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
+        input_: aws_sdk_cloudwatch_logs.types.delete_transformer_request.DeleteTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1978,17 +1978,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_account_policies_request.DescribeAccountPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["policy_type"] = policy_type
+        input_: aws_sdk_cloudwatch_logs.types.describe_account_policies_request.DescribeAccountPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_type"] = policy_type
         if policy_name is not None:
-            input["policy_name"] = policy_name
+            input_["policy_name"] = policy_name
         if account_identifiers is not None:
-            input["account_identifiers"] = account_identifiers
+            input_["account_identifiers"] = account_identifiers
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2039,22 +2039,22 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_configuration_templates_request.DescribeConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_configuration_templates_request.DescribeConfigurationTemplatesRequest = {}  # type: ignore[typeddict-item]
         if service is not None:
-            input["service"] = service
+            input_["service"] = service
         if log_types is not None:
-            input["log_types"] = log_types
+            input_["log_types"] = log_types
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if delivery_destination_types is not None:
-            input["delivery_destination_types"] = delivery_destination_types
+            input_["delivery_destination_types"] = delivery_destination_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2130,14 +2130,14 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_deliveries_request.DescribeDeliveriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_deliveries_request.DescribeDeliveriesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2201,14 +2201,14 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_delivery_destinations_request.DescribeDeliveryDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_delivery_destinations_request.DescribeDeliveryDestinationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2272,14 +2272,14 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_delivery_sources_request.DescribeDeliverySourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_delivery_sources_request.DescribeDeliverySourcesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2348,16 +2348,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_destinations_request.DescribeDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_destinations_request.DescribeDestinationsRequest = {}  # type: ignore[typeddict-item]
         if destination_name_prefix is not None:
-            input["destination_name_prefix"] = destination_name_prefix
+            input_["destination_name_prefix"] = destination_name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2434,18 +2434,18 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_export_tasks_request.DescribeExportTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_export_tasks_request.DescribeExportTasksRequest = {}  # type: ignore[typeddict-item]
         if task_id is not None:
-            input["task_id"] = task_id
+            input_["task_id"] = task_id
         if status_code is not None:
-            input["status_code"] = status_code
+            input_["status_code"] = status_code
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2482,13 +2482,13 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_field_indexes_request.DescribeFieldIndexesRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifiers"] = log_group_identifiers
+        input_: aws_sdk_cloudwatch_logs.types.describe_field_indexes_request.DescribeFieldIndexesRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifiers"] = log_group_identifiers
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2534,17 +2534,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_import_task_batches_request.DescribeImportTaskBatchesRequest = {}  # type: ignore[typeddict-item]
-        input["import_id"] = import_id
+        input_: aws_sdk_cloudwatch_logs.types.describe_import_task_batches_request.DescribeImportTaskBatchesRequest = {}  # type: ignore[typeddict-item]
+        input_["import_id"] = import_id
         if batch_import_status is not None:
-            input["batch_import_status"] = batch_import_status
+            input_["batch_import_status"] = batch_import_status
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2592,20 +2592,20 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_import_tasks_request.DescribeImportTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_import_tasks_request.DescribeImportTasksRequest = {}  # type: ignore[typeddict-item]
         if import_id is not None:
-            input["import_id"] = import_id
+            input_["import_id"] = import_id
         if import_status is not None:
-            input["import_status"] = import_status
+            input_["import_status"] = import_status
         if import_source_arn is not None:
-            input["import_source_arn"] = import_source_arn
+            input_["import_source_arn"] = import_source_arn
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2642,13 +2642,13 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_index_policies_request.DescribeIndexPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifiers"] = log_group_identifiers
+        input_: aws_sdk_cloudwatch_logs.types.describe_index_policies_request.DescribeIndexPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifiers"] = log_group_identifiers
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2712,26 +2712,26 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_log_groups_request.DescribeLogGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_log_groups_request.DescribeLogGroupsRequest = {}  # type: ignore[typeddict-item]
         if account_identifiers is not None:
-            input["account_identifiers"] = account_identifiers
+            input_["account_identifiers"] = account_identifiers
         if log_group_name_prefix is not None:
-            input["log_group_name_prefix"] = log_group_name_prefix
+            input_["log_group_name_prefix"] = log_group_name_prefix
         if log_group_name_pattern is not None:
-            input["log_group_name_pattern"] = log_group_name_pattern
+            input_["log_group_name_pattern"] = log_group_name_pattern
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
         if log_group_class is not None:
-            input["log_group_class"] = log_group_class
+            input_["log_group_class"] = log_group_class
         if log_group_identifiers is not None:
-            input["log_group_identifiers"] = log_group_identifiers
+            input_["log_group_identifiers"] = log_group_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2838,24 +2838,24 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_log_streams_request.DescribeLogStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_log_streams_request.DescribeLogStreamsRequest = {}  # type: ignore[typeddict-item]
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
+            input_["log_group_name"] = log_group_name
         if log_group_identifier is not None:
-            input["log_group_identifier"] = log_group_identifier
+            input_["log_group_identifier"] = log_group_identifier
         if log_stream_name_prefix is not None:
-            input["log_stream_name_prefix"] = log_stream_name_prefix
+            input_["log_stream_name_prefix"] = log_stream_name_prefix
         if order_by is not None:
-            input["order_by"] = order_by
+            input_["order_by"] = order_by
         if descending is not None:
-            input["descending"] = descending
+            input_["descending"] = descending
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2942,16 +2942,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_lookup_tables_request.DescribeLookupTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_lookup_tables_request.DescribeLookupTablesRequest = {}  # type: ignore[typeddict-item]
         if lookup_table_name_prefix is not None:
-            input["lookup_table_name_prefix"] = lookup_table_name_prefix
+            input_["lookup_table_name_prefix"] = lookup_table_name_prefix
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3007,22 +3007,22 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_metric_filters_request.DescribeMetricFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_metric_filters_request.DescribeMetricFiltersRequest = {}  # type: ignore[typeddict-item]
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
+            input_["log_group_name"] = log_group_name
         if filter_name_prefix is not None:
-            input["filter_name_prefix"] = filter_name_prefix
+            input_["filter_name_prefix"] = filter_name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if metric_name is not None:
-            input["metric_name"] = metric_name
+            input_["metric_name"] = metric_name
         if metric_namespace is not None:
-            input["metric_namespace"] = metric_namespace
+            input_["metric_namespace"] = metric_namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3114,20 +3114,20 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_queries_request.DescribeQueriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_queries_request.DescribeQueriesRequest = {}  # type: ignore[typeddict-item]
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
+            input_["log_group_name"] = log_group_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if query_language is not None:
-            input["query_language"] = query_language
+            input_["query_language"] = query_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3174,18 +3174,18 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_query_definitions_request.DescribeQueryDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_query_definitions_request.DescribeQueryDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if query_language is not None:
-            input["query_language"] = query_language
+            input_["query_language"] = query_language
         if query_definition_name_prefix is not None:
-            input["query_definition_name_prefix"] = query_definition_name_prefix
+            input_["query_definition_name_prefix"] = query_definition_name_prefix
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3230,18 +3230,18 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_resource_policies_request.DescribeResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.describe_resource_policies_request.DescribeResourcePoliciesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if policy_scope is not None:
-            input["policy_scope"] = policy_scope
+            input_["policy_scope"] = policy_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3287,17 +3287,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.describe_subscription_filters_request.DescribeSubscriptionFiltersRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
+        input_: aws_sdk_cloudwatch_logs.types.describe_subscription_filters_request.DescribeSubscriptionFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
         if filter_name_prefix is not None:
-            input["filter_name_prefix"] = filter_name_prefix
+            input_["filter_name_prefix"] = filter_name_prefix
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3366,14 +3366,14 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.disassociate_kms_key_request.DisassociateKmsKeyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.disassociate_kms_key_request.DisassociateKmsKeyRequest = {}  # type: ignore[typeddict-item]
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
+            input_["log_group_name"] = log_group_name
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3407,11 +3407,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.disassociate_source_from_s3_table_integration_request.DisassociateSourceFromS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudwatch_logs.types.disassociate_source_from_s3_table_integration_request.DisassociateSourceFromS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3483,32 +3483,32 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.filter_log_events_request.FilterLogEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.filter_log_events_request.FilterLogEventsRequest = {}  # type: ignore[typeddict-item]
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
+            input_["log_group_name"] = log_group_name
         if log_group_identifier is not None:
-            input["log_group_identifier"] = log_group_identifier
+            input_["log_group_identifier"] = log_group_identifier
         if log_stream_names is not None:
-            input["log_stream_names"] = log_stream_names
+            input_["log_stream_names"] = log_stream_names
         if log_stream_name_prefix is not None:
-            input["log_stream_name_prefix"] = log_stream_name_prefix
+            input_["log_stream_name_prefix"] = log_stream_name_prefix
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if filter_pattern is not None:
-            input["filter_pattern"] = filter_pattern
+            input_["filter_pattern"] = filter_pattern
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if interleaved is not None:
-            input["interleaved"] = interleaved
+            input_["interleaved"] = interleaved
         if unmask is not None:
-            input["unmask"] = unmask
+            input_["unmask"] = unmask
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3542,11 +3542,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_data_protection_policy_request.GetDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
+        input_: aws_sdk_cloudwatch_logs.types.get_data_protection_policy_request.GetDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3580,11 +3580,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_delivery_request.GetDeliveryRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudwatch_logs.types.get_delivery_request.GetDeliveryRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3618,11 +3618,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_delivery_destination_request.GetDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_logs.types.get_delivery_destination_request.GetDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3656,11 +3656,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_delivery_destination_policy_request.GetDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_destination_name"] = delivery_destination_name
+        input_: aws_sdk_cloudwatch_logs.types.get_delivery_destination_policy_request.GetDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_destination_name"] = delivery_destination_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3694,11 +3694,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_delivery_source_request.GetDeliverySourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_logs.types.get_delivery_source_request.GetDeliverySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3734,11 +3734,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_integration_request.GetIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_name"] = integration_name
+        input_: aws_sdk_cloudwatch_logs.types.get_integration_request.GetIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_name"] = integration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3772,11 +3772,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_log_anomaly_detector_request.GetLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["anomaly_detector_arn"] = anomaly_detector_arn
+        input_: aws_sdk_cloudwatch_logs.types.get_log_anomaly_detector_request.GetLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["anomaly_detector_arn"] = anomaly_detector_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3838,27 +3838,27 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_log_events_request.GetLogEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.get_log_events_request.GetLogEventsRequest = {}  # type: ignore[typeddict-item]
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
+            input_["log_group_name"] = log_group_name
         if log_group_identifier is not None:
-            input["log_group_identifier"] = log_group_identifier
-        input["log_stream_name"] = log_stream_name
+            input_["log_group_identifier"] = log_group_identifier
+        input_["log_stream_name"] = log_stream_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if start_from_head is not None:
-            input["start_from_head"] = start_from_head
+            input_["start_from_head"] = start_from_head
         if unmask is not None:
-            input["unmask"] = unmask
+            input_["unmask"] = unmask
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3941,12 +3941,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_log_fields_request.GetLogFieldsRequest = {}  # type: ignore[typeddict-item]
-        input["data_source_name"] = data_source_name
-        input["data_source_type"] = data_source_type
+        input_: aws_sdk_cloudwatch_logs.types.get_log_fields_request.GetLogFieldsRequest = {}  # type: ignore[typeddict-item]
+        input_["data_source_name"] = data_source_name
+        input_["data_source_type"] = data_source_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3988,16 +3988,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_log_group_fields_request.GetLogGroupFieldsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.get_log_group_fields_request.GetLogGroupFieldsRequest = {}  # type: ignore[typeddict-item]
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
+            input_["log_group_name"] = log_group_name
         if time is not None:
-            input["time"] = time
+            input_["time"] = time
         if log_group_identifier is not None:
-            input["log_group_identifier"] = log_group_identifier
+            input_["log_group_identifier"] = log_group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4033,13 +4033,13 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_log_object_request.GetLogObjectRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.get_log_object_request.GetLogObjectRequest = {}  # type: ignore[typeddict-item]
         if unmask is not None:
-            input["unmask"] = unmask
-        input["log_object_pointer"] = log_object_pointer
+            input_["unmask"] = unmask
+        input_["log_object_pointer"] = log_object_pointer
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4075,13 +4075,13 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_log_record_request.GetLogRecordRequest = {}  # type: ignore[typeddict-item]
-        input["log_record_pointer"] = log_record_pointer
+        input_: aws_sdk_cloudwatch_logs.types.get_log_record_request.GetLogRecordRequest = {}  # type: ignore[typeddict-item]
+        input_["log_record_pointer"] = log_record_pointer
         if unmask is not None:
-            input["unmask"] = unmask
+            input_["unmask"] = unmask
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4117,11 +4117,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_lookup_table_request.GetLookupTableRequest = {}  # type: ignore[typeddict-item]
-        input["lookup_table_arn"] = lookup_table_arn
+        input_: aws_sdk_cloudwatch_logs.types.get_lookup_table_request.GetLookupTableRequest = {}  # type: ignore[typeddict-item]
+        input_["lookup_table_arn"] = lookup_table_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4163,15 +4163,15 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_query_results_request.GetQueryResultsRequest = {}  # type: ignore[typeddict-item]
-        input["query_id"] = query_id
+        input_: aws_sdk_cloudwatch_logs.types.get_query_results_request.GetQueryResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4205,11 +4205,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_scheduled_query_request.GetScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudwatch_logs.types.get_scheduled_query_request.GetScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4258,19 +4258,19 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_scheduled_query_history_request.GetScheduledQueryHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_cloudwatch_logs.types.get_scheduled_query_history_request.GetScheduledQueryHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if execution_statuses is not None:
-            input["execution_statuses"] = execution_statuses
+            input_["execution_statuses"] = execution_statuses
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4341,11 +4341,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.get_transformer_request.GetTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
+        input_: aws_sdk_cloudwatch_logs.types.get_transformer_request.GetTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4406,25 +4406,25 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_aggregate_log_group_summaries_request.ListAggregateLogGroupSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.list_aggregate_log_group_summaries_request.ListAggregateLogGroupSummariesRequest = {}  # type: ignore[typeddict-item]
         if account_identifiers is not None:
-            input["account_identifiers"] = account_identifiers
+            input_["account_identifiers"] = account_identifiers
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
         if log_group_class is not None:
-            input["log_group_class"] = log_group_class
+            input_["log_group_class"] = log_group_class
         if log_group_name_pattern is not None:
-            input["log_group_name_pattern"] = log_group_name_pattern
+            input_["log_group_name_pattern"] = log_group_name_pattern
         if data_sources is not None:
-            input["data_sources"] = data_sources
-        input["group_by"] = group_by
+            input_["data_sources"] = data_sources
+        input_["group_by"] = group_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4518,18 +4518,18 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_anomalies_request.ListAnomaliesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.list_anomalies_request.ListAnomaliesRequest = {}  # type: ignore[typeddict-item]
         if anomaly_detector_arn is not None:
-            input["anomaly_detector_arn"] = anomaly_detector_arn
+            input_["anomaly_detector_arn"] = anomaly_detector_arn
         if suppression_state is not None:
-            input["suppression_state"] = suppression_state
+            input_["suppression_state"] = suppression_state
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4606,16 +4606,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_integrations_request.ListIntegrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.list_integrations_request.ListIntegrationsRequest = {}  # type: ignore[typeddict-item]
         if integration_name_prefix is not None:
-            input["integration_name_prefix"] = integration_name_prefix
+            input_["integration_name_prefix"] = integration_name_prefix
         if integration_type is not None:
-            input["integration_type"] = integration_type
+            input_["integration_type"] = integration_type
         if integration_status is not None:
-            input["integration_status"] = integration_status
+            input_["integration_status"] = integration_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4658,16 +4658,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_log_anomaly_detectors_request.ListLogAnomalyDetectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.list_log_anomaly_detectors_request.ListLogAnomalyDetectorsRequest = {}  # type: ignore[typeddict-item]
         if filter_log_group_arn is not None:
-            input["filter_log_group_arn"] = filter_log_group_arn
+            input_["filter_log_group_arn"] = filter_log_group_arn
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4763,28 +4763,28 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_log_groups_request.ListLogGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.list_log_groups_request.ListLogGroupsRequest = {}  # type: ignore[typeddict-item]
         if log_group_name_pattern is not None:
-            input["log_group_name_pattern"] = log_group_name_pattern
+            input_["log_group_name_pattern"] = log_group_name_pattern
         if log_group_class is not None:
-            input["log_group_class"] = log_group_class
+            input_["log_group_class"] = log_group_class
         if include_linked_accounts is not None:
-            input["include_linked_accounts"] = include_linked_accounts
+            input_["include_linked_accounts"] = include_linked_accounts
         if account_identifiers is not None:
-            input["account_identifiers"] = account_identifiers
+            input_["account_identifiers"] = account_identifiers
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if data_sources is not None:
-            input["data_sources"] = data_sources
+            input_["data_sources"] = data_sources
         if field_index_names is not None:
-            input["field_index_names"] = field_index_names
+            input_["field_index_names"] = field_index_names
         if log_group_tags is not None:
-            input["log_group_tags"] = log_group_tags
+            input_["log_group_tags"] = log_group_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4825,15 +4825,15 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_log_groups_for_query_request.ListLogGroupsForQueryRequest = {}  # type: ignore[typeddict-item]
-        input["query_id"] = query_id
+        input_: aws_sdk_cloudwatch_logs.types.list_log_groups_for_query_request.ListLogGroupsForQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4903,16 +4903,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_scheduled_queries_request.ListScheduledQueriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.list_scheduled_queries_request.ListScheduledQueriesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4982,15 +4982,15 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_sources_for_s3_table_integration_request.ListSourcesForS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_arn"] = integration_arn
+        input_: aws_sdk_cloudwatch_logs.types.list_sources_for_s3_table_integration_request.ListSourcesForS3TableIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_arn"] = integration_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5051,11 +5051,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudwatch_logs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5089,11 +5089,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.list_tags_log_group_request.ListTagsLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
+        input_: aws_sdk_cloudwatch_logs.types.list_tags_log_group_request.ListTagsLogGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5137,17 +5137,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_account_policy_request.PutAccountPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["policy_document"] = policy_document
-        input["policy_type"] = policy_type
+        input_: aws_sdk_cloudwatch_logs.types.put_account_policy_request.PutAccountPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["policy_document"] = policy_document
+        input_["policy_type"] = policy_type
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if selection_criteria is not None:
-            input["selection_criteria"] = selection_criteria
+            input_["selection_criteria"] = selection_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5181,14 +5181,14 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_bearer_token_authentication_request.PutBearerTokenAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
-        input["bearer_token_authentication_enabled"] = (
+        input_: aws_sdk_cloudwatch_logs.types.put_bearer_token_authentication_request.PutBearerTokenAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
+        input_["bearer_token_authentication_enabled"] = (
             bearer_token_authentication_enabled
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5224,12 +5224,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_data_protection_policy_request.PutDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
-        input["policy_document"] = policy_document
+        input_: aws_sdk_cloudwatch_logs.types.put_data_protection_policy_request.PutDataProtectionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
+        input_["policy_document"] = policy_document
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5277,21 +5277,21 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_delivery_destination_request.PutDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cloudwatch_logs.types.put_delivery_destination_request.PutDeliveryDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if output_format is not None:
-            input["output_format"] = output_format
+            input_["output_format"] = output_format
         if delivery_destination_configuration is not None:
-            input["delivery_destination_configuration"] = (
+            input_["delivery_destination_configuration"] = (
                 delivery_destination_configuration
             )
         if delivery_destination_type is not None:
-            input["delivery_destination_type"] = delivery_destination_type
+            input_["delivery_destination_type"] = delivery_destination_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5327,12 +5327,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_delivery_destination_policy_request.PutDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_destination_name"] = delivery_destination_name
-        input["delivery_destination_policy"] = delivery_destination_policy
+        input_: aws_sdk_cloudwatch_logs.types.put_delivery_destination_policy_request.PutDeliveryDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_destination_name"] = delivery_destination_name
+        input_["delivery_destination_policy"] = delivery_destination_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5376,17 +5376,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_delivery_source_request.PutDeliverySourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["resource_arn"] = resource_arn
-        input["log_type"] = log_type
+        input_: aws_sdk_cloudwatch_logs.types.put_delivery_source_request.PutDeliverySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["resource_arn"] = resource_arn
+        input_["log_type"] = log_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if delivery_source_configuration is not None:
-            input["delivery_source_configuration"] = delivery_source_configuration
+            input_["delivery_source_configuration"] = delivery_source_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5428,15 +5428,15 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_destination_request.PutDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["destination_name"] = destination_name
-        input["target_arn"] = target_arn
-        input["role_arn"] = role_arn
+        input_: aws_sdk_cloudwatch_logs.types.put_destination_request.PutDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_name"] = destination_name
+        input_["target_arn"] = target_arn
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5474,14 +5474,14 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_destination_policy_request.PutDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["destination_name"] = destination_name
-        input["access_policy"] = access_policy
+        input_: aws_sdk_cloudwatch_logs.types.put_destination_policy_request.PutDestinationPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_name"] = destination_name
+        input_["access_policy"] = access_policy
         if force_update is not None:
-            input["force_update"] = force_update
+            input_["force_update"] = force_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5519,12 +5519,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_index_policy_request.PutIndexPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
-        input["policy_document"] = policy_document
+        input_: aws_sdk_cloudwatch_logs.types.put_index_policy_request.PutIndexPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
+        input_["policy_document"] = policy_document
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5564,13 +5564,13 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_integration_request.PutIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_name"] = integration_name
-        input["resource_config"] = resource_config
-        input["integration_type"] = integration_type
+        input_: aws_sdk_cloudwatch_logs.types.put_integration_request.PutIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_name"] = integration_name
+        input_["resource_config"] = resource_config
+        input_["integration_type"] = integration_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5614,17 +5614,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_log_events_request.PutLogEventsRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["log_stream_name"] = log_stream_name
-        input["log_events"] = log_events
+        input_: aws_sdk_cloudwatch_logs.types.put_log_events_request.PutLogEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["log_stream_name"] = log_stream_name
+        input_["log_events"] = log_events
         if sequence_token is not None:
-            input["sequence_token"] = sequence_token
+            input_["sequence_token"] = sequence_token
         if entity is not None:
-            input["entity"] = entity
+            input_["entity"] = entity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5658,12 +5658,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_log_group_deletion_protection_request.PutLogGroupDeletionProtectionRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
-        input["deletion_protection_enabled"] = deletion_protection_enabled
+        input_: aws_sdk_cloudwatch_logs.types.put_log_group_deletion_protection_request.PutLogGroupDeletionProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
+        input_["deletion_protection_enabled"] = deletion_protection_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5713,20 +5713,20 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_metric_filter_request.PutMetricFilterRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["filter_name"] = filter_name
-        input["filter_pattern"] = filter_pattern
-        input["metric_transformations"] = metric_transformations
+        input_: aws_sdk_cloudwatch_logs.types.put_metric_filter_request.PutMetricFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["filter_name"] = filter_name
+        input_["filter_pattern"] = filter_pattern
+        input_["metric_transformations"] = metric_transformations
         if apply_on_transformed_logs is not None:
-            input["apply_on_transformed_logs"] = apply_on_transformed_logs
+            input_["apply_on_transformed_logs"] = apply_on_transformed_logs
         if field_selection_criteria is not None:
-            input["field_selection_criteria"] = field_selection_criteria
+            input_["field_selection_criteria"] = field_selection_criteria
         if emit_system_field_dimensions is not None:
-            input["emit_system_field_dimensions"] = emit_system_field_dimensions
+            input_["emit_system_field_dimensions"] = emit_system_field_dimensions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5782,22 +5782,22 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_query_definition_request.PutQueryDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.put_query_definition_request.PutQueryDefinitionRequest = {}  # type: ignore[typeddict-item]
         if query_language is not None:
-            input["query_language"] = query_language
-        input["name"] = name
+            input_["query_language"] = query_language
+        input_["name"] = name
         if query_definition_id is not None:
-            input["query_definition_id"] = query_definition_id
+            input_["query_definition_id"] = query_definition_id
         if log_group_names is not None:
-            input["log_group_names"] = log_group_names
-        input["query_string"] = query_string
+            input_["log_group_names"] = log_group_names
+        input_["query_string"] = query_string
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5843,18 +5843,18 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if policy_name is not None:
-            input["policy_name"] = policy_name
+            input_["policy_name"] = policy_name
         if policy_document is not None:
-            input["policy_document"] = policy_document
+            input_["policy_document"] = policy_document
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if expected_revision_id is not None:
-            input["expected_revision_id"] = expected_revision_id
+            input_["expected_revision_id"] = expected_revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5887,12 +5887,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_retention_policy_request.PutRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["retention_in_days"] = retention_in_days
+        input_: aws_sdk_cloudwatch_logs.types.put_retention_policy_request.PutRetentionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["retention_in_days"] = retention_in_days
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5948,24 +5948,24 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_subscription_filter_request.PutSubscriptionFilterRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["filter_name"] = filter_name
-        input["filter_pattern"] = filter_pattern
-        input["destination_arn"] = destination_arn
+        input_: aws_sdk_cloudwatch_logs.types.put_subscription_filter_request.PutSubscriptionFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["filter_name"] = filter_name
+        input_["filter_pattern"] = filter_pattern
+        input_["destination_arn"] = destination_arn
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if distribution is not None:
-            input["distribution"] = distribution
+            input_["distribution"] = distribution
         if apply_on_transformed_logs is not None:
-            input["apply_on_transformed_logs"] = apply_on_transformed_logs
+            input_["apply_on_transformed_logs"] = apply_on_transformed_logs
         if field_selection_criteria is not None:
-            input["field_selection_criteria"] = field_selection_criteria
+            input_["field_selection_criteria"] = field_selection_criteria
         if emit_system_fields is not None:
-            input["emit_system_fields"] = emit_system_fields
+            input_["emit_system_fields"] = emit_system_fields
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5999,12 +5999,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.put_transformer_request.PutTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifier"] = log_group_identifier
-        input["transformer_config"] = transformer_config
+        input_: aws_sdk_cloudwatch_logs.types.put_transformer_request.PutTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifier"] = log_group_identifier
+        input_["transformer_config"] = transformer_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6050,17 +6050,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.start_live_tail_request.StartLiveTailRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_identifiers"] = log_group_identifiers
+        input_: aws_sdk_cloudwatch_logs.types.start_live_tail_request.StartLiveTailRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_identifiers"] = log_group_identifiers
         if log_stream_names is not None:
-            input["log_stream_names"] = log_stream_names
+            input_["log_stream_names"] = log_stream_names
         if log_stream_name_prefixes is not None:
-            input["log_stream_name_prefixes"] = log_stream_name_prefixes
+            input_["log_stream_name_prefixes"] = log_stream_name_prefixes
         if log_event_filter_pattern is not None:
-            input["log_event_filter_pattern"] = log_event_filter_pattern
+            input_["log_event_filter_pattern"] = log_event_filter_pattern
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6118,23 +6118,23 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.start_query_request.StartQueryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.start_query_request.StartQueryRequest = {}  # type: ignore[typeddict-item]
         if query_language is not None:
-            input["query_language"] = query_language
+            input_["query_language"] = query_language
         if log_group_name is not None:
-            input["log_group_name"] = log_group_name
+            input_["log_group_name"] = log_group_name
         if log_group_names is not None:
-            input["log_group_names"] = log_group_names
+            input_["log_group_names"] = log_group_names
         if log_group_identifiers is not None:
-            input["log_group_identifiers"] = log_group_identifiers
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["query_string"] = query_string
+            input_["log_group_identifiers"] = log_group_identifiers
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["query_string"] = query_string
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6168,11 +6168,11 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.stop_query_request.StopQueryRequest = {}  # type: ignore[typeddict-item]
-        input["query_id"] = query_id
+        input_: aws_sdk_cloudwatch_logs.types.stop_query_request.StopQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6206,12 +6206,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.tag_log_group_request.TagLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["tags"] = tags
+        input_: aws_sdk_cloudwatch_logs.types.tag_log_group_request.TagLogGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6245,12 +6245,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_cloudwatch_logs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6285,12 +6285,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.test_metric_filter_request.TestMetricFilterRequest = {}  # type: ignore[typeddict-item]
-        input["filter_pattern"] = filter_pattern
-        input["log_event_messages"] = log_event_messages
+        input_: aws_sdk_cloudwatch_logs.types.test_metric_filter_request.TestMetricFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["filter_pattern"] = filter_pattern
+        input_["log_event_messages"] = log_event_messages
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6326,12 +6326,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.test_transformer_request.TestTransformerRequest = {}  # type: ignore[typeddict-item]
-        input["transformer_config"] = transformer_config
-        input["log_event_messages"] = log_event_messages
+        input_: aws_sdk_cloudwatch_logs.types.test_transformer_request.TestTransformerRequest = {}  # type: ignore[typeddict-item]
+        input_["transformer_config"] = transformer_config
+        input_["log_event_messages"] = log_event_messages
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6365,12 +6365,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.untag_log_group_request.UntagLogGroupRequest = {}  # type: ignore[typeddict-item]
-        input["log_group_name"] = log_group_name
-        input["tags"] = tags
+        input_: aws_sdk_cloudwatch_logs.types.untag_log_group_request.UntagLogGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["log_group_name"] = log_group_name
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6404,12 +6404,12 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_cloudwatch_logs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6459,21 +6459,21 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.update_anomaly_request.UpdateAnomalyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudwatch_logs.types.update_anomaly_request.UpdateAnomalyRequest = {}  # type: ignore[typeddict-item]
         if anomaly_id is not None:
-            input["anomaly_id"] = anomaly_id
+            input_["anomaly_id"] = anomaly_id
         if pattern_id is not None:
-            input["pattern_id"] = pattern_id
-        input["anomaly_detector_arn"] = anomaly_detector_arn
+            input_["pattern_id"] = pattern_id
+        input_["anomaly_detector_arn"] = anomaly_detector_arn
         if suppression_type is not None:
-            input["suppression_type"] = suppression_type
+            input_["suppression_type"] = suppression_type
         if suppression_period is not None:
-            input["suppression_period"] = suppression_period
+            input_["suppression_period"] = suppression_period
         if baseline is not None:
-            input["baseline"] = baseline
+            input_["baseline"] = baseline
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6519,17 +6519,17 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.update_delivery_configuration_request.UpdateDeliveryConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_cloudwatch_logs.types.update_delivery_configuration_request.UpdateDeliveryConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if record_fields is not None:
-            input["record_fields"] = record_fields
+            input_["record_fields"] = record_fields
         if field_delimiter is not None:
-            input["field_delimiter"] = field_delimiter
+            input_["field_delimiter"] = field_delimiter
         if s3_delivery_configuration is not None:
-            input["s3_delivery_configuration"] = s3_delivery_configuration
+            input_["s3_delivery_configuration"] = s3_delivery_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6574,18 +6574,18 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.update_log_anomaly_detector_request.UpdateLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["anomaly_detector_arn"] = anomaly_detector_arn
+        input_: aws_sdk_cloudwatch_logs.types.update_log_anomaly_detector_request.UpdateLogAnomalyDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["anomaly_detector_arn"] = anomaly_detector_arn
         if evaluation_frequency is not None:
-            input["evaluation_frequency"] = evaluation_frequency
+            input_["evaluation_frequency"] = evaluation_frequency
         if filter_pattern is not None:
-            input["filter_pattern"] = filter_pattern
+            input_["filter_pattern"] = filter_pattern
         if anomaly_visibility_time is not None:
-            input["anomaly_visibility_time"] = anomaly_visibility_time
-        input["enabled"] = enabled
+            input_["anomaly_visibility_time"] = anomaly_visibility_time
+        input_["enabled"] = enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6629,16 +6629,16 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.update_lookup_table_request.UpdateLookupTableRequest = {}  # type: ignore[typeddict-item]
-        input["lookup_table_arn"] = lookup_table_arn
+        input_: aws_sdk_cloudwatch_logs.types.update_lookup_table_request.UpdateLookupTableRequest = {}  # type: ignore[typeddict-item]
+        input_["lookup_table_arn"] = lookup_table_arn
         if description is not None:
-            input["description"] = description
-        input["table_body"] = table_body
+            input_["description"] = description
+        input_["table_body"] = table_body
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6712,31 +6712,31 @@ class AsyncCloudWatchLogsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudwatch_logs.types.update_scheduled_query_request.UpdateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_cloudwatch_logs.types.update_scheduled_query_request.UpdateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
-        input["query_language"] = query_language
-        input["query_string"] = query_string
+            input_["description"] = description
+        input_["query_language"] = query_language
+        input_["query_string"] = query_string
         if log_group_identifiers is not None:
-            input["log_group_identifiers"] = log_group_identifiers
-        input["schedule_expression"] = schedule_expression
+            input_["log_group_identifiers"] = log_group_identifiers
+        input_["schedule_expression"] = schedule_expression
         if timezone is not None:
-            input["timezone"] = timezone
+            input_["timezone"] = timezone
         if start_time_offset is not None:
-            input["start_time_offset"] = start_time_offset
+            input_["start_time_offset"] = start_time_offset
         if destination_configuration is not None:
-            input["destination_configuration"] = destination_configuration
+            input_["destination_configuration"] = destination_configuration
         if schedule_start_time is not None:
-            input["schedule_start_time"] = schedule_start_time
+            input_["schedule_start_time"] = schedule_start_time
         if schedule_end_time is not None:
-            input["schedule_end_time"] = schedule_end_time
-        input["execution_role_arn"] = execution_role_arn
+            input_["schedule_end_time"] = schedule_end_time
+        input_["execution_role_arn"] = execution_role_arn
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

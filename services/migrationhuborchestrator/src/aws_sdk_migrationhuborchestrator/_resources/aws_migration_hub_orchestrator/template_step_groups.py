@@ -67,15 +67,15 @@ class TemplateStepGroups:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.list_template_step_groups_request.ListTemplateStepGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhuborchestrator.types.list_template_step_groups_request.ListTemplateStepGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["template_id"] = template_id
+            input_["next_token"] = next_token
+        input_["template_id"] = template_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,15 +122,15 @@ class AsyncTemplateStepGroups:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.list_template_step_groups_request.ListTemplateStepGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhuborchestrator.types.list_template_step_groups_request.ListTemplateStepGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["template_id"] = template_id
+            input_["next_token"] = next_token
+        input_["template_id"] = template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

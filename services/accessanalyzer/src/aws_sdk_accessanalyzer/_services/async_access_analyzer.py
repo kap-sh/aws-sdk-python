@@ -16,6 +16,7 @@ from aws_sdk_accessanalyzer._auth._providers import (
 )
 from aws_sdk_accessanalyzer._auth._zapros_handler import AuthMiddleware
 from aws_sdk_accessanalyzer._pagination import resolve_path as _resolve_path
+from aws_sdk_accessanalyzer._resources.access_analyzer.analyzer import AsyncAnalyzer
 from aws_sdk_accessanalyzer._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -182,6 +183,8 @@ class AsyncAccessAnalyzerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.analyzer = AsyncAnalyzer(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncAccessAnalyzerClientConfig] = None
@@ -241,14 +244,14 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.apply_archive_rule_request.ApplyArchiveRuleRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["rule_name"] = rule_name
+        input_: aws_sdk_accessanalyzer.types.apply_archive_rule_request.ApplyArchiveRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["rule_name"] = rule_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -282,11 +285,11 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.cancel_policy_generation_request.CancelPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_accessanalyzer.types.cancel_policy_generation_request.CancelPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,13 +338,13 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.check_access_not_granted_request.CheckAccessNotGrantedRequest = {}  # type: ignore[typeddict-item]
-        input["policy_document"] = policy_document
-        input["access"] = access
-        input["policy_type"] = policy_type
+        input_: aws_sdk_accessanalyzer.types.check_access_not_granted_request.CheckAccessNotGrantedRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_document"] = policy_document
+        input_["access"] = access
+        input_["policy_type"] = policy_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,13 +382,13 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.check_no_new_access_request.CheckNoNewAccessRequest = {}  # type: ignore[typeddict-item]
-        input["new_policy_document"] = new_policy_document
-        input["existing_policy_document"] = existing_policy_document
-        input["policy_type"] = policy_type
+        input_: aws_sdk_accessanalyzer.types.check_no_new_access_request.CheckNoNewAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["new_policy_document"] = new_policy_document
+        input_["existing_policy_document"] = existing_policy_document
+        input_["policy_type"] = policy_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,12 +432,12 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.check_no_public_access_request.CheckNoPublicAccessRequest = {}  # type: ignore[typeddict-item]
-        input["policy_document"] = policy_document
-        input["resource_type"] = resource_type
+        input_: aws_sdk_accessanalyzer.types.check_no_public_access_request.CheckNoPublicAccessRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_document"] = policy_document
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -472,14 +475,14 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.create_access_preview_request.CreateAccessPreviewRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["configurations"] = configurations
+        input_: aws_sdk_accessanalyzer.types.create_access_preview_request.CreateAccessPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["configurations"] = configurations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,17 +526,17 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.create_service_linked_analyzer_request.CreateServiceLinkedAnalyzerRequest = {}  # type: ignore[typeddict-item]
-        input["type"] = type
+        input_: aws_sdk_accessanalyzer.types.create_service_linked_analyzer_request.CreateServiceLinkedAnalyzerRequest = {}  # type: ignore[typeddict-item]
+        input_["type"] = type
         if archive_rules is not None:
-            input["archive_rules"] = archive_rules
+            input_["archive_rules"] = archive_rules
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,12 +578,12 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.generate_finding_recommendation_request.GenerateFindingRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["id"] = id
+        input_: aws_sdk_accessanalyzer.types.generate_finding_recommendation_request.GenerateFindingRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -616,12 +619,12 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_access_preview_request.GetAccessPreviewRequest = {}  # type: ignore[typeddict-item]
-        input["access_preview_id"] = access_preview_id
-        input["analyzer_arn"] = analyzer_arn
+        input_: aws_sdk_accessanalyzer.types.get_access_preview_request.GetAccessPreviewRequest = {}  # type: ignore[typeddict-item]
+        input_["access_preview_id"] = access_preview_id
+        input_["analyzer_arn"] = analyzer_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -657,12 +660,12 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_analyzed_resource_request.GetAnalyzedResourceRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_accessanalyzer.types.get_analyzed_resource_request.GetAnalyzedResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,12 +701,12 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_finding_request.GetFindingRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["id"] = id
+        input_: aws_sdk_accessanalyzer.types.get_finding_request.GetFindingRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -757,16 +760,16 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_finding_recommendation_request.GetFindingRecommendationRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["id"] = id
+        input_: aws_sdk_accessanalyzer.types.get_finding_recommendation_request.GetFindingRecommendationRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["id"] = id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -825,11 +828,11 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_findings_statistics_request.GetFindingsStatisticsRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
+        input_: aws_sdk_accessanalyzer.types.get_findings_statistics_request.GetFindingsStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -869,16 +872,16 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_finding_v2_request.GetFindingV2Request = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["id"] = id
+        input_: aws_sdk_accessanalyzer.types.get_finding_v2_request.GetFindingV2Request = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["id"] = id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -916,15 +919,15 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.get_generated_policy_request.GetGeneratedPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_accessanalyzer.types.get_generated_policy_request.GetGeneratedPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if include_resource_placeholders is not None:
-            input["include_resource_placeholders"] = include_resource_placeholders
+            input_["include_resource_placeholders"] = include_resource_placeholders
         if include_service_level_template is not None:
-            input["include_service_level_template"] = include_service_level_template
+            input_["include_service_level_template"] = include_service_level_template
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -968,18 +971,18 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_access_preview_findings_request.ListAccessPreviewFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["access_preview_id"] = access_preview_id
-        input["analyzer_arn"] = analyzer_arn
+        input_: aws_sdk_accessanalyzer.types.list_access_preview_findings_request.ListAccessPreviewFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["access_preview_id"] = access_preview_id
+        input_["analyzer_arn"] = analyzer_arn
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1017,15 +1020,15 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_access_previews_request.ListAccessPreviewsRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
+        input_: aws_sdk_accessanalyzer.types.list_access_previews_request.ListAccessPreviewsRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1067,17 +1070,17 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_analyzed_resources_request.ListAnalyzedResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
+        input_: aws_sdk_accessanalyzer.types.list_analyzed_resources_request.ListAnalyzedResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1123,19 +1126,19 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
+        input_: aws_sdk_accessanalyzer.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1182,19 +1185,19 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_findings_v2_request.ListFindingsV2Request = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
+        input_: aws_sdk_accessanalyzer.types.list_findings_v2_request.ListFindingsV2Request = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1234,16 +1237,16 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_policy_generations_request.ListPolicyGenerationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_accessanalyzer.types.list_policy_generations_request.ListPolicyGenerationsRequest = {}  # type: ignore[typeddict-item]
         if principal_arn is not None:
-            input["principal_arn"] = principal_arn
+            input_["principal_arn"] = principal_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1277,11 +1280,11 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_accessanalyzer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1321,15 +1324,15 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.start_policy_generation_request.StartPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
-        input["policy_generation_details"] = policy_generation_details
+        input_: aws_sdk_accessanalyzer.types.start_policy_generation_request.StartPolicyGenerationRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_generation_details"] = policy_generation_details
         if cloud_trail_details is not None:
-            input["cloud_trail_details"] = cloud_trail_details
+            input_["cloud_trail_details"] = cloud_trail_details
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1365,14 +1368,14 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.start_resource_scan_request.StartResourceScanRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_accessanalyzer.types.start_resource_scan_request.StartResourceScanRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["resource_arn"] = resource_arn
         if resource_owner_account is not None:
-            input["resource_owner_account"] = resource_owner_account
+            input_["resource_owner_account"] = resource_owner_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1408,12 +1411,12 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_accessanalyzer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1449,12 +1452,12 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_accessanalyzer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1498,18 +1501,18 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.update_findings_request.UpdateFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["analyzer_arn"] = analyzer_arn
-        input["status"] = status
+        input_: aws_sdk_accessanalyzer.types.update_findings_request.UpdateFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["analyzer_arn"] = analyzer_arn
+        input_["status"] = status
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1555,20 +1558,20 @@ class AsyncAccessAnalyzerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_accessanalyzer.types.validate_policy_request.ValidatePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_accessanalyzer.types.validate_policy_request.ValidatePolicyRequest = {}  # type: ignore[typeddict-item]
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["policy_document"] = policy_document
-        input["policy_type"] = policy_type
+            input_["next_token"] = next_token
+        input_["policy_document"] = policy_document
+        input_["policy_type"] = policy_type
         if validate_policy_resource_type is not None:
-            input["validate_policy_resource_type"] = validate_policy_resource_type
+            input_["validate_policy_resource_type"] = validate_policy_resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -289,37 +289,37 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_lambda.types.invocation_request.InvocationRequest,
+    input_: aws_sdk_lambda.types.invocation_request.InvocationRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2015-03-31/functions/{FunctionName}/invocations"
-    url = url.replace("{FunctionName}", quote(str(input["function_name"]), safe=""))
+    url = url.replace("{FunctionName}", quote(str(input_["function_name"]), safe=""))
     params: dict[str, str] = {}
-    if "qualifier" in input:
-        params["Qualifier"] = str(input["qualifier"])
+    if "qualifier" in input_:
+        params["Qualifier"] = str(input_["qualifier"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "invocation_type" in input:
-        headers["X-Amz-Invocation-Type"] = str(input["invocation_type"])
-    if "log_type" in input:
-        headers["X-Amz-Log-Type"] = str(input["log_type"])
-    if "client_context" in input:
-        headers["X-Amz-Client-Context"] = str(input["client_context"])
-    if "durable_execution_name" in input:
-        headers["X-Amz-Durable-Execution-Name"] = str(input["durable_execution_name"])
-    if "tenant_id" in input:
-        headers["X-Amz-Tenant-Id"] = str(input["tenant_id"])
-    if "payload" in input:
+    if "invocation_type" in input_:
+        headers["X-Amz-Invocation-Type"] = str(input_["invocation_type"])
+    if "log_type" in input_:
+        headers["X-Amz-Log-Type"] = str(input_["log_type"])
+    if "client_context" in input_:
+        headers["X-Amz-Client-Context"] = str(input_["client_context"])
+    if "durable_execution_name" in input_:
+        headers["X-Amz-Durable-Execution-Name"] = str(input_["durable_execution_name"])
+    if "tenant_id" in input_:
+        headers["X-Amz-Tenant-Id"] = str(input_["tenant_id"])
+    if "payload" in input_:
         import aws_sdk_lambda.types.blob
 
         body: bytes | None = json.dumps(
-            aws_sdk_lambda.types.blob.serialize_json(input["payload"])
+            aws_sdk_lambda.types.blob.serialize_json(input_["payload"])
         ).encode()
         headers["content-type"] = "application/json"
     else:
@@ -328,25 +328,22 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def invoke(
     options: OperationOptions,
-    input: aws_sdk_lambda.types.invocation_request.InvocationRequest,
+    input_: aws_sdk_lambda.types.invocation_request.InvocationRequest,
 ) -> tuple[
     aws_sdk_lambda.types.invocation_response.InvocationResponse, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -355,15 +352,16 @@ def invoke(
 
 async def async_invoke(
     options: AsyncOperationOptions,
-    input: aws_sdk_lambda.types.invocation_request.InvocationRequest,
+    input_: aws_sdk_lambda.types.invocation_request.InvocationRequest,
 ) -> tuple[
     aws_sdk_lambda.types.invocation_response.InvocationResponse, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

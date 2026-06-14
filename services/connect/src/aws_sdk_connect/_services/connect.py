@@ -1302,13 +1302,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.activate_evaluation_form_request.ActivateEvaluationFormRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_form_id"] = evaluation_form_id
-        input["evaluation_form_version"] = evaluation_form_version
+        input_: aws_sdk_connect.types.activate_evaluation_form_request.ActivateEvaluationFormRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_form_id"] = evaluation_form_id
+        input_["evaluation_form_version"] = evaluation_form_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1347,14 +1347,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_analytics_data_set_request.AssociateAnalyticsDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_connect.types.associate_analytics_data_set_request.AssociateAnalyticsDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_set_id"] = data_set_id
         if target_account_id is not None:
-            input["target_account_id"] = target_account_id
+            input_["target_account_id"] = target_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1389,14 +1389,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_approved_origin_request.AssociateApprovedOriginRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["origin"] = origin
+        input_: aws_sdk_connect.types.associate_approved_origin_request.AssociateApprovedOriginRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["origin"] = origin
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1432,17 +1432,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_bot_request.AssociateBotRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.associate_bot_request.AssociateBotRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if lex_bot is not None:
-            input["lex_bot"] = lex_bot
+            input_["lex_bot"] = lex_bot
         if lex_v2_bot is not None:
-            input["lex_v2_bot"] = lex_v2_bot
+            input_["lex_v2_bot"] = lex_v2_bot
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1479,13 +1479,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_contact_with_user_request.AssociateContactWithUserRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["user_id"] = user_id
+        input_: aws_sdk_connect.types.associate_contact_with_user_request.AssociateContactWithUserRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1524,14 +1524,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_default_vocabulary_request.AssociateDefaultVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["language_code"] = language_code
+        input_: aws_sdk_connect.types.associate_default_vocabulary_request.AssociateDefaultVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["language_code"] = language_code
         if vocabulary_id is not None:
-            input["vocabulary_id"] = vocabulary_id
+            input_["vocabulary_id"] = vocabulary_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1570,15 +1570,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_email_address_alias_request.AssociateEmailAddressAliasRequest = {}  # type: ignore[typeddict-item]
-        input["email_address_id"] = email_address_id
-        input["instance_id"] = instance_id
-        input["alias_configuration"] = alias_configuration
+        input_: aws_sdk_connect.types.associate_email_address_alias_request.AssociateEmailAddressAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address_id"] = email_address_id
+        input_["instance_id"] = instance_id
+        input_["alias_configuration"] = alias_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1617,14 +1617,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_flow_request.AssociateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["resource_id"] = resource_id
-        input["flow_id"] = flow_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_connect.types.associate_flow_request.AssociateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["resource_id"] = resource_id
+        input_["flow_id"] = flow_id
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1659,13 +1659,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_hours_of_operations_request.AssociateHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
-        input["parent_hours_of_operation_configs"] = parent_hours_of_operation_configs
+        input_: aws_sdk_connect.types.associate_hours_of_operations_request.AssociateHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
+        input_["parent_hours_of_operation_configs"] = parent_hours_of_operation_configs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1704,15 +1704,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_instance_storage_config_request.AssociateInstanceStorageConfigRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["resource_type"] = resource_type
-        input["storage_config"] = storage_config
+        input_: aws_sdk_connect.types.associate_instance_storage_config_request.AssociateInstanceStorageConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["resource_type"] = resource_type
+        input_["storage_config"] = storage_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1747,14 +1747,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_lambda_function_request.AssociateLambdaFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["function_arn"] = function_arn
+        input_: aws_sdk_connect.types.associate_lambda_function_request.AssociateLambdaFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["function_arn"] = function_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1789,14 +1789,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_lex_bot_request.AssociateLexBotRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["lex_bot"] = lex_bot
+        input_: aws_sdk_connect.types.associate_lex_bot_request.AssociateLexBotRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["lex_bot"] = lex_bot
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1831,13 +1831,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_phone_number_contact_flow_request.AssociatePhoneNumberContactFlowRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
+        input_: aws_sdk_connect.types.associate_phone_number_contact_flow_request.AssociatePhoneNumberContactFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1874,15 +1874,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_queue_email_addresses_request.AssociateQueueEmailAddressesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
-        input["email_addresses_config"] = email_addresses_config
+        input_: aws_sdk_connect.types.associate_queue_email_addresses_request.AssociateQueueEmailAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
+        input_["email_addresses_config"] = email_addresses_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1917,13 +1917,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_queue_quick_connects_request.AssociateQueueQuickConnectsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
-        input["quick_connect_ids"] = quick_connect_ids
+        input_: aws_sdk_connect.types.associate_queue_quick_connects_request.AssociateQueueQuickConnectsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
+        input_["quick_connect_ids"] = quick_connect_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1964,16 +1964,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_routing_profile_queues_request.AssociateRoutingProfileQueuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
+        input_: aws_sdk_connect.types.associate_routing_profile_queues_request.AssociateRoutingProfileQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
         if queue_configs is not None:
-            input["queue_configs"] = queue_configs
+            input_["queue_configs"] = queue_configs
         if manual_assignment_queue_configs is not None:
-            input["manual_assignment_queue_configs"] = manual_assignment_queue_configs
+            input_["manual_assignment_queue_configs"] = manual_assignment_queue_configs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2010,14 +2010,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_security_key_request.AssociateSecurityKeyRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["key"] = key
+        input_: aws_sdk_connect.types.associate_security_key_request.AssociateSecurityKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["key"] = key
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2054,14 +2054,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_security_profiles_request.AssociateSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["security_profiles"] = security_profiles
-        input["entity_type"] = entity_type
-        input["entity_arn"] = entity_arn
+        input_: aws_sdk_connect.types.associate_security_profiles_request.AssociateSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["security_profiles"] = security_profiles
+        input_["entity_type"] = entity_type
+        input_["entity_arn"] = entity_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2098,13 +2098,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_traffic_distribution_group_user_request.AssociateTrafficDistributionGroupUserRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_distribution_group_id"] = traffic_distribution_group_id
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.associate_traffic_distribution_group_user_request.AssociateTrafficDistributionGroupUserRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_distribution_group_id"] = traffic_distribution_group_id
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2139,13 +2139,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_user_proficiencies_request.AssociateUserProficienciesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["user_id"] = user_id
-        input["user_proficiencies"] = user_proficiencies
+        input_: aws_sdk_connect.types.associate_user_proficiencies_request.AssociateUserProficienciesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["user_id"] = user_id
+        input_["user_proficiencies"] = user_proficiencies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2184,13 +2184,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.associate_workspace_request.AssociateWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_connect.types.associate_workspace_request.AssociateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
+        input_["resource_arns"] = resource_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2229,14 +2229,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_associate_analytics_data_set_request.BatchAssociateAnalyticsDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_set_ids"] = data_set_ids
+        input_: aws_sdk_connect.types.batch_associate_analytics_data_set_request.BatchAssociateAnalyticsDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_set_ids"] = data_set_ids
         if target_account_id is not None:
-            input["target_account_id"] = target_account_id
+            input_["target_account_id"] = target_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2273,13 +2273,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_create_data_table_value_request.BatchCreateDataTableValueRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["values"] = values
+        input_: aws_sdk_connect.types.batch_create_data_table_value_request.BatchCreateDataTableValueRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["values"] = values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2316,13 +2316,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_delete_data_table_value_request.BatchDeleteDataTableValueRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["values"] = values
+        input_: aws_sdk_connect.types.batch_delete_data_table_value_request.BatchDeleteDataTableValueRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["values"] = values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2359,13 +2359,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_describe_data_table_value_request.BatchDescribeDataTableValueRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["values"] = values
+        input_: aws_sdk_connect.types.batch_describe_data_table_value_request.BatchDescribeDataTableValueRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["values"] = values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2404,14 +2404,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_disassociate_analytics_data_set_request.BatchDisassociateAnalyticsDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_set_ids"] = data_set_ids
+        input_: aws_sdk_connect.types.batch_disassociate_analytics_data_set_request.BatchDisassociateAnalyticsDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_set_ids"] = data_set_ids
         if target_account_id is not None:
-            input["target_account_id"] = target_account_id
+            input_["target_account_id"] = target_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2448,13 +2448,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_get_attached_file_metadata_request.BatchGetAttachedFileMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["file_ids"] = file_ids
-        input["instance_id"] = instance_id
-        input["associated_resource_arn"] = associated_resource_arn
+        input_: aws_sdk_connect.types.batch_get_attached_file_metadata_request.BatchGetAttachedFileMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["file_ids"] = file_ids
+        input_["instance_id"] = instance_id
+        input_["associated_resource_arn"] = associated_resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2493,14 +2493,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_get_flow_association_request.BatchGetFlowAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["resource_ids"] = resource_ids
+        input_: aws_sdk_connect.types.batch_get_flow_association_request.BatchGetFlowAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["resource_ids"] = resource_ids
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2537,14 +2537,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_put_contact_request.BatchPutContactRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.batch_put_contact_request.BatchPutContactRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["instance_id"] = instance_id
-        input["contact_data_request_list"] = contact_data_request_list
+            input_["client_token"] = client_token
+        input_["instance_id"] = instance_id
+        input_["contact_data_request_list"] = contact_data_request_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2581,13 +2581,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.batch_update_data_table_value_request.BatchUpdateDataTableValueRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["values"] = values
+        input_: aws_sdk_connect.types.batch_update_data_table_value_request.BatchUpdateDataTableValueRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["values"] = values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2632,21 +2632,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.claim_phone_number_request.ClaimPhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.claim_phone_number_request.ClaimPhoneNumberRequest = {}  # type: ignore[typeddict-item]
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if instance_id is not None:
-            input["instance_id"] = instance_id
-        input["phone_number"] = phone_number
+            input_["instance_id"] = instance_id
+        input_["phone_number"] = phone_number
         if phone_number_description is not None:
-            input["phone_number_description"] = phone_number_description
+            input_["phone_number_description"] = phone_number_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2683,13 +2683,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.complete_attached_file_upload_request.CompleteAttachedFileUploadRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["file_id"] = file_id
-        input["associated_resource_arn"] = associated_resource_arn
+        input_: aws_sdk_connect.types.complete_attached_file_upload_request.CompleteAttachedFileUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["file_id"] = file_id
+        input_["associated_resource_arn"] = associated_resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2736,19 +2736,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_agent_status_request.CreateAgentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_agent_status_request.CreateAgentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["state"] = state
+            input_["description"] = description
+        input_["state"] = state
         if display_order is not None:
-            input["display_order"] = display_order
+            input_["display_order"] = display_order
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2817,35 +2817,35 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_contact_request.CreateContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.create_contact_request.CreateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if related_contact_id is not None:
-            input["related_contact_id"] = related_contact_id
+            input_["related_contact_id"] = related_contact_id
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if references is not None:
-            input["references"] = references
-        input["channel"] = channel
-        input["initiation_method"] = initiation_method
+            input_["references"] = references
+        input_["channel"] = channel
+        input_["initiation_method"] = initiation_method
         if expiry_duration_in_minutes is not None:
-            input["expiry_duration_in_minutes"] = expiry_duration_in_minutes
+            input_["expiry_duration_in_minutes"] = expiry_duration_in_minutes
         if user_info is not None:
-            input["user_info"] = user_info
+            input_["user_info"] = user_info
         if initiate_as is not None:
-            input["initiate_as"] = initiate_as
+            input_["initiate_as"] = initiate_as
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if segment_attributes is not None:
-            input["segment_attributes"] = segment_attributes
+            input_["segment_attributes"] = segment_attributes
         if previous_contact_id is not None:
-            input["previous_contact_id"] = previous_contact_id
+            input_["previous_contact_id"] = previous_contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2894,20 +2894,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_contact_flow_request.CreateContactFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_connect.types.create_contact_flow_request.CreateContactFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
-        input["content"] = content
+            input_["description"] = description
+        input_["content"] = content
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2960,25 +2960,25 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_contact_flow_module_request.CreateContactFlowModuleRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_contact_flow_module_request.CreateContactFlowModuleRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["content"] = content
+            input_["description"] = description
+        input_["content"] = content
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
         if external_invocation_configuration is not None:
-            input["external_invocation_configuration"] = (
+            input_["external_invocation_configuration"] = (
                 external_invocation_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3021,16 +3021,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_contact_flow_module_alias_request.CreateContactFlowModuleAliasRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.create_contact_flow_module_alias_request.CreateContactFlowModuleAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if description is not None:
-            input["description"] = description
-        input["contact_flow_module_id"] = contact_flow_module_id
-        input["contact_flow_module_version"] = contact_flow_module_version
-        input["alias_name"] = alias_name
+            input_["description"] = description
+        input_["contact_flow_module_id"] = contact_flow_module_id
+        input_["contact_flow_module_version"] = contact_flow_module_version
+        input_["alias_name"] = alias_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3073,16 +3073,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_contact_flow_module_version_request.CreateContactFlowModuleVersionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.create_contact_flow_module_version_request.CreateContactFlowModuleVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if description is not None:
-            input["description"] = description
-        input["contact_flow_module_id"] = contact_flow_module_id
+            input_["description"] = description
+        input_["contact_flow_module_id"] = contact_flow_module_id
         if flow_module_content_sha256 is not None:
-            input["flow_module_content_sha256"] = flow_module_content_sha256
+            input_["flow_module_content_sha256"] = flow_module_content_sha256
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3137,22 +3137,22 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_contact_flow_version_request.CreateContactFlowVersionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.create_contact_flow_version_request.CreateContactFlowVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if description is not None:
-            input["description"] = description
-        input["contact_flow_id"] = contact_flow_id
+            input_["description"] = description
+        input_["contact_flow_id"] = contact_flow_id
         if flow_content_sha256 is not None:
-            input["flow_content_sha256"] = flow_content_sha256
+            input_["flow_content_sha256"] = flow_content_sha256
         if contact_flow_version is not None:
-            input["contact_flow_version"] = contact_flow_version
+            input_["contact_flow_version"] = contact_flow_version
         if last_modified_time is not None:
-            input["last_modified_time"] = last_modified_time
+            input_["last_modified_time"] = last_modified_time
         if last_modified_region is not None:
-            input["last_modified_region"] = last_modified_region
+            input_["last_modified_region"] = last_modified_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3199,19 +3199,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_data_table_request.CreateDataTableRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_data_table_request.CreateDataTableRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["time_zone"] = time_zone
-        input["value_lock_level"] = value_lock_level
-        input["status"] = status
+            input_["description"] = description
+        input_["time_zone"] = time_zone
+        input_["value_lock_level"] = value_lock_level
+        input_["status"] = status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3258,20 +3258,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_data_table_attribute_request.CreateDataTableAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["name"] = name
-        input["value_type"] = value_type
+        input_: aws_sdk_connect.types.create_data_table_attribute_request.CreateDataTableAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["name"] = name
+        input_["value_type"] = value_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if primary is not None:
-            input["primary"] = primary
+            input_["primary"] = primary
         if validation is not None:
-            input["validation"] = validation
+            input_["validation"] = validation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3318,20 +3318,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_email_address_request.CreateEmailAddressRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.create_email_address_request.CreateEmailAddressRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["instance_id"] = instance_id
-        input["email_address"] = email_address
+            input_["description"] = description
+        input_["instance_id"] = instance_id
+        input_["email_address"] = email_address
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3398,31 +3398,31 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_evaluation_form_request.CreateEvaluationFormRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["title"] = title
+        input_: aws_sdk_connect.types.create_evaluation_form_request.CreateEvaluationFormRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["title"] = title
         if description is not None:
-            input["description"] = description
-        input["items"] = items
+            input_["description"] = description
+        input_["items"] = items
         if scoring_strategy is not None:
-            input["scoring_strategy"] = scoring_strategy
+            input_["scoring_strategy"] = scoring_strategy
         if auto_evaluation_configuration is not None:
-            input["auto_evaluation_configuration"] = auto_evaluation_configuration
+            input_["auto_evaluation_configuration"] = auto_evaluation_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if as_draft is not None:
-            input["as_draft"] = as_draft
+            input_["as_draft"] = as_draft
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if review_configuration is not None:
-            input["review_configuration"] = review_configuration
+            input_["review_configuration"] = review_configuration
         if target_configuration is not None:
-            input["target_configuration"] = target_configuration
+            input_["target_configuration"] = target_configuration
         if language_configuration is not None:
-            input["language_configuration"] = language_configuration
+            input_["language_configuration"] = language_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3471,22 +3471,22 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_hours_of_operation_request.CreateHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_hours_of_operation_request.CreateHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["time_zone"] = time_zone
-        input["config"] = config
+            input_["description"] = description
+        input_["time_zone"] = time_zone
+        input_["config"] = config
         if parent_hours_of_operation_configs is not None:
-            input["parent_hours_of_operation_configs"] = (
+            input_["parent_hours_of_operation_configs"] = (
                 parent_hours_of_operation_configs
             )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3541,22 +3541,22 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_hours_of_operation_override_request.CreateHoursOfOperationOverrideRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_hours_of_operation_override_request.CreateHoursOfOperationOverrideRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["config"] = config
-        input["effective_from"] = effective_from
-        input["effective_till"] = effective_till
+            input_["description"] = description
+        input_["config"] = config
+        input_["effective_from"] = effective_from
+        input_["effective_till"] = effective_till
         if recurrence_config is not None:
-            input["recurrence_config"] = recurrence_config
+            input_["recurrence_config"] = recurrence_config
         if override_type is not None:
-            input["override_type"] = override_type
+            input_["override_type"] = override_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3603,21 +3603,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_instance_request.CreateInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.create_instance_request.CreateInstanceRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["identity_management_type"] = identity_management_type
+            input_["client_token"] = client_token
+        input_["identity_management_type"] = identity_management_type
         if instance_alias is not None:
-            input["instance_alias"] = instance_alias
+            input_["instance_alias"] = instance_alias
         if directory_id is not None:
-            input["directory_id"] = directory_id
-        input["inbound_calls_enabled"] = inbound_calls_enabled
-        input["outbound_calls_enabled"] = outbound_calls_enabled
+            input_["directory_id"] = directory_id
+        input_["inbound_calls_enabled"] = inbound_calls_enabled
+        input_["outbound_calls_enabled"] = outbound_calls_enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3664,21 +3664,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_integration_association_request.CreateIntegrationAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["integration_type"] = integration_type
-        input["integration_arn"] = integration_arn
+        input_: aws_sdk_connect.types.create_integration_association_request.CreateIntegrationAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["integration_type"] = integration_type
+        input_["integration_arn"] = integration_arn
         if source_application_url is not None:
-            input["source_application_url"] = source_application_url
+            input_["source_application_url"] = source_application_url
         if source_application_name is not None:
-            input["source_application_name"] = source_application_name
+            input_["source_application_name"] = source_application_name
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3730,23 +3730,23 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_notification_request.CreateNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.create_notification_request.CreateNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if expires_at is not None:
-            input["expires_at"] = expires_at
-        input["recipients"] = recipients
+            input_["expires_at"] = expires_at
+        input_["recipients"] = recipients
         if priority is not None:
-            input["priority"] = priority
-        input["content"] = content
+            input_["priority"] = priority
+        input_["content"] = content
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if predefined_notification_id is not None:
-            input["predefined_notification_id"] = predefined_notification_id
+            input_["predefined_notification_id"] = predefined_notification_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3785,15 +3785,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_participant_request.CreateParticipantRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.create_participant_request.CreateParticipantRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["participant_details"] = participant_details
+            input_["client_token"] = client_token
+        input_["participant_details"] = participant_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3834,16 +3834,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_persistent_contact_association_request.CreatePersistentContactAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["initial_contact_id"] = initial_contact_id
-        input["rehydration_type"] = rehydration_type
-        input["source_contact_id"] = source_contact_id
+        input_: aws_sdk_connect.types.create_persistent_contact_association_request.CreatePersistentContactAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["initial_contact_id"] = initial_contact_id
+        input_["rehydration_type"] = rehydration_type
+        input_["source_contact_id"] = source_contact_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3888,18 +3888,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_predefined_attribute_request.CreatePredefinedAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_predefined_attribute_request.CreatePredefinedAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if values is not None:
-            input["values"] = values
+            input_["values"] = values
         if purposes is not None:
-            input["purposes"] = purposes
+            input_["purposes"] = purposes
         if attribute_configuration is not None:
-            input["attribute_configuration"] = attribute_configuration
+            input_["attribute_configuration"] = attribute_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3942,17 +3942,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_prompt_request.CreatePromptRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_prompt_request.CreatePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["s3_uri"] = s3_uri
+            input_["description"] = description
+        input_["s3_uri"] = s3_uri
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3995,17 +3995,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_push_notification_registration_request.CreatePushNotificationRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.create_push_notification_registration_request.CreatePushNotificationRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["pinpoint_app_arn"] = pinpoint_app_arn
-        input["device_token"] = device_token
-        input["device_type"] = device_type
-        input["contact_configuration"] = contact_configuration
+            input_["client_token"] = client_token
+        input_["pinpoint_app_arn"] = pinpoint_app_arn
+        input_["device_token"] = device_token
+        input_["device_type"] = device_type
+        input_["contact_configuration"] = contact_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4068,27 +4068,27 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_queue_request.CreateQueueRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_queue_request.CreateQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if outbound_caller_config is not None:
-            input["outbound_caller_config"] = outbound_caller_config
+            input_["outbound_caller_config"] = outbound_caller_config
         if outbound_email_config is not None:
-            input["outbound_email_config"] = outbound_email_config
-        input["hours_of_operation_id"] = hours_of_operation_id
+            input_["outbound_email_config"] = outbound_email_config
+        input_["hours_of_operation_id"] = hours_of_operation_id
         if max_contacts is not None:
-            input["max_contacts"] = max_contacts
+            input_["max_contacts"] = max_contacts
         if quick_connect_ids is not None:
-            input["quick_connect_ids"] = quick_connect_ids
+            input_["quick_connect_ids"] = quick_connect_ids
         if email_addresses_config is not None:
-            input["email_addresses_config"] = email_addresses_config
+            input_["email_addresses_config"] = email_addresses_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4133,17 +4133,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_quick_connect_request.CreateQuickConnectRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_quick_connect_request.CreateQuickConnectRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["quick_connect_config"] = quick_connect_config
+            input_["description"] = description
+        input_["quick_connect_config"] = quick_connect_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4198,23 +4198,23 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_routing_profile_request.CreateRoutingProfileRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
-        input["description"] = description
-        input["default_outbound_queue_id"] = default_outbound_queue_id
+        input_: aws_sdk_connect.types.create_routing_profile_request.CreateRoutingProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
+        input_["description"] = description
+        input_["default_outbound_queue_id"] = default_outbound_queue_id
         if queue_configs is not None:
-            input["queue_configs"] = queue_configs
+            input_["queue_configs"] = queue_configs
         if manual_assignment_queue_configs is not None:
-            input["manual_assignment_queue_configs"] = manual_assignment_queue_configs
-        input["media_concurrencies"] = media_concurrencies
+            input_["manual_assignment_queue_configs"] = manual_assignment_queue_configs
+        input_["media_concurrencies"] = media_concurrencies
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if agent_availability_timer is not None:
-            input["agent_availability_timer"] = agent_availability_timer
+            input_["agent_availability_timer"] = agent_availability_timer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4259,18 +4259,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
-        input["trigger_event_source"] = trigger_event_source
-        input["function"] = function
-        input["actions"] = actions
-        input["publish_status"] = publish_status
+        input_: aws_sdk_connect.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
+        input_["trigger_event_source"] = trigger_event_source
+        input_["function"] = function
+        input_["actions"] = actions
+        input_["publish_status"] = publish_status
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4343,36 +4343,36 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_security_profile_request.CreateSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_name"] = security_profile_name
+        input_: aws_sdk_connect.types.create_security_profile_request.CreateSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_name"] = security_profile_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if permissions is not None:
-            input["permissions"] = permissions
-        input["instance_id"] = instance_id
+            input_["permissions"] = permissions
+        input_["instance_id"] = instance_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if allowed_access_control_tags is not None:
-            input["allowed_access_control_tags"] = allowed_access_control_tags
+            input_["allowed_access_control_tags"] = allowed_access_control_tags
         if tag_restricted_resources is not None:
-            input["tag_restricted_resources"] = tag_restricted_resources
+            input_["tag_restricted_resources"] = tag_restricted_resources
         if applications is not None:
-            input["applications"] = applications
+            input_["applications"] = applications
         if hierarchy_restricted_resources is not None:
-            input["hierarchy_restricted_resources"] = hierarchy_restricted_resources
+            input_["hierarchy_restricted_resources"] = hierarchy_restricted_resources
         if allowed_access_control_hierarchy_group_id is not None:
-            input["allowed_access_control_hierarchy_group_id"] = (
+            input_["allowed_access_control_hierarchy_group_id"] = (
                 allowed_access_control_hierarchy_group_id
             )
         if allowed_flow_modules is not None:
-            input["allowed_flow_modules"] = allowed_flow_modules
+            input_["allowed_flow_modules"] = allowed_flow_modules
         if granular_access_control_configuration is not None:
-            input["granular_access_control_configuration"] = (
+            input_["granular_access_control_configuration"] = (
                 granular_access_control_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4437,27 +4437,27 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_task_template_request.CreateTaskTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_task_template_request.CreateTaskTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if contact_flow_id is not None:
-            input["contact_flow_id"] = contact_flow_id
+            input_["contact_flow_id"] = contact_flow_id
         if self_assign_flow_id is not None:
-            input["self_assign_flow_id"] = self_assign_flow_id
+            input_["self_assign_flow_id"] = self_assign_flow_id
         if constraints is not None:
-            input["constraints"] = constraints
+            input_["constraints"] = constraints
         if defaults is not None:
-            input["defaults"] = defaults
+            input_["defaults"] = defaults
         if status is not None:
-            input["status"] = status
-        input["fields"] = fields
+            input_["status"] = status
+        input_["fields"] = fields
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4522,29 +4522,29 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_test_case_request.CreateTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_test_case_request.CreateTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["content"] = content
+            input_["description"] = description
+        input_["content"] = content
         if entry_point is not None:
-            input["entry_point"] = entry_point
+            input_["entry_point"] = entry_point
         if initialization_data is not None:
-            input["initialization_data"] = initialization_data
+            input_["initialization_data"] = initialization_data
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if test_case_id is not None:
-            input["test_case_id"] = test_case_id
+            input_["test_case_id"] = test_case_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if last_modified_time is not None:
-            input["last_modified_time"] = last_modified_time
+            input_["last_modified_time"] = last_modified_time
         if last_modified_region is not None:
-            input["last_modified_region"] = last_modified_region
+            input_["last_modified_region"] = last_modified_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4587,18 +4587,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_traffic_distribution_group_request.CreateTrafficDistributionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_traffic_distribution_group_request.CreateTrafficDistributionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["instance_id"] = instance_id
+            input_["description"] = description
+        input_["instance_id"] = instance_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4637,15 +4637,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_use_case_request.CreateUseCaseRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["integration_association_id"] = integration_association_id
-        input["use_case_type"] = use_case_type
+        input_: aws_sdk_connect.types.create_use_case_request.CreateUseCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["integration_association_id"] = integration_association_id
+        input_["use_case_type"] = use_case_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4724,36 +4724,36 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["username"] = username
+        input_: aws_sdk_connect.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["username"] = username
         if password is not None:
-            input["password"] = password
+            input_["password"] = password
         if identity_info is not None:
-            input["identity_info"] = identity_info
+            input_["identity_info"] = identity_info
         if phone_config is not None:
-            input["phone_config"] = phone_config
+            input_["phone_config"] = phone_config
         if directory_user_id is not None:
-            input["directory_user_id"] = directory_user_id
-        input["security_profile_ids"] = security_profile_ids
-        input["routing_profile_id"] = routing_profile_id
+            input_["directory_user_id"] = directory_user_id
+        input_["security_profile_ids"] = security_profile_ids
+        input_["routing_profile_id"] = routing_profile_id
         if hierarchy_group_id is not None:
-            input["hierarchy_group_id"] = hierarchy_group_id
-        input["instance_id"] = instance_id
+            input_["hierarchy_group_id"] = hierarchy_group_id
+        input_["instance_id"] = instance_id
         if auto_accept_configs is not None:
-            input["auto_accept_configs"] = auto_accept_configs
+            input_["auto_accept_configs"] = auto_accept_configs
         if after_contact_work_configs is not None:
-            input["after_contact_work_configs"] = after_contact_work_configs
+            input_["after_contact_work_configs"] = after_contact_work_configs
         if phone_number_configs is not None:
-            input["phone_number_configs"] = phone_number_configs
+            input_["phone_number_configs"] = phone_number_configs
         if persistent_connection_configs is not None:
-            input["persistent_connection_configs"] = persistent_connection_configs
+            input_["persistent_connection_configs"] = persistent_connection_configs
         if voice_enhancement_configs is not None:
-            input["voice_enhancement_configs"] = voice_enhancement_configs
+            input_["voice_enhancement_configs"] = voice_enhancement_configs
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4794,16 +4794,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_user_hierarchy_group_request.CreateUserHierarchyGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_user_hierarchy_group_request.CreateUserHierarchyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if parent_group_id is not None:
-            input["parent_group_id"] = parent_group_id
-        input["instance_id"] = instance_id
+            input_["parent_group_id"] = parent_group_id
+        input_["instance_id"] = instance_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4852,20 +4852,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_view_request.CreateViewRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.create_view_request.CreateViewRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["status"] = status
-        input["content"] = content
+            input_["client_token"] = client_token
+        input_["status"] = status
+        input_["content"] = content
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4908,16 +4908,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_view_version_request.CreateViewVersionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["view_id"] = view_id
+        input_: aws_sdk_connect.types.create_view_version_request.CreateViewVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["view_id"] = view_id
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if view_content_sha256 is not None:
-            input["view_content_sha256"] = view_content_sha256
+            input_["view_content_sha256"] = view_content_sha256
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4960,18 +4960,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_vocabulary_request.CreateVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.create_vocabulary_request.CreateVocabularyRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["instance_id"] = instance_id
-        input["vocabulary_name"] = vocabulary_name
-        input["language_code"] = language_code
-        input["content"] = content
+            input_["client_token"] = client_token
+        input_["instance_id"] = instance_id
+        input_["vocabulary_name"] = vocabulary_name
+        input_["language_code"] = language_code
+        input_["content"] = content
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5016,20 +5016,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if theme is not None:
-            input["theme"] = theme
+            input_["theme"] = theme
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5072,18 +5072,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.create_workspace_page_request.CreateWorkspacePageRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
-        input["resource_arn"] = resource_arn
-        input["page"] = page
+        input_: aws_sdk_connect.types.create_workspace_page_request.CreateWorkspacePageRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
+        input_["resource_arn"] = resource_arn
+        input_["page"] = page
         if slug is not None:
-            input["slug"] = slug
+            input_["slug"] = slug
         if input_data is not None:
-            input["input_data"] = input_data
+            input_["input_data"] = input_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5120,13 +5120,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.deactivate_evaluation_form_request.DeactivateEvaluationFormRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_form_id"] = evaluation_form_id
-        input["evaluation_form_version"] = evaluation_form_version
+        input_: aws_sdk_connect.types.deactivate_evaluation_form_request.DeactivateEvaluationFormRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_form_id"] = evaluation_form_id
+        input_["evaluation_form_version"] = evaluation_form_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5165,13 +5165,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_attached_file_request.DeleteAttachedFileRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["file_id"] = file_id
-        input["associated_resource_arn"] = associated_resource_arn
+        input_: aws_sdk_connect.types.delete_attached_file_request.DeleteAttachedFileRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["file_id"] = file_id
+        input_["associated_resource_arn"] = associated_resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5204,12 +5204,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_contact_evaluation_request.DeleteContactEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_id"] = evaluation_id
+        input_: aws_sdk_connect.types.delete_contact_evaluation_request.DeleteContactEvaluationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_id"] = evaluation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5244,12 +5244,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_contact_flow_request.DeleteContactFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
+        input_: aws_sdk_connect.types.delete_contact_flow_request.DeleteContactFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5284,12 +5284,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_contact_flow_module_request.DeleteContactFlowModuleRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
+        input_: aws_sdk_connect.types.delete_contact_flow_module_request.DeleteContactFlowModuleRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5326,13 +5326,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_contact_flow_module_alias_request.DeleteContactFlowModuleAliasRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
-        input["alias_id"] = alias_id
+        input_: aws_sdk_connect.types.delete_contact_flow_module_alias_request.DeleteContactFlowModuleAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
+        input_["alias_id"] = alias_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5369,13 +5369,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_contact_flow_module_version_request.DeleteContactFlowModuleVersionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
-        input["contact_flow_module_version"] = contact_flow_module_version
+        input_: aws_sdk_connect.types.delete_contact_flow_module_version_request.DeleteContactFlowModuleVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
+        input_["contact_flow_module_version"] = contact_flow_module_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5412,13 +5412,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_contact_flow_version_request.DeleteContactFlowVersionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
-        input["contact_flow_version"] = contact_flow_version
+        input_: aws_sdk_connect.types.delete_contact_flow_version_request.DeleteContactFlowVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
+        input_["contact_flow_version"] = contact_flow_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5453,12 +5453,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_data_table_request.DeleteDataTableRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
+        input_: aws_sdk_connect.types.delete_data_table_request.DeleteDataTableRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5495,13 +5495,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_data_table_attribute_request.DeleteDataTableAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_connect.types.delete_data_table_attribute_request.DeleteDataTableAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["attribute_name"] = attribute_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5538,12 +5538,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_email_address_request.DeleteEmailAddressRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["email_address_id"] = email_address_id
+        input_: aws_sdk_connect.types.delete_email_address_request.DeleteEmailAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["email_address_id"] = email_address_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5580,14 +5580,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_evaluation_form_request.DeleteEvaluationFormRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_form_id"] = evaluation_form_id
+        input_: aws_sdk_connect.types.delete_evaluation_form_request.DeleteEvaluationFormRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_form_id"] = evaluation_form_id
         if evaluation_form_version is not None:
-            input["evaluation_form_version"] = evaluation_form_version
+            input_["evaluation_form_version"] = evaluation_form_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5620,12 +5620,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_hours_of_operation_request.DeleteHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
+        input_: aws_sdk_connect.types.delete_hours_of_operation_request.DeleteHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5660,13 +5660,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_hours_of_operation_override_request.DeleteHoursOfOperationOverrideRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
-        input["hours_of_operation_override_id"] = hours_of_operation_override_id
+        input_: aws_sdk_connect.types.delete_hours_of_operation_override_request.DeleteHoursOfOperationOverrideRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
+        input_["hours_of_operation_override_id"] = hours_of_operation_override_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5699,13 +5699,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_instance_request.DeleteInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.delete_instance_request.DeleteInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5738,12 +5738,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_integration_association_request.DeleteIntegrationAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["integration_association_id"] = integration_association_id
+        input_: aws_sdk_connect.types.delete_integration_association_request.DeleteIntegrationAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["integration_association_id"] = integration_association_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5780,12 +5780,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_notification_request.DeleteNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["notification_id"] = notification_id
+        input_: aws_sdk_connect.types.delete_notification_request.DeleteNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["notification_id"] = notification_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5818,12 +5818,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_predefined_attribute_request.DeletePredefinedAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.delete_predefined_attribute_request.DeletePredefinedAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5856,12 +5856,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_prompt_request.DeletePromptRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["prompt_id"] = prompt_id
+        input_: aws_sdk_connect.types.delete_prompt_request.DeletePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["prompt_id"] = prompt_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5898,13 +5898,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_push_notification_registration_request.DeletePushNotificationRegistrationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["registration_id"] = registration_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.delete_push_notification_registration_request.DeletePushNotificationRegistrationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["registration_id"] = registration_id
+        input_["contact_id"] = contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5937,12 +5937,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_queue_request.DeleteQueueRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
+        input_: aws_sdk_connect.types.delete_queue_request.DeleteQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5975,12 +5975,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_quick_connect_request.DeleteQuickConnectRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["quick_connect_id"] = quick_connect_id
+        input_: aws_sdk_connect.types.delete_quick_connect_request.DeleteQuickConnectRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["quick_connect_id"] = quick_connect_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6013,12 +6013,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_routing_profile_request.DeleteRoutingProfileRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
+        input_: aws_sdk_connect.types.delete_routing_profile_request.DeleteRoutingProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6051,12 +6051,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["rule_id"] = rule_id
+        input_: aws_sdk_connect.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["rule_id"] = rule_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6089,12 +6089,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_security_profile_request.DeleteSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["security_profile_id"] = security_profile_id
+        input_: aws_sdk_connect.types.delete_security_profile_request.DeleteSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["security_profile_id"] = security_profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6131,12 +6131,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_task_template_request.DeleteTaskTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["task_template_id"] = task_template_id
+        input_: aws_sdk_connect.types.delete_task_template_request.DeleteTaskTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["task_template_id"] = task_template_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6171,12 +6171,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_test_case_request.DeleteTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_connect.types.delete_test_case_request.DeleteTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["test_case_id"] = test_case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6209,11 +6209,11 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_traffic_distribution_group_request.DeleteTrafficDistributionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_distribution_group_id"] = traffic_distribution_group_id
+        input_: aws_sdk_connect.types.delete_traffic_distribution_group_request.DeleteTrafficDistributionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_distribution_group_id"] = traffic_distribution_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6248,13 +6248,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_use_case_request.DeleteUseCaseRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["integration_association_id"] = integration_association_id
-        input["use_case_id"] = use_case_id
+        input_: aws_sdk_connect.types.delete_use_case_request.DeleteUseCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["integration_association_id"] = integration_association_id
+        input_["use_case_id"] = use_case_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6287,12 +6287,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["user_id"] = user_id
+        input_: aws_sdk_connect.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6325,12 +6325,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_user_hierarchy_group_request.DeleteUserHierarchyGroupRequest = {}  # type: ignore[typeddict-item]
-        input["hierarchy_group_id"] = hierarchy_group_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.delete_user_hierarchy_group_request.DeleteUserHierarchyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["hierarchy_group_id"] = hierarchy_group_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6365,12 +6365,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_view_request.DeleteViewRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["view_id"] = view_id
+        input_: aws_sdk_connect.types.delete_view_request.DeleteViewRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["view_id"] = view_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6407,13 +6407,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_view_version_request.DeleteViewVersionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["view_id"] = view_id
-        input["view_version"] = view_version
+        input_: aws_sdk_connect.types.delete_view_version_request.DeleteViewVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["view_id"] = view_id
+        input_["view_version"] = view_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6448,12 +6448,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_vocabulary_request.DeleteVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["vocabulary_id"] = vocabulary_id
+        input_: aws_sdk_connect.types.delete_vocabulary_request.DeleteVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["vocabulary_id"] = vocabulary_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6488,12 +6488,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_connect.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6530,13 +6530,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_workspace_media_request.DeleteWorkspaceMediaRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
-        input["media_type"] = media_type
+        input_: aws_sdk_connect.types.delete_workspace_media_request.DeleteWorkspaceMediaRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
+        input_["media_type"] = media_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6573,13 +6573,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.delete_workspace_page_request.DeleteWorkspacePageRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
-        input["page"] = page
+        input_: aws_sdk_connect.types.delete_workspace_page_request.DeleteWorkspacePageRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
+        input_["page"] = page
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6614,12 +6614,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_agent_status_request.DescribeAgentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["agent_status_id"] = agent_status_id
+        input_: aws_sdk_connect.types.describe_agent_status_request.DescribeAgentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["agent_status_id"] = agent_status_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6654,12 +6654,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_attached_files_configuration_request.DescribeAttachedFilesConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["attachment_scope"] = attachment_scope
+        input_: aws_sdk_connect.types.describe_attached_files_configuration_request.DescribeAttachedFilesConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["attachment_scope"] = attachment_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6694,12 +6694,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_authentication_profile_request.DescribeAuthenticationProfileRequest = {}  # type: ignore[typeddict-item]
-        input["authentication_profile_id"] = authentication_profile_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.describe_authentication_profile_request.DescribeAuthenticationProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["authentication_profile_id"] = authentication_profile_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6734,12 +6734,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_contact_request.DescribeContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.describe_contact_request.DescribeContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6774,12 +6774,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_contact_evaluation_request.DescribeContactEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_id"] = evaluation_id
+        input_: aws_sdk_connect.types.describe_contact_evaluation_request.DescribeContactEvaluationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_id"] = evaluation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6814,12 +6814,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_contact_flow_request.DescribeContactFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
+        input_: aws_sdk_connect.types.describe_contact_flow_request.DescribeContactFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6854,12 +6854,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_contact_flow_module_request.DescribeContactFlowModuleRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
+        input_: aws_sdk_connect.types.describe_contact_flow_module_request.DescribeContactFlowModuleRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6896,13 +6896,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_contact_flow_module_alias_request.DescribeContactFlowModuleAliasRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
-        input["alias_id"] = alias_id
+        input_: aws_sdk_connect.types.describe_contact_flow_module_alias_request.DescribeContactFlowModuleAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
+        input_["alias_id"] = alias_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6937,12 +6937,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_data_table_request.DescribeDataTableRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
+        input_: aws_sdk_connect.types.describe_data_table_request.DescribeDataTableRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6979,13 +6979,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_data_table_attribute_request.DescribeDataTableAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_connect.types.describe_data_table_attribute_request.DescribeDataTableAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["attribute_name"] = attribute_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7020,12 +7020,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_email_address_request.DescribeEmailAddressRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["email_address_id"] = email_address_id
+        input_: aws_sdk_connect.types.describe_email_address_request.DescribeEmailAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["email_address_id"] = email_address_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7064,14 +7064,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_evaluation_form_request.DescribeEvaluationFormRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_form_id"] = evaluation_form_id
+        input_: aws_sdk_connect.types.describe_evaluation_form_request.DescribeEvaluationFormRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_form_id"] = evaluation_form_id
         if evaluation_form_version is not None:
-            input["evaluation_form_version"] = evaluation_form_version
+            input_["evaluation_form_version"] = evaluation_form_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7106,12 +7106,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_hours_of_operation_request.DescribeHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
+        input_: aws_sdk_connect.types.describe_hours_of_operation_request.DescribeHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7148,13 +7148,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_hours_of_operation_override_request.DescribeHoursOfOperationOverrideRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
-        input["hours_of_operation_override_id"] = hours_of_operation_override_id
+        input_: aws_sdk_connect.types.describe_hours_of_operation_override_request.DescribeHoursOfOperationOverrideRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
+        input_["hours_of_operation_override_id"] = hours_of_operation_override_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7187,11 +7187,11 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_instance_request.DescribeInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.describe_instance_request.DescribeInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7226,12 +7226,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_instance_attribute_request.DescribeInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["attribute_type"] = attribute_type
+        input_: aws_sdk_connect.types.describe_instance_attribute_request.DescribeInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["attribute_type"] = attribute_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7268,13 +7268,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_instance_storage_config_request.DescribeInstanceStorageConfigRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["association_id"] = association_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_connect.types.describe_instance_storage_config_request.DescribeInstanceStorageConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["association_id"] = association_id
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7309,12 +7309,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_notification_request.DescribeNotificationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["notification_id"] = notification_id
+        input_: aws_sdk_connect.types.describe_notification_request.DescribeNotificationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["notification_id"] = notification_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7347,11 +7347,11 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_phone_number_request.DescribePhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
+        input_: aws_sdk_connect.types.describe_phone_number_request.DescribePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7386,12 +7386,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_predefined_attribute_request.DescribePredefinedAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.describe_predefined_attribute_request.DescribePredefinedAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7426,12 +7426,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_prompt_request.DescribePromptRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["prompt_id"] = prompt_id
+        input_: aws_sdk_connect.types.describe_prompt_request.DescribePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["prompt_id"] = prompt_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7466,12 +7466,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_queue_request.DescribeQueueRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
+        input_: aws_sdk_connect.types.describe_queue_request.DescribeQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7506,12 +7506,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_quick_connect_request.DescribeQuickConnectRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["quick_connect_id"] = quick_connect_id
+        input_: aws_sdk_connect.types.describe_quick_connect_request.DescribeQuickConnectRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["quick_connect_id"] = quick_connect_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7546,12 +7546,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_routing_profile_request.DescribeRoutingProfileRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
+        input_: aws_sdk_connect.types.describe_routing_profile_request.DescribeRoutingProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7586,12 +7586,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_rule_request.DescribeRuleRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["rule_id"] = rule_id
+        input_: aws_sdk_connect.types.describe_rule_request.DescribeRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["rule_id"] = rule_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7626,12 +7626,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_security_profile_request.DescribeSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_id"] = security_profile_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.describe_security_profile_request.DescribeSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_id"] = security_profile_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7670,14 +7670,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_test_case_request.DescribeTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_connect.types.describe_test_case_request.DescribeTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["test_case_id"] = test_case_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7710,11 +7710,11 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_traffic_distribution_group_request.DescribeTrafficDistributionGroupRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_distribution_group_id"] = traffic_distribution_group_id
+        input_: aws_sdk_connect.types.describe_traffic_distribution_group_request.DescribeTrafficDistributionGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_distribution_group_id"] = traffic_distribution_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7749,12 +7749,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7789,12 +7789,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_user_hierarchy_group_request.DescribeUserHierarchyGroupRequest = {}  # type: ignore[typeddict-item]
-        input["hierarchy_group_id"] = hierarchy_group_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.describe_user_hierarchy_group_request.DescribeUserHierarchyGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["hierarchy_group_id"] = hierarchy_group_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7827,11 +7827,11 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_user_hierarchy_structure_request.DescribeUserHierarchyStructureRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.describe_user_hierarchy_structure_request.DescribeUserHierarchyStructureRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7866,12 +7866,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_view_request.DescribeViewRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["view_id"] = view_id
+        input_: aws_sdk_connect.types.describe_view_request.DescribeViewRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["view_id"] = view_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7908,12 +7908,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_vocabulary_request.DescribeVocabularyRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["vocabulary_id"] = vocabulary_id
+        input_: aws_sdk_connect.types.describe_vocabulary_request.DescribeVocabularyRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["vocabulary_id"] = vocabulary_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7948,12 +7948,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_connect.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7990,14 +7990,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_analytics_data_set_request.DisassociateAnalyticsDataSetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_set_id"] = data_set_id
+        input_: aws_sdk_connect.types.disassociate_analytics_data_set_request.DisassociateAnalyticsDataSetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_set_id"] = data_set_id
         if target_account_id is not None:
-            input["target_account_id"] = target_account_id
+            input_["target_account_id"] = target_account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8032,14 +8032,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_approved_origin_request.DisassociateApprovedOriginRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["origin"] = origin
+        input_: aws_sdk_connect.types.disassociate_approved_origin_request.DisassociateApprovedOriginRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["origin"] = origin
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8075,17 +8075,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_bot_request.DisassociateBotRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.disassociate_bot_request.DisassociateBotRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if lex_bot is not None:
-            input["lex_bot"] = lex_bot
+            input_["lex_bot"] = lex_bot
         if lex_v2_bot is not None:
-            input["lex_v2_bot"] = lex_v2_bot
+            input_["lex_v2_bot"] = lex_v2_bot
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8124,15 +8124,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_email_address_alias_request.DisassociateEmailAddressAliasRequest = {}  # type: ignore[typeddict-item]
-        input["email_address_id"] = email_address_id
-        input["instance_id"] = instance_id
-        input["alias_configuration"] = alias_configuration
+        input_: aws_sdk_connect.types.disassociate_email_address_alias_request.DisassociateEmailAddressAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["email_address_id"] = email_address_id
+        input_["instance_id"] = instance_id
+        input_["alias_configuration"] = alias_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8169,13 +8169,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_flow_request.DisassociateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_connect.types.disassociate_flow_request.DisassociateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8210,13 +8210,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_hours_of_operations_request.DisassociateHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
-        input["parent_hours_of_operation_ids"] = parent_hours_of_operation_ids
+        input_: aws_sdk_connect.types.disassociate_hours_of_operations_request.DisassociateHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
+        input_["parent_hours_of_operation_ids"] = parent_hours_of_operation_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8253,15 +8253,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_instance_storage_config_request.DisassociateInstanceStorageConfigRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["association_id"] = association_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_connect.types.disassociate_instance_storage_config_request.DisassociateInstanceStorageConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["association_id"] = association_id
+        input_["resource_type"] = resource_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8296,14 +8296,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_lambda_function_request.DisassociateLambdaFunctionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["function_arn"] = function_arn
+        input_: aws_sdk_connect.types.disassociate_lambda_function_request.DisassociateLambdaFunctionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["function_arn"] = function_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8340,15 +8340,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_lex_bot_request.DisassociateLexBotRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["bot_name"] = bot_name
-        input["lex_region"] = lex_region
+        input_: aws_sdk_connect.types.disassociate_lex_bot_request.DisassociateLexBotRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["bot_name"] = bot_name
+        input_["lex_region"] = lex_region
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8381,12 +8381,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_phone_number_contact_flow_request.DisassociatePhoneNumberContactFlowRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.disassociate_phone_number_contact_flow_request.DisassociatePhoneNumberContactFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8423,15 +8423,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_queue_email_addresses_request.DisassociateQueueEmailAddressesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
-        input["email_addresses_id"] = email_addresses_id
+        input_: aws_sdk_connect.types.disassociate_queue_email_addresses_request.DisassociateQueueEmailAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
+        input_["email_addresses_id"] = email_addresses_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8466,13 +8466,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_queue_quick_connects_request.DisassociateQueueQuickConnectsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
-        input["quick_connect_ids"] = quick_connect_ids
+        input_: aws_sdk_connect.types.disassociate_queue_quick_connects_request.DisassociateQueueQuickConnectsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
+        input_["quick_connect_ids"] = quick_connect_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8513,18 +8513,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_routing_profile_queues_request.DisassociateRoutingProfileQueuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
+        input_: aws_sdk_connect.types.disassociate_routing_profile_queues_request.DisassociateRoutingProfileQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
         if queue_references is not None:
-            input["queue_references"] = queue_references
+            input_["queue_references"] = queue_references
         if manual_assignment_queue_references is not None:
-            input["manual_assignment_queue_references"] = (
+            input_["manual_assignment_queue_references"] = (
                 manual_assignment_queue_references
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8559,14 +8559,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_security_key_request.DisassociateSecurityKeyRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["association_id"] = association_id
+        input_: aws_sdk_connect.types.disassociate_security_key_request.DisassociateSecurityKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["association_id"] = association_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8603,14 +8603,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_security_profiles_request.DisassociateSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["security_profiles"] = security_profiles
-        input["entity_type"] = entity_type
-        input["entity_arn"] = entity_arn
+        input_: aws_sdk_connect.types.disassociate_security_profiles_request.DisassociateSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["security_profiles"] = security_profiles
+        input_["entity_type"] = entity_type
+        input_["entity_arn"] = entity_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8647,13 +8647,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_traffic_distribution_group_user_request.DisassociateTrafficDistributionGroupUserRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_distribution_group_id"] = traffic_distribution_group_id
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.disassociate_traffic_distribution_group_user_request.DisassociateTrafficDistributionGroupUserRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_distribution_group_id"] = traffic_distribution_group_id
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8688,13 +8688,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_user_proficiencies_request.DisassociateUserProficienciesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["user_id"] = user_id
-        input["user_proficiencies"] = user_proficiencies
+        input_: aws_sdk_connect.types.disassociate_user_proficiencies_request.DisassociateUserProficienciesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["user_id"] = user_id
+        input_["user_proficiencies"] = user_proficiencies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8731,13 +8731,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.disassociate_workspace_request.DisassociateWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_connect.types.disassociate_workspace_request.DisassociateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
+        input_["resource_arns"] = resource_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8776,13 +8776,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.dismiss_user_contact_request.DismissUserContactRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.dismiss_user_contact_request.DismissUserContactRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8827,19 +8827,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.evaluate_data_table_values_request.EvaluateDataTableValuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["values"] = values
+        input_: aws_sdk_connect.types.evaluate_data_table_values_request.EvaluateDataTableValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["values"] = values
         if time_zone is not None:
-            input["time_zone"] = time_zone
+            input_["time_zone"] = time_zone
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8880,15 +8880,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_attached_file_request.GetAttachedFileRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["file_id"] = file_id
+        input_: aws_sdk_connect.types.get_attached_file_request.GetAttachedFileRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["file_id"] = file_id
         if url_expiry_in_seconds is not None:
-            input["url_expiry_in_seconds"] = url_expiry_in_seconds
-        input["associated_resource_arn"] = associated_resource_arn
+            input_["url_expiry_in_seconds"] = url_expiry_in_seconds
+        input_["associated_resource_arn"] = associated_resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8923,12 +8923,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_contact_attributes_request.GetContactAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["initial_contact_id"] = initial_contact_id
+        input_: aws_sdk_connect.types.get_contact_attributes_request.GetContactAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["initial_contact_id"] = initial_contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8965,13 +8965,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_contact_metrics_request.GetContactMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["metrics"] = metrics
+        input_: aws_sdk_connect.types.get_contact_metrics_request.GetContactMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["metrics"] = metrics
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9020,21 +9020,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_current_metric_data_request.GetCurrentMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["filters"] = filters
+        input_: aws_sdk_connect.types.get_current_metric_data_request.GetCurrentMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["filters"] = filters
         if groupings is not None:
-            input["groupings"] = groupings
-        input["current_metrics"] = current_metrics
+            input_["groupings"] = groupings
+        input_["current_metrics"] = current_metrics
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9075,16 +9075,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_current_user_data_request.GetCurrentUserDataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["filters"] = filters
+        input_: aws_sdk_connect.types.get_current_user_data_request.GetCurrentUserDataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9123,14 +9123,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_effective_hours_of_operations_request.GetEffectiveHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
-        input["from_date"] = from_date
-        input["to_date"] = to_date
+        input_: aws_sdk_connect.types.get_effective_hours_of_operations_request.GetEffectiveHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
+        input_["from_date"] = from_date
+        input_["to_date"] = to_date
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9165,11 +9165,11 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_federation_token_request.GetFederationTokenRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.get_federation_token_request.GetFederationTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9208,13 +9208,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_flow_association_request.GetFlowAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["resource_id"] = resource_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_connect.types.get_flow_association_request.GetFlowAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["resource_id"] = resource_id
+        input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9263,21 +9263,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_metric_data_request.GetMetricDataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["filters"] = filters
+        input_: aws_sdk_connect.types.get_metric_data_request.GetMetricDataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["filters"] = filters
         if groupings is not None:
-            input["groupings"] = groupings
-        input["historical_metrics"] = historical_metrics
+            input_["groupings"] = groupings
+        input_["historical_metrics"] = historical_metrics
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9332,23 +9332,23 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_metric_data_v2_request.GetMetricDataV2Request = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_connect.types.get_metric_data_v2_request.GetMetricDataV2Request = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if interval is not None:
-            input["interval"] = interval
-        input["filters"] = filters
+            input_["interval"] = interval
+        input_["filters"] = filters
         if groupings is not None:
-            input["groupings"] = groupings
-        input["metrics"] = metrics
+            input_["groupings"] = groupings
+        input_["metrics"] = metrics
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9383,12 +9383,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_prompt_file_request.GetPromptFileRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["prompt_id"] = prompt_id
+        input_: aws_sdk_connect.types.get_prompt_file_request.GetPromptFileRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["prompt_id"] = prompt_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9427,14 +9427,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_task_template_request.GetTaskTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["task_template_id"] = task_template_id
+        input_: aws_sdk_connect.types.get_task_template_request.GetTaskTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["task_template_id"] = task_template_id
         if snapshot_version is not None:
-            input["snapshot_version"] = snapshot_version
+            input_["snapshot_version"] = snapshot_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9471,13 +9471,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_test_case_execution_summary_request.GetTestCaseExecutionSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["test_case_id"] = test_case_id
-        input["test_case_execution_id"] = test_case_execution_id
+        input_: aws_sdk_connect.types.get_test_case_execution_summary_request.GetTestCaseExecutionSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["test_case_id"] = test_case_id
+        input_["test_case_execution_id"] = test_case_execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9510,11 +9510,11 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.get_traffic_distribution_request.GetTrafficDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connect.types.get_traffic_distribution_request.GetTrafficDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9557,18 +9557,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.import_phone_number_request.ImportPhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["source_phone_number_arn"] = source_phone_number_arn
+        input_: aws_sdk_connect.types.import_phone_number_request.ImportPhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["source_phone_number_arn"] = source_phone_number_arn
         if phone_number_description is not None:
-            input["phone_number_description"] = phone_number_description
+            input_["phone_number_description"] = phone_number_description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9607,14 +9607,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.import_workspace_media_request.ImportWorkspaceMediaRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
-        input["media_type"] = media_type
-        input["media_source"] = media_source
+        input_: aws_sdk_connect.types.import_workspace_media_request.ImportWorkspaceMediaRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
+        input_["media_type"] = media_type
+        input_["media_source"] = media_source
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9657,17 +9657,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_agent_status_request.ListAgentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_agent_status_request.ListAgentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if agent_status_types is not None:
-            input["agent_status_types"] = agent_status_types
+            input_["agent_status_types"] = agent_status_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9737,17 +9737,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_analytics_data_associations_request.ListAnalyticsDataAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_analytics_data_associations_request.ListAnalyticsDataAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if data_set_id is not None:
-            input["data_set_id"] = data_set_id
+            input_["data_set_id"] = data_set_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9786,15 +9786,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_analytics_data_lake_data_sets_request.ListAnalyticsDataLakeDataSetsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_analytics_data_lake_data_sets_request.ListAnalyticsDataLakeDataSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9831,15 +9831,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_approved_origins_request.ListApprovedOriginsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_approved_origins_request.ListApprovedOriginsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9903,16 +9903,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_associated_contacts_request.ListAssociatedContactsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.list_associated_contacts_request.ListAssociatedContactsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9951,15 +9951,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_attached_files_configurations_request.ListAttachedFilesConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_attached_files_configurations_request.ListAttachedFilesConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10023,15 +10023,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_authentication_profiles_request.ListAuthenticationProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_authentication_profiles_request.ListAuthenticationProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10095,16 +10095,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_bots_request.ListBotsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_bots_request.ListBotsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["lex_version"] = lex_version
+            input_["max_results"] = max_results
+        input_["lex_version"] = lex_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10170,16 +10170,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_child_hours_of_operations_request.ListChildHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
+        input_: aws_sdk_connect.types.list_child_hours_of_operations_request.ListChildHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10245,14 +10245,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_contact_evaluations_request.ListContactEvaluationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.list_contact_evaluations_request.ListContactEvaluationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10316,16 +10316,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_contact_flow_module_aliases_request.ListContactFlowModuleAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
+        input_: aws_sdk_connect.types.list_contact_flow_module_aliases_request.ListContactFlowModuleAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10397,17 +10397,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_contact_flow_modules_request.ListContactFlowModulesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_contact_flow_modules_request.ListContactFlowModulesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if contact_flow_module_state is not None:
-            input["contact_flow_module_state"] = contact_flow_module_state
+            input_["contact_flow_module_state"] = contact_flow_module_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10477,16 +10477,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_contact_flow_module_versions_request.ListContactFlowModuleVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
+        input_: aws_sdk_connect.types.list_contact_flow_module_versions_request.ListContactFlowModuleVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10558,17 +10558,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_contact_flows_request.ListContactFlowsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_contact_flows_request.ListContactFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if contact_flow_types is not None:
-            input["contact_flow_types"] = contact_flow_types
+            input_["contact_flow_types"] = contact_flow_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10638,16 +10638,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_contact_flow_versions_request.ListContactFlowVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
+        input_: aws_sdk_connect.types.list_contact_flow_versions_request.ListContactFlowVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10713,15 +10713,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_contact_references_request.ListContactReferencesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["reference_types"] = reference_types
+        input_: aws_sdk_connect.types.list_contact_references_request.ListContactReferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["reference_types"] = reference_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10791,18 +10791,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_data_table_attributes_request.ListDataTableAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
+        input_: aws_sdk_connect.types.list_data_table_attributes_request.ListDataTableAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
         if attribute_ids is not None:
-            input["attribute_ids"] = attribute_ids
+            input_["attribute_ids"] = attribute_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10880,20 +10880,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_data_table_primary_values_request.ListDataTablePrimaryValuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
+        input_: aws_sdk_connect.types.list_data_table_primary_values_request.ListDataTablePrimaryValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
         if record_ids is not None:
-            input["record_ids"] = record_ids
+            input_["record_ids"] = record_ids
         if primary_attribute_values is not None:
-            input["primary_attribute_values"] = primary_attribute_values
+            input_["primary_attribute_values"] = primary_attribute_values
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10965,15 +10965,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_data_tables_request.ListDataTablesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_data_tables_request.ListDataTablesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11045,20 +11045,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_data_table_values_request.ListDataTableValuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
+        input_: aws_sdk_connect.types.list_data_table_values_request.ListDataTableValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
         if record_ids is not None:
-            input["record_ids"] = record_ids
+            input_["record_ids"] = record_ids
         if primary_attribute_values is not None:
-            input["primary_attribute_values"] = primary_attribute_values
+            input_["primary_attribute_values"] = primary_attribute_values
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11138,17 +11138,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_default_vocabularies_request.ListDefaultVocabulariesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_default_vocabularies_request.ListDefaultVocabulariesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11224,17 +11224,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_entity_security_profiles_request.ListEntitySecurityProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["entity_type"] = entity_type
-        input["entity_arn"] = entity_arn
+        input_: aws_sdk_connect.types.list_entity_security_profiles_request.ListEntitySecurityProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["entity_type"] = entity_type
+        input_["entity_arn"] = entity_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11304,15 +11304,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_evaluation_forms_request.ListEvaluationFormsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_evaluation_forms_request.ListEvaluationFormsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11380,16 +11380,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_evaluation_form_versions_request.ListEvaluationFormVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_form_id"] = evaluation_form_id
+        input_: aws_sdk_connect.types.list_evaluation_form_versions_request.ListEvaluationFormVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_form_id"] = evaluation_form_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11459,17 +11459,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_flow_associations_request.ListFlowAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_flow_associations_request.ListFlowAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11539,16 +11539,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_hours_of_operation_overrides_request.ListHoursOfOperationOverridesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
+        input_: aws_sdk_connect.types.list_hours_of_operation_overrides_request.ListHoursOfOperationOverridesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11614,15 +11614,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_hours_of_operations_request.ListHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_hours_of_operations_request.ListHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11684,15 +11684,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_instance_attributes_request.ListInstanceAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_instance_attributes_request.ListInstanceAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11750,14 +11750,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.list_instances_request.ListInstancesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11817,16 +11817,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_instance_storage_configs_request.ListInstanceStorageConfigsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["resource_type"] = resource_type
+        input_: aws_sdk_connect.types.list_instance_storage_configs_request.ListInstanceStorageConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["resource_type"] = resource_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11898,19 +11898,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_integration_associations_request.ListIntegrationAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_integration_associations_request.ListIntegrationAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if integration_type is not None:
-            input["integration_type"] = integration_type
+            input_["integration_type"] = integration_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if integration_arn is not None:
-            input["integration_arn"] = integration_arn
+            input_["integration_arn"] = integration_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11978,15 +11978,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_lambda_functions_request.ListLambdaFunctionsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_lambda_functions_request.ListLambdaFunctionsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12046,15 +12046,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_lex_bots_request.ListLexBotsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_lex_bots_request.ListLexBotsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12116,15 +12116,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_notifications_request.ListNotificationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_notifications_request.ListNotificationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12171,19 +12171,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_phone_numbers_request.ListPhoneNumbersRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_phone_numbers_request.ListPhoneNumbersRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if phone_number_types is not None:
-            input["phone_number_types"] = phone_number_types
+            input_["phone_number_types"] = phone_number_types
         if phone_number_country_codes is not None:
-            input["phone_number_country_codes"] = phone_number_country_codes
+            input_["phone_number_country_codes"] = phone_number_country_codes
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12271,24 +12271,24 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_phone_numbers_v2_request.ListPhoneNumbersV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.list_phone_numbers_v2_request.ListPhoneNumbersV2Request = {}  # type: ignore[typeddict-item]
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if phone_number_country_codes is not None:
-            input["phone_number_country_codes"] = phone_number_country_codes
+            input_["phone_number_country_codes"] = phone_number_country_codes
         if phone_number_types is not None:
-            input["phone_number_types"] = phone_number_types
+            input_["phone_number_types"] = phone_number_types
         if phone_number_prefix is not None:
-            input["phone_number_prefix"] = phone_number_prefix
+            input_["phone_number_prefix"] = phone_number_prefix
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12368,15 +12368,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_predefined_attributes_request.ListPredefinedAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_predefined_attributes_request.ListPredefinedAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12440,15 +12440,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_prompts_request.ListPromptsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_prompts_request.ListPromptsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12514,16 +12514,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_queue_email_addresses_request.ListQueueEmailAddressesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
+        input_: aws_sdk_connect.types.list_queue_email_addresses_request.ListQueueEmailAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12564,16 +12564,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_queue_quick_connects_request.ListQueueQuickConnectsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
+        input_: aws_sdk_connect.types.list_queue_quick_connects_request.ListQueueQuickConnectsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12641,17 +12641,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_queues_request.ListQueuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_queues_request.ListQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if queue_types is not None:
-            input["queue_types"] = queue_types
+            input_["queue_types"] = queue_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12721,17 +12721,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_quick_connects_request.ListQuickConnectsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_quick_connects_request.ListQuickConnectsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if quick_connect_types is not None:
-            input["quick_connect_types"] = quick_connect_types
+            input_["quick_connect_types"] = quick_connect_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12807,18 +12807,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_realtime_contact_analysis_segments_v2_request.ListRealtimeContactAnalysisSegmentsV2Request = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.list_realtime_contact_analysis_segments_v2_request.ListRealtimeContactAnalysisSegmentsV2Request = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["output_type"] = output_type
-        input["segment_types"] = segment_types
+            input_["next_token"] = next_token
+        input_["output_type"] = output_type
+        input_["segment_types"] = segment_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12859,16 +12859,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_routing_profile_manual_assignment_queues_request.ListRoutingProfileManualAssignmentQueuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
+        input_: aws_sdk_connect.types.list_routing_profile_manual_assignment_queues_request.ListRoutingProfileManualAssignmentQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12939,16 +12939,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_routing_profile_queues_request.ListRoutingProfileQueuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
+        input_: aws_sdk_connect.types.list_routing_profile_queues_request.ListRoutingProfileQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13016,15 +13016,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_routing_profiles_request.ListRoutingProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_routing_profiles_request.ListRoutingProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13098,19 +13098,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_rules_request.ListRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if publish_status is not None:
-            input["publish_status"] = publish_status
+            input_["publish_status"] = publish_status
         if event_source_name is not None:
-            input["event_source_name"] = event_source_name
+            input_["event_source_name"] = event_source_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13180,15 +13180,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_security_keys_request.ListSecurityKeysRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_security_keys_request.ListSecurityKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13252,16 +13252,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_security_profile_applications_request.ListSecurityProfileApplicationsRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_id"] = security_profile_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_security_profile_applications_request.ListSecurityProfileApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_id"] = security_profile_id
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13329,16 +13329,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_security_profile_flow_modules_request.ListSecurityProfileFlowModulesRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_id"] = security_profile_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_security_profile_flow_modules_request.ListSecurityProfileFlowModulesRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_id"] = security_profile_id
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13406,16 +13406,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_security_profile_permissions_request.ListSecurityProfilePermissionsRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_id"] = security_profile_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_security_profile_permissions_request.ListSecurityProfilePermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_id"] = security_profile_id
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13481,15 +13481,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_security_profiles_request.ListSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_security_profiles_request.ListSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13547,11 +13547,11 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_connect.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13598,19 +13598,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_task_templates_request.ListTaskTemplatesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_task_templates_request.ListTaskTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13690,19 +13690,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_test_case_execution_records_request.ListTestCaseExecutionRecordsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["test_case_id"] = test_case_id
-        input["test_case_execution_id"] = test_case_execution_id
+        input_: aws_sdk_connect.types.list_test_case_execution_records_request.ListTestCaseExecutionRecordsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["test_case_id"] = test_case_id
+        input_["test_case_execution_id"] = test_case_execution_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13759,25 +13759,25 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_test_case_executions_request.ListTestCaseExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_test_case_executions_request.ListTestCaseExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if test_case_id is not None:
-            input["test_case_id"] = test_case_id
+            input_["test_case_id"] = test_case_id
         if test_case_name is not None:
-            input["test_case_name"] = test_case_name
+            input_["test_case_name"] = test_case_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13816,15 +13816,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_test_cases_request.ListTestCasesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_test_cases_request.ListTestCasesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13888,16 +13888,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_traffic_distribution_groups_request.ListTrafficDistributionGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.list_traffic_distribution_groups_request.ListTrafficDistributionGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13961,15 +13961,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_traffic_distribution_group_users_request.ListTrafficDistributionGroupUsersRequest = {}  # type: ignore[typeddict-item]
-        input["traffic_distribution_group_id"] = traffic_distribution_group_id
+        input_: aws_sdk_connect.types.list_traffic_distribution_group_users_request.ListTrafficDistributionGroupUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["traffic_distribution_group_id"] = traffic_distribution_group_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14035,16 +14035,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_use_cases_request.ListUseCasesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["integration_association_id"] = integration_association_id
+        input_: aws_sdk_connect.types.list_use_cases_request.ListUseCasesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["integration_association_id"] = integration_association_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14110,15 +14110,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_user_hierarchy_groups_request.ListUserHierarchyGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_user_hierarchy_groups_request.ListUserHierarchyGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14186,16 +14186,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_user_notifications_request.ListUserNotificationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_user_notifications_request.ListUserNotificationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["user_id"] = user_id
+            input_["max_results"] = max_results
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14236,16 +14236,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_user_proficiencies_request.ListUserProficienciesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["user_id"] = user_id
+        input_: aws_sdk_connect.types.list_user_proficiencies_request.ListUserProficienciesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["user_id"] = user_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14311,15 +14311,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14385,17 +14385,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_views_request.ListViewsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_views_request.ListViewsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14463,16 +14463,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_view_versions_request.ListViewVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["view_id"] = view_id
+        input_: aws_sdk_connect.types.list_view_versions_request.ListViewVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["view_id"] = view_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14536,12 +14536,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_workspace_media_request.ListWorkspaceMediaRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_connect.types.list_workspace_media_request.ListWorkspaceMediaRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14584,16 +14584,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_workspace_pages_request.ListWorkspacePagesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_connect.types.list_workspace_pages_request.ListWorkspacePagesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14659,15 +14659,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14735,17 +14735,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.monitor_contact_request.MonitorContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["user_id"] = user_id
+        input_: aws_sdk_connect.types.monitor_contact_request.MonitorContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["user_id"] = user_id
         if allowed_monitor_capabilities is not None:
-            input["allowed_monitor_capabilities"] = allowed_monitor_capabilities
+            input_["allowed_monitor_capabilities"] = allowed_monitor_capabilities
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14784,14 +14784,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.pause_contact_request.PauseContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.pause_contact_request.PauseContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
+        input_["instance_id"] = instance_id
         if contact_flow_id is not None:
-            input["contact_flow_id"] = contact_flow_id
+            input_["contact_flow_id"] = contact_flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14828,13 +14828,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.put_user_status_request.PutUserStatusRequest = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
-        input["agent_status_id"] = agent_status_id
+        input_: aws_sdk_connect.types.put_user_status_request.PutUserStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
+        input_["agent_status_id"] = agent_status_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14867,13 +14867,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.release_phone_number_request.ReleasePhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
+        input_: aws_sdk_connect.types.release_phone_number_request.ReleasePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14912,15 +14912,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.replicate_instance_request.ReplicateInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["replica_region"] = replica_region
+        input_: aws_sdk_connect.types.replicate_instance_request.ReplicateInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["replica_region"] = replica_region
         if client_token is not None:
-            input["client_token"] = client_token
-        input["replica_alias"] = replica_alias
+            input_["client_token"] = client_token
+        input_["replica_alias"] = replica_alias
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14959,14 +14959,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.resume_contact_request.ResumeContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.resume_contact_request.ResumeContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
+        input_["instance_id"] = instance_id
         if contact_flow_id is not None:
-            input["contact_flow_id"] = contact_flow_id
+            input_["contact_flow_id"] = contact_flow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15007,15 +15007,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.resume_contact_recording_request.ResumeContactRecordingRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["initial_contact_id"] = initial_contact_id
+        input_: aws_sdk_connect.types.resume_contact_recording_request.ResumeContactRecordingRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["initial_contact_id"] = initial_contact_id
         if contact_recording_type is not None:
-            input["contact_recording_type"] = contact_recording_type
+            input_["contact_recording_type"] = contact_recording_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15064,19 +15064,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_agent_statuses_request.SearchAgentStatusesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_agent_statuses_request.SearchAgentStatusesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15160,22 +15160,22 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_available_phone_numbers_request.SearchAvailablePhoneNumbersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.search_available_phone_numbers_request.SearchAvailablePhoneNumbersRequest = {}  # type: ignore[typeddict-item]
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if instance_id is not None:
-            input["instance_id"] = instance_id
-        input["phone_number_country_code"] = phone_number_country_code
-        input["phone_number_type"] = phone_number_type
+            input_["instance_id"] = instance_id
+        input_["phone_number_country_code"] = phone_number_country_code
+        input_["phone_number_type"] = phone_number_type
         if phone_number_prefix is not None:
-            input["phone_number_prefix"] = phone_number_prefix
+            input_["phone_number_prefix"] = phone_number_prefix
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15257,19 +15257,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_contact_evaluations_request.SearchContactEvaluationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_contact_evaluations_request.SearchContactEvaluationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15318,19 +15318,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_contact_flow_modules_request.SearchContactFlowModulesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_contact_flow_modules_request.SearchContactFlowModulesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15416,19 +15416,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_contact_flows_request.SearchContactFlowsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_contact_flows_request.SearchContactFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15512,20 +15512,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_contacts_request.SearchContactsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["time_range"] = time_range
+        input_: aws_sdk_connect.types.search_contacts_request.SearchContactsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["time_range"] = time_range
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15607,19 +15607,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_data_tables_request.SearchDataTablesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_data_tables_request.SearchDataTablesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15701,19 +15701,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_email_addresses_request.SearchEmailAddressesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_email_addresses_request.SearchEmailAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15760,19 +15760,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_evaluation_forms_request.SearchEvaluationFormsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_evaluation_forms_request.SearchEvaluationFormsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15820,19 +15820,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_hours_of_operation_overrides_request.SearchHoursOfOperationOverridesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_hours_of_operation_overrides_request.SearchHoursOfOperationOverridesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15916,19 +15916,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_hours_of_operations_request.SearchHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_hours_of_operations_request.SearchHoursOfOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16010,19 +16010,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_notifications_request.SearchNotificationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_notifications_request.SearchNotificationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16067,17 +16067,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_predefined_attributes_request.SearchPredefinedAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_predefined_attributes_request.SearchPredefinedAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16157,19 +16157,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_prompts_request.SearchPromptsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_prompts_request.SearchPromptsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16253,19 +16253,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_queues_request.SearchQueuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_queues_request.SearchQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16349,19 +16349,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_quick_connects_request.SearchQuickConnectsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_quick_connects_request.SearchQuickConnectsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16447,19 +16447,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_resource_tags_request.SearchResourceTagsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_resource_tags_request.SearchResourceTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16543,19 +16543,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_routing_profiles_request.SearchRoutingProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_routing_profiles_request.SearchRoutingProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16639,19 +16639,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_security_profiles_request.SearchSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_security_profiles_request.SearchSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16735,19 +16735,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_test_cases_request.SearchTestCasesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_test_cases_request.SearchTestCasesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16831,19 +16831,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_user_hierarchy_groups_request.SearchUserHierarchyGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_user_hierarchy_groups_request.SearchUserHierarchyGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -16926,19 +16926,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_users_request.SearchUsersRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_users_request.SearchUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17022,19 +17022,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_views_request.SearchViewsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_views_request.SearchViewsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17124,21 +17124,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_vocabularies_request.SearchVocabulariesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_vocabularies_request.SearchVocabulariesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if name_starts_with is not None:
-            input["name_starts_with"] = name_starts_with
+            input_["name_starts_with"] = name_starts_with
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17226,19 +17226,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_workspace_associations_request.SearchWorkspaceAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_workspace_associations_request.SearchWorkspaceAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17322,19 +17322,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.search_workspaces_request.SearchWorkspacesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.search_workspaces_request.SearchWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17412,17 +17412,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.send_chat_integration_event_request.SendChatIntegrationEventRequest = {}  # type: ignore[typeddict-item]
-        input["source_id"] = source_id
-        input["destination_id"] = destination_id
+        input_: aws_sdk_connect.types.send_chat_integration_event_request.SendChatIntegrationEventRequest = {}  # type: ignore[typeddict-item]
+        input_["source_id"] = source_id
+        input_["destination_id"] = destination_id
         if subtype is not None:
-            input["subtype"] = subtype
-        input["event"] = event
+            input_["subtype"] = subtype
+        input_["event"] = event
         if new_session_details is not None:
-            input["new_session_details"] = new_session_details
+            input_["new_session_details"] = new_session_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17473,21 +17473,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.send_outbound_email_request.SendOutboundEmailRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["from_email_address"] = from_email_address
-        input["destination_email_address"] = destination_email_address
+        input_: aws_sdk_connect.types.send_outbound_email_request.SendOutboundEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["from_email_address"] = from_email_address
+        input_["destination_email_address"] = destination_email_address
         if additional_recipients is not None:
-            input["additional_recipients"] = additional_recipients
-        input["email_message"] = email_message
-        input["traffic_type"] = traffic_type
+            input_["additional_recipients"] = additional_recipients
+        input_["email_message"] = email_message
+        input_["traffic_type"] = traffic_type
         if source_campaign is not None:
-            input["source_campaign"] = source_campaign
+            input_["source_campaign"] = source_campaign
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17540,23 +17540,23 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_attached_file_upload_request.StartAttachedFileUploadRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.start_attached_file_upload_request.StartAttachedFileUploadRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["instance_id"] = instance_id
-        input["file_name"] = file_name
-        input["file_size_in_bytes"] = file_size_in_bytes
+            input_["client_token"] = client_token
+        input_["instance_id"] = instance_id
+        input_["file_name"] = file_name
+        input_["file_size_in_bytes"] = file_size_in_bytes
         if url_expiry_in_seconds is not None:
-            input["url_expiry_in_seconds"] = url_expiry_in_seconds
-        input["file_use_case_type"] = file_use_case_type
-        input["associated_resource_arn"] = associated_resource_arn
+            input_["url_expiry_in_seconds"] = url_expiry_in_seconds
+        input_["file_use_case_type"] = file_use_case_type
+        input_["associated_resource_arn"] = associated_resource_arn
         if created_by is not None:
-            input["created_by"] = created_by
+            input_["created_by"] = created_by
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17633,37 +17633,37 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_chat_contact_request.StartChatContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
+        input_: aws_sdk_connect.types.start_chat_contact_request.StartChatContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
         if attributes is not None:
-            input["attributes"] = attributes
-        input["participant_details"] = participant_details
+            input_["attributes"] = attributes
+        input_["participant_details"] = participant_details
         if participant_configuration is not None:
-            input["participant_configuration"] = participant_configuration
+            input_["participant_configuration"] = participant_configuration
         if initial_message is not None:
-            input["initial_message"] = initial_message
+            input_["initial_message"] = initial_message
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if chat_duration_in_minutes is not None:
-            input["chat_duration_in_minutes"] = chat_duration_in_minutes
+            input_["chat_duration_in_minutes"] = chat_duration_in_minutes
         if supported_messaging_content_types is not None:
-            input["supported_messaging_content_types"] = (
+            input_["supported_messaging_content_types"] = (
                 supported_messaging_content_types
             )
         if persistent_chat is not None:
-            input["persistent_chat"] = persistent_chat
+            input_["persistent_chat"] = persistent_chat
         if related_contact_id is not None:
-            input["related_contact_id"] = related_contact_id
+            input_["related_contact_id"] = related_contact_id
         if segment_attributes is not None:
-            input["segment_attributes"] = segment_attributes
+            input_["segment_attributes"] = segment_attributes
         if customer_id is not None:
-            input["customer_id"] = customer_id
+            input_["customer_id"] = customer_id
         if disconnect_on_customer_exit is not None:
-            input["disconnect_on_customer_exit"] = disconnect_on_customer_exit
+            input_["disconnect_on_customer_exit"] = disconnect_on_customer_exit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17708,19 +17708,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_contact_evaluation_request.StartContactEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["evaluation_form_id"] = evaluation_form_id
+        input_: aws_sdk_connect.types.start_contact_evaluation_request.StartContactEvaluationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["evaluation_form_id"] = evaluation_form_id
         if auto_evaluation_configuration is not None:
-            input["auto_evaluation_configuration"] = auto_evaluation_configuration
+            input_["auto_evaluation_configuration"] = auto_evaluation_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17761,18 +17761,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_contact_media_processing_request.StartContactMediaProcessingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.start_contact_media_processing_request.StartContactMediaProcessingRequest = {}  # type: ignore[typeddict-item]
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if contact_id is not None:
-            input["contact_id"] = contact_id
+            input_["contact_id"] = contact_id
         if processor_arn is not None:
-            input["processor_arn"] = processor_arn
+            input_["processor_arn"] = processor_arn
         if failure_mode is not None:
-            input["failure_mode"] = failure_mode
+            input_["failure_mode"] = failure_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17811,14 +17811,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_contact_recording_request.StartContactRecordingRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["initial_contact_id"] = initial_contact_id
-        input["voice_recording_configuration"] = voice_recording_configuration
+        input_: aws_sdk_connect.types.start_contact_recording_request.StartContactRecordingRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["initial_contact_id"] = initial_contact_id
+        input_["voice_recording_configuration"] = voice_recording_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17857,14 +17857,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_contact_streaming_request.StartContactStreamingRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["chat_streaming_configuration"] = chat_streaming_configuration
-        input["client_token"] = client_token
+        input_: aws_sdk_connect.types.start_contact_streaming_request.StartContactStreamingRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["chat_streaming_configuration"] = chat_streaming_configuration
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -17935,34 +17935,34 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_email_contact_request.StartEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["from_email_address"] = from_email_address
-        input["destination_email_address"] = destination_email_address
+        input_: aws_sdk_connect.types.start_email_contact_request.StartEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["from_email_address"] = from_email_address
+        input_["destination_email_address"] = destination_email_address
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if references is not None:
-            input["references"] = references
+            input_["references"] = references
         if name is not None:
-            input["name"] = name
-        input["email_message"] = email_message
+            input_["name"] = name
+        input_["email_message"] = email_message
         if additional_recipients is not None:
-            input["additional_recipients"] = additional_recipients
+            input_["additional_recipients"] = additional_recipients
         if attachments is not None:
-            input["attachments"] = attachments
+            input_["attachments"] = attachments
         if contact_flow_id is not None:
-            input["contact_flow_id"] = contact_flow_id
+            input_["contact_flow_id"] = contact_flow_id
         if related_contact_id is not None:
-            input["related_contact_id"] = related_contact_id
+            input_["related_contact_id"] = related_contact_id
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if segment_attributes is not None:
-            input["segment_attributes"] = segment_attributes
+            input_["segment_attributes"] = segment_attributes
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18026,33 +18026,35 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_outbound_chat_contact_request.StartOutboundChatContactRequest = {}  # type: ignore[typeddict-item]
-        input["source_endpoint"] = source_endpoint
-        input["destination_endpoint"] = destination_endpoint
-        input["instance_id"] = instance_id
-        input["segment_attributes"] = segment_attributes
+        input_: aws_sdk_connect.types.start_outbound_chat_contact_request.StartOutboundChatContactRequest = {}  # type: ignore[typeddict-item]
+        input_["source_endpoint"] = source_endpoint
+        input_["destination_endpoint"] = destination_endpoint
+        input_["instance_id"] = instance_id
+        input_["segment_attributes"] = segment_attributes
         if attributes is not None:
-            input["attributes"] = attributes
-        input["contact_flow_id"] = contact_flow_id
+            input_["attributes"] = attributes
+        input_["contact_flow_id"] = contact_flow_id
         if chat_duration_in_minutes is not None:
-            input["chat_duration_in_minutes"] = chat_duration_in_minutes
+            input_["chat_duration_in_minutes"] = chat_duration_in_minutes
         if participant_details is not None:
-            input["participant_details"] = participant_details
+            input_["participant_details"] = participant_details
         if initial_system_message is not None:
-            input["initial_system_message"] = initial_system_message
+            input_["initial_system_message"] = initial_system_message
         if initial_templated_system_message is not None:
-            input["initial_templated_system_message"] = initial_templated_system_message
+            input_["initial_templated_system_message"] = (
+                initial_templated_system_message
+            )
         if related_contact_id is not None:
-            input["related_contact_id"] = related_contact_id
+            input_["related_contact_id"] = related_contact_id
         if supported_messaging_content_types is not None:
-            input["supported_messaging_content_types"] = (
+            input_["supported_messaging_content_types"] = (
                 supported_messaging_content_types
             )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18101,20 +18103,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_outbound_email_contact_request.StartOutboundEmailContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.start_outbound_email_contact_request.StartOutboundEmailContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if from_email_address is not None:
-            input["from_email_address"] = from_email_address
-        input["destination_email_address"] = destination_email_address
+            input_["from_email_address"] = from_email_address
+        input_["destination_email_address"] = destination_email_address
         if additional_recipients is not None:
-            input["additional_recipients"] = additional_recipients
-        input["email_message"] = email_message
+            input_["additional_recipients"] = additional_recipients
+        input_["email_message"] = email_message
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18189,39 +18191,39 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_outbound_voice_contact_request.StartOutboundVoiceContactRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.start_outbound_voice_contact_request.StartOutboundVoiceContactRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if references is not None:
-            input["references"] = references
+            input_["references"] = references
         if related_contact_id is not None:
-            input["related_contact_id"] = related_contact_id
-        input["destination_phone_number"] = destination_phone_number
-        input["contact_flow_id"] = contact_flow_id
-        input["instance_id"] = instance_id
+            input_["related_contact_id"] = related_contact_id
+        input_["destination_phone_number"] = destination_phone_number
+        input_["contact_flow_id"] = contact_flow_id
+        input_["instance_id"] = instance_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if source_phone_number is not None:
-            input["source_phone_number"] = source_phone_number
+            input_["source_phone_number"] = source_phone_number
         if queue_id is not None:
-            input["queue_id"] = queue_id
+            input_["queue_id"] = queue_id
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if answer_machine_detection_config is not None:
-            input["answer_machine_detection_config"] = answer_machine_detection_config
+            input_["answer_machine_detection_config"] = answer_machine_detection_config
         if campaign_id is not None:
-            input["campaign_id"] = campaign_id
+            input_["campaign_id"] = campaign_id
         if traffic_type is not None:
-            input["traffic_type"] = traffic_type
+            input_["traffic_type"] = traffic_type
         if outbound_strategy is not None:
-            input["outbound_strategy"] = outbound_strategy
+            input_["outbound_strategy"] = outbound_strategy
         if ring_timeout_in_seconds is not None:
-            input["ring_timeout_in_seconds"] = ring_timeout_in_seconds
+            input_["ring_timeout_in_seconds"] = ring_timeout_in_seconds
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18260,14 +18262,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_screen_sharing_request.StartScreenSharingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.start_screen_sharing_request.StartScreenSharingRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+            input_["client_token"] = client_token
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18342,36 +18344,36 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_task_contact_request.StartTaskContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.start_task_contact_request.StartTaskContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if previous_contact_id is not None:
-            input["previous_contact_id"] = previous_contact_id
+            input_["previous_contact_id"] = previous_contact_id
         if contact_flow_id is not None:
-            input["contact_flow_id"] = contact_flow_id
+            input_["contact_flow_id"] = contact_flow_id
         if attributes is not None:
-            input["attributes"] = attributes
-        input["name"] = name
+            input_["attributes"] = attributes
+        input_["name"] = name
         if references is not None:
-            input["references"] = references
+            input_["references"] = references
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if scheduled_time is not None:
-            input["scheduled_time"] = scheduled_time
+            input_["scheduled_time"] = scheduled_time
         if task_template_id is not None:
-            input["task_template_id"] = task_template_id
+            input_["task_template_id"] = task_template_id
         if quick_connect_id is not None:
-            input["quick_connect_id"] = quick_connect_id
+            input_["quick_connect_id"] = quick_connect_id
         if related_contact_id is not None:
-            input["related_contact_id"] = related_contact_id
+            input_["related_contact_id"] = related_contact_id
         if segment_attributes is not None:
-            input["segment_attributes"] = segment_attributes
+            input_["segment_attributes"] = segment_attributes
         if attachments is not None:
-            input["attachments"] = attachments
+            input_["attachments"] = attachments
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18408,14 +18410,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_test_case_execution_request.StartTestCaseExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_connect.types.start_test_case_execution_request.StartTestCaseExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["test_case_id"] = test_case_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18469,25 +18471,25 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.start_web_rtc_contact_request.StartWebRTCContactRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.start_web_rtc_contact_request.StartWebRTCContactRequest = {}  # type: ignore[typeddict-item]
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if client_token is not None:
-            input["client_token"] = client_token
-        input["contact_flow_id"] = contact_flow_id
-        input["instance_id"] = instance_id
+            input_["client_token"] = client_token
+        input_["contact_flow_id"] = contact_flow_id
+        input_["instance_id"] = instance_id
         if allowed_capabilities is not None:
-            input["allowed_capabilities"] = allowed_capabilities
-        input["participant_details"] = participant_details
+            input_["allowed_capabilities"] = allowed_capabilities
+        input_["participant_details"] = participant_details
         if related_contact_id is not None:
-            input["related_contact_id"] = related_contact_id
+            input_["related_contact_id"] = related_contact_id
         if references is not None:
-            input["references"] = references
+            input_["references"] = references
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18526,14 +18528,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.stop_contact_request.StopContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.stop_contact_request.StopContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
+        input_["instance_id"] = instance_id
         if disconnect_reason is not None:
-            input["disconnect_reason"] = disconnect_reason
+            input_["disconnect_reason"] = disconnect_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18568,14 +18570,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.stop_contact_media_processing_request.StopContactMediaProcessingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.stop_contact_media_processing_request.StopContactMediaProcessingRequest = {}  # type: ignore[typeddict-item]
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if contact_id is not None:
-            input["contact_id"] = contact_id
+            input_["contact_id"] = contact_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18616,15 +18618,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.stop_contact_recording_request.StopContactRecordingRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["initial_contact_id"] = initial_contact_id
+        input_: aws_sdk_connect.types.stop_contact_recording_request.StopContactRecordingRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["initial_contact_id"] = initial_contact_id
         if contact_recording_type is not None:
-            input["contact_recording_type"] = contact_recording_type
+            input_["contact_recording_type"] = contact_recording_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18661,13 +18663,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.stop_contact_streaming_request.StopContactStreamingRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["streaming_id"] = streaming_id
+        input_: aws_sdk_connect.types.stop_contact_streaming_request.StopContactStreamingRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["streaming_id"] = streaming_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18706,15 +18708,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.stop_test_case_execution_request.StopTestCaseExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["test_case_execution_id"] = test_case_execution_id
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_connect.types.stop_test_case_execution_request.StopTestCaseExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["test_case_execution_id"] = test_case_execution_id
+        input_["test_case_id"] = test_case_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18761,18 +18763,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.submit_contact_evaluation_request.SubmitContactEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_id"] = evaluation_id
+        input_: aws_sdk_connect.types.submit_contact_evaluation_request.SubmitContactEvaluationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_id"] = evaluation_id
         if answers is not None:
-            input["answers"] = answers
+            input_["answers"] = answers
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if submitted_by is not None:
-            input["submitted_by"] = submitted_by
+            input_["submitted_by"] = submitted_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18813,15 +18815,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.suspend_contact_recording_request.SuspendContactRecordingRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["initial_contact_id"] = initial_contact_id
+        input_: aws_sdk_connect.types.suspend_contact_recording_request.SuspendContactRecordingRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["initial_contact_id"] = initial_contact_id
         if contact_recording_type is not None:
-            input["contact_recording_type"] = contact_recording_type
+            input_["contact_recording_type"] = contact_recording_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18858,13 +18860,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.tag_contact_request.TagContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
-        input["instance_id"] = instance_id
-        input["tags"] = tags
+        input_: aws_sdk_connect.types.tag_contact_request.TagContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
+        input_["instance_id"] = instance_id
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18897,12 +18899,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_connect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18947,19 +18949,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.transfer_contact_request.TransferContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.transfer_contact_request.TransferContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if queue_id is not None:
-            input["queue_id"] = queue_id
+            input_["queue_id"] = queue_id
         if user_id is not None:
-            input["user_id"] = user_id
-        input["contact_flow_id"] = contact_flow_id
+            input_["user_id"] = user_id
+        input_["contact_flow_id"] = contact_flow_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -18996,13 +18998,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.untag_contact_request.UntagContactRequest = {}  # type: ignore[typeddict-item]
-        input["contact_id"] = contact_id
-        input["instance_id"] = instance_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_connect.types.untag_contact_request.UntagContactRequest = {}  # type: ignore[typeddict-item]
+        input_["contact_id"] = contact_id
+        input_["instance_id"] = instance_id
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19035,12 +19037,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_connect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19091,22 +19093,22 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_agent_status_request.UpdateAgentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["agent_status_id"] = agent_status_id
+        input_: aws_sdk_connect.types.update_agent_status_request.UpdateAgentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["agent_status_id"] = agent_status_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
         if display_order is not None:
-            input["display_order"] = display_order
+            input_["display_order"] = display_order
         if reset_order_number is not None:
-            input["reset_order_number"] = reset_order_number
+            input_["reset_order_number"] = reset_order_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19149,16 +19151,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_attached_files_configuration_request.UpdateAttachedFilesConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["attachment_scope"] = attachment_scope
+        input_: aws_sdk_connect.types.update_attached_files_configuration_request.UpdateAttachedFilesConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["attachment_scope"] = attachment_scope
         if maximum_size_limit_in_bytes is not None:
-            input["maximum_size_limit_in_bytes"] = maximum_size_limit_in_bytes
+            input_["maximum_size_limit_in_bytes"] = maximum_size_limit_in_bytes
         if extension_configuration is not None:
-            input["extension_configuration"] = extension_configuration
+            input_["extension_configuration"] = extension_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19215,28 +19217,28 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_authentication_profile_request.UpdateAuthenticationProfileRequest = {}  # type: ignore[typeddict-item]
-        input["authentication_profile_id"] = authentication_profile_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_authentication_profile_request.UpdateAuthenticationProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["authentication_profile_id"] = authentication_profile_id
+        input_["instance_id"] = instance_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if allowed_ips is not None:
-            input["allowed_ips"] = allowed_ips
+            input_["allowed_ips"] = allowed_ips
         if blocked_ips is not None:
-            input["blocked_ips"] = blocked_ips
+            input_["blocked_ips"] = blocked_ips
         if periodic_session_duration is not None:
-            input["periodic_session_duration"] = periodic_session_duration
+            input_["periodic_session_duration"] = periodic_session_duration
         if session_inactivity_duration is not None:
-            input["session_inactivity_duration"] = session_inactivity_duration
+            input_["session_inactivity_duration"] = session_inactivity_duration
         if session_inactivity_handling_enabled is not None:
-            input["session_inactivity_handling_enabled"] = (
+            input_["session_inactivity_handling_enabled"] = (
                 session_inactivity_handling_enabled
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19293,28 +19295,28 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_request.UpdateContactRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.update_contact_request.UpdateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if references is not None:
-            input["references"] = references
+            input_["references"] = references
         if segment_attributes is not None:
-            input["segment_attributes"] = segment_attributes
+            input_["segment_attributes"] = segment_attributes
         if queue_info is not None:
-            input["queue_info"] = queue_info
+            input_["queue_info"] = queue_info
         if user_info is not None:
-            input["user_info"] = user_info
+            input_["user_info"] = user_info
         if customer_endpoint is not None:
-            input["customer_endpoint"] = customer_endpoint
+            input_["customer_endpoint"] = customer_endpoint
         if system_endpoint is not None:
-            input["system_endpoint"] = system_endpoint
+            input_["system_endpoint"] = system_endpoint
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19351,13 +19353,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_attributes_request.UpdateContactAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["initial_contact_id"] = initial_contact_id
-        input["instance_id"] = instance_id
-        input["attributes"] = attributes
+        input_: aws_sdk_connect.types.update_contact_attributes_request.UpdateContactAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["initial_contact_id"] = initial_contact_id
+        input_["instance_id"] = instance_id
+        input_["attributes"] = attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19404,18 +19406,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_evaluation_request.UpdateContactEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_id"] = evaluation_id
+        input_: aws_sdk_connect.types.update_contact_evaluation_request.UpdateContactEvaluationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_id"] = evaluation_id
         if answers is not None:
-            input["answers"] = answers
+            input_["answers"] = answers
         if notes is not None:
-            input["notes"] = notes
+            input_["notes"] = notes
         if updated_by is not None:
-            input["updated_by"] = updated_by
+            input_["updated_by"] = updated_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19452,13 +19454,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_flow_content_request.UpdateContactFlowContentRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
-        input["content"] = content
+        input_: aws_sdk_connect.types.update_contact_flow_content_request.UpdateContactFlowContentRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
+        input_["content"] = content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19505,18 +19507,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_flow_metadata_request.UpdateContactFlowMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
+        input_: aws_sdk_connect.types.update_contact_flow_metadata_request.UpdateContactFlowMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if contact_flow_state is not None:
-            input["contact_flow_state"] = contact_flow_state
+            input_["contact_flow_state"] = contact_flow_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19565,19 +19567,19 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_flow_module_alias_request.UpdateContactFlowModuleAliasRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
-        input["alias_id"] = alias_id
+        input_: aws_sdk_connect.types.update_contact_flow_module_alias_request.UpdateContactFlowModuleAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
+        input_["alias_id"] = alias_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if contact_flow_module_version is not None:
-            input["contact_flow_module_version"] = contact_flow_module_version
+            input_["contact_flow_module_version"] = contact_flow_module_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19620,16 +19622,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_flow_module_content_request.UpdateContactFlowModuleContentRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
+        input_: aws_sdk_connect.types.update_contact_flow_module_content_request.UpdateContactFlowModuleContentRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
         if settings is not None:
-            input["settings"] = settings
+            input_["settings"] = settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19676,18 +19678,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_flow_module_metadata_request.UpdateContactFlowModuleMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_module_id"] = contact_flow_module_id
+        input_: aws_sdk_connect.types.update_contact_flow_module_metadata_request.UpdateContactFlowModuleMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_module_id"] = contact_flow_module_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19730,16 +19732,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_flow_name_request.UpdateContactFlowNameRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_flow_id"] = contact_flow_id
+        input_: aws_sdk_connect.types.update_contact_flow_name_request.UpdateContactFlowNameRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_flow_id"] = contact_flow_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19786,18 +19788,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_routing_data_request.UpdateContactRoutingDataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
+        input_: aws_sdk_connect.types.update_contact_routing_data_request.UpdateContactRoutingDataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
         if queue_time_adjustment_seconds is not None:
-            input["queue_time_adjustment_seconds"] = queue_time_adjustment_seconds
+            input_["queue_time_adjustment_seconds"] = queue_time_adjustment_seconds
         if queue_priority is not None:
-            input["queue_priority"] = queue_priority
+            input_["queue_priority"] = queue_priority
         if routing_criteria is not None:
-            input["routing_criteria"] = routing_criteria
+            input_["routing_criteria"] = routing_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19834,13 +19836,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_contact_schedule_request.UpdateContactScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["scheduled_time"] = scheduled_time
+        input_: aws_sdk_connect.types.update_contact_schedule_request.UpdateContactScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["scheduled_time"] = scheduled_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19889,21 +19891,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_data_table_attribute_request.UpdateDataTableAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["attribute_name"] = attribute_name
-        input["name"] = name
-        input["value_type"] = value_type
+        input_: aws_sdk_connect.types.update_data_table_attribute_request.UpdateDataTableAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["attribute_name"] = attribute_name
+        input_["name"] = name
+        input_["value_type"] = value_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if primary is not None:
-            input["primary"] = primary
+            input_["primary"] = primary
         if validation is not None:
-            input["validation"] = validation
+            input_["validation"] = validation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19948,17 +19950,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_data_table_metadata_request.UpdateDataTableMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.update_data_table_metadata_request.UpdateDataTableMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["value_lock_level"] = value_lock_level
-        input["time_zone"] = time_zone
+            input_["description"] = description
+        input_["value_lock_level"] = value_lock_level
+        input_["time_zone"] = time_zone
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -19999,15 +20001,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_data_table_primary_values_request.UpdateDataTablePrimaryValuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["data_table_id"] = data_table_id
-        input["primary_values"] = primary_values
-        input["new_primary_values"] = new_primary_values
-        input["lock_version"] = lock_version
+        input_: aws_sdk_connect.types.update_data_table_primary_values_request.UpdateDataTablePrimaryValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["data_table_id"] = data_table_id
+        input_["primary_values"] = primary_values
+        input_["new_primary_values"] = new_primary_values
+        input_["lock_version"] = lock_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20050,18 +20052,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_email_address_metadata_request.UpdateEmailAddressMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["email_address_id"] = email_address_id
+        input_: aws_sdk_connect.types.update_email_address_metadata_request.UpdateEmailAddressMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["email_address_id"] = email_address_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20134,33 +20136,33 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_evaluation_form_request.UpdateEvaluationFormRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["evaluation_form_id"] = evaluation_form_id
-        input["evaluation_form_version"] = evaluation_form_version
+        input_: aws_sdk_connect.types.update_evaluation_form_request.UpdateEvaluationFormRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["evaluation_form_id"] = evaluation_form_id
+        input_["evaluation_form_version"] = evaluation_form_version
         if create_new_version is not None:
-            input["create_new_version"] = create_new_version
-        input["title"] = title
+            input_["create_new_version"] = create_new_version
+        input_["title"] = title
         if description is not None:
-            input["description"] = description
-        input["items"] = items
+            input_["description"] = description
+        input_["items"] = items
         if scoring_strategy is not None:
-            input["scoring_strategy"] = scoring_strategy
+            input_["scoring_strategy"] = scoring_strategy
         if auto_evaluation_configuration is not None:
-            input["auto_evaluation_configuration"] = auto_evaluation_configuration
+            input_["auto_evaluation_configuration"] = auto_evaluation_configuration
         if review_configuration is not None:
-            input["review_configuration"] = review_configuration
+            input_["review_configuration"] = review_configuration
         if as_draft is not None:
-            input["as_draft"] = as_draft
+            input_["as_draft"] = as_draft
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if target_configuration is not None:
-            input["target_configuration"] = target_configuration
+            input_["target_configuration"] = target_configuration
         if language_configuration is not None:
-            input["language_configuration"] = language_configuration
+            input_["language_configuration"] = language_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20207,20 +20209,20 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_hours_of_operation_request.UpdateHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
+        input_: aws_sdk_connect.types.update_hours_of_operation_request.UpdateHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if time_zone is not None:
-            input["time_zone"] = time_zone
+            input_["time_zone"] = time_zone
         if config is not None:
-            input["config"] = config
+            input_["config"] = config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20283,27 +20285,27 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_hours_of_operation_override_request.UpdateHoursOfOperationOverrideRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["hours_of_operation_id"] = hours_of_operation_id
-        input["hours_of_operation_override_id"] = hours_of_operation_override_id
+        input_: aws_sdk_connect.types.update_hours_of_operation_override_request.UpdateHoursOfOperationOverrideRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
+        input_["hours_of_operation_override_id"] = hours_of_operation_override_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if config is not None:
-            input["config"] = config
+            input_["config"] = config
         if effective_from is not None:
-            input["effective_from"] = effective_from
+            input_["effective_from"] = effective_from
         if effective_till is not None:
-            input["effective_till"] = effective_till
+            input_["effective_till"] = effective_till
         if recurrence_config is not None:
-            input["recurrence_config"] = recurrence_config
+            input_["recurrence_config"] = recurrence_config
         if override_type is not None:
-            input["override_type"] = override_type
+            input_["override_type"] = override_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20340,15 +20342,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_instance_attribute_request.UpdateInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["attribute_type"] = attribute_type
-        input["value"] = value
+        input_: aws_sdk_connect.types.update_instance_attribute_request.UpdateInstanceAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["attribute_type"] = attribute_type
+        input_["value"] = value
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20386,16 +20388,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_instance_storage_config_request.UpdateInstanceStorageConfigRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["association_id"] = association_id
-        input["resource_type"] = resource_type
-        input["storage_config"] = storage_config
+        input_: aws_sdk_connect.types.update_instance_storage_config_request.UpdateInstanceStorageConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["association_id"] = association_id
+        input_["resource_type"] = resource_type
+        input_["storage_config"] = storage_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20432,13 +20434,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_notification_content_request.UpdateNotificationContentRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["notification_id"] = notification_id
-        input["content"] = content
+        input_: aws_sdk_connect.types.update_notification_content_request.UpdateNotificationContentRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["notification_id"] = notification_id
+        input_["content"] = content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20485,18 +20487,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_participant_authentication_request.UpdateParticipantAuthenticationRequest = {}  # type: ignore[typeddict-item]
-        input["state"] = state
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_participant_authentication_request.UpdateParticipantAuthenticationRequest = {}  # type: ignore[typeddict-item]
+        input_["state"] = state
+        input_["instance_id"] = instance_id
         if code is not None:
-            input["code"] = code
+            input_["code"] = code
         if error is not None:
-            input["error"] = error
+            input_["error"] = error
         if error_description is not None:
-            input["error_description"] = error_description
+            input_["error_description"] = error_description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20533,13 +20535,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_participant_role_config_request.UpdateParticipantRoleConfigRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["contact_id"] = contact_id
-        input["channel_configuration"] = channel_configuration
+        input_: aws_sdk_connect.types.update_participant_role_config_request.UpdateParticipantRoleConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["contact_id"] = contact_id
+        input_["channel_configuration"] = channel_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20578,17 +20580,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_phone_number_request.UpdatePhoneNumberRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
+        input_: aws_sdk_connect.types.update_phone_number_request.UpdatePhoneNumberRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if instance_id is not None:
-            input["instance_id"] = instance_id
+            input_["instance_id"] = instance_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20625,15 +20627,15 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_phone_number_metadata_request.UpdatePhoneNumberMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["phone_number_id"] = phone_number_id
+        input_: aws_sdk_connect.types.update_phone_number_metadata_request.UpdatePhoneNumberMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_number_id"] = phone_number_id
         if phone_number_description is not None:
-            input["phone_number_description"] = phone_number_description
+            input_["phone_number_description"] = phone_number_description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20678,18 +20680,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_predefined_attribute_request.UpdatePredefinedAttributeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["name"] = name
+        input_: aws_sdk_connect.types.update_predefined_attribute_request.UpdatePredefinedAttributeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["name"] = name
         if values is not None:
-            input["values"] = values
+            input_["values"] = values
         if purposes is not None:
-            input["purposes"] = purposes
+            input_["purposes"] = purposes
         if attribute_configuration is not None:
-            input["attribute_configuration"] = attribute_configuration
+            input_["attribute_configuration"] = attribute_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20734,18 +20736,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_prompt_request.UpdatePromptRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["prompt_id"] = prompt_id
+        input_: aws_sdk_connect.types.update_prompt_request.UpdatePromptRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["prompt_id"] = prompt_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if s3_uri is not None:
-            input["s3_uri"] = s3_uri
+            input_["s3_uri"] = s3_uri
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20780,13 +20782,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_queue_hours_of_operation_request.UpdateQueueHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
-        input["hours_of_operation_id"] = hours_of_operation_id
+        input_: aws_sdk_connect.types.update_queue_hours_of_operation_request.UpdateQueueHoursOfOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
+        input_["hours_of_operation_id"] = hours_of_operation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20823,14 +20825,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_queue_max_contacts_request.UpdateQueueMaxContactsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
+        input_: aws_sdk_connect.types.update_queue_max_contacts_request.UpdateQueueMaxContactsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
         if max_contacts is not None:
-            input["max_contacts"] = max_contacts
+            input_["max_contacts"] = max_contacts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20871,16 +20873,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_queue_name_request.UpdateQueueNameRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
+        input_: aws_sdk_connect.types.update_queue_name_request.UpdateQueueNameRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20915,13 +20917,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_queue_outbound_caller_config_request.UpdateQueueOutboundCallerConfigRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
-        input["outbound_caller_config"] = outbound_caller_config
+        input_: aws_sdk_connect.types.update_queue_outbound_caller_config_request.UpdateQueueOutboundCallerConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
+        input_["outbound_caller_config"] = outbound_caller_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20956,13 +20958,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_queue_outbound_email_config_request.UpdateQueueOutboundEmailConfigRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
-        input["outbound_email_config"] = outbound_email_config
+        input_: aws_sdk_connect.types.update_queue_outbound_email_config_request.UpdateQueueOutboundEmailConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
+        input_["outbound_email_config"] = outbound_email_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -20997,13 +20999,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_queue_status_request.UpdateQueueStatusRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["queue_id"] = queue_id
-        input["status"] = status
+        input_: aws_sdk_connect.types.update_queue_status_request.UpdateQueueStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["queue_id"] = queue_id
+        input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21038,13 +21040,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_quick_connect_config_request.UpdateQuickConnectConfigRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["quick_connect_id"] = quick_connect_id
-        input["quick_connect_config"] = quick_connect_config
+        input_: aws_sdk_connect.types.update_quick_connect_config_request.UpdateQuickConnectConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["quick_connect_id"] = quick_connect_id
+        input_["quick_connect_config"] = quick_connect_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21085,16 +21087,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_quick_connect_name_request.UpdateQuickConnectNameRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["quick_connect_id"] = quick_connect_id
+        input_: aws_sdk_connect.types.update_quick_connect_name_request.UpdateQuickConnectNameRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["quick_connect_id"] = quick_connect_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21129,13 +21131,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_routing_profile_agent_availability_timer_request.UpdateRoutingProfileAgentAvailabilityTimerRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
-        input["agent_availability_timer"] = agent_availability_timer
+        input_: aws_sdk_connect.types.update_routing_profile_agent_availability_timer_request.UpdateRoutingProfileAgentAvailabilityTimerRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
+        input_["agent_availability_timer"] = agent_availability_timer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21170,13 +21172,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_routing_profile_concurrency_request.UpdateRoutingProfileConcurrencyRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
-        input["media_concurrencies"] = media_concurrencies
+        input_: aws_sdk_connect.types.update_routing_profile_concurrency_request.UpdateRoutingProfileConcurrencyRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
+        input_["media_concurrencies"] = media_concurrencies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21211,13 +21213,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_routing_profile_default_outbound_queue_request.UpdateRoutingProfileDefaultOutboundQueueRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
-        input["default_outbound_queue_id"] = default_outbound_queue_id
+        input_: aws_sdk_connect.types.update_routing_profile_default_outbound_queue_request.UpdateRoutingProfileDefaultOutboundQueueRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
+        input_["default_outbound_queue_id"] = default_outbound_queue_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21258,16 +21260,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_routing_profile_name_request.UpdateRoutingProfileNameRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
+        input_: aws_sdk_connect.types.update_routing_profile_name_request.UpdateRoutingProfileNameRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21302,13 +21304,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_routing_profile_queues_request.UpdateRoutingProfileQueuesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["routing_profile_id"] = routing_profile_id
-        input["queue_configs"] = queue_configs
+        input_: aws_sdk_connect.types.update_routing_profile_queues_request.UpdateRoutingProfileQueuesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["routing_profile_id"] = routing_profile_id
+        input_["queue_configs"] = queue_configs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21349,16 +21351,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
-        input["instance_id"] = instance_id
-        input["name"] = name
-        input["function"] = function
-        input["actions"] = actions
-        input["publish_status"] = publish_status
+        input_: aws_sdk_connect.types.update_rule_request.UpdateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
+        input_["instance_id"] = instance_id
+        input_["name"] = name
+        input_["function"] = function
+        input_["actions"] = actions
+        input_["publish_status"] = publish_status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21427,34 +21429,34 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_security_profile_request.UpdateSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.update_security_profile_request.UpdateSecurityProfileRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if permissions is not None:
-            input["permissions"] = permissions
-        input["security_profile_id"] = security_profile_id
-        input["instance_id"] = instance_id
+            input_["permissions"] = permissions
+        input_["security_profile_id"] = security_profile_id
+        input_["instance_id"] = instance_id
         if allowed_access_control_tags is not None:
-            input["allowed_access_control_tags"] = allowed_access_control_tags
+            input_["allowed_access_control_tags"] = allowed_access_control_tags
         if tag_restricted_resources is not None:
-            input["tag_restricted_resources"] = tag_restricted_resources
+            input_["tag_restricted_resources"] = tag_restricted_resources
         if applications is not None:
-            input["applications"] = applications
+            input_["applications"] = applications
         if hierarchy_restricted_resources is not None:
-            input["hierarchy_restricted_resources"] = hierarchy_restricted_resources
+            input_["hierarchy_restricted_resources"] = hierarchy_restricted_resources
         if allowed_access_control_hierarchy_group_id is not None:
-            input["allowed_access_control_hierarchy_group_id"] = (
+            input_["allowed_access_control_hierarchy_group_id"] = (
                 allowed_access_control_hierarchy_group_id
             )
         if allowed_flow_modules is not None:
-            input["allowed_flow_modules"] = allowed_flow_modules
+            input_["allowed_flow_modules"] = allowed_flow_modules
         if granular_access_control_configuration is not None:
-            input["granular_access_control_configuration"] = (
+            input_["granular_access_control_configuration"] = (
                 granular_access_control_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21523,28 +21525,28 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_task_template_request.UpdateTaskTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["task_template_id"] = task_template_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_task_template_request.UpdateTaskTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["task_template_id"] = task_template_id
+        input_["instance_id"] = instance_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if contact_flow_id is not None:
-            input["contact_flow_id"] = contact_flow_id
+            input_["contact_flow_id"] = contact_flow_id
         if self_assign_flow_id is not None:
-            input["self_assign_flow_id"] = self_assign_flow_id
+            input_["self_assign_flow_id"] = self_assign_flow_id
         if constraints is not None:
-            input["constraints"] = constraints
+            input_["constraints"] = constraints
         if defaults is not None:
-            input["defaults"] = defaults
+            input_["defaults"] = defaults
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if fields is not None:
-            input["fields"] = fields
+            input_["fields"] = fields
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21609,28 +21611,28 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_test_case_request.UpdateTestCaseRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["test_case_id"] = test_case_id
+        input_: aws_sdk_connect.types.update_test_case_request.UpdateTestCaseRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["test_case_id"] = test_case_id
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
         if entry_point is not None:
-            input["entry_point"] = entry_point
+            input_["entry_point"] = entry_point
         if initialization_data is not None:
-            input["initialization_data"] = initialization_data
+            input_["initialization_data"] = initialization_data
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if last_modified_time is not None:
-            input["last_modified_time"] = last_modified_time
+            input_["last_modified_time"] = last_modified_time
         if last_modified_region is not None:
-            input["last_modified_region"] = last_modified_region
+            input_["last_modified_region"] = last_modified_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21673,17 +21675,17 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_traffic_distribution_request.UpdateTrafficDistributionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_connect.types.update_traffic_distribution_request.UpdateTrafficDistributionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if telephony_config is not None:
-            input["telephony_config"] = telephony_config
+            input_["telephony_config"] = telephony_config
         if sign_in_config is not None:
-            input["sign_in_config"] = sign_in_config
+            input_["sign_in_config"] = sign_in_config
         if agent_config is not None:
-            input["agent_config"] = agent_config
+            input_["agent_config"] = agent_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21736,22 +21738,22 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_config_request.UpdateUserConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.update_user_config_request.UpdateUserConfigRequest = {}  # type: ignore[typeddict-item]
         if auto_accept_configs is not None:
-            input["auto_accept_configs"] = auto_accept_configs
+            input_["auto_accept_configs"] = auto_accept_configs
         if after_contact_work_configs is not None:
-            input["after_contact_work_configs"] = after_contact_work_configs
+            input_["after_contact_work_configs"] = after_contact_work_configs
         if phone_number_configs is not None:
-            input["phone_number_configs"] = phone_number_configs
+            input_["phone_number_configs"] = phone_number_configs
         if persistent_connection_configs is not None:
-            input["persistent_connection_configs"] = persistent_connection_configs
+            input_["persistent_connection_configs"] = persistent_connection_configs
         if voice_enhancement_configs is not None:
-            input["voice_enhancement_configs"] = voice_enhancement_configs
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+            input_["voice_enhancement_configs"] = voice_enhancement_configs
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21788,14 +21790,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_hierarchy_request.UpdateUserHierarchyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_connect.types.update_user_hierarchy_request.UpdateUserHierarchyRequest = {}  # type: ignore[typeddict-item]
         if hierarchy_group_id is not None:
-            input["hierarchy_group_id"] = hierarchy_group_id
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+            input_["hierarchy_group_id"] = hierarchy_group_id
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21830,13 +21832,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_hierarchy_group_name_request.UpdateUserHierarchyGroupNameRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["hierarchy_group_id"] = hierarchy_group_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_user_hierarchy_group_name_request.UpdateUserHierarchyGroupNameRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["hierarchy_group_id"] = hierarchy_group_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21869,12 +21871,12 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_hierarchy_structure_request.UpdateUserHierarchyStructureRequest = {}  # type: ignore[typeddict-item]
-        input["hierarchy_structure"] = hierarchy_structure
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_user_hierarchy_structure_request.UpdateUserHierarchyStructureRequest = {}  # type: ignore[typeddict-item]
+        input_["hierarchy_structure"] = hierarchy_structure
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21909,13 +21911,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_identity_info_request.UpdateUserIdentityInfoRequest = {}  # type: ignore[typeddict-item]
-        input["identity_info"] = identity_info
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_user_identity_info_request.UpdateUserIdentityInfoRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_info"] = identity_info
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -21962,18 +21964,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_notification_status_request.UpdateUserNotificationStatusRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["notification_id"] = notification_id
-        input["user_id"] = user_id
-        input["status"] = status
+        input_: aws_sdk_connect.types.update_user_notification_status_request.UpdateUserNotificationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["notification_id"] = notification_id
+        input_["user_id"] = user_id
+        input_["status"] = status
         if last_modified_time is not None:
-            input["last_modified_time"] = last_modified_time
+            input_["last_modified_time"] = last_modified_time
         if last_modified_region is not None:
-            input["last_modified_region"] = last_modified_region
+            input_["last_modified_region"] = last_modified_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22008,13 +22010,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_phone_config_request.UpdateUserPhoneConfigRequest = {}  # type: ignore[typeddict-item]
-        input["phone_config"] = phone_config
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_user_phone_config_request.UpdateUserPhoneConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["phone_config"] = phone_config
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22049,13 +22051,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_proficiencies_request.UpdateUserProficienciesRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["user_id"] = user_id
-        input["user_proficiencies"] = user_proficiencies
+        input_: aws_sdk_connect.types.update_user_proficiencies_request.UpdateUserProficienciesRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["user_id"] = user_id
+        input_["user_proficiencies"] = user_proficiencies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22090,13 +22092,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_routing_profile_request.UpdateUserRoutingProfileRequest = {}  # type: ignore[typeddict-item]
-        input["routing_profile_id"] = routing_profile_id
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_user_routing_profile_request.UpdateUserRoutingProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["routing_profile_id"] = routing_profile_id
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22131,13 +22133,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_user_security_profiles_request.UpdateUserSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_ids"] = security_profile_ids
-        input["user_id"] = user_id
-        input["instance_id"] = instance_id
+        input_: aws_sdk_connect.types.update_user_security_profiles_request.UpdateUserSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_ids"] = security_profile_ids
+        input_["user_id"] = user_id
+        input_["instance_id"] = instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22176,14 +22178,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_view_content_request.UpdateViewContentRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["view_id"] = view_id
-        input["status"] = status
-        input["content"] = content
+        input_: aws_sdk_connect.types.update_view_content_request.UpdateViewContentRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["view_id"] = view_id
+        input_["status"] = status
+        input_["content"] = content
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22226,16 +22228,16 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_view_metadata_request.UpdateViewMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["view_id"] = view_id
+        input_: aws_sdk_connect.types.update_view_metadata_request.UpdateViewMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["view_id"] = view_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22278,18 +22280,18 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_workspace_metadata_request.UpdateWorkspaceMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_connect.types.update_workspace_metadata_request.UpdateWorkspaceMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22334,21 +22336,21 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_workspace_page_request.UpdateWorkspacePageRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
-        input["page"] = page
+        input_: aws_sdk_connect.types.update_workspace_page_request.UpdateWorkspacePageRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
+        input_["page"] = page
         if new_page is not None:
-            input["new_page"] = new_page
+            input_["new_page"] = new_page
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if slug is not None:
-            input["slug"] = slug
+            input_["slug"] = slug
         if input_data is not None:
-            input["input_data"] = input_data
+            input_["input_data"] = input_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22385,14 +22387,14 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_workspace_theme_request.UpdateWorkspaceThemeRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_connect.types.update_workspace_theme_request.UpdateWorkspaceThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
         if theme is not None:
-            input["theme"] = theme
+            input_["theme"] = theme
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -22429,13 +22431,13 @@ class ConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_connect.types.update_workspace_visibility_request.UpdateWorkspaceVisibilityRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["workspace_id"] = workspace_id
-        input["visibility"] = visibility
+        input_: aws_sdk_connect.types.update_workspace_visibility_request.UpdateWorkspaceVisibilityRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["workspace_id"] = workspace_id
+        input_["visibility"] = visibility
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

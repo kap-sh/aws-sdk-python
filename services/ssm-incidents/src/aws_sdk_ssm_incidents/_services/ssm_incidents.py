@@ -260,12 +260,12 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.batch_get_incident_findings_input.BatchGetIncidentFindingsInput = {}  # type: ignore[typeddict-item]
-        input["incident_record_arn"] = incident_record_arn
-        input["finding_ids"] = finding_ids
+        input_: aws_sdk_ssm_incidents.types.batch_get_incident_findings_input.BatchGetIncidentFindingsInput = {}  # type: ignore[typeddict-item]
+        input_["incident_record_arn"] = incident_record_arn
+        input_["finding_ids"] = finding_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -304,15 +304,15 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.create_replication_set_input.CreateReplicationSetInput = {}  # type: ignore[typeddict-item]
-        input["regions"] = regions
+        input_: aws_sdk_ssm_incidents.types.create_replication_set_input.CreateReplicationSetInput = {}  # type: ignore[typeddict-item]
+        input_["regions"] = regions
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,26 +373,26 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.create_response_plan_input.CreateResponsePlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.create_response_plan_input.CreateResponsePlanInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if display_name is not None:
-            input["display_name"] = display_name
-        input["incident_template"] = incident_template
+            input_["display_name"] = display_name
+        input_["incident_template"] = incident_template
         if chat_channel is not None:
-            input["chat_channel"] = chat_channel
+            input_["chat_channel"] = chat_channel
         if engagements is not None:
-            input["engagements"] = engagements
+            input_["engagements"] = engagements
         if actions is not None:
-            input["actions"] = actions
+            input_["actions"] = actions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if integrations is not None:
-            input["integrations"] = integrations
+            input_["integrations"] = integrations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -439,18 +439,18 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.create_timeline_event_input.CreateTimelineEventInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.create_timeline_event_input.CreateTimelineEventInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["incident_record_arn"] = incident_record_arn
-        input["event_time"] = event_time
-        input["event_type"] = event_type
-        input["event_data"] = event_data
+            input_["client_token"] = client_token
+        input_["incident_record_arn"] = incident_record_arn
+        input_["event_time"] = event_time
+        input_["event_type"] = event_type
+        input_["event_data"] = event_data
         if event_references is not None:
-            input["event_references"] = event_references
+            input_["event_references"] = event_references
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,11 +483,11 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.delete_incident_record_input.DeleteIncidentRecordInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ssm_incidents.types.delete_incident_record_input.DeleteIncidentRecordInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,11 +520,11 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.delete_replication_set_input.DeleteReplicationSetInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ssm_incidents.types.delete_replication_set_input.DeleteReplicationSetInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,12 +559,12 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy_id"] = policy_id
+        input_: aws_sdk_ssm_incidents.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy_id"] = policy_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,11 +597,11 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.delete_response_plan_input.DeleteResponsePlanInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ssm_incidents.types.delete_response_plan_input.DeleteResponsePlanInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,12 +636,12 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.delete_timeline_event_input.DeleteTimelineEventInput = {}  # type: ignore[typeddict-item]
-        input["incident_record_arn"] = incident_record_arn
-        input["event_id"] = event_id
+        input_: aws_sdk_ssm_incidents.types.delete_timeline_event_input.DeleteTimelineEventInput = {}  # type: ignore[typeddict-item]
+        input_["incident_record_arn"] = incident_record_arn
+        input_["event_id"] = event_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -676,11 +676,11 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.get_incident_record_input.GetIncidentRecordInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ssm_incidents.types.get_incident_record_input.GetIncidentRecordInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,11 +715,11 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.get_replication_set_input.GetReplicationSetInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ssm_incidents.types.get_replication_set_input.GetReplicationSetInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -758,15 +758,15 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.get_resource_policies_input.GetResourcePoliciesInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ssm_incidents.types.get_resource_policies_input.GetResourcePoliciesInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -824,11 +824,11 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.get_response_plan_input.GetResponsePlanInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ssm_incidents.types.get_response_plan_input.GetResponsePlanInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -863,12 +863,12 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.get_timeline_event_input.GetTimelineEventInput = {}  # type: ignore[typeddict-item]
-        input["incident_record_arn"] = incident_record_arn
-        input["event_id"] = event_id
+        input_: aws_sdk_ssm_incidents.types.get_timeline_event_input.GetTimelineEventInput = {}  # type: ignore[typeddict-item]
+        input_["incident_record_arn"] = incident_record_arn
+        input_["event_id"] = event_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -905,15 +905,15 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.list_incident_findings_input.ListIncidentFindingsInput = {}  # type: ignore[typeddict-item]
-        input["incident_record_arn"] = incident_record_arn
+        input_: aws_sdk_ssm_incidents.types.list_incident_findings_input.ListIncidentFindingsInput = {}  # type: ignore[typeddict-item]
+        input_["incident_record_arn"] = incident_record_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -975,16 +975,16 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.list_incident_records_input.ListIncidentRecordsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.list_incident_records_input.ListIncidentRecordsInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1048,15 +1048,15 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.list_related_items_input.ListRelatedItemsInput = {}  # type: ignore[typeddict-item]
-        input["incident_record_arn"] = incident_record_arn
+        input_: aws_sdk_ssm_incidents.types.list_related_items_input.ListRelatedItemsInput = {}  # type: ignore[typeddict-item]
+        input_["incident_record_arn"] = incident_record_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1118,14 +1118,14 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.list_replication_sets_input.ListReplicationSetsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.list_replication_sets_input.ListReplicationSetsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1187,14 +1187,14 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.list_response_plans_input.ListResponsePlansInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.list_response_plans_input.ListResponsePlansInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1250,11 +1250,11 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ssm_incidents.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1301,21 +1301,21 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.list_timeline_events_input.ListTimelineEventsInput = {}  # type: ignore[typeddict-item]
-        input["incident_record_arn"] = incident_record_arn
+        input_: aws_sdk_ssm_incidents.types.list_timeline_events_input.ListTimelineEventsInput = {}  # type: ignore[typeddict-item]
+        input_["incident_record_arn"] = incident_record_arn
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1385,12 +1385,12 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_ssm_incidents.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1441,21 +1441,21 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.start_incident_input.StartIncidentInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.start_incident_input.StartIncidentInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["response_plan_arn"] = response_plan_arn
+            input_["client_token"] = client_token
+        input_["response_plan_arn"] = response_plan_arn
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if impact is not None:
-            input["impact"] = impact
+            input_["impact"] = impact
         if trigger_details is not None:
-            input["trigger_details"] = trigger_details
+            input_["trigger_details"] = trigger_details
         if related_items is not None:
-            input["related_items"] = related_items
+            input_["related_items"] = related_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1490,12 +1490,12 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_ssm_incidents.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1530,12 +1530,12 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ssm_incidents.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1574,14 +1574,14 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.update_deletion_protection_input.UpdateDeletionProtectionInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["deletion_protected"] = deletion_protected
+        input_: aws_sdk_ssm_incidents.types.update_deletion_protection_input.UpdateDeletionProtectionInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["deletion_protected"] = deletion_protected
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1640,25 +1640,25 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.update_incident_record_input.UpdateIncidentRecordInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.update_incident_record_input.UpdateIncidentRecordInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["arn"] = arn
+            input_["client_token"] = client_token
+        input_["arn"] = arn
         if title is not None:
-            input["title"] = title
+            input_["title"] = title
         if summary is not None:
-            input["summary"] = summary
+            input_["summary"] = summary
         if impact is not None:
-            input["impact"] = impact
+            input_["impact"] = impact
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if chat_channel is not None:
-            input["chat_channel"] = chat_channel
+            input_["chat_channel"] = chat_channel
         if notification_targets is not None:
-            input["notification_targets"] = notification_targets
+            input_["notification_targets"] = notification_targets
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1697,14 +1697,14 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.update_related_items_input.UpdateRelatedItemsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.update_related_items_input.UpdateRelatedItemsInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["incident_record_arn"] = incident_record_arn
-        input["related_items_update"] = related_items_update
+            input_["client_token"] = client_token
+        input_["incident_record_arn"] = incident_record_arn
+        input_["related_items_update"] = related_items_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,14 +1743,14 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.update_replication_set_input.UpdateReplicationSetInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["actions"] = actions
+        input_: aws_sdk_ssm_incidents.types.update_replication_set_input.UpdateReplicationSetInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["actions"] = actions
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1831,37 +1831,37 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.update_response_plan_input.UpdateResponsePlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.update_response_plan_input.UpdateResponsePlanInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["arn"] = arn
+            input_["client_token"] = client_token
+        input_["arn"] = arn
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if incident_template_title is not None:
-            input["incident_template_title"] = incident_template_title
+            input_["incident_template_title"] = incident_template_title
         if incident_template_impact is not None:
-            input["incident_template_impact"] = incident_template_impact
+            input_["incident_template_impact"] = incident_template_impact
         if incident_template_summary is not None:
-            input["incident_template_summary"] = incident_template_summary
+            input_["incident_template_summary"] = incident_template_summary
         if incident_template_dedupe_string is not None:
-            input["incident_template_dedupe_string"] = incident_template_dedupe_string
+            input_["incident_template_dedupe_string"] = incident_template_dedupe_string
         if incident_template_notification_targets is not None:
-            input["incident_template_notification_targets"] = (
+            input_["incident_template_notification_targets"] = (
                 incident_template_notification_targets
             )
         if chat_channel is not None:
-            input["chat_channel"] = chat_channel
+            input_["chat_channel"] = chat_channel
         if engagements is not None:
-            input["engagements"] = engagements
+            input_["engagements"] = engagements
         if actions is not None:
-            input["actions"] = actions
+            input_["actions"] = actions
         if incident_template_tags is not None:
-            input["incident_template_tags"] = incident_template_tags
+            input_["incident_template_tags"] = incident_template_tags
         if integrations is not None:
-            input["integrations"] = integrations
+            input_["integrations"] = integrations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1912,22 +1912,22 @@ class SSMIncidentsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_incidents.types.update_timeline_event_input.UpdateTimelineEventInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_incidents.types.update_timeline_event_input.UpdateTimelineEventInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["incident_record_arn"] = incident_record_arn
-        input["event_id"] = event_id
+            input_["client_token"] = client_token
+        input_["incident_record_arn"] = incident_record_arn
+        input_["event_id"] = event_id
         if event_time is not None:
-            input["event_time"] = event_time
+            input_["event_time"] = event_time
         if event_type is not None:
-            input["event_type"] = event_type
+            input_["event_type"] = event_type
         if event_data is not None:
-            input["event_data"] = event_data
+            input_["event_data"] = event_data
         if event_references is not None:
-            input["event_references"] = event_references
+            input_["event_references"] = event_references
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

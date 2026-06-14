@@ -203,24 +203,24 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.create_slack_channel_configuration_request.CreateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["team_id"] = team_id
-        input["channel_id"] = channel_id
+        input_: aws_sdk_support_app.types.create_slack_channel_configuration_request.CreateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["team_id"] = team_id
+        input_["channel_id"] = channel_id
         if channel_name is not None:
-            input["channel_name"] = channel_name
+            input_["channel_name"] = channel_name
         if notify_on_create_or_reopen_case is not None:
-            input["notify_on_create_or_reopen_case"] = notify_on_create_or_reopen_case
+            input_["notify_on_create_or_reopen_case"] = notify_on_create_or_reopen_case
         if notify_on_add_correspondence_to_case is not None:
-            input["notify_on_add_correspondence_to_case"] = (
+            input_["notify_on_add_correspondence_to_case"] = (
                 notify_on_add_correspondence_to_case
             )
         if notify_on_resolve_case is not None:
-            input["notify_on_resolve_case"] = notify_on_resolve_case
-        input["notify_on_case_severity"] = notify_on_case_severity
-        input["channel_role_arn"] = channel_role_arn
+            input_["notify_on_resolve_case"] = notify_on_resolve_case
+        input_["notify_on_case_severity"] = notify_on_case_severity
+        input_["channel_role_arn"] = channel_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,10 +248,10 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.delete_account_alias_request.DeleteAccountAliasRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support_app.types.delete_account_alias_request.DeleteAccountAliasRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,12 +286,12 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.delete_slack_channel_configuration_request.DeleteSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["team_id"] = team_id
-        input["channel_id"] = channel_id
+        input_: aws_sdk_support_app.types.delete_slack_channel_configuration_request.DeleteSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["team_id"] = team_id
+        input_["channel_id"] = channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -324,11 +324,11 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.delete_slack_workspace_configuration_request.DeleteSlackWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["team_id"] = team_id
+        input_: aws_sdk_support_app.types.delete_slack_workspace_configuration_request.DeleteSlackWorkspaceConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["team_id"] = team_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -354,10 +354,10 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.get_account_alias_request.GetAccountAliasRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support_app.types.get_account_alias_request.GetAccountAliasRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -392,12 +392,12 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.list_slack_channel_configurations_request.ListSlackChannelConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support_app.types.list_slack_channel_configurations_request.ListSlackChannelConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,12 +432,12 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.list_slack_workspace_configurations_request.ListSlackWorkspaceConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_support_app.types.list_slack_workspace_configurations_request.ListSlackWorkspaceConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,11 +470,11 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.put_account_alias_request.PutAccountAliasRequest = {}  # type: ignore[typeddict-item]
-        input["account_alias"] = account_alias
+        input_: aws_sdk_support_app.types.put_account_alias_request.PutAccountAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["account_alias"] = account_alias
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -507,11 +507,11 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.register_slack_workspace_for_organization_request.RegisterSlackWorkspaceForOrganizationRequest = {}  # type: ignore[typeddict-item]
-        input["team_id"] = team_id
+        input_: aws_sdk_support_app.types.register_slack_workspace_for_organization_request.RegisterSlackWorkspaceForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_["team_id"] = team_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -568,26 +568,26 @@ class SupportAppClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_support_app.types.update_slack_channel_configuration_request.UpdateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["team_id"] = team_id
-        input["channel_id"] = channel_id
+        input_: aws_sdk_support_app.types.update_slack_channel_configuration_request.UpdateSlackChannelConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["team_id"] = team_id
+        input_["channel_id"] = channel_id
         if channel_name is not None:
-            input["channel_name"] = channel_name
+            input_["channel_name"] = channel_name
         if notify_on_create_or_reopen_case is not None:
-            input["notify_on_create_or_reopen_case"] = notify_on_create_or_reopen_case
+            input_["notify_on_create_or_reopen_case"] = notify_on_create_or_reopen_case
         if notify_on_add_correspondence_to_case is not None:
-            input["notify_on_add_correspondence_to_case"] = (
+            input_["notify_on_add_correspondence_to_case"] = (
                 notify_on_add_correspondence_to_case
             )
         if notify_on_resolve_case is not None:
-            input["notify_on_resolve_case"] = notify_on_resolve_case
+            input_["notify_on_resolve_case"] = notify_on_resolve_case
         if notify_on_case_severity is not None:
-            input["notify_on_case_severity"] = notify_on_case_severity
+            input_["notify_on_case_severity"] = notify_on_case_severity
         if channel_role_arn is not None:
-            input["channel_role_arn"] = channel_role_arn
+            input_["channel_role_arn"] = channel_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

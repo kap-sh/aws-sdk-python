@@ -114,29 +114,29 @@ class JobRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["client_token"] = client_token
-        input["execution_role_arn"] = execution_role_arn
+        input_: aws_sdk_emr_serverless.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["client_token"] = client_token
+        input_["execution_role_arn"] = execution_role_arn
         if execution_iam_policy is not None:
-            input["execution_iam_policy"] = execution_iam_policy
+            input_["execution_iam_policy"] = execution_iam_policy
         if job_driver is not None:
-            input["job_driver"] = job_driver
+            input_["job_driver"] = job_driver
         if configuration_overrides is not None:
-            input["configuration_overrides"] = configuration_overrides
+            input_["configuration_overrides"] = configuration_overrides
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if execution_timeout_minutes is not None:
-            input["execution_timeout_minutes"] = execution_timeout_minutes
+            input_["execution_timeout_minutes"] = execution_timeout_minutes
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if retry_policy is not None:
-            input["retry_policy"] = retry_policy
+            input_["retry_policy"] = retry_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -175,14 +175,14 @@ class JobRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_job_run_request.GetJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_run_id"] = job_run_id
+        input_: aws_sdk_emr_serverless.types.get_job_run_request.GetJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_run_id"] = job_run_id
         if attempt is not None:
-            input["attempt"] = attempt
+            input_["attempt"] = attempt
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -221,14 +221,16 @@ class JobRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.cancel_job_run_request.CancelJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_run_id"] = job_run_id
+        input_: aws_sdk_emr_serverless.types.cancel_job_run_request.CancelJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_run_id"] = job_run_id
         if shutdown_grace_period_in_seconds is not None:
-            input["shutdown_grace_period_in_seconds"] = shutdown_grace_period_in_seconds
+            input_["shutdown_grace_period_in_seconds"] = (
+                shutdown_grace_period_in_seconds
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,23 +279,23 @@ class JobRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.list_job_runs_request.ListJobRunsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.list_job_runs_request.ListJobRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if created_at_after is not None:
-            input["created_at_after"] = created_at_after
+            input_["created_at_after"] = created_at_after
         if created_at_before is not None:
-            input["created_at_before"] = created_at_before
+            input_["created_at_before"] = created_at_before
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,16 +336,16 @@ class JobRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_dashboard_for_job_run_request.GetDashboardForJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_run_id"] = job_run_id
+        input_: aws_sdk_emr_serverless.types.get_dashboard_for_job_run_request.GetDashboardForJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_run_id"] = job_run_id
         if attempt is not None:
-            input["attempt"] = attempt
+            input_["attempt"] = attempt
         if access_system_profile_logs is not None:
-            input["access_system_profile_logs"] = access_system_profile_logs
+            input_["access_system_profile_logs"] = access_system_profile_logs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,16 +386,16 @@ class JobRunResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.list_job_run_attempts_request.ListJobRunAttemptsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_run_id"] = job_run_id
+        input_: aws_sdk_emr_serverless.types.list_job_run_attempts_request.ListJobRunAttemptsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_run_id"] = job_run_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,29 +464,29 @@ class AsyncJobRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["client_token"] = client_token
-        input["execution_role_arn"] = execution_role_arn
+        input_: aws_sdk_emr_serverless.types.start_job_run_request.StartJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["client_token"] = client_token
+        input_["execution_role_arn"] = execution_role_arn
         if execution_iam_policy is not None:
-            input["execution_iam_policy"] = execution_iam_policy
+            input_["execution_iam_policy"] = execution_iam_policy
         if job_driver is not None:
-            input["job_driver"] = job_driver
+            input_["job_driver"] = job_driver
         if configuration_overrides is not None:
-            input["configuration_overrides"] = configuration_overrides
+            input_["configuration_overrides"] = configuration_overrides
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if execution_timeout_minutes is not None:
-            input["execution_timeout_minutes"] = execution_timeout_minutes
+            input_["execution_timeout_minutes"] = execution_timeout_minutes
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if retry_policy is not None:
-            input["retry_policy"] = retry_policy
+            input_["retry_policy"] = retry_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -524,14 +526,14 @@ class AsyncJobRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_job_run_request.GetJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_run_id"] = job_run_id
+        input_: aws_sdk_emr_serverless.types.get_job_run_request.GetJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_run_id"] = job_run_id
         if attempt is not None:
-            input["attempt"] = attempt
+            input_["attempt"] = attempt
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -571,14 +573,16 @@ class AsyncJobRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.cancel_job_run_request.CancelJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_run_id"] = job_run_id
+        input_: aws_sdk_emr_serverless.types.cancel_job_run_request.CancelJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_run_id"] = job_run_id
         if shutdown_grace_period_in_seconds is not None:
-            input["shutdown_grace_period_in_seconds"] = shutdown_grace_period_in_seconds
+            input_["shutdown_grace_period_in_seconds"] = (
+                shutdown_grace_period_in_seconds
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -628,23 +632,23 @@ class AsyncJobRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.list_job_runs_request.ListJobRunsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_emr_serverless.types.list_job_runs_request.ListJobRunsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if created_at_after is not None:
-            input["created_at_after"] = created_at_after
+            input_["created_at_after"] = created_at_after
         if created_at_before is not None:
-            input["created_at_before"] = created_at_before
+            input_["created_at_before"] = created_at_before
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -686,16 +690,16 @@ class AsyncJobRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.get_dashboard_for_job_run_request.GetDashboardForJobRunRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_run_id"] = job_run_id
+        input_: aws_sdk_emr_serverless.types.get_dashboard_for_job_run_request.GetDashboardForJobRunRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_run_id"] = job_run_id
         if attempt is not None:
-            input["attempt"] = attempt
+            input_["attempt"] = attempt
         if access_system_profile_logs is not None:
-            input["access_system_profile_logs"] = access_system_profile_logs
+            input_["access_system_profile_logs"] = access_system_profile_logs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -737,16 +741,16 @@ class AsyncJobRunResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_emr_serverless.types.list_job_run_attempts_request.ListJobRunAttemptsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["job_run_id"] = job_run_id
+        input_: aws_sdk_emr_serverless.types.list_job_run_attempts_request.ListJobRunAttemptsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["job_run_id"] = job_run_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_network_firewall._auth._signers
+import aws_sdk_network_firewall._auth._sigv4
 from aws_sdk_network_firewall._auth._identity import Credentials
 from aws_sdk_network_firewall._auth._providers import (
     CredentialsProvider,
@@ -383,11 +385,11 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.accept_network_firewall_transit_gateway_attachment_request.AcceptNetworkFirewallTransitGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        input_: aws_sdk_network_firewall.types.accept_network_firewall_transit_gateway_attachment_request.AcceptNetworkFirewallTransitGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -433,17 +435,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.associate_availability_zones_request.AssociateAvailabilityZonesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.associate_availability_zones_request.AssociateAvailabilityZonesRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["availability_zone_mappings"] = availability_zone_mappings
+            input_["firewall_name"] = firewall_name
+        input_["availability_zone_mappings"] = availability_zone_mappings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,17 +491,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.associate_firewall_policy_request.AssociateFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.associate_firewall_policy_request.AssociateFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["firewall_policy_arn"] = firewall_policy_arn
+            input_["firewall_name"] = firewall_name
+        input_["firewall_policy_arn"] = firewall_policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -545,17 +547,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.associate_subnets_request.AssociateSubnetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.associate_subnets_request.AssociateSubnetsRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["subnet_mappings"] = subnet_mappings
+            input_["firewall_name"] = firewall_name
+        input_["subnet_mappings"] = subnet_mappings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,16 +601,16 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.attach_rule_groups_to_proxy_configuration_request.AttachRuleGroupsToProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.attach_rule_groups_to_proxy_configuration_request.AttachRuleGroupsToProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
         if proxy_configuration_name is not None:
-            input["proxy_configuration_name"] = proxy_configuration_name
+            input_["proxy_configuration_name"] = proxy_configuration_name
         if proxy_configuration_arn is not None:
-            input["proxy_configuration_arn"] = proxy_configuration_arn
-        input["rule_groups"] = rule_groups
-        input["update_token"] = update_token
+            input_["proxy_configuration_arn"] = proxy_configuration_arn
+        input_["rule_groups"] = rule_groups
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,40 +692,40 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_firewall_request.CreateFirewallRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_name"] = firewall_name
-        input["firewall_policy_arn"] = firewall_policy_arn
+        input_: aws_sdk_network_firewall.types.create_firewall_request.CreateFirewallRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_name"] = firewall_name
+        input_["firewall_policy_arn"] = firewall_policy_arn
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if subnet_mappings is not None:
-            input["subnet_mappings"] = subnet_mappings
+            input_["subnet_mappings"] = subnet_mappings
         if delete_protection is not None:
-            input["delete_protection"] = delete_protection
+            input_["delete_protection"] = delete_protection
         if subnet_change_protection is not None:
-            input["subnet_change_protection"] = subnet_change_protection
+            input_["subnet_change_protection"] = subnet_change_protection
         if firewall_policy_change_protection is not None:
-            input["firewall_policy_change_protection"] = (
+            input_["firewall_policy_change_protection"] = (
                 firewall_policy_change_protection
             )
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if enabled_analysis_types is not None:
-            input["enabled_analysis_types"] = enabled_analysis_types
+            input_["enabled_analysis_types"] = enabled_analysis_types
         if transit_gateway_id is not None:
-            input["transit_gateway_id"] = transit_gateway_id
+            input_["transit_gateway_id"] = transit_gateway_id
         if availability_zone_mappings is not None:
-            input["availability_zone_mappings"] = availability_zone_mappings
+            input_["availability_zone_mappings"] = availability_zone_mappings
         if availability_zone_change_protection is not None:
-            input["availability_zone_change_protection"] = (
+            input_["availability_zone_change_protection"] = (
                 availability_zone_change_protection
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,20 +773,20 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_firewall_policy_request.CreateFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_policy_name"] = firewall_policy_name
-        input["firewall_policy"] = firewall_policy
+        input_: aws_sdk_network_firewall.types.create_firewall_policy_request.CreateFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_policy_name"] = firewall_policy_name
+        input_["firewall_policy"] = firewall_policy
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -836,21 +838,21 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_proxy_request.CreateProxyRequest = {}  # type: ignore[typeddict-item]
-        input["proxy_name"] = proxy_name
-        input["nat_gateway_id"] = nat_gateway_id
+        input_: aws_sdk_network_firewall.types.create_proxy_request.CreateProxyRequest = {}  # type: ignore[typeddict-item]
+        input_["proxy_name"] = proxy_name
+        input_["nat_gateway_id"] = nat_gateway_id
         if proxy_configuration_name is not None:
-            input["proxy_configuration_name"] = proxy_configuration_name
+            input_["proxy_configuration_name"] = proxy_configuration_name
         if proxy_configuration_arn is not None:
-            input["proxy_configuration_arn"] = proxy_configuration_arn
+            input_["proxy_configuration_arn"] = proxy_configuration_arn
         if listener_properties is not None:
-            input["listener_properties"] = listener_properties
-        input["tls_intercept_properties"] = tls_intercept_properties
+            input_["listener_properties"] = listener_properties
+        input_["tls_intercept_properties"] = tls_intercept_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -900,20 +902,20 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_proxy_configuration_request.CreateProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["proxy_configuration_name"] = proxy_configuration_name
+        input_: aws_sdk_network_firewall.types.create_proxy_configuration_request.CreateProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["proxy_configuration_name"] = proxy_configuration_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rule_group_names is not None:
-            input["rule_group_names"] = rule_group_names
+            input_["rule_group_names"] = rule_group_names
         if rule_group_arns is not None:
-            input["rule_group_arns"] = rule_group_arns
-        input["default_rule_phase_actions"] = default_rule_phase_actions
+            input_["rule_group_arns"] = rule_group_arns
+        input_["default_rule_phase_actions"] = default_rule_phase_actions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -957,17 +959,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_proxy_rule_group_request.CreateProxyRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["proxy_rule_group_name"] = proxy_rule_group_name
+        input_: aws_sdk_network_firewall.types.create_proxy_rule_group_request.CreateProxyRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["proxy_rule_group_name"] = proxy_rule_group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1009,15 +1011,15 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_proxy_rules_request.CreateProxyRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.create_proxy_rules_request.CreateProxyRulesRequest = {}  # type: ignore[typeddict-item]
         if proxy_rule_group_arn is not None:
-            input["proxy_rule_group_arn"] = proxy_rule_group_arn
+            input_["proxy_rule_group_arn"] = proxy_rule_group_arn
         if proxy_rule_group_name is not None:
-            input["proxy_rule_group_name"] = proxy_rule_group_name
-        input["rules"] = rules
+            input_["proxy_rule_group_name"] = proxy_rule_group_name
+        input_["rules"] = rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1087,31 +1089,31 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_rule_group_request.CreateRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["rule_group_name"] = rule_group_name
+        input_: aws_sdk_network_firewall.types.create_rule_group_request.CreateRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_group_name"] = rule_group_name
         if rule_group is not None:
-            input["rule_group"] = rule_group
+            input_["rule_group"] = rule_group
         if rules is not None:
-            input["rules"] = rules
-        input["type"] = type
+            input_["rules"] = rules
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
-        input["capacity"] = capacity
+            input_["description"] = description
+        input_["capacity"] = capacity
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if source_metadata is not None:
-            input["source_metadata"] = source_metadata
+            input_["source_metadata"] = source_metadata
         if analyze_rule_group is not None:
-            input["analyze_rule_group"] = analyze_rule_group
+            input_["analyze_rule_group"] = analyze_rule_group
         if summary_configuration is not None:
-            input["summary_configuration"] = summary_configuration
+            input_["summary_configuration"] = summary_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1156,18 +1158,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_tls_inspection_configuration_request.CreateTLSInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["tls_inspection_configuration_name"] = tls_inspection_configuration_name
-        input["tls_inspection_configuration"] = tls_inspection_configuration
+        input_: aws_sdk_network_firewall.types.create_tls_inspection_configuration_request.CreateTLSInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["tls_inspection_configuration_name"] = tls_inspection_configuration_name
+        input_["tls_inspection_configuration"] = tls_inspection_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1210,17 +1212,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.create_vpc_endpoint_association_request.CreateVpcEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_arn"] = firewall_arn
-        input["vpc_id"] = vpc_id
-        input["subnet_mapping"] = subnet_mapping
+        input_: aws_sdk_network_firewall.types.create_vpc_endpoint_association_request.CreateVpcEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_arn"] = firewall_arn
+        input_["vpc_id"] = vpc_id
+        input_["subnet_mapping"] = subnet_mapping
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1262,14 +1264,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_firewall_request.DeleteFirewallRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.delete_firewall_request.DeleteFirewallRequest = {}  # type: ignore[typeddict-item]
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1309,14 +1311,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_firewall_policy_request.DeleteFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.delete_firewall_policy_request.DeleteFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
         if firewall_policy_name is not None:
-            input["firewall_policy_name"] = firewall_policy_name
+            input_["firewall_policy_name"] = firewall_policy_name
         if firewall_policy_arn is not None:
-            input["firewall_policy_arn"] = firewall_policy_arn
+            input_["firewall_policy_arn"] = firewall_policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1350,11 +1352,11 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_network_firewall_transit_gateway_attachment_request.DeleteNetworkFirewallTransitGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        input_: aws_sdk_network_firewall.types.delete_network_firewall_transit_gateway_attachment_request.DeleteNetworkFirewallTransitGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1396,15 +1398,15 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_proxy_request.DeleteProxyRequest = {}  # type: ignore[typeddict-item]
-        input["nat_gateway_id"] = nat_gateway_id
+        input_: aws_sdk_network_firewall.types.delete_proxy_request.DeleteProxyRequest = {}  # type: ignore[typeddict-item]
+        input_["nat_gateway_id"] = nat_gateway_id
         if proxy_name is not None:
-            input["proxy_name"] = proxy_name
+            input_["proxy_name"] = proxy_name
         if proxy_arn is not None:
-            input["proxy_arn"] = proxy_arn
+            input_["proxy_arn"] = proxy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1444,14 +1446,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_proxy_configuration_request.DeleteProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.delete_proxy_configuration_request.DeleteProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
         if proxy_configuration_name is not None:
-            input["proxy_configuration_name"] = proxy_configuration_name
+            input_["proxy_configuration_name"] = proxy_configuration_name
         if proxy_configuration_arn is not None:
-            input["proxy_configuration_arn"] = proxy_configuration_arn
+            input_["proxy_configuration_arn"] = proxy_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1491,14 +1493,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_proxy_rule_group_request.DeleteProxyRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.delete_proxy_rule_group_request.DeleteProxyRuleGroupRequest = {}  # type: ignore[typeddict-item]
         if proxy_rule_group_name is not None:
-            input["proxy_rule_group_name"] = proxy_rule_group_name
+            input_["proxy_rule_group_name"] = proxy_rule_group_name
         if proxy_rule_group_arn is not None:
-            input["proxy_rule_group_arn"] = proxy_rule_group_arn
+            input_["proxy_rule_group_arn"] = proxy_rule_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1540,15 +1542,15 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_proxy_rules_request.DeleteProxyRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.delete_proxy_rules_request.DeleteProxyRulesRequest = {}  # type: ignore[typeddict-item]
         if proxy_rule_group_arn is not None:
-            input["proxy_rule_group_arn"] = proxy_rule_group_arn
+            input_["proxy_rule_group_arn"] = proxy_rule_group_arn
         if proxy_rule_group_name is not None:
-            input["proxy_rule_group_name"] = proxy_rule_group_name
-        input["rules"] = rules
+            input_["proxy_rule_group_name"] = proxy_rule_group_name
+        input_["rules"] = rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1582,11 +1584,11 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_network_firewall.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1630,16 +1632,16 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_rule_group_request.DeleteRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.delete_rule_group_request.DeleteRuleGroupRequest = {}  # type: ignore[typeddict-item]
         if rule_group_name is not None:
-            input["rule_group_name"] = rule_group_name
+            input_["rule_group_name"] = rule_group_name
         if rule_group_arn is not None:
-            input["rule_group_arn"] = rule_group_arn
+            input_["rule_group_arn"] = rule_group_arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1679,16 +1681,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_tls_inspection_configuration_request.DeleteTLSInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.delete_tls_inspection_configuration_request.DeleteTLSInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
         if tls_inspection_configuration_arn is not None:
-            input["tls_inspection_configuration_arn"] = tls_inspection_configuration_arn
+            input_["tls_inspection_configuration_arn"] = (
+                tls_inspection_configuration_arn
+            )
         if tls_inspection_configuration_name is not None:
-            input["tls_inspection_configuration_name"] = (
+            input_["tls_inspection_configuration_name"] = (
                 tls_inspection_configuration_name
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1722,11 +1726,11 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.delete_vpc_endpoint_association_request.DeleteVpcEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
+        input_: aws_sdk_network_firewall.types.delete_vpc_endpoint_association_request.DeleteVpcEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1766,14 +1770,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_firewall_request.DescribeFirewallRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_firewall_request.DescribeFirewallRequest = {}  # type: ignore[typeddict-item]
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1809,12 +1813,12 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_firewall_metadata_request.DescribeFirewallMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_firewall_metadata_request.DescribeFirewallMetadataRequest = {}  # type: ignore[typeddict-item]
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1854,14 +1858,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_firewall_policy_request.DescribeFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_firewall_policy_request.DescribeFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
         if firewall_policy_name is not None:
-            input["firewall_policy_name"] = firewall_policy_name
+            input_["firewall_policy_name"] = firewall_policy_name
         if firewall_policy_arn is not None:
-            input["firewall_policy_arn"] = firewall_policy_arn
+            input_["firewall_policy_arn"] = firewall_policy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1909,18 +1913,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_flow_operation_request.DescribeFlowOperationRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_arn"] = firewall_arn
+        input_: aws_sdk_network_firewall.types.describe_flow_operation_request.DescribeFlowOperationRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_arn"] = firewall_arn
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if vpc_endpoint_association_arn is not None:
-            input["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
+            input_["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
-        input["flow_operation_id"] = flow_operation_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
+        input_["flow_operation_id"] = flow_operation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1960,14 +1964,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_logging_configuration_request.DescribeLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_logging_configuration_request.DescribeLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2007,14 +2011,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_proxy_request.DescribeProxyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_proxy_request.DescribeProxyRequest = {}  # type: ignore[typeddict-item]
         if proxy_name is not None:
-            input["proxy_name"] = proxy_name
+            input_["proxy_name"] = proxy_name
         if proxy_arn is not None:
-            input["proxy_arn"] = proxy_arn
+            input_["proxy_arn"] = proxy_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2054,14 +2058,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_proxy_configuration_request.DescribeProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_proxy_configuration_request.DescribeProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
         if proxy_configuration_name is not None:
-            input["proxy_configuration_name"] = proxy_configuration_name
+            input_["proxy_configuration_name"] = proxy_configuration_name
         if proxy_configuration_arn is not None:
-            input["proxy_configuration_arn"] = proxy_configuration_arn
+            input_["proxy_configuration_arn"] = proxy_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2103,15 +2107,15 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_proxy_rule_request.DescribeProxyRuleRequest = {}  # type: ignore[typeddict-item]
-        input["proxy_rule_name"] = proxy_rule_name
+        input_: aws_sdk_network_firewall.types.describe_proxy_rule_request.DescribeProxyRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["proxy_rule_name"] = proxy_rule_name
         if proxy_rule_group_name is not None:
-            input["proxy_rule_group_name"] = proxy_rule_group_name
+            input_["proxy_rule_group_name"] = proxy_rule_group_name
         if proxy_rule_group_arn is not None:
-            input["proxy_rule_group_arn"] = proxy_rule_group_arn
+            input_["proxy_rule_group_arn"] = proxy_rule_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2151,14 +2155,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_proxy_rule_group_request.DescribeProxyRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_proxy_rule_group_request.DescribeProxyRuleGroupRequest = {}  # type: ignore[typeddict-item]
         if proxy_rule_group_name is not None:
-            input["proxy_rule_group_name"] = proxy_rule_group_name
+            input_["proxy_rule_group_name"] = proxy_rule_group_name
         if proxy_rule_group_arn is not None:
-            input["proxy_rule_group_arn"] = proxy_rule_group_arn
+            input_["proxy_rule_group_arn"] = proxy_rule_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2192,11 +2196,11 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_resource_policy_request.DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_network_firewall.types.describe_resource_policy_request.DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2244,18 +2248,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_rule_group_request.DescribeRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_rule_group_request.DescribeRuleGroupRequest = {}  # type: ignore[typeddict-item]
         if rule_group_name is not None:
-            input["rule_group_name"] = rule_group_name
+            input_["rule_group_name"] = rule_group_name
         if rule_group_arn is not None:
-            input["rule_group_arn"] = rule_group_arn
+            input_["rule_group_arn"] = rule_group_arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if analyze_rule_group is not None:
-            input["analyze_rule_group"] = analyze_rule_group
+            input_["analyze_rule_group"] = analyze_rule_group
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2299,16 +2303,16 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_rule_group_metadata_request.DescribeRuleGroupMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_rule_group_metadata_request.DescribeRuleGroupMetadataRequest = {}  # type: ignore[typeddict-item]
         if rule_group_name is not None:
-            input["rule_group_name"] = rule_group_name
+            input_["rule_group_name"] = rule_group_name
         if rule_group_arn is not None:
-            input["rule_group_arn"] = rule_group_arn
+            input_["rule_group_arn"] = rule_group_arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2352,16 +2356,16 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_rule_group_summary_request.DescribeRuleGroupSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_rule_group_summary_request.DescribeRuleGroupSummaryRequest = {}  # type: ignore[typeddict-item]
         if rule_group_name is not None:
-            input["rule_group_name"] = rule_group_name
+            input_["rule_group_name"] = rule_group_name
         if rule_group_arn is not None:
-            input["rule_group_arn"] = rule_group_arn
+            input_["rule_group_arn"] = rule_group_arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2401,16 +2405,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_tls_inspection_configuration_request.DescribeTLSInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.describe_tls_inspection_configuration_request.DescribeTLSInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
         if tls_inspection_configuration_arn is not None:
-            input["tls_inspection_configuration_arn"] = tls_inspection_configuration_arn
+            input_["tls_inspection_configuration_arn"] = (
+                tls_inspection_configuration_arn
+            )
         if tls_inspection_configuration_name is not None:
-            input["tls_inspection_configuration_name"] = (
+            input_["tls_inspection_configuration_name"] = (
                 tls_inspection_configuration_name
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2444,11 +2450,11 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.describe_vpc_endpoint_association_request.DescribeVpcEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
+        input_: aws_sdk_network_firewall.types.describe_vpc_endpoint_association_request.DescribeVpcEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2498,19 +2504,19 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.detach_rule_groups_from_proxy_configuration_request.DetachRuleGroupsFromProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.detach_rule_groups_from_proxy_configuration_request.DetachRuleGroupsFromProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
         if proxy_configuration_name is not None:
-            input["proxy_configuration_name"] = proxy_configuration_name
+            input_["proxy_configuration_name"] = proxy_configuration_name
         if proxy_configuration_arn is not None:
-            input["proxy_configuration_arn"] = proxy_configuration_arn
+            input_["proxy_configuration_arn"] = proxy_configuration_arn
         if rule_group_names is not None:
-            input["rule_group_names"] = rule_group_names
+            input_["rule_group_names"] = rule_group_names
         if rule_group_arns is not None:
-            input["rule_group_arns"] = rule_group_arns
-        input["update_token"] = update_token
+            input_["rule_group_arns"] = rule_group_arns
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2556,17 +2562,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.disassociate_availability_zones_request.DisassociateAvailabilityZonesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.disassociate_availability_zones_request.DisassociateAvailabilityZonesRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["availability_zone_mappings"] = availability_zone_mappings
+            input_["firewall_name"] = firewall_name
+        input_["availability_zone_mappings"] = availability_zone_mappings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2612,17 +2618,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.disassociate_subnets_request.DisassociateSubnetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.disassociate_subnets_request.DisassociateSubnetsRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["subnet_ids"] = subnet_ids
+            input_["firewall_name"] = firewall_name
+        input_["subnet_ids"] = subnet_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2672,19 +2678,19 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.get_analysis_report_results_request.GetAnalysisReportResultsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.get_analysis_report_results_request.GetAnalysisReportResultsRequest = {}  # type: ignore[typeddict-item]
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["analysis_report_id"] = analysis_report_id
+            input_["firewall_name"] = firewall_name
+        input_["analysis_report_id"] = analysis_report_id
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2767,18 +2773,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_analysis_reports_request.ListAnalysisReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_analysis_reports_request.ListAnalysisReportsRequest = {}  # type: ignore[typeddict-item]
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2851,14 +2857,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_firewall_policies_request.ListFirewallPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_firewall_policies_request.ListFirewallPoliciesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2925,16 +2931,16 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_firewalls_request.ListFirewallsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_firewalls_request.ListFirewallsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if vpc_ids is not None:
-            input["vpc_ids"] = vpc_ids
+            input_["vpc_ids"] = vpc_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3017,22 +3023,22 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_flow_operation_results_request.ListFlowOperationResultsRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_arn"] = firewall_arn
-        input["flow_operation_id"] = flow_operation_id
+        input_: aws_sdk_network_firewall.types.list_flow_operation_results_request.ListFlowOperationResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_arn"] = firewall_arn
+        input_["flow_operation_id"] = flow_operation_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if vpc_endpoint_association_arn is not None:
-            input["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
+            input_["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3131,23 +3137,23 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_flow_operations_request.ListFlowOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_arn"] = firewall_arn
+        input_: aws_sdk_network_firewall.types.list_flow_operations_request.ListFlowOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_arn"] = firewall_arn
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if vpc_endpoint_association_arn is not None:
-            input["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
+            input_["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if flow_operation_type is not None:
-            input["flow_operation_type"] = flow_operation_type
+            input_["flow_operation_type"] = flow_operation_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3230,14 +3236,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_proxies_request.ListProxiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_proxies_request.ListProxiesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3302,14 +3308,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_proxy_configurations_request.ListProxyConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_proxy_configurations_request.ListProxyConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3374,14 +3380,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_proxy_rule_groups_request.ListProxyRuleGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_proxy_rule_groups_request.ListProxyRuleGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3462,22 +3468,22 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_rule_groups_request.ListRuleGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_rule_groups_request.ListRuleGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if managed_type is not None:
-            input["managed_type"] = managed_type
+            input_["managed_type"] = managed_type
         if subscription_status is not None:
-            input["subscription_status"] = subscription_status
+            input_["subscription_status"] = subscription_status
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3560,15 +3566,15 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["resource_arn"] = resource_arn
+            input_["max_results"] = max_results
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3635,14 +3641,14 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_tls_inspection_configurations_request.ListTLSInspectionConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_tls_inspection_configurations_request.ListTLSInspectionConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3711,16 +3717,16 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.list_vpc_endpoint_associations_request.ListVpcEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.list_vpc_endpoint_associations_request.ListVpcEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3785,12 +3791,12 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_network_firewall.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3824,11 +3830,11 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.reject_network_firewall_transit_gateway_attachment_request.RejectNetworkFirewallTransitGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
-        input["transit_gateway_attachment_id"] = transit_gateway_attachment_id
+        input_: aws_sdk_network_firewall.types.reject_network_firewall_transit_gateway_attachment_request.RejectNetworkFirewallTransitGatewayAttachmentRequest = {}  # type: ignore[typeddict-item]
+        input_["transit_gateway_attachment_id"] = transit_gateway_attachment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3870,15 +3876,15 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.start_analysis_report_request.StartAnalysisReportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.start_analysis_report_request.StartAnalysisReportRequest = {}  # type: ignore[typeddict-item]
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
-        input["analysis_type"] = analysis_type
+            input_["firewall_arn"] = firewall_arn
+        input_["analysis_type"] = analysis_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3930,20 +3936,20 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.start_flow_capture_request.StartFlowCaptureRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_arn"] = firewall_arn
+        input_: aws_sdk_network_firewall.types.start_flow_capture_request.StartFlowCaptureRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_arn"] = firewall_arn
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if vpc_endpoint_association_arn is not None:
-            input["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
+            input_["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if minimum_flow_age_in_seconds is not None:
-            input["minimum_flow_age_in_seconds"] = minimum_flow_age_in_seconds
-        input["flow_filters"] = flow_filters
+            input_["minimum_flow_age_in_seconds"] = minimum_flow_age_in_seconds
+        input_["flow_filters"] = flow_filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3995,20 +4001,20 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.start_flow_flush_request.StartFlowFlushRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_arn"] = firewall_arn
+        input_: aws_sdk_network_firewall.types.start_flow_flush_request.StartFlowFlushRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_arn"] = firewall_arn
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if vpc_endpoint_association_arn is not None:
-            input["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
+            input_["vpc_endpoint_association_arn"] = vpc_endpoint_association_arn
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if minimum_flow_age_in_seconds is not None:
-            input["minimum_flow_age_in_seconds"] = minimum_flow_age_in_seconds
-        input["flow_filters"] = flow_filters
+            input_["minimum_flow_age_in_seconds"] = minimum_flow_age_in_seconds
+        input_["flow_filters"] = flow_filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4044,12 +4050,12 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_network_firewall.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4085,12 +4091,12 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_network_firewall.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4136,19 +4142,19 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_availability_zone_change_protection_request.UpdateAvailabilityZoneChangeProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_availability_zone_change_protection_request.UpdateAvailabilityZoneChangeProtectionRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["availability_zone_change_protection"] = (
+            input_["firewall_name"] = firewall_name
+        input_["availability_zone_change_protection"] = (
             availability_zone_change_protection
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4196,18 +4202,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_firewall_analysis_settings_request.UpdateFirewallAnalysisSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_firewall_analysis_settings_request.UpdateFirewallAnalysisSettingsRequest = {}  # type: ignore[typeddict-item]
         if enabled_analysis_types is not None:
-            input["enabled_analysis_types"] = enabled_analysis_types
+            input_["enabled_analysis_types"] = enabled_analysis_types
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4253,17 +4259,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_firewall_delete_protection_request.UpdateFirewallDeleteProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_firewall_delete_protection_request.UpdateFirewallDeleteProtectionRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["delete_protection"] = delete_protection
+            input_["firewall_name"] = firewall_name
+        input_["delete_protection"] = delete_protection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4311,18 +4317,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_firewall_description_request.UpdateFirewallDescriptionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_firewall_description_request.UpdateFirewallDescriptionRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4369,18 +4375,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_firewall_encryption_configuration_request.UpdateFirewallEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_firewall_encryption_configuration_request.UpdateFirewallEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4434,22 +4440,22 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_firewall_policy_request.UpdateFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["update_token"] = update_token
+        input_: aws_sdk_network_firewall.types.update_firewall_policy_request.UpdateFirewallPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["update_token"] = update_token
         if firewall_policy_arn is not None:
-            input["firewall_policy_arn"] = firewall_policy_arn
+            input_["firewall_policy_arn"] = firewall_policy_arn
         if firewall_policy_name is not None:
-            input["firewall_policy_name"] = firewall_policy_name
-        input["firewall_policy"] = firewall_policy
+            input_["firewall_policy_name"] = firewall_policy_name
+        input_["firewall_policy"] = firewall_policy
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4495,17 +4501,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_firewall_policy_change_protection_request.UpdateFirewallPolicyChangeProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_firewall_policy_change_protection_request.UpdateFirewallPolicyChangeProtectionRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["firewall_policy_change_protection"] = firewall_policy_change_protection
+            input_["firewall_name"] = firewall_name
+        input_["firewall_policy_change_protection"] = firewall_policy_change_protection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4553,18 +4559,18 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_logging_configuration_request.UpdateLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_logging_configuration_request.UpdateLoggingConfigurationRequest = {}  # type: ignore[typeddict-item]
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
+            input_["firewall_name"] = firewall_name
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if enable_monitoring_dashboard is not None:
-            input["enable_monitoring_dashboard"] = enable_monitoring_dashboard
+            input_["enable_monitoring_dashboard"] = enable_monitoring_dashboard
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4620,22 +4626,22 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_proxy_request.UpdateProxyRequest = {}  # type: ignore[typeddict-item]
-        input["nat_gateway_id"] = nat_gateway_id
+        input_: aws_sdk_network_firewall.types.update_proxy_request.UpdateProxyRequest = {}  # type: ignore[typeddict-item]
+        input_["nat_gateway_id"] = nat_gateway_id
         if proxy_name is not None:
-            input["proxy_name"] = proxy_name
+            input_["proxy_name"] = proxy_name
         if proxy_arn is not None:
-            input["proxy_arn"] = proxy_arn
+            input_["proxy_arn"] = proxy_arn
         if listener_properties_to_add is not None:
-            input["listener_properties_to_add"] = listener_properties_to_add
+            input_["listener_properties_to_add"] = listener_properties_to_add
         if listener_properties_to_remove is not None:
-            input["listener_properties_to_remove"] = listener_properties_to_remove
+            input_["listener_properties_to_remove"] = listener_properties_to_remove
         if tls_intercept_properties is not None:
-            input["tls_intercept_properties"] = tls_intercept_properties
-        input["update_token"] = update_token
+            input_["tls_intercept_properties"] = tls_intercept_properties
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4679,16 +4685,16 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_proxy_configuration_request.UpdateProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_proxy_configuration_request.UpdateProxyConfigurationRequest = {}  # type: ignore[typeddict-item]
         if proxy_configuration_name is not None:
-            input["proxy_configuration_name"] = proxy_configuration_name
+            input_["proxy_configuration_name"] = proxy_configuration_name
         if proxy_configuration_arn is not None:
-            input["proxy_configuration_arn"] = proxy_configuration_arn
-        input["default_rule_phase_actions"] = default_rule_phase_actions
-        input["update_token"] = update_token
+            input_["proxy_configuration_arn"] = proxy_configuration_arn
+        input_["default_rule_phase_actions"] = default_rule_phase_actions
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4748,24 +4754,24 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_proxy_rule_request.UpdateProxyRuleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_proxy_rule_request.UpdateProxyRuleRequest = {}  # type: ignore[typeddict-item]
         if proxy_rule_group_name is not None:
-            input["proxy_rule_group_name"] = proxy_rule_group_name
+            input_["proxy_rule_group_name"] = proxy_rule_group_name
         if proxy_rule_group_arn is not None:
-            input["proxy_rule_group_arn"] = proxy_rule_group_arn
-        input["proxy_rule_name"] = proxy_rule_name
+            input_["proxy_rule_group_arn"] = proxy_rule_group_arn
+        input_["proxy_rule_name"] = proxy_rule_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if add_conditions is not None:
-            input["add_conditions"] = add_conditions
+            input_["add_conditions"] = add_conditions
         if remove_conditions is not None:
-            input["remove_conditions"] = remove_conditions
-        input["update_token"] = update_token
+            input_["remove_conditions"] = remove_conditions
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4809,16 +4815,16 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_proxy_rule_group_priorities_request.UpdateProxyRuleGroupPrioritiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_proxy_rule_group_priorities_request.UpdateProxyRuleGroupPrioritiesRequest = {}  # type: ignore[typeddict-item]
         if proxy_configuration_name is not None:
-            input["proxy_configuration_name"] = proxy_configuration_name
+            input_["proxy_configuration_name"] = proxy_configuration_name
         if proxy_configuration_arn is not None:
-            input["proxy_configuration_arn"] = proxy_configuration_arn
-        input["rule_groups"] = rule_groups
-        input["update_token"] = update_token
+            input_["proxy_configuration_arn"] = proxy_configuration_arn
+        input_["rule_groups"] = rule_groups
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4864,17 +4870,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_proxy_rule_priorities_request.UpdateProxyRulePrioritiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_proxy_rule_priorities_request.UpdateProxyRulePrioritiesRequest = {}  # type: ignore[typeddict-item]
         if proxy_rule_group_name is not None:
-            input["proxy_rule_group_name"] = proxy_rule_group_name
+            input_["proxy_rule_group_name"] = proxy_rule_group_name
         if proxy_rule_group_arn is not None:
-            input["proxy_rule_group_arn"] = proxy_rule_group_arn
-        input["rule_group_request_phase"] = rule_group_request_phase
-        input["rules"] = rules
-        input["update_token"] = update_token
+            input_["proxy_rule_group_arn"] = proxy_rule_group_arn
+        input_["rule_group_request_phase"] = rule_group_request_phase
+        input_["rules"] = rules
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4950,33 +4956,33 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_rule_group_request.UpdateRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["update_token"] = update_token
+        input_: aws_sdk_network_firewall.types.update_rule_group_request.UpdateRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["update_token"] = update_token
         if rule_group_arn is not None:
-            input["rule_group_arn"] = rule_group_arn
+            input_["rule_group_arn"] = rule_group_arn
         if rule_group_name is not None:
-            input["rule_group_name"] = rule_group_name
+            input_["rule_group_name"] = rule_group_name
         if rule_group is not None:
-            input["rule_group"] = rule_group
+            input_["rule_group"] = rule_group
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if source_metadata is not None:
-            input["source_metadata"] = source_metadata
+            input_["source_metadata"] = source_metadata
         if analyze_rule_group is not None:
-            input["analyze_rule_group"] = analyze_rule_group
+            input_["analyze_rule_group"] = analyze_rule_group
         if summary_configuration is not None:
-            input["summary_configuration"] = summary_configuration
+            input_["summary_configuration"] = summary_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5022,17 +5028,17 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_subnet_change_protection_request.UpdateSubnetChangeProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_subnet_change_protection_request.UpdateSubnetChangeProtectionRequest = {}  # type: ignore[typeddict-item]
         if update_token is not None:
-            input["update_token"] = update_token
+            input_["update_token"] = update_token
         if firewall_arn is not None:
-            input["firewall_arn"] = firewall_arn
+            input_["firewall_arn"] = firewall_arn
         if firewall_name is not None:
-            input["firewall_name"] = firewall_name
-        input["subnet_change_protection"] = subnet_change_protection
+            input_["firewall_name"] = firewall_name
+        input_["subnet_change_protection"] = subnet_change_protection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5084,22 +5090,24 @@ class AsyncNetworkFirewallClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_network_firewall.types.update_tls_inspection_configuration_request.UpdateTLSInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_network_firewall.types.update_tls_inspection_configuration_request.UpdateTLSInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
         if tls_inspection_configuration_arn is not None:
-            input["tls_inspection_configuration_arn"] = tls_inspection_configuration_arn
+            input_["tls_inspection_configuration_arn"] = (
+                tls_inspection_configuration_arn
+            )
         if tls_inspection_configuration_name is not None:
-            input["tls_inspection_configuration_name"] = (
+            input_["tls_inspection_configuration_name"] = (
                 tls_inspection_configuration_name
             )
-        input["tls_inspection_configuration"] = tls_inspection_configuration
+        input_["tls_inspection_configuration"] = tls_inspection_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
-        input["update_token"] = update_token
+            input_["encryption_configuration"] = encryption_configuration
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -79,7 +79,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.delete_resource_policy_input.DeleteResourcePolicyInput,
+    input_: aws_sdk_kinesis.types.delete_resource_policy_input.DeleteResourcePolicyInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -87,11 +87,11 @@ def build_request(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
-            StreamId=input.get("stream_id"),
+            StreamId=input_.get("stream_id"),
             StreamARN=options.stream_arn,
             OperationType="control",
             ConsumerARN=options.consumer_arn,
-            ResourceARN=input.get("resource_arn"),
+            ResourceARN=input_.get("resource_arn"),
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
@@ -101,7 +101,9 @@ def build_request(
     import aws_sdk_kinesis.types.delete_resource_policy_input
 
     body: bytes | None = json.dumps(
-        aws_sdk_kinesis.types.delete_resource_policy_input.serialize_aws_json_1_1(input)
+        aws_sdk_kinesis.types.delete_resource_policy_input.serialize_aws_json_1_1(
+            input_
+        )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -114,9 +116,9 @@ def build_request(
 
 def delete_resource_policy(
     options: OperationOptions,
-    input: aws_sdk_kinesis.types.delete_resource_policy_input.DeleteResourcePolicyInput,
+    input_: aws_sdk_kinesis.types.delete_resource_policy_input.DeleteResourcePolicyInput,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -130,9 +132,9 @@ def delete_resource_policy(
 
 async def async_delete_resource_policy(
     options: AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.delete_resource_policy_input.DeleteResourcePolicyInput,
+    input_: aws_sdk_kinesis.types.delete_resource_policy_input.DeleteResourcePolicyInput,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

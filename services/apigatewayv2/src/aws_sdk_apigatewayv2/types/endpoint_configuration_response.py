@@ -1,12 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#EndpointConfigurationResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
-    import aws_sdk_apigatewayv2.types.__string_min10_max2048
     import aws_sdk_apigatewayv2.types.__string_min1_max64
     import aws_sdk_apigatewayv2.types.__string_min3_max256
+    import aws_sdk_apigatewayv2.types.__string_min10_max2048
 
 
 class EndpointConfigurationResponse(TypedDict):

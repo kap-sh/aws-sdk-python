@@ -100,56 +100,53 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_app_mesh.types.describe_gateway_route_input.DescribeGatewayRouteInput,
+    input_: aws_sdk_app_mesh.types.describe_gateway_route_input.DescribeGatewayRouteInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes/{gatewayRouteName}"
     )
     url = url.replace(
-        "{gatewayRouteName}", quote(str(input["gateway_route_name"]), safe="")
+        "{gatewayRouteName}", quote(str(input_["gateway_route_name"]), safe="")
     )
-    url = url.replace("{meshName}", quote(str(input["mesh_name"]), safe=""))
+    url = url.replace("{meshName}", quote(str(input_["mesh_name"]), safe=""))
     url = url.replace(
-        "{virtualGatewayName}", quote(str(input["virtual_gateway_name"]), safe="")
+        "{virtualGatewayName}", quote(str(input_["virtual_gateway_name"]), safe="")
     )
     params: dict[str, str] = {}
-    if "mesh_owner" in input:
-        params["meshOwner"] = str(input["mesh_owner"])
+    if "mesh_owner" in input_:
+        params["meshOwner"] = str(input_["mesh_owner"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def describe_gateway_route(
     options: OperationOptions,
-    input: aws_sdk_app_mesh.types.describe_gateway_route_input.DescribeGatewayRouteInput,
+    input_: aws_sdk_app_mesh.types.describe_gateway_route_input.DescribeGatewayRouteInput,
 ) -> tuple[
     aws_sdk_app_mesh.types.describe_gateway_route_output.DescribeGatewayRouteOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -158,16 +155,17 @@ def describe_gateway_route(
 
 async def async_describe_gateway_route(
     options: AsyncOperationOptions,
-    input: aws_sdk_app_mesh.types.describe_gateway_route_input.DescribeGatewayRouteInput,
+    input_: aws_sdk_app_mesh.types.describe_gateway_route_input.DescribeGatewayRouteInput,
 ) -> tuple[
     aws_sdk_app_mesh.types.describe_gateway_route_output.DescribeGatewayRouteOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

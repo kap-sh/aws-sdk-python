@@ -67,11 +67,11 @@ class DaemonTaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_daemon_task_definition_request.DeleteDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_task_definition"] = daemon_task_definition
+        input_: aws_sdk_ecs.types.delete_daemon_task_definition_request.DeleteDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_task_definition"] = daemon_task_definition
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -110,11 +110,11 @@ class DaemonTaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_daemon_task_definition_request.DescribeDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_task_definition"] = daemon_task_definition
+        input_: aws_sdk_ecs.types.describe_daemon_task_definition_request.DescribeDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_task_definition"] = daemon_task_definition
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -169,24 +169,24 @@ class DaemonTaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_daemon_task_definitions_request.ListDaemonTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_daemon_task_definitions_request.ListDaemonTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if family_prefix is not None:
-            input["family_prefix"] = family_prefix
+            input_["family_prefix"] = family_prefix
         if family is not None:
-            input["family"] = family
+            input_["family"] = family
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,24 +241,24 @@ class DaemonTaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.register_daemon_task_definition_request.RegisterDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["family"] = family
+        input_: aws_sdk_ecs.types.register_daemon_task_definition_request.RegisterDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["family"] = family
         if task_role_arn is not None:
-            input["task_role_arn"] = task_role_arn
+            input_["task_role_arn"] = task_role_arn
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
-        input["container_definitions"] = container_definitions
+            input_["execution_role_arn"] = execution_role_arn
+        input_["container_definitions"] = container_definitions
         if cpu is not None:
-            input["cpu"] = cpu
+            input_["cpu"] = cpu
         if memory is not None:
-            input["memory"] = memory
+            input_["memory"] = memory
         if volumes is not None:
-            input["volumes"] = volumes
+            input_["volumes"] = volumes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,11 +303,11 @@ class AsyncDaemonTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_daemon_task_definition_request.DeleteDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_task_definition"] = daemon_task_definition
+        input_: aws_sdk_ecs.types.delete_daemon_task_definition_request.DeleteDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_task_definition"] = daemon_task_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,11 +347,11 @@ class AsyncDaemonTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_daemon_task_definition_request.DescribeDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_task_definition"] = daemon_task_definition
+        input_: aws_sdk_ecs.types.describe_daemon_task_definition_request.DescribeDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_task_definition"] = daemon_task_definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,24 +407,24 @@ class AsyncDaemonTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_daemon_task_definitions_request.ListDaemonTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_daemon_task_definitions_request.ListDaemonTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if family_prefix is not None:
-            input["family_prefix"] = family_prefix
+            input_["family_prefix"] = family_prefix
         if family is not None:
-            input["family"] = family
+            input_["family"] = family
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,24 +480,24 @@ class AsyncDaemonTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.register_daemon_task_definition_request.RegisterDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["family"] = family
+        input_: aws_sdk_ecs.types.register_daemon_task_definition_request.RegisterDaemonTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["family"] = family
         if task_role_arn is not None:
-            input["task_role_arn"] = task_role_arn
+            input_["task_role_arn"] = task_role_arn
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
-        input["container_definitions"] = container_definitions
+            input_["execution_role_arn"] = execution_role_arn
+        input_["container_definitions"] = container_definitions
         if cpu is not None:
-            input["cpu"] = cpu
+            input_["cpu"] = cpu
         if memory is not None:
-            input["memory"] = memory
+            input_["memory"] = memory
         if volumes is not None:
-            input["volumes"] = volumes
+            input_["volumes"] = volumes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

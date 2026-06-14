@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_voice_id._auth._signers
+import aws_sdk_voice_id._auth._sigv4
 from aws_sdk_voice_id._auth._identity import Credentials
 from aws_sdk_voice_id._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,7 @@ from aws_sdk_voice_id._auth._providers import (
 )
 from aws_sdk_voice_id._auth._zapros_handler import AuthMiddleware
 from aws_sdk_voice_id._pagination import resolve_path as _resolve_path
+from aws_sdk_voice_id._resources.voice_id.domain_resource import AsyncDomainResource
 from aws_sdk_voice_id._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -170,6 +173,8 @@ class AsyncVoiceIDClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.domain_resource = AsyncDomainResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncVoiceIDClientConfig] = None
@@ -233,13 +238,13 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.associate_fraudster_request.AssociateFraudsterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["watchlist_id"] = watchlist_id
-        input["fraudster_id"] = fraudster_id
+        input_: aws_sdk_voice_id.types.associate_fraudster_request.AssociateFraudsterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["watchlist_id"] = watchlist_id
+        input_["fraudster_id"] = fraudster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,16 +288,16 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.create_watchlist_request.CreateWatchlistRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
+        input_: aws_sdk_voice_id.types.create_watchlist_request.CreateWatchlistRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,12 +331,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.delete_fraudster_request.DeleteFraudsterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["fraudster_id"] = fraudster_id
+        input_: aws_sdk_voice_id.types.delete_fraudster_request.DeleteFraudsterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["fraudster_id"] = fraudster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,12 +370,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.delete_speaker_request.DeleteSpeakerRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["speaker_id"] = speaker_id
+        input_: aws_sdk_voice_id.types.delete_speaker_request.DeleteSpeakerRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["speaker_id"] = speaker_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -404,12 +409,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.delete_watchlist_request.DeleteWatchlistRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["watchlist_id"] = watchlist_id
+        input_: aws_sdk_voice_id.types.delete_watchlist_request.DeleteWatchlistRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["watchlist_id"] = watchlist_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,12 +450,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.describe_fraudster_request.DescribeFraudsterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["fraudster_id"] = fraudster_id
+        input_: aws_sdk_voice_id.types.describe_fraudster_request.DescribeFraudsterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["fraudster_id"] = fraudster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -486,12 +491,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.describe_fraudster_registration_job_request.DescribeFraudsterRegistrationJobRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["job_id"] = job_id
+        input_: aws_sdk_voice_id.types.describe_fraudster_registration_job_request.DescribeFraudsterRegistrationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,12 +532,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.describe_speaker_request.DescribeSpeakerRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["speaker_id"] = speaker_id
+        input_: aws_sdk_voice_id.types.describe_speaker_request.DescribeSpeakerRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["speaker_id"] = speaker_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -568,12 +573,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.describe_speaker_enrollment_job_request.DescribeSpeakerEnrollmentJobRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["job_id"] = job_id
+        input_: aws_sdk_voice_id.types.describe_speaker_enrollment_job_request.DescribeSpeakerEnrollmentJobRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,12 +614,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.describe_watchlist_request.DescribeWatchlistRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["watchlist_id"] = watchlist_id
+        input_: aws_sdk_voice_id.types.describe_watchlist_request.DescribeWatchlistRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["watchlist_id"] = watchlist_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -652,13 +657,13 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.disassociate_fraudster_request.DisassociateFraudsterRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["watchlist_id"] = watchlist_id
-        input["fraudster_id"] = fraudster_id
+        input_: aws_sdk_voice_id.types.disassociate_fraudster_request.DisassociateFraudsterRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["watchlist_id"] = watchlist_id
+        input_["fraudster_id"] = fraudster_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -694,12 +699,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.evaluate_session_request.EvaluateSessionRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["session_name_or_id"] = session_name_or_id
+        input_: aws_sdk_voice_id.types.evaluate_session_request.EvaluateSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["session_name_or_id"] = session_name_or_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,17 +748,17 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.list_fraudster_registration_jobs_request.ListFraudsterRegistrationJobsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.list_fraudster_registration_jobs_request.ListFraudsterRegistrationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if job_status is not None:
-            input["job_status"] = job_status
+            input_["job_status"] = job_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -826,17 +831,17 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.list_fraudsters_request.ListFraudstersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.list_fraudsters_request.ListFraudstersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if watchlist_id is not None:
-            input["watchlist_id"] = watchlist_id
+            input_["watchlist_id"] = watchlist_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -909,17 +914,17 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.list_speaker_enrollment_jobs_request.ListSpeakerEnrollmentJobsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.list_speaker_enrollment_jobs_request.ListSpeakerEnrollmentJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if job_status is not None:
-            input["job_status"] = job_status
+            input_["job_status"] = job_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -988,15 +993,15 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.list_speakers_request.ListSpeakersRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.list_speakers_request.ListSpeakersRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1055,11 +1060,11 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_voice_id.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1099,15 +1104,15 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.list_watchlists_request.ListWatchlistsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.list_watchlists_request.ListWatchlistsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,12 +1173,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.opt_out_speaker_request.OptOutSpeakerRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["speaker_id"] = speaker_id
+        input_: aws_sdk_voice_id.types.opt_out_speaker_request.OptOutSpeakerRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["speaker_id"] = speaker_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1223,20 +1228,20 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.start_fraudster_registration_job_request.StartFraudsterRegistrationJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_voice_id.types.start_fraudster_registration_job_request.StartFraudsterRegistrationJobRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if job_name is not None:
-            input["job_name"] = job_name
-        input["domain_id"] = domain_id
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["job_name"] = job_name
+        input_["domain_id"] = domain_id
+        input_["data_access_role_arn"] = data_access_role_arn
         if registration_config is not None:
-            input["registration_config"] = registration_config
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
+            input_["registration_config"] = registration_config
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1286,20 +1291,20 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.start_speaker_enrollment_job_request.StartSpeakerEnrollmentJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_voice_id.types.start_speaker_enrollment_job_request.StartSpeakerEnrollmentJobRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if job_name is not None:
-            input["job_name"] = job_name
-        input["domain_id"] = domain_id
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["job_name"] = job_name
+        input_["domain_id"] = domain_id
+        input_["data_access_role_arn"] = data_access_role_arn
         if enrollment_config is not None:
-            input["enrollment_config"] = enrollment_config
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
+            input_["enrollment_config"] = enrollment_config
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1335,12 +1340,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_voice_id.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1376,12 +1381,12 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_voice_id.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1423,16 +1428,16 @@ class AsyncVoiceIDClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.update_watchlist_request.UpdateWatchlistRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["watchlist_id"] = watchlist_id
+        input_: aws_sdk_voice_id.types.update_watchlist_request.UpdateWatchlistRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["watchlist_id"] = watchlist_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

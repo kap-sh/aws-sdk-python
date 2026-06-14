@@ -76,20 +76,20 @@ class DomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_voice_id.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["server_side_encryption_configuration"] = (
+            input_["description"] = description
+        input_["server_side_encryption_configuration"] = (
             server_side_encryption_configuration
         )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,11 +122,11 @@ class DomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -165,17 +165,17 @@ class DomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
+        input_: aws_sdk_voice_id.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["server_side_encryption_configuration"] = (
+            input_["description"] = description
+        input_["server_side_encryption_configuration"] = (
             server_side_encryption_configuration
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -206,11 +206,11 @@ class DomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -247,14 +247,14 @@ class DomainResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_voice_id.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,20 +303,20 @@ class AsyncDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_voice_id.types.create_domain_request.CreateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["server_side_encryption_configuration"] = (
+            input_["description"] = description
+        input_["server_side_encryption_configuration"] = (
             server_side_encryption_configuration
         )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,11 +350,11 @@ class AsyncDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.describe_domain_request.DescribeDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,17 +394,17 @@ class AsyncDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
+        input_: aws_sdk_voice_id.types.update_domain_request.UpdateDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["server_side_encryption_configuration"] = (
+            input_["description"] = description
+        input_["server_side_encryption_configuration"] = (
             server_side_encryption_configuration
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,11 +436,11 @@ class AsyncDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_voice_id.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,14 +478,14 @@ class AsyncDomainResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_voice_id.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_voice_id.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

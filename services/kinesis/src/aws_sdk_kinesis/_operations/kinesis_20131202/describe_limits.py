@@ -69,7 +69,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput,
+    input_: aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -99,11 +99,11 @@ def build_request(
 
 def describe_limits(
     options: OperationOptions,
-    input: aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput,
+    input_: aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput,
 ) -> tuple[
     aws_sdk_kinesis.types.describe_limits_output.DescribeLimitsOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -117,11 +117,11 @@ def describe_limits(
 
 async def async_describe_limits(
     options: AsyncOperationOptions,
-    input: aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput,
+    input_: aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput,
 ) -> tuple[
     aws_sdk_kinesis.types.describe_limits_output.DescribeLimitsOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

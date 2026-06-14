@@ -80,19 +80,19 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ecs.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if auto_scaling_group_provider is not None:
-            input["auto_scaling_group_provider"] = auto_scaling_group_provider
+            input_["auto_scaling_group_provider"] = auto_scaling_group_provider
         if managed_instances_provider is not None:
-            input["managed_instances_provider"] = managed_instances_provider
+            input_["managed_instances_provider"] = managed_instances_provider
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,17 +141,17 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ecs.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if auto_scaling_group_provider is not None:
-            input["auto_scaling_group_provider"] = auto_scaling_group_provider
+            input_["auto_scaling_group_provider"] = auto_scaling_group_provider
         if managed_instances_provider is not None:
-            input["managed_instances_provider"] = managed_instances_provider
+            input_["managed_instances_provider"] = managed_instances_provider
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -192,13 +192,13 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider"] = capacity_provider
+        input_: aws_sdk_ecs.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider"] = capacity_provider
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,20 +251,20 @@ class CapacityProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_capacity_providers_request.DescribeCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.describe_capacity_providers_request.DescribeCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
         if capacity_providers is not None:
-            input["capacity_providers"] = capacity_providers
+            input_["capacity_providers"] = capacity_providers
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -321,19 +321,19 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ecs.types.create_capacity_provider_request.CreateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if auto_scaling_group_provider is not None:
-            input["auto_scaling_group_provider"] = auto_scaling_group_provider
+            input_["auto_scaling_group_provider"] = auto_scaling_group_provider
         if managed_instances_provider is not None:
-            input["managed_instances_provider"] = managed_instances_provider
+            input_["managed_instances_provider"] = managed_instances_provider
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,17 +383,17 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_ecs.types.update_capacity_provider_request.UpdateCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if auto_scaling_group_provider is not None:
-            input["auto_scaling_group_provider"] = auto_scaling_group_provider
+            input_["auto_scaling_group_provider"] = auto_scaling_group_provider
         if managed_instances_provider is not None:
-            input["managed_instances_provider"] = managed_instances_provider
+            input_["managed_instances_provider"] = managed_instances_provider
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,13 +435,13 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
-        input["capacity_provider"] = capacity_provider
+        input_: aws_sdk_ecs.types.delete_capacity_provider_request.DeleteCapacityProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["capacity_provider"] = capacity_provider
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -495,20 +495,20 @@ class AsyncCapacityProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_capacity_providers_request.DescribeCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.describe_capacity_providers_request.DescribeCapacityProvidersRequest = {}  # type: ignore[typeddict-item]
         if capacity_providers is not None:
-            input["capacity_providers"] = capacity_providers
+            input_["capacity_providers"] = capacity_providers
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

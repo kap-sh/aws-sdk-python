@@ -66,15 +66,15 @@ class IdentitySource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.create_identity_source_request.CreateIdentitySourceRequest = {}  # type: ignore[typeddict-item]
-        input["identity_source_parameters"] = identity_source_parameters
+        input_: aws_sdk_mpa.types.create_identity_source_request.CreateIdentitySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_source_parameters"] = identity_source_parameters
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -107,11 +107,11 @@ class IdentitySource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.get_identity_source_request.GetIdentitySourceRequest = {}  # type: ignore[typeddict-item]
-        input["identity_source_arn"] = identity_source_arn
+        input_: aws_sdk_mpa.types.get_identity_source_request.GetIdentitySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_source_arn"] = identity_source_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,11 +142,11 @@ class IdentitySource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.delete_identity_source_request.DeleteIdentitySourceRequest = {}  # type: ignore[typeddict-item]
-        input["identity_source_arn"] = identity_source_arn
+        input_: aws_sdk_mpa.types.delete_identity_source_request.DeleteIdentitySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_source_arn"] = identity_source_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,14 +181,14 @@ class IdentitySource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_identity_sources_request.ListIdentitySourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.list_identity_sources_request.ListIdentitySourcesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,15 +233,15 @@ class AsyncIdentitySource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.create_identity_source_request.CreateIdentitySourceRequest = {}  # type: ignore[typeddict-item]
-        input["identity_source_parameters"] = identity_source_parameters
+        input_: aws_sdk_mpa.types.create_identity_source_request.CreateIdentitySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_source_parameters"] = identity_source_parameters
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -275,11 +275,11 @@ class AsyncIdentitySource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.get_identity_source_request.GetIdentitySourceRequest = {}  # type: ignore[typeddict-item]
-        input["identity_source_arn"] = identity_source_arn
+        input_: aws_sdk_mpa.types.get_identity_source_request.GetIdentitySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_source_arn"] = identity_source_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,11 +311,11 @@ class AsyncIdentitySource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.delete_identity_source_request.DeleteIdentitySourceRequest = {}  # type: ignore[typeddict-item]
-        input["identity_source_arn"] = identity_source_arn
+        input_: aws_sdk_mpa.types.delete_identity_source_request.DeleteIdentitySourceRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_source_arn"] = identity_source_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -351,14 +351,14 @@ class AsyncIdentitySource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mpa.types.list_identity_sources_request.ListIdentitySourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mpa.types.list_identity_sources_request.ListIdentitySourcesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

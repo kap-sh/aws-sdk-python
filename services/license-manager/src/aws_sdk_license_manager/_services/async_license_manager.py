@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_license_manager._auth._signers
+import aws_sdk_license_manager._auth._sigv4
 from aws_sdk_license_manager._auth._identity import Credentials
 from aws_sdk_license_manager._auth._providers import (
     CredentialsProvider,
@@ -329,11 +331,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.accept_grant_request.AcceptGrantRequest = {}  # type: ignore[typeddict-item]
-        input["grant_arn"] = grant_arn
+        input_: aws_sdk_license_manager.types.accept_grant_request.AcceptGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["grant_arn"] = grant_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,13 +373,13 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.check_in_license_request.CheckInLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["license_consumption_token"] = license_consumption_token
+        input_: aws_sdk_license_manager.types.check_in_license_request.CheckInLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["license_consumption_token"] = license_consumption_token
         if beneficiary is not None:
-            input["beneficiary"] = beneficiary
+            input_["beneficiary"] = beneficiary
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -423,18 +425,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.checkout_borrow_license_request.CheckoutBorrowLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["license_arn"] = license_arn
-        input["entitlements"] = entitlements
-        input["digital_signature_method"] = digital_signature_method
+        input_: aws_sdk_license_manager.types.checkout_borrow_license_request.CheckoutBorrowLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["license_arn"] = license_arn
+        input_["entitlements"] = entitlements
+        input_["digital_signature_method"] = digital_signature_method
         if node_id is not None:
-            input["node_id"] = node_id
+            input_["node_id"] = node_id
         if checkout_metadata is not None:
-            input["checkout_metadata"] = checkout_metadata
-        input["client_token"] = client_token
+            input_["checkout_metadata"] = checkout_metadata
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,19 +482,19 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.checkout_license_request.CheckoutLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["product_sku"] = product_sku
-        input["checkout_type"] = checkout_type
-        input["key_fingerprint"] = key_fingerprint
-        input["entitlements"] = entitlements
-        input["client_token"] = client_token
+        input_: aws_sdk_license_manager.types.checkout_license_request.CheckoutLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["product_sku"] = product_sku
+        input_["checkout_type"] = checkout_type
+        input_["key_fingerprint"] = key_fingerprint
+        input_["entitlements"] = entitlements
+        input_["client_token"] = client_token
         if beneficiary is not None:
-            input["beneficiary"] = beneficiary
+            input_["beneficiary"] = beneficiary
         if node_id is not None:
-            input["node_id"] = node_id
+            input_["node_id"] = node_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,18 +540,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_grant_request.CreateGrantRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["grant_name"] = grant_name
-        input["license_arn"] = license_arn
-        input["principals"] = principals
-        input["home_region"] = home_region
-        input["allowed_operations"] = allowed_operations
+        input_: aws_sdk_license_manager.types.create_grant_request.CreateGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["grant_name"] = grant_name
+        input_["license_arn"] = license_arn
+        input_["principals"] = principals
+        input_["home_region"] = home_region
+        input_["allowed_operations"] = allowed_operations
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,24 +605,24 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_grant_version_request.CreateGrantVersionRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["grant_arn"] = grant_arn
+        input_: aws_sdk_license_manager.types.create_grant_version_request.CreateGrantVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["grant_arn"] = grant_arn
         if grant_name is not None:
-            input["grant_name"] = grant_name
+            input_["grant_name"] = grant_name
         if allowed_operations is not None:
-            input["allowed_operations"] = allowed_operations
+            input_["allowed_operations"] = allowed_operations
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if status_reason is not None:
-            input["status_reason"] = status_reason
+            input_["status_reason"] = status_reason
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,24 +680,24 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_license_request.CreateLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["license_name"] = license_name
-        input["product_name"] = product_name
-        input["product_sku"] = product_sku
-        input["issuer"] = issuer
-        input["home_region"] = home_region
-        input["validity"] = validity
-        input["entitlements"] = entitlements
-        input["beneficiary"] = beneficiary
-        input["consumption_configuration"] = consumption_configuration
+        input_: aws_sdk_license_manager.types.create_license_request.CreateLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["license_name"] = license_name
+        input_["product_name"] = product_name
+        input_["product_sku"] = product_sku
+        input_["issuer"] = issuer
+        input_["home_region"] = home_region
+        input_["validity"] = validity
+        input_["entitlements"] = entitlements
+        input_["beneficiary"] = beneficiary
+        input_["consumption_configuration"] = consumption_configuration
         if license_metadata is not None:
-            input["license_metadata"] = license_metadata
-        input["client_token"] = client_token
+            input_["license_metadata"] = license_metadata
+        input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,22 +747,24 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_license_asset_group_request.CreateLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_license_manager.types.create_license_asset_group_request.CreateLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["license_asset_group_configurations"] = license_asset_group_configurations
-        input["associated_license_asset_ruleset_ar_ns"] = (
+            input_["description"] = description
+        input_["license_asset_group_configurations"] = (
+            license_asset_group_configurations
+        )
+        input_["associated_license_asset_ruleset_ar_ns"] = (
             associated_license_asset_ruleset_ar_ns
         )
         if properties is not None:
-            input["properties"] = properties
+            input_["properties"] = properties
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -804,17 +808,17 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_license_asset_ruleset_request.CreateLicenseAssetRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_license_manager.types.create_license_asset_ruleset_request.CreateLicenseAssetRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["rules"] = rules
+            input_["description"] = description
+        input_["rules"] = rules
         if tags is not None:
-            input["tags"] = tags
-        input["client_token"] = client_token
+            input_["tags"] = tags
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -878,28 +882,28 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_license_configuration_request.CreateLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_license_manager.types.create_license_configuration_request.CreateLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["license_counting_type"] = license_counting_type
+            input_["description"] = description
+        input_["license_counting_type"] = license_counting_type
         if license_count is not None:
-            input["license_count"] = license_count
+            input_["license_count"] = license_count
         if license_count_hard_limit is not None:
-            input["license_count_hard_limit"] = license_count_hard_limit
+            input_["license_count_hard_limit"] = license_count_hard_limit
         if license_rules is not None:
-            input["license_rules"] = license_rules
+            input_["license_rules"] = license_rules
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if disassociate_when_not_found is not None:
-            input["disassociate_when_not_found"] = disassociate_when_not_found
+            input_["disassociate_when_not_found"] = disassociate_when_not_found
         if product_information_list is not None:
-            input["product_information_list"] = product_information_list
+            input_["product_information_list"] = product_information_list
         if license_expiry is not None:
-            input["license_expiry"] = license_expiry
+            input_["license_expiry"] = license_expiry
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -937,13 +941,13 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_license_conversion_task_for_resource_request.CreateLicenseConversionTaskForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["source_license_context"] = source_license_context
-        input["destination_license_context"] = destination_license_context
+        input_: aws_sdk_license_manager.types.create_license_conversion_task_for_resource_request.CreateLicenseConversionTaskForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["source_license_context"] = source_license_context
+        input_["destination_license_context"] = destination_license_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -989,19 +993,19 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_license_manager_report_generator_request.CreateLicenseManagerReportGeneratorRequest = {}  # type: ignore[typeddict-item]
-        input["report_generator_name"] = report_generator_name
-        input["type"] = type
-        input["report_context"] = report_context
-        input["report_frequency"] = report_frequency
-        input["client_token"] = client_token
+        input_: aws_sdk_license_manager.types.create_license_manager_report_generator_request.CreateLicenseManagerReportGeneratorRequest = {}  # type: ignore[typeddict-item]
+        input_["report_generator_name"] = report_generator_name
+        input_["type"] = type
+        input_["report_context"] = report_context
+        input_["report_frequency"] = report_frequency
+        input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1059,24 +1063,24 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_license_version_request.CreateLicenseVersionRequest = {}  # type: ignore[typeddict-item]
-        input["license_arn"] = license_arn
-        input["license_name"] = license_name
-        input["product_name"] = product_name
-        input["issuer"] = issuer
-        input["home_region"] = home_region
-        input["validity"] = validity
+        input_: aws_sdk_license_manager.types.create_license_version_request.CreateLicenseVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["license_arn"] = license_arn
+        input_["license_name"] = license_name
+        input_["product_name"] = product_name
+        input_["issuer"] = issuer
+        input_["home_region"] = home_region
+        input_["validity"] = validity
         if license_metadata is not None:
-            input["license_metadata"] = license_metadata
-        input["entitlements"] = entitlements
-        input["consumption_configuration"] = consumption_configuration
-        input["status"] = status
-        input["client_token"] = client_token
+            input_["license_metadata"] = license_metadata
+        input_["entitlements"] = entitlements
+        input_["consumption_configuration"] = consumption_configuration
+        input_["status"] = status
+        input_["client_token"] = client_token
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1122,18 +1126,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.create_token_request.CreateTokenRequest = {}  # type: ignore[typeddict-item]
-        input["license_arn"] = license_arn
+        input_: aws_sdk_license_manager.types.create_token_request.CreateTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["license_arn"] = license_arn
         if role_arns is not None:
-            input["role_arns"] = role_arns
+            input_["role_arns"] = role_arns
         if expiration_in_days is not None:
-            input["expiration_in_days"] = expiration_in_days
+            input_["expiration_in_days"] = expiration_in_days
         if token_properties is not None:
-            input["token_properties"] = token_properties
-        input["client_token"] = client_token
+            input_["token_properties"] = token_properties
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1173,14 +1177,14 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.delete_grant_request.DeleteGrantRequest = {}  # type: ignore[typeddict-item]
-        input["grant_arn"] = grant_arn
+        input_: aws_sdk_license_manager.types.delete_grant_request.DeleteGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["grant_arn"] = grant_arn
         if status_reason is not None:
-            input["status_reason"] = status_reason
-        input["version"] = version
+            input_["status_reason"] = status_reason
+        input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1216,12 +1220,12 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.delete_license_request.DeleteLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["license_arn"] = license_arn
-        input["source_version"] = source_version
+        input_: aws_sdk_license_manager.types.delete_license_request.DeleteLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["license_arn"] = license_arn
+        input_["source_version"] = source_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1255,11 +1259,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.delete_license_asset_group_request.DeleteLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["license_asset_group_arn"] = license_asset_group_arn
+        input_: aws_sdk_license_manager.types.delete_license_asset_group_request.DeleteLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["license_asset_group_arn"] = license_asset_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1293,11 +1297,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.delete_license_asset_ruleset_request.DeleteLicenseAssetRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["license_asset_ruleset_arn"] = license_asset_ruleset_arn
+        input_: aws_sdk_license_manager.types.delete_license_asset_ruleset_request.DeleteLicenseAssetRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["license_asset_ruleset_arn"] = license_asset_ruleset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1331,11 +1335,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.delete_license_configuration_request.DeleteLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["license_configuration_arn"] = license_configuration_arn
+        input_: aws_sdk_license_manager.types.delete_license_configuration_request.DeleteLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["license_configuration_arn"] = license_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1369,13 +1373,13 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.delete_license_manager_report_generator_request.DeleteLicenseManagerReportGeneratorRequest = {}  # type: ignore[typeddict-item]
-        input["license_manager_report_generator_arn"] = (
+        input_: aws_sdk_license_manager.types.delete_license_manager_report_generator_request.DeleteLicenseManagerReportGeneratorRequest = {}  # type: ignore[typeddict-item]
+        input_["license_manager_report_generator_arn"] = (
             license_manager_report_generator_arn
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1409,11 +1413,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.delete_token_request.DeleteTokenRequest = {}  # type: ignore[typeddict-item]
-        input["token_id"] = token_id
+        input_: aws_sdk_license_manager.types.delete_token_request.DeleteTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["token_id"] = token_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1449,13 +1453,13 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.extend_license_consumption_request.ExtendLicenseConsumptionRequest = {}  # type: ignore[typeddict-item]
-        input["license_consumption_token"] = license_consumption_token
+        input_: aws_sdk_license_manager.types.extend_license_consumption_request.ExtendLicenseConsumptionRequest = {}  # type: ignore[typeddict-item]
+        input_["license_consumption_token"] = license_consumption_token
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1495,13 +1499,13 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_access_token_request.GetAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["token"] = token
+        input_: aws_sdk_license_manager.types.get_access_token_request.GetAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["token"] = token
         if token_properties is not None:
-            input["token_properties"] = token_properties
+            input_["token_properties"] = token_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1537,13 +1541,13 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_grant_request.GetGrantRequest = {}  # type: ignore[typeddict-item]
-        input["grant_arn"] = grant_arn
+        input_: aws_sdk_license_manager.types.get_grant_request.GetGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["grant_arn"] = grant_arn
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1579,13 +1583,13 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_license_request.GetLicenseRequest = {}  # type: ignore[typeddict-item]
-        input["license_arn"] = license_arn
+        input_: aws_sdk_license_manager.types.get_license_request.GetLicenseRequest = {}  # type: ignore[typeddict-item]
+        input_["license_arn"] = license_arn
         if version is not None:
-            input["version"] = version
+            input_["version"] = version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1619,11 +1623,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_license_asset_group_request.GetLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["license_asset_group_arn"] = license_asset_group_arn
+        input_: aws_sdk_license_manager.types.get_license_asset_group_request.GetLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["license_asset_group_arn"] = license_asset_group_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1657,11 +1661,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_license_asset_ruleset_request.GetLicenseAssetRulesetRequest = {}  # type: ignore[typeddict-item]
-        input["license_asset_ruleset_arn"] = license_asset_ruleset_arn
+        input_: aws_sdk_license_manager.types.get_license_asset_ruleset_request.GetLicenseAssetRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_["license_asset_ruleset_arn"] = license_asset_ruleset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1695,11 +1699,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_license_configuration_request.GetLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["license_configuration_arn"] = license_configuration_arn
+        input_: aws_sdk_license_manager.types.get_license_configuration_request.GetLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["license_configuration_arn"] = license_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1733,11 +1737,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_license_conversion_task_request.GetLicenseConversionTaskRequest = {}  # type: ignore[typeddict-item]
-        input["license_conversion_task_id"] = license_conversion_task_id
+        input_: aws_sdk_license_manager.types.get_license_conversion_task_request.GetLicenseConversionTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["license_conversion_task_id"] = license_conversion_task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1771,13 +1775,13 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_license_manager_report_generator_request.GetLicenseManagerReportGeneratorRequest = {}  # type: ignore[typeddict-item]
-        input["license_manager_report_generator_arn"] = (
+        input_: aws_sdk_license_manager.types.get_license_manager_report_generator_request.GetLicenseManagerReportGeneratorRequest = {}  # type: ignore[typeddict-item]
+        input_["license_manager_report_generator_arn"] = (
             license_manager_report_generator_arn
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1811,11 +1815,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_license_usage_request.GetLicenseUsageRequest = {}  # type: ignore[typeddict-item]
-        input["license_arn"] = license_arn
+        input_: aws_sdk_license_manager.types.get_license_usage_request.GetLicenseUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["license_arn"] = license_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1842,10 +1846,10 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.get_service_settings_request.GetServiceSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.get_service_settings_request.GetServiceSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1887,16 +1891,16 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_assets_for_license_asset_group_request.ListAssetsForLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["license_asset_group_arn"] = license_asset_group_arn
-        input["asset_type"] = asset_type
+        input_: aws_sdk_license_manager.types.list_assets_for_license_asset_group_request.ListAssetsForLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["license_asset_group_arn"] = license_asset_group_arn
+        input_["asset_type"] = asset_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1936,15 +1940,15 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_associations_for_license_configuration_request.ListAssociationsForLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["license_configuration_arn"] = license_configuration_arn
+        input_: aws_sdk_license_manager.types.list_associations_for_license_configuration_request.ListAssociationsForLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["license_configuration_arn"] = license_configuration_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1988,18 +1992,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_distributed_grants_request.ListDistributedGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_distributed_grants_request.ListDistributedGrantsRequest = {}  # type: ignore[typeddict-item]
         if grant_arns is not None:
-            input["grant_arns"] = grant_arns
+            input_["grant_arns"] = grant_arns
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2039,15 +2043,15 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_failures_for_license_configuration_operations_request.ListFailuresForLicenseConfigurationOperationsRequest = {}  # type: ignore[typeddict-item]
-        input["license_configuration_arn"] = license_configuration_arn
+        input_: aws_sdk_license_manager.types.list_failures_for_license_configuration_operations_request.ListFailuresForLicenseConfigurationOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_["license_configuration_arn"] = license_configuration_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2087,16 +2091,16 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_license_asset_groups_request.ListLicenseAssetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_license_asset_groups_request.ListLicenseAssetGroupsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2140,20 +2144,20 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_license_asset_rulesets_request.ListLicenseAssetRulesetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_license_asset_rulesets_request.ListLicenseAssetRulesetsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if show_aws_managed_license_asset_rulesets is not None:
-            input["show_aws_managed_license_asset_rulesets"] = (
+            input_["show_aws_managed_license_asset_rulesets"] = (
                 show_aws_managed_license_asset_rulesets
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2197,18 +2201,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_license_configurations_request.ListLicenseConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_license_configurations_request.ListLicenseConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if license_configuration_arns is not None:
-            input["license_configuration_arns"] = license_configuration_arns
+            input_["license_configuration_arns"] = license_configuration_arns
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2252,18 +2256,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_license_configurations_for_organization_request.ListLicenseConfigurationsForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_license_configurations_for_organization_request.ListLicenseConfigurationsForOrganizationRequest = {}  # type: ignore[typeddict-item]
         if license_configuration_arns is not None:
-            input["license_configuration_arns"] = license_configuration_arns
+            input_["license_configuration_arns"] = license_configuration_arns
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2303,16 +2307,16 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_license_conversion_tasks_request.ListLicenseConversionTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_license_conversion_tasks_request.ListLicenseConversionTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2354,16 +2358,16 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_license_manager_report_generators_request.ListLicenseManagerReportGeneratorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_license_manager_report_generators_request.ListLicenseManagerReportGeneratorsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2407,18 +2411,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_licenses_request.ListLicensesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_licenses_request.ListLicensesRequest = {}  # type: ignore[typeddict-item]
         if license_arns is not None:
-            input["license_arns"] = license_arns
+            input_["license_arns"] = license_arns
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2458,15 +2462,15 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_license_specifications_for_resource_request.ListLicenseSpecificationsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_license_manager.types.list_license_specifications_for_resource_request.ListLicenseSpecificationsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2506,15 +2510,15 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_license_versions_request.ListLicenseVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["license_arn"] = license_arn
+        input_: aws_sdk_license_manager.types.list_license_versions_request.ListLicenseVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["license_arn"] = license_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2558,18 +2562,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_received_grants_request.ListReceivedGrantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_received_grants_request.ListReceivedGrantsRequest = {}  # type: ignore[typeddict-item]
         if grant_arns is not None:
-            input["grant_arns"] = grant_arns
+            input_["grant_arns"] = grant_arns
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2613,17 +2617,17 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_received_grants_for_organization_request.ListReceivedGrantsForOrganizationRequest = {}  # type: ignore[typeddict-item]
-        input["license_arn"] = license_arn
+        input_: aws_sdk_license_manager.types.list_received_grants_for_organization_request.ListReceivedGrantsForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_["license_arn"] = license_arn
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2667,18 +2671,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_received_licenses_request.ListReceivedLicensesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_received_licenses_request.ListReceivedLicensesRequest = {}  # type: ignore[typeddict-item]
         if license_arns is not None:
-            input["license_arns"] = license_arns
+            input_["license_arns"] = license_arns
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2720,16 +2724,16 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_received_licenses_for_organization_request.ListReceivedLicensesForOrganizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_received_licenses_for_organization_request.ListReceivedLicensesForOrganizationRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2771,16 +2775,16 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_resource_inventory_request.ListResourceInventoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_resource_inventory_request.ListResourceInventoryRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2814,11 +2818,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_license_manager.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2864,18 +2868,18 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_tokens_request.ListTokensRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.list_tokens_request.ListTokensRequest = {}  # type: ignore[typeddict-item]
         if token_ids is not None:
-            input["token_ids"] = token_ids
+            input_["token_ids"] = token_ids
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2917,17 +2921,17 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.list_usage_for_license_configuration_request.ListUsageForLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["license_configuration_arn"] = license_configuration_arn
+        input_: aws_sdk_license_manager.types.list_usage_for_license_configuration_request.ListUsageForLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["license_configuration_arn"] = license_configuration_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2961,11 +2965,11 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.reject_grant_request.RejectGrantRequest = {}  # type: ignore[typeddict-item]
-        input["grant_arn"] = grant_arn
+        input_: aws_sdk_license_manager.types.reject_grant_request.RejectGrantRequest = {}  # type: ignore[typeddict-item]
+        input_["grant_arn"] = grant_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3001,12 +3005,12 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_license_manager.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3042,12 +3046,12 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_license_manager.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3105,27 +3109,27 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.update_license_asset_group_request.UpdateLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.update_license_asset_group_request.UpdateLicenseAssetGroupRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if license_asset_group_configurations is not None:
-            input["license_asset_group_configurations"] = (
+            input_["license_asset_group_configurations"] = (
                 license_asset_group_configurations
             )
-        input["associated_license_asset_ruleset_ar_ns"] = (
+        input_["associated_license_asset_ruleset_ar_ns"] = (
             associated_license_asset_ruleset_ar_ns
         )
         if properties is not None:
-            input["properties"] = properties
-        input["license_asset_group_arn"] = license_asset_group_arn
+            input_["properties"] = properties
+        input_["license_asset_group_arn"] = license_asset_group_arn
         if status is not None:
-            input["status"] = status
-        input["client_token"] = client_token
+            input_["status"] = status
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3171,17 +3175,17 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.update_license_asset_ruleset_request.UpdateLicenseAssetRulesetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.update_license_asset_ruleset_request.UpdateLicenseAssetRulesetRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["rules"] = rules
-        input["license_asset_ruleset_arn"] = license_asset_ruleset_arn
-        input["client_token"] = client_token
+            input_["description"] = description
+        input_["rules"] = rules
+        input_["license_asset_ruleset_arn"] = license_asset_ruleset_arn
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3247,29 +3251,29 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.update_license_configuration_request.UpdateLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["license_configuration_arn"] = license_configuration_arn
+        input_: aws_sdk_license_manager.types.update_license_configuration_request.UpdateLicenseConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["license_configuration_arn"] = license_configuration_arn
         if license_configuration_status is not None:
-            input["license_configuration_status"] = license_configuration_status
+            input_["license_configuration_status"] = license_configuration_status
         if license_rules is not None:
-            input["license_rules"] = license_rules
+            input_["license_rules"] = license_rules
         if license_count is not None:
-            input["license_count"] = license_count
+            input_["license_count"] = license_count
         if license_count_hard_limit is not None:
-            input["license_count_hard_limit"] = license_count_hard_limit
+            input_["license_count_hard_limit"] = license_count_hard_limit
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if product_information_list is not None:
-            input["product_information_list"] = product_information_list
+            input_["product_information_list"] = product_information_list
         if disassociate_when_not_found is not None:
-            input["disassociate_when_not_found"] = disassociate_when_not_found
+            input_["disassociate_when_not_found"] = disassociate_when_not_found
         if license_expiry is not None:
-            input["license_expiry"] = license_expiry
+            input_["license_expiry"] = license_expiry
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3315,20 +3319,20 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.update_license_manager_report_generator_request.UpdateLicenseManagerReportGeneratorRequest = {}  # type: ignore[typeddict-item]
-        input["license_manager_report_generator_arn"] = (
+        input_: aws_sdk_license_manager.types.update_license_manager_report_generator_request.UpdateLicenseManagerReportGeneratorRequest = {}  # type: ignore[typeddict-item]
+        input_["license_manager_report_generator_arn"] = (
             license_manager_report_generator_arn
         )
-        input["report_generator_name"] = report_generator_name
-        input["type"] = type
-        input["report_context"] = report_context
-        input["report_frequency"] = report_frequency
-        input["client_token"] = client_token
+        input_["report_generator_name"] = report_generator_name
+        input_["type"] = type
+        input_["report_context"] = report_context
+        input_["report_frequency"] = report_frequency
+        input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3370,15 +3374,15 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.update_license_specifications_for_resource_request.UpdateLicenseSpecificationsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_license_manager.types.update_license_specifications_for_resource_request.UpdateLicenseSpecificationsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if add_license_specifications is not None:
-            input["add_license_specifications"] = add_license_specifications
+            input_["add_license_specifications"] = add_license_specifications
         if remove_license_specifications is not None:
-            input["remove_license_specifications"] = remove_license_specifications
+            input_["remove_license_specifications"] = remove_license_specifications
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3426,20 +3430,22 @@ class AsyncLicenseManagerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_license_manager.types.update_service_settings_request.UpdateServiceSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_license_manager.types.update_service_settings_request.UpdateServiceSettingsRequest = {}  # type: ignore[typeddict-item]
         if s3_bucket_arn is not None:
-            input["s3_bucket_arn"] = s3_bucket_arn
+            input_["s3_bucket_arn"] = s3_bucket_arn
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if organization_configuration is not None:
-            input["organization_configuration"] = organization_configuration
+            input_["organization_configuration"] = organization_configuration
         if enable_cross_accounts_discovery is not None:
-            input["enable_cross_accounts_discovery"] = enable_cross_accounts_discovery
+            input_["enable_cross_accounts_discovery"] = enable_cross_accounts_discovery
         if enabled_discovery_source_regions is not None:
-            input["enabled_discovery_source_regions"] = enabled_discovery_source_regions
+            input_["enabled_discovery_source_regions"] = (
+                enabled_discovery_source_regions
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

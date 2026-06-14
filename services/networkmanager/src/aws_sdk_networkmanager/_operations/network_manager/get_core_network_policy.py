@@ -98,51 +98,48 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_networkmanager.types.get_core_network_policy_request.GetCoreNetworkPolicyRequest,
+    input_: aws_sdk_networkmanager.types.get_core_network_policy_request.GetCoreNetworkPolicyRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/") + "/core-networks/{CoreNetworkId}/core-network-policy"
     )
-    url = url.replace("{CoreNetworkId}", quote(str(input["core_network_id"]), safe=""))
+    url = url.replace("{CoreNetworkId}", quote(str(input_["core_network_id"]), safe=""))
     params: dict[str, str] = {}
-    if "policy_version_id" in input:
-        params["policyVersionId"] = str(input["policy_version_id"])
-    if "alias" in input:
-        params["alias"] = str(input["alias"])
+    if "policy_version_id" in input_:
+        params["policyVersionId"] = str(input_["policy_version_id"])
+    if "alias" in input_:
+        params["alias"] = str(input_["alias"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_core_network_policy(
     options: OperationOptions,
-    input: aws_sdk_networkmanager.types.get_core_network_policy_request.GetCoreNetworkPolicyRequest,
+    input_: aws_sdk_networkmanager.types.get_core_network_policy_request.GetCoreNetworkPolicyRequest,
 ) -> tuple[
     aws_sdk_networkmanager.types.get_core_network_policy_response.GetCoreNetworkPolicyResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -151,16 +148,17 @@ def get_core_network_policy(
 
 async def async_get_core_network_policy(
     options: AsyncOperationOptions,
-    input: aws_sdk_networkmanager.types.get_core_network_policy_request.GetCoreNetworkPolicyRequest,
+    input_: aws_sdk_networkmanager.types.get_core_network_policy_request.GetCoreNetworkPolicyRequest,
 ) -> tuple[
     aws_sdk_networkmanager.types.get_core_network_policy_response.GetCoreNetworkPolicyResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

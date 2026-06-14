@@ -75,18 +75,18 @@ class Stream:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.create_stream_input.CreateStreamInput = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["target_definition"] = target_definition
-        input["ordering"] = ordering
-        input["format"] = format
+        input_: aws_sdk_dsql.types.create_stream_input.CreateStreamInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["target_definition"] = target_definition
+        input_["ordering"] = ordering
+        input_["format"] = format
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -117,12 +117,12 @@ class Stream:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.get_stream_input.GetStreamInput = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["stream_identifier"] = stream_identifier
+        input_: aws_sdk_dsql.types.get_stream_input.GetStreamInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["stream_identifier"] = stream_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,14 +159,14 @@ class Stream:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.delete_stream_input.DeleteStreamInput = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["stream_identifier"] = stream_identifier
+        input_: aws_sdk_dsql.types.delete_stream_input.DeleteStreamInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["stream_identifier"] = stream_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -203,15 +203,15 @@ class Stream:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_dsql.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -260,18 +260,18 @@ class AsyncStream:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.create_stream_input.CreateStreamInput = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["target_definition"] = target_definition
-        input["ordering"] = ordering
-        input["format"] = format
+        input_: aws_sdk_dsql.types.create_stream_input.CreateStreamInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["target_definition"] = target_definition
+        input_["ordering"] = ordering
+        input_["format"] = format
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -307,12 +307,12 @@ class AsyncStream:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.get_stream_input.GetStreamInput = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["stream_identifier"] = stream_identifier
+        input_: aws_sdk_dsql.types.get_stream_input.GetStreamInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["stream_identifier"] = stream_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,14 +350,14 @@ class AsyncStream:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.delete_stream_input.DeleteStreamInput = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
-        input["stream_identifier"] = stream_identifier
+        input_: aws_sdk_dsql.types.delete_stream_input.DeleteStreamInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
+        input_["stream_identifier"] = stream_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,15 +395,15 @@ class AsyncStream:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_dsql.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
-        input["cluster_identifier"] = cluster_identifier
+        input_: aws_sdk_dsql.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
+        input_["cluster_identifier"] = cluster_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

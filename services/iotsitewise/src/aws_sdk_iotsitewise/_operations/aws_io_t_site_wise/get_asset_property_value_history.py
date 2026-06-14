@@ -94,62 +94,59 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_iotsitewise.types.get_asset_property_value_history_request.GetAssetPropertyValueHistoryRequest,
+    input_: aws_sdk_iotsitewise.types.get_asset_property_value_history_request.GetAssetPropertyValueHistoryRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/properties/history"
     params: dict[str, str] = {}
-    if "asset_id" in input:
-        params["assetId"] = str(input["asset_id"])
-    if "property_id" in input:
-        params["propertyId"] = str(input["property_id"])
-    if "property_alias" in input:
-        params["propertyAlias"] = str(input["property_alias"])
-    if "start_date" in input:
-        params["startDate"] = str(input["start_date"])
-    if "end_date" in input:
-        params["endDate"] = str(input["end_date"])
-    if "qualities" in input:
-        params["qualities"] = str(input["qualities"])
-    if "time_ordering" in input:
-        params["timeOrdering"] = str(input["time_ordering"])
-    if "next_token" in input:
-        params["nextToken"] = str(input["next_token"])
-    if "max_results" in input:
-        params["maxResults"] = str(input["max_results"])
+    if "asset_id" in input_:
+        params["assetId"] = str(input_["asset_id"])
+    if "property_id" in input_:
+        params["propertyId"] = str(input_["property_id"])
+    if "property_alias" in input_:
+        params["propertyAlias"] = str(input_["property_alias"])
+    if "start_date" in input_:
+        params["startDate"] = str(input_["start_date"])
+    if "end_date" in input_:
+        params["endDate"] = str(input_["end_date"])
+    if "qualities" in input_:
+        params["qualities"] = str(input_["qualities"])
+    if "time_ordering" in input_:
+        params["timeOrdering"] = str(input_["time_ordering"])
+    if "next_token" in input_:
+        params["nextToken"] = str(input_["next_token"])
+    if "max_results" in input_:
+        params["maxResults"] = str(input_["max_results"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_asset_property_value_history(
     options: OperationOptions,
-    input: aws_sdk_iotsitewise.types.get_asset_property_value_history_request.GetAssetPropertyValueHistoryRequest,
+    input_: aws_sdk_iotsitewise.types.get_asset_property_value_history_request.GetAssetPropertyValueHistoryRequest,
 ) -> tuple[
     aws_sdk_iotsitewise.types.get_asset_property_value_history_response.GetAssetPropertyValueHistoryResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -158,16 +155,17 @@ def get_asset_property_value_history(
 
 async def async_get_asset_property_value_history(
     options: AsyncOperationOptions,
-    input: aws_sdk_iotsitewise.types.get_asset_property_value_history_request.GetAssetPropertyValueHistoryRequest,
+    input_: aws_sdk_iotsitewise.types.get_asset_property_value_history_request.GetAssetPropertyValueHistoryRequest,
 ) -> tuple[
     aws_sdk_iotsitewise.types.get_asset_property_value_history_response.GetAssetPropertyValueHistoryResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

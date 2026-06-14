@@ -16,6 +16,22 @@ from aws_sdk_grafana._auth._providers import (
 )
 from aws_sdk_grafana._auth._zapros_handler import AuthMiddleware
 from aws_sdk_grafana._pagination import resolve_path as _resolve_path
+from aws_sdk_grafana._resources.aws_grafana_control_plane.api_key import ApiKey
+from aws_sdk_grafana._resources.aws_grafana_control_plane.authentication import (
+    Authentication,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.configuration import (
+    Configuration,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.license import License
+from aws_sdk_grafana._resources.aws_grafana_control_plane.permission import Permission
+from aws_sdk_grafana._resources.aws_grafana_control_plane.service_account import (
+    ServiceAccount,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.service_account_token import (
+    ServiceAccountToken,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.workspace import Workspace
 from aws_sdk_grafana._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -111,6 +127,15 @@ class grafanaClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.api_key = ApiKey(self)
+        self.authentication = Authentication(self)
+        self.configuration = Configuration(self)
+        self.license = License(self)
+        self.permission = Permission(self)
+        self.service_account = ServiceAccount(self)
+        self.service_account_token = ServiceAccountToken(self)
+        self.workspace = Workspace(self)
 
     def operation_options(
         self, config_overrides: Optional[grafanaClientConfig] = None
@@ -167,11 +192,11 @@ class grafanaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_grafana.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -210,16 +235,16 @@ class grafanaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if workspace_id is not None:
-            input["workspace_id"] = workspace_id
+            input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,12 +304,12 @@ class grafanaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_grafana.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -319,12 +344,12 @@ class grafanaClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_grafana.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

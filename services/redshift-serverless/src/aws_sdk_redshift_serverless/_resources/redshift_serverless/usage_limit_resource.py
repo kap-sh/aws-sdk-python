@@ -78,17 +78,17 @@ class UsageLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_usage_limit_request.CreateUsageLimitRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["usage_type"] = usage_type
-        input["amount"] = amount
+        input_: aws_sdk_redshift_serverless.types.create_usage_limit_request.CreateUsageLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["usage_type"] = usage_type
+        input_["amount"] = amount
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if breach_action is not None:
-            input["breach_action"] = breach_action
+            input_["breach_action"] = breach_action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,11 +121,11 @@ class UsageLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_usage_limit_request.DeleteUsageLimitRequest = {}  # type: ignore[typeddict-item]
-        input["usage_limit_id"] = usage_limit_id
+        input_: aws_sdk_redshift_serverless.types.delete_usage_limit_request.DeleteUsageLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_limit_id"] = usage_limit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -158,11 +158,11 @@ class UsageLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_usage_limit_request.GetUsageLimitRequest = {}  # type: ignore[typeddict-item]
-        input["usage_limit_id"] = usage_limit_id
+        input_: aws_sdk_redshift_serverless.types.get_usage_limit_request.GetUsageLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_limit_id"] = usage_limit_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,18 +205,18 @@ class UsageLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_usage_limits_request.ListUsageLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_usage_limits_request.ListUsageLimitsRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if usage_type is not None:
-            input["usage_type"] = usage_type
+            input_["usage_type"] = usage_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -255,15 +255,15 @@ class UsageLimitResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_usage_limit_request.UpdateUsageLimitRequest = {}  # type: ignore[typeddict-item]
-        input["usage_limit_id"] = usage_limit_id
+        input_: aws_sdk_redshift_serverless.types.update_usage_limit_request.UpdateUsageLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_limit_id"] = usage_limit_id
         if amount is not None:
-            input["amount"] = amount
+            input_["amount"] = amount
         if breach_action is not None:
-            input["breach_action"] = breach_action
+            input_["breach_action"] = breach_action
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,17 +314,17 @@ class AsyncUsageLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_usage_limit_request.CreateUsageLimitRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["usage_type"] = usage_type
-        input["amount"] = amount
+        input_: aws_sdk_redshift_serverless.types.create_usage_limit_request.CreateUsageLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["usage_type"] = usage_type
+        input_["amount"] = amount
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if breach_action is not None:
-            input["breach_action"] = breach_action
+            input_["breach_action"] = breach_action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,11 +358,11 @@ class AsyncUsageLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_usage_limit_request.DeleteUsageLimitRequest = {}  # type: ignore[typeddict-item]
-        input["usage_limit_id"] = usage_limit_id
+        input_: aws_sdk_redshift_serverless.types.delete_usage_limit_request.DeleteUsageLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_limit_id"] = usage_limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,11 +396,11 @@ class AsyncUsageLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_usage_limit_request.GetUsageLimitRequest = {}  # type: ignore[typeddict-item]
-        input["usage_limit_id"] = usage_limit_id
+        input_: aws_sdk_redshift_serverless.types.get_usage_limit_request.GetUsageLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_limit_id"] = usage_limit_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,18 +444,18 @@ class AsyncUsageLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_usage_limits_request.ListUsageLimitsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_usage_limits_request.ListUsageLimitsRequest = {}  # type: ignore[typeddict-item]
         if resource_arn is not None:
-            input["resource_arn"] = resource_arn
+            input_["resource_arn"] = resource_arn
         if usage_type is not None:
-            input["usage_type"] = usage_type
+            input_["usage_type"] = usage_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -495,15 +495,15 @@ class AsyncUsageLimitResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_usage_limit_request.UpdateUsageLimitRequest = {}  # type: ignore[typeddict-item]
-        input["usage_limit_id"] = usage_limit_id
+        input_: aws_sdk_redshift_serverless.types.update_usage_limit_request.UpdateUsageLimitRequest = {}  # type: ignore[typeddict-item]
+        input_["usage_limit_id"] = usage_limit_id
         if amount is not None:
-            input["amount"] = amount
+            input_["amount"] = amount
         if breach_action is not None:
-            input["breach_action"] = breach_action
+            input_["breach_action"] = breach_action
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

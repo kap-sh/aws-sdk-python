@@ -13,13 +13,6 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.invoke_with_response_stream_response
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def invoke_with_response_stream(
     options: OperationOptions,
     input: aws_sdk_lambda.types.invoke_with_response_stream_request.InvokeWithResponseStreamRequest,

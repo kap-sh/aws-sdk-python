@@ -183,45 +183,45 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.calculate_isolines_request.CalculateIsolinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.calculate_isolines_request.CalculateIsolinesRequest = {}  # type: ignore[typeddict-item]
         if allow is not None:
-            input["allow"] = allow
+            input_["allow"] = allow
         if arrival_time is not None:
-            input["arrival_time"] = arrival_time
+            input_["arrival_time"] = arrival_time
         if avoid is not None:
-            input["avoid"] = avoid
+            input_["avoid"] = avoid
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if departure_time is not None:
-            input["departure_time"] = departure_time
+            input_["departure_time"] = departure_time
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if destination_options is not None:
-            input["destination_options"] = destination_options
+            input_["destination_options"] = destination_options
         if isoline_geometry_format is not None:
-            input["isoline_geometry_format"] = isoline_geometry_format
+            input_["isoline_geometry_format"] = isoline_geometry_format
         if isoline_granularity is not None:
-            input["isoline_granularity"] = isoline_granularity
+            input_["isoline_granularity"] = isoline_granularity
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if optimize_isoline_for is not None:
-            input["optimize_isoline_for"] = optimize_isoline_for
+            input_["optimize_isoline_for"] = optimize_isoline_for
         if optimize_routing_for is not None:
-            input["optimize_routing_for"] = optimize_routing_for
+            input_["optimize_routing_for"] = optimize_routing_for
         if origin is not None:
-            input["origin"] = origin
+            input_["origin"] = origin
         if origin_options is not None:
-            input["origin_options"] = origin_options
-        input["thresholds"] = thresholds
+            input_["origin_options"] = origin_options
+        input_["thresholds"] = thresholds
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,34 +298,34 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.calculate_route_matrix_request.CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.calculate_route_matrix_request.CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
         if allow is not None:
-            input["allow"] = allow
+            input_["allow"] = allow
         if avoid is not None:
-            input["avoid"] = avoid
+            input_["avoid"] = avoid
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if departure_time is not None:
-            input["departure_time"] = departure_time
-        input["destinations"] = destinations
+            input_["departure_time"] = departure_time
+        input_["destinations"] = destinations
         if exclude is not None:
-            input["exclude"] = exclude
+            input_["exclude"] = exclude
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if optimize_routing_for is not None:
-            input["optimize_routing_for"] = optimize_routing_for
-        input["origins"] = origins
+            input_["optimize_routing_for"] = optimize_routing_for
+        input_["origins"] = origins
         if routing_boundary is not None:
-            input["routing_boundary"] = routing_boundary
+            input_["routing_boundary"] = routing_boundary
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -448,58 +448,58 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.calculate_routes_request.CalculateRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.calculate_routes_request.CalculateRoutesRequest = {}  # type: ignore[typeddict-item]
         if allow is not None:
-            input["allow"] = allow
+            input_["allow"] = allow
         if arrival_time is not None:
-            input["arrival_time"] = arrival_time
+            input_["arrival_time"] = arrival_time
         if avoid is not None:
-            input["avoid"] = avoid
+            input_["avoid"] = avoid
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if departure_time is not None:
-            input["departure_time"] = departure_time
-        input["destination"] = destination
+            input_["departure_time"] = departure_time
+        input_["destination"] = destination
         if destination_options is not None:
-            input["destination_options"] = destination_options
+            input_["destination_options"] = destination_options
         if driver is not None:
-            input["driver"] = driver
+            input_["driver"] = driver
         if exclude is not None:
-            input["exclude"] = exclude
+            input_["exclude"] = exclude
         if instructions_measurement_system is not None:
-            input["instructions_measurement_system"] = instructions_measurement_system
+            input_["instructions_measurement_system"] = instructions_measurement_system
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if languages is not None:
-            input["languages"] = languages
+            input_["languages"] = languages
         if leg_additional_features is not None:
-            input["leg_additional_features"] = leg_additional_features
+            input_["leg_additional_features"] = leg_additional_features
         if leg_geometry_format is not None:
-            input["leg_geometry_format"] = leg_geometry_format
+            input_["leg_geometry_format"] = leg_geometry_format
         if max_alternatives is not None:
-            input["max_alternatives"] = max_alternatives
+            input_["max_alternatives"] = max_alternatives
         if optimize_routing_for is not None:
-            input["optimize_routing_for"] = optimize_routing_for
-        input["origin"] = origin
+            input_["optimize_routing_for"] = optimize_routing_for
+        input_["origin"] = origin
         if origin_options is not None:
-            input["origin_options"] = origin_options
+            input_["origin_options"] = origin_options
         if span_additional_features is not None:
-            input["span_additional_features"] = span_additional_features
+            input_["span_additional_features"] = span_additional_features
         if tolls is not None:
-            input["tolls"] = tolls
+            input_["tolls"] = tolls
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
         if travel_step_type is not None:
-            input["travel_step_type"] = travel_step_type
+            input_["travel_step_type"] = travel_step_type
         if waypoints is not None:
-            input["waypoints"] = waypoints
+            input_["waypoints"] = waypoints
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,39 +586,39 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.optimize_waypoints_request.OptimizeWaypointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.optimize_waypoints_request.OptimizeWaypointsRequest = {}  # type: ignore[typeddict-item]
         if avoid is not None:
-            input["avoid"] = avoid
+            input_["avoid"] = avoid
         if clustering is not None:
-            input["clustering"] = clustering
+            input_["clustering"] = clustering
         if departure_time is not None:
-            input["departure_time"] = departure_time
+            input_["departure_time"] = departure_time
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if destination_options is not None:
-            input["destination_options"] = destination_options
+            input_["destination_options"] = destination_options
         if driver is not None:
-            input["driver"] = driver
+            input_["driver"] = driver
         if exclude is not None:
-            input["exclude"] = exclude
+            input_["exclude"] = exclude
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if optimize_sequencing_for is not None:
-            input["optimize_sequencing_for"] = optimize_sequencing_for
-        input["origin"] = origin
+            input_["optimize_sequencing_for"] = optimize_sequencing_for
+        input_["origin"] = origin
         if origin_options is not None:
-            input["origin_options"] = origin_options
+            input_["origin_options"] = origin_options
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
         if waypoints is not None:
-            input["waypoints"] = waypoints
+            input_["waypoints"] = waypoints
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -669,21 +669,21 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.snap_to_roads_request.SnapToRoadsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.snap_to_roads_request.SnapToRoadsRequest = {}  # type: ignore[typeddict-item]
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if snapped_geometry_format is not None:
-            input["snapped_geometry_format"] = snapped_geometry_format
+            input_["snapped_geometry_format"] = snapped_geometry_format
         if snap_radius is not None:
-            input["snap_radius"] = snap_radius
-        input["trace_points"] = trace_points
+            input_["snap_radius"] = snap_radius
+        input_["trace_points"] = trace_points
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -786,45 +786,45 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.calculate_isolines_request.CalculateIsolinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.calculate_isolines_request.CalculateIsolinesRequest = {}  # type: ignore[typeddict-item]
         if allow is not None:
-            input["allow"] = allow
+            input_["allow"] = allow
         if arrival_time is not None:
-            input["arrival_time"] = arrival_time
+            input_["arrival_time"] = arrival_time
         if avoid is not None:
-            input["avoid"] = avoid
+            input_["avoid"] = avoid
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if departure_time is not None:
-            input["departure_time"] = departure_time
+            input_["departure_time"] = departure_time
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if destination_options is not None:
-            input["destination_options"] = destination_options
+            input_["destination_options"] = destination_options
         if isoline_geometry_format is not None:
-            input["isoline_geometry_format"] = isoline_geometry_format
+            input_["isoline_geometry_format"] = isoline_geometry_format
         if isoline_granularity is not None:
-            input["isoline_granularity"] = isoline_granularity
+            input_["isoline_granularity"] = isoline_granularity
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if optimize_isoline_for is not None:
-            input["optimize_isoline_for"] = optimize_isoline_for
+            input_["optimize_isoline_for"] = optimize_isoline_for
         if optimize_routing_for is not None:
-            input["optimize_routing_for"] = optimize_routing_for
+            input_["optimize_routing_for"] = optimize_routing_for
         if origin is not None:
-            input["origin"] = origin
+            input_["origin"] = origin
         if origin_options is not None:
-            input["origin_options"] = origin_options
-        input["thresholds"] = thresholds
+            input_["origin_options"] = origin_options
+        input_["thresholds"] = thresholds
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -902,34 +902,34 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.calculate_route_matrix_request.CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.calculate_route_matrix_request.CalculateRouteMatrixRequest = {}  # type: ignore[typeddict-item]
         if allow is not None:
-            input["allow"] = allow
+            input_["allow"] = allow
         if avoid is not None:
-            input["avoid"] = avoid
+            input_["avoid"] = avoid
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if departure_time is not None:
-            input["departure_time"] = departure_time
-        input["destinations"] = destinations
+            input_["departure_time"] = departure_time
+        input_["destinations"] = destinations
         if exclude is not None:
-            input["exclude"] = exclude
+            input_["exclude"] = exclude
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if optimize_routing_for is not None:
-            input["optimize_routing_for"] = optimize_routing_for
-        input["origins"] = origins
+            input_["optimize_routing_for"] = optimize_routing_for
+        input_["origins"] = origins
         if routing_boundary is not None:
-            input["routing_boundary"] = routing_boundary
+            input_["routing_boundary"] = routing_boundary
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1053,58 +1053,58 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.calculate_routes_request.CalculateRoutesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.calculate_routes_request.CalculateRoutesRequest = {}  # type: ignore[typeddict-item]
         if allow is not None:
-            input["allow"] = allow
+            input_["allow"] = allow
         if arrival_time is not None:
-            input["arrival_time"] = arrival_time
+            input_["arrival_time"] = arrival_time
         if avoid is not None:
-            input["avoid"] = avoid
+            input_["avoid"] = avoid
         if depart_now is not None:
-            input["depart_now"] = depart_now
+            input_["depart_now"] = depart_now
         if departure_time is not None:
-            input["departure_time"] = departure_time
-        input["destination"] = destination
+            input_["departure_time"] = departure_time
+        input_["destination"] = destination
         if destination_options is not None:
-            input["destination_options"] = destination_options
+            input_["destination_options"] = destination_options
         if driver is not None:
-            input["driver"] = driver
+            input_["driver"] = driver
         if exclude is not None:
-            input["exclude"] = exclude
+            input_["exclude"] = exclude
         if instructions_measurement_system is not None:
-            input["instructions_measurement_system"] = instructions_measurement_system
+            input_["instructions_measurement_system"] = instructions_measurement_system
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if languages is not None:
-            input["languages"] = languages
+            input_["languages"] = languages
         if leg_additional_features is not None:
-            input["leg_additional_features"] = leg_additional_features
+            input_["leg_additional_features"] = leg_additional_features
         if leg_geometry_format is not None:
-            input["leg_geometry_format"] = leg_geometry_format
+            input_["leg_geometry_format"] = leg_geometry_format
         if max_alternatives is not None:
-            input["max_alternatives"] = max_alternatives
+            input_["max_alternatives"] = max_alternatives
         if optimize_routing_for is not None:
-            input["optimize_routing_for"] = optimize_routing_for
-        input["origin"] = origin
+            input_["optimize_routing_for"] = optimize_routing_for
+        input_["origin"] = origin
         if origin_options is not None:
-            input["origin_options"] = origin_options
+            input_["origin_options"] = origin_options
         if span_additional_features is not None:
-            input["span_additional_features"] = span_additional_features
+            input_["span_additional_features"] = span_additional_features
         if tolls is not None:
-            input["tolls"] = tolls
+            input_["tolls"] = tolls
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
         if travel_step_type is not None:
-            input["travel_step_type"] = travel_step_type
+            input_["travel_step_type"] = travel_step_type
         if waypoints is not None:
-            input["waypoints"] = waypoints
+            input_["waypoints"] = waypoints
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1192,39 +1192,39 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.optimize_waypoints_request.OptimizeWaypointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.optimize_waypoints_request.OptimizeWaypointsRequest = {}  # type: ignore[typeddict-item]
         if avoid is not None:
-            input["avoid"] = avoid
+            input_["avoid"] = avoid
         if clustering is not None:
-            input["clustering"] = clustering
+            input_["clustering"] = clustering
         if departure_time is not None:
-            input["departure_time"] = departure_time
+            input_["departure_time"] = departure_time
         if destination is not None:
-            input["destination"] = destination
+            input_["destination"] = destination
         if destination_options is not None:
-            input["destination_options"] = destination_options
+            input_["destination_options"] = destination_options
         if driver is not None:
-            input["driver"] = driver
+            input_["driver"] = driver
         if exclude is not None:
-            input["exclude"] = exclude
+            input_["exclude"] = exclude
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if optimize_sequencing_for is not None:
-            input["optimize_sequencing_for"] = optimize_sequencing_for
-        input["origin"] = origin
+            input_["optimize_sequencing_for"] = optimize_sequencing_for
+        input_["origin"] = origin
         if origin_options is not None:
-            input["origin_options"] = origin_options
+            input_["origin_options"] = origin_options
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
         if waypoints is not None:
-            input["waypoints"] = waypoints
+            input_["waypoints"] = waypoints
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1276,21 +1276,21 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_routes.types.snap_to_roads_request.SnapToRoadsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_routes.types.snap_to_roads_request.SnapToRoadsRequest = {}  # type: ignore[typeddict-item]
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if snapped_geometry_format is not None:
-            input["snapped_geometry_format"] = snapped_geometry_format
+            input_["snapped_geometry_format"] = snapped_geometry_format
         if snap_radius is not None:
-            input["snap_radius"] = snap_radius
-        input["trace_points"] = trace_points
+            input_["snap_radius"] = snap_radius
+        input_["trace_points"] = trace_points
         if travel_mode is not None:
-            input["travel_mode"] = travel_mode
+            input_["travel_mode"] = travel_mode
         if travel_mode_options is not None:
-            input["travel_mode_options"] = travel_mode_options
+            input_["travel_mode_options"] = travel_mode_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -89,21 +89,21 @@ class Service:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if auth_type is not None:
-            input["auth_type"] = auth_type
+            input_["auth_type"] = auth_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -136,11 +136,11 @@ class Service:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_vpc_lattice.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,15 +179,15 @@ class Service:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_vpc_lattice.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if auth_type is not None:
-            input["auth_type"] = auth_type
+            input_["auth_type"] = auth_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,11 +220,11 @@ class Service:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,14 +261,14 @@ class Service:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -323,21 +323,21 @@ class AsyncService:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if auth_type is not None:
-            input["auth_type"] = auth_type
+            input_["auth_type"] = auth_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -371,11 +371,11 @@ class AsyncService:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_vpc_lattice.types.get_service_request.GetServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,15 +415,15 @@ class AsyncService:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_vpc_lattice.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
+            input_["certificate_arn"] = certificate_arn
         if auth_type is not None:
-            input["auth_type"] = auth_type
+            input_["auth_type"] = auth_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,11 +457,11 @@ class AsyncService:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_identifier"] = service_identifier
+        input_: aws_sdk_vpc_lattice.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_identifier"] = service_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,14 +499,14 @@ class AsyncService:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

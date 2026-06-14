@@ -110,28 +110,28 @@ class WorkflowStep:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.create_workflow_step_request.CreateWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["step_group_id"] = step_group_id
-        input["workflow_id"] = workflow_id
-        input["step_action_type"] = step_action_type
+        input_: aws_sdk_migrationhuborchestrator.types.create_workflow_step_request.CreateWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["step_group_id"] = step_group_id
+        input_["workflow_id"] = workflow_id
+        input_["step_action_type"] = step_action_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if workflow_step_automation_configuration is not None:
-            input["workflow_step_automation_configuration"] = (
+            input_["workflow_step_automation_configuration"] = (
                 workflow_step_automation_configuration
             )
         if step_target is not None:
-            input["step_target"] = step_target
+            input_["step_target"] = step_target
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if previous is not None:
-            input["previous"] = previous
+            input_["previous"] = previous
         if next is not None:
-            input["next"] = next
+            input_["next"] = next
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,13 +168,13 @@ class WorkflowStep:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.get_workflow_step_request.GetWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
-        input["step_group_id"] = step_group_id
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.get_workflow_step_request.GetWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
+        input_["step_group_id"] = step_group_id
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -247,33 +247,33 @@ class WorkflowStep:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.update_workflow_step_request.UpdateWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["step_group_id"] = step_group_id
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_migrationhuborchestrator.types.update_workflow_step_request.UpdateWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["step_group_id"] = step_group_id
+        input_["workflow_id"] = workflow_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if step_action_type is not None:
-            input["step_action_type"] = step_action_type
+            input_["step_action_type"] = step_action_type
         if workflow_step_automation_configuration is not None:
-            input["workflow_step_automation_configuration"] = (
+            input_["workflow_step_automation_configuration"] = (
                 workflow_step_automation_configuration
             )
         if step_target is not None:
-            input["step_target"] = step_target
+            input_["step_target"] = step_target
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if previous is not None:
-            input["previous"] = previous
+            input_["previous"] = previous
         if next is not None:
-            input["next"] = next
+            input_["next"] = next
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,13 +310,13 @@ class WorkflowStep:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.delete_workflow_step_request.DeleteWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["step_group_id"] = step_group_id
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_migrationhuborchestrator.types.delete_workflow_step_request.DeleteWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["step_group_id"] = step_group_id
+        input_["workflow_id"] = workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -359,16 +359,16 @@ class WorkflowStep:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.list_workflow_steps_request.ListWorkflowStepsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhuborchestrator.types.list_workflow_steps_request.ListWorkflowStepsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["workflow_id"] = workflow_id
-        input["step_group_id"] = step_group_id
+            input_["max_results"] = max_results
+        input_["workflow_id"] = workflow_id
+        input_["step_group_id"] = step_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,13 +405,13 @@ class WorkflowStep:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
-        input["step_group_id"] = step_group_id
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
+        input_["step_group_id"] = step_group_id
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -480,28 +480,28 @@ class AsyncWorkflowStep:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.create_workflow_step_request.CreateWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["step_group_id"] = step_group_id
-        input["workflow_id"] = workflow_id
-        input["step_action_type"] = step_action_type
+        input_: aws_sdk_migrationhuborchestrator.types.create_workflow_step_request.CreateWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["step_group_id"] = step_group_id
+        input_["workflow_id"] = workflow_id
+        input_["step_action_type"] = step_action_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if workflow_step_automation_configuration is not None:
-            input["workflow_step_automation_configuration"] = (
+            input_["workflow_step_automation_configuration"] = (
                 workflow_step_automation_configuration
             )
         if step_target is not None:
-            input["step_target"] = step_target
+            input_["step_target"] = step_target
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if previous is not None:
-            input["previous"] = previous
+            input_["previous"] = previous
         if next is not None:
-            input["next"] = next
+            input_["next"] = next
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,13 +539,13 @@ class AsyncWorkflowStep:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.get_workflow_step_request.GetWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
-        input["step_group_id"] = step_group_id
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.get_workflow_step_request.GetWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
+        input_["step_group_id"] = step_group_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -619,33 +619,33 @@ class AsyncWorkflowStep:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.update_workflow_step_request.UpdateWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["step_group_id"] = step_group_id
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_migrationhuborchestrator.types.update_workflow_step_request.UpdateWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["step_group_id"] = step_group_id
+        input_["workflow_id"] = workflow_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if step_action_type is not None:
-            input["step_action_type"] = step_action_type
+            input_["step_action_type"] = step_action_type
         if workflow_step_automation_configuration is not None:
-            input["workflow_step_automation_configuration"] = (
+            input_["workflow_step_automation_configuration"] = (
                 workflow_step_automation_configuration
             )
         if step_target is not None:
-            input["step_target"] = step_target
+            input_["step_target"] = step_target
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if previous is not None:
-            input["previous"] = previous
+            input_["previous"] = previous
         if next is not None:
-            input["next"] = next
+            input_["next"] = next
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,13 +683,13 @@ class AsyncWorkflowStep:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.delete_workflow_step_request.DeleteWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["step_group_id"] = step_group_id
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_migrationhuborchestrator.types.delete_workflow_step_request.DeleteWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["step_group_id"] = step_group_id
+        input_["workflow_id"] = workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -733,16 +733,16 @@ class AsyncWorkflowStep:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.list_workflow_steps_request.ListWorkflowStepsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_migrationhuborchestrator.types.list_workflow_steps_request.ListWorkflowStepsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["workflow_id"] = workflow_id
-        input["step_group_id"] = step_group_id
+            input_["max_results"] = max_results
+        input_["workflow_id"] = workflow_id
+        input_["step_group_id"] = step_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -780,13 +780,13 @@ class AsyncWorkflowStep:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
-        input["step_group_id"] = step_group_id
-        input["id"] = id
+        input_: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
+        input_["step_group_id"] = step_group_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

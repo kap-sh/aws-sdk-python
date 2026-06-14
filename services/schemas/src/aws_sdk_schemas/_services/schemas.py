@@ -234,17 +234,17 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.create_discoverer_request.CreateDiscovererRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.create_discoverer_request.CreateDiscovererRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["source_arn"] = source_arn
+            input_["description"] = description
+        input_["source_arn"] = source_arn
         if cross_account is not None:
-            input["cross_account"] = cross_account
+            input_["cross_account"] = cross_account
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,15 +283,15 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.create_registry_request.CreateRegistryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.create_registry_request.CreateRegistryRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["registry_name"] = registry_name
+            input_["description"] = description
+        input_["registry_name"] = registry_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -336,18 +336,18 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.create_schema_request.CreateSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["content"] = content
+        input_: aws_sdk_schemas.types.create_schema_request.CreateSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["content"] = content
         if description is not None:
-            input["description"] = description
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+            input_["description"] = description
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
         if tags is not None:
-            input["tags"] = tags
-        input["type"] = type
+            input_["tags"] = tags
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,11 +378,11 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.delete_discoverer_request.DeleteDiscovererRequest = {}  # type: ignore[typeddict-item]
-        input["discoverer_id"] = discoverer_id
+        input_: aws_sdk_schemas.types.delete_discoverer_request.DeleteDiscovererRequest = {}  # type: ignore[typeddict-item]
+        input_["discoverer_id"] = discoverer_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -413,11 +413,11 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.delete_registry_request.DeleteRegistryRequest = {}  # type: ignore[typeddict-item]
-        input["registry_name"] = registry_name
+        input_: aws_sdk_schemas.types.delete_registry_request.DeleteRegistryRequest = {}  # type: ignore[typeddict-item]
+        input_["registry_name"] = registry_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -448,12 +448,12 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if registry_name is not None:
-            input["registry_name"] = registry_name
+            input_["registry_name"] = registry_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -486,12 +486,12 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.delete_schema_request.DeleteSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+        input_: aws_sdk_schemas.types.delete_schema_request.DeleteSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -526,13 +526,13 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.delete_schema_version_request.DeleteSchemaVersionRequest = {}  # type: ignore[typeddict-item]
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
-        input["schema_version"] = schema_version
+        input_: aws_sdk_schemas.types.delete_schema_version_request.DeleteSchemaVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
+        input_["schema_version"] = schema_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -571,15 +571,15 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.describe_code_binding_request.DescribeCodeBindingRequest = {}  # type: ignore[typeddict-item]
-        input["language"] = language
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+        input_: aws_sdk_schemas.types.describe_code_binding_request.DescribeCodeBindingRequest = {}  # type: ignore[typeddict-item]
+        input_["language"] = language
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
         if schema_version is not None:
-            input["schema_version"] = schema_version
+            input_["schema_version"] = schema_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -614,11 +614,11 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.describe_discoverer_request.DescribeDiscovererRequest = {}  # type: ignore[typeddict-item]
-        input["discoverer_id"] = discoverer_id
+        input_: aws_sdk_schemas.types.describe_discoverer_request.DescribeDiscovererRequest = {}  # type: ignore[typeddict-item]
+        input_["discoverer_id"] = discoverer_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,11 +651,11 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.describe_registry_request.DescribeRegistryRequest = {}  # type: ignore[typeddict-item]
-        input["registry_name"] = registry_name
+        input_: aws_sdk_schemas.types.describe_registry_request.DescribeRegistryRequest = {}  # type: ignore[typeddict-item]
+        input_["registry_name"] = registry_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -692,14 +692,14 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.describe_schema_request.DescribeSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+        input_: aws_sdk_schemas.types.describe_schema_request.DescribeSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
         if schema_version is not None:
-            input["schema_version"] = schema_version
+            input_["schema_version"] = schema_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -737,15 +737,15 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.export_schema_request.ExportSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+        input_: aws_sdk_schemas.types.export_schema_request.ExportSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
         if schema_version is not None:
-            input["schema_version"] = schema_version
-        input["type"] = type
+            input_["schema_version"] = schema_version
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -784,15 +784,15 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.get_code_binding_source_request.GetCodeBindingSourceRequest = {}  # type: ignore[typeddict-item]
-        input["language"] = language
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+        input_: aws_sdk_schemas.types.get_code_binding_source_request.GetCodeBindingSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["language"] = language
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
         if schema_version is not None:
-            input["schema_version"] = schema_version
+            input_["schema_version"] = schema_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -827,12 +827,12 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.get_discovered_schema_request.GetDiscoveredSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["events"] = events
-        input["type"] = type
+        input_: aws_sdk_schemas.types.get_discovered_schema_request.GetDiscoveredSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["events"] = events
+        input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -865,12 +865,12 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
         if registry_name is not None:
-            input["registry_name"] = registry_name
+            input_["registry_name"] = registry_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -910,18 +910,18 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.list_discoverers_request.ListDiscoverersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.list_discoverers_request.ListDiscoverersRequest = {}  # type: ignore[typeddict-item]
         if discoverer_id_prefix is not None:
-            input["discoverer_id_prefix"] = discoverer_id_prefix
+            input_["discoverer_id_prefix"] = discoverer_id_prefix
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if source_arn_prefix is not None:
-            input["source_arn_prefix"] = source_arn_prefix
+            input_["source_arn_prefix"] = source_arn_prefix
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -988,18 +988,18 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.list_registries_request.ListRegistriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.list_registries_request.ListRegistriesRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if registry_name_prefix is not None:
-            input["registry_name_prefix"] = registry_name_prefix
+            input_["registry_name_prefix"] = registry_name_prefix
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1064,17 +1064,17 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.list_schemas_request.ListSchemasRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.list_schemas_request.ListSchemasRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
-        input["registry_name"] = registry_name
+            input_["next_token"] = next_token
+        input_["registry_name"] = registry_name
         if schema_name_prefix is not None:
-            input["schema_name_prefix"] = schema_name_prefix
+            input_["schema_name_prefix"] = schema_name_prefix
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1139,16 +1139,16 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.list_schema_versions_request.ListSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.list_schema_versions_request.ListSchemaVersionsRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+            input_["next_token"] = next_token
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1206,11 +1206,11 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_schemas.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1249,15 +1249,15 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.put_code_binding_request.PutCodeBindingRequest = {}  # type: ignore[typeddict-item]
-        input["language"] = language
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+        input_: aws_sdk_schemas.types.put_code_binding_request.PutCodeBindingRequest = {}  # type: ignore[typeddict-item]
+        input_["language"] = language
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
         if schema_version is not None:
-            input["schema_version"] = schema_version
+            input_["schema_version"] = schema_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1294,15 +1294,15 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy"] = policy
+        input_: aws_sdk_schemas.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy"] = policy
         if registry_name is not None:
-            input["registry_name"] = registry_name
+            input_["registry_name"] = registry_name
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1340,16 +1340,16 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.search_schemas_request.SearchSchemasRequest = {}  # type: ignore[typeddict-item]
-        input["keywords"] = keywords
+        input_: aws_sdk_schemas.types.search_schemas_request.SearchSchemasRequest = {}  # type: ignore[typeddict-item]
+        input_["keywords"] = keywords
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
-        input["registry_name"] = registry_name
+            input_["next_token"] = next_token
+        input_["registry_name"] = registry_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1407,11 +1407,11 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.start_discoverer_request.StartDiscovererRequest = {}  # type: ignore[typeddict-item]
-        input["discoverer_id"] = discoverer_id
+        input_: aws_sdk_schemas.types.start_discoverer_request.StartDiscovererRequest = {}  # type: ignore[typeddict-item]
+        input_["discoverer_id"] = discoverer_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1444,11 +1444,11 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.stop_discoverer_request.StopDiscovererRequest = {}  # type: ignore[typeddict-item]
-        input["discoverer_id"] = discoverer_id
+        input_: aws_sdk_schemas.types.stop_discoverer_request.StopDiscovererRequest = {}  # type: ignore[typeddict-item]
+        input_["discoverer_id"] = discoverer_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1481,12 +1481,12 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_schemas.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1519,12 +1519,12 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_schemas.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1563,15 +1563,15 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.update_discoverer_request.UpdateDiscovererRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.update_discoverer_request.UpdateDiscovererRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["discoverer_id"] = discoverer_id
+            input_["description"] = description
+        input_["discoverer_id"] = discoverer_id
         if cross_account is not None:
-            input["cross_account"] = cross_account
+            input_["cross_account"] = cross_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1608,13 +1608,13 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.update_registry_request.UpdateRegistryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.update_registry_request.UpdateRegistryRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["registry_name"] = registry_name
+            input_["description"] = description
+        input_["registry_name"] = registry_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1663,20 +1663,20 @@ class schemasClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_schemas.types.update_schema_request.UpdateSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_schemas.types.update_schema_request.UpdateSchemaRequest = {}  # type: ignore[typeddict-item]
         if client_token_id is not None:
-            input["client_token_id"] = client_token_id
+            input_["client_token_id"] = client_token_id
         if content is not None:
-            input["content"] = content
+            input_["content"] = content
         if description is not None:
-            input["description"] = description
-        input["registry_name"] = registry_name
-        input["schema_name"] = schema_name
+            input_["description"] = description
+        input_["registry_name"] = registry_name
+        input_["schema_name"] = schema_name
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

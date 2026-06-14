@@ -145,30 +145,30 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if service_access_security_groups is not None:
-            input["service_access_security_groups"] = service_access_security_groups
-        input["vpc_id"] = vpc_id
-        input["service_access_subnet_id"] = service_access_subnet_id
-        input["vcf_version"] = vcf_version
-        input["terms_accepted"] = terms_accepted
-        input["license_info"] = license_info
-        input["initial_vlans"] = initial_vlans
-        input["hosts"] = hosts
-        input["connectivity_info"] = connectivity_info
-        input["vcf_hostnames"] = vcf_hostnames
-        input["site_id"] = site_id
+            input_["service_access_security_groups"] = service_access_security_groups
+        input_["vpc_id"] = vpc_id
+        input_["service_access_subnet_id"] = service_access_subnet_id
+        input_["vcf_version"] = vcf_version
+        input_["terms_accepted"] = terms_accepted
+        input_["license_info"] = license_info
+        input_["initial_vlans"] = initial_vlans
+        input_["hosts"] = hosts
+        input_["connectivity_info"] = connectivity_info
+        input_["vcf_hostnames"] = vcf_hostnames
+        input_["site_id"] = site_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,11 +201,11 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -240,13 +240,13 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,16 +287,16 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,15 +335,15 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.associate_eip_to_vlan_request.AssociateEipToVlanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.associate_eip_to_vlan_request.AssociateEipToVlanRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["vlan_name"] = vlan_name
-        input["allocation_id"] = allocation_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["vlan_name"] = vlan_name
+        input_["allocation_id"] = allocation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,16 +384,16 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.create_entitlement_request.CreateEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.create_entitlement_request.CreateEntitlementRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
-        input["entitlement_type"] = entitlement_type
-        input["vm_ids"] = vm_ids
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
+        input_["entitlement_type"] = entitlement_type
+        input_["vm_ids"] = vm_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,16 +434,16 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.create_environment_connector_request.CreateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.create_environment_connector_request.CreateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["type"] = type
-        input["appliance_fqdn"] = appliance_fqdn
-        input["secret_identifier"] = secret_identifier
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["type"] = type
+        input_["appliance_fqdn"] = appliance_fqdn
+        input_["secret_identifier"] = secret_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -482,16 +482,16 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.create_environment_host_request.CreateEnvironmentHostRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.create_environment_host_request.CreateEnvironmentHostRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["host"] = host
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["host"] = host
         if esx_version is not None:
-            input["esx_version"] = esx_version
+            input_["esx_version"] = esx_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,16 +532,16 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.delete_entitlement_request.DeleteEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.delete_entitlement_request.DeleteEntitlementRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
-        input["entitlement_type"] = entitlement_type
-        input["vm_ids"] = vm_ids
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
+        input_["entitlement_type"] = entitlement_type
+        input_["vm_ids"] = vm_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -578,14 +578,14 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.delete_environment_connector_request.DeleteEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.delete_environment_connector_request.DeleteEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -622,14 +622,14 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.delete_environment_host_request.DeleteEnvironmentHostRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.delete_environment_host_request.DeleteEnvironmentHostRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["host_name"] = host_name
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["host_name"] = host_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,15 +668,15 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.disassociate_eip_from_vlan_request.DisassociateEipFromVlanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.disassociate_eip_from_vlan_request.DisassociateEipFromVlanRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["vlan_name"] = vlan_name
-        input["association_id"] = association_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["vlan_name"] = vlan_name
+        input_["association_id"] = association_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -711,13 +711,13 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.get_depot_url_request.GetDepotUrlRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_evs.types.get_depot_url_request.GetDepotUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if rotate is not None:
-            input["rotate"] = rotate
+            input_["rotate"] = rotate
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -756,15 +756,15 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_environment_connectors_request.ListEnvironmentConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_environment_connectors_request.ListEnvironmentConnectorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["environment_id"] = environment_id
+            input_["max_results"] = max_results
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -805,15 +805,15 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_environment_hosts_request.ListEnvironmentHostsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_environment_hosts_request.ListEnvironmentHostsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["environment_id"] = environment_id
+            input_["max_results"] = max_results
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -854,15 +854,15 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_environment_vlans_request.ListEnvironmentVlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_environment_vlans_request.ListEnvironmentVlansRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["environment_id"] = environment_id
+            input_["max_results"] = max_results
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -905,17 +905,17 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_vm_entitlements_request.ListVmEntitlementsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_vm_entitlements_request.ListVmEntitlementsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
-        input["entitlement_type"] = entitlement_type
+            input_["max_results"] = max_results
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
+        input_["entitlement_type"] = entitlement_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -960,18 +960,18 @@ class EnvironmentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.update_environment_connector_request.UpdateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.update_environment_connector_request.UpdateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
         if appliance_fqdn is not None:
-            input["appliance_fqdn"] = appliance_fqdn
+            input_["appliance_fqdn"] = appliance_fqdn
         if secret_identifier is not None:
-            input["secret_identifier"] = secret_identifier
+            input_["secret_identifier"] = secret_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1042,30 +1042,30 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.create_environment_request.CreateEnvironmentRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if service_access_security_groups is not None:
-            input["service_access_security_groups"] = service_access_security_groups
-        input["vpc_id"] = vpc_id
-        input["service_access_subnet_id"] = service_access_subnet_id
-        input["vcf_version"] = vcf_version
-        input["terms_accepted"] = terms_accepted
-        input["license_info"] = license_info
-        input["initial_vlans"] = initial_vlans
-        input["hosts"] = hosts
-        input["connectivity_info"] = connectivity_info
-        input["vcf_hostnames"] = vcf_hostnames
-        input["site_id"] = site_id
+            input_["service_access_security_groups"] = service_access_security_groups
+        input_["vpc_id"] = vpc_id
+        input_["service_access_subnet_id"] = service_access_subnet_id
+        input_["vcf_version"] = vcf_version
+        input_["terms_accepted"] = terms_accepted
+        input_["license_info"] = license_info
+        input_["initial_vlans"] = initial_vlans
+        input_["hosts"] = hosts
+        input_["connectivity_info"] = connectivity_info
+        input_["vcf_hostnames"] = vcf_hostnames
+        input_["site_id"] = site_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1099,11 +1099,11 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_evs.types.get_environment_request.GetEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1139,13 +1139,13 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.delete_environment_request.DeleteEnvironmentRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1187,16 +1187,16 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_environments_request.ListEnvironmentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1236,15 +1236,15 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.associate_eip_to_vlan_request.AssociateEipToVlanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.associate_eip_to_vlan_request.AssociateEipToVlanRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["vlan_name"] = vlan_name
-        input["allocation_id"] = allocation_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["vlan_name"] = vlan_name
+        input_["allocation_id"] = allocation_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1286,16 +1286,16 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.create_entitlement_request.CreateEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.create_entitlement_request.CreateEntitlementRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
-        input["entitlement_type"] = entitlement_type
-        input["vm_ids"] = vm_ids
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
+        input_["entitlement_type"] = entitlement_type
+        input_["vm_ids"] = vm_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1337,16 +1337,16 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.create_environment_connector_request.CreateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.create_environment_connector_request.CreateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["type"] = type
-        input["appliance_fqdn"] = appliance_fqdn
-        input["secret_identifier"] = secret_identifier
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["type"] = type
+        input_["appliance_fqdn"] = appliance_fqdn
+        input_["secret_identifier"] = secret_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1386,16 +1386,16 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.create_environment_host_request.CreateEnvironmentHostRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.create_environment_host_request.CreateEnvironmentHostRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["host"] = host
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["host"] = host
         if esx_version is not None:
-            input["esx_version"] = esx_version
+            input_["esx_version"] = esx_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1437,16 +1437,16 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.delete_entitlement_request.DeleteEntitlementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.delete_entitlement_request.DeleteEntitlementRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
-        input["entitlement_type"] = entitlement_type
-        input["vm_ids"] = vm_ids
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
+        input_["entitlement_type"] = entitlement_type
+        input_["vm_ids"] = vm_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1484,14 +1484,14 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.delete_environment_connector_request.DeleteEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.delete_environment_connector_request.DeleteEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1529,14 +1529,14 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.delete_environment_host_request.DeleteEnvironmentHostRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.delete_environment_host_request.DeleteEnvironmentHostRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["host_name"] = host_name
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["host_name"] = host_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1576,15 +1576,15 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.disassociate_eip_from_vlan_request.DisassociateEipFromVlanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.disassociate_eip_from_vlan_request.DisassociateEipFromVlanRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["vlan_name"] = vlan_name
-        input["association_id"] = association_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["vlan_name"] = vlan_name
+        input_["association_id"] = association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1620,13 +1620,13 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.get_depot_url_request.GetDepotUrlRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
+        input_: aws_sdk_evs.types.get_depot_url_request.GetDepotUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
         if rotate is not None:
-            input["rotate"] = rotate
+            input_["rotate"] = rotate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1666,15 +1666,15 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_environment_connectors_request.ListEnvironmentConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_environment_connectors_request.ListEnvironmentConnectorsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["environment_id"] = environment_id
+            input_["max_results"] = max_results
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1716,15 +1716,15 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_environment_hosts_request.ListEnvironmentHostsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_environment_hosts_request.ListEnvironmentHostsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["environment_id"] = environment_id
+            input_["max_results"] = max_results
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1766,15 +1766,15 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_environment_vlans_request.ListEnvironmentVlansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_environment_vlans_request.ListEnvironmentVlansRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["environment_id"] = environment_id
+            input_["max_results"] = max_results
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1818,17 +1818,17 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.list_vm_entitlements_request.ListVmEntitlementsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.list_vm_entitlements_request.ListVmEntitlementsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
-        input["entitlement_type"] = entitlement_type
+            input_["max_results"] = max_results
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
+        input_["entitlement_type"] = entitlement_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1874,18 +1874,18 @@ class AsyncEnvironmentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_evs.types.update_environment_connector_request.UpdateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_evs.types.update_environment_connector_request.UpdateEnvironmentConnectorRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["environment_id"] = environment_id
-        input["connector_id"] = connector_id
+            input_["client_token"] = client_token
+        input_["environment_id"] = environment_id
+        input_["connector_id"] = connector_id
         if appliance_fqdn is not None:
-            input["appliance_fqdn"] = appliance_fqdn
+            input_["appliance_fqdn"] = appliance_fqdn
         if secret_identifier is not None:
-            input["secret_identifier"] = secret_identifier
+            input_["secret_identifier"] = secret_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

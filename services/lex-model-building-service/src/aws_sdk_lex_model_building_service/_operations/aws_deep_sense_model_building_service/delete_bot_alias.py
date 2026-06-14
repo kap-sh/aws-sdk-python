@@ -94,19 +94,19 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_lex_model_building_service.types.delete_bot_alias_request.DeleteBotAliasRequest,
+    input_: aws_sdk_lex_model_building_service.types.delete_bot_alias_request.DeleteBotAliasRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/bots/{botName}/aliases/{name}"
-    url = url.replace("{name}", quote(str(input["name"]), safe=""))
-    url = url.replace("{botName}", quote(str(input["bot_name"]), safe=""))
+    url = url.replace("{name}", quote(str(input_["name"]), safe=""))
+    url = url.replace("{botName}", quote(str(input_["bot_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
@@ -114,23 +114,20 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_bot_alias(
     options: OperationOptions,
-    input: aws_sdk_lex_model_building_service.types.delete_bot_alias_request.DeleteBotAliasRequest,
+    input_: aws_sdk_lex_model_building_service.types.delete_bot_alias_request.DeleteBotAliasRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -139,13 +136,14 @@ def delete_bot_alias(
 
 async def async_delete_bot_alias(
     options: AsyncOperationOptions,
-    input: aws_sdk_lex_model_building_service.types.delete_bot_alias_request.DeleteBotAliasRequest,
+    input_: aws_sdk_lex_model_building_service.types.delete_bot_alias_request.DeleteBotAliasRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

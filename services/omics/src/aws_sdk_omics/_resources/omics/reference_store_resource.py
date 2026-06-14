@@ -88,19 +88,19 @@ class ReferenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_reference_store_request.CreateReferenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.create_reference_store_request.CreateReferenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sse_config is not None:
-            input["sse_config"] = sse_config
+            input_["sse_config"] = sse_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,11 +133,11 @@ class ReferenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_reference_store_request.GetReferenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_reference_store_request.GetReferenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -170,11 +170,11 @@ class ReferenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_reference_store_request.DeleteReferenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_reference_store_request.DeleteReferenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,16 +215,16 @@ class ReferenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_reference_stores_request.ListReferenceStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_reference_stores_request.ListReferenceStoresRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,12 +259,12 @@ class ReferenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_reference_import_job_request.GetReferenceImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["reference_store_id"] = reference_store_id
+        input_: aws_sdk_omics.types.get_reference_import_job_request.GetReferenceImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["reference_store_id"] = reference_store_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,17 +305,17 @@ class ReferenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_reference_import_jobs_request.ListReferenceImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_reference_import_jobs_request.ListReferenceImportJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["reference_store_id"] = reference_store_id
+            input_["next_token"] = next_token
+        input_["reference_store_id"] = reference_store_id
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -354,15 +354,15 @@ class ReferenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_reference_import_job_request.StartReferenceImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["reference_store_id"] = reference_store_id
-        input["role_arn"] = role_arn
+        input_: aws_sdk_omics.types.start_reference_import_job_request.StartReferenceImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["reference_store_id"] = reference_store_id
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["sources"] = sources
+            input_["client_token"] = client_token
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,19 +411,19 @@ class AsyncReferenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_reference_store_request.CreateReferenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.create_reference_store_request.CreateReferenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sse_config is not None:
-            input["sse_config"] = sse_config
+            input_["sse_config"] = sse_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,11 +457,11 @@ class AsyncReferenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_reference_store_request.GetReferenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_reference_store_request.GetReferenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -495,11 +495,11 @@ class AsyncReferenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_reference_store_request.DeleteReferenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_reference_store_request.DeleteReferenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -541,16 +541,16 @@ class AsyncReferenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_reference_stores_request.ListReferenceStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_reference_stores_request.ListReferenceStoresRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,12 +586,12 @@ class AsyncReferenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_reference_import_job_request.GetReferenceImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["reference_store_id"] = reference_store_id
+        input_: aws_sdk_omics.types.get_reference_import_job_request.GetReferenceImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["reference_store_id"] = reference_store_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -633,17 +633,17 @@ class AsyncReferenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_reference_import_jobs_request.ListReferenceImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_reference_import_jobs_request.ListReferenceImportJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["reference_store_id"] = reference_store_id
+            input_["next_token"] = next_token
+        input_["reference_store_id"] = reference_store_id
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,15 +683,15 @@ class AsyncReferenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_reference_import_job_request.StartReferenceImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["reference_store_id"] = reference_store_id
-        input["role_arn"] = role_arn
+        input_: aws_sdk_omics.types.start_reference_import_job_request.StartReferenceImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["reference_store_id"] = reference_store_id
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["sources"] = sources
+            input_["client_token"] = client_token
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

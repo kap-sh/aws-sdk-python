@@ -101,24 +101,24 @@ class Template:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_template_request.CreateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
+        input_: aws_sdk_connectcases.types.create_template_request.CreateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if layout_configuration is not None:
-            input["layout_configuration"] = layout_configuration
+            input_["layout_configuration"] = layout_configuration
         if required_fields is not None:
-            input["required_fields"] = required_fields
+            input_["required_fields"] = required_fields
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
         if tag_propagation_configurations is not None:
-            input["tag_propagation_configurations"] = tag_propagation_configurations
+            input_["tag_propagation_configurations"] = tag_propagation_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -153,12 +153,12 @@ class Template:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.get_template_request.GetTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["template_id"] = template_id
+        input_: aws_sdk_connectcases.types.get_template_request.GetTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["template_id"] = template_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,26 +219,26 @@ class Template:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.update_template_request.UpdateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["template_id"] = template_id
+        input_: aws_sdk_connectcases.types.update_template_request.UpdateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["template_id"] = template_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if layout_configuration is not None:
-            input["layout_configuration"] = layout_configuration
+            input_["layout_configuration"] = layout_configuration
         if required_fields is not None:
-            input["required_fields"] = required_fields
+            input_["required_fields"] = required_fields
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
         if tag_propagation_configurations is not None:
-            input["tag_propagation_configurations"] = tag_propagation_configurations
+            input_["tag_propagation_configurations"] = tag_propagation_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,12 +273,12 @@ class Template:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_template_request.DeleteTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["template_id"] = template_id
+        input_: aws_sdk_connectcases.types.delete_template_request.DeleteTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["template_id"] = template_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -321,17 +321,17 @@ class Template:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -396,24 +396,24 @@ class AsyncTemplate:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_template_request.CreateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
+        input_: aws_sdk_connectcases.types.create_template_request.CreateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if layout_configuration is not None:
-            input["layout_configuration"] = layout_configuration
+            input_["layout_configuration"] = layout_configuration
         if required_fields is not None:
-            input["required_fields"] = required_fields
+            input_["required_fields"] = required_fields
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
         if tag_propagation_configurations is not None:
-            input["tag_propagation_configurations"] = tag_propagation_configurations
+            input_["tag_propagation_configurations"] = tag_propagation_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -449,12 +449,12 @@ class AsyncTemplate:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.get_template_request.GetTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["template_id"] = template_id
+        input_: aws_sdk_connectcases.types.get_template_request.GetTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["template_id"] = template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,26 +516,26 @@ class AsyncTemplate:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.update_template_request.UpdateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["template_id"] = template_id
+        input_: aws_sdk_connectcases.types.update_template_request.UpdateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["template_id"] = template_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if layout_configuration is not None:
-            input["layout_configuration"] = layout_configuration
+            input_["layout_configuration"] = layout_configuration
         if required_fields is not None:
-            input["required_fields"] = required_fields
+            input_["required_fields"] = required_fields
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if rules is not None:
-            input["rules"] = rules
+            input_["rules"] = rules
         if tag_propagation_configurations is not None:
-            input["tag_propagation_configurations"] = tag_propagation_configurations
+            input_["tag_propagation_configurations"] = tag_propagation_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -571,12 +571,12 @@ class AsyncTemplate:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_template_request.DeleteTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["template_id"] = template_id
+        input_: aws_sdk_connectcases.types.delete_template_request.DeleteTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["template_id"] = template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,17 +620,17 @@ class AsyncTemplate:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.list_templates_request.ListTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

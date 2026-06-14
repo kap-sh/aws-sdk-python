@@ -1004,13 +1004,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.accept_certificate_transfer_request.AcceptCertificateTransferRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_iot.types.accept_certificate_transfer_request.AcceptCertificateTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
         if set_as_active is not None:
-            input["set_as_active"] = set_as_active
+            input_["set_as_active"] = set_as_active
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1054,18 +1054,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.add_thing_to_billing_group_request.AddThingToBillingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.add_thing_to_billing_group_request.AddThingToBillingGroupRequest = {}  # type: ignore[typeddict-item]
         if billing_group_name is not None:
-            input["billing_group_name"] = billing_group_name
+            input_["billing_group_name"] = billing_group_name
         if billing_group_arn is not None:
-            input["billing_group_arn"] = billing_group_arn
+            input_["billing_group_arn"] = billing_group_arn
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if thing_arn is not None:
-            input["thing_arn"] = thing_arn
+            input_["thing_arn"] = thing_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1113,20 +1113,20 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.add_thing_to_thing_group_request.AddThingToThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.add_thing_to_thing_group_request.AddThingToThingGroupRequest = {}  # type: ignore[typeddict-item]
         if thing_group_name is not None:
-            input["thing_group_name"] = thing_group_name
+            input_["thing_group_name"] = thing_group_name
         if thing_group_arn is not None:
-            input["thing_group_arn"] = thing_group_arn
+            input_["thing_group_arn"] = thing_group_arn
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if thing_arn is not None:
-            input["thing_arn"] = thing_arn
+            input_["thing_arn"] = thing_arn
         if override_dynamic_groups is not None:
-            input["override_dynamic_groups"] = override_dynamic_groups
+            input_["override_dynamic_groups"] = override_dynamic_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1165,15 +1165,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.associate_sbom_with_package_version_request.AssociateSbomWithPackageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["version_name"] = version_name
-        input["sbom"] = sbom
+        input_: aws_sdk_iot.types.associate_sbom_with_package_version_request.AssociateSbomWithPackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["version_name"] = version_name
+        input_["sbom"] = sbom
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1213,16 +1213,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.associate_targets_with_job_request.AssociateTargetsWithJobRequest = {}  # type: ignore[typeddict-item]
-        input["targets"] = targets
-        input["job_id"] = job_id
+        input_: aws_sdk_iot.types.associate_targets_with_job_request.AssociateTargetsWithJobRequest = {}  # type: ignore[typeddict-item]
+        input_["targets"] = targets
+        input_["job_id"] = job_id
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if namespace_id is not None:
-            input["namespace_id"] = namespace_id
+            input_["namespace_id"] = namespace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1256,12 +1256,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.attach_policy_request.AttachPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["target"] = target
+        input_: aws_sdk_iot.types.attach_policy_request.AttachPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["target"] = target
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1295,12 +1295,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.attach_principal_policy_request.AttachPrincipalPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["principal"] = principal
+        input_: aws_sdk_iot.types.attach_principal_policy_request.AttachPrincipalPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["principal"] = principal
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1336,12 +1336,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.attach_security_profile_request.AttachSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_name"] = security_profile_name
-        input["security_profile_target_arn"] = security_profile_target_arn
+        input_: aws_sdk_iot.types.attach_security_profile_request.AttachSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_name"] = security_profile_name
+        input_["security_profile_target_arn"] = security_profile_target_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1383,14 +1383,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.attach_thing_principal_request.AttachThingPrincipalRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
-        input["principal"] = principal
+        input_: aws_sdk_iot.types.attach_thing_principal_request.AttachThingPrincipalRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
+        input_["principal"] = principal
         if thing_principal_type is not None:
-            input["thing_principal_type"] = thing_principal_type
+            input_["thing_principal_type"] = thing_principal_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1424,11 +1424,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.cancel_audit_mitigation_actions_task_request.CancelAuditMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.cancel_audit_mitigation_actions_task_request.CancelAuditMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1462,11 +1462,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.cancel_audit_task_request.CancelAuditTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.cancel_audit_task_request.CancelAuditTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1498,11 +1498,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.cancel_certificate_transfer_request.CancelCertificateTransferRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_iot.types.cancel_certificate_transfer_request.CancelCertificateTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1536,11 +1536,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.cancel_detect_mitigation_actions_task_request.CancelDetectMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.cancel_detect_mitigation_actions_task_request.CancelDetectMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1580,17 +1580,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_iot.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if reason_code is not None:
-            input["reason_code"] = reason_code
+            input_["reason_code"] = reason_code
         if comment is not None:
-            input["comment"] = comment
+            input_["comment"] = comment
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1632,18 +1632,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.cancel_job_execution_request.CancelJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.cancel_job_execution_request.CancelJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["thing_name"] = thing_name
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
         if status_details is not None:
-            input["status_details"] = status_details
+            input_["status_details"] = status_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1670,10 +1670,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.clear_default_authorizer_request.ClearDefaultAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.clear_default_authorizer_request.ClearDefaultAuthorizerRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1707,11 +1707,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.confirm_topic_rule_destination_request.ConfirmTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["confirmation_token"] = confirmation_token
+        input_: aws_sdk_iot.types.confirm_topic_rule_destination_request.ConfirmTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["confirmation_token"] = confirmation_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1757,19 +1757,19 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_audit_suppression_request.CreateAuditSuppressionRequest = {}  # type: ignore[typeddict-item]
-        input["check_name"] = check_name
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_iot.types.create_audit_suppression_request.CreateAuditSuppressionRequest = {}  # type: ignore[typeddict-item]
+        input_["check_name"] = check_name
+        input_["resource_identifier"] = resource_identifier
         if expiration_date is not None:
-            input["expiration_date"] = expiration_date
+            input_["expiration_date"] = expiration_date
         if suppress_indefinitely is not None:
-            input["suppress_indefinitely"] = suppress_indefinitely
+            input_["suppress_indefinitely"] = suppress_indefinitely
         if description is not None:
-            input["description"] = description
-        input["client_request_token"] = client_request_token
+            input_["description"] = description
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1823,24 +1823,24 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_authorizer_request.CreateAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["authorizer_name"] = authorizer_name
-        input["authorizer_function_arn"] = authorizer_function_arn
+        input_: aws_sdk_iot.types.create_authorizer_request.CreateAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["authorizer_name"] = authorizer_name
+        input_["authorizer_function_arn"] = authorizer_function_arn
         if token_key_name is not None:
-            input["token_key_name"] = token_key_name
+            input_["token_key_name"] = token_key_name
         if token_signing_public_keys is not None:
-            input["token_signing_public_keys"] = token_signing_public_keys
+            input_["token_signing_public_keys"] = token_signing_public_keys
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if signing_disabled is not None:
-            input["signing_disabled"] = signing_disabled
+            input_["signing_disabled"] = signing_disabled
         if enable_caching_for_http is not None:
-            input["enable_caching_for_http"] = enable_caching_for_http
+            input_["enable_caching_for_http"] = enable_caching_for_http
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1880,15 +1880,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_billing_group_request.CreateBillingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["billing_group_name"] = billing_group_name
+        input_: aws_sdk_iot.types.create_billing_group_request.CreateBillingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["billing_group_name"] = billing_group_name
         if billing_group_properties is not None:
-            input["billing_group_properties"] = billing_group_properties
+            input_["billing_group_properties"] = billing_group_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1924,13 +1924,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_certificate_from_csr_request.CreateCertificateFromCsrRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_signing_request"] = certificate_signing_request
+        input_: aws_sdk_iot.types.create_certificate_from_csr_request.CreateCertificateFromCsrRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_signing_request"] = certificate_signing_request
         if set_as_active is not None:
-            input["set_as_active"] = set_as_active
+            input_["set_as_active"] = set_as_active
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1972,17 +1972,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_certificate_provider_request.CreateCertificateProviderRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_provider_name"] = certificate_provider_name
-        input["lambda_function_arn"] = lambda_function_arn
-        input["account_default_for_operations"] = account_default_for_operations
+        input_: aws_sdk_iot.types.create_certificate_provider_request.CreateCertificateProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_provider_name"] = certificate_provider_name
+        input_["lambda_function_arn"] = lambda_function_arn
+        input_["account_default_for_operations"] = account_default_for_operations
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2044,29 +2044,29 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_command_request.CreateCommandRequest = {}  # type: ignore[typeddict-item]
-        input["command_id"] = command_id
+        input_: aws_sdk_iot.types.create_command_request.CreateCommandRequest = {}  # type: ignore[typeddict-item]
+        input_["command_id"] = command_id
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if payload is not None:
-            input["payload"] = payload
+            input_["payload"] = payload
         if payload_template is not None:
-            input["payload_template"] = payload_template
+            input_["payload_template"] = payload_template
         if preprocessor is not None:
-            input["preprocessor"] = preprocessor
+            input_["preprocessor"] = preprocessor
         if mandatory_parameters is not None:
-            input["mandatory_parameters"] = mandatory_parameters
+            input_["mandatory_parameters"] = mandatory_parameters
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2110,17 +2110,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_custom_metric_request.CreateCustomMetricRequest = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
+        input_: aws_sdk_iot.types.create_custom_metric_request.CreateCustomMetricRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
         if display_name is not None:
-            input["display_name"] = display_name
-        input["metric_type"] = metric_type
+            input_["display_name"] = display_name
+        input_["metric_type"] = metric_type
         if tags is not None:
-            input["tags"] = tags
-        input["client_request_token"] = client_request_token
+            input_["tags"] = tags
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2162,16 +2162,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_dimension_request.CreateDimensionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
-        input["string_values"] = string_values
+        input_: aws_sdk_iot.types.create_dimension_request.CreateDimensionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
+        input_["string_values"] = string_values
         if tags is not None:
-            input["tags"] = tags
-        input["client_request_token"] = client_request_token
+            input_["tags"] = tags
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2241,33 +2241,33 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_domain_configuration_request.CreateDomainConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_configuration_name"] = domain_configuration_name
+        input_: aws_sdk_iot.types.create_domain_configuration_request.CreateDomainConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_configuration_name"] = domain_configuration_name
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
         if server_certificate_arns is not None:
-            input["server_certificate_arns"] = server_certificate_arns
+            input_["server_certificate_arns"] = server_certificate_arns
         if validation_certificate_arn is not None:
-            input["validation_certificate_arn"] = validation_certificate_arn
+            input_["validation_certificate_arn"] = validation_certificate_arn
         if authorizer_config is not None:
-            input["authorizer_config"] = authorizer_config
+            input_["authorizer_config"] = authorizer_config
         if service_type is not None:
-            input["service_type"] = service_type
+            input_["service_type"] = service_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tls_config is not None:
-            input["tls_config"] = tls_config
+            input_["tls_config"] = tls_config
         if server_certificate_config is not None:
-            input["server_certificate_config"] = server_certificate_config
+            input_["server_certificate_config"] = server_certificate_config
         if authentication_type is not None:
-            input["authentication_type"] = authentication_type
+            input_["authentication_type"] = authentication_type
         if application_protocol is not None:
-            input["application_protocol"] = application_protocol
+            input_["application_protocol"] = application_protocol
         if client_certificate_config is not None:
-            input["client_certificate_config"] = client_certificate_config
+            input_["client_certificate_config"] = client_certificate_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2313,20 +2313,20 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_dynamic_thing_group_request.CreateDynamicThingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["thing_group_name"] = thing_group_name
+        input_: aws_sdk_iot.types.create_dynamic_thing_group_request.CreateDynamicThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_group_name"] = thing_group_name
         if thing_group_properties is not None:
-            input["thing_group_properties"] = thing_group_properties
+            input_["thing_group_properties"] = thing_group_properties
         if index_name is not None:
-            input["index_name"] = index_name
-        input["query_string"] = query_string
+            input_["index_name"] = index_name
+        input_["query_string"] = query_string
         if query_version is not None:
-            input["query_version"] = query_version
+            input_["query_version"] = query_version
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2380,25 +2380,25 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_fleet_metric_request.CreateFleetMetricRequest = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
-        input["query_string"] = query_string
-        input["aggregation_type"] = aggregation_type
-        input["period"] = period
-        input["aggregation_field"] = aggregation_field
+        input_: aws_sdk_iot.types.create_fleet_metric_request.CreateFleetMetricRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
+        input_["query_string"] = query_string
+        input_["aggregation_type"] = aggregation_type
+        input_["period"] = period
+        input_["aggregation_field"] = aggregation_field
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if query_version is not None:
-            input["query_version"] = query_version
+            input_["query_version"] = query_version
         if index_name is not None:
-            input["index_name"] = index_name
+            input_["index_name"] = index_name
         if unit is not None:
-            input["unit"] = unit
+            input_["unit"] = unit
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2486,42 +2486,42 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["targets"] = targets
+        input_: aws_sdk_iot.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["targets"] = targets
         if document_source is not None:
-            input["document_source"] = document_source
+            input_["document_source"] = document_source
         if document is not None:
-            input["document"] = document
+            input_["document"] = document
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if presigned_url_config is not None:
-            input["presigned_url_config"] = presigned_url_config
+            input_["presigned_url_config"] = presigned_url_config
         if target_selection is not None:
-            input["target_selection"] = target_selection
+            input_["target_selection"] = target_selection
         if job_executions_rollout_config is not None:
-            input["job_executions_rollout_config"] = job_executions_rollout_config
+            input_["job_executions_rollout_config"] = job_executions_rollout_config
         if abort_config is not None:
-            input["abort_config"] = abort_config
+            input_["abort_config"] = abort_config
         if timeout_config is not None:
-            input["timeout_config"] = timeout_config
+            input_["timeout_config"] = timeout_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if namespace_id is not None:
-            input["namespace_id"] = namespace_id
+            input_["namespace_id"] = namespace_id
         if job_template_arn is not None:
-            input["job_template_arn"] = job_template_arn
+            input_["job_template_arn"] = job_template_arn
         if job_executions_retry_config is not None:
-            input["job_executions_retry_config"] = job_executions_retry_config
+            input_["job_executions_retry_config"] = job_executions_retry_config
         if document_parameters is not None:
-            input["document_parameters"] = document_parameters
+            input_["document_parameters"] = document_parameters
         if scheduling_config is not None:
-            input["scheduling_config"] = scheduling_config
+            input_["scheduling_config"] = scheduling_config
         if destination_package_versions is not None:
-            input["destination_package_versions"] = destination_package_versions
+            input_["destination_package_versions"] = destination_package_versions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2589,34 +2589,34 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_job_template_request.CreateJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["job_template_id"] = job_template_id
+        input_: aws_sdk_iot.types.create_job_template_request.CreateJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["job_template_id"] = job_template_id
         if job_arn is not None:
-            input["job_arn"] = job_arn
+            input_["job_arn"] = job_arn
         if document_source is not None:
-            input["document_source"] = document_source
+            input_["document_source"] = document_source
         if document is not None:
-            input["document"] = document
-        input["description"] = description
+            input_["document"] = document
+        input_["description"] = description
         if presigned_url_config is not None:
-            input["presigned_url_config"] = presigned_url_config
+            input_["presigned_url_config"] = presigned_url_config
         if job_executions_rollout_config is not None:
-            input["job_executions_rollout_config"] = job_executions_rollout_config
+            input_["job_executions_rollout_config"] = job_executions_rollout_config
         if abort_config is not None:
-            input["abort_config"] = abort_config
+            input_["abort_config"] = abort_config
         if timeout_config is not None:
-            input["timeout_config"] = timeout_config
+            input_["timeout_config"] = timeout_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if job_executions_retry_config is not None:
-            input["job_executions_retry_config"] = job_executions_retry_config
+            input_["job_executions_retry_config"] = job_executions_retry_config
         if maintenance_windows is not None:
-            input["maintenance_windows"] = maintenance_windows
+            input_["maintenance_windows"] = maintenance_windows
         if destination_package_versions is not None:
-            input["destination_package_versions"] = destination_package_versions
+            input_["destination_package_versions"] = destination_package_versions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2650,12 +2650,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_keys_and_certificate_request.CreateKeysAndCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.create_keys_and_certificate_request.CreateKeysAndCertificateRequest = {}  # type: ignore[typeddict-item]
         if set_as_active is not None:
-            input["set_as_active"] = set_as_active
+            input_["set_as_active"] = set_as_active
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2695,15 +2695,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_mitigation_action_request.CreateMitigationActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_name"] = action_name
-        input["role_arn"] = role_arn
-        input["action_params"] = action_params
+        input_: aws_sdk_iot.types.create_mitigation_action_request.CreateMitigationActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_name"] = action_name
+        input_["role_arn"] = role_arn
+        input_["action_params"] = action_params
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2775,34 +2775,34 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_ota_update_request.CreateOTAUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["ota_update_id"] = ota_update_id
+        input_: aws_sdk_iot.types.create_ota_update_request.CreateOTAUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["ota_update_id"] = ota_update_id
         if description is not None:
-            input["description"] = description
-        input["targets"] = targets
+            input_["description"] = description
+        input_["targets"] = targets
         if protocols is not None:
-            input["protocols"] = protocols
+            input_["protocols"] = protocols
         if target_selection is not None:
-            input["target_selection"] = target_selection
+            input_["target_selection"] = target_selection
         if aws_job_executions_rollout_config is not None:
-            input["aws_job_executions_rollout_config"] = (
+            input_["aws_job_executions_rollout_config"] = (
                 aws_job_executions_rollout_config
             )
         if aws_job_presigned_url_config is not None:
-            input["aws_job_presigned_url_config"] = aws_job_presigned_url_config
+            input_["aws_job_presigned_url_config"] = aws_job_presigned_url_config
         if aws_job_abort_config is not None:
-            input["aws_job_abort_config"] = aws_job_abort_config
+            input_["aws_job_abort_config"] = aws_job_abort_config
         if aws_job_timeout_config is not None:
-            input["aws_job_timeout_config"] = aws_job_timeout_config
-        input["files"] = files
-        input["role_arn"] = role_arn
+            input_["aws_job_timeout_config"] = aws_job_timeout_config
+        input_["files"] = files
+        input_["role_arn"] = role_arn
         if additional_parameters is not None:
-            input["additional_parameters"] = additional_parameters
+            input_["additional_parameters"] = additional_parameters
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2844,17 +2844,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_package_request.CreatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
+        input_: aws_sdk_iot.types.create_package_request.CreatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2912,24 +2912,24 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_package_version_request.CreatePackageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["version_name"] = version_name
+        input_: aws_sdk_iot.types.create_package_version_request.CreatePackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["version_name"] = version_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if artifact is not None:
-            input["artifact"] = artifact
+            input_["artifact"] = artifact
         if recipe is not None:
-            input["recipe"] = recipe
+            input_["recipe"] = recipe
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2967,14 +2967,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["policy_document"] = policy_document
+        input_: aws_sdk_iot.types.create_policy_request.CreatePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["policy_document"] = policy_document
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3014,14 +3014,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_policy_version_request.CreatePolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["policy_document"] = policy_document
+        input_: aws_sdk_iot.types.create_policy_version_request.CreatePolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["policy_document"] = policy_document
         if set_as_default is not None:
-            input["set_as_default"] = set_as_default
+            input_["set_as_default"] = set_as_default
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3055,11 +3055,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_provisioning_claim_request.CreateProvisioningClaimRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_iot.types.create_provisioning_claim_request.CreateProvisioningClaimRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3111,23 +3111,23 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_provisioning_template_request.CreateProvisioningTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_iot.types.create_provisioning_template_request.CreateProvisioningTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if description is not None:
-            input["description"] = description
-        input["template_body"] = template_body
+            input_["description"] = description
+        input_["template_body"] = template_body
         if enabled is not None:
-            input["enabled"] = enabled
-        input["provisioning_role_arn"] = provisioning_role_arn
+            input_["enabled"] = enabled
+        input_["provisioning_role_arn"] = provisioning_role_arn
         if pre_provisioning_hook is not None:
-            input["pre_provisioning_hook"] = pre_provisioning_hook
+            input_["pre_provisioning_hook"] = pre_provisioning_hook
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3167,14 +3167,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_provisioning_template_version_request.CreateProvisioningTemplateVersionRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["template_body"] = template_body
+        input_: aws_sdk_iot.types.create_provisioning_template_version_request.CreateProvisioningTemplateVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["template_body"] = template_body
         if set_as_default is not None:
-            input["set_as_default"] = set_as_default
+            input_["set_as_default"] = set_as_default
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3216,16 +3216,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_role_alias_request.CreateRoleAliasRequest = {}  # type: ignore[typeddict-item]
-        input["role_alias"] = role_alias
-        input["role_arn"] = role_arn
+        input_: aws_sdk_iot.types.create_role_alias_request.CreateRoleAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["role_alias"] = role_alias
+        input_["role_arn"] = role_arn
         if credential_duration_seconds is not None:
-            input["credential_duration_seconds"] = credential_duration_seconds
+            input_["credential_duration_seconds"] = credential_duration_seconds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3271,19 +3271,19 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_scheduled_audit_request.CreateScheduledAuditRequest = {}  # type: ignore[typeddict-item]
-        input["frequency"] = frequency
+        input_: aws_sdk_iot.types.create_scheduled_audit_request.CreateScheduledAuditRequest = {}  # type: ignore[typeddict-item]
+        input_["frequency"] = frequency
         if day_of_month is not None:
-            input["day_of_month"] = day_of_month
+            input_["day_of_month"] = day_of_month
         if day_of_week is not None:
-            input["day_of_week"] = day_of_week
-        input["target_check_names"] = target_check_names
-        input["scheduled_audit_name"] = scheduled_audit_name
+            input_["day_of_week"] = day_of_week
+        input_["target_check_names"] = target_check_names
+        input_["scheduled_audit_name"] = scheduled_audit_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3339,25 +3339,25 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_security_profile_request.CreateSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_name"] = security_profile_name
+        input_: aws_sdk_iot.types.create_security_profile_request.CreateSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_name"] = security_profile_name
         if security_profile_description is not None:
-            input["security_profile_description"] = security_profile_description
+            input_["security_profile_description"] = security_profile_description
         if behaviors is not None:
-            input["behaviors"] = behaviors
+            input_["behaviors"] = behaviors
         if alert_targets is not None:
-            input["alert_targets"] = alert_targets
+            input_["alert_targets"] = alert_targets
         if additional_metrics_to_retain is not None:
-            input["additional_metrics_to_retain"] = additional_metrics_to_retain
+            input_["additional_metrics_to_retain"] = additional_metrics_to_retain
         if additional_metrics_to_retain_v2 is not None:
-            input["additional_metrics_to_retain_v2"] = additional_metrics_to_retain_v2
+            input_["additional_metrics_to_retain_v2"] = additional_metrics_to_retain_v2
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if metrics_export_config is not None:
-            input["metrics_export_config"] = metrics_export_config
+            input_["metrics_export_config"] = metrics_export_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3401,17 +3401,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_stream_request.CreateStreamRequest = {}  # type: ignore[typeddict-item]
-        input["stream_id"] = stream_id
+        input_: aws_sdk_iot.types.create_stream_request.CreateStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["stream_id"] = stream_id
         if description is not None:
-            input["description"] = description
-        input["files"] = files
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["files"] = files
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3457,17 +3457,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_thing_request.CreateThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.create_thing_request.CreateThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if thing_type_name is not None:
-            input["thing_type_name"] = thing_type_name
+            input_["thing_type_name"] = thing_type_name
         if attribute_payload is not None:
-            input["attribute_payload"] = attribute_payload
+            input_["attribute_payload"] = attribute_payload
         if billing_group_name is not None:
-            input["billing_group_name"] = billing_group_name
+            input_["billing_group_name"] = billing_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3511,17 +3511,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_thing_group_request.CreateThingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["thing_group_name"] = thing_group_name
+        input_: aws_sdk_iot.types.create_thing_group_request.CreateThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_group_name"] = thing_group_name
         if parent_group_name is not None:
-            input["parent_group_name"] = parent_group_name
+            input_["parent_group_name"] = parent_group_name
         if thing_group_properties is not None:
-            input["thing_group_properties"] = thing_group_properties
+            input_["thing_group_properties"] = thing_group_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3561,15 +3561,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_thing_type_request.CreateThingTypeRequest = {}  # type: ignore[typeddict-item]
-        input["thing_type_name"] = thing_type_name
+        input_: aws_sdk_iot.types.create_thing_type_request.CreateThingTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_type_name"] = thing_type_name
         if thing_type_properties is not None:
-            input["thing_type_properties"] = thing_type_properties
+            input_["thing_type_properties"] = thing_type_properties
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3605,14 +3605,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_topic_rule_request.CreateTopicRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
-        input["topic_rule_payload"] = topic_rule_payload
+        input_: aws_sdk_iot.types.create_topic_rule_request.CreateTopicRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
+        input_["topic_rule_payload"] = topic_rule_payload
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3646,11 +3646,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.create_topic_rule_destination_request.CreateTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["destination_configuration"] = destination_configuration
+        input_: aws_sdk_iot.types.create_topic_rule_destination_request.CreateTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["destination_configuration"] = destination_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3686,12 +3686,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_account_audit_configuration_request.DeleteAccountAuditConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.delete_account_audit_configuration_request.DeleteAccountAuditConfigurationRequest = {}  # type: ignore[typeddict-item]
         if delete_scheduled_audits is not None:
-            input["delete_scheduled_audits"] = delete_scheduled_audits
+            input_["delete_scheduled_audits"] = delete_scheduled_audits
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3722,12 +3722,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_audit_suppression_request.DeleteAuditSuppressionRequest = {}  # type: ignore[typeddict-item]
-        input["check_name"] = check_name
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_iot.types.delete_audit_suppression_request.DeleteAuditSuppressionRequest = {}  # type: ignore[typeddict-item]
+        input_["check_name"] = check_name
+        input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3761,11 +3761,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_authorizer_request.DeleteAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["authorizer_name"] = authorizer_name
+        input_: aws_sdk_iot.types.delete_authorizer_request.DeleteAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["authorizer_name"] = authorizer_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3803,13 +3803,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_billing_group_request.DeleteBillingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["billing_group_name"] = billing_group_name
+        input_: aws_sdk_iot.types.delete_billing_group_request.DeleteBillingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["billing_group_name"] = billing_group_name
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3843,11 +3843,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_ca_certificate_request.DeleteCACertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_iot.types.delete_ca_certificate_request.DeleteCACertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3881,13 +3881,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_iot.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3921,11 +3921,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_certificate_provider_request.DeleteCertificateProviderRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_provider_name"] = certificate_provider_name
+        input_: aws_sdk_iot.types.delete_certificate_provider_request.DeleteCertificateProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_provider_name"] = certificate_provider_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3959,11 +3959,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_command_request.DeleteCommandRequest = {}  # type: ignore[typeddict-item]
-        input["command_id"] = command_id
+        input_: aws_sdk_iot.types.delete_command_request.DeleteCommandRequest = {}  # type: ignore[typeddict-item]
+        input_["command_id"] = command_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3999,12 +3999,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_command_execution_request.DeleteCommandExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["execution_id"] = execution_id
-        input["target_arn"] = target_arn
+        input_: aws_sdk_iot.types.delete_command_execution_request.DeleteCommandExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["execution_id"] = execution_id
+        input_["target_arn"] = target_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4038,11 +4038,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_custom_metric_request.DeleteCustomMetricRequest = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
+        input_: aws_sdk_iot.types.delete_custom_metric_request.DeleteCustomMetricRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4076,11 +4076,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_dimension_request.DeleteDimensionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot.types.delete_dimension_request.DeleteDimensionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4114,11 +4114,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_domain_configuration_request.DeleteDomainConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_configuration_name"] = domain_configuration_name
+        input_: aws_sdk_iot.types.delete_domain_configuration_request.DeleteDomainConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_configuration_name"] = domain_configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4156,13 +4156,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_dynamic_thing_group_request.DeleteDynamicThingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["thing_group_name"] = thing_group_name
+        input_: aws_sdk_iot.types.delete_dynamic_thing_group_request.DeleteDynamicThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_group_name"] = thing_group_name
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4198,13 +4198,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_fleet_metric_request.DeleteFleetMetricRequest = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
+        input_: aws_sdk_iot.types.delete_fleet_metric_request.DeleteFleetMetricRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4240,15 +4240,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_iot.types.delete_job_request.DeleteJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
         if namespace_id is not None:
-            input["namespace_id"] = namespace_id
+            input_["namespace_id"] = namespace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4288,17 +4288,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_job_execution_request.DeleteJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["thing_name"] = thing_name
-        input["execution_number"] = execution_number
+        input_: aws_sdk_iot.types.delete_job_execution_request.DeleteJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["thing_name"] = thing_name
+        input_["execution_number"] = execution_number
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
         if namespace_id is not None:
-            input["namespace_id"] = namespace_id
+            input_["namespace_id"] = namespace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4330,11 +4330,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_job_template_request.DeleteJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["job_template_id"] = job_template_id
+        input_: aws_sdk_iot.types.delete_job_template_request.DeleteJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["job_template_id"] = job_template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4368,11 +4368,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_mitigation_action_request.DeleteMitigationActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_name"] = action_name
+        input_: aws_sdk_iot.types.delete_mitigation_action_request.DeleteMitigationActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_name"] = action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4414,15 +4414,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_ota_update_request.DeleteOTAUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["ota_update_id"] = ota_update_id
+        input_: aws_sdk_iot.types.delete_ota_update_request.DeleteOTAUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["ota_update_id"] = ota_update_id
         if delete_stream is not None:
-            input["delete_stream"] = delete_stream
+            input_["delete_stream"] = delete_stream
         if force_delete_aws_job is not None:
-            input["force_delete_aws_job"] = force_delete_aws_job
+            input_["force_delete_aws_job"] = force_delete_aws_job
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4458,13 +4458,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
+        input_: aws_sdk_iot.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4504,14 +4504,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_package_version_request.DeletePackageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["version_name"] = version_name
+        input_: aws_sdk_iot.types.delete_package_version_request.DeletePackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["version_name"] = version_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4543,11 +4543,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
+        input_: aws_sdk_iot.types.delete_policy_request.DeletePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4581,12 +4581,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_policy_version_request.DeletePolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["policy_version_id"] = policy_version_id
+        input_: aws_sdk_iot.types.delete_policy_version_request.DeletePolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["policy_version_id"] = policy_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4620,11 +4620,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_provisioning_template_request.DeleteProvisioningTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_iot.types.delete_provisioning_template_request.DeleteProvisioningTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4660,12 +4660,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_provisioning_template_version_request.DeleteProvisioningTemplateVersionRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["version_id"] = version_id
+        input_: aws_sdk_iot.types.delete_provisioning_template_version_request.DeleteProvisioningTemplateVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4692,10 +4692,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_registration_code_request.DeleteRegistrationCodeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.delete_registration_code_request.DeleteRegistrationCodeRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4729,11 +4729,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_role_alias_request.DeleteRoleAliasRequest = {}  # type: ignore[typeddict-item]
-        input["role_alias"] = role_alias
+        input_: aws_sdk_iot.types.delete_role_alias_request.DeleteRoleAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["role_alias"] = role_alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4769,11 +4769,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_scheduled_audit_request.DeleteScheduledAuditRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_audit_name"] = scheduled_audit_name
+        input_: aws_sdk_iot.types.delete_scheduled_audit_request.DeleteScheduledAuditRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_audit_name"] = scheduled_audit_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4811,13 +4811,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_security_profile_request.DeleteSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_name"] = security_profile_name
+        input_: aws_sdk_iot.types.delete_security_profile_request.DeleteSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_name"] = security_profile_name
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4851,11 +4851,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_stream_request.DeleteStreamRequest = {}  # type: ignore[typeddict-item]
-        input["stream_id"] = stream_id
+        input_: aws_sdk_iot.types.delete_stream_request.DeleteStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["stream_id"] = stream_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4893,13 +4893,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_thing_request.DeleteThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.delete_thing_request.DeleteThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4937,13 +4937,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_thing_group_request.DeleteThingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["thing_group_name"] = thing_group_name
+        input_: aws_sdk_iot.types.delete_thing_group_request.DeleteThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_group_name"] = thing_group_name
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4977,11 +4977,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_thing_type_request.DeleteThingTypeRequest = {}  # type: ignore[typeddict-item]
-        input["thing_type_name"] = thing_type_name
+        input_: aws_sdk_iot.types.delete_thing_type_request.DeleteThingTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_type_name"] = thing_type_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5013,11 +5013,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_topic_rule_request.DeleteTopicRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
+        input_: aws_sdk_iot.types.delete_topic_rule_request.DeleteTopicRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5051,11 +5051,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_topic_rule_destination_request.DeleteTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_iot.types.delete_topic_rule_destination_request.DeleteTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5089,12 +5089,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.delete_v2_logging_level_request.DeleteV2LoggingLevelRequest = {}  # type: ignore[typeddict-item]
-        input["target_type"] = target_type
-        input["target_name"] = target_name
+        input_: aws_sdk_iot.types.delete_v2_logging_level_request.DeleteV2LoggingLevelRequest = {}  # type: ignore[typeddict-item]
+        input_["target_type"] = target_type
+        input_["target_name"] = target_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5132,13 +5132,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.deprecate_thing_type_request.DeprecateThingTypeRequest = {}  # type: ignore[typeddict-item]
-        input["thing_type_name"] = thing_type_name
+        input_: aws_sdk_iot.types.deprecate_thing_type_request.DeprecateThingTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_type_name"] = thing_type_name
         if undo_deprecate is not None:
-            input["undo_deprecate"] = undo_deprecate
+            input_["undo_deprecate"] = undo_deprecate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5165,10 +5165,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_account_audit_configuration_request.DescribeAccountAuditConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.describe_account_audit_configuration_request.DescribeAccountAuditConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5204,11 +5204,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_audit_finding_request.DescribeAuditFindingRequest = {}  # type: ignore[typeddict-item]
-        input["finding_id"] = finding_id
+        input_: aws_sdk_iot.types.describe_audit_finding_request.DescribeAuditFindingRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5242,11 +5242,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_audit_mitigation_actions_task_request.DescribeAuditMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.describe_audit_mitigation_actions_task_request.DescribeAuditMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5277,12 +5277,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_audit_suppression_request.DescribeAuditSuppressionRequest = {}  # type: ignore[typeddict-item]
-        input["check_name"] = check_name
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_iot.types.describe_audit_suppression_request.DescribeAuditSuppressionRequest = {}  # type: ignore[typeddict-item]
+        input_["check_name"] = check_name
+        input_["resource_identifier"] = resource_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5316,11 +5316,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_audit_task_request.DescribeAuditTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.describe_audit_task_request.DescribeAuditTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5354,11 +5354,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_authorizer_request.DescribeAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["authorizer_name"] = authorizer_name
+        input_: aws_sdk_iot.types.describe_authorizer_request.DescribeAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["authorizer_name"] = authorizer_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5394,11 +5394,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_billing_group_request.DescribeBillingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["billing_group_name"] = billing_group_name
+        input_: aws_sdk_iot.types.describe_billing_group_request.DescribeBillingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["billing_group_name"] = billing_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5432,11 +5432,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_ca_certificate_request.DescribeCACertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_iot.types.describe_ca_certificate_request.DescribeCACertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5470,11 +5470,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_iot.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5508,11 +5508,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_certificate_provider_request.DescribeCertificateProviderRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_provider_name"] = certificate_provider_name
+        input_: aws_sdk_iot.types.describe_certificate_provider_request.DescribeCertificateProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_provider_name"] = certificate_provider_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5548,11 +5548,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_custom_metric_request.DescribeCustomMetricRequest = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
+        input_: aws_sdk_iot.types.describe_custom_metric_request.DescribeCustomMetricRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5579,10 +5579,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_default_authorizer_request.DescribeDefaultAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.describe_default_authorizer_request.DescribeDefaultAuthorizerRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5616,11 +5616,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_detect_mitigation_actions_task_request.DescribeDetectMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.describe_detect_mitigation_actions_task_request.DescribeDetectMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5654,11 +5654,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_dimension_request.DescribeDimensionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iot.types.describe_dimension_request.DescribeDimensionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5692,11 +5692,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_domain_configuration_request.DescribeDomainConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_configuration_name"] = domain_configuration_name
+        input_: aws_sdk_iot.types.describe_domain_configuration_request.DescribeDomainConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_configuration_name"] = domain_configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5723,10 +5723,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_encryption_configuration_request.DescribeEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.describe_encryption_configuration_request.DescribeEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5760,12 +5760,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_endpoint_request.DescribeEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.describe_endpoint_request.DescribeEndpointRequest = {}  # type: ignore[typeddict-item]
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5792,10 +5792,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_event_configurations_request.DescribeEventConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.describe_event_configurations_request.DescribeEventConfigurationsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5829,11 +5829,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_fleet_metric_request.DescribeFleetMetricRequest = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
+        input_: aws_sdk_iot.types.describe_fleet_metric_request.DescribeFleetMetricRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5867,11 +5867,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_index_request.DescribeIndexRequest = {}  # type: ignore[typeddict-item]
-        input["index_name"] = index_name
+        input_: aws_sdk_iot.types.describe_index_request.DescribeIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["index_name"] = index_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5909,13 +5909,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_iot.types.describe_job_request.DescribeJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if before_substitution is not None:
-            input["before_substitution"] = before_substitution
+            input_["before_substitution"] = before_substitution
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5957,14 +5957,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_job_execution_request.DescribeJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.describe_job_execution_request.DescribeJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["thing_name"] = thing_name
         if execution_number is not None:
-            input["execution_number"] = execution_number
+            input_["execution_number"] = execution_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5998,11 +5998,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_job_template_request.DescribeJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["job_template_id"] = job_template_id
+        input_: aws_sdk_iot.types.describe_job_template_request.DescribeJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["job_template_id"] = job_template_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6040,13 +6040,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_managed_job_template_request.DescribeManagedJobTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_iot.types.describe_managed_job_template_request.DescribeManagedJobTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if template_version is not None:
-            input["template_version"] = template_version
+            input_["template_version"] = template_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6080,11 +6080,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_mitigation_action_request.DescribeMitigationActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_name"] = action_name
+        input_: aws_sdk_iot.types.describe_mitigation_action_request.DescribeMitigationActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_name"] = action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6118,11 +6118,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_provisioning_template_request.DescribeProvisioningTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_iot.types.describe_provisioning_template_request.DescribeProvisioningTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6158,12 +6158,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_provisioning_template_version_request.DescribeProvisioningTemplateVersionRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["version_id"] = version_id
+        input_: aws_sdk_iot.types.describe_provisioning_template_version_request.DescribeProvisioningTemplateVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6197,11 +6197,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_role_alias_request.DescribeRoleAliasRequest = {}  # type: ignore[typeddict-item]
-        input["role_alias"] = role_alias
+        input_: aws_sdk_iot.types.describe_role_alias_request.DescribeRoleAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["role_alias"] = role_alias
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6235,11 +6235,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_scheduled_audit_request.DescribeScheduledAuditRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_audit_name"] = scheduled_audit_name
+        input_: aws_sdk_iot.types.describe_scheduled_audit_request.DescribeScheduledAuditRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_audit_name"] = scheduled_audit_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6273,11 +6273,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_security_profile_request.DescribeSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_name"] = security_profile_name
+        input_: aws_sdk_iot.types.describe_security_profile_request.DescribeSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_name"] = security_profile_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6311,11 +6311,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_stream_request.DescribeStreamRequest = {}  # type: ignore[typeddict-item]
-        input["stream_id"] = stream_id
+        input_: aws_sdk_iot.types.describe_stream_request.DescribeStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["stream_id"] = stream_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6349,11 +6349,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_thing_request.DescribeThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.describe_thing_request.DescribeThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6387,11 +6387,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_thing_group_request.DescribeThingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["thing_group_name"] = thing_group_name
+        input_: aws_sdk_iot.types.describe_thing_group_request.DescribeThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_group_name"] = thing_group_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6425,11 +6425,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_thing_registration_task_request.DescribeThingRegistrationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.describe_thing_registration_task_request.DescribeThingRegistrationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6463,11 +6463,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.describe_thing_type_request.DescribeThingTypeRequest = {}  # type: ignore[typeddict-item]
-        input["thing_type_name"] = thing_type_name
+        input_: aws_sdk_iot.types.describe_thing_type_request.DescribeThingTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_type_name"] = thing_type_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6501,12 +6501,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.detach_policy_request.DetachPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["target"] = target
+        input_: aws_sdk_iot.types.detach_policy_request.DetachPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["target"] = target
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6540,12 +6540,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.detach_principal_policy_request.DetachPrincipalPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["principal"] = principal
+        input_: aws_sdk_iot.types.detach_principal_policy_request.DetachPrincipalPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["principal"] = principal
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6581,12 +6581,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.detach_security_profile_request.DetachSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_name"] = security_profile_name
-        input["security_profile_target_arn"] = security_profile_target_arn
+        input_: aws_sdk_iot.types.detach_security_profile_request.DetachSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_name"] = security_profile_name
+        input_["security_profile_target_arn"] = security_profile_target_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6624,12 +6624,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.detach_thing_principal_request.DetachThingPrincipalRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
-        input["principal"] = principal
+        input_: aws_sdk_iot.types.detach_thing_principal_request.DetachThingPrincipalRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
+        input_["principal"] = principal
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6661,11 +6661,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.disable_topic_rule_request.DisableTopicRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
+        input_: aws_sdk_iot.types.disable_topic_rule_request.DisableTopicRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6703,14 +6703,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.disassociate_sbom_from_package_version_request.DisassociateSbomFromPackageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["version_name"] = version_name
+        input_: aws_sdk_iot.types.disassociate_sbom_from_package_version_request.DisassociateSbomFromPackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["version_name"] = version_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6742,11 +6742,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.enable_topic_rule_request.EnableTopicRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
+        input_: aws_sdk_iot.types.enable_topic_rule_request.EnableTopicRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6788,16 +6788,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_behavior_model_training_summaries_request.GetBehaviorModelTrainingSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_behavior_model_training_summaries_request.GetBehaviorModelTrainingSummariesRequest = {}  # type: ignore[typeddict-item]
         if security_profile_name is not None:
-            input["security_profile_name"] = security_profile_name
+            input_["security_profile_name"] = security_profile_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6866,17 +6866,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_buckets_aggregation_request.GetBucketsAggregationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_buckets_aggregation_request.GetBucketsAggregationRequest = {}  # type: ignore[typeddict-item]
         if index_name is not None:
-            input["index_name"] = index_name
-        input["query_string"] = query_string
-        input["aggregation_field"] = aggregation_field
+            input_["index_name"] = index_name
+        input_["query_string"] = query_string
+        input_["aggregation_field"] = aggregation_field
         if query_version is not None:
-            input["query_version"] = query_version
-        input["buckets_aggregation_type"] = buckets_aggregation_type
+            input_["query_version"] = query_version
+        input_["buckets_aggregation_type"] = buckets_aggregation_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6918,17 +6918,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_cardinality_request.GetCardinalityRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_cardinality_request.GetCardinalityRequest = {}  # type: ignore[typeddict-item]
         if index_name is not None:
-            input["index_name"] = index_name
-        input["query_string"] = query_string
+            input_["index_name"] = index_name
+        input_["query_string"] = query_string
         if aggregation_field is not None:
-            input["aggregation_field"] = aggregation_field
+            input_["aggregation_field"] = aggregation_field
         if query_version is not None:
-            input["query_version"] = query_version
+            input_["query_version"] = query_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6962,11 +6962,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_command_request.GetCommandRequest = {}  # type: ignore[typeddict-item]
-        input["command_id"] = command_id
+        input_: aws_sdk_iot.types.get_command_request.GetCommandRequest = {}  # type: ignore[typeddict-item]
+        input_["command_id"] = command_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7006,14 +7006,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_command_execution_request.GetCommandExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["execution_id"] = execution_id
-        input["target_arn"] = target_arn
+        input_: aws_sdk_iot.types.get_command_execution_request.GetCommandExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["execution_id"] = execution_id
+        input_["target_arn"] = target_arn
         if include_result is not None:
-            input["include_result"] = include_result
+            input_["include_result"] = include_result
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7055,16 +7055,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_effective_policies_request.GetEffectivePoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_effective_policies_request.GetEffectivePoliciesRequest = {}  # type: ignore[typeddict-item]
         if principal is not None:
-            input["principal"] = principal
+            input_["principal"] = principal
         if cognito_identity_pool_id is not None:
-            input["cognito_identity_pool_id"] = cognito_identity_pool_id
+            input_["cognito_identity_pool_id"] = cognito_identity_pool_id
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7091,10 +7091,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_indexing_configuration_request.GetIndexingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_indexing_configuration_request.GetIndexingConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7132,13 +7132,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_job_document_request.GetJobDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_iot.types.get_job_document_request.GetJobDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if before_substitution is not None:
-            input["before_substitution"] = before_substitution
+            input_["before_substitution"] = before_substitution
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7165,10 +7165,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_logging_options_request.GetLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_logging_options_request.GetLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7202,11 +7202,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_ota_update_request.GetOTAUpdateRequest = {}  # type: ignore[typeddict-item]
-        input["ota_update_id"] = ota_update_id
+        input_: aws_sdk_iot.types.get_ota_update_request.GetOTAUpdateRequest = {}  # type: ignore[typeddict-item]
+        input_["ota_update_id"] = ota_update_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7240,11 +7240,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_package_request.GetPackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
+        input_: aws_sdk_iot.types.get_package_request.GetPackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7271,10 +7271,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_package_configuration_request.GetPackageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_package_configuration_request.GetPackageConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7310,12 +7310,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_package_version_request.GetPackageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["version_name"] = version_name
+        input_: aws_sdk_iot.types.get_package_version_request.GetPackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["version_name"] = version_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7359,19 +7359,19 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_percentiles_request.GetPercentilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_percentiles_request.GetPercentilesRequest = {}  # type: ignore[typeddict-item]
         if index_name is not None:
-            input["index_name"] = index_name
-        input["query_string"] = query_string
+            input_["index_name"] = index_name
+        input_["query_string"] = query_string
         if aggregation_field is not None:
-            input["aggregation_field"] = aggregation_field
+            input_["aggregation_field"] = aggregation_field
         if query_version is not None:
-            input["query_version"] = query_version
+            input_["query_version"] = query_version
         if percents is not None:
-            input["percents"] = percents
+            input_["percents"] = percents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7405,11 +7405,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
+        input_: aws_sdk_iot.types.get_policy_request.GetPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7445,12 +7445,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_policy_version_request.GetPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["policy_version_id"] = policy_version_id
+        input_: aws_sdk_iot.types.get_policy_version_request.GetPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["policy_version_id"] = policy_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7477,10 +7477,10 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_registration_code_request.GetRegistrationCodeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_registration_code_request.GetRegistrationCodeRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7522,17 +7522,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_statistics_request.GetStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_statistics_request.GetStatisticsRequest = {}  # type: ignore[typeddict-item]
         if index_name is not None:
-            input["index_name"] = index_name
-        input["query_string"] = query_string
+            input_["index_name"] = index_name
+        input_["query_string"] = query_string
         if aggregation_field is not None:
-            input["aggregation_field"] = aggregation_field
+            input_["aggregation_field"] = aggregation_field
         if query_version is not None:
-            input["query_version"] = query_version
+            input_["query_version"] = query_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7570,13 +7570,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_thing_connectivity_data_request.GetThingConnectivityDataRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.get_thing_connectivity_data_request.GetThingConnectivityDataRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if include_socket_information is not None:
-            input["include_socket_information"] = include_socket_information
+            input_["include_socket_information"] = include_socket_information
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7610,11 +7610,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_topic_rule_request.GetTopicRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
+        input_: aws_sdk_iot.types.get_topic_rule_request.GetTopicRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7648,11 +7648,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_topic_rule_destination_request.GetTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_iot.types.get_topic_rule_destination_request.GetTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7688,12 +7688,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.get_v2_logging_options_request.GetV2LoggingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.get_v2_logging_options_request.GetV2LoggingOptionsRequest = {}  # type: ignore[typeddict-item]
         if verbose is not None:
-            input["verbose"] = verbose
+            input_["verbose"] = verbose
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7751,24 +7751,24 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_active_violations_request.ListActiveViolationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_active_violations_request.ListActiveViolationsRequest = {}  # type: ignore[typeddict-item]
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if security_profile_name is not None:
-            input["security_profile_name"] = security_profile_name
+            input_["security_profile_name"] = security_profile_name
         if behavior_criteria_type is not None:
-            input["behavior_criteria_type"] = behavior_criteria_type
+            input_["behavior_criteria_type"] = behavior_criteria_type
         if list_suppressed_alerts is not None:
-            input["list_suppressed_alerts"] = list_suppressed_alerts
+            input_["list_suppressed_alerts"] = list_suppressed_alerts
         if verification_state is not None:
-            input["verification_state"] = verification_state
+            input_["verification_state"] = verification_state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7851,17 +7851,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_attached_policies_request.ListAttachedPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["target"] = target
+        input_: aws_sdk_iot.types.list_attached_policies_request.ListAttachedPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["target"] = target
         if recursive is not None:
-            input["recursive"] = recursive
+            input_["recursive"] = recursive
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7940,26 +7940,26 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_audit_findings_request.ListAuditFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_audit_findings_request.ListAuditFindingsRequest = {}  # type: ignore[typeddict-item]
         if task_id is not None:
-            input["task_id"] = task_id
+            input_["task_id"] = task_id
         if check_name is not None:
-            input["check_name"] = check_name
+            input_["check_name"] = check_name
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if list_suppressed_findings is not None:
-            input["list_suppressed_findings"] = list_suppressed_findings
+            input_["list_suppressed_findings"] = list_suppressed_findings
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8042,18 +8042,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_audit_mitigation_actions_executions_request.ListAuditMitigationActionsExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.list_audit_mitigation_actions_executions_request.ListAuditMitigationActionsExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
         if action_status is not None:
-            input["action_status"] = action_status
-        input["finding_id"] = finding_id
+            input_["action_status"] = action_status
+        input_["finding_id"] = finding_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8130,22 +8130,22 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_audit_mitigation_actions_tasks_request.ListAuditMitigationActionsTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_audit_mitigation_actions_tasks_request.ListAuditMitigationActionsTasksRequest = {}  # type: ignore[typeddict-item]
         if audit_task_id is not None:
-            input["audit_task_id"] = audit_task_id
+            input_["audit_task_id"] = audit_task_id
         if finding_id is not None:
-            input["finding_id"] = finding_id
+            input_["finding_id"] = finding_id
         if task_status is not None:
-            input["task_status"] = task_status
+            input_["task_status"] = task_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["next_token"] = next_token
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8224,20 +8224,20 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_audit_suppressions_request.ListAuditSuppressionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_audit_suppressions_request.ListAuditSuppressionsRequest = {}  # type: ignore[typeddict-item]
         if check_name is not None:
-            input["check_name"] = check_name
+            input_["check_name"] = check_name
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8316,20 +8316,20 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_audit_tasks_request.ListAuditTasksRequest = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_iot.types.list_audit_tasks_request.ListAuditTasksRequest = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if task_type is not None:
-            input["task_type"] = task_type
+            input_["task_type"] = task_type
         if task_status is not None:
-            input["task_status"] = task_status
+            input_["task_status"] = task_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8402,18 +8402,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_authorizers_request.ListAuthorizersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_authorizers_request.ListAuthorizersRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8482,16 +8482,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_billing_groups_request.ListBillingGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_billing_groups_request.ListBillingGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if name_prefix_filter is not None:
-            input["name_prefix_filter"] = name_prefix_filter
+            input_["name_prefix_filter"] = name_prefix_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8560,18 +8560,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_ca_certificates_request.ListCACertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_ca_certificates_request.ListCACertificatesRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8636,14 +8636,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_certificate_providers_request.ListCertificateProvidersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_certificate_providers_request.ListCertificateProvidersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8683,16 +8683,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8759,17 +8759,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_certificates_by_ca_request.ListCertificatesByCARequest = {}  # type: ignore[typeddict-item]
-        input["ca_certificate_id"] = ca_certificate_id
+        input_: aws_sdk_iot.types.list_certificates_by_ca_request.ListCertificatesByCARequest = {}  # type: ignore[typeddict-item]
+        input_["ca_certificate_id"] = ca_certificate_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8856,28 +8856,28 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_command_executions_request.ListCommandExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_command_executions_request.ListCommandExecutionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if started_time_filter is not None:
-            input["started_time_filter"] = started_time_filter
+            input_["started_time_filter"] = started_time_filter
         if completed_time_filter is not None:
-            input["completed_time_filter"] = completed_time_filter
+            input_["completed_time_filter"] = completed_time_filter
         if target_arn is not None:
-            input["target_arn"] = target_arn
+            input_["target_arn"] = target_arn
         if command_arn is not None:
-            input["command_arn"] = command_arn
+            input_["command_arn"] = command_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8970,20 +8970,20 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_commands_request.ListCommandsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_commands_request.ListCommandsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if namespace is not None:
-            input["namespace"] = namespace
+            input_["namespace"] = namespace
         if command_parameter_name is not None:
-            input["command_parameter_name"] = command_parameter_name
+            input_["command_parameter_name"] = command_parameter_name
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9052,14 +9052,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_custom_metrics_request.ListCustomMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_custom_metrics_request.ListCustomMetricsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9130,24 +9130,24 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_detect_mitigation_actions_executions_request.ListDetectMitigationActionsExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_detect_mitigation_actions_executions_request.ListDetectMitigationActionsExecutionsRequest = {}  # type: ignore[typeddict-item]
         if task_id is not None:
-            input["task_id"] = task_id
+            input_["task_id"] = task_id
         if violation_id is not None:
-            input["violation_id"] = violation_id
+            input_["violation_id"] = violation_id
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9222,16 +9222,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_detect_mitigation_actions_tasks_request.ListDetectMitigationActionsTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_detect_mitigation_actions_tasks_request.ListDetectMitigationActionsTasksRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["next_token"] = next_token
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9292,14 +9292,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_dimensions_request.ListDimensionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_dimensions_request.ListDimensionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9358,16 +9358,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_domain_configurations_request.ListDomainConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_domain_configurations_request.ListDomainConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if service_type is not None:
-            input["service_type"] = service_type
+            input_["service_type"] = service_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9426,14 +9426,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_fleet_metrics_request.ListFleetMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_fleet_metrics_request.ListFleetMetricsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9492,14 +9492,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_indices_request.ListIndicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_indices_request.ListIndicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9566,17 +9566,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_job_executions_for_job_request.ListJobExecutionsForJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_iot.types.list_job_executions_for_job_request.ListJobExecutionsForJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9653,21 +9653,21 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_job_executions_for_thing_request.ListJobExecutionsForThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.list_job_executions_for_thing_request.ListJobExecutionsForThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if namespace_id is not None:
-            input["namespace_id"] = namespace_id
+            input_["namespace_id"] = namespace_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9754,24 +9754,24 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_jobs_request.ListJobsRequest = {}  # type: ignore[typeddict-item]
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if target_selection is not None:
-            input["target_selection"] = target_selection
+            input_["target_selection"] = target_selection
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if thing_group_name is not None:
-            input["thing_group_name"] = thing_group_name
+            input_["thing_group_name"] = thing_group_name
         if thing_group_id is not None:
-            input["thing_group_id"] = thing_group_id
+            input_["thing_group_id"] = thing_group_id
         if namespace_id is not None:
-            input["namespace_id"] = namespace_id
+            input_["namespace_id"] = namespace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9848,14 +9848,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_job_templates_request.ListJobTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_job_templates_request.ListJobTemplatesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -9920,16 +9920,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_managed_job_templates_request.ListManagedJobTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_managed_job_templates_request.ListManagedJobTemplatesRequest = {}  # type: ignore[typeddict-item]
         if template_name is not None:
-            input["template_name"] = template_name
+            input_["template_name"] = template_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10008,22 +10008,22 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_metric_values_request.ListMetricValuesRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
-        input["metric_name"] = metric_name
+        input_: aws_sdk_iot.types.list_metric_values_request.ListMetricValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
+        input_["metric_name"] = metric_name
         if dimension_name is not None:
-            input["dimension_name"] = dimension_name
+            input_["dimension_name"] = dimension_name
         if dimension_value_operator is not None:
-            input["dimension_value_operator"] = dimension_value_operator
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+            input_["dimension_value_operator"] = dimension_value_operator
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10100,16 +10100,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_mitigation_actions_request.ListMitigationActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_mitigation_actions_request.ListMitigationActionsRequest = {}  # type: ignore[typeddict-item]
         if action_type is not None:
-            input["action_type"] = action_type
+            input_["action_type"] = action_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10174,16 +10174,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_ota_updates_request.ListOTAUpdatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_ota_updates_request.ListOTAUpdatesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if ota_update_status is not None:
-            input["ota_update_status"] = ota_update_status
+            input_["ota_update_status"] = ota_update_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10248,16 +10248,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_outgoing_certificates_request.ListOutgoingCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_outgoing_certificates_request.ListOutgoingCertificatesRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10320,14 +10320,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_packages_request.ListPackagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_packages_request.ListPackagesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10394,17 +10394,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_package_versions_request.ListPackageVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
+        input_: aws_sdk_iot.types.list_package_versions_request.ListPackageVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10475,16 +10475,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_policies_request.ListPoliciesRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10553,17 +10553,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_policy_principals_request.ListPolicyPrincipalsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
+        input_: aws_sdk_iot.types.list_policy_principals_request.ListPolicyPrincipalsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10624,11 +10624,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_policy_versions_request.ListPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
+        input_: aws_sdk_iot.types.list_policy_versions_request.ListPolicyVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10670,17 +10670,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_principal_policies_request.ListPrincipalPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["principal"] = principal
+        input_: aws_sdk_iot.types.list_principal_policies_request.ListPrincipalPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["principal"] = principal
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10747,15 +10747,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_principal_things_request.ListPrincipalThingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_principal_things_request.ListPrincipalThingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["principal"] = principal
+            input_["max_results"] = max_results
+        input_["principal"] = principal
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10824,17 +10824,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_principal_things_v2_request.ListPrincipalThingsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_principal_things_v2_request.ListPrincipalThingsV2Request = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["principal"] = principal
+            input_["max_results"] = max_results
+        input_["principal"] = principal
         if thing_principal_type is not None:
-            input["thing_principal_type"] = thing_principal_type
+            input_["thing_principal_type"] = thing_principal_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10899,14 +10899,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_provisioning_templates_request.ListProvisioningTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_provisioning_templates_request.ListProvisioningTemplatesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -10965,15 +10965,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_provisioning_template_versions_request.ListProvisioningTemplateVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_iot.types.list_provisioning_template_versions_request.ListProvisioningTemplateVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11034,15 +11034,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_related_resources_for_audit_finding_request.ListRelatedResourcesForAuditFindingRequest = {}  # type: ignore[typeddict-item]
-        input["finding_id"] = finding_id
+        input_: aws_sdk_iot.types.list_related_resources_for_audit_finding_request.ListRelatedResourcesForAuditFindingRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11105,16 +11105,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_role_aliases_request.ListRoleAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_role_aliases_request.ListRoleAliasesRequest = {}  # type: ignore[typeddict-item]
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11185,18 +11185,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_sbom_validation_results_request.ListSbomValidationResultsRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["version_name"] = version_name
+        input_: aws_sdk_iot.types.list_sbom_validation_results_request.ListSbomValidationResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["version_name"] = version_name
         if validation_result is not None:
-            input["validation_result"] = validation_result
+            input_["validation_result"] = validation_result
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11263,14 +11263,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_scheduled_audits_request.ListScheduledAuditsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_scheduled_audits_request.ListScheduledAuditsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11335,18 +11335,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_security_profiles_request.ListSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_security_profiles_request.ListSecurityProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if dimension_name is not None:
-            input["dimension_name"] = dimension_name
+            input_["dimension_name"] = dimension_name
         if metric_name is not None:
-            input["metric_name"] = metric_name
+            input_["metric_name"] = metric_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11413,17 +11413,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_security_profiles_for_target_request.ListSecurityProfilesForTargetRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_security_profiles_for_target_request.ListSecurityProfilesForTargetRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if recursive is not None:
-            input["recursive"] = recursive
-        input["security_profile_target_arn"] = security_profile_target_arn
+            input_["recursive"] = recursive
+        input_["security_profile_target_arn"] = security_profile_target_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11488,16 +11488,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_streams_request.ListStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_streams_request.ListStreamsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if ascending_order is not None:
-            input["ascending_order"] = ascending_order
+            input_["ascending_order"] = ascending_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11560,13 +11560,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iot.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11625,15 +11625,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_targets_for_policy_request.ListTargetsForPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
+        input_: aws_sdk_iot.types.list_targets_for_policy_request.ListTargetsForPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11694,15 +11694,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_targets_for_security_profile_request.ListTargetsForSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_name"] = security_profile_name
+        input_: aws_sdk_iot.types.list_targets_for_security_profile_request.ListTargetsForSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_name"] = security_profile_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11777,20 +11777,20 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_thing_groups_request.ListThingGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_thing_groups_request.ListThingGroupsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if parent_group is not None:
-            input["parent_group"] = parent_group
+            input_["parent_group"] = parent_group
         if name_prefix_filter is not None:
-            input["name_prefix_filter"] = name_prefix_filter
+            input_["name_prefix_filter"] = name_prefix_filter
         if recursive is not None:
-            input["recursive"] = recursive
+            input_["recursive"] = recursive
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11865,15 +11865,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_thing_groups_for_thing_request.ListThingGroupsForThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.list_thing_groups_for_thing_request.ListThingGroupsForThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -11938,15 +11938,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_thing_principals_request.ListThingPrincipalsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_thing_principals_request.ListThingPrincipalsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["thing_name"] = thing_name
+            input_["max_results"] = max_results
+        input_["thing_name"] = thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12015,17 +12015,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_thing_principals_v2_request.ListThingPrincipalsV2Request = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_thing_principals_v2_request.ListThingPrincipalsV2Request = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["thing_name"] = thing_name
+            input_["max_results"] = max_results
+        input_["thing_name"] = thing_name
         if thing_principal_type is not None:
-            input["thing_principal_type"] = thing_principal_type
+            input_["thing_principal_type"] = thing_principal_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12096,16 +12096,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_thing_registration_task_reports_request.ListThingRegistrationTaskReportsRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
-        input["report_type"] = report_type
+        input_: aws_sdk_iot.types.list_thing_registration_task_reports_request.ListThingRegistrationTaskReportsRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
+        input_["report_type"] = report_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12172,16 +12172,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_thing_registration_tasks_request.ListThingRegistrationTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_thing_registration_tasks_request.ListThingRegistrationTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12260,22 +12260,22 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_things_request.ListThingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_things_request.ListThingsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if attribute_name is not None:
-            input["attribute_name"] = attribute_name
+            input_["attribute_name"] = attribute_name
         if attribute_value is not None:
-            input["attribute_value"] = attribute_value
+            input_["attribute_value"] = attribute_value
         if thing_type_name is not None:
-            input["thing_type_name"] = thing_type_name
+            input_["thing_type_name"] = thing_type_name
         if use_prefix_attribute_value is not None:
-            input["use_prefix_attribute_value"] = use_prefix_attribute_value
+            input_["use_prefix_attribute_value"] = use_prefix_attribute_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12354,15 +12354,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_things_in_billing_group_request.ListThingsInBillingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["billing_group_name"] = billing_group_name
+        input_: aws_sdk_iot.types.list_things_in_billing_group_request.ListThingsInBillingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["billing_group_name"] = billing_group_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12429,17 +12429,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_things_in_thing_group_request.ListThingsInThingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["thing_group_name"] = thing_group_name
+        input_: aws_sdk_iot.types.list_things_in_thing_group_request.ListThingsInThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_group_name"] = thing_group_name
         if recursive is not None:
-            input["recursive"] = recursive
+            input_["recursive"] = recursive
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12508,16 +12508,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_thing_types_request.ListThingTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_thing_types_request.ListThingTypesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if thing_type_name is not None:
-            input["thing_type_name"] = thing_type_name
+            input_["thing_type_name"] = thing_type_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12582,14 +12582,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_topic_rule_destinations_request.ListTopicRuleDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_topic_rule_destinations_request.ListTopicRuleDestinationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12654,18 +12654,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_topic_rules_request.ListTopicRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_topic_rules_request.ListTopicRulesRequest = {}  # type: ignore[typeddict-item]
         if topic is not None:
-            input["topic"] = topic
+            input_["topic"] = topic
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if rule_disabled is not None:
-            input["rule_disabled"] = rule_disabled
+            input_["rule_disabled"] = rule_disabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12734,16 +12734,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_v2_logging_levels_request.ListV2LoggingLevelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.list_v2_logging_levels_request.ListV2LoggingLevelsRequest = {}  # type: ignore[typeddict-item]
         if target_type is not None:
-            input["target_type"] = target_type
+            input_["target_type"] = target_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12828,26 +12828,26 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.list_violation_events_request.ListViolationEventsRequest = {}  # type: ignore[typeddict-item]
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_iot.types.list_violation_events_request.ListViolationEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if security_profile_name is not None:
-            input["security_profile_name"] = security_profile_name
+            input_["security_profile_name"] = security_profile_name
         if behavior_criteria_type is not None:
-            input["behavior_criteria_type"] = behavior_criteria_type
+            input_["behavior_criteria_type"] = behavior_criteria_type
         if list_suppressed_alerts is not None:
-            input["list_suppressed_alerts"] = list_suppressed_alerts
+            input_["list_suppressed_alerts"] = list_suppressed_alerts
         if verification_state is not None:
-            input["verification_state"] = verification_state
+            input_["verification_state"] = verification_state
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12932,14 +12932,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.put_verification_state_on_violation_request.PutVerificationStateOnViolationRequest = {}  # type: ignore[typeddict-item]
-        input["violation_id"] = violation_id
-        input["verification_state"] = verification_state
+        input_: aws_sdk_iot.types.put_verification_state_on_violation_request.PutVerificationStateOnViolationRequest = {}  # type: ignore[typeddict-item]
+        input_["violation_id"] = violation_id
+        input_["verification_state"] = verification_state
         if verification_state_description is not None:
-            input["verification_state_description"] = verification_state_description
+            input_["verification_state_description"] = verification_state_description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -12993,23 +12993,23 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.register_ca_certificate_request.RegisterCACertificateRequest = {}  # type: ignore[typeddict-item]
-        input["ca_certificate"] = ca_certificate
+        input_: aws_sdk_iot.types.register_ca_certificate_request.RegisterCACertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["ca_certificate"] = ca_certificate
         if verification_certificate is not None:
-            input["verification_certificate"] = verification_certificate
+            input_["verification_certificate"] = verification_certificate
         if set_as_active is not None:
-            input["set_as_active"] = set_as_active
+            input_["set_as_active"] = set_as_active
         if allow_auto_registration is not None:
-            input["allow_auto_registration"] = allow_auto_registration
+            input_["allow_auto_registration"] = allow_auto_registration
         if registration_config is not None:
-            input["registration_config"] = registration_config
+            input_["registration_config"] = registration_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if certificate_mode is not None:
-            input["certificate_mode"] = certificate_mode
+            input_["certificate_mode"] = certificate_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13055,17 +13055,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.register_certificate_request.RegisterCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_pem"] = certificate_pem
+        input_: aws_sdk_iot.types.register_certificate_request.RegisterCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_pem"] = certificate_pem
         if ca_certificate_pem is not None:
-            input["ca_certificate_pem"] = ca_certificate_pem
+            input_["ca_certificate_pem"] = ca_certificate_pem
         if set_as_active is not None:
-            input["set_as_active"] = set_as_active
+            input_["set_as_active"] = set_as_active
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13103,13 +13103,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.register_certificate_without_ca_request.RegisterCertificateWithoutCARequest = {}  # type: ignore[typeddict-item]
-        input["certificate_pem"] = certificate_pem
+        input_: aws_sdk_iot.types.register_certificate_without_ca_request.RegisterCertificateWithoutCARequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_pem"] = certificate_pem
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13145,13 +13145,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.register_thing_request.RegisterThingRequest = {}  # type: ignore[typeddict-item]
-        input["template_body"] = template_body
+        input_: aws_sdk_iot.types.register_thing_request.RegisterThingRequest = {}  # type: ignore[typeddict-item]
+        input_["template_body"] = template_body
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13185,13 +13185,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.reject_certificate_transfer_request.RejectCertificateTransferRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_iot.types.reject_certificate_transfer_request.RejectCertificateTransferRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
         if reject_reason is not None:
-            input["reject_reason"] = reject_reason
+            input_["reject_reason"] = reject_reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13235,18 +13235,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.remove_thing_from_billing_group_request.RemoveThingFromBillingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.remove_thing_from_billing_group_request.RemoveThingFromBillingGroupRequest = {}  # type: ignore[typeddict-item]
         if billing_group_name is not None:
-            input["billing_group_name"] = billing_group_name
+            input_["billing_group_name"] = billing_group_name
         if billing_group_arn is not None:
-            input["billing_group_arn"] = billing_group_arn
+            input_["billing_group_arn"] = billing_group_arn
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if thing_arn is not None:
-            input["thing_arn"] = thing_arn
+            input_["thing_arn"] = thing_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13290,18 +13290,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.remove_thing_from_thing_group_request.RemoveThingFromThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.remove_thing_from_thing_group_request.RemoveThingFromThingGroupRequest = {}  # type: ignore[typeddict-item]
         if thing_group_name is not None:
-            input["thing_group_name"] = thing_group_name
+            input_["thing_group_name"] = thing_group_name
         if thing_group_arn is not None:
-            input["thing_group_arn"] = thing_group_arn
+            input_["thing_group_arn"] = thing_group_arn
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if thing_arn is not None:
-            input["thing_arn"] = thing_arn
+            input_["thing_arn"] = thing_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13335,12 +13335,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.replace_topic_rule_request.ReplaceTopicRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
-        input["topic_rule_payload"] = topic_rule_payload
+        input_: aws_sdk_iot.types.replace_topic_rule_request.ReplaceTopicRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
+        input_["topic_rule_payload"] = topic_rule_payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13384,19 +13384,19 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.search_index_request.SearchIndexRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.search_index_request.SearchIndexRequest = {}  # type: ignore[typeddict-item]
         if index_name is not None:
-            input["index_name"] = index_name
-        input["query_string"] = query_string
+            input_["index_name"] = index_name
+        input_["query_string"] = query_string
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if query_version is not None:
-            input["query_version"] = query_version
+            input_["query_version"] = query_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13432,11 +13432,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.set_default_authorizer_request.SetDefaultAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["authorizer_name"] = authorizer_name
+        input_: aws_sdk_iot.types.set_default_authorizer_request.SetDefaultAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["authorizer_name"] = authorizer_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13470,12 +13470,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.set_default_policy_version_request.SetDefaultPolicyVersionRequest = {}  # type: ignore[typeddict-item]
-        input["policy_name"] = policy_name
-        input["policy_version_id"] = policy_version_id
+        input_: aws_sdk_iot.types.set_default_policy_version_request.SetDefaultPolicyVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["policy_name"] = policy_name
+        input_["policy_version_id"] = policy_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13507,11 +13507,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.set_logging_options_request.SetLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["logging_options_payload"] = logging_options_payload
+        input_: aws_sdk_iot.types.set_logging_options_request.SetLoggingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["logging_options_payload"] = logging_options_payload
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13545,12 +13545,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.set_v2_logging_level_request.SetV2LoggingLevelRequest = {}  # type: ignore[typeddict-item]
-        input["log_target"] = log_target
-        input["log_level"] = log_level
+        input_: aws_sdk_iot.types.set_v2_logging_level_request.SetV2LoggingLevelRequest = {}  # type: ignore[typeddict-item]
+        input_["log_target"] = log_target
+        input_["log_level"] = log_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13592,18 +13592,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.set_v2_logging_options_request.SetV2LoggingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.set_v2_logging_options_request.SetV2LoggingOptionsRequest = {}  # type: ignore[typeddict-item]
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if default_log_level is not None:
-            input["default_log_level"] = default_log_level
+            input_["default_log_level"] = default_log_level
         if disable_all_logs is not None:
-            input["disable_all_logs"] = disable_all_logs
+            input_["disable_all_logs"] = disable_all_logs
         if event_configurations is not None:
-            input["event_configurations"] = event_configurations
+            input_["event_configurations"] = event_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13643,14 +13643,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.start_audit_mitigation_actions_task_request.StartAuditMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
-        input["target"] = target
-        input["audit_check_to_actions_mapping"] = audit_check_to_actions_mapping
-        input["client_request_token"] = client_request_token
+        input_: aws_sdk_iot.types.start_audit_mitigation_actions_task_request.StartAuditMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
+        input_["target"] = target
+        input_["audit_check_to_actions_mapping"] = audit_check_to_actions_mapping
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13702,20 +13702,22 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.start_detect_mitigation_actions_task_request.StartDetectMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
-        input["target"] = target
-        input["actions"] = actions
+        input_: aws_sdk_iot.types.start_detect_mitigation_actions_task_request.StartDetectMitigationActionsTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
+        input_["target"] = target
+        input_["actions"] = actions
         if violation_event_occurrence_range is not None:
-            input["violation_event_occurrence_range"] = violation_event_occurrence_range
+            input_["violation_event_occurrence_range"] = (
+                violation_event_occurrence_range
+            )
         if include_only_active_violations is not None:
-            input["include_only_active_violations"] = include_only_active_violations
+            input_["include_only_active_violations"] = include_only_active_violations
         if include_suppressed_alerts is not None:
-            input["include_suppressed_alerts"] = include_suppressed_alerts
-        input["client_request_token"] = client_request_token
+            input_["include_suppressed_alerts"] = include_suppressed_alerts
+        input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13749,11 +13751,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.start_on_demand_audit_task_request.StartOnDemandAuditTaskRequest = {}  # type: ignore[typeddict-item]
-        input["target_check_names"] = target_check_names
+        input_: aws_sdk_iot.types.start_on_demand_audit_task_request.StartOnDemandAuditTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["target_check_names"] = target_check_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13793,14 +13795,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.start_thing_registration_task_request.StartThingRegistrationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["template_body"] = template_body
-        input["input_file_bucket"] = input_file_bucket
-        input["input_file_key"] = input_file_key
-        input["role_arn"] = role_arn
+        input_: aws_sdk_iot.types.start_thing_registration_task_request.StartThingRegistrationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["template_body"] = template_body
+        input_["input_file_bucket"] = input_file_bucket
+        input_["input_file_key"] = input_file_key
+        input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13834,11 +13836,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.stop_thing_registration_task_request.StopThingRegistrationTaskRequest = {}  # type: ignore[typeddict-item]
-        input["task_id"] = task_id
+        input_: aws_sdk_iot.types.stop_thing_registration_task_request.StopThingRegistrationTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13874,12 +13876,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iot.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13929,21 +13931,21 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.test_authorization_request.TestAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.test_authorization_request.TestAuthorizationRequest = {}  # type: ignore[typeddict-item]
         if principal is not None:
-            input["principal"] = principal
+            input_["principal"] = principal
         if cognito_identity_pool_id is not None:
-            input["cognito_identity_pool_id"] = cognito_identity_pool_id
-        input["auth_infos"] = auth_infos
+            input_["cognito_identity_pool_id"] = cognito_identity_pool_id
+        input_["auth_infos"] = auth_infos
         if client_id is not None:
-            input["client_id"] = client_id
+            input_["client_id"] = client_id
         if policy_names_to_add is not None:
-            input["policy_names_to_add"] = policy_names_to_add
+            input_["policy_names_to_add"] = policy_names_to_add
         if policy_names_to_skip is not None:
-            input["policy_names_to_skip"] = policy_names_to_skip
+            input_["policy_names_to_skip"] = policy_names_to_skip
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -13991,21 +13993,21 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.test_invoke_authorizer_request.TestInvokeAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["authorizer_name"] = authorizer_name
+        input_: aws_sdk_iot.types.test_invoke_authorizer_request.TestInvokeAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["authorizer_name"] = authorizer_name
         if token is not None:
-            input["token"] = token
+            input_["token"] = token
         if token_signature is not None:
-            input["token_signature"] = token_signature
+            input_["token_signature"] = token_signature
         if http_context is not None:
-            input["http_context"] = http_context
+            input_["http_context"] = http_context
         if mqtt_context is not None:
-            input["mqtt_context"] = mqtt_context
+            input_["mqtt_context"] = mqtt_context
         if tls_context is not None:
-            input["tls_context"] = tls_context
+            input_["tls_context"] = tls_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14043,14 +14045,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.transfer_certificate_request.TransferCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
-        input["target_aws_account"] = target_aws_account
+        input_: aws_sdk_iot.types.transfer_certificate_request.TransferCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
+        input_["target_aws_account"] = target_aws_account
         if transfer_message is not None:
-            input["transfer_message"] = transfer_message
+            input_["transfer_message"] = transfer_message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14086,12 +14088,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iot.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14133,18 +14135,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_account_audit_configuration_request.UpdateAccountAuditConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.update_account_audit_configuration_request.UpdateAccountAuditConfigurationRequest = {}  # type: ignore[typeddict-item]
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if audit_notification_target_configurations is not None:
-            input["audit_notification_target_configurations"] = (
+            input_["audit_notification_target_configurations"] = (
                 audit_notification_target_configurations
             )
         if audit_check_configurations is not None:
-            input["audit_check_configurations"] = audit_check_configurations
+            input_["audit_check_configurations"] = audit_check_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14188,18 +14190,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_audit_suppression_request.UpdateAuditSuppressionRequest = {}  # type: ignore[typeddict-item]
-        input["check_name"] = check_name
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_iot.types.update_audit_suppression_request.UpdateAuditSuppressionRequest = {}  # type: ignore[typeddict-item]
+        input_["check_name"] = check_name
+        input_["resource_identifier"] = resource_identifier
         if expiration_date is not None:
-            input["expiration_date"] = expiration_date
+            input_["expiration_date"] = expiration_date
         if suppress_indefinitely is not None:
-            input["suppress_indefinitely"] = suppress_indefinitely
+            input_["suppress_indefinitely"] = suppress_indefinitely
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14251,21 +14253,21 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_authorizer_request.UpdateAuthorizerRequest = {}  # type: ignore[typeddict-item]
-        input["authorizer_name"] = authorizer_name
+        input_: aws_sdk_iot.types.update_authorizer_request.UpdateAuthorizerRequest = {}  # type: ignore[typeddict-item]
+        input_["authorizer_name"] = authorizer_name
         if authorizer_function_arn is not None:
-            input["authorizer_function_arn"] = authorizer_function_arn
+            input_["authorizer_function_arn"] = authorizer_function_arn
         if token_key_name is not None:
-            input["token_key_name"] = token_key_name
+            input_["token_key_name"] = token_key_name
         if token_signing_public_keys is not None:
-            input["token_signing_public_keys"] = token_signing_public_keys
+            input_["token_signing_public_keys"] = token_signing_public_keys
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if enable_caching_for_http is not None:
-            input["enable_caching_for_http"] = enable_caching_for_http
+            input_["enable_caching_for_http"] = enable_caching_for_http
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14305,14 +14307,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_billing_group_request.UpdateBillingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["billing_group_name"] = billing_group_name
-        input["billing_group_properties"] = billing_group_properties
+        input_: aws_sdk_iot.types.update_billing_group_request.UpdateBillingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["billing_group_name"] = billing_group_name
+        input_["billing_group_properties"] = billing_group_properties
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14360,19 +14362,19 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_ca_certificate_request.UpdateCACertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
+        input_: aws_sdk_iot.types.update_ca_certificate_request.UpdateCACertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
         if new_status is not None:
-            input["new_status"] = new_status
+            input_["new_status"] = new_status
         if new_auto_registration_status is not None:
-            input["new_auto_registration_status"] = new_auto_registration_status
+            input_["new_auto_registration_status"] = new_auto_registration_status
         if registration_config is not None:
-            input["registration_config"] = registration_config
+            input_["registration_config"] = registration_config
         if remove_auto_registration is not None:
-            input["remove_auto_registration"] = remove_auto_registration
+            input_["remove_auto_registration"] = remove_auto_registration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14406,12 +14408,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_certificate_request.UpdateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_id"] = certificate_id
-        input["new_status"] = new_status
+        input_: aws_sdk_iot.types.update_certificate_request.UpdateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_id"] = certificate_id
+        input_["new_status"] = new_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14453,15 +14455,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_certificate_provider_request.UpdateCertificateProviderRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_provider_name"] = certificate_provider_name
+        input_: aws_sdk_iot.types.update_certificate_provider_request.UpdateCertificateProviderRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_provider_name"] = certificate_provider_name
         if lambda_function_arn is not None:
-            input["lambda_function_arn"] = lambda_function_arn
+            input_["lambda_function_arn"] = lambda_function_arn
         if account_default_for_operations is not None:
-            input["account_default_for_operations"] = account_default_for_operations
+            input_["account_default_for_operations"] = account_default_for_operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14505,17 +14507,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_command_request.UpdateCommandRequest = {}  # type: ignore[typeddict-item]
-        input["command_id"] = command_id
+        input_: aws_sdk_iot.types.update_command_request.UpdateCommandRequest = {}  # type: ignore[typeddict-item]
+        input_["command_id"] = command_id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if deprecated is not None:
-            input["deprecated"] = deprecated
+            input_["deprecated"] = deprecated
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14551,12 +14553,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_custom_metric_request.UpdateCustomMetricRequest = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
-        input["display_name"] = display_name
+        input_: aws_sdk_iot.types.update_custom_metric_request.UpdateCustomMetricRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
+        input_["display_name"] = display_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14592,12 +14594,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_dimension_request.UpdateDimensionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["string_values"] = string_values
+        input_: aws_sdk_iot.types.update_dimension_request.UpdateDimensionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["string_values"] = string_values
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14661,27 +14663,27 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_domain_configuration_request.UpdateDomainConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["domain_configuration_name"] = domain_configuration_name
+        input_: aws_sdk_iot.types.update_domain_configuration_request.UpdateDomainConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_configuration_name"] = domain_configuration_name
         if authorizer_config is not None:
-            input["authorizer_config"] = authorizer_config
+            input_["authorizer_config"] = authorizer_config
         if domain_configuration_status is not None:
-            input["domain_configuration_status"] = domain_configuration_status
+            input_["domain_configuration_status"] = domain_configuration_status
         if remove_authorizer_config is not None:
-            input["remove_authorizer_config"] = remove_authorizer_config
+            input_["remove_authorizer_config"] = remove_authorizer_config
         if tls_config is not None:
-            input["tls_config"] = tls_config
+            input_["tls_config"] = tls_config
         if server_certificate_config is not None:
-            input["server_certificate_config"] = server_certificate_config
+            input_["server_certificate_config"] = server_certificate_config
         if authentication_type is not None:
-            input["authentication_type"] = authentication_type
+            input_["authentication_type"] = authentication_type
         if application_protocol is not None:
-            input["application_protocol"] = application_protocol
+            input_["application_protocol"] = application_protocol
         if client_certificate_config is not None:
-            input["client_certificate_config"] = client_certificate_config
+            input_["client_certificate_config"] = client_certificate_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14727,20 +14729,20 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_dynamic_thing_group_request.UpdateDynamicThingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["thing_group_name"] = thing_group_name
-        input["thing_group_properties"] = thing_group_properties
+        input_: aws_sdk_iot.types.update_dynamic_thing_group_request.UpdateDynamicThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_group_name"] = thing_group_name
+        input_["thing_group_properties"] = thing_group_properties
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
         if index_name is not None:
-            input["index_name"] = index_name
+            input_["index_name"] = index_name
         if query_string is not None:
-            input["query_string"] = query_string
+            input_["query_string"] = query_string
         if query_version is not None:
-            input["query_version"] = query_version
+            input_["query_version"] = query_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14786,15 +14788,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_encryption_configuration_request.UpdateEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["encryption_type"] = encryption_type
+        input_: aws_sdk_iot.types.update_encryption_configuration_request.UpdateEncryptionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["encryption_type"] = encryption_type
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if kms_access_role_arn is not None:
-            input["kms_access_role_arn"] = kms_access_role_arn
+            input_["kms_access_role_arn"] = kms_access_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14830,12 +14832,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_event_configurations_request.UpdateEventConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.update_event_configurations_request.UpdateEventConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if event_configurations is not None:
-            input["event_configurations"] = event_configurations
+            input_["event_configurations"] = event_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14895,28 +14897,28 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_fleet_metric_request.UpdateFleetMetricRequest = {}  # type: ignore[typeddict-item]
-        input["metric_name"] = metric_name
+        input_: aws_sdk_iot.types.update_fleet_metric_request.UpdateFleetMetricRequest = {}  # type: ignore[typeddict-item]
+        input_["metric_name"] = metric_name
         if query_string is not None:
-            input["query_string"] = query_string
+            input_["query_string"] = query_string
         if aggregation_type is not None:
-            input["aggregation_type"] = aggregation_type
+            input_["aggregation_type"] = aggregation_type
         if period is not None:
-            input["period"] = period
+            input_["period"] = period
         if aggregation_field is not None:
-            input["aggregation_field"] = aggregation_field
+            input_["aggregation_field"] = aggregation_field
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if query_version is not None:
-            input["query_version"] = query_version
-        input["index_name"] = index_name
+            input_["query_version"] = query_version
+        input_["index_name"] = index_name
         if unit is not None:
-            input["unit"] = unit
+            input_["unit"] = unit
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -14956,16 +14958,16 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_indexing_configuration_request.UpdateIndexingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.update_indexing_configuration_request.UpdateIndexingConfigurationRequest = {}  # type: ignore[typeddict-item]
         if thing_indexing_configuration is not None:
-            input["thing_indexing_configuration"] = thing_indexing_configuration
+            input_["thing_indexing_configuration"] = thing_indexing_configuration
         if thing_group_indexing_configuration is not None:
-            input["thing_group_indexing_configuration"] = (
+            input_["thing_group_indexing_configuration"] = (
                 thing_group_indexing_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15021,25 +15023,25 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_job_request.UpdateJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_iot.types.update_job_request.UpdateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if presigned_url_config is not None:
-            input["presigned_url_config"] = presigned_url_config
+            input_["presigned_url_config"] = presigned_url_config
         if job_executions_rollout_config is not None:
-            input["job_executions_rollout_config"] = job_executions_rollout_config
+            input_["job_executions_rollout_config"] = job_executions_rollout_config
         if abort_config is not None:
-            input["abort_config"] = abort_config
+            input_["abort_config"] = abort_config
         if timeout_config is not None:
-            input["timeout_config"] = timeout_config
+            input_["timeout_config"] = timeout_config
         if namespace_id is not None:
-            input["namespace_id"] = namespace_id
+            input_["namespace_id"] = namespace_id
         if job_executions_retry_config is not None:
-            input["job_executions_retry_config"] = job_executions_retry_config
+            input_["job_executions_retry_config"] = job_executions_retry_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15079,15 +15081,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_mitigation_action_request.UpdateMitigationActionRequest = {}  # type: ignore[typeddict-item]
-        input["action_name"] = action_name
+        input_: aws_sdk_iot.types.update_mitigation_action_request.UpdateMitigationActionRequest = {}  # type: ignore[typeddict-item]
+        input_["action_name"] = action_name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if action_params is not None:
-            input["action_params"] = action_params
+            input_["action_params"] = action_params
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15135,19 +15137,19 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_package_request.UpdatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
+        input_: aws_sdk_iot.types.update_package_request.UpdatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if default_version_name is not None:
-            input["default_version_name"] = default_version_name
+            input_["default_version_name"] = default_version_name
         if unset_default_version is not None:
-            input["unset_default_version"] = unset_default_version
+            input_["unset_default_version"] = unset_default_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15185,14 +15187,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_package_configuration_request.UpdatePackageConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.update_package_configuration_request.UpdatePackageConfigurationRequest = {}  # type: ignore[typeddict-item]
         if version_update_by_jobs_config is not None:
-            input["version_update_by_jobs_config"] = version_update_by_jobs_config
+            input_["version_update_by_jobs_config"] = version_update_by_jobs_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15252,24 +15254,24 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_package_version_request.UpdatePackageVersionRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
-        input["version_name"] = version_name
+        input_: aws_sdk_iot.types.update_package_version_request.UpdatePackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
+        input_["version_name"] = version_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if artifact is not None:
-            input["artifact"] = artifact
+            input_["artifact"] = artifact
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if recipe is not None:
-            input["recipe"] = recipe
+            input_["recipe"] = recipe
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15323,23 +15325,23 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_provisioning_template_request.UpdateProvisioningTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
+        input_: aws_sdk_iot.types.update_provisioning_template_request.UpdateProvisioningTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if default_version_id is not None:
-            input["default_version_id"] = default_version_id
+            input_["default_version_id"] = default_version_id
         if provisioning_role_arn is not None:
-            input["provisioning_role_arn"] = provisioning_role_arn
+            input_["provisioning_role_arn"] = provisioning_role_arn
         if pre_provisioning_hook is not None:
-            input["pre_provisioning_hook"] = pre_provisioning_hook
+            input_["pre_provisioning_hook"] = pre_provisioning_hook
         if remove_pre_provisioning_hook is not None:
-            input["remove_pre_provisioning_hook"] = remove_pre_provisioning_hook
+            input_["remove_pre_provisioning_hook"] = remove_pre_provisioning_hook
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15379,15 +15381,15 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_role_alias_request.UpdateRoleAliasRequest = {}  # type: ignore[typeddict-item]
-        input["role_alias"] = role_alias
+        input_: aws_sdk_iot.types.update_role_alias_request.UpdateRoleAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["role_alias"] = role_alias
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if credential_duration_seconds is not None:
-            input["credential_duration_seconds"] = credential_duration_seconds
+            input_["credential_duration_seconds"] = credential_duration_seconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15433,19 +15435,19 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_scheduled_audit_request.UpdateScheduledAuditRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.update_scheduled_audit_request.UpdateScheduledAuditRequest = {}  # type: ignore[typeddict-item]
         if frequency is not None:
-            input["frequency"] = frequency
+            input_["frequency"] = frequency
         if day_of_month is not None:
-            input["day_of_month"] = day_of_month
+            input_["day_of_month"] = day_of_month
         if day_of_week is not None:
-            input["day_of_week"] = day_of_week
+            input_["day_of_week"] = day_of_week
         if target_check_names is not None:
-            input["target_check_names"] = target_check_names
-        input["scheduled_audit_name"] = scheduled_audit_name
+            input_["target_check_names"] = target_check_names
+        input_["scheduled_audit_name"] = scheduled_audit_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15519,35 +15521,35 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_security_profile_request.UpdateSecurityProfileRequest = {}  # type: ignore[typeddict-item]
-        input["security_profile_name"] = security_profile_name
+        input_: aws_sdk_iot.types.update_security_profile_request.UpdateSecurityProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["security_profile_name"] = security_profile_name
         if security_profile_description is not None:
-            input["security_profile_description"] = security_profile_description
+            input_["security_profile_description"] = security_profile_description
         if behaviors is not None:
-            input["behaviors"] = behaviors
+            input_["behaviors"] = behaviors
         if alert_targets is not None:
-            input["alert_targets"] = alert_targets
+            input_["alert_targets"] = alert_targets
         if additional_metrics_to_retain is not None:
-            input["additional_metrics_to_retain"] = additional_metrics_to_retain
+            input_["additional_metrics_to_retain"] = additional_metrics_to_retain
         if additional_metrics_to_retain_v2 is not None:
-            input["additional_metrics_to_retain_v2"] = additional_metrics_to_retain_v2
+            input_["additional_metrics_to_retain_v2"] = additional_metrics_to_retain_v2
         if delete_behaviors is not None:
-            input["delete_behaviors"] = delete_behaviors
+            input_["delete_behaviors"] = delete_behaviors
         if delete_alert_targets is not None:
-            input["delete_alert_targets"] = delete_alert_targets
+            input_["delete_alert_targets"] = delete_alert_targets
         if delete_additional_metrics_to_retain is not None:
-            input["delete_additional_metrics_to_retain"] = (
+            input_["delete_additional_metrics_to_retain"] = (
                 delete_additional_metrics_to_retain
             )
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
         if metrics_export_config is not None:
-            input["metrics_export_config"] = metrics_export_config
+            input_["metrics_export_config"] = metrics_export_config
         if delete_metrics_export_config is not None:
-            input["delete_metrics_export_config"] = delete_metrics_export_config
+            input_["delete_metrics_export_config"] = delete_metrics_export_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15589,17 +15591,17 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_stream_request.UpdateStreamRequest = {}  # type: ignore[typeddict-item]
-        input["stream_id"] = stream_id
+        input_: aws_sdk_iot.types.update_stream_request.UpdateStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["stream_id"] = stream_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if files is not None:
-            input["files"] = files
+            input_["files"] = files
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15649,19 +15651,19 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_thing_request.UpdateThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot.types.update_thing_request.UpdateThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if thing_type_name is not None:
-            input["thing_type_name"] = thing_type_name
+            input_["thing_type_name"] = thing_type_name
         if attribute_payload is not None:
-            input["attribute_payload"] = attribute_payload
+            input_["attribute_payload"] = attribute_payload
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
         if remove_thing_type is not None:
-            input["remove_thing_type"] = remove_thing_type
+            input_["remove_thing_type"] = remove_thing_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15701,14 +15703,14 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_thing_group_request.UpdateThingGroupRequest = {}  # type: ignore[typeddict-item]
-        input["thing_group_name"] = thing_group_name
-        input["thing_group_properties"] = thing_group_properties
+        input_: aws_sdk_iot.types.update_thing_group_request.UpdateThingGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_group_name"] = thing_group_name
+        input_["thing_group_properties"] = thing_group_properties
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15754,18 +15756,18 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_thing_groups_for_thing_request.UpdateThingGroupsForThingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot.types.update_thing_groups_for_thing_request.UpdateThingGroupsForThingRequest = {}  # type: ignore[typeddict-item]
         if thing_name is not None:
-            input["thing_name"] = thing_name
+            input_["thing_name"] = thing_name
         if thing_groups_to_add is not None:
-            input["thing_groups_to_add"] = thing_groups_to_add
+            input_["thing_groups_to_add"] = thing_groups_to_add
         if thing_groups_to_remove is not None:
-            input["thing_groups_to_remove"] = thing_groups_to_remove
+            input_["thing_groups_to_remove"] = thing_groups_to_remove
         if override_dynamic_groups is not None:
-            input["override_dynamic_groups"] = override_dynamic_groups
+            input_["override_dynamic_groups"] = override_dynamic_groups
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15802,13 +15804,13 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_thing_type_request.UpdateThingTypeRequest = {}  # type: ignore[typeddict-item]
-        input["thing_type_name"] = thing_type_name
+        input_: aws_sdk_iot.types.update_thing_type_request.UpdateThingTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_type_name"] = thing_type_name
         if thing_type_properties is not None:
-            input["thing_type_properties"] = thing_type_properties
+            input_["thing_type_properties"] = thing_type_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15844,12 +15846,12 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.update_topic_rule_destination_request.UpdateTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["status"] = status
+        input_: aws_sdk_iot.types.update_topic_rule_destination_request.UpdateTopicRuleDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -15883,11 +15885,11 @@ class AsyncIoTClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot.types.validate_security_profile_behaviors_request.ValidateSecurityProfileBehaviorsRequest = {}  # type: ignore[typeddict-item]
-        input["behaviors"] = behaviors
+        input_: aws_sdk_iot.types.validate_security_profile_behaviors_request.ValidateSecurityProfileBehaviorsRequest = {}  # type: ignore[typeddict-item]
+        input_["behaviors"] = behaviors
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

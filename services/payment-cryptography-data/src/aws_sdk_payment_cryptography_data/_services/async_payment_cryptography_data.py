@@ -236,15 +236,15 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.decrypt_data_input.DecryptDataInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["cipher_text"] = cipher_text
-        input["decryption_attributes"] = decryption_attributes
+        input_: aws_sdk_payment_cryptography_data.types.decrypt_data_input.DecryptDataInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["cipher_text"] = cipher_text
+        input_["decryption_attributes"] = decryption_attributes
         if wrapped_key is not None:
-            input["wrapped_key"] = wrapped_key
+            input_["wrapped_key"] = wrapped_key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,15 +288,15 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.encrypt_data_input.EncryptDataInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["plain_text"] = plain_text
-        input["encryption_attributes"] = encryption_attributes
+        input_: aws_sdk_payment_cryptography_data.types.encrypt_data_input.EncryptDataInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["plain_text"] = plain_text
+        input_["encryption_attributes"] = encryption_attributes
         if wrapped_key is not None:
-            input["wrapped_key"] = wrapped_key
+            input_["wrapped_key"] = wrapped_key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,13 +334,13 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.generate_as2805_kek_validation_input.GenerateAs2805KekValidationInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["kek_validation_type"] = kek_validation_type
-        input["random_key_send_variant_mask"] = random_key_send_variant_mask
+        input_: aws_sdk_payment_cryptography_data.types.generate_as2805_kek_validation_input.GenerateAs2805KekValidationInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["kek_validation_type"] = kek_validation_type
+        input_["random_key_send_variant_mask"] = random_key_send_variant_mask
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,14 +380,14 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.generate_auth_request_cryptogram_input.GenerateAuthRequestCryptogramInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["transaction_data"] = transaction_data
-        input["major_key_derivation_mode"] = major_key_derivation_mode
-        input["session_key_derivation_attributes"] = session_key_derivation_attributes
+        input_: aws_sdk_payment_cryptography_data.types.generate_auth_request_cryptogram_input.GenerateAuthRequestCryptogramInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["transaction_data"] = transaction_data
+        input_["major_key_derivation_mode"] = major_key_derivation_mode
+        input_["session_key_derivation_attributes"] = session_key_derivation_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,15 +429,15 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.generate_card_validation_data_input.GenerateCardValidationDataInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["primary_account_number"] = primary_account_number
-        input["generation_attributes"] = generation_attributes
+        input_: aws_sdk_payment_cryptography_data.types.generate_card_validation_data_input.GenerateCardValidationDataInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["primary_account_number"] = primary_account_number
+        input_["generation_attributes"] = generation_attributes
         if validation_data_length is not None:
-            input["validation_data_length"] = validation_data_length
+            input_["validation_data_length"] = validation_data_length
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,15 +481,15 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.generate_mac_input.GenerateMacInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["message_data"] = message_data
-        input["generation_attributes"] = generation_attributes
+        input_: aws_sdk_payment_cryptography_data.types.generate_mac_input.GenerateMacInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["message_data"] = message_data
+        input_["generation_attributes"] = generation_attributes
         if mac_length is not None:
-            input["mac_length"] = mac_length
+            input_["mac_length"] = mac_length
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,21 +535,21 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.generate_mac_emv_pin_change_input.GenerateMacEmvPinChangeInput = {}  # type: ignore[typeddict-item]
-        input["new_pin_pek_identifier"] = new_pin_pek_identifier
-        input["new_encrypted_pin_block"] = new_encrypted_pin_block
-        input["pin_block_format"] = pin_block_format
-        input["secure_messaging_integrity_key_identifier"] = (
+        input_: aws_sdk_payment_cryptography_data.types.generate_mac_emv_pin_change_input.GenerateMacEmvPinChangeInput = {}  # type: ignore[typeddict-item]
+        input_["new_pin_pek_identifier"] = new_pin_pek_identifier
+        input_["new_encrypted_pin_block"] = new_encrypted_pin_block
+        input_["pin_block_format"] = pin_block_format
+        input_["secure_messaging_integrity_key_identifier"] = (
             secure_messaging_integrity_key_identifier
         )
-        input["secure_messaging_confidentiality_key_identifier"] = (
+        input_["secure_messaging_confidentiality_key_identifier"] = (
             secure_messaging_confidentiality_key_identifier
         )
-        input["message_data"] = message_data
-        input["derivation_method_attributes"] = derivation_method_attributes
+        input_["message_data"] = message_data
+        input_["derivation_method_attributes"] = derivation_method_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -600,20 +600,20 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.generate_pin_data_input.GeneratePinDataInput = {}  # type: ignore[typeddict-item]
-        input["generation_key_identifier"] = generation_key_identifier
-        input["encryption_key_identifier"] = encryption_key_identifier
-        input["generation_attributes"] = generation_attributes
+        input_: aws_sdk_payment_cryptography_data.types.generate_pin_data_input.GeneratePinDataInput = {}  # type: ignore[typeddict-item]
+        input_["generation_key_identifier"] = generation_key_identifier
+        input_["encryption_key_identifier"] = encryption_key_identifier
+        input_["generation_attributes"] = generation_attributes
         if pin_data_length is not None:
-            input["pin_data_length"] = pin_data_length
+            input_["pin_data_length"] = pin_data_length
         if primary_account_number is not None:
-            input["primary_account_number"] = primary_account_number
-        input["pin_block_format"] = pin_block_format
+            input_["primary_account_number"] = primary_account_number
+        input_["pin_block_format"] = pin_block_format
         if encryption_wrapped_key is not None:
-            input["encryption_wrapped_key"] = encryption_wrapped_key
+            input_["encryption_wrapped_key"] = encryption_wrapped_key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -663,19 +663,19 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.re_encrypt_data_input.ReEncryptDataInput = {}  # type: ignore[typeddict-item]
-        input["incoming_key_identifier"] = incoming_key_identifier
-        input["outgoing_key_identifier"] = outgoing_key_identifier
-        input["cipher_text"] = cipher_text
-        input["incoming_encryption_attributes"] = incoming_encryption_attributes
-        input["outgoing_encryption_attributes"] = outgoing_encryption_attributes
+        input_: aws_sdk_payment_cryptography_data.types.re_encrypt_data_input.ReEncryptDataInput = {}  # type: ignore[typeddict-item]
+        input_["incoming_key_identifier"] = incoming_key_identifier
+        input_["outgoing_key_identifier"] = outgoing_key_identifier
+        input_["cipher_text"] = cipher_text
+        input_["incoming_encryption_attributes"] = incoming_encryption_attributes
+        input_["outgoing_encryption_attributes"] = outgoing_encryption_attributes
         if incoming_wrapped_key is not None:
-            input["incoming_wrapped_key"] = incoming_wrapped_key
+            input_["incoming_wrapped_key"] = incoming_wrapped_key
         if outgoing_wrapped_key is not None:
-            input["outgoing_wrapped_key"] = outgoing_wrapped_key
+            input_["outgoing_wrapped_key"] = outgoing_wrapped_key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -715,14 +715,14 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.translate_key_material_input.TranslateKeyMaterialInput = {}  # type: ignore[typeddict-item]
-        input["incoming_key_material"] = incoming_key_material
-        input["outgoing_key_material"] = outgoing_key_material
+        input_: aws_sdk_payment_cryptography_data.types.translate_key_material_input.TranslateKeyMaterialInput = {}  # type: ignore[typeddict-item]
+        input_["incoming_key_material"] = incoming_key_material
+        input_["outgoing_key_material"] = outgoing_key_material
         if key_check_value_algorithm is not None:
-            input["key_check_value_algorithm"] = key_check_value_algorithm
+            input_["key_check_value_algorithm"] = key_check_value_algorithm
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -784,25 +784,25 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.translate_pin_data_input.TranslatePinDataInput = {}  # type: ignore[typeddict-item]
-        input["incoming_key_identifier"] = incoming_key_identifier
-        input["outgoing_key_identifier"] = outgoing_key_identifier
-        input["incoming_translation_attributes"] = incoming_translation_attributes
-        input["outgoing_translation_attributes"] = outgoing_translation_attributes
-        input["encrypted_pin_block"] = encrypted_pin_block
+        input_: aws_sdk_payment_cryptography_data.types.translate_pin_data_input.TranslatePinDataInput = {}  # type: ignore[typeddict-item]
+        input_["incoming_key_identifier"] = incoming_key_identifier
+        input_["outgoing_key_identifier"] = outgoing_key_identifier
+        input_["incoming_translation_attributes"] = incoming_translation_attributes
+        input_["outgoing_translation_attributes"] = outgoing_translation_attributes
+        input_["encrypted_pin_block"] = encrypted_pin_block
         if incoming_dukpt_attributes is not None:
-            input["incoming_dukpt_attributes"] = incoming_dukpt_attributes
+            input_["incoming_dukpt_attributes"] = incoming_dukpt_attributes
         if outgoing_dukpt_attributes is not None:
-            input["outgoing_dukpt_attributes"] = outgoing_dukpt_attributes
+            input_["outgoing_dukpt_attributes"] = outgoing_dukpt_attributes
         if incoming_wrapped_key is not None:
-            input["incoming_wrapped_key"] = incoming_wrapped_key
+            input_["incoming_wrapped_key"] = incoming_wrapped_key
         if outgoing_wrapped_key is not None:
-            input["outgoing_wrapped_key"] = outgoing_wrapped_key
+            input_["outgoing_wrapped_key"] = outgoing_wrapped_key
         if incoming_as2805_attributes is not None:
-            input["incoming_as2805_attributes"] = incoming_as2805_attributes
+            input_["incoming_as2805_attributes"] = incoming_as2805_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,17 +848,17 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.verify_auth_request_cryptogram_input.VerifyAuthRequestCryptogramInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["transaction_data"] = transaction_data
-        input["auth_request_cryptogram"] = auth_request_cryptogram
-        input["major_key_derivation_mode"] = major_key_derivation_mode
-        input["session_key_derivation_attributes"] = session_key_derivation_attributes
+        input_: aws_sdk_payment_cryptography_data.types.verify_auth_request_cryptogram_input.VerifyAuthRequestCryptogramInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["transaction_data"] = transaction_data
+        input_["auth_request_cryptogram"] = auth_request_cryptogram
+        input_["major_key_derivation_mode"] = major_key_derivation_mode
+        input_["session_key_derivation_attributes"] = session_key_derivation_attributes
         if auth_response_attributes is not None:
-            input["auth_response_attributes"] = auth_response_attributes
+            input_["auth_response_attributes"] = auth_response_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -898,14 +898,14 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.verify_card_validation_data_input.VerifyCardValidationDataInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["primary_account_number"] = primary_account_number
-        input["verification_attributes"] = verification_attributes
-        input["validation_data"] = validation_data
+        input_: aws_sdk_payment_cryptography_data.types.verify_card_validation_data_input.VerifyCardValidationDataInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["primary_account_number"] = primary_account_number
+        input_["verification_attributes"] = verification_attributes
+        input_["validation_data"] = validation_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -949,16 +949,16 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.verify_mac_input.VerifyMacInput = {}  # type: ignore[typeddict-item]
-        input["key_identifier"] = key_identifier
-        input["message_data"] = message_data
-        input["mac"] = mac
-        input["verification_attributes"] = verification_attributes
+        input_: aws_sdk_payment_cryptography_data.types.verify_mac_input.VerifyMacInput = {}  # type: ignore[typeddict-item]
+        input_["key_identifier"] = key_identifier
+        input_["message_data"] = message_data
+        input_["mac"] = mac
+        input_["verification_attributes"] = verification_attributes
         if mac_length is not None:
-            input["mac_length"] = mac_length
+            input_["mac_length"] = mac_length
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1015,23 +1015,23 @@ class AsyncPaymentCryptographyDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_payment_cryptography_data.types.verify_pin_data_input.VerifyPinDataInput = {}  # type: ignore[typeddict-item]
-        input["verification_key_identifier"] = verification_key_identifier
-        input["encryption_key_identifier"] = encryption_key_identifier
-        input["verification_attributes"] = verification_attributes
-        input["encrypted_pin_block"] = encrypted_pin_block
+        input_: aws_sdk_payment_cryptography_data.types.verify_pin_data_input.VerifyPinDataInput = {}  # type: ignore[typeddict-item]
+        input_["verification_key_identifier"] = verification_key_identifier
+        input_["encryption_key_identifier"] = encryption_key_identifier
+        input_["verification_attributes"] = verification_attributes
+        input_["encrypted_pin_block"] = encrypted_pin_block
         if primary_account_number is not None:
-            input["primary_account_number"] = primary_account_number
-        input["pin_block_format"] = pin_block_format
+            input_["primary_account_number"] = primary_account_number
+        input_["pin_block_format"] = pin_block_format
         if pin_data_length is not None:
-            input["pin_data_length"] = pin_data_length
+            input_["pin_data_length"] = pin_data_length
         if dukpt_attributes is not None:
-            input["dukpt_attributes"] = dukpt_attributes
+            input_["dukpt_attributes"] = dukpt_attributes
         if encryption_wrapped_key is not None:
-            input["encryption_wrapped_key"] = encryption_wrapped_key
+            input_["encryption_wrapped_key"] = encryption_wrapped_key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

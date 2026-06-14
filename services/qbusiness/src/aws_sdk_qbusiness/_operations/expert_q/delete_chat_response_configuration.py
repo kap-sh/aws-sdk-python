@@ -97,23 +97,21 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_qbusiness.types.delete_chat_response_configuration_request.DeleteChatResponseConfigurationRequest,
+    input_: aws_sdk_qbusiness.types.delete_chat_response_configuration_request.DeleteChatResponseConfigurationRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            Region=options.region,
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
+            Region=options.region, UseFIPS=options.use_fips, Endpoint=options.endpoint
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/applications/{applicationId}/chatresponseconfigurations/{chatResponseConfigurationId}"
     )
-    url = url.replace("{applicationId}", quote(str(input["application_id"]), safe=""))
+    url = url.replace("{applicationId}", quote(str(input_["application_id"]), safe=""))
     url = url.replace(
         "{chatResponseConfigurationId}",
-        quote(str(input["chat_response_configuration_id"]), safe=""),
+        quote(str(input_["chat_response_configuration_id"]), safe=""),
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -122,26 +120,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_chat_response_configuration(
     options: OperationOptions,
-    input: aws_sdk_qbusiness.types.delete_chat_response_configuration_request.DeleteChatResponseConfigurationRequest,
+    input_: aws_sdk_qbusiness.types.delete_chat_response_configuration_request.DeleteChatResponseConfigurationRequest,
 ) -> tuple[
     aws_sdk_qbusiness.types.delete_chat_response_configuration_response.DeleteChatResponseConfigurationResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -150,16 +145,17 @@ def delete_chat_response_configuration(
 
 async def async_delete_chat_response_configuration(
     options: AsyncOperationOptions,
-    input: aws_sdk_qbusiness.types.delete_chat_response_configuration_request.DeleteChatResponseConfigurationRequest,
+    input_: aws_sdk_qbusiness.types.delete_chat_response_configuration_request.DeleteChatResponseConfigurationRequest,
 ) -> tuple[
     aws_sdk_qbusiness.types.delete_chat_response_configuration_response.DeleteChatResponseConfigurationResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

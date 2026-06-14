@@ -162,27 +162,27 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_sequence_store_request.CreateSequenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.create_sequence_store_request.CreateSequenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sse_config is not None:
-            input["sse_config"] = sse_config
+            input_["sse_config"] = sse_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if fallback_location is not None:
-            input["fallback_location"] = fallback_location
+            input_["fallback_location"] = fallback_location
         if e_tag_algorithm_family is not None:
-            input["e_tag_algorithm_family"] = e_tag_algorithm_family
+            input_["e_tag_algorithm_family"] = e_tag_algorithm_family
         if propagated_set_level_tags is not None:
-            input["propagated_set_level_tags"] = propagated_set_level_tags
+            input_["propagated_set_level_tags"] = propagated_set_level_tags
         if s3_access_config is not None:
-            input["s3_access_config"] = s3_access_config
+            input_["s3_access_config"] = s3_access_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,11 +215,11 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_sequence_store_request.GetSequenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_sequence_store_request.GetSequenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,23 +276,23 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_sequence_store_request.UpdateSequenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.update_sequence_store_request.UpdateSequenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if fallback_location is not None:
-            input["fallback_location"] = fallback_location
+            input_["fallback_location"] = fallback_location
         if propagated_set_level_tags is not None:
-            input["propagated_set_level_tags"] = propagated_set_level_tags
+            input_["propagated_set_level_tags"] = propagated_set_level_tags
         if s3_access_config is not None:
-            input["s3_access_config"] = s3_access_config
+            input_["s3_access_config"] = s3_access_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,11 +327,11 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_sequence_store_request.DeleteSequenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_sequence_store_request.DeleteSequenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,16 +370,16 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_sequence_stores_request.ListSequenceStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_sequence_stores_request.ListSequenceStoresRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,12 +414,12 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.abort_multipart_read_set_upload_request.AbortMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["upload_id"] = upload_id
+        input_: aws_sdk_omics.types.abort_multipart_read_set_upload_request.AbortMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["upload_id"] = upload_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,13 +456,13 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.complete_multipart_read_set_upload_request.CompleteMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["upload_id"] = upload_id
-        input["parts"] = parts
+        input_: aws_sdk_omics.types.complete_multipart_read_set_upload_request.CompleteMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["upload_id"] = upload_id
+        input_["parts"] = parts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -519,25 +519,25 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_multipart_read_set_upload_request.CreateMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.create_multipart_read_set_upload_request.CreateMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["source_file_type"] = source_file_type
-        input["subject_id"] = subject_id
-        input["sample_id"] = sample_id
+            input_["client_token"] = client_token
+        input_["source_file_type"] = source_file_type
+        input_["subject_id"] = subject_id
+        input_["sample_id"] = sample_id
         if generated_from is not None:
-            input["generated_from"] = generated_from
+            input_["generated_from"] = generated_from
         if reference_arn is not None:
-            input["reference_arn"] = reference_arn
-        input["name"] = name
+            input_["reference_arn"] = reference_arn
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,12 +572,12 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_read_set_activation_job_request.GetReadSetActivationJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.get_read_set_activation_job_request.GetReadSetActivationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["sequence_store_id"] = sequence_store_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -612,12 +612,12 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_read_set_export_job_request.GetReadSetExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_read_set_export_job_request.GetReadSetExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -652,12 +652,12 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_read_set_import_job_request.GetReadSetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.get_read_set_import_job_request.GetReadSetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["sequence_store_id"] = sequence_store_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -694,15 +694,15 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_multipart_read_set_uploads_request.ListMultipartReadSetUploadsRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.list_multipart_read_set_uploads_request.ListMultipartReadSetUploadsRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -743,17 +743,17 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_read_set_activation_jobs_request.ListReadSetActivationJobsRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.list_read_set_activation_jobs_request.ListReadSetActivationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,17 +794,17 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_read_set_export_jobs_request.ListReadSetExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.list_read_set_export_jobs_request.ListReadSetExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -845,17 +845,17 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_read_set_import_jobs_request.ListReadSetImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_read_set_import_jobs_request.ListReadSetImportJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["sequence_store_id"] = sequence_store_id
+            input_["next_token"] = next_token
+        input_["sequence_store_id"] = sequence_store_id
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -900,19 +900,19 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_read_set_upload_parts_request.ListReadSetUploadPartsRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["upload_id"] = upload_id
-        input["part_source"] = part_source
+        input_: aws_sdk_omics.types.list_read_set_upload_parts_request.ListReadSetUploadPartsRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["upload_id"] = upload_id
+        input_["part_source"] = part_source
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -949,14 +949,14 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_read_set_activation_job_request.StartReadSetActivationJobRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.start_read_set_activation_job_request.StartReadSetActivationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["sources"] = sources
+            input_["client_token"] = client_token
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,16 +997,16 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_read_set_export_job_request.StartReadSetExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["destination"] = destination
-        input["role_arn"] = role_arn
+        input_: aws_sdk_omics.types.start_read_set_export_job_request.StartReadSetExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["destination"] = destination
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["sources"] = sources
+            input_["client_token"] = client_token
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1045,15 +1045,15 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_read_set_import_job_request.StartReadSetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["role_arn"] = role_arn
+        input_: aws_sdk_omics.types.start_read_set_import_job_request.StartReadSetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["sources"] = sources
+            input_["client_token"] = client_token
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1094,15 +1094,15 @@ class SequenceStoreResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["upload_id"] = upload_id
-        input["part_source"] = part_source
-        input["part_number"] = part_number
-        input["payload"] = ensure_sync_iterator(payload)  # type: ignore
+        input_: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["upload_id"] = upload_id
+        input_["part_source"] = part_source
+        input_["part_number"] = part_number
+        input_["payload"] = ensure_sync_iterator(payload)  # type: ignore
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1169,27 +1169,27 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_sequence_store_request.CreateSequenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.create_sequence_store_request.CreateSequenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if sse_config is not None:
-            input["sse_config"] = sse_config
+            input_["sse_config"] = sse_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if fallback_location is not None:
-            input["fallback_location"] = fallback_location
+            input_["fallback_location"] = fallback_location
         if e_tag_algorithm_family is not None:
-            input["e_tag_algorithm_family"] = e_tag_algorithm_family
+            input_["e_tag_algorithm_family"] = e_tag_algorithm_family
         if propagated_set_level_tags is not None:
-            input["propagated_set_level_tags"] = propagated_set_level_tags
+            input_["propagated_set_level_tags"] = propagated_set_level_tags
         if s3_access_config is not None:
-            input["s3_access_config"] = s3_access_config
+            input_["s3_access_config"] = s3_access_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1223,11 +1223,11 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_sequence_store_request.GetSequenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_sequence_store_request.GetSequenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1285,23 +1285,23 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_sequence_store_request.UpdateSequenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.update_sequence_store_request.UpdateSequenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if fallback_location is not None:
-            input["fallback_location"] = fallback_location
+            input_["fallback_location"] = fallback_location
         if propagated_set_level_tags is not None:
-            input["propagated_set_level_tags"] = propagated_set_level_tags
+            input_["propagated_set_level_tags"] = propagated_set_level_tags
         if s3_access_config is not None:
-            input["s3_access_config"] = s3_access_config
+            input_["s3_access_config"] = s3_access_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1337,11 +1337,11 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_sequence_store_request.DeleteSequenceStoreRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_sequence_store_request.DeleteSequenceStoreRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1381,16 +1381,16 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_sequence_stores_request.ListSequenceStoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_sequence_stores_request.ListSequenceStoresRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1426,12 +1426,12 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.abort_multipart_read_set_upload_request.AbortMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["upload_id"] = upload_id
+        input_: aws_sdk_omics.types.abort_multipart_read_set_upload_request.AbortMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["upload_id"] = upload_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1469,13 +1469,13 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.complete_multipart_read_set_upload_request.CompleteMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["upload_id"] = upload_id
-        input["parts"] = parts
+        input_: aws_sdk_omics.types.complete_multipart_read_set_upload_request.CompleteMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["upload_id"] = upload_id
+        input_["parts"] = parts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,25 +1533,25 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_multipart_read_set_upload_request.CreateMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.create_multipart_read_set_upload_request.CreateMultipartReadSetUploadRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["source_file_type"] = source_file_type
-        input["subject_id"] = subject_id
-        input["sample_id"] = sample_id
+            input_["client_token"] = client_token
+        input_["source_file_type"] = source_file_type
+        input_["subject_id"] = subject_id
+        input_["sample_id"] = sample_id
         if generated_from is not None:
-            input["generated_from"] = generated_from
+            input_["generated_from"] = generated_from
         if reference_arn is not None:
-            input["reference_arn"] = reference_arn
-        input["name"] = name
+            input_["reference_arn"] = reference_arn
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1587,12 +1587,12 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_read_set_activation_job_request.GetReadSetActivationJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.get_read_set_activation_job_request.GetReadSetActivationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["sequence_store_id"] = sequence_store_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1628,12 +1628,12 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_read_set_export_job_request.GetReadSetExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_read_set_export_job_request.GetReadSetExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1669,12 +1669,12 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_read_set_import_job_request.GetReadSetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.get_read_set_import_job_request.GetReadSetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["sequence_store_id"] = sequence_store_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1712,15 +1712,15 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_multipart_read_set_uploads_request.ListMultipartReadSetUploadsRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.list_multipart_read_set_uploads_request.ListMultipartReadSetUploadsRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1762,17 +1762,17 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_read_set_activation_jobs_request.ListReadSetActivationJobsRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.list_read_set_activation_jobs_request.ListReadSetActivationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1814,17 +1814,17 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_read_set_export_jobs_request.ListReadSetExportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.list_read_set_export_jobs_request.ListReadSetExportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1866,17 +1866,17 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_read_set_import_jobs_request.ListReadSetImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_read_set_import_jobs_request.ListReadSetImportJobsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["sequence_store_id"] = sequence_store_id
+            input_["next_token"] = next_token
+        input_["sequence_store_id"] = sequence_store_id
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1922,19 +1922,19 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_read_set_upload_parts_request.ListReadSetUploadPartsRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["upload_id"] = upload_id
-        input["part_source"] = part_source
+        input_: aws_sdk_omics.types.list_read_set_upload_parts_request.ListReadSetUploadPartsRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["upload_id"] = upload_id
+        input_["part_source"] = part_source
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1972,14 +1972,14 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_read_set_activation_job_request.StartReadSetActivationJobRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
+        input_: aws_sdk_omics.types.start_read_set_activation_job_request.StartReadSetActivationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["sources"] = sources
+            input_["client_token"] = client_token
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2021,16 +2021,16 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_read_set_export_job_request.StartReadSetExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["destination"] = destination
-        input["role_arn"] = role_arn
+        input_: aws_sdk_omics.types.start_read_set_export_job_request.StartReadSetExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["destination"] = destination
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["sources"] = sources
+            input_["client_token"] = client_token
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2070,15 +2070,15 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.start_read_set_import_job_request.StartReadSetImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["role_arn"] = role_arn
+        input_: aws_sdk_omics.types.start_read_set_import_job_request.StartReadSetImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["role_arn"] = role_arn
         if client_token is not None:
-            input["client_token"] = client_token
-        input["sources"] = sources
+            input_["client_token"] = client_token
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2120,15 +2120,15 @@ class AsyncSequenceStoreResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest = {}  # type: ignore[typeddict-item]
-        input["sequence_store_id"] = sequence_store_id
-        input["upload_id"] = upload_id
-        input["part_source"] = part_source
-        input["part_number"] = part_number
-        input["payload"] = ensure_async_iterator(payload)  # type: ignore
+        input_: aws_sdk_omics.types.upload_read_set_part_request.UploadReadSetPartRequest = {}  # type: ignore[typeddict-item]
+        input_["sequence_store_id"] = sequence_store_id
+        input_["upload_id"] = upload_id
+        input_["part_source"] = part_source
+        input_["part_number"] = part_number
+        input_["payload"] = ensure_async_iterator(payload)  # type: ignore
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

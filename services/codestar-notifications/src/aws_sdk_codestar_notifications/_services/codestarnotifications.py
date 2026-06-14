@@ -219,21 +219,21 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.create_notification_rule_request.CreateNotificationRuleRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["event_type_ids"] = event_type_ids
-        input["resource"] = resource
-        input["targets"] = targets
-        input["detail_type"] = detail_type
+        input_: aws_sdk_codestar_notifications.types.create_notification_rule_request.CreateNotificationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["event_type_ids"] = event_type_ids
+        input_["resource"] = resource
+        input_["targets"] = targets
+        input_["detail_type"] = detail_type
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,11 +266,11 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.delete_notification_rule_request.DeleteNotificationRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codestar_notifications.types.delete_notification_rule_request.DeleteNotificationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -307,13 +307,13 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.delete_target_request.DeleteTargetRequest = {}  # type: ignore[typeddict-item]
-        input["target_address"] = target_address
+        input_: aws_sdk_codestar_notifications.types.delete_target_request.DeleteTargetRequest = {}  # type: ignore[typeddict-item]
+        input_["target_address"] = target_address
         if force_unsubscribe_all is not None:
-            input["force_unsubscribe_all"] = force_unsubscribe_all
+            input_["force_unsubscribe_all"] = force_unsubscribe_all
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,11 +346,11 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.describe_notification_rule_request.DescribeNotificationRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codestar_notifications.types.describe_notification_rule_request.DescribeNotificationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,16 +393,16 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.list_event_types_request.ListEventTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_notifications.types.list_event_types_request.ListEventTypesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,16 +474,16 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.list_notification_rules_request.ListNotificationRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_notifications.types.list_notification_rules_request.ListNotificationRulesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -545,11 +545,11 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codestar_notifications.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,16 +592,16 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.list_targets_request.ListTargetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codestar_notifications.types.list_targets_request.ListTargetsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -668,14 +668,14 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.subscribe_request.SubscribeRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["target"] = target
+        input_: aws_sdk_codestar_notifications.types.subscribe_request.SubscribeRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["target"] = target
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -710,12 +710,12 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tags"] = tags
+        input_: aws_sdk_codestar_notifications.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -750,12 +750,12 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.unsubscribe_request.UnsubscribeRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["target_address"] = target_address
+        input_: aws_sdk_codestar_notifications.types.unsubscribe_request.UnsubscribeRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["target_address"] = target_address
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -792,12 +792,12 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codestar_notifications.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -850,21 +850,21 @@ class codestarnotificationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codestar_notifications.types.update_notification_rule_request.UpdateNotificationRuleRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_codestar_notifications.types.update_notification_rule_request.UpdateNotificationRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if event_type_ids is not None:
-            input["event_type_ids"] = event_type_ids
+            input_["event_type_ids"] = event_type_ids
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
         if detail_type is not None:
-            input["detail_type"] = detail_type
+            input_["detail_type"] = detail_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -233,13 +233,13 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.abort_multipart_upload_input.AbortMultipartUploadInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
-        input["upload_id"] = upload_id
+        input_: aws_sdk_glacier.types.abort_multipart_upload_input.AbortMultipartUploadInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
+        input_["upload_id"] = upload_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,12 +279,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.abort_vault_lock_input.AbortVaultLockInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.abort_vault_lock_input.AbortVaultLockInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,14 +326,14 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.add_tags_to_vault_input.AddTagsToVaultInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.add_tags_to_vault_input.AddTagsToVaultInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,17 +381,17 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
-        input["upload_id"] = upload_id
+        input_: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
+        input_["upload_id"] = upload_id
         if archive_size is not None:
-            input["archive_size"] = archive_size
+            input_["archive_size"] = archive_size
         if checksum is not None:
-            input["checksum"] = checksum
+            input_["checksum"] = checksum
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -433,13 +433,13 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.complete_vault_lock_input.CompleteVaultLockInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
-        input["lock_id"] = lock_id
+        input_: aws_sdk_glacier.types.complete_vault_lock_input.CompleteVaultLockInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
+        input_["lock_id"] = lock_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,12 +481,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.create_vault_input.CreateVaultInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.create_vault_input.CreateVaultInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,13 +528,13 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.delete_archive_input.DeleteArchiveInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
-        input["archive_id"] = archive_id
+        input_: aws_sdk_glacier.types.delete_archive_input.DeleteArchiveInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
+        input_["archive_id"] = archive_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,12 +574,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.delete_vault_input.DeleteVaultInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.delete_vault_input.DeleteVaultInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -619,12 +619,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.delete_vault_access_policy_input.DeleteVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.delete_vault_access_policy_input.DeleteVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -664,12 +664,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.delete_vault_notifications_input.DeleteVaultNotificationsInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.delete_vault_notifications_input.DeleteVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -713,13 +713,13 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.describe_job_input.DescribeJobInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
-        input["job_id"] = job_id
+        input_: aws_sdk_glacier.types.describe_job_input.DescribeJobInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,12 +761,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.describe_vault_input.DescribeVaultInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.describe_vault_input.DescribeVaultInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -894,11 +894,11 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.get_data_retrieval_policy_input.GetDataRetrievalPolicyInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_glacier.types.get_data_retrieval_policy_input.GetDataRetrievalPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -947,15 +947,15 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.get_job_output_input.GetJobOutputInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
-        input["job_id"] = job_id
+        input_: aws_sdk_glacier.types.get_job_output_input.GetJobOutputInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
+        input_["job_id"] = job_id
         if range is not None:
-            input["range"] = range
+            input_["range"] = range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,12 +997,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.get_vault_access_policy_input.GetVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.get_vault_access_policy_input.GetVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1044,12 +1044,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.get_vault_lock_input.GetVaultLockInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.get_vault_lock_input.GetVaultLockInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1091,12 +1091,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.get_vault_notifications_input.GetVaultNotificationsInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.get_vault_notifications_input.GetVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1142,14 +1142,14 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.initiate_job_input.InitiateJobInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.initiate_job_input.InitiateJobInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if job_parameters is not None:
-            input["job_parameters"] = job_parameters
+            input_["job_parameters"] = job_parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1195,16 +1195,16 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.initiate_multipart_upload_input.InitiateMultipartUploadInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.initiate_multipart_upload_input.InitiateMultipartUploadInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if archive_description is not None:
-            input["archive_description"] = archive_description
+            input_["archive_description"] = archive_description
         if part_size is not None:
-            input["part_size"] = part_size
+            input_["part_size"] = part_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1250,14 +1250,14 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.initiate_vault_lock_input.InitiateVaultLockInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.initiate_vault_lock_input.InitiateVaultLockInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1307,20 +1307,20 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.list_jobs_input.ListJobsInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.list_jobs_input.ListJobsInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if statuscode is not None:
-            input["statuscode"] = statuscode
+            input_["statuscode"] = statuscode
         if completed is not None:
-            input["completed"] = completed
+            input_["completed"] = completed
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1397,16 +1397,16 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.list_multipart_uploads_input.ListMultipartUploadsInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.list_multipart_uploads_input.ListMultipartUploadsInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1479,17 +1479,17 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.list_parts_input.ListPartsInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
-        input["upload_id"] = upload_id
+        input_: aws_sdk_glacier.types.list_parts_input.ListPartsInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
+        input_["upload_id"] = upload_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1556,11 +1556,11 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.list_provisioned_capacity_input.ListProvisionedCapacityInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_glacier.types.list_provisioned_capacity_input.ListProvisionedCapacityInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1602,12 +1602,12 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.list_tags_for_vault_input.ListTagsForVaultInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.list_tags_for_vault_input.ListTagsForVaultInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1651,15 +1651,15 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.list_vaults_input.ListVaultsInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_glacier.types.list_vaults_input.ListVaultsInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1724,11 +1724,11 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.purchase_provisioned_capacity_input.PurchaseProvisionedCapacityInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_glacier.types.purchase_provisioned_capacity_input.PurchaseProvisionedCapacityInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1770,14 +1770,14 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.remove_tags_from_vault_input.RemoveTagsFromVaultInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.remove_tags_from_vault_input.RemoveTagsFromVaultInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if tag_keys is not None:
-            input["tag_keys"] = tag_keys
+            input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1819,13 +1819,13 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.set_data_retrieval_policy_input.SetDataRetrievalPolicyInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_glacier.types.set_data_retrieval_policy_input.SetDataRetrievalPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1869,14 +1869,14 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.set_vault_access_policy_input.SetVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.set_vault_access_policy_input.SetVaultAccessPolicyInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1920,14 +1920,14 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.set_vault_notifications_input.SetVaultNotificationsInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
+        input_: aws_sdk_glacier.types.set_vault_notifications_input.SetVaultNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
         if vault_notification_config is not None:
-            input["vault_notification_config"] = vault_notification_config
+            input_["vault_notification_config"] = vault_notification_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1975,18 +1975,18 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.upload_archive_input.UploadArchiveInput = {}  # type: ignore[typeddict-item]
-        input["vault_name"] = vault_name
-        input["account_id"] = account_id
+        input_: aws_sdk_glacier.types.upload_archive_input.UploadArchiveInput = {}  # type: ignore[typeddict-item]
+        input_["vault_name"] = vault_name
+        input_["account_id"] = account_id
         if archive_description is not None:
-            input["archive_description"] = archive_description
+            input_["archive_description"] = archive_description
         if checksum is not None:
-            input["checksum"] = checksum
+            input_["checksum"] = checksum
         if body is not None:
-            input["body"] = ensure_async_iterator(body)  # type: ignore
+            input_["body"] = ensure_async_iterator(body)  # type: ignore
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2036,19 +2036,19 @@ class AsyncGlacierClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_glacier.types.upload_multipart_part_input.UploadMultipartPartInput = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
-        input["vault_name"] = vault_name
-        input["upload_id"] = upload_id
+        input_: aws_sdk_glacier.types.upload_multipart_part_input.UploadMultipartPartInput = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
+        input_["vault_name"] = vault_name
+        input_["upload_id"] = upload_id
         if checksum is not None:
-            input["checksum"] = checksum
+            input_["checksum"] = checksum
         if range is not None:
-            input["range"] = range
+            input_["range"] = range
         if body is not None:
-            input["body"] = ensure_async_iterator(body)  # type: ignore
+            input_["body"] = ensure_async_iterator(body)  # type: ignore
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

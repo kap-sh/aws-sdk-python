@@ -68,12 +68,12 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
+        input_: aws_sdk_s3tables.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -106,12 +106,12 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
+        input_: aws_sdk_s3tables.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -146,12 +146,12 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
+        input_: aws_sdk_s3tables.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -194,17 +194,17 @@ class NamespaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if max_namespaces is not None:
-            input["max_namespaces"] = max_namespaces
+            input_["max_namespaces"] = max_namespaces
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,12 +245,12 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
+        input_: aws_sdk_s3tables.types.create_namespace_request.CreateNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,12 +284,12 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
+        input_: aws_sdk_s3tables.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,12 +325,12 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
-        input["namespace"] = namespace
+        input_: aws_sdk_s3tables.types.get_namespace_request.GetNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
+        input_["namespace"] = namespace
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,17 +374,17 @@ class AsyncNamespaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_s3tables.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
-        input["table_bucket_arn"] = table_bucket_arn
+        input_: aws_sdk_s3tables.types.list_namespaces_request.ListNamespacesRequest = {}  # type: ignore[typeddict-item]
+        input_["table_bucket_arn"] = table_bucket_arn
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if continuation_token is not None:
-            input["continuation_token"] = continuation_token
+            input_["continuation_token"] = continuation_token
         if max_namespaces is not None:
-            input["max_namespaces"] = max_namespaces
+            input_["max_namespaces"] = max_namespaces
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

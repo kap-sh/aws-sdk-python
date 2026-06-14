@@ -40,6 +40,27 @@ from aws_sdk_datazone._auth._providers import (
     StaticBasicCredentialsProvider,
 )
 from aws_sdk_datazone._auth._providers import ApiKeyProvider, StaticApiKeyProvider
+from aws_sdk_datazone._resources.data_zone.asset import AsyncAsset
+from aws_sdk_datazone._resources.data_zone.asset_type import AsyncAssetType
+from aws_sdk_datazone._resources.data_zone.data_product import AsyncDataProduct
+from aws_sdk_datazone._resources.data_zone.data_source import AsyncDataSource
+from aws_sdk_datazone._resources.data_zone.data_source_run import AsyncDataSourceRun
+from aws_sdk_datazone._resources.data_zone.domain import AsyncDomain
+from aws_sdk_datazone._resources.data_zone.domain_unit import AsyncDomainUnit
+from aws_sdk_datazone._resources.data_zone.environment_blueprint_configuration import (
+    AsyncEnvironmentBlueprintConfiguration,
+)
+from aws_sdk_datazone._resources.data_zone.form_type import AsyncFormType
+from aws_sdk_datazone._resources.data_zone.glossary import AsyncGlossary
+from aws_sdk_datazone._resources.data_zone.glossary_term import AsyncGlossaryTerm
+from aws_sdk_datazone._resources.data_zone.listing import AsyncListing
+from aws_sdk_datazone._resources.data_zone.metadata_generation_run import (
+    AsyncMetadataGenerationRun,
+)
+from aws_sdk_datazone._resources.data_zone.notebook import AsyncNotebook
+from aws_sdk_datazone._resources.data_zone.notebook_export import AsyncNotebookExport
+from aws_sdk_datazone._resources.data_zone.notebook_run import AsyncNotebookRun
+from aws_sdk_datazone._resources.data_zone.rule import AsyncRule
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.accept_choices
@@ -526,6 +547,26 @@ class AsyncDataZoneClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.asset = AsyncAsset(self)
+        self.asset_type = AsyncAssetType(self)
+        self.data_product = AsyncDataProduct(self)
+        self.data_source = AsyncDataSource(self)
+        self.data_source_run = AsyncDataSourceRun(self)
+        self.domain = AsyncDomain(self)
+        self.domain_unit = AsyncDomainUnit(self)
+        self.environment_blueprint_configuration = (
+            AsyncEnvironmentBlueprintConfiguration(self)
+        )
+        self.form_type = AsyncFormType(self)
+        self.glossary = AsyncGlossary(self)
+        self.glossary_term = AsyncGlossaryTerm(self)
+        self.listing = AsyncListing(self)
+        self.metadata_generation_run = AsyncMetadataGenerationRun(self)
+        self.notebook = AsyncNotebook(self)
+        self.notebook_export = AsyncNotebookExport(self)
+        self.notebook_run = AsyncNotebookRun(self)
+        self.rule = AsyncRule(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncDataZoneClientConfig] = None
@@ -594,20 +635,20 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.accept_predictions_input.AcceptPredictionsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.accept_predictions_input.AcceptPredictionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if accept_rule is not None:
-            input["accept_rule"] = accept_rule
+            input_["accept_rule"] = accept_rule
         if accept_choices is not None:
-            input["accept_choices"] = accept_choices
+            input_["accept_choices"] = accept_choices
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -655,18 +696,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.accept_subscription_request_input.AcceptSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.accept_subscription_request_input.AcceptSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if decision_comment is not None:
-            input["decision_comment"] = decision_comment
+            input_["decision_comment"] = decision_comment
         if asset_scopes is not None:
-            input["asset_scopes"] = asset_scopes
+            input_["asset_scopes"] = asset_scopes
         if asset_permissions is not None:
-            input["asset_permissions"] = asset_permissions
+            input_["asset_permissions"] = asset_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -710,16 +751,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.add_entity_owner_input.AddEntityOwnerInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_type"] = entity_type
-        input["entity_identifier"] = entity_identifier
-        input["owner"] = owner
+        input_: aws_sdk_datazone.types.add_entity_owner_input.AddEntityOwnerInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_type"] = entity_type
+        input_["entity_identifier"] = entity_identifier
+        input_["owner"] = owner
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -767,18 +808,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.add_policy_grant_input.AddPolicyGrantInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_type"] = entity_type
-        input["entity_identifier"] = entity_identifier
-        input["policy_type"] = policy_type
-        input["principal"] = principal
-        input["detail"] = detail
+        input_: aws_sdk_datazone.types.add_policy_grant_input.AddPolicyGrantInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_type"] = entity_type
+        input_["entity_identifier"] = entity_identifier
+        input_["policy_type"] = policy_type
+        input_["principal"] = principal
+        input_["detail"] = detail
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -816,13 +857,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.associate_environment_role_input.AssociateEnvironmentRoleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["environment_role_arn"] = environment_role_arn
+        input_: aws_sdk_datazone.types.associate_environment_role_input.AssociateEnvironmentRoleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["environment_role_arn"] = environment_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -862,14 +903,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.associate_governed_terms_input.AssociateGovernedTermsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_identifier"] = entity_identifier
-        input["entity_type"] = entity_type
-        input["governed_glossary_terms"] = governed_glossary_terms
+        input_: aws_sdk_datazone.types.associate_governed_terms_input.AssociateGovernedTermsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_identifier"] = entity_identifier
+        input_["entity_type"] = entity_type
+        input_["governed_glossary_terms"] = governed_glossary_terms
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -911,16 +952,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.batch_get_attributes_metadata_input.BatchGetAttributesMetadataInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_type"] = entity_type
-        input["entity_identifier"] = entity_identifier
+        input_: aws_sdk_datazone.types.batch_get_attributes_metadata_input.BatchGetAttributesMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_type"] = entity_type
+        input_["entity_identifier"] = entity_identifier
         if entity_revision is not None:
-            input["entity_revision"] = entity_revision
-        input["attribute_identifiers"] = attribute_identifiers
+            input_["entity_revision"] = entity_revision
+        input_["attribute_identifiers"] = attribute_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -964,16 +1005,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.batch_put_attributes_metadata_input.BatchPutAttributesMetadataInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_type"] = entity_type
-        input["entity_identifier"] = entity_identifier
+        input_: aws_sdk_datazone.types.batch_put_attributes_metadata_input.BatchPutAttributesMetadataInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_type"] = entity_type
+        input_["entity_identifier"] = entity_identifier
         if client_token is not None:
-            input["client_token"] = client_token
-        input["attributes"] = attributes
+            input_["client_token"] = client_token
+        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1009,12 +1050,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.cancel_subscription_input.CancelSubscriptionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.cancel_subscription_input.CancelSubscriptionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1056,16 +1097,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_account_pool_input.CreateAccountPoolInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_account_pool_input.CreateAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["resolution_strategy"] = resolution_strategy
-        input["account_source"] = account_source
+            input_["description"] = description
+        input_["resolution_strategy"] = resolution_strategy
+        input_["account_source"] = account_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1109,18 +1150,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_asset_filter_input.CreateAssetFilterInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["asset_identifier"] = asset_identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_asset_filter_input.CreateAssetFilterInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["asset_identifier"] = asset_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["configuration"] = configuration
+            input_["description"] = description
+        input_["configuration"] = configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1182,30 +1223,30 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_connection_input.CreateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datazone.types.create_connection_input.CreateConnectionInput = {}  # type: ignore[typeddict-item]
         if aws_location is not None:
-            input["aws_location"] = aws_location
+            input_["aws_location"] = aws_location
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if configurations is not None:
-            input["configurations"] = configurations
+            input_["configurations"] = configurations
         if description is not None:
-            input["description"] = description
-        input["domain_identifier"] = domain_identifier
+            input_["description"] = description
+        input_["domain_identifier"] = domain_identifier
         if environment_identifier is not None:
-            input["environment_identifier"] = environment_identifier
-        input["name"] = name
+            input_["environment_identifier"] = environment_identifier
+        input_["name"] = name
         if props is not None:
-            input["props"] = props
+            input_["props"] = props
         if enable_trusted_identity_propagation is not None:
-            input["enable_trusted_identity_propagation"] = (
+            input_["enable_trusted_identity_propagation"] = (
                 enable_trusted_identity_propagation
             )
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1271,33 +1312,35 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["project_identifier"] = project_identifier
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.create_environment_input.CreateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["project_identifier"] = project_identifier
+        input_["domain_identifier"] = domain_identifier
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if environment_profile_identifier is not None:
-            input["environment_profile_identifier"] = environment_profile_identifier
+            input_["environment_profile_identifier"] = environment_profile_identifier
         if user_parameters is not None:
-            input["user_parameters"] = user_parameters
+            input_["user_parameters"] = user_parameters
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if environment_account_identifier is not None:
-            input["environment_account_identifier"] = environment_account_identifier
+            input_["environment_account_identifier"] = environment_account_identifier
         if environment_account_region is not None:
-            input["environment_account_region"] = environment_account_region
+            input_["environment_account_region"] = environment_account_region
         if environment_blueprint_identifier is not None:
-            input["environment_blueprint_identifier"] = environment_blueprint_identifier
+            input_["environment_blueprint_identifier"] = (
+                environment_blueprint_identifier
+            )
         if deployment_order is not None:
-            input["deployment_order"] = deployment_order
+            input_["deployment_order"] = deployment_order
         if environment_configuration_id is not None:
-            input["environment_configuration_id"] = environment_configuration_id
+            input_["environment_configuration_id"] = environment_configuration_id
         if environment_configuration_name is not None:
-            input["environment_configuration_name"] = environment_configuration_name
+            input_["environment_configuration_name"] = environment_configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1339,16 +1382,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_environment_action_input.CreateEnvironmentActionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["name"] = name
-        input["parameters"] = parameters
+        input_: aws_sdk_datazone.types.create_environment_action_input.CreateEnvironmentActionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["name"] = name
+        input_["parameters"] = parameters
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1392,17 +1435,17 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_environment_blueprint_input.CreateEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_environment_blueprint_input.CreateEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["provisioning_properties"] = provisioning_properties
+            input_["description"] = description
+        input_["provisioning_properties"] = provisioning_properties
         if user_parameters is not None:
-            input["user_parameters"] = user_parameters
+            input_["user_parameters"] = user_parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1456,22 +1499,22 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_environment_profile_input.CreateEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_environment_profile_input.CreateEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["environment_blueprint_identifier"] = environment_blueprint_identifier
-        input["project_identifier"] = project_identifier
+            input_["description"] = description
+        input_["environment_blueprint_identifier"] = environment_blueprint_identifier
+        input_["project_identifier"] = project_identifier
         if user_parameters is not None:
-            input["user_parameters"] = user_parameters
+            input_["user_parameters"] = user_parameters
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
         if aws_account_region is not None:
-            input["aws_account_region"] = aws_account_region
+            input_["aws_account_region"] = aws_account_region
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1513,17 +1556,17 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_group_profile_input.CreateGroupProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.create_group_profile_input.CreateGroupProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if group_identifier is not None:
-            input["group_identifier"] = group_identifier
+            input_["group_identifier"] = group_identifier
         if role_principal_arn is not None:
-            input["role_principal_arn"] = role_principal_arn
+            input_["role_principal_arn"] = role_principal_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1569,18 +1612,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_listing_change_set_input.CreateListingChangeSetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_identifier"] = entity_identifier
-        input["entity_type"] = entity_type
+        input_: aws_sdk_datazone.types.create_listing_change_set_input.CreateListingChangeSetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_identifier"] = entity_identifier
+        input_["entity_type"] = entity_type
         if entity_revision is not None:
-            input["entity_revision"] = entity_revision
-        input["action"] = action
+            input_["entity_revision"] = entity_revision
+        input_["action"] = action
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1646,30 +1689,30 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_project_input.CreateProjectInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_project_input.CreateProjectInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if domain_unit_id is not None:
-            input["domain_unit_id"] = domain_unit_id
+            input_["domain_unit_id"] = domain_unit_id
         if project_profile_id is not None:
-            input["project_profile_id"] = project_profile_id
+            input_["project_profile_id"] = project_profile_id
         if user_parameters is not None:
-            input["user_parameters"] = user_parameters
+            input_["user_parameters"] = user_parameters
         if project_category is not None:
-            input["project_category"] = project_category
+            input_["project_category"] = project_category
         if project_execution_role is not None:
-            input["project_execution_role"] = project_execution_role
+            input_["project_execution_role"] = project_execution_role
         if membership_assignments is not None:
-            input["membership_assignments"] = membership_assignments
+            input_["membership_assignments"] = membership_assignments
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1709,14 +1752,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_project_membership_input.CreateProjectMembershipInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["project_identifier"] = project_identifier
-        input["member"] = member
-        input["designation"] = designation
+        input_: aws_sdk_datazone.types.create_project_membership_input.CreateProjectMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["project_identifier"] = project_identifier
+        input_["member"] = member
+        input_["designation"] = designation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1774,30 +1817,30 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_project_profile_input.CreateProjectProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
+        input_: aws_sdk_datazone.types.create_project_profile_input.CreateProjectProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if project_resource_tags is not None:
-            input["project_resource_tags"] = project_resource_tags
+            input_["project_resource_tags"] = project_resource_tags
         if allow_custom_project_resource_tags is not None:
-            input["allow_custom_project_resource_tags"] = (
+            input_["allow_custom_project_resource_tags"] = (
                 allow_custom_project_resource_tags
             )
         if project_resource_tags_description is not None:
-            input["project_resource_tags_description"] = (
+            input_["project_resource_tags_description"] = (
                 project_resource_tags_description
             )
         if environment_configurations is not None:
-            input["environment_configurations"] = environment_configurations
+            input_["environment_configurations"] = environment_configurations
         if domain_unit_identifier is not None:
-            input["domain_unit_identifier"] = domain_unit_identifier
+            input_["domain_unit_identifier"] = domain_unit_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1845,19 +1888,19 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_subscription_grant_input.CreateSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
+        input_: aws_sdk_datazone.types.create_subscription_grant_input.CreateSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
         if subscription_target_identifier is not None:
-            input["subscription_target_identifier"] = subscription_target_identifier
-        input["granted_entity"] = granted_entity
+            input_["subscription_target_identifier"] = subscription_target_identifier
+        input_["granted_entity"] = granted_entity
         if asset_target_names is not None:
-            input["asset_target_names"] = asset_target_names
+            input_["asset_target_names"] = asset_target_names
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1911,22 +1954,22 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_subscription_request_input.CreateSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["subscribed_principals"] = subscribed_principals
-        input["subscribed_listings"] = subscribed_listings
-        input["request_reason"] = request_reason
+        input_: aws_sdk_datazone.types.create_subscription_request_input.CreateSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["subscribed_principals"] = subscribed_principals
+        input_["subscribed_listings"] = subscribed_listings
+        input_["request_reason"] = request_reason
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if metadata_forms is not None:
-            input["metadata_forms"] = metadata_forms
+            input_["metadata_forms"] = metadata_forms
         if asset_permissions is not None:
-            input["asset_permissions"] = asset_permissions
+            input_["asset_permissions"] = asset_permissions
         if asset_scopes is not None:
-            input["asset_scopes"] = asset_scopes
+            input_["asset_scopes"] = asset_scopes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1982,24 +2025,26 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_subscription_target_input.CreateSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["name"] = name
-        input["type"] = type
-        input["subscription_target_config"] = subscription_target_config
-        input["authorized_principals"] = authorized_principals
-        input["manage_access_role"] = manage_access_role
-        input["applicable_asset_types"] = applicable_asset_types
+        input_: aws_sdk_datazone.types.create_subscription_target_input.CreateSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["name"] = name
+        input_["type"] = type
+        input_["subscription_target_config"] = subscription_target_config
+        input_["authorized_principals"] = authorized_principals
+        input_["manage_access_role"] = manage_access_role
+        input_["applicable_asset_types"] = applicable_asset_types
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if subscription_grant_creation_mode is not None:
-            input["subscription_grant_creation_mode"] = subscription_grant_creation_mode
+            input_["subscription_grant_creation_mode"] = (
+                subscription_grant_creation_mode
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2041,18 +2086,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_user_profile_input.CreateUserProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["user_identifier"] = user_identifier
+        input_: aws_sdk_datazone.types.create_user_profile_input.CreateUserProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["user_identifier"] = user_identifier
         if user_type is not None:
-            input["user_type"] = user_type
+            input_["user_type"] = user_type
         if session_name is not None:
-            input["session_name"] = session_name
+            input_["session_name"] = session_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2088,12 +2133,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_account_pool_input.DeleteAccountPoolInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_account_pool_input.DeleteAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2129,13 +2174,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_asset_filter_input.DeleteAssetFilterInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["asset_identifier"] = asset_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_asset_filter_input.DeleteAssetFilterInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["asset_identifier"] = asset_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2171,12 +2216,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_connection_input.DeleteConnectionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_connection_input.DeleteConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2210,11 +2255,11 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_data_export_configuration_input.DeleteDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.delete_data_export_configuration_input.DeleteDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2248,12 +2293,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_environment_input.DeleteEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2289,13 +2334,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_environment_action_input.DeleteEnvironmentActionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_environment_action_input.DeleteEnvironmentActionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2329,12 +2374,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_environment_blueprint_input.DeleteEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_environment_blueprint_input.DeleteEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2368,12 +2413,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_environment_profile_input.DeleteEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_environment_profile_input.DeleteEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2411,14 +2456,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_project_input.DeleteProjectInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_project_input.DeleteProjectInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if skip_deletion_check is not None:
-            input["skip_deletion_check"] = skip_deletion_check
+            input_["skip_deletion_check"] = skip_deletion_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2456,13 +2501,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_project_membership_input.DeleteProjectMembershipInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["project_identifier"] = project_identifier
-        input["member"] = member
+        input_: aws_sdk_datazone.types.delete_project_membership_input.DeleteProjectMembershipInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["project_identifier"] = project_identifier
+        input_["member"] = member
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2498,12 +2543,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_project_profile_input.DeleteProjectProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_project_profile_input.DeleteProjectProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2539,12 +2584,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_subscription_grant_input.DeleteSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_subscription_grant_input.DeleteSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2578,12 +2623,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_subscription_request_input.DeleteSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_subscription_request_input.DeleteSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2619,13 +2664,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_subscription_target_input.DeleteSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_subscription_target_input.DeleteSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2669,16 +2714,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_time_series_data_points_input.DeleteTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_identifier"] = entity_identifier
-        input["entity_type"] = entity_type
-        input["form_name"] = form_name
+        input_: aws_sdk_datazone.types.delete_time_series_data_points_input.DeleteTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_identifier"] = entity_identifier
+        input_["entity_type"] = entity_type
+        input_["form_name"] = form_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2716,13 +2761,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.disassociate_environment_role_input.DisassociateEnvironmentRoleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["environment_role_arn"] = environment_role_arn
+        input_: aws_sdk_datazone.types.disassociate_environment_role_input.DisassociateEnvironmentRoleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["environment_role_arn"] = environment_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2762,14 +2807,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.disassociate_governed_terms_input.DisassociateGovernedTermsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_identifier"] = entity_identifier
-        input["entity_type"] = entity_type
-        input["governed_glossary_terms"] = governed_glossary_terms
+        input_: aws_sdk_datazone.types.disassociate_governed_terms_input.DisassociateGovernedTermsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_identifier"] = entity_identifier
+        input_["entity_type"] = entity_type
+        input_["governed_glossary_terms"] = governed_glossary_terms
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2805,12 +2850,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_account_pool_input.GetAccountPoolInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_account_pool_input.GetAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2848,13 +2893,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_asset_filter_input.GetAssetFilterInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["asset_identifier"] = asset_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_asset_filter_input.GetAssetFilterInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["asset_identifier"] = asset_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2892,14 +2937,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_connection_input.GetConnectionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_connection_input.GetConnectionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if with_secret is not None:
-            input["with_secret"] = with_secret
+            input_["with_secret"] = with_secret
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2933,11 +2978,11 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_data_export_configuration_input.GetDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.get_data_export_configuration_input.GetDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2973,12 +3018,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_environment_input.GetEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3016,13 +3061,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_environment_action_input.GetEnvironmentActionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_environment_action_input.GetEnvironmentActionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3058,12 +3103,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_environment_blueprint_input.GetEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_environment_blueprint_input.GetEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3099,12 +3144,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_environment_credentials_input.GetEnvironmentCredentialsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
+        input_: aws_sdk_datazone.types.get_environment_credentials_input.GetEnvironmentCredentialsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3140,12 +3185,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_environment_profile_input.GetEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_environment_profile_input.GetEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3181,12 +3226,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_group_profile_input.GetGroupProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["group_identifier"] = group_identifier
+        input_: aws_sdk_datazone.types.get_group_profile_input.GetGroupProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["group_identifier"] = group_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3220,11 +3265,11 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_iam_portal_login_url_input.GetIamPortalLoginUrlInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.get_iam_portal_login_url_input.GetIamPortalLoginUrlInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3260,12 +3305,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_job_run_input.GetJobRunInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_job_run_input.GetJobRunInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3301,12 +3346,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_lineage_event_input.GetLineageEventInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_lineage_event_input.GetLineageEventInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3344,14 +3389,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_lineage_node_input.GetLineageNodeInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_lineage_node_input.GetLineageNodeInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if event_timestamp is not None:
-            input["event_timestamp"] = event_timestamp
+            input_["event_timestamp"] = event_timestamp
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3387,12 +3432,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_project_input.GetProjectInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_project_input.GetProjectInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3428,12 +3473,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_project_profile_input.GetProjectProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_project_profile_input.GetProjectProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3469,12 +3514,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_subscription_input.GetSubscriptionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_subscription_input.GetSubscriptionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3510,12 +3555,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_subscription_grant_input.GetSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_subscription_grant_input.GetSubscriptionGrantInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3551,12 +3596,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_subscription_request_details_input.GetSubscriptionRequestDetailsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_subscription_request_details_input.GetSubscriptionRequestDetailsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3594,13 +3639,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_subscription_target_input.GetSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_subscription_target_input.GetSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3642,15 +3687,15 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_time_series_data_point_input.GetTimeSeriesDataPointInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_identifier"] = entity_identifier
-        input["entity_type"] = entity_type
-        input["identifier"] = identifier
-        input["form_name"] = form_name
+        input_: aws_sdk_datazone.types.get_time_series_data_point_input.GetTimeSeriesDataPointInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_identifier"] = entity_identifier
+        input_["entity_type"] = entity_type
+        input_["identifier"] = identifier
+        input_["form_name"] = form_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3692,16 +3737,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_user_profile_input.GetUserProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["user_identifier"] = user_identifier
+        input_: aws_sdk_datazone.types.get_user_profile_input.GetUserProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["user_identifier"] = user_identifier
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if session_name is not None:
-            input["session_name"] = session_name
+            input_["session_name"] = session_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3751,21 +3796,21 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_account_pools_input.ListAccountPoolsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_account_pools_input.ListAccountPoolsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3844,16 +3889,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_accounts_in_account_pool_input.ListAccountsInAccountPoolInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.list_accounts_in_account_pool_input.ListAccountsInAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3924,18 +3969,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_asset_filters_input.ListAssetFiltersInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["asset_identifier"] = asset_identifier
+        input_: aws_sdk_datazone.types.list_asset_filters_input.ListAssetFiltersInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["asset_identifier"] = asset_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4008,16 +4053,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_asset_revisions_input.ListAssetRevisionsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.list_asset_revisions_input.ListAssetRevisionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4079,29 +4124,29 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_connections_input.ListConnectionsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_connections_input.ListConnectionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if environment_identifier is not None:
-            input["environment_identifier"] = environment_identifier
+            input_["environment_identifier"] = environment_identifier
         if project_identifier is not None:
-            input["project_identifier"] = project_identifier
+            input_["project_identifier"] = project_identifier
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4190,16 +4235,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_data_product_revisions_input.ListDataProductRevisionsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.list_data_product_revisions_input.ListDataProductRevisionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4272,18 +4317,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_data_source_run_activities_input.ListDataSourceRunActivitiesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.list_data_source_run_activities_input.ListDataSourceRunActivitiesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4360,17 +4405,17 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_entity_owners_input.ListEntityOwnersInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_type"] = entity_type
-        input["entity_identifier"] = entity_identifier
+        input_: aws_sdk_datazone.types.list_entity_owners_input.ListEntityOwnersInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_type"] = entity_type
+        input_["entity_identifier"] = entity_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4443,16 +4488,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_environment_actions_input.ListEnvironmentActionsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
+        input_: aws_sdk_datazone.types.list_environment_actions_input.ListEnvironmentActionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4525,19 +4570,19 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_environment_blueprints_input.ListEnvironmentBlueprintsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_environment_blueprints_input.ListEnvironmentBlueprintsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if managed is not None:
-            input["managed"] = managed
+            input_["managed"] = managed
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4628,25 +4673,27 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_environment_profiles_input.ListEnvironmentProfilesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_environment_profiles_input.ListEnvironmentProfilesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
         if aws_account_region is not None:
-            input["aws_account_region"] = aws_account_region
+            input_["aws_account_region"] = aws_account_region
         if environment_blueprint_identifier is not None:
-            input["environment_blueprint_identifier"] = environment_blueprint_identifier
+            input_["environment_blueprint_identifier"] = (
+                environment_blueprint_identifier
+            )
         if project_identifier is not None:
-            input["project_identifier"] = project_identifier
+            input_["project_identifier"] = project_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4757,30 +4804,32 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_environments_input.ListEnvironmentsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if aws_account_region is not None:
-            input["aws_account_region"] = aws_account_region
-        input["project_identifier"] = project_identifier
+            input_["aws_account_region"] = aws_account_region
+        input_["project_identifier"] = project_identifier
         if environment_profile_identifier is not None:
-            input["environment_profile_identifier"] = environment_profile_identifier
+            input_["environment_profile_identifier"] = environment_profile_identifier
         if environment_blueprint_identifier is not None:
-            input["environment_blueprint_identifier"] = environment_blueprint_identifier
+            input_["environment_blueprint_identifier"] = (
+                environment_blueprint_identifier
+            )
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4877,20 +4926,20 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_job_runs_input.ListJobRunsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["job_identifier"] = job_identifier
+        input_: aws_sdk_datazone.types.list_job_runs_input.ListJobRunsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["job_identifier"] = job_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4971,23 +5020,23 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_lineage_events_input.ListLineageEventsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_lineage_events_input.ListLineageEventsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if timestamp_after is not None:
-            input["timestamp_after"] = timestamp_after
+            input_["timestamp_after"] = timestamp_after
         if timestamp_before is not None:
-            input["timestamp_before"] = timestamp_before
+            input_["timestamp_before"] = timestamp_before
         if processing_status is not None:
-            input["processing_status"] = processing_status
+            input_["processing_status"] = processing_status
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5074,24 +5123,24 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_lineage_node_history_input.ListLineageNodeHistoryInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["identifier"] = identifier
+            input_["next_token"] = next_token
+        input_["identifier"] = identifier
         if direction is not None:
-            input["direction"] = direction
+            input_["direction"] = direction
         if event_timestamp_gte is not None:
-            input["event_timestamp_gte"] = event_timestamp_gte
+            input_["event_timestamp_gte"] = event_timestamp_gte
         if event_timestamp_lte is not None:
-            input["event_timestamp_lte"] = event_timestamp_lte
+            input_["event_timestamp_lte"] = event_timestamp_lte
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5182,24 +5231,24 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["type"] = type
+        input_: aws_sdk_datazone.types.list_notifications_input.ListNotificationsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["type"] = type
         if after_timestamp is not None:
-            input["after_timestamp"] = after_timestamp
+            input_["after_timestamp"] = after_timestamp
         if before_timestamp is not None:
-            input["before_timestamp"] = before_timestamp
+            input_["before_timestamp"] = before_timestamp
         if subjects is not None:
-            input["subjects"] = subjects
+            input_["subjects"] = subjects
         if task_status is not None:
-            input["task_status"] = task_status
+            input_["task_status"] = task_status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5284,18 +5333,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_policy_grants_input.ListPolicyGrantsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_type"] = entity_type
-        input["entity_identifier"] = entity_identifier
-        input["policy_type"] = policy_type
+        input_: aws_sdk_datazone.types.list_policy_grants_input.ListPolicyGrantsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_type"] = entity_type
+        input_["entity_identifier"] = entity_identifier
+        input_["policy_type"] = policy_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5376,20 +5425,20 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_project_memberships_input.ListProjectMembershipsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["project_identifier"] = project_identifier
+        input_: aws_sdk_datazone.types.list_project_memberships_input.ListProjectMembershipsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["project_identifier"] = project_identifier
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5474,21 +5523,21 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_project_profiles_input.ListProjectProfilesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_project_profiles_input.ListProjectProfilesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5571,23 +5620,23 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_projects_input.ListProjectsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_projects_input.ListProjectsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if user_identifier is not None:
-            input["user_identifier"] = user_identifier
+            input_["user_identifier"] = user_identifier
         if group_identifier is not None:
-            input["group_identifier"] = group_identifier
+            input_["group_identifier"] = group_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if project_category is not None:
-            input["project_category"] = project_category
+            input_["project_category"] = project_category
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5696,35 +5745,35 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_subscription_grants_input.ListSubscriptionGrantsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_subscription_grants_input.ListSubscriptionGrantsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
         if subscription_target_id is not None:
-            input["subscription_target_id"] = subscription_target_id
+            input_["subscription_target_id"] = subscription_target_id
         if subscribed_listing_id is not None:
-            input["subscribed_listing_id"] = subscribed_listing_id
+            input_["subscribed_listing_id"] = subscribed_listing_id
         if subscription_id is not None:
-            input["subscription_id"] = subscription_id
+            input_["subscription_id"] = subscription_id
         if owning_project_id is not None:
-            input["owning_project_id"] = owning_project_id
+            input_["owning_project_id"] = owning_project_id
         if owning_iam_principal_arn is not None:
-            input["owning_iam_principal_arn"] = owning_iam_principal_arn
+            input_["owning_iam_principal_arn"] = owning_iam_principal_arn
         if owning_user_id is not None:
-            input["owning_user_id"] = owning_user_id
+            input_["owning_user_id"] = owning_user_id
         if owning_group_id is not None:
-            input["owning_group_id"] = owning_group_id
+            input_["owning_group_id"] = owning_group_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5857,33 +5906,33 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_subscription_requests_input.ListSubscriptionRequestsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_subscription_requests_input.ListSubscriptionRequestsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if subscribed_listing_id is not None:
-            input["subscribed_listing_id"] = subscribed_listing_id
+            input_["subscribed_listing_id"] = subscribed_listing_id
         if owning_project_id is not None:
-            input["owning_project_id"] = owning_project_id
+            input_["owning_project_id"] = owning_project_id
         if owning_iam_principal_arn is not None:
-            input["owning_iam_principal_arn"] = owning_iam_principal_arn
+            input_["owning_iam_principal_arn"] = owning_iam_principal_arn
         if approver_project_id is not None:
-            input["approver_project_id"] = approver_project_id
+            input_["approver_project_id"] = approver_project_id
         if owning_user_id is not None:
-            input["owning_user_id"] = owning_user_id
+            input_["owning_user_id"] = owning_user_id
         if owning_group_id is not None:
-            input["owning_group_id"] = owning_group_id
+            input_["owning_group_id"] = owning_group_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6016,35 +6065,35 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_subscriptions_input.ListSubscriptionsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.list_subscriptions_input.ListSubscriptionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if subscription_request_identifier is not None:
-            input["subscription_request_identifier"] = subscription_request_identifier
+            input_["subscription_request_identifier"] = subscription_request_identifier
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if subscribed_listing_id is not None:
-            input["subscribed_listing_id"] = subscribed_listing_id
+            input_["subscribed_listing_id"] = subscribed_listing_id
         if owning_project_id is not None:
-            input["owning_project_id"] = owning_project_id
+            input_["owning_project_id"] = owning_project_id
         if owning_iam_principal_arn is not None:
-            input["owning_iam_principal_arn"] = owning_iam_principal_arn
+            input_["owning_iam_principal_arn"] = owning_iam_principal_arn
         if owning_user_id is not None:
-            input["owning_user_id"] = owning_user_id
+            input_["owning_user_id"] = owning_user_id
         if owning_group_id is not None:
-            input["owning_group_id"] = owning_group_id
+            input_["owning_group_id"] = owning_group_id
         if approver_project_id is not None:
-            input["approver_project_id"] = approver_project_id
+            input_["approver_project_id"] = approver_project_id
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6153,20 +6202,20 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_subscription_targets_input.ListSubscriptionTargetsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
+        input_: aws_sdk_datazone.types.list_subscription_targets_input.ListSubscriptionTargetsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6231,11 +6280,11 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_datazone.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6285,22 +6334,22 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_time_series_data_points_input.ListTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_identifier"] = entity_identifier
-        input["entity_type"] = entity_type
-        input["form_name"] = form_name
+        input_: aws_sdk_datazone.types.list_time_series_data_points_input.ListTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_identifier"] = entity_identifier
+        input_["entity_type"] = entity_type
+        input_["form_name"] = form_name
         if started_at is not None:
-            input["started_at"] = started_at
+            input_["started_at"] = started_at
         if ended_at is not None:
-            input["ended_at"] = ended_at
+            input_["ended_at"] = ended_at
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6375,14 +6424,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.post_lineage_event_input.PostLineageEventInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["event"] = event
+        input_: aws_sdk_datazone.types.post_lineage_event_input.PostLineageEventInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["event"] = event
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6426,16 +6475,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.post_time_series_data_points_input.PostTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_identifier"] = entity_identifier
-        input["entity_type"] = entity_type
-        input["forms"] = forms
+        input_: aws_sdk_datazone.types.post_time_series_data_points_input.PostTimeSeriesDataPointsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_identifier"] = entity_identifier
+        input_["entity_type"] = entity_type
+        input_["forms"] = forms
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6479,16 +6528,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.put_data_export_configuration_input.PutDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["enable_export"] = enable_export
+        input_: aws_sdk_datazone.types.put_data_export_configuration_input.PutDataExportConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["enable_export"] = enable_export
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6534,18 +6583,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.query_graph_input.QueryGraphInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["match"] = match
+        input_: aws_sdk_datazone.types.query_graph_input.QueryGraphInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["match"] = match
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if additional_attributes is not None:
-            input["additional_attributes"] = additional_attributes
+            input_["additional_attributes"] = additional_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6624,20 +6673,20 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.reject_predictions_input.RejectPredictionsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.reject_predictions_input.RejectPredictionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
         if reject_rule is not None:
-            input["reject_rule"] = reject_rule
+            input_["reject_rule"] = reject_rule
         if reject_choices is not None:
-            input["reject_choices"] = reject_choices
+            input_["reject_choices"] = reject_choices
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6677,14 +6726,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.reject_subscription_request_input.RejectSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.reject_subscription_request_input.RejectSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if decision_comment is not None:
-            input["decision_comment"] = decision_comment
+            input_["decision_comment"] = decision_comment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6728,16 +6777,16 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.remove_entity_owner_input.RemoveEntityOwnerInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_type"] = entity_type
-        input["entity_identifier"] = entity_identifier
-        input["owner"] = owner
+        input_: aws_sdk_datazone.types.remove_entity_owner_input.RemoveEntityOwnerInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_type"] = entity_type
+        input_["entity_identifier"] = entity_identifier
+        input_["owner"] = owner
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6787,19 +6836,19 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.remove_policy_grant_input.RemovePolicyGrantInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["entity_type"] = entity_type
-        input["entity_identifier"] = entity_identifier
-        input["policy_type"] = policy_type
-        input["principal"] = principal
+        input_: aws_sdk_datazone.types.remove_policy_grant_input.RemovePolicyGrantInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["entity_type"] = entity_type
+        input_["entity_identifier"] = entity_identifier
+        input_["policy_type"] = policy_type
+        input_["principal"] = principal
         if grant_identifier is not None:
-            input["grant_identifier"] = grant_identifier
+            input_["grant_identifier"] = grant_identifier
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6837,14 +6886,14 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.revoke_subscription_input.RevokeSubscriptionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.revoke_subscription_input.RevokeSubscriptionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if retain_permissions is not None:
-            input["retain_permissions"] = retain_permissions
+            input_["retain_permissions"] = retain_permissions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -6904,28 +6953,28 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.search_input.SearchInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.search_input.SearchInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if owning_project_identifier is not None:
-            input["owning_project_identifier"] = owning_project_identifier
+            input_["owning_project_identifier"] = owning_project_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["search_scope"] = search_scope
+            input_["next_token"] = next_token
+        input_["search_scope"] = search_scope
         if search_text is not None:
-            input["search_text"] = search_text
+            input_["search_text"] = search_text
         if search_in is not None:
-            input["search_in"] = search_in
+            input_["search_in"] = search_in
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if additional_attributes is not None:
-            input["additional_attributes"] = additional_attributes
+            input_["additional_attributes"] = additional_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7018,18 +7067,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.search_group_profiles_input.SearchGroupProfilesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["group_type"] = group_type
+        input_: aws_sdk_datazone.types.search_group_profiles_input.SearchGroupProfilesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["group_type"] = group_type
         if search_text is not None:
-            input["search_text"] = search_text
+            input_["search_text"] = search_text
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7118,27 +7167,27 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.search_listings_input.SearchListingsInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.search_listings_input.SearchListingsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if search_text is not None:
-            input["search_text"] = search_text
+            input_["search_text"] = search_text
         if search_in is not None:
-            input["search_in"] = search_in
+            input_["search_in"] = search_in
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if aggregations is not None:
-            input["aggregations"] = aggregations
+            input_["aggregations"] = aggregations
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if additional_attributes is not None:
-            input["additional_attributes"] = additional_attributes
+            input_["additional_attributes"] = additional_attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7235,25 +7284,25 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.search_types_input.SearchTypesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
+        input_: aws_sdk_datazone.types.search_types_input.SearchTypesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["search_scope"] = search_scope
+            input_["next_token"] = next_token
+        input_["search_scope"] = search_scope
         if search_text is not None:
-            input["search_text"] = search_text
+            input_["search_text"] = search_text
         if search_in is not None:
-            input["search_in"] = search_in
+            input_["search_in"] = search_in
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort is not None:
-            input["sort"] = sort
-        input["managed"] = managed
+            input_["sort"] = sort
+        input_["managed"] = managed
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7338,18 +7387,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.search_user_profiles_input.SearchUserProfilesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["user_type"] = user_type
+        input_: aws_sdk_datazone.types.search_user_profiles_input.SearchUserProfilesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["user_type"] = user_type
         if search_text is not None:
-            input["search_text"] = search_text
+            input_["search_text"] = search_text
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7430,18 +7479,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.start_notebook_import_input.StartNotebookImportInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["owning_project_identifier"] = owning_project_identifier
-        input["source_location"] = source_location
-        input["name"] = name
+        input_: aws_sdk_datazone.types.start_notebook_import_input.StartNotebookImportInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["owning_project_identifier"] = owning_project_identifier
+        input_["source_location"] = source_location
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7477,12 +7526,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_datazone.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7518,12 +7567,12 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_datazone.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7573,20 +7622,20 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_account_pool_input.UpdateAccountPoolInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_account_pool_input.UpdateAccountPoolInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if resolution_strategy is not None:
-            input["resolution_strategy"] = resolution_strategy
+            input_["resolution_strategy"] = resolution_strategy
         if account_source is not None:
-            input["account_source"] = account_source
+            input_["account_source"] = account_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7632,19 +7681,19 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_asset_filter_input.UpdateAssetFilterInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["asset_identifier"] = asset_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_asset_filter_input.UpdateAssetFilterInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["asset_identifier"] = asset_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7694,20 +7743,20 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_connection_input.UpdateConnectionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_datazone.types.update_connection_input.UpdateConnectionInput = {}  # type: ignore[typeddict-item]
         if configurations is not None:
-            input["configurations"] = configurations
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+            input_["configurations"] = configurations
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if aws_location is not None:
-            input["aws_location"] = aws_location
+            input_["aws_location"] = aws_location
         if props is not None:
-            input["props"] = props
+            input_["props"] = props
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7761,24 +7810,24 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_environment_input.UpdateEnvironmentInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if blueprint_version is not None:
-            input["blueprint_version"] = blueprint_version
+            input_["blueprint_version"] = blueprint_version
         if user_parameters is not None:
-            input["user_parameters"] = user_parameters
+            input_["user_parameters"] = user_parameters
         if environment_configuration_name is not None:
-            input["environment_configuration_name"] = environment_configuration_name
+            input_["environment_configuration_name"] = environment_configuration_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7824,19 +7873,19 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_environment_action_input.UpdateEnvironmentActionInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_environment_action_input.UpdateEnvironmentActionInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["identifier"] = identifier
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7882,18 +7931,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_environment_blueprint_input.UpdateEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_environment_blueprint_input.UpdateEnvironmentBlueprintInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if provisioning_properties is not None:
-            input["provisioning_properties"] = provisioning_properties
+            input_["provisioning_properties"] = provisioning_properties
         if user_parameters is not None:
-            input["user_parameters"] = user_parameters
+            input_["user_parameters"] = user_parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -7947,22 +7996,22 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_environment_profile_input.UpdateEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_environment_profile_input.UpdateEnvironmentProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if user_parameters is not None:
-            input["user_parameters"] = user_parameters
+            input_["user_parameters"] = user_parameters
         if aws_account_id is not None:
-            input["aws_account_id"] = aws_account_id
+            input_["aws_account_id"] = aws_account_id
         if aws_account_region is not None:
-            input["aws_account_region"] = aws_account_region
+            input_["aws_account_region"] = aws_account_region
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8000,13 +8049,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_group_profile_input.UpdateGroupProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["group_identifier"] = group_identifier
-        input["status"] = status
+        input_: aws_sdk_datazone.types.update_group_profile_input.UpdateGroupProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["group_identifier"] = group_identifier
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8066,28 +8115,28 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_project_input.UpdateProjectInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_project_input.UpdateProjectInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if glossary_terms is not None:
-            input["glossary_terms"] = glossary_terms
+            input_["glossary_terms"] = glossary_terms
         if domain_unit_id is not None:
-            input["domain_unit_id"] = domain_unit_id
+            input_["domain_unit_id"] = domain_unit_id
         if environment_deployment_details is not None:
-            input["environment_deployment_details"] = environment_deployment_details
+            input_["environment_deployment_details"] = environment_deployment_details
         if user_parameters is not None:
-            input["user_parameters"] = user_parameters
+            input_["user_parameters"] = user_parameters
         if project_profile_version is not None:
-            input["project_profile_version"] = project_profile_version
+            input_["project_profile_version"] = project_profile_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8149,32 +8198,32 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_project_profile_input.UpdateProjectProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_project_profile_input.UpdateProjectProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if project_resource_tags is not None:
-            input["project_resource_tags"] = project_resource_tags
+            input_["project_resource_tags"] = project_resource_tags
         if allow_custom_project_resource_tags is not None:
-            input["allow_custom_project_resource_tags"] = (
+            input_["allow_custom_project_resource_tags"] = (
                 allow_custom_project_resource_tags
             )
         if project_resource_tags_description is not None:
-            input["project_resource_tags_description"] = (
+            input_["project_resource_tags_description"] = (
                 project_resource_tags_description
             )
         if environment_configurations is not None:
-            input["environment_configurations"] = environment_configurations
+            input_["environment_configurations"] = environment_configurations
         if domain_unit_identifier is not None:
-            input["domain_unit_identifier"] = domain_unit_identifier
+            input_["domain_unit_identifier"] = domain_unit_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8216,15 +8265,15 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_root_domain_unit_owner_input.UpdateRootDomainUnitOwnerInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["current_owner"] = current_owner
-        input["new_owner"] = new_owner
+        input_: aws_sdk_datazone.types.update_root_domain_unit_owner_input.UpdateRootDomainUnitOwnerInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["current_owner"] = current_owner
+        input_["new_owner"] = new_owner
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8270,18 +8319,18 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_subscription_grant_status_input.UpdateSubscriptionGrantStatusInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
-        input["asset_identifier"] = asset_identifier
-        input["status"] = status
+        input_: aws_sdk_datazone.types.update_subscription_grant_status_input.UpdateSubscriptionGrantStatusInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
+        input_["asset_identifier"] = asset_identifier
+        input_["status"] = status
         if failure_cause is not None:
-            input["failure_cause"] = failure_cause
+            input_["failure_cause"] = failure_cause
         if target_name is not None:
-            input["target_name"] = target_name
+            input_["target_name"] = target_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8319,13 +8368,13 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_subscription_request_input.UpdateSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
-        input["request_reason"] = request_reason
+        input_: aws_sdk_datazone.types.update_subscription_request_input.UpdateSubscriptionRequestInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
+        input_["request_reason"] = request_reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8389,27 +8438,29 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_subscription_target_input.UpdateSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["environment_identifier"] = environment_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_subscription_target_input.UpdateSubscriptionTargetInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["environment_identifier"] = environment_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if authorized_principals is not None:
-            input["authorized_principals"] = authorized_principals
+            input_["authorized_principals"] = authorized_principals
         if applicable_asset_types is not None:
-            input["applicable_asset_types"] = applicable_asset_types
+            input_["applicable_asset_types"] = applicable_asset_types
         if subscription_target_config is not None:
-            input["subscription_target_config"] = subscription_target_config
+            input_["subscription_target_config"] = subscription_target_config
         if manage_access_role is not None:
-            input["manage_access_role"] = manage_access_role
+            input_["manage_access_role"] = manage_access_role
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
         if subscription_grant_creation_mode is not None:
-            input["subscription_grant_creation_mode"] = subscription_grant_creation_mode
+            input_["subscription_grant_creation_mode"] = (
+                subscription_grant_creation_mode
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -8453,17 +8504,17 @@ class AsyncDataZoneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_user_profile_input.UpdateUserProfileInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["user_identifier"] = user_identifier
+        input_: aws_sdk_datazone.types.update_user_profile_input.UpdateUserProfileInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["user_identifier"] = user_identifier
         if type is not None:
-            input["type"] = type
-        input["status"] = status
+            input_["type"] = type
+        input_["status"] = status
         if session_name is not None:
-            input["session_name"] = session_name
+            input_["session_name"] = session_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

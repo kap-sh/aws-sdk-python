@@ -75,11 +75,11 @@ class TaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_task_definitions_request.DeleteTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["task_definitions"] = task_definitions
+        input_: aws_sdk_ecs.types.delete_task_definitions_request.DeleteTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["task_definitions"] = task_definitions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,20 +132,20 @@ class TaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_task_definitions_request.ListTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_task_definitions_request.ListTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if family_prefix is not None:
-            input["family_prefix"] = family_prefix
+            input_["family_prefix"] = family_prefix
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,44 +232,44 @@ class TaskDefinitionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.register_task_definition_request.RegisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["family"] = family
+        input_: aws_sdk_ecs.types.register_task_definition_request.RegisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["family"] = family
         if task_role_arn is not None:
-            input["task_role_arn"] = task_role_arn
+            input_["task_role_arn"] = task_role_arn
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if network_mode is not None:
-            input["network_mode"] = network_mode
-        input["container_definitions"] = container_definitions
+            input_["network_mode"] = network_mode
+        input_["container_definitions"] = container_definitions
         if volumes is not None:
-            input["volumes"] = volumes
+            input_["volumes"] = volumes
         if placement_constraints is not None:
-            input["placement_constraints"] = placement_constraints
+            input_["placement_constraints"] = placement_constraints
         if requires_compatibilities is not None:
-            input["requires_compatibilities"] = requires_compatibilities
+            input_["requires_compatibilities"] = requires_compatibilities
         if cpu is not None:
-            input["cpu"] = cpu
+            input_["cpu"] = cpu
         if memory is not None:
-            input["memory"] = memory
+            input_["memory"] = memory
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if pid_mode is not None:
-            input["pid_mode"] = pid_mode
+            input_["pid_mode"] = pid_mode
         if ipc_mode is not None:
-            input["ipc_mode"] = ipc_mode
+            input_["ipc_mode"] = ipc_mode
         if proxy_configuration is not None:
-            input["proxy_configuration"] = proxy_configuration
+            input_["proxy_configuration"] = proxy_configuration
         if inference_accelerators is not None:
-            input["inference_accelerators"] = inference_accelerators
+            input_["inference_accelerators"] = inference_accelerators
         if ephemeral_storage is not None:
-            input["ephemeral_storage"] = ephemeral_storage
+            input_["ephemeral_storage"] = ephemeral_storage
         if runtime_platform is not None:
-            input["runtime_platform"] = runtime_platform
+            input_["runtime_platform"] = runtime_platform
         if enable_fault_injection is not None:
-            input["enable_fault_injection"] = enable_fault_injection
+            input_["enable_fault_injection"] = enable_fault_injection
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,11 +314,11 @@ class AsyncTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_task_definitions_request.DeleteTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
-        input["task_definitions"] = task_definitions
+        input_: aws_sdk_ecs.types.delete_task_definitions_request.DeleteTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_["task_definitions"] = task_definitions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,20 +372,20 @@ class AsyncTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_task_definitions_request.ListTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_task_definitions_request.ListTaskDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if family_prefix is not None:
-            input["family_prefix"] = family_prefix
+            input_["family_prefix"] = family_prefix
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,44 +473,44 @@ class AsyncTaskDefinitionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.register_task_definition_request.RegisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
-        input["family"] = family
+        input_: aws_sdk_ecs.types.register_task_definition_request.RegisterTaskDefinitionRequest = {}  # type: ignore[typeddict-item]
+        input_["family"] = family
         if task_role_arn is not None:
-            input["task_role_arn"] = task_role_arn
+            input_["task_role_arn"] = task_role_arn
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if network_mode is not None:
-            input["network_mode"] = network_mode
-        input["container_definitions"] = container_definitions
+            input_["network_mode"] = network_mode
+        input_["container_definitions"] = container_definitions
         if volumes is not None:
-            input["volumes"] = volumes
+            input_["volumes"] = volumes
         if placement_constraints is not None:
-            input["placement_constraints"] = placement_constraints
+            input_["placement_constraints"] = placement_constraints
         if requires_compatibilities is not None:
-            input["requires_compatibilities"] = requires_compatibilities
+            input_["requires_compatibilities"] = requires_compatibilities
         if cpu is not None:
-            input["cpu"] = cpu
+            input_["cpu"] = cpu
         if memory is not None:
-            input["memory"] = memory
+            input_["memory"] = memory
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if pid_mode is not None:
-            input["pid_mode"] = pid_mode
+            input_["pid_mode"] = pid_mode
         if ipc_mode is not None:
-            input["ipc_mode"] = ipc_mode
+            input_["ipc_mode"] = ipc_mode
         if proxy_configuration is not None:
-            input["proxy_configuration"] = proxy_configuration
+            input_["proxy_configuration"] = proxy_configuration
         if inference_accelerators is not None:
-            input["inference_accelerators"] = inference_accelerators
+            input_["inference_accelerators"] = inference_accelerators
         if ephemeral_storage is not None:
-            input["ephemeral_storage"] = ephemeral_storage
+            input_["ephemeral_storage"] = ephemeral_storage
         if runtime_platform is not None:
-            input["runtime_platform"] = runtime_platform
+            input_["runtime_platform"] = runtime_platform
         if enable_fault_injection is not None:
-            input["enable_fault_injection"] = enable_fault_injection
+            input_["enable_fault_injection"] = enable_fault_injection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

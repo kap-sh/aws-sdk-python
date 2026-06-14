@@ -93,26 +93,26 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_service_input.CreateServiceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.create_service_input.CreateServiceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["template_name"] = template_name
-        input["template_major_version"] = template_major_version
+            input_["description"] = description
+        input_["template_name"] = template_name
+        input_["template_major_version"] = template_major_version
         if template_minor_version is not None:
-            input["template_minor_version"] = template_minor_version
-        input["spec"] = spec
+            input_["template_minor_version"] = template_minor_version
+        input_["spec"] = spec
         if repository_connection_arn is not None:
-            input["repository_connection_arn"] = repository_connection_arn
+            input_["repository_connection_arn"] = repository_connection_arn
         if repository_id is not None:
-            input["repository_id"] = repository_id
+            input_["repository_id"] = repository_id
         if branch_name is not None:
-            input["branch_name"] = branch_name
+            input_["branch_name"] = branch_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -145,11 +145,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -186,15 +186,15 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_input.UpdateServiceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.update_service_input.UpdateServiceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if spec is not None:
-            input["spec"] = spec
+            input_["spec"] = spec
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -227,11 +227,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_service_input.DeleteServiceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.delete_service_input.DeleteServiceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -268,14 +268,14 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,26 +338,26 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_service_input.CreateServiceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.create_service_input.CreateServiceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["template_name"] = template_name
-        input["template_major_version"] = template_major_version
+            input_["description"] = description
+        input_["template_name"] = template_name
+        input_["template_major_version"] = template_major_version
         if template_minor_version is not None:
-            input["template_minor_version"] = template_minor_version
-        input["spec"] = spec
+            input_["template_minor_version"] = template_minor_version
+        input_["spec"] = spec
         if repository_connection_arn is not None:
-            input["repository_connection_arn"] = repository_connection_arn
+            input_["repository_connection_arn"] = repository_connection_arn
         if repository_id is not None:
-            input["repository_id"] = repository_id
+            input_["repository_id"] = repository_id
         if branch_name is not None:
-            input["branch_name"] = branch_name
+            input_["branch_name"] = branch_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,11 +391,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.get_service_input.GetServiceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -433,15 +433,15 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_input.UpdateServiceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.update_service_input.UpdateServiceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if spec is not None:
-            input["spec"] = spec
+            input_["spec"] = spec
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -475,11 +475,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_service_input.DeleteServiceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_proton.types.delete_service_input.DeleteServiceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -517,14 +517,14 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_services_input.ListServicesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

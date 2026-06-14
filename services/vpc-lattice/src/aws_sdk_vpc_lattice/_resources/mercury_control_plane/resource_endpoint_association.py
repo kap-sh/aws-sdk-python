@@ -64,13 +64,13 @@ class ResourceEndpointAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_resource_endpoint_association_request.DeleteResourceEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_endpoint_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.delete_resource_endpoint_association_request.DeleteResourceEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_endpoint_association_identifier"] = (
             resource_endpoint_association_identifier
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,23 +121,23 @@ class ResourceEndpointAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_resource_endpoint_associations_request.ListResourceEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_configuration_identifier"] = resource_configuration_identifier
+        input_: aws_sdk_vpc_lattice.types.list_resource_endpoint_associations_request.ListResourceEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
         if resource_endpoint_association_identifier is not None:
-            input["resource_endpoint_association_identifier"] = (
+            input_["resource_endpoint_association_identifier"] = (
                 resource_endpoint_association_identifier
             )
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if vpc_endpoint_owner is not None:
-            input["vpc_endpoint_owner"] = vpc_endpoint_owner
+            input_["vpc_endpoint_owner"] = vpc_endpoint_owner
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,13 +176,13 @@ class AsyncResourceEndpointAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_resource_endpoint_association_request.DeleteResourceEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_endpoint_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.delete_resource_endpoint_association_request.DeleteResourceEndpointAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_endpoint_association_identifier"] = (
             resource_endpoint_association_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -234,23 +234,23 @@ class AsyncResourceEndpointAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_resource_endpoint_associations_request.ListResourceEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_configuration_identifier"] = resource_configuration_identifier
+        input_: aws_sdk_vpc_lattice.types.list_resource_endpoint_associations_request.ListResourceEndpointAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_configuration_identifier"] = resource_configuration_identifier
         if resource_endpoint_association_identifier is not None:
-            input["resource_endpoint_association_identifier"] = (
+            input_["resource_endpoint_association_identifier"] = (
                 resource_endpoint_association_identifier
             )
         if vpc_endpoint_id is not None:
-            input["vpc_endpoint_id"] = vpc_endpoint_id
+            input_["vpc_endpoint_id"] = vpc_endpoint_id
         if vpc_endpoint_owner is not None:
-            input["vpc_endpoint_owner"] = vpc_endpoint_owner
+            input_["vpc_endpoint_owner"] = vpc_endpoint_owner
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

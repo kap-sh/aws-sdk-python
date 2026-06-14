@@ -84,21 +84,21 @@ class AudienceGenerationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.start_audience_generation_job_request.StartAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["configured_audience_model_arn"] = configured_audience_model_arn
-        input["seed_audience"] = seed_audience
+        input_: aws_sdk_cleanroomsml.types.start_audience_generation_job_request.StartAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["configured_audience_model_arn"] = configured_audience_model_arn
+        input_["seed_audience"] = seed_audience
         if include_seed_in_output is not None:
-            input["include_seed_in_output"] = include_seed_in_output
+            input_["include_seed_in_output"] = include_seed_in_output
         if collaboration_id is not None:
-            input["collaboration_id"] = collaboration_id
+            input_["collaboration_id"] = collaboration_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,11 +131,11 @@ class AudienceGenerationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_audience_generation_job_request.GetAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
-        input["audience_generation_job_arn"] = audience_generation_job_arn
+        input_: aws_sdk_cleanroomsml.types.get_audience_generation_job_request.GetAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["audience_generation_job_arn"] = audience_generation_job_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,11 +166,11 @@ class AudienceGenerationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_audience_generation_job_request.DeleteAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
-        input["audience_generation_job_arn"] = audience_generation_job_arn
+        input_: aws_sdk_cleanroomsml.types.delete_audience_generation_job_request.DeleteAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["audience_generation_job_arn"] = audience_generation_job_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,18 +213,18 @@ class AudienceGenerationJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_audience_generation_jobs_request.ListAudienceGenerationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_audience_generation_jobs_request.ListAudienceGenerationJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if configured_audience_model_arn is not None:
-            input["configured_audience_model_arn"] = configured_audience_model_arn
+            input_["configured_audience_model_arn"] = configured_audience_model_arn
         if collaboration_id is not None:
-            input["collaboration_id"] = collaboration_id
+            input_["collaboration_id"] = collaboration_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -277,21 +277,21 @@ class AsyncAudienceGenerationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.start_audience_generation_job_request.StartAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["configured_audience_model_arn"] = configured_audience_model_arn
-        input["seed_audience"] = seed_audience
+        input_: aws_sdk_cleanroomsml.types.start_audience_generation_job_request.StartAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["configured_audience_model_arn"] = configured_audience_model_arn
+        input_["seed_audience"] = seed_audience
         if include_seed_in_output is not None:
-            input["include_seed_in_output"] = include_seed_in_output
+            input_["include_seed_in_output"] = include_seed_in_output
         if collaboration_id is not None:
-            input["collaboration_id"] = collaboration_id
+            input_["collaboration_id"] = collaboration_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,11 +325,11 @@ class AsyncAudienceGenerationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_audience_generation_job_request.GetAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
-        input["audience_generation_job_arn"] = audience_generation_job_arn
+        input_: aws_sdk_cleanroomsml.types.get_audience_generation_job_request.GetAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["audience_generation_job_arn"] = audience_generation_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -361,11 +361,11 @@ class AsyncAudienceGenerationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_audience_generation_job_request.DeleteAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
-        input["audience_generation_job_arn"] = audience_generation_job_arn
+        input_: aws_sdk_cleanroomsml.types.delete_audience_generation_job_request.DeleteAudienceGenerationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["audience_generation_job_arn"] = audience_generation_job_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -409,18 +409,18 @@ class AsyncAudienceGenerationJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_audience_generation_jobs_request.ListAudienceGenerationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_audience_generation_jobs_request.ListAudienceGenerationJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if configured_audience_model_arn is not None:
-            input["configured_audience_model_arn"] = configured_audience_model_arn
+            input_["configured_audience_model_arn"] = configured_audience_model_arn
         if collaboration_id is not None:
-            input["collaboration_id"] = collaboration_id
+            input_["collaboration_id"] = collaboration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

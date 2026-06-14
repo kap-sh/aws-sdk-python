@@ -106,30 +106,30 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest,
+    input_: aws_sdk_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v1/templates/{TemplateName}/push"
-    url = url.replace("{TemplateName}", quote(str(input["template_name"]), safe=""))
+    url = url.replace("{TemplateName}", quote(str(input_["template_name"]), safe=""))
     params: dict[str, str] = {}
-    if "create_new_version" in input:
-        params["create-new-version"] = str(input["create_new_version"])
-    if "version" in input:
-        params["version"] = str(input["version"])
+    if "create_new_version" in input_:
+        params["create-new-version"] = str(input_["create_new_version"])
+    if "version" in input_:
+        params["version"] = str(input_["version"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "push_notification_template_request" in input:
+    if "push_notification_template_request" in input_:
         import aws_sdk_pinpoint.types.push_notification_template_request
 
         body: bytes | None = json.dumps(
             aws_sdk_pinpoint.types.push_notification_template_request.serialize_json(
-                input["push_notification_template_request"]
+                input_["push_notification_template_request"]
             )
         ).encode()
         headers["content-type"] = "application/json"
@@ -139,26 +139,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PUT",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PUT", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_push_template(
     options: OperationOptions,
-    input: aws_sdk_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest,
+    input_: aws_sdk_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest,
 ) -> tuple[
     aws_sdk_pinpoint.types.update_push_template_response.UpdatePushTemplateResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -167,16 +164,17 @@ def update_push_template(
 
 async def async_update_push_template(
     options: AsyncOperationOptions,
-    input: aws_sdk_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest,
+    input_: aws_sdk_pinpoint.types.update_push_template_request.UpdatePushTemplateRequest,
 ) -> tuple[
     aws_sdk_pinpoint.types.update_push_template_response.UpdatePushTemplateResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

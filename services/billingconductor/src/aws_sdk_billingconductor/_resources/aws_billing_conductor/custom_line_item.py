@@ -120,26 +120,26 @@ class CustomLineItem:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.create_custom_line_item_input.CreateCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.create_custom_line_item_input.CreateCustomLineItemInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
-        input["description"] = description
-        input["billing_group_arn"] = billing_group_arn
+            input_["client_token"] = client_token
+        input_["name"] = name
+        input_["description"] = description
+        input_["billing_group_arn"] = billing_group_arn
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
         if tags is not None:
-            input["tags"] = tags
-        input["charge_details"] = charge_details
+            input_["tags"] = tags
+        input_["charge_details"] = charge_details
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if computation_rule is not None:
-            input["computation_rule"] = computation_rule
+            input_["computation_rule"] = computation_rule
         if presentation_details is not None:
-            input["presentation_details"] = presentation_details
+            input_["presentation_details"] = presentation_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -187,19 +187,19 @@ class CustomLineItem:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.update_custom_line_item_input.UpdateCustomLineItemInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.update_custom_line_item_input.UpdateCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if charge_details is not None:
-            input["charge_details"] = charge_details
+            input_["charge_details"] = charge_details
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,13 +235,13 @@ class CustomLineItem:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.delete_custom_line_item_input.DeleteCustomLineItemInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.delete_custom_line_item_input.DeleteCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,18 +286,18 @@ class CustomLineItem:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_custom_line_items_input.ListCustomLineItemsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_custom_line_items_input.ListCustomLineItemsInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
+            input_["billing_period"] = billing_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,14 +335,14 @@ class CustomLineItem:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.batch_associate_resources_to_custom_line_item_input.BatchAssociateResourcesToCustomLineItemInput = {}  # type: ignore[typeddict-item]
-        input["target_arn"] = target_arn
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_billingconductor.types.batch_associate_resources_to_custom_line_item_input.BatchAssociateResourcesToCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_["target_arn"] = target_arn
+        input_["resource_arns"] = resource_arns
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,14 +380,14 @@ class CustomLineItem:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.batch_disassociate_resources_from_custom_line_item_input.BatchDisassociateResourcesFromCustomLineItemInput = {}  # type: ignore[typeddict-item]
-        input["target_arn"] = target_arn
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_billingconductor.types.batch_disassociate_resources_from_custom_line_item_input.BatchDisassociateResourcesFromCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_["target_arn"] = target_arn
+        input_["resource_arns"] = resource_arns
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -430,17 +430,17 @@ class CustomLineItem:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_custom_line_item_versions_input.ListCustomLineItemVersionsInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.list_custom_line_item_versions_input.ListCustomLineItemVersionsInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,19 +487,19 @@ class CustomLineItem:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_resources_associated_to_custom_line_item_input.ListResourcesAssociatedToCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_resources_associated_to_custom_line_item_input.ListResourcesAssociatedToCustomLineItemInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
-        input["arn"] = arn
+            input_["billing_period"] = billing_period
+        input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -566,26 +566,26 @@ class AsyncCustomLineItem:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.create_custom_line_item_input.CreateCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.create_custom_line_item_input.CreateCustomLineItemInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
-        input["description"] = description
-        input["billing_group_arn"] = billing_group_arn
+            input_["client_token"] = client_token
+        input_["name"] = name
+        input_["description"] = description
+        input_["billing_group_arn"] = billing_group_arn
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
         if tags is not None:
-            input["tags"] = tags
-        input["charge_details"] = charge_details
+            input_["tags"] = tags
+        input_["charge_details"] = charge_details
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if computation_rule is not None:
-            input["computation_rule"] = computation_rule
+            input_["computation_rule"] = computation_rule
         if presentation_details is not None:
-            input["presentation_details"] = presentation_details
+            input_["presentation_details"] = presentation_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -634,19 +634,19 @@ class AsyncCustomLineItem:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.update_custom_line_item_input.UpdateCustomLineItemInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.update_custom_line_item_input.UpdateCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if charge_details is not None:
-            input["charge_details"] = charge_details
+            input_["charge_details"] = charge_details
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,13 +683,13 @@ class AsyncCustomLineItem:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.delete_custom_line_item_input.DeleteCustomLineItemInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.delete_custom_line_item_input.DeleteCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -735,18 +735,18 @@ class AsyncCustomLineItem:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_custom_line_items_input.ListCustomLineItemsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_custom_line_items_input.ListCustomLineItemsInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
+            input_["billing_period"] = billing_period
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -785,14 +785,14 @@ class AsyncCustomLineItem:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.batch_associate_resources_to_custom_line_item_input.BatchAssociateResourcesToCustomLineItemInput = {}  # type: ignore[typeddict-item]
-        input["target_arn"] = target_arn
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_billingconductor.types.batch_associate_resources_to_custom_line_item_input.BatchAssociateResourcesToCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_["target_arn"] = target_arn
+        input_["resource_arns"] = resource_arns
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -831,14 +831,14 @@ class AsyncCustomLineItem:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.batch_disassociate_resources_from_custom_line_item_input.BatchDisassociateResourcesFromCustomLineItemInput = {}  # type: ignore[typeddict-item]
-        input["target_arn"] = target_arn
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_billingconductor.types.batch_disassociate_resources_from_custom_line_item_input.BatchDisassociateResourcesFromCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_["target_arn"] = target_arn
+        input_["resource_arns"] = resource_arns
         if billing_period_range is not None:
-            input["billing_period_range"] = billing_period_range
+            input_["billing_period_range"] = billing_period_range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -882,17 +882,17 @@ class AsyncCustomLineItem:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_custom_line_item_versions_input.ListCustomLineItemVersionsInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.list_custom_line_item_versions_input.ListCustomLineItemVersionsInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -940,19 +940,19 @@ class AsyncCustomLineItem:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_resources_associated_to_custom_line_item_input.ListResourcesAssociatedToCustomLineItemInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_resources_associated_to_custom_line_item_input.ListResourcesAssociatedToCustomLineItemInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
-        input["arn"] = arn
+            input_["billing_period"] = billing_period
+        input_["arn"] = arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

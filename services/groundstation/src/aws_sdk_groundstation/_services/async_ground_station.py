@@ -15,6 +15,23 @@ from aws_sdk_groundstation._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_groundstation._auth._zapros_handler import AuthMiddleware
+from aws_sdk_groundstation._resources.ground_station.agent import AsyncAgent
+from aws_sdk_groundstation._resources.ground_station.config import AsyncConfig
+from aws_sdk_groundstation._resources.ground_station.contact import AsyncContact
+from aws_sdk_groundstation._resources.ground_station.dataflow_endpoint_group import (
+    AsyncDataflowEndpointGroup,
+)
+from aws_sdk_groundstation._resources.ground_station.dataflow_endpoint_group_v2 import (
+    AsyncDataflowEndpointGroupV2,
+)
+from aws_sdk_groundstation._resources.ground_station.ephemeris import AsyncEphemeris
+from aws_sdk_groundstation._resources.ground_station.ground_station_resource import (
+    AsyncGroundStationResource,
+)
+from aws_sdk_groundstation._resources.ground_station.mission_profile import (
+    AsyncMissionProfile,
+)
+from aws_sdk_groundstation._resources.ground_station.satellite import AsyncSatellite
 from aws_sdk_groundstation._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -115,6 +132,16 @@ class AsyncGroundStationClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.agent = AsyncAgent(self)
+        self.config = AsyncConfig(self)
+        self.contact = AsyncContact(self)
+        self.dataflow_endpoint_group = AsyncDataflowEndpointGroup(self)
+        self.dataflow_endpoint_group_v2 = AsyncDataflowEndpointGroupV2(self)
+        self.ephemeris = AsyncEphemeris(self)
+        self.ground_station_resource = AsyncGroundStationResource(self)
+        self.mission_profile = AsyncMissionProfile(self)
+        self.satellite = AsyncSatellite(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncGroundStationClientConfig] = None
@@ -174,12 +201,12 @@ class AsyncGroundStationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_agent_task_response_url_request.GetAgentTaskResponseUrlRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["task_id"] = task_id
+        input_: aws_sdk_groundstation.types.get_agent_task_response_url_request.GetAgentTaskResponseUrlRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,12 +242,12 @@ class AsyncGroundStationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_minute_usage_request.GetMinuteUsageRequest = {}  # type: ignore[typeddict-item]
-        input["month"] = month
-        input["year"] = year
+        input_: aws_sdk_groundstation.types.get_minute_usage_request.GetMinuteUsageRequest = {}  # type: ignore[typeddict-item]
+        input_["month"] = month
+        input_["year"] = year
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,11 +281,11 @@ class AsyncGroundStationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_groundstation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,12 +321,12 @@ class AsyncGroundStationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_groundstation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,12 +362,12 @@ class AsyncGroundStationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_groundstation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

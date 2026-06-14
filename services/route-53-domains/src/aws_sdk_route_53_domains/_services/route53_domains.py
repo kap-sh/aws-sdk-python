@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_route_53_domains._auth._signers
+import aws_sdk_route_53_domains._auth._sigv4
 from aws_sdk_route_53_domains._auth._identity import Credentials
 from aws_sdk_route_53_domains._auth._providers import (
     CredentialsProvider,
@@ -254,12 +256,12 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.accept_domain_transfer_from_another_aws_account_request.AcceptDomainTransferFromAnotherAwsAccountRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["password"] = password
+        input_: aws_sdk_route_53_domains.types.accept_domain_transfer_from_another_aws_account_request.AcceptDomainTransferFromAnotherAwsAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["password"] = password
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,12 +296,12 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.associate_delegation_signer_to_domain_request.AssociateDelegationSignerToDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["signing_attributes"] = signing_attributes
+        input_: aws_sdk_route_53_domains.types.associate_delegation_signer_to_domain_request.AssociateDelegationSignerToDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["signing_attributes"] = signing_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,11 +334,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.cancel_domain_transfer_to_another_aws_account_request.CancelDomainTransferToAnotherAwsAccountRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.cancel_domain_transfer_to_another_aws_account_request.CancelDomainTransferToAnotherAwsAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,13 +375,13 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.check_domain_availability_request.CheckDomainAvailabilityRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.check_domain_availability_request.CheckDomainAvailabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if idn_lang_code is not None:
-            input["idn_lang_code"] = idn_lang_code
+            input_["idn_lang_code"] = idn_lang_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,13 +418,13 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.check_domain_transferability_request.CheckDomainTransferabilityRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.check_domain_transferability_request.CheckDomainTransferabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if auth_code is not None:
-            input["auth_code"] = auth_code
+            input_["auth_code"] = auth_code
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,11 +457,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.delete_domain_request.DeleteDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -494,12 +496,12 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.delete_tags_for_domain_request.DeleteTagsForDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["tags_to_delete"] = tags_to_delete
+        input_: aws_sdk_route_53_domains.types.delete_tags_for_domain_request.DeleteTagsForDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["tags_to_delete"] = tags_to_delete
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,11 +534,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.disable_domain_auto_renew_request.DisableDomainAutoRenewRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.disable_domain_auto_renew_request.DisableDomainAutoRenewRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -569,11 +571,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.disable_domain_transfer_lock_request.DisableDomainTransferLockRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.disable_domain_transfer_lock_request.DisableDomainTransferLockRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -608,12 +610,12 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.disassociate_delegation_signer_from_domain_request.DisassociateDelegationSignerFromDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["id"] = id
+        input_: aws_sdk_route_53_domains.types.disassociate_delegation_signer_from_domain_request.DisassociateDelegationSignerFromDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -646,11 +648,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.enable_domain_auto_renew_request.EnableDomainAutoRenewRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.enable_domain_auto_renew_request.EnableDomainAutoRenewRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,11 +685,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.enable_domain_transfer_lock_request.EnableDomainTransferLockRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.enable_domain_transfer_lock_request.EnableDomainTransferLockRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,12 +724,12 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.get_contact_reachability_status_request.GetContactReachabilityStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53_domains.types.get_contact_reachability_status_request.GetContactReachabilityStatusRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -760,11 +762,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.get_domain_detail_request.GetDomainDetailRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.get_domain_detail_request.GetDomainDetailRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -801,13 +803,13 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.get_domain_suggestions_request.GetDomainSuggestionsRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["suggestion_count"] = suggestion_count
-        input["only_available"] = only_available
+        input_: aws_sdk_route_53_domains.types.get_domain_suggestions_request.GetDomainSuggestionsRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["suggestion_count"] = suggestion_count
+        input_["only_available"] = only_available
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -840,11 +842,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.get_operation_detail_request.GetOperationDetailRequest = {}  # type: ignore[typeddict-item]
-        input["operation_id"] = operation_id
+        input_: aws_sdk_route_53_domains.types.get_operation_detail_request.GetOperationDetailRequest = {}  # type: ignore[typeddict-item]
+        input_["operation_id"] = operation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -891,18 +893,18 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53_domains.types.list_domains_request.ListDomainsRequest = {}  # type: ignore[typeddict-item]
         if filter_conditions is not None:
-            input["filter_conditions"] = filter_conditions
+            input_["filter_conditions"] = filter_conditions
         if sort_condition is not None:
-            input["sort_condition"] = sort_condition
+            input_["sort_condition"] = sort_condition
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -996,24 +998,24 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.list_operations_request.ListOperationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53_domains.types.list_operations_request.ListOperationsRequest = {}  # type: ignore[typeddict-item]
         if submitted_since is not None:
-            input["submitted_since"] = submitted_since
+            input_["submitted_since"] = submitted_since
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1099,16 +1101,16 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.list_prices_request.ListPricesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53_domains.types.list_prices_request.ListPricesRequest = {}  # type: ignore[typeddict-item]
         if tld is not None:
-            input["tld"] = tld
+            input_["tld"] = tld
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,11 +1170,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.list_tags_for_domain_request.ListTagsForDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.list_tags_for_domain_request.ListTagsForDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1205,12 +1207,12 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.push_domain_request.PushDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["target"] = target
+        input_: aws_sdk_route_53_domains.types.push_domain_request.PushDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["target"] = target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1279,31 +1281,31 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.register_domain_request.RegisterDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.register_domain_request.RegisterDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if idn_lang_code is not None:
-            input["idn_lang_code"] = idn_lang_code
-        input["duration_in_years"] = duration_in_years
+            input_["idn_lang_code"] = idn_lang_code
+        input_["duration_in_years"] = duration_in_years
         if auto_renew is not None:
-            input["auto_renew"] = auto_renew
-        input["admin_contact"] = admin_contact
-        input["registrant_contact"] = registrant_contact
-        input["tech_contact"] = tech_contact
+            input_["auto_renew"] = auto_renew
+        input_["admin_contact"] = admin_contact
+        input_["registrant_contact"] = registrant_contact
+        input_["tech_contact"] = tech_contact
         if privacy_protect_admin_contact is not None:
-            input["privacy_protect_admin_contact"] = privacy_protect_admin_contact
+            input_["privacy_protect_admin_contact"] = privacy_protect_admin_contact
         if privacy_protect_registrant_contact is not None:
-            input["privacy_protect_registrant_contact"] = (
+            input_["privacy_protect_registrant_contact"] = (
                 privacy_protect_registrant_contact
             )
         if privacy_protect_tech_contact is not None:
-            input["privacy_protect_tech_contact"] = privacy_protect_tech_contact
+            input_["privacy_protect_tech_contact"] = privacy_protect_tech_contact
         if billing_contact is not None:
-            input["billing_contact"] = billing_contact
+            input_["billing_contact"] = billing_contact
         if privacy_protect_billing_contact is not None:
-            input["privacy_protect_billing_contact"] = privacy_protect_billing_contact
+            input_["privacy_protect_billing_contact"] = privacy_protect_billing_contact
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1336,11 +1338,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.reject_domain_transfer_from_another_aws_account_request.RejectDomainTransferFromAnotherAwsAccountRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.reject_domain_transfer_from_another_aws_account_request.RejectDomainTransferFromAnotherAwsAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1379,14 +1381,14 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.renew_domain_request.RenewDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.renew_domain_request.RenewDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if duration_in_years is not None:
-            input["duration_in_years"] = duration_in_years
-        input["current_expiry_year"] = current_expiry_year
+            input_["duration_in_years"] = duration_in_years
+        input_["current_expiry_year"] = current_expiry_year
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1421,12 +1423,12 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.resend_contact_reachability_email_request.ResendContactReachabilityEmailRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53_domains.types.resend_contact_reachability_email_request.ResendContactReachabilityEmailRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1457,11 +1459,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.resend_operation_authorization_request.ResendOperationAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["operation_id"] = operation_id
+        input_: aws_sdk_route_53_domains.types.resend_operation_authorization_request.ResendOperationAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["operation_id"] = operation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1494,11 +1496,11 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.retrieve_domain_auth_code_request.RetrieveDomainAuthCodeRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.retrieve_domain_auth_code_request.RetrieveDomainAuthCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1577,36 +1579,36 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.transfer_domain_request.TransferDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.transfer_domain_request.TransferDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if idn_lang_code is not None:
-            input["idn_lang_code"] = idn_lang_code
+            input_["idn_lang_code"] = idn_lang_code
         if duration_in_years is not None:
-            input["duration_in_years"] = duration_in_years
+            input_["duration_in_years"] = duration_in_years
         if nameservers is not None:
-            input["nameservers"] = nameservers
+            input_["nameservers"] = nameservers
         if auth_code is not None:
-            input["auth_code"] = auth_code
+            input_["auth_code"] = auth_code
         if auto_renew is not None:
-            input["auto_renew"] = auto_renew
-        input["admin_contact"] = admin_contact
-        input["registrant_contact"] = registrant_contact
-        input["tech_contact"] = tech_contact
+            input_["auto_renew"] = auto_renew
+        input_["admin_contact"] = admin_contact
+        input_["registrant_contact"] = registrant_contact
+        input_["tech_contact"] = tech_contact
         if privacy_protect_admin_contact is not None:
-            input["privacy_protect_admin_contact"] = privacy_protect_admin_contact
+            input_["privacy_protect_admin_contact"] = privacy_protect_admin_contact
         if privacy_protect_registrant_contact is not None:
-            input["privacy_protect_registrant_contact"] = (
+            input_["privacy_protect_registrant_contact"] = (
                 privacy_protect_registrant_contact
             )
         if privacy_protect_tech_contact is not None:
-            input["privacy_protect_tech_contact"] = privacy_protect_tech_contact
+            input_["privacy_protect_tech_contact"] = privacy_protect_tech_contact
         if billing_contact is not None:
-            input["billing_contact"] = billing_contact
+            input_["billing_contact"] = billing_contact
         if privacy_protect_billing_contact is not None:
-            input["privacy_protect_billing_contact"] = privacy_protect_billing_contact
+            input_["privacy_protect_billing_contact"] = privacy_protect_billing_contact
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1641,12 +1643,12 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.transfer_domain_to_another_aws_account_request.TransferDomainToAnotherAwsAccountRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
-        input["account_id"] = account_id
+        input_: aws_sdk_route_53_domains.types.transfer_domain_to_another_aws_account_request.TransferDomainToAnotherAwsAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1697,21 +1699,21 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.update_domain_contact_request.UpdateDomainContactRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.update_domain_contact_request.UpdateDomainContactRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if admin_contact is not None:
-            input["admin_contact"] = admin_contact
+            input_["admin_contact"] = admin_contact
         if registrant_contact is not None:
-            input["registrant_contact"] = registrant_contact
+            input_["registrant_contact"] = registrant_contact
         if tech_contact is not None:
-            input["tech_contact"] = tech_contact
+            input_["tech_contact"] = tech_contact
         if consent is not None:
-            input["consent"] = consent
+            input_["consent"] = consent
         if billing_contact is not None:
-            input["billing_contact"] = billing_contact
+            input_["billing_contact"] = billing_contact
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1758,19 +1760,19 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.update_domain_contact_privacy_request.UpdateDomainContactPrivacyRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.update_domain_contact_privacy_request.UpdateDomainContactPrivacyRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if admin_privacy is not None:
-            input["admin_privacy"] = admin_privacy
+            input_["admin_privacy"] = admin_privacy
         if registrant_privacy is not None:
-            input["registrant_privacy"] = registrant_privacy
+            input_["registrant_privacy"] = registrant_privacy
         if tech_privacy is not None:
-            input["tech_privacy"] = tech_privacy
+            input_["tech_privacy"] = tech_privacy
         if billing_privacy is not None:
-            input["billing_privacy"] = billing_privacy
+            input_["billing_privacy"] = billing_privacy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1809,14 +1811,14 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.update_domain_nameservers_request.UpdateDomainNameserversRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.update_domain_nameservers_request.UpdateDomainNameserversRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if fi_auth_key is not None:
-            input["fi_auth_key"] = fi_auth_key
-        input["nameservers"] = nameservers
+            input_["fi_auth_key"] = fi_auth_key
+        input_["nameservers"] = nameservers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1853,13 +1855,13 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.update_tags_for_domain_request.UpdateTagsForDomainRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_route_53_domains.types.update_tags_for_domain_request.UpdateTagsForDomainRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if tags_to_update is not None:
-            input["tags_to_update"] = tags_to_update
+            input_["tags_to_update"] = tags_to_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1902,18 +1904,18 @@ class Route53DomainsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route_53_domains.types.view_billing_request.ViewBillingRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route_53_domains.types.view_billing_request.ViewBillingRequest = {}  # type: ignore[typeddict-item]
         if start is not None:
-            input["start"] = start
+            input_["start"] = start
         if end is not None:
-            input["end"] = end
+            input_["end"] = end
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

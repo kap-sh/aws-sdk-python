@@ -16,6 +16,26 @@ from aws_sdk_grafana._auth._providers import (
 )
 from aws_sdk_grafana._auth._zapros_handler import AuthMiddleware
 from aws_sdk_grafana._pagination import resolve_path as _resolve_path
+from aws_sdk_grafana._resources.aws_grafana_control_plane.api_key import AsyncApiKey
+from aws_sdk_grafana._resources.aws_grafana_control_plane.authentication import (
+    AsyncAuthentication,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.configuration import (
+    AsyncConfiguration,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.license import AsyncLicense
+from aws_sdk_grafana._resources.aws_grafana_control_plane.permission import (
+    AsyncPermission,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.service_account import (
+    AsyncServiceAccount,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.service_account_token import (
+    AsyncServiceAccountToken,
+)
+from aws_sdk_grafana._resources.aws_grafana_control_plane.workspace import (
+    AsyncWorkspace,
+)
 from aws_sdk_grafana._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -113,6 +133,15 @@ class AsyncgrafanaClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.api_key = AsyncApiKey(self)
+        self.authentication = AsyncAuthentication(self)
+        self.configuration = AsyncConfiguration(self)
+        self.license = AsyncLicense(self)
+        self.permission = AsyncPermission(self)
+        self.service_account = AsyncServiceAccount(self)
+        self.service_account_token = AsyncServiceAccountToken(self)
+        self.workspace = AsyncWorkspace(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncgrafanaClientConfig] = None
@@ -170,11 +199,11 @@ class AsyncgrafanaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_grafana.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,16 +243,16 @@ class AsyncgrafanaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.list_versions_request.ListVersionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if workspace_id is not None:
-            input["workspace_id"] = workspace_id
+            input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,12 +313,12 @@ class AsyncgrafanaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_grafana.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,12 +354,12 @@ class AsyncgrafanaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_grafana.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

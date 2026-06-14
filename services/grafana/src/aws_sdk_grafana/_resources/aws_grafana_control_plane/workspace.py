@@ -144,47 +144,47 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["account_access_type"] = account_access_type
+        input_: aws_sdk_grafana.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["account_access_type"] = account_access_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if organization_role_name is not None:
-            input["organization_role_name"] = organization_role_name
-        input["permission_type"] = permission_type
+            input_["organization_role_name"] = organization_role_name
+        input_["permission_type"] = permission_type
         if stack_set_name is not None:
-            input["stack_set_name"] = stack_set_name
+            input_["stack_set_name"] = stack_set_name
         if workspace_data_sources is not None:
-            input["workspace_data_sources"] = workspace_data_sources
+            input_["workspace_data_sources"] = workspace_data_sources
         if workspace_description is not None:
-            input["workspace_description"] = workspace_description
+            input_["workspace_description"] = workspace_description
         if workspace_name is not None:
-            input["workspace_name"] = workspace_name
+            input_["workspace_name"] = workspace_name
         if workspace_notification_destinations is not None:
-            input["workspace_notification_destinations"] = (
+            input_["workspace_notification_destinations"] = (
                 workspace_notification_destinations
             )
         if workspace_organizational_units is not None:
-            input["workspace_organizational_units"] = workspace_organizational_units
+            input_["workspace_organizational_units"] = workspace_organizational_units
         if workspace_role_arn is not None:
-            input["workspace_role_arn"] = workspace_role_arn
-        input["authentication_providers"] = authentication_providers
+            input_["workspace_role_arn"] = workspace_role_arn
+        input_["authentication_providers"] = authentication_providers
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if vpc_configuration is not None:
-            input["vpc_configuration"] = vpc_configuration
+            input_["vpc_configuration"] = vpc_configuration
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if network_access_control is not None:
-            input["network_access_control"] = network_access_control
+            input_["network_access_control"] = network_access_control
         if grafana_version is not None:
-            input["grafana_version"] = grafana_version
+            input_["grafana_version"] = grafana_version
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,11 +217,11 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,45 +310,45 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.update_workspace_request.UpdateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.update_workspace_request.UpdateWorkspaceRequest = {}  # type: ignore[typeddict-item]
         if account_access_type is not None:
-            input["account_access_type"] = account_access_type
+            input_["account_access_type"] = account_access_type
         if organization_role_name is not None:
-            input["organization_role_name"] = organization_role_name
+            input_["organization_role_name"] = organization_role_name
         if permission_type is not None:
-            input["permission_type"] = permission_type
+            input_["permission_type"] = permission_type
         if stack_set_name is not None:
-            input["stack_set_name"] = stack_set_name
+            input_["stack_set_name"] = stack_set_name
         if workspace_data_sources is not None:
-            input["workspace_data_sources"] = workspace_data_sources
+            input_["workspace_data_sources"] = workspace_data_sources
         if workspace_description is not None:
-            input["workspace_description"] = workspace_description
-        input["workspace_id"] = workspace_id
+            input_["workspace_description"] = workspace_description
+        input_["workspace_id"] = workspace_id
         if workspace_name is not None:
-            input["workspace_name"] = workspace_name
+            input_["workspace_name"] = workspace_name
         if workspace_notification_destinations is not None:
-            input["workspace_notification_destinations"] = (
+            input_["workspace_notification_destinations"] = (
                 workspace_notification_destinations
             )
         if workspace_organizational_units is not None:
-            input["workspace_organizational_units"] = workspace_organizational_units
+            input_["workspace_organizational_units"] = workspace_organizational_units
         if workspace_role_arn is not None:
-            input["workspace_role_arn"] = workspace_role_arn
+            input_["workspace_role_arn"] = workspace_role_arn
         if vpc_configuration is not None:
-            input["vpc_configuration"] = vpc_configuration
+            input_["vpc_configuration"] = vpc_configuration
         if remove_vpc_configuration is not None:
-            input["remove_vpc_configuration"] = remove_vpc_configuration
+            input_["remove_vpc_configuration"] = remove_vpc_configuration
         if network_access_control is not None:
-            input["network_access_control"] = network_access_control
+            input_["network_access_control"] = network_access_control
         if remove_network_access_configuration is not None:
-            input["remove_network_access_configuration"] = (
+            input_["remove_network_access_configuration"] = (
                 remove_network_access_configuration
             )
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -381,11 +381,11 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,14 +422,14 @@ class Workspace:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,47 +530,47 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["account_access_type"] = account_access_type
+        input_: aws_sdk_grafana.types.create_workspace_request.CreateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["account_access_type"] = account_access_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if organization_role_name is not None:
-            input["organization_role_name"] = organization_role_name
-        input["permission_type"] = permission_type
+            input_["organization_role_name"] = organization_role_name
+        input_["permission_type"] = permission_type
         if stack_set_name is not None:
-            input["stack_set_name"] = stack_set_name
+            input_["stack_set_name"] = stack_set_name
         if workspace_data_sources is not None:
-            input["workspace_data_sources"] = workspace_data_sources
+            input_["workspace_data_sources"] = workspace_data_sources
         if workspace_description is not None:
-            input["workspace_description"] = workspace_description
+            input_["workspace_description"] = workspace_description
         if workspace_name is not None:
-            input["workspace_name"] = workspace_name
+            input_["workspace_name"] = workspace_name
         if workspace_notification_destinations is not None:
-            input["workspace_notification_destinations"] = (
+            input_["workspace_notification_destinations"] = (
                 workspace_notification_destinations
             )
         if workspace_organizational_units is not None:
-            input["workspace_organizational_units"] = workspace_organizational_units
+            input_["workspace_organizational_units"] = workspace_organizational_units
         if workspace_role_arn is not None:
-            input["workspace_role_arn"] = workspace_role_arn
-        input["authentication_providers"] = authentication_providers
+            input_["workspace_role_arn"] = workspace_role_arn
+        input_["authentication_providers"] = authentication_providers
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if vpc_configuration is not None:
-            input["vpc_configuration"] = vpc_configuration
+            input_["vpc_configuration"] = vpc_configuration
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if network_access_control is not None:
-            input["network_access_control"] = network_access_control
+            input_["network_access_control"] = network_access_control
         if grafana_version is not None:
-            input["grafana_version"] = grafana_version
+            input_["grafana_version"] = grafana_version
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,11 +604,11 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.describe_workspace_request.DescribeWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,45 +698,45 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.update_workspace_request.UpdateWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.update_workspace_request.UpdateWorkspaceRequest = {}  # type: ignore[typeddict-item]
         if account_access_type is not None:
-            input["account_access_type"] = account_access_type
+            input_["account_access_type"] = account_access_type
         if organization_role_name is not None:
-            input["organization_role_name"] = organization_role_name
+            input_["organization_role_name"] = organization_role_name
         if permission_type is not None:
-            input["permission_type"] = permission_type
+            input_["permission_type"] = permission_type
         if stack_set_name is not None:
-            input["stack_set_name"] = stack_set_name
+            input_["stack_set_name"] = stack_set_name
         if workspace_data_sources is not None:
-            input["workspace_data_sources"] = workspace_data_sources
+            input_["workspace_data_sources"] = workspace_data_sources
         if workspace_description is not None:
-            input["workspace_description"] = workspace_description
-        input["workspace_id"] = workspace_id
+            input_["workspace_description"] = workspace_description
+        input_["workspace_id"] = workspace_id
         if workspace_name is not None:
-            input["workspace_name"] = workspace_name
+            input_["workspace_name"] = workspace_name
         if workspace_notification_destinations is not None:
-            input["workspace_notification_destinations"] = (
+            input_["workspace_notification_destinations"] = (
                 workspace_notification_destinations
             )
         if workspace_organizational_units is not None:
-            input["workspace_organizational_units"] = workspace_organizational_units
+            input_["workspace_organizational_units"] = workspace_organizational_units
         if workspace_role_arn is not None:
-            input["workspace_role_arn"] = workspace_role_arn
+            input_["workspace_role_arn"] = workspace_role_arn
         if vpc_configuration is not None:
-            input["vpc_configuration"] = vpc_configuration
+            input_["vpc_configuration"] = vpc_configuration
         if remove_vpc_configuration is not None:
-            input["remove_vpc_configuration"] = remove_vpc_configuration
+            input_["remove_vpc_configuration"] = remove_vpc_configuration
         if network_access_control is not None:
-            input["network_access_control"] = network_access_control
+            input_["network_access_control"] = network_access_control
         if remove_network_access_configuration is not None:
-            input["remove_network_access_configuration"] = (
+            input_["remove_network_access_configuration"] = (
                 remove_network_access_configuration
             )
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -770,11 +770,11 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_id"] = workspace_id
+        input_: aws_sdk_grafana.types.delete_workspace_request.DeleteWorkspaceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_id"] = workspace_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -812,14 +812,14 @@ class AsyncWorkspace:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_grafana.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_grafana.types.list_workspaces_request.ListWorkspacesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

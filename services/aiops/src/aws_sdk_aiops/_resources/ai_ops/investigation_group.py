@@ -94,28 +94,28 @@ class InvestigationGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.create_investigation_group_input.CreateInvestigationGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_aiops.types.create_investigation_group_input.CreateInvestigationGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["role_arn"] = role_arn
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if retention_in_days is not None:
-            input["retention_in_days"] = retention_in_days
+            input_["retention_in_days"] = retention_in_days
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tag_key_boundaries is not None:
-            input["tag_key_boundaries"] = tag_key_boundaries
+            input_["tag_key_boundaries"] = tag_key_boundaries
         if chatbot_notification_channel is not None:
-            input["chatbot_notification_channel"] = chatbot_notification_channel
+            input_["chatbot_notification_channel"] = chatbot_notification_channel
         if is_cloud_trail_event_history_enabled is not None:
-            input["is_cloud_trail_event_history_enabled"] = (
+            input_["is_cloud_trail_event_history_enabled"] = (
                 is_cloud_trail_event_history_enabled
             )
         if cross_account_configurations is not None:
-            input["cross_account_configurations"] = cross_account_configurations
+            input_["cross_account_configurations"] = cross_account_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -148,11 +148,11 @@ class InvestigationGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.get_investigation_group_request.GetInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.get_investigation_group_request.GetInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,25 +205,25 @@ class InvestigationGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.update_investigation_group_request.UpdateInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.update_investigation_group_request.UpdateInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tag_key_boundaries is not None:
-            input["tag_key_boundaries"] = tag_key_boundaries
+            input_["tag_key_boundaries"] = tag_key_boundaries
         if chatbot_notification_channel is not None:
-            input["chatbot_notification_channel"] = chatbot_notification_channel
+            input_["chatbot_notification_channel"] = chatbot_notification_channel
         if is_cloud_trail_event_history_enabled is not None:
-            input["is_cloud_trail_event_history_enabled"] = (
+            input_["is_cloud_trail_event_history_enabled"] = (
                 is_cloud_trail_event_history_enabled
             )
         if cross_account_configurations is not None:
-            input["cross_account_configurations"] = cross_account_configurations
+            input_["cross_account_configurations"] = cross_account_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,11 +254,11 @@ class InvestigationGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.delete_investigation_group_request.DeleteInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.delete_investigation_group_request.DeleteInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,14 +295,14 @@ class InvestigationGroup:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.list_investigation_groups_input.ListInvestigationGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_aiops.types.list_investigation_groups_input.ListInvestigationGroupsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,28 +365,28 @@ class AsyncInvestigationGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.create_investigation_group_input.CreateInvestigationGroupInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["role_arn"] = role_arn
+        input_: aws_sdk_aiops.types.create_investigation_group_input.CreateInvestigationGroupInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["role_arn"] = role_arn
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if retention_in_days is not None:
-            input["retention_in_days"] = retention_in_days
+            input_["retention_in_days"] = retention_in_days
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tag_key_boundaries is not None:
-            input["tag_key_boundaries"] = tag_key_boundaries
+            input_["tag_key_boundaries"] = tag_key_boundaries
         if chatbot_notification_channel is not None:
-            input["chatbot_notification_channel"] = chatbot_notification_channel
+            input_["chatbot_notification_channel"] = chatbot_notification_channel
         if is_cloud_trail_event_history_enabled is not None:
-            input["is_cloud_trail_event_history_enabled"] = (
+            input_["is_cloud_trail_event_history_enabled"] = (
                 is_cloud_trail_event_history_enabled
             )
         if cross_account_configurations is not None:
-            input["cross_account_configurations"] = cross_account_configurations
+            input_["cross_account_configurations"] = cross_account_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,11 +420,11 @@ class AsyncInvestigationGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.get_investigation_group_request.GetInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.get_investigation_group_request.GetInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,25 +478,25 @@ class AsyncInvestigationGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.update_investigation_group_request.UpdateInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.update_investigation_group_request.UpdateInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if tag_key_boundaries is not None:
-            input["tag_key_boundaries"] = tag_key_boundaries
+            input_["tag_key_boundaries"] = tag_key_boundaries
         if chatbot_notification_channel is not None:
-            input["chatbot_notification_channel"] = chatbot_notification_channel
+            input_["chatbot_notification_channel"] = chatbot_notification_channel
         if is_cloud_trail_event_history_enabled is not None:
-            input["is_cloud_trail_event_history_enabled"] = (
+            input_["is_cloud_trail_event_history_enabled"] = (
                 is_cloud_trail_event_history_enabled
             )
         if cross_account_configurations is not None:
-            input["cross_account_configurations"] = cross_account_configurations
+            input_["cross_account_configurations"] = cross_account_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -528,11 +528,11 @@ class AsyncInvestigationGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.delete_investigation_group_request.DeleteInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.delete_investigation_group_request.DeleteInvestigationGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -570,14 +570,14 @@ class AsyncInvestigationGroup:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.list_investigation_groups_input.ListInvestigationGroupsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_aiops.types.list_investigation_groups_input.ListInvestigationGroupsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

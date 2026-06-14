@@ -79,46 +79,43 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_elasticsearch_service.types.list_domain_names_request.ListDomainNamesRequest,
+    input_: aws_sdk_elasticsearch_service.types.list_domain_names_request.ListDomainNamesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2015-01-01/domain"
     params: dict[str, str] = {}
-    if "engine_type" in input:
-        params["engineType"] = str(input["engine_type"])
+    if "engine_type" in input_:
+        params["engineType"] = str(input_["engine_type"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_domain_names(
     options: OperationOptions,
-    input: aws_sdk_elasticsearch_service.types.list_domain_names_request.ListDomainNamesRequest,
+    input_: aws_sdk_elasticsearch_service.types.list_domain_names_request.ListDomainNamesRequest,
 ) -> tuple[
     aws_sdk_elasticsearch_service.types.list_domain_names_response.ListDomainNamesResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -127,16 +124,17 @@ def list_domain_names(
 
 async def async_list_domain_names(
     options: AsyncOperationOptions,
-    input: aws_sdk_elasticsearch_service.types.list_domain_names_request.ListDomainNamesRequest,
+    input_: aws_sdk_elasticsearch_service.types.list_domain_names_request.ListDomainNamesRequest,
 ) -> tuple[
     aws_sdk_elasticsearch_service.types.list_domain_names_response.ListDomainNamesResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

@@ -120,31 +120,31 @@ class PricingRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.create_pricing_rule_input.CreatePricingRuleInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.create_pricing_rule_input.CreatePricingRuleInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["scope"] = scope
-        input["type"] = type
+            input_["description"] = description
+        input_["scope"] = scope
+        input_["type"] = type
         if modifier_percentage is not None:
-            input["modifier_percentage"] = modifier_percentage
+            input_["modifier_percentage"] = modifier_percentage
         if service is not None:
-            input["service"] = service
+            input_["service"] = service
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if billing_entity is not None:
-            input["billing_entity"] = billing_entity
+            input_["billing_entity"] = billing_entity
         if tiering is not None:
-            input["tiering"] = tiering
+            input_["tiering"] = tiering
         if usage_type is not None:
-            input["usage_type"] = usage_type
+            input_["usage_type"] = usage_type
         if operation is not None:
-            input["operation"] = operation
+            input_["operation"] = operation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,21 +197,21 @@ class PricingRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.update_pricing_rule_input.UpdatePricingRuleInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.update_pricing_rule_input.UpdatePricingRuleInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if modifier_percentage is not None:
-            input["modifier_percentage"] = modifier_percentage
+            input_["modifier_percentage"] = modifier_percentage
         if tiering is not None:
-            input["tiering"] = tiering
+            input_["tiering"] = tiering
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,11 +244,11 @@ class PricingRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.delete_pricing_rule_input.DeletePricingRuleInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.delete_pricing_rule_input.DeletePricingRuleInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,18 +293,18 @@ class PricingRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_pricing_rules_input.ListPricingRulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_pricing_rules_input.ListPricingRulesInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
+            input_["billing_period"] = billing_period
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,17 +347,17 @@ class PricingRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_pricing_rules_associated_to_pricing_plan_input.ListPricingRulesAssociatedToPricingPlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_pricing_rules_associated_to_pricing_plan_input.ListPricingRulesAssociatedToPricingPlanInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
-        input["pricing_plan_arn"] = pricing_plan_arn
+            input_["billing_period"] = billing_period
+        input_["pricing_plan_arn"] = pricing_plan_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,31 +432,31 @@ class AsyncPricingRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.create_pricing_rule_input.CreatePricingRuleInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.create_pricing_rule_input.CreatePricingRuleInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["scope"] = scope
-        input["type"] = type
+            input_["description"] = description
+        input_["scope"] = scope
+        input_["type"] = type
         if modifier_percentage is not None:
-            input["modifier_percentage"] = modifier_percentage
+            input_["modifier_percentage"] = modifier_percentage
         if service is not None:
-            input["service"] = service
+            input_["service"] = service
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if billing_entity is not None:
-            input["billing_entity"] = billing_entity
+            input_["billing_entity"] = billing_entity
         if tiering is not None:
-            input["tiering"] = tiering
+            input_["tiering"] = tiering
         if usage_type is not None:
-            input["usage_type"] = usage_type
+            input_["usage_type"] = usage_type
         if operation is not None:
-            input["operation"] = operation
+            input_["operation"] = operation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -510,21 +510,21 @@ class AsyncPricingRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.update_pricing_rule_input.UpdatePricingRuleInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.update_pricing_rule_input.UpdatePricingRuleInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if modifier_percentage is not None:
-            input["modifier_percentage"] = modifier_percentage
+            input_["modifier_percentage"] = modifier_percentage
         if tiering is not None:
-            input["tiering"] = tiering
+            input_["tiering"] = tiering
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -558,11 +558,11 @@ class AsyncPricingRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.delete_pricing_rule_input.DeletePricingRuleInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_billingconductor.types.delete_pricing_rule_input.DeletePricingRuleInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -608,18 +608,18 @@ class AsyncPricingRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_pricing_rules_input.ListPricingRulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_pricing_rules_input.ListPricingRulesInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
+            input_["billing_period"] = billing_period
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -663,17 +663,17 @@ class AsyncPricingRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_billingconductor.types.list_pricing_rules_associated_to_pricing_plan_input.ListPricingRulesAssociatedToPricingPlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_billingconductor.types.list_pricing_rules_associated_to_pricing_plan_input.ListPricingRulesAssociatedToPricingPlanInput = {}  # type: ignore[typeddict-item]
         if billing_period is not None:
-            input["billing_period"] = billing_period
-        input["pricing_plan_arn"] = pricing_plan_arn
+            input_["billing_period"] = billing_period
+        input_["pricing_plan_arn"] = pricing_plan_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

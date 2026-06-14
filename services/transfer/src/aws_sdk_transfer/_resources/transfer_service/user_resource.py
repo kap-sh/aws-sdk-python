@@ -98,27 +98,27 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
         if home_directory is not None:
-            input["home_directory"] = home_directory
+            input_["home_directory"] = home_directory
         if home_directory_type is not None:
-            input["home_directory_type"] = home_directory_type
+            input_["home_directory_type"] = home_directory_type
         if home_directory_mappings is not None:
-            input["home_directory_mappings"] = home_directory_mappings
+            input_["home_directory_mappings"] = home_directory_mappings
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if posix_profile is not None:
-            input["posix_profile"] = posix_profile
-        input["role"] = role
-        input["server_id"] = server_id
+            input_["posix_profile"] = posix_profile
+        input_["role"] = role
+        input_["server_id"] = server_id
         if ssh_public_key_body is not None:
-            input["ssh_public_key_body"] = ssh_public_key_body
+            input_["ssh_public_key_body"] = ssh_public_key_body
         if tags is not None:
-            input["tags"] = tags
-        input["user_name"] = user_name
+            input_["tags"] = tags
+        input_["user_name"] = user_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -153,12 +153,12 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["user_name"] = user_name
+        input_: aws_sdk_transfer.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["user_name"] = user_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,24 +213,24 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
         if home_directory is not None:
-            input["home_directory"] = home_directory
+            input_["home_directory"] = home_directory
         if home_directory_type is not None:
-            input["home_directory_type"] = home_directory_type
+            input_["home_directory_type"] = home_directory_type
         if home_directory_mappings is not None:
-            input["home_directory_mappings"] = home_directory_mappings
+            input_["home_directory_mappings"] = home_directory_mappings
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if posix_profile is not None:
-            input["posix_profile"] = posix_profile
+            input_["posix_profile"] = posix_profile
         if role is not None:
-            input["role"] = role
-        input["server_id"] = server_id
-        input["user_name"] = user_name
+            input_["role"] = role
+        input_["server_id"] = server_id
+        input_["user_name"] = user_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,12 +263,12 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["user_name"] = user_name
+        input_: aws_sdk_transfer.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["user_name"] = user_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,15 +305,15 @@ class UserResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["server_id"] = server_id
+            input_["next_token"] = next_token
+        input_["server_id"] = server_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,27 +380,27 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
         if home_directory is not None:
-            input["home_directory"] = home_directory
+            input_["home_directory"] = home_directory
         if home_directory_type is not None:
-            input["home_directory_type"] = home_directory_type
+            input_["home_directory_type"] = home_directory_type
         if home_directory_mappings is not None:
-            input["home_directory_mappings"] = home_directory_mappings
+            input_["home_directory_mappings"] = home_directory_mappings
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if posix_profile is not None:
-            input["posix_profile"] = posix_profile
-        input["role"] = role
-        input["server_id"] = server_id
+            input_["posix_profile"] = posix_profile
+        input_["role"] = role
+        input_["server_id"] = server_id
         if ssh_public_key_body is not None:
-            input["ssh_public_key_body"] = ssh_public_key_body
+            input_["ssh_public_key_body"] = ssh_public_key_body
         if tags is not None:
-            input["tags"] = tags
-        input["user_name"] = user_name
+            input_["tags"] = tags
+        input_["user_name"] = user_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,12 +436,12 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["user_name"] = user_name
+        input_: aws_sdk_transfer.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["user_name"] = user_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -497,24 +497,24 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
         if home_directory is not None:
-            input["home_directory"] = home_directory
+            input_["home_directory"] = home_directory
         if home_directory_type is not None:
-            input["home_directory_type"] = home_directory_type
+            input_["home_directory_type"] = home_directory_type
         if home_directory_mappings is not None:
-            input["home_directory_mappings"] = home_directory_mappings
+            input_["home_directory_mappings"] = home_directory_mappings
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if posix_profile is not None:
-            input["posix_profile"] = posix_profile
+            input_["posix_profile"] = posix_profile
         if role is not None:
-            input["role"] = role
-        input["server_id"] = server_id
-        input["user_name"] = user_name
+            input_["role"] = role
+        input_["server_id"] = server_id
+        input_["user_name"] = user_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -548,12 +548,12 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["server_id"] = server_id
-        input["user_name"] = user_name
+        input_: aws_sdk_transfer.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["server_id"] = server_id
+        input_["user_name"] = user_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,15 +591,15 @@ class AsyncUserResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["server_id"] = server_id
+            input_["next_token"] = next_token
+        input_["server_id"] = server_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

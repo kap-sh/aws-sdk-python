@@ -17,6 +17,12 @@ from aws_sdk_medical_imaging._auth._providers import (
 )
 from aws_sdk_medical_imaging._auth._zapros_handler import AuthMiddleware
 from aws_sdk_medical_imaging._pagination import resolve_path as _resolve_path
+from aws_sdk_medical_imaging._resources.ahi_gateway_service.datastore_resource import (
+    AsyncDatastoreResource,
+)
+from aws_sdk_medical_imaging._resources.ahi_gateway_service.image_set_resource import (
+    AsyncImageSetResource,
+)
 from aws_sdk_medical_imaging._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -151,6 +157,9 @@ class AsyncMedicalImagingClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.datastore_resource = AsyncDatastoreResource(self)
+        self.image_set_resource = AsyncImageSetResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncMedicalImagingClientConfig] = None
@@ -216,17 +225,17 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.copy_image_set_request.CopyImageSetRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["source_image_set_id"] = source_image_set_id
-        input["copy_image_set_information"] = copy_image_set_information
+        input_: aws_sdk_medical_imaging.types.copy_image_set_request.CopyImageSetRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["source_image_set_id"] = source_image_set_id
+        input_["copy_image_set_information"] = copy_image_set_information
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
         if promote_to_primary is not None:
-            input["promote_to_primary"] = promote_to_primary
+            input_["promote_to_primary"] = promote_to_primary
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -264,12 +273,12 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.delete_image_set_request.DeleteImageSetRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["image_set_id"] = image_set_id
+        input_: aws_sdk_medical_imaging.types.delete_image_set_request.DeleteImageSetRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["image_set_id"] = image_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,12 +314,12 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.get_dicom_import_job_request.GetDICOMImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["job_id"] = job_id
+        input_: aws_sdk_medical_imaging.types.get_dicom_import_job_request.GetDICOMImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -349,13 +358,13 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.get_image_frame_request.GetImageFrameRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["image_set_id"] = image_set_id
-        input["image_frame_information"] = image_frame_information
+        input_: aws_sdk_medical_imaging.types.get_image_frame_request.GetImageFrameRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["image_set_id"] = image_set_id
+        input_["image_frame_information"] = image_frame_information
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,14 +404,14 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.get_image_set_request.GetImageSetRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["image_set_id"] = image_set_id
+        input_: aws_sdk_medical_imaging.types.get_image_set_request.GetImageSetRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["image_set_id"] = image_set_id
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -443,14 +452,14 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.get_image_set_metadata_request.GetImageSetMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["image_set_id"] = image_set_id
+        input_: aws_sdk_medical_imaging.types.get_image_set_metadata_request.GetImageSetMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["image_set_id"] = image_set_id
         if version_id is not None:
-            input["version_id"] = version_id
+            input_["version_id"] = version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -494,17 +503,17 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.list_dicom_import_jobs_request.ListDICOMImportJobsRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_medical_imaging.types.list_dicom_import_jobs_request.ListDICOMImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
         if job_status is not None:
-            input["job_status"] = job_status
+            input_["job_status"] = job_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,16 +584,16 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.list_image_set_versions_request.ListImageSetVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["image_set_id"] = image_set_id
+        input_: aws_sdk_medical_imaging.types.list_image_set_versions_request.ListImageSetVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["image_set_id"] = image_set_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -645,11 +654,11 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_medical_imaging.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -693,17 +702,17 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.search_image_sets_request.SearchImageSetsRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
+        input_: aws_sdk_medical_imaging.types.search_image_sets_request.SearchImageSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
         if search_criteria is not None:
-            input["search_criteria"] = search_criteria
+            input_["search_criteria"] = search_criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -784,21 +793,21 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.start_dicom_import_job_request.StartDICOMImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_medical_imaging.types.start_dicom_import_job_request.StartDICOMImportJobRequest = {}  # type: ignore[typeddict-item]
         if job_name is not None:
-            input["job_name"] = job_name
-        input["data_access_role_arn"] = data_access_role_arn
-        input["client_token"] = client_token
-        input["datastore_id"] = datastore_id
-        input["input_s3_uri"] = input_s3_uri
-        input["output_s3_uri"] = output_s3_uri
+            input_["job_name"] = job_name
+        input_["data_access_role_arn"] = data_access_role_arn
+        input_["client_token"] = client_token
+        input_["datastore_id"] = datastore_id
+        input_["input_s3_uri"] = input_s3_uri
+        input_["output_s3_uri"] = output_s3_uri
         if input_owner_account_id is not None:
-            input["input_owner_account_id"] = input_owner_account_id
+            input_["input_owner_account_id"] = input_owner_account_id
         if import_configuration is not None:
-            input["import_configuration"] = import_configuration
+            input_["import_configuration"] = import_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -834,12 +843,12 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_medical_imaging.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -875,12 +884,12 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_medical_imaging.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -924,18 +933,18 @@ class AsyncMedicalImagingClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_medical_imaging.types.update_image_set_metadata_request.UpdateImageSetMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["datastore_id"] = datastore_id
-        input["image_set_id"] = image_set_id
-        input["latest_version_id"] = latest_version_id
+        input_: aws_sdk_medical_imaging.types.update_image_set_metadata_request.UpdateImageSetMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["datastore_id"] = datastore_id
+        input_["image_set_id"] = image_set_id
+        input_["latest_version_id"] = latest_version_id
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
         if include_study_image_sets is not None:
-            input["include_study_image_sets"] = include_study_image_sets
-        input["update_image_set_metadata_updates"] = update_image_set_metadata_updates
+            input_["include_study_image_sets"] = include_study_image_sets
+        input_["update_image_set_metadata_updates"] = update_image_set_metadata_updates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

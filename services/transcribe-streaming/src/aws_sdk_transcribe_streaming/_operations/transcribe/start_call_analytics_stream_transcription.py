@@ -16,13 +16,6 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.start_call_analytics_stream_transcription_response
 
 
-def build_request(
-    options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_transcribe_streaming.types.start_call_analytics_stream_transcription_request.StartCallAnalyticsStreamTranscriptionRequest,
-) -> zapros.Request:
-    raise NotImplementedError("event stream output is not yet supported")
-
-
 def start_call_analytics_stream_transcription(
     options: OperationOptions,
     input: aws_sdk_transcribe_streaming.types.start_call_analytics_stream_transcription_request.StartCallAnalyticsStreamTranscriptionRequest,

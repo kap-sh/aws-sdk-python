@@ -72,16 +72,16 @@ class GuardrailResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.apply_guardrail_request.ApplyGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
-        input["guardrail_version"] = guardrail_version
-        input["source"] = source
-        input["content"] = content
+        input_: aws_sdk_bedrock_runtime.types.apply_guardrail_request.ApplyGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
+        input_["guardrail_version"] = guardrail_version
+        input_["source"] = source
+        input_["content"] = content
         if output_scope is not None:
-            input["output_scope"] = output_scope
+            input_["output_scope"] = output_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,16 +132,16 @@ class AsyncGuardrailResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_runtime.types.apply_guardrail_request.ApplyGuardrailRequest = {}  # type: ignore[typeddict-item]
-        input["guardrail_identifier"] = guardrail_identifier
-        input["guardrail_version"] = guardrail_version
-        input["source"] = source
-        input["content"] = content
+        input_: aws_sdk_bedrock_runtime.types.apply_guardrail_request.ApplyGuardrailRequest = {}  # type: ignore[typeddict-item]
+        input_["guardrail_identifier"] = guardrail_identifier
+        input_["guardrail_version"] = guardrail_version
+        input_["source"] = source
+        input_["content"] = content
         if output_scope is not None:
-            input["output_scope"] = output_scope
+            input_["output_scope"] = output_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

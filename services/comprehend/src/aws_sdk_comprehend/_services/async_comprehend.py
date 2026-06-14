@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_comprehend._auth._signers
+import aws_sdk_comprehend._auth._sigv4
 from aws_sdk_comprehend._auth._identity import Credentials
 from aws_sdk_comprehend._auth._providers import (
     CredentialsProvider,
@@ -393,11 +395,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.batch_detect_dominant_language_request.BatchDetectDominantLanguageRequest = {}  # type: ignore[typeddict-item]
-        input["text_list"] = text_list
+        input_: aws_sdk_comprehend.types.batch_detect_dominant_language_request.BatchDetectDominantLanguageRequest = {}  # type: ignore[typeddict-item]
+        input_["text_list"] = text_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -433,12 +435,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.batch_detect_entities_request.BatchDetectEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["text_list"] = text_list
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.batch_detect_entities_request.BatchDetectEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["text_list"] = text_list
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,12 +476,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.batch_detect_key_phrases_request.BatchDetectKeyPhrasesRequest = {}  # type: ignore[typeddict-item]
-        input["text_list"] = text_list
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.batch_detect_key_phrases_request.BatchDetectKeyPhrasesRequest = {}  # type: ignore[typeddict-item]
+        input_["text_list"] = text_list
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -515,12 +517,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.batch_detect_sentiment_request.BatchDetectSentimentRequest = {}  # type: ignore[typeddict-item]
-        input["text_list"] = text_list
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.batch_detect_sentiment_request.BatchDetectSentimentRequest = {}  # type: ignore[typeddict-item]
+        input_["text_list"] = text_list
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -556,12 +558,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.batch_detect_syntax_request.BatchDetectSyntaxRequest = {}  # type: ignore[typeddict-item]
-        input["text_list"] = text_list
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.batch_detect_syntax_request.BatchDetectSyntaxRequest = {}  # type: ignore[typeddict-item]
+        input_["text_list"] = text_list
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,12 +599,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.batch_detect_targeted_sentiment_request.BatchDetectTargetedSentimentRequest = {}  # type: ignore[typeddict-item]
-        input["text_list"] = text_list
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.batch_detect_targeted_sentiment_request.BatchDetectTargetedSentimentRequest = {}  # type: ignore[typeddict-item]
+        input_["text_list"] = text_list
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -648,17 +650,17 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.classify_document_request.ClassifyDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.classify_document_request.ClassifyDocumentRequest = {}  # type: ignore[typeddict-item]
         if text is not None:
-            input["text"] = text
-        input["endpoint_arn"] = endpoint_arn
+            input_["text"] = text
+        input_["endpoint_arn"] = endpoint_arn
         if bytes is not None:
-            input["bytes"] = bytes
+            input_["bytes"] = bytes
         if document_reader_config is not None:
-            input["document_reader_config"] = document_reader_config
+            input_["document_reader_config"] = document_reader_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -694,12 +696,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.contains_pii_entities_request.ContainsPiiEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.contains_pii_entities_request.ContainsPiiEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -751,21 +753,21 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["flywheel_arn"] = flywheel_arn
-        input["dataset_name"] = dataset_name
+        input_: aws_sdk_comprehend.types.create_dataset_request.CreateDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["flywheel_arn"] = flywheel_arn
+        input_["dataset_name"] = dataset_name
         if dataset_type is not None:
-            input["dataset_type"] = dataset_type
+            input_["dataset_type"] = dataset_type
         if description is not None:
-            input["description"] = description
-        input["input_data_config"] = input_data_config
+            input_["description"] = description
+        input_["input_data_config"] = input_data_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -835,32 +837,32 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.create_document_classifier_request.CreateDocumentClassifierRequest = {}  # type: ignore[typeddict-item]
-        input["document_classifier_name"] = document_classifier_name
+        input_: aws_sdk_comprehend.types.create_document_classifier_request.CreateDocumentClassifierRequest = {}  # type: ignore[typeddict-item]
+        input_["document_classifier_name"] = document_classifier_name
         if version_name is not None:
-            input["version_name"] = version_name
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["version_name"] = version_name
+        input_["data_access_role_arn"] = data_access_role_arn
         if tags is not None:
-            input["tags"] = tags
-        input["input_data_config"] = input_data_config
+            input_["tags"] = tags
+        input_["input_data_config"] = input_data_config
         if output_data_config is not None:
-            input["output_data_config"] = output_data_config
+            input_["output_data_config"] = output_data_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["language_code"] = language_code
+            input_["client_request_token"] = client_request_token
+        input_["language_code"] = language_code
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if model_kms_key_id is not None:
-            input["model_kms_key_id"] = model_kms_key_id
+            input_["model_kms_key_id"] = model_kms_key_id
         if model_policy is not None:
-            input["model_policy"] = model_policy
+            input_["model_policy"] = model_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -914,22 +916,22 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.create_endpoint_request.CreateEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_name"] = endpoint_name
+        input_: aws_sdk_comprehend.types.create_endpoint_request.CreateEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_name"] = endpoint_name
         if model_arn is not None:
-            input["model_arn"] = model_arn
-        input["desired_inference_units"] = desired_inference_units
+            input_["model_arn"] = model_arn
+        input_["desired_inference_units"] = desired_inference_units
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if data_access_role_arn is not None:
-            input["data_access_role_arn"] = data_access_role_arn
+            input_["data_access_role_arn"] = data_access_role_arn
         if flywheel_arn is not None:
-            input["flywheel_arn"] = flywheel_arn
+            input_["flywheel_arn"] = flywheel_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -991,28 +993,28 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.create_entity_recognizer_request.CreateEntityRecognizerRequest = {}  # type: ignore[typeddict-item]
-        input["recognizer_name"] = recognizer_name
+        input_: aws_sdk_comprehend.types.create_entity_recognizer_request.CreateEntityRecognizerRequest = {}  # type: ignore[typeddict-item]
+        input_["recognizer_name"] = recognizer_name
         if version_name is not None:
-            input["version_name"] = version_name
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["version_name"] = version_name
+        input_["data_access_role_arn"] = data_access_role_arn
         if tags is not None:
-            input["tags"] = tags
-        input["input_data_config"] = input_data_config
+            input_["tags"] = tags
+        input_["input_data_config"] = input_data_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["language_code"] = language_code
+            input_["client_request_token"] = client_request_token
+        input_["language_code"] = language_code
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if model_kms_key_id is not None:
-            input["model_kms_key_id"] = model_kms_key_id
+            input_["model_kms_key_id"] = model_kms_key_id
         if model_policy is not None:
-            input["model_policy"] = model_policy
+            input_["model_policy"] = model_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1068,25 +1070,25 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.create_flywheel_request.CreateFlywheelRequest = {}  # type: ignore[typeddict-item]
-        input["flywheel_name"] = flywheel_name
+        input_: aws_sdk_comprehend.types.create_flywheel_request.CreateFlywheelRequest = {}  # type: ignore[typeddict-item]
+        input_["flywheel_name"] = flywheel_name
         if active_model_arn is not None:
-            input["active_model_arn"] = active_model_arn
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["active_model_arn"] = active_model_arn
+        input_["data_access_role_arn"] = data_access_role_arn
         if task_config is not None:
-            input["task_config"] = task_config
+            input_["task_config"] = task_config
         if model_type is not None:
-            input["model_type"] = model_type
-        input["data_lake_s3_uri"] = data_lake_s3_uri
+            input_["model_type"] = model_type
+        input_["data_lake_s3_uri"] = data_lake_s3_uri
         if data_security_config is not None:
-            input["data_security_config"] = data_security_config
+            input_["data_security_config"] = data_security_config
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1120,11 +1122,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.delete_document_classifier_request.DeleteDocumentClassifierRequest = {}  # type: ignore[typeddict-item]
-        input["document_classifier_arn"] = document_classifier_arn
+        input_: aws_sdk_comprehend.types.delete_document_classifier_request.DeleteDocumentClassifierRequest = {}  # type: ignore[typeddict-item]
+        input_["document_classifier_arn"] = document_classifier_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1158,11 +1160,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.delete_endpoint_request.DeleteEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_comprehend.types.delete_endpoint_request.DeleteEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1196,11 +1198,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.delete_entity_recognizer_request.DeleteEntityRecognizerRequest = {}  # type: ignore[typeddict-item]
-        input["entity_recognizer_arn"] = entity_recognizer_arn
+        input_: aws_sdk_comprehend.types.delete_entity_recognizer_request.DeleteEntityRecognizerRequest = {}  # type: ignore[typeddict-item]
+        input_["entity_recognizer_arn"] = entity_recognizer_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1234,11 +1236,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.delete_flywheel_request.DeleteFlywheelRequest = {}  # type: ignore[typeddict-item]
-        input["flywheel_arn"] = flywheel_arn
+        input_: aws_sdk_comprehend.types.delete_flywheel_request.DeleteFlywheelRequest = {}  # type: ignore[typeddict-item]
+        input_["flywheel_arn"] = flywheel_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1276,13 +1278,13 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_comprehend.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1316,11 +1318,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["dataset_arn"] = dataset_arn
+        input_: aws_sdk_comprehend.types.describe_dataset_request.DescribeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["dataset_arn"] = dataset_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1354,11 +1356,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_document_classification_job_request.DescribeDocumentClassificationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_document_classification_job_request.DescribeDocumentClassificationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1392,11 +1394,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_document_classifier_request.DescribeDocumentClassifierRequest = {}  # type: ignore[typeddict-item]
-        input["document_classifier_arn"] = document_classifier_arn
+        input_: aws_sdk_comprehend.types.describe_document_classifier_request.DescribeDocumentClassifierRequest = {}  # type: ignore[typeddict-item]
+        input_["document_classifier_arn"] = document_classifier_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1430,11 +1432,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_dominant_language_detection_job_request.DescribeDominantLanguageDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_dominant_language_detection_job_request.DescribeDominantLanguageDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1468,11 +1470,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_endpoint_request.DescribeEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_comprehend.types.describe_endpoint_request.DescribeEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1506,11 +1508,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_entities_detection_job_request.DescribeEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_entities_detection_job_request.DescribeEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1544,11 +1546,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_entity_recognizer_request.DescribeEntityRecognizerRequest = {}  # type: ignore[typeddict-item]
-        input["entity_recognizer_arn"] = entity_recognizer_arn
+        input_: aws_sdk_comprehend.types.describe_entity_recognizer_request.DescribeEntityRecognizerRequest = {}  # type: ignore[typeddict-item]
+        input_["entity_recognizer_arn"] = entity_recognizer_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1582,11 +1584,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_events_detection_job_request.DescribeEventsDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_events_detection_job_request.DescribeEventsDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1620,11 +1622,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_flywheel_request.DescribeFlywheelRequest = {}  # type: ignore[typeddict-item]
-        input["flywheel_arn"] = flywheel_arn
+        input_: aws_sdk_comprehend.types.describe_flywheel_request.DescribeFlywheelRequest = {}  # type: ignore[typeddict-item]
+        input_["flywheel_arn"] = flywheel_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1660,12 +1662,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_flywheel_iteration_request.DescribeFlywheelIterationRequest = {}  # type: ignore[typeddict-item]
-        input["flywheel_arn"] = flywheel_arn
-        input["flywheel_iteration_id"] = flywheel_iteration_id
+        input_: aws_sdk_comprehend.types.describe_flywheel_iteration_request.DescribeFlywheelIterationRequest = {}  # type: ignore[typeddict-item]
+        input_["flywheel_arn"] = flywheel_arn
+        input_["flywheel_iteration_id"] = flywheel_iteration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1699,11 +1701,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_key_phrases_detection_job_request.DescribeKeyPhrasesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_key_phrases_detection_job_request.DescribeKeyPhrasesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1737,11 +1739,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_pii_entities_detection_job_request.DescribePiiEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_pii_entities_detection_job_request.DescribePiiEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1775,11 +1777,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_resource_policy_request.DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_comprehend.types.describe_resource_policy_request.DescribeResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1813,11 +1815,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_sentiment_detection_job_request.DescribeSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_sentiment_detection_job_request.DescribeSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1851,11 +1853,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_targeted_sentiment_detection_job_request.DescribeTargetedSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_targeted_sentiment_detection_job_request.DescribeTargetedSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1889,11 +1891,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.describe_topics_detection_job_request.DescribeTopicsDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.describe_topics_detection_job_request.DescribeTopicsDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1927,11 +1929,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.detect_dominant_language_request.DetectDominantLanguageRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
+        input_: aws_sdk_comprehend.types.detect_dominant_language_request.DetectDominantLanguageRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1983,20 +1985,20 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.detect_entities_request.DetectEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.detect_entities_request.DetectEntitiesRequest = {}  # type: ignore[typeddict-item]
         if text is not None:
-            input["text"] = text
+            input_["text"] = text
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if endpoint_arn is not None:
-            input["endpoint_arn"] = endpoint_arn
+            input_["endpoint_arn"] = endpoint_arn
         if bytes is not None:
-            input["bytes"] = bytes
+            input_["bytes"] = bytes
         if document_reader_config is not None:
-            input["document_reader_config"] = document_reader_config
+            input_["document_reader_config"] = document_reader_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2034,12 +2036,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.detect_key_phrases_request.DetectKeyPhrasesRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.detect_key_phrases_request.DetectKeyPhrasesRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2075,12 +2077,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.detect_pii_entities_request.DetectPiiEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.detect_pii_entities_request.DetectPiiEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2116,12 +2118,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.detect_sentiment_request.DetectSentimentRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.detect_sentiment_request.DetectSentimentRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2157,12 +2159,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.detect_syntax_request.DetectSyntaxRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.detect_syntax_request.DetectSyntaxRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2198,12 +2200,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.detect_targeted_sentiment_request.DetectTargetedSentimentRequest = {}  # type: ignore[typeddict-item]
-        input["text"] = text
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.detect_targeted_sentiment_request.DetectTargetedSentimentRequest = {}  # type: ignore[typeddict-item]
+        input_["text"] = text
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2239,12 +2241,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.detect_toxic_content_request.DetectToxicContentRequest = {}  # type: ignore[typeddict-item]
-        input["text_segments"] = text_segments
-        input["language_code"] = language_code
+        input_: aws_sdk_comprehend.types.detect_toxic_content_request.DetectToxicContentRequest = {}  # type: ignore[typeddict-item]
+        input_["text_segments"] = text_segments
+        input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2296,21 +2298,21 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.import_model_request.ImportModelRequest = {}  # type: ignore[typeddict-item]
-        input["source_model_arn"] = source_model_arn
+        input_: aws_sdk_comprehend.types.import_model_request.ImportModelRequest = {}  # type: ignore[typeddict-item]
+        input_["source_model_arn"] = source_model_arn
         if model_name is not None:
-            input["model_name"] = model_name
+            input_["model_name"] = model_name
         if version_name is not None:
-            input["version_name"] = version_name
+            input_["version_name"] = version_name
         if model_kms_key_id is not None:
-            input["model_kms_key_id"] = model_kms_key_id
+            input_["model_kms_key_id"] = model_kms_key_id
         if data_access_role_arn is not None:
-            input["data_access_role_arn"] = data_access_role_arn
+            input_["data_access_role_arn"] = data_access_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2356,18 +2358,18 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_datasets_request.ListDatasetsRequest = {}  # type: ignore[typeddict-item]
         if flywheel_arn is not None:
-            input["flywheel_arn"] = flywheel_arn
+            input_["flywheel_arn"] = flywheel_arn
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2409,16 +2411,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_document_classification_jobs_request.ListDocumentClassificationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_document_classification_jobs_request.ListDocumentClassificationJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2460,16 +2462,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_document_classifiers_request.ListDocumentClassifiersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_document_classifiers_request.ListDocumentClassifiersRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2507,14 +2509,14 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_document_classifier_summaries_request.ListDocumentClassifierSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_document_classifier_summaries_request.ListDocumentClassifierSummariesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2556,16 +2558,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_dominant_language_detection_jobs_request.ListDominantLanguageDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_dominant_language_detection_jobs_request.ListDominantLanguageDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2607,16 +2609,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_endpoints_request.ListEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_endpoints_request.ListEndpointsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2687,16 +2689,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_entities_detection_jobs_request.ListEntitiesDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_entities_detection_jobs_request.ListEntitiesDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2738,16 +2740,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_entity_recognizers_request.ListEntityRecognizersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_entity_recognizers_request.ListEntityRecognizersRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2785,14 +2787,14 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_entity_recognizer_summaries_request.ListEntityRecognizerSummariesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_entity_recognizer_summaries_request.ListEntityRecognizerSummariesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2834,16 +2836,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_events_detection_jobs_request.ListEventsDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_events_detection_jobs_request.ListEventsDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2887,17 +2889,17 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_flywheel_iteration_history_request.ListFlywheelIterationHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["flywheel_arn"] = flywheel_arn
+        input_: aws_sdk_comprehend.types.list_flywheel_iteration_history_request.ListFlywheelIterationHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["flywheel_arn"] = flywheel_arn
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2939,16 +2941,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_flywheels_request.ListFlywheelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_flywheels_request.ListFlywheelsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2990,16 +2992,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_key_phrases_detection_jobs_request.ListKeyPhrasesDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_key_phrases_detection_jobs_request.ListKeyPhrasesDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3041,16 +3043,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_pii_entities_detection_jobs_request.ListPiiEntitiesDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_pii_entities_detection_jobs_request.ListPiiEntitiesDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3121,16 +3123,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_sentiment_detection_jobs_request.ListSentimentDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_sentiment_detection_jobs_request.ListSentimentDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3164,11 +3166,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_comprehend.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3210,16 +3212,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_targeted_sentiment_detection_jobs_request.ListTargetedSentimentDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_targeted_sentiment_detection_jobs_request.ListTargetedSentimentDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3261,16 +3263,16 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.list_topics_detection_jobs_request.ListTopicsDetectionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.list_topics_detection_jobs_request.ListTopicsDetectionJobsRequest = {}  # type: ignore[typeddict-item]
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3310,14 +3312,14 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["resource_policy"] = resource_policy
+        input_: aws_sdk_comprehend.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["resource_policy"] = resource_policy
         if policy_revision_id is not None:
-            input["policy_revision_id"] = policy_revision_id
+            input_["policy_revision_id"] = policy_revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3377,27 +3379,27 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_document_classification_job_request.StartDocumentClassificationJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_comprehend.types.start_document_classification_job_request.StartDocumentClassificationJobRequest = {}  # type: ignore[typeddict-item]
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if document_classifier_arn is not None:
-            input["document_classifier_arn"] = document_classifier_arn
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["document_classifier_arn"] = document_classifier_arn
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if flywheel_arn is not None:
-            input["flywheel_arn"] = flywheel_arn
+            input_["flywheel_arn"] = flywheel_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3449,23 +3451,23 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_dominant_language_detection_job_request.StartDominantLanguageDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehend.types.start_dominant_language_detection_job_request.StartDominantLanguageDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3527,28 +3529,28 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_entities_detection_job_request.StartEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehend.types.start_entities_detection_job_request.StartEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if entity_recognizer_arn is not None:
-            input["entity_recognizer_arn"] = entity_recognizer_arn
-        input["language_code"] = language_code
+            input_["entity_recognizer_arn"] = entity_recognizer_arn
+        input_["language_code"] = language_code
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if flywheel_arn is not None:
-            input["flywheel_arn"] = flywheel_arn
+            input_["flywheel_arn"] = flywheel_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3598,21 +3600,21 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_events_detection_job_request.StartEventsDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehend.types.start_events_detection_job_request.StartEventsDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
-        input["language_code"] = language_code
+            input_["job_name"] = job_name
+        input_["language_code"] = language_code
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
-        input["target_event_types"] = target_event_types
+            input_["client_request_token"] = client_request_token
+        input_["target_event_types"] = target_event_types
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3650,13 +3652,13 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_flywheel_iteration_request.StartFlywheelIterationRequest = {}  # type: ignore[typeddict-item]
-        input["flywheel_arn"] = flywheel_arn
+        input_: aws_sdk_comprehend.types.start_flywheel_iteration_request.StartFlywheelIterationRequest = {}  # type: ignore[typeddict-item]
+        input_["flywheel_arn"] = flywheel_arn
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3710,24 +3712,24 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_key_phrases_detection_job_request.StartKeyPhrasesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehend.types.start_key_phrases_detection_job_request.StartKeyPhrasesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
-        input["language_code"] = language_code
+            input_["job_name"] = job_name
+        input_["language_code"] = language_code
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3781,23 +3783,23 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_pii_entities_detection_job_request.StartPiiEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["mode"] = mode
+        input_: aws_sdk_comprehend.types.start_pii_entities_detection_job_request.StartPiiEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["mode"] = mode
         if redaction_config is not None:
-            input["redaction_config"] = redaction_config
-        input["data_access_role_arn"] = data_access_role_arn
+            input_["redaction_config"] = redaction_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
-        input["language_code"] = language_code
+            input_["job_name"] = job_name
+        input_["language_code"] = language_code
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3851,24 +3853,24 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_sentiment_detection_job_request.StartSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehend.types.start_sentiment_detection_job_request.StartSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
-        input["language_code"] = language_code
+            input_["job_name"] = job_name
+        input_["language_code"] = language_code
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3920,24 +3922,24 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_targeted_sentiment_detection_job_request.StartTargetedSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehend.types.start_targeted_sentiment_detection_job_request.StartTargetedSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
-        input["language_code"] = language_code
+            input_["job_name"] = job_name
+        input_["language_code"] = language_code
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3993,25 +3995,25 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.start_topics_detection_job_request.StartTopicsDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["input_data_config"] = input_data_config
-        input["output_data_config"] = output_data_config
-        input["data_access_role_arn"] = data_access_role_arn
+        input_: aws_sdk_comprehend.types.start_topics_detection_job_request.StartTopicsDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["input_data_config"] = input_data_config
+        input_["output_data_config"] = output_data_config
+        input_["data_access_role_arn"] = data_access_role_arn
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if number_of_topics is not None:
-            input["number_of_topics"] = number_of_topics
+            input_["number_of_topics"] = number_of_topics
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if volume_kms_key_id is not None:
-            input["volume_kms_key_id"] = volume_kms_key_id
+            input_["volume_kms_key_id"] = volume_kms_key_id
         if vpc_config is not None:
-            input["vpc_config"] = vpc_config
+            input_["vpc_config"] = vpc_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4045,11 +4047,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_dominant_language_detection_job_request.StopDominantLanguageDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.stop_dominant_language_detection_job_request.StopDominantLanguageDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4083,11 +4085,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_entities_detection_job_request.StopEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.stop_entities_detection_job_request.StopEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4121,11 +4123,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_events_detection_job_request.StopEventsDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.stop_events_detection_job_request.StopEventsDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4159,11 +4161,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_key_phrases_detection_job_request.StopKeyPhrasesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.stop_key_phrases_detection_job_request.StopKeyPhrasesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4197,11 +4199,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_pii_entities_detection_job_request.StopPiiEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.stop_pii_entities_detection_job_request.StopPiiEntitiesDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4235,11 +4237,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_sentiment_detection_job_request.StopSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.stop_sentiment_detection_job_request.StopSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4273,11 +4275,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_targeted_sentiment_detection_job_request.StopTargetedSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_comprehend.types.stop_targeted_sentiment_detection_job_request.StopTargetedSentimentDetectionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4311,11 +4313,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_training_document_classifier_request.StopTrainingDocumentClassifierRequest = {}  # type: ignore[typeddict-item]
-        input["document_classifier_arn"] = document_classifier_arn
+        input_: aws_sdk_comprehend.types.stop_training_document_classifier_request.StopTrainingDocumentClassifierRequest = {}  # type: ignore[typeddict-item]
+        input_["document_classifier_arn"] = document_classifier_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4349,11 +4351,11 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.stop_training_entity_recognizer_request.StopTrainingEntityRecognizerRequest = {}  # type: ignore[typeddict-item]
-        input["entity_recognizer_arn"] = entity_recognizer_arn
+        input_: aws_sdk_comprehend.types.stop_training_entity_recognizer_request.StopTrainingEntityRecognizerRequest = {}  # type: ignore[typeddict-item]
+        input_["entity_recognizer_arn"] = entity_recognizer_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4389,12 +4391,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_comprehend.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4430,12 +4432,12 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_comprehend.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4485,19 +4487,19 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.update_endpoint_request.UpdateEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["endpoint_arn"] = endpoint_arn
+        input_: aws_sdk_comprehend.types.update_endpoint_request.UpdateEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["endpoint_arn"] = endpoint_arn
         if desired_model_arn is not None:
-            input["desired_model_arn"] = desired_model_arn
+            input_["desired_model_arn"] = desired_model_arn
         if desired_inference_units is not None:
-            input["desired_inference_units"] = desired_inference_units
+            input_["desired_inference_units"] = desired_inference_units
         if desired_data_access_role_arn is not None:
-            input["desired_data_access_role_arn"] = desired_data_access_role_arn
+            input_["desired_data_access_role_arn"] = desired_data_access_role_arn
         if flywheel_arn is not None:
-            input["flywheel_arn"] = flywheel_arn
+            input_["flywheel_arn"] = flywheel_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4543,17 +4545,17 @@ class AsyncComprehendClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_comprehend.types.update_flywheel_request.UpdateFlywheelRequest = {}  # type: ignore[typeddict-item]
-        input["flywheel_arn"] = flywheel_arn
+        input_: aws_sdk_comprehend.types.update_flywheel_request.UpdateFlywheelRequest = {}  # type: ignore[typeddict-item]
+        input_["flywheel_arn"] = flywheel_arn
         if active_model_arn is not None:
-            input["active_model_arn"] = active_model_arn
+            input_["active_model_arn"] = active_model_arn
         if data_access_role_arn is not None:
-            input["data_access_role_arn"] = data_access_role_arn
+            input_["data_access_role_arn"] = data_access_role_arn
         if data_security_config is not None:
-            input["data_security_config"] = data_security_config
+            input_["data_security_config"] = data_security_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

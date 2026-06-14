@@ -54,11 +54,11 @@ class DaemonRevisionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_daemon_revisions_request.DescribeDaemonRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_revision_arns"] = daemon_revision_arns
+        input_: aws_sdk_ecs.types.describe_daemon_revisions_request.DescribeDaemonRevisionsRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_revision_arns"] = daemon_revision_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -103,11 +103,11 @@ class AsyncDaemonRevisionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_daemon_revisions_request.DescribeDaemonRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input["daemon_revision_arns"] = daemon_revision_arns
+        input_: aws_sdk_ecs.types.describe_daemon_revisions_request.DescribeDaemonRevisionsRequest = {}  # type: ignore[typeddict-item]
+        input_["daemon_revision_arns"] = daemon_revision_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

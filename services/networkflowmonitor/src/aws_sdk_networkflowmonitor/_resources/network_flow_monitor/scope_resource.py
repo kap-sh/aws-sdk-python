@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_networkflowmonitor._auth._signers
@@ -96,15 +97,15 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.create_scope_input.CreateScopeInput = {}  # type: ignore[typeddict-item]
-        input["targets"] = targets
+        input_: aws_sdk_networkflowmonitor.types.create_scope_input.CreateScopeInput = {}  # type: ignore[typeddict-item]
+        input_["targets"] = targets
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -137,11 +138,11 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_scope_input.GetScopeInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
+        input_: aws_sdk_networkflowmonitor.types.get_scope_input.GetScopeInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -182,15 +183,15 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.update_scope_input.UpdateScopeInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
+        input_: aws_sdk_networkflowmonitor.types.update_scope_input.UpdateScopeInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
         if resources_to_add is not None:
-            input["resources_to_add"] = resources_to_add
+            input_["resources_to_add"] = resources_to_add
         if resources_to_delete is not None:
-            input["resources_to_delete"] = resources_to_delete
+            input_["resources_to_delete"] = resources_to_delete
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,11 +224,11 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.delete_scope_input.DeleteScopeInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
+        input_: aws_sdk_networkflowmonitor.types.delete_scope_input.DeleteScopeInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -264,14 +265,14 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.list_scopes_input.ListScopesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkflowmonitor.types.list_scopes_input.ListScopesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,16 +311,16 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_results_workload_insights_top_contributors_input.GetQueryResultsWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_results_workload_insights_top_contributors_input.GetQueryResultsWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,16 +359,16 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_results_workload_insights_top_contributors_data_input.GetQueryResultsWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_results_workload_insights_top_contributors_data_input.GetQueryResultsWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,12 +403,12 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_status_workload_insights_top_contributors_input.GetQueryStatusWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_status_workload_insights_top_contributors_input.GetQueryStatusWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,12 +443,12 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_status_workload_insights_top_contributors_data_input.GetQueryStatusWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_status_workload_insights_top_contributors_data_input.GetQueryStatusWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -490,17 +491,17 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_input.StartQueryWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["metric_name"] = metric_name
-        input["destination_category"] = destination_category
+        input_: aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_input.StartQueryWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["metric_name"] = metric_name
+        input_["destination_category"] = destination_category
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -541,15 +542,15 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_data_input.StartQueryWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["metric_name"] = metric_name
-        input["destination_category"] = destination_category
+        input_: aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_data_input.StartQueryWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["metric_name"] = metric_name
+        input_["destination_category"] = destination_category
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,12 +585,12 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.stop_query_workload_insights_top_contributors_input.StopQueryWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.stop_query_workload_insights_top_contributors_input.StopQueryWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,12 +625,12 @@ class ScopeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.stop_query_workload_insights_top_contributors_data_input.StopQueryWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.stop_query_workload_insights_top_contributors_data_input.StopQueryWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -674,15 +675,15 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.create_scope_input.CreateScopeInput = {}  # type: ignore[typeddict-item]
-        input["targets"] = targets
+        input_: aws_sdk_networkflowmonitor.types.create_scope_input.CreateScopeInput = {}  # type: ignore[typeddict-item]
+        input_["targets"] = targets
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -716,11 +717,11 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_scope_input.GetScopeInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
+        input_: aws_sdk_networkflowmonitor.types.get_scope_input.GetScopeInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -762,15 +763,15 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.update_scope_input.UpdateScopeInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
+        input_: aws_sdk_networkflowmonitor.types.update_scope_input.UpdateScopeInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
         if resources_to_add is not None:
-            input["resources_to_add"] = resources_to_add
+            input_["resources_to_add"] = resources_to_add
         if resources_to_delete is not None:
-            input["resources_to_delete"] = resources_to_delete
+            input_["resources_to_delete"] = resources_to_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -804,11 +805,11 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.delete_scope_input.DeleteScopeInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
+        input_: aws_sdk_networkflowmonitor.types.delete_scope_input.DeleteScopeInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,14 +847,14 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.list_scopes_input.ListScopesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_networkflowmonitor.types.list_scopes_input.ListScopesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -893,16 +894,16 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_results_workload_insights_top_contributors_input.GetQueryResultsWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_results_workload_insights_top_contributors_input.GetQueryResultsWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -942,16 +943,16 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_results_workload_insights_top_contributors_data_input.GetQueryResultsWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_results_workload_insights_top_contributors_data_input.GetQueryResultsWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,12 +988,12 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_status_workload_insights_top_contributors_input.GetQueryStatusWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_status_workload_insights_top_contributors_input.GetQueryStatusWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1028,12 +1029,12 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.get_query_status_workload_insights_top_contributors_data_input.GetQueryStatusWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.get_query_status_workload_insights_top_contributors_data_input.GetQueryStatusWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1077,17 +1078,17 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_input.StartQueryWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["metric_name"] = metric_name
-        input["destination_category"] = destination_category
+        input_: aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_input.StartQueryWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["metric_name"] = metric_name
+        input_["destination_category"] = destination_category
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1129,15 +1130,15 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_data_input.StartQueryWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["metric_name"] = metric_name
-        input["destination_category"] = destination_category
+        input_: aws_sdk_networkflowmonitor.types.start_query_workload_insights_top_contributors_data_input.StartQueryWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["metric_name"] = metric_name
+        input_["destination_category"] = destination_category
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1173,12 +1174,12 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.stop_query_workload_insights_top_contributors_input.StopQueryWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.stop_query_workload_insights_top_contributors_input.StopQueryWorkloadInsightsTopContributorsInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1214,12 +1215,12 @@ class AsyncScopeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_networkflowmonitor.types.stop_query_workload_insights_top_contributors_data_input.StopQueryWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
-        input["scope_id"] = scope_id
-        input["query_id"] = query_id
+        input_: aws_sdk_networkflowmonitor.types.stop_query_workload_insights_top_contributors_data_input.StopQueryWorkloadInsightsTopContributorsDataInput = {}  # type: ignore[typeddict-item]
+        input_["scope_id"] = scope_id
+        input_["query_id"] = query_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -111,29 +111,29 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mwaa_serverless.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["definition_s3_location"] = definition_s3_location
-        input["role_arn"] = role_arn
+            input_["client_token"] = client_token
+        input_["definition_s3_location"] = definition_s3_location
+        input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if trigger_mode is not None:
-            input["trigger_mode"] = trigger_mode
+            input_["trigger_mode"] = trigger_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -170,13 +170,13 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
+        input_: aws_sdk_mwaa_serverless.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
         if workflow_version is not None:
-            input["workflow_version"] = workflow_version
+            input_["workflow_version"] = workflow_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -235,23 +235,23 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["definition_s3_location"] = definition_s3_location
-        input["role_arn"] = role_arn
+        input_: aws_sdk_mwaa_serverless.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["definition_s3_location"] = definition_s3_location
+        input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if trigger_mode is not None:
-            input["trigger_mode"] = trigger_mode
+            input_["trigger_mode"] = trigger_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -290,13 +290,13 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
+        input_: aws_sdk_mwaa_serverless.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
         if workflow_version is not None:
-            input["workflow_version"] = workflow_version
+            input_["workflow_version"] = workflow_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -331,14 +331,14 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mwaa_serverless.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -413,29 +413,29 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_mwaa_serverless.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["definition_s3_location"] = definition_s3_location
-        input["role_arn"] = role_arn
+            input_["client_token"] = client_token
+        input_["definition_s3_location"] = definition_s3_location
+        input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if trigger_mode is not None:
-            input["trigger_mode"] = trigger_mode
+            input_["trigger_mode"] = trigger_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,13 +473,13 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
+        input_: aws_sdk_mwaa_serverless.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
         if workflow_version is not None:
-            input["workflow_version"] = workflow_version
+            input_["workflow_version"] = workflow_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,23 +539,23 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["definition_s3_location"] = definition_s3_location
-        input["role_arn"] = role_arn
+        input_: aws_sdk_mwaa_serverless.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["definition_s3_location"] = definition_s3_location
+        input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if trigger_mode is not None:
-            input["trigger_mode"] = trigger_mode
+            input_["trigger_mode"] = trigger_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,13 +595,13 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
+        input_: aws_sdk_mwaa_serverless.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
         if workflow_version is not None:
-            input["workflow_version"] = workflow_version
+            input_["workflow_version"] = workflow_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -637,14 +637,14 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mwaa_serverless.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

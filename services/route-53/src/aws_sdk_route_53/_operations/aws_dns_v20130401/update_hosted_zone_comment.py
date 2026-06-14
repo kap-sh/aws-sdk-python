@@ -78,49 +78,46 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest,
+    input_: aws_sdk_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2013-04-01/hostedzone/{Id}"
-    url = url.replace("{Id}", quote(str(input["id"]), safe=""))
+    url = url.replace("{Id}", quote(str(input_["id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     root = Element("UpdateHostedZoneCommentRequest")
-    if "comment" in input:
-        SubElement(root, "Comment").text = str(input["comment"])
+    if "comment" in input_:
+        SubElement(root, "Comment").text = str(input_["comment"])
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_hosted_zone_comment(
     options: OperationOptions,
-    input: aws_sdk_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest,
+    input_: aws_sdk_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest,
 ) -> tuple[
     aws_sdk_route_53.types.update_hosted_zone_comment_response.UpdateHostedZoneCommentResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -129,16 +126,17 @@ def update_hosted_zone_comment(
 
 async def async_update_hosted_zone_comment(
     options: AsyncOperationOptions,
-    input: aws_sdk_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest,
+    input_: aws_sdk_route_53.types.update_hosted_zone_comment_request.UpdateHostedZoneCommentRequest,
 ) -> tuple[
     aws_sdk_route_53.types.update_hosted_zone_comment_response.UpdateHostedZoneCommentResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

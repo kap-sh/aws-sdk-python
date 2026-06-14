@@ -15,6 +15,63 @@ from aws_sdk_iot_managed_integrations._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_iot_managed_integrations._auth._zapros_handler import AuthMiddleware
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.account_association_resource import (
+    AsyncAccountAssociationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.cloud_connector_resource import (
+    AsyncCloudConnectorResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.connector_destination_resource import (
+    AsyncConnectorDestinationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.credential_locker_resource import (
+    AsyncCredentialLockerResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.destination_resource import (
+    AsyncDestinationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.device_discovery_resource import (
+    AsyncDeviceDiscoveryResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.event_log_configuration_resource import (
+    AsyncEventLogConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.hub_configuration_resource import (
+    AsyncHubConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.kms_key_association_resource import (
+    AsyncKmsKeyAssociationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.managed_thing_association_resource import (
+    AsyncManagedThingAssociationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.managed_thing_command_resource import (
+    AsyncManagedThingCommandResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.managed_thing_resource import (
+    AsyncManagedThingResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.managed_thing_state_resource import (
+    AsyncManagedThingStateResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.notification_configuration_resource import (
+    AsyncNotificationConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.ota_task_configuration_resource import (
+    AsyncOtaTaskConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.ota_task_resource import (
+    AsyncOtaTaskResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.provisioning_profile_resource import (
+    AsyncProvisioningProfileResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.runtime_log_configuration_resource import (
+    AsyncRuntimeLogConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.schema_version_resource import (
+    AsyncSchemaVersionResource,
+)
 from aws_sdk_iot_managed_integrations._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -121,6 +178,32 @@ class AsyncIoTManagedIntegrationsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_association_resource = AsyncAccountAssociationResource(self)
+        self.cloud_connector_resource = AsyncCloudConnectorResource(self)
+        self.connector_destination_resource = AsyncConnectorDestinationResource(self)
+        self.credential_locker_resource = AsyncCredentialLockerResource(self)
+        self.destination_resource = AsyncDestinationResource(self)
+        self.device_discovery_resource = AsyncDeviceDiscoveryResource(self)
+        self.event_log_configuration_resource = AsyncEventLogConfigurationResource(self)
+        self.hub_configuration_resource = AsyncHubConfigurationResource(self)
+        self.kms_key_association_resource = AsyncKmsKeyAssociationResource(self)
+        self.managed_thing_association_resource = AsyncManagedThingAssociationResource(
+            self
+        )
+        self.managed_thing_command_resource = AsyncManagedThingCommandResource(self)
+        self.managed_thing_resource = AsyncManagedThingResource(self)
+        self.managed_thing_state_resource = AsyncManagedThingStateResource(self)
+        self.notification_configuration_resource = (
+            AsyncNotificationConfigurationResource(self)
+        )
+        self.ota_task_configuration_resource = AsyncOtaTaskConfigurationResource(self)
+        self.ota_task_resource = AsyncOtaTaskResource(self)
+        self.provisioning_profile_resource = AsyncProvisioningProfileResource(self)
+        self.runtime_log_configuration_resource = AsyncRuntimeLogConfigurationResource(
+            self
+        )
+        self.schema_version_resource = AsyncSchemaVersionResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncIoTManagedIntegrationsClientConfig] = None
@@ -170,10 +253,10 @@ class AsyncIoTManagedIntegrationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_custom_endpoint_request.GetCustomEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.get_custom_endpoint_request.GetCustomEndpointRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -207,11 +290,11 @@ class AsyncIoTManagedIntegrationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iot_managed_integrations.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -240,10 +323,10 @@ class AsyncIoTManagedIntegrationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.register_custom_endpoint_request.RegisterCustomEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.register_custom_endpoint_request.RegisterCustomEndpointRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -326,30 +409,30 @@ class AsyncIoTManagedIntegrationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.send_connector_event_request.SendConnectorEventRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_iot_managed_integrations.types.send_connector_event_request.SendConnectorEventRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
         if user_id is not None:
-            input["user_id"] = user_id
-        input["operation"] = operation
+            input_["user_id"] = user_id
+        input_["operation"] = operation
         if operation_version is not None:
-            input["operation_version"] = operation_version
+            input_["operation_version"] = operation_version
         if status_code is not None:
-            input["status_code"] = status_code
+            input_["status_code"] = status_code
         if message is not None:
-            input["message"] = message
+            input_["message"] = message
         if device_discovery_id is not None:
-            input["device_discovery_id"] = device_discovery_id
+            input_["device_discovery_id"] = device_discovery_id
         if connector_device_id is not None:
-            input["connector_device_id"] = connector_device_id
+            input_["connector_device_id"] = connector_device_id
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if devices is not None:
-            input["devices"] = devices
+            input_["devices"] = devices
         if matter_endpoint is not None:
-            input["matter_endpoint"] = matter_endpoint
+            input_["matter_endpoint"] = matter_endpoint
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,12 +468,12 @@ class AsyncIoTManagedIntegrationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iot_managed_integrations.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,12 +509,12 @@ class AsyncIoTManagedIntegrationsClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iot_managed_integrations.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

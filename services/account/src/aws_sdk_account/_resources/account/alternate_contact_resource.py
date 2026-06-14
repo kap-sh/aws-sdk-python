@@ -68,17 +68,17 @@ class AlternateContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.put_alternate_contact_request.PutAlternateContactRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["title"] = title
-        input["email_address"] = email_address
-        input["phone_number"] = phone_number
-        input["alternate_contact_type"] = alternate_contact_type
+        input_: aws_sdk_account.types.put_alternate_contact_request.PutAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["title"] = title
+        input_["email_address"] = email_address
+        input_["phone_number"] = phone_number
+        input_["alternate_contact_type"] = alternate_contact_type
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -113,13 +113,13 @@ class AlternateContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_alternate_contact_request.GetAlternateContactRequest = {}  # type: ignore[typeddict-item]
-        input["alternate_contact_type"] = alternate_contact_type
+        input_: aws_sdk_account.types.get_alternate_contact_request.GetAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["alternate_contact_type"] = alternate_contact_type
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,13 +152,13 @@ class AlternateContactResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.delete_alternate_contact_request.DeleteAlternateContactRequest = {}  # type: ignore[typeddict-item]
-        input["alternate_contact_type"] = alternate_contact_type
+        input_: aws_sdk_account.types.delete_alternate_contact_request.DeleteAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["alternate_contact_type"] = alternate_contact_type
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,17 +205,17 @@ class AsyncAlternateContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.put_alternate_contact_request.PutAlternateContactRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["title"] = title
-        input["email_address"] = email_address
-        input["phone_number"] = phone_number
-        input["alternate_contact_type"] = alternate_contact_type
+        input_: aws_sdk_account.types.put_alternate_contact_request.PutAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["title"] = title
+        input_["email_address"] = email_address
+        input_["phone_number"] = phone_number
+        input_["alternate_contact_type"] = alternate_contact_type
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,13 +251,13 @@ class AsyncAlternateContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.get_alternate_contact_request.GetAlternateContactRequest = {}  # type: ignore[typeddict-item]
-        input["alternate_contact_type"] = alternate_contact_type
+        input_: aws_sdk_account.types.get_alternate_contact_request.GetAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["alternate_contact_type"] = alternate_contact_type
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,13 +291,13 @@ class AsyncAlternateContactResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_account.types.delete_alternate_contact_request.DeleteAlternateContactRequest = {}  # type: ignore[typeddict-item]
-        input["alternate_contact_type"] = alternate_contact_type
+        input_: aws_sdk_account.types.delete_alternate_contact_request.DeleteAlternateContactRequest = {}  # type: ignore[typeddict-item]
+        input_["alternate_contact_type"] = alternate_contact_type
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

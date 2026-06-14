@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_iotthingsgraph._auth._signers
+import aws_sdk_iotthingsgraph._auth._sigv4
 from aws_sdk_iotthingsgraph._auth._identity import Credentials
 from aws_sdk_iotthingsgraph._auth._providers import (
     CredentialsProvider,
@@ -263,14 +265,14 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.associate_entity_to_thing_request.AssociateEntityToThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
-        input["entity_id"] = entity_id
+        input_: aws_sdk_iotthingsgraph.types.associate_entity_to_thing_request.AssociateEntityToThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
+        input_["entity_id"] = entity_id
         if namespace_version is not None:
-            input["namespace_version"] = namespace_version
+            input_["namespace_version"] = namespace_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -307,13 +309,13 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.create_flow_template_request.CreateFlowTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["definition"] = definition
+        input_: aws_sdk_iotthingsgraph.types.create_flow_template_request.CreateFlowTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["definition"] = definition
         if compatible_namespace_version is not None:
-            input["compatible_namespace_version"] = compatible_namespace_version
+            input_["compatible_namespace_version"] = compatible_namespace_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,22 +366,22 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.create_system_instance_request.CreateSystemInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.create_system_instance_request.CreateSystemInstanceRequest = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
-        input["definition"] = definition
-        input["target"] = target
+            input_["tags"] = tags
+        input_["definition"] = definition
+        input_["target"] = target
         if greengrass_group_name is not None:
-            input["greengrass_group_name"] = greengrass_group_name
+            input_["greengrass_group_name"] = greengrass_group_name
         if s3_bucket_name is not None:
-            input["s3_bucket_name"] = s3_bucket_name
+            input_["s3_bucket_name"] = s3_bucket_name
         if metrics_configuration is not None:
-            input["metrics_configuration"] = metrics_configuration
+            input_["metrics_configuration"] = metrics_configuration
         if flow_actions_role_arn is not None:
-            input["flow_actions_role_arn"] = flow_actions_role_arn
+            input_["flow_actions_role_arn"] = flow_actions_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -416,13 +418,13 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.create_system_template_request.CreateSystemTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["definition"] = definition
+        input_: aws_sdk_iotthingsgraph.types.create_system_template_request.CreateSystemTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["definition"] = definition
         if compatible_namespace_version is not None:
-            input["compatible_namespace_version"] = compatible_namespace_version
+            input_["compatible_namespace_version"] = compatible_namespace_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -455,11 +457,11 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.delete_flow_template_request.DeleteFlowTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.delete_flow_template_request.DeleteFlowTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,10 +489,10 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.delete_namespace_request.DeleteNamespaceRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,12 +525,12 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.delete_system_instance_request.DeleteSystemInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.delete_system_instance_request.DeleteSystemInstanceRequest = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,11 +563,11 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.delete_system_template_request.DeleteSystemTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.delete_system_template_request.DeleteSystemTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -598,12 +600,12 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.deploy_system_instance_request.DeploySystemInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.deploy_system_instance_request.DeploySystemInstanceRequest = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,11 +638,11 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.deprecate_flow_template_request.DeprecateFlowTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.deprecate_flow_template_request.DeprecateFlowTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -673,11 +675,11 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.deprecate_system_template_request.DeprecateSystemTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.deprecate_system_template_request.DeprecateSystemTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -712,12 +714,12 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.describe_namespace_request.DescribeNamespaceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.describe_namespace_request.DescribeNamespaceRequest = {}  # type: ignore[typeddict-item]
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -752,12 +754,12 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.dissociate_entity_from_thing_request.DissociateEntityFromThingRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
-        input["entity_type"] = entity_type
+        input_: aws_sdk_iotthingsgraph.types.dissociate_entity_from_thing_request.DissociateEntityFromThingRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
+        input_["entity_type"] = entity_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,13 +796,13 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.get_entities_request.GetEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["ids"] = ids
+        input_: aws_sdk_iotthingsgraph.types.get_entities_request.GetEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["ids"] = ids
         if namespace_version is not None:
-            input["namespace_version"] = namespace_version
+            input_["namespace_version"] = namespace_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -837,13 +839,13 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.get_flow_template_request.GetFlowTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.get_flow_template_request.GetFlowTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if revision_number is not None:
-            input["revision_number"] = revision_number
+            input_["revision_number"] = revision_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -884,15 +886,15 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.get_flow_template_revisions_request.GetFlowTemplateRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.get_flow_template_revisions_request.GetFlowTemplateRevisionsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -945,10 +947,10 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.get_namespace_deletion_status_request.GetNamespaceDeletionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.get_namespace_deletion_status_request.GetNamespaceDeletionStatusRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -981,11 +983,11 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.get_system_instance_request.GetSystemInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.get_system_instance_request.GetSystemInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1022,13 +1024,13 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.get_system_template_request.GetSystemTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.get_system_template_request.GetSystemTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if revision_number is not None:
-            input["revision_number"] = revision_number
+            input_["revision_number"] = revision_number
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,15 +1071,15 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.get_system_template_revisions_request.GetSystemTemplateRevisionsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_iotthingsgraph.types.get_system_template_revisions_request.GetSystemTemplateRevisionsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1137,11 +1139,11 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.get_upload_status_request.GetUploadStatusRequest = {}  # type: ignore[typeddict-item]
-        input["upload_id"] = upload_id
+        input_: aws_sdk_iotthingsgraph.types.get_upload_status_request.GetUploadStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["upload_id"] = upload_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1182,15 +1184,15 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.list_flow_execution_messages_request.ListFlowExecutionMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["flow_execution_id"] = flow_execution_id
+        input_: aws_sdk_iotthingsgraph.types.list_flow_execution_messages_request.ListFlowExecutionMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_execution_id"] = flow_execution_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1258,15 +1260,15 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
-        input["resource_arn"] = resource_arn
+            input_["max_results"] = max_results
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1342,19 +1344,19 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.search_entities_request.SearchEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["entity_types"] = entity_types
+        input_: aws_sdk_iotthingsgraph.types.search_entities_request.SearchEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["entity_types"] = entity_types
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace_version is not None:
-            input["namespace_version"] = namespace_version
+            input_["namespace_version"] = namespace_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1438,21 +1440,21 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.search_flow_executions_request.SearchFlowExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["system_instance_id"] = system_instance_id
+        input_: aws_sdk_iotthingsgraph.types.search_flow_executions_request.SearchFlowExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["system_instance_id"] = system_instance_id
         if flow_execution_id is not None:
-            input["flow_execution_id"] = flow_execution_id
+            input_["flow_execution_id"] = flow_execution_id
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1530,16 +1532,16 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.search_flow_templates_request.SearchFlowTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.search_flow_templates_request.SearchFlowTemplatesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1611,16 +1613,16 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.search_system_instances_request.SearchSystemInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.search_system_instances_request.SearchSystemInstancesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1692,16 +1694,16 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.search_system_templates_request.SearchSystemTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.search_system_templates_request.SearchSystemTemplatesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1775,17 +1777,17 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.search_things_request.SearchThingsRequest = {}  # type: ignore[typeddict-item]
-        input["entity_id"] = entity_id
+        input_: aws_sdk_iotthingsgraph.types.search_things_request.SearchThingsRequest = {}  # type: ignore[typeddict-item]
+        input_["entity_id"] = entity_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace_version is not None:
-            input["namespace_version"] = namespace_version
+            input_["namespace_version"] = namespace_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1851,12 +1853,12 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iotthingsgraph.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1889,12 +1891,12 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.undeploy_system_instance_request.UndeploySystemInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.undeploy_system_instance_request.UndeploySystemInstanceRequest = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1929,12 +1931,12 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iotthingsgraph.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1973,14 +1975,14 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.update_flow_template_request.UpdateFlowTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["definition"] = definition
+        input_: aws_sdk_iotthingsgraph.types.update_flow_template_request.UpdateFlowTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["definition"] = definition
         if compatible_namespace_version is not None:
-            input["compatible_namespace_version"] = compatible_namespace_version
+            input_["compatible_namespace_version"] = compatible_namespace_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2019,14 +2021,14 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.update_system_template_request.UpdateSystemTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["definition"] = definition
+        input_: aws_sdk_iotthingsgraph.types.update_system_template_request.UpdateSystemTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["definition"] = definition
         if compatible_namespace_version is not None:
-            input["compatible_namespace_version"] = compatible_namespace_version
+            input_["compatible_namespace_version"] = compatible_namespace_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2069,16 +2071,16 @@ class IoTThingsGraphClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iotthingsgraph.types.upload_entity_definitions_request.UploadEntityDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotthingsgraph.types.upload_entity_definitions_request.UploadEntityDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if document is not None:
-            input["document"] = document
+            input_["document"] = document
         if sync_with_public_namespace is not None:
-            input["sync_with_public_namespace"] = sync_with_public_namespace
+            input_["sync_with_public_namespace"] = sync_with_public_namespace
         if deprecate_existing_entities is not None:
-            input["deprecate_existing_entities"] = deprecate_existing_entities
+            input_["deprecate_existing_entities"] = deprecate_existing_entities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -191,16 +191,16 @@ class AsyncIoTJobsDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_jobs_data_plane.types.describe_job_execution_request.DescribeJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot_jobs_data_plane.types.describe_job_execution_request.DescribeJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["thing_name"] = thing_name
         if include_job_document is not None:
-            input["include_job_document"] = include_job_document
+            input_["include_job_document"] = include_job_document
         if execution_number is not None:
-            input["execution_number"] = execution_number
+            input_["execution_number"] = execution_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -234,11 +234,11 @@ class AsyncIoTJobsDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_jobs_data_plane.types.get_pending_job_executions_request.GetPendingJobExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot_jobs_data_plane.types.get_pending_job_executions_request.GetPendingJobExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,18 +286,18 @@ class AsyncIoTJobsDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_jobs_data_plane.types.start_command_execution_request.StartCommandExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["target_arn"] = target_arn
-        input["command_arn"] = command_arn
+        input_: aws_sdk_iot_jobs_data_plane.types.start_command_execution_request.StartCommandExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["target_arn"] = target_arn
+        input_["command_arn"] = command_arn
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if execution_timeout_seconds is not None:
-            input["execution_timeout_seconds"] = execution_timeout_seconds
+            input_["execution_timeout_seconds"] = execution_timeout_seconds
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,15 +339,15 @@ class AsyncIoTJobsDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_jobs_data_plane.types.start_next_pending_job_execution_request.StartNextPendingJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["thing_name"] = thing_name
+        input_: aws_sdk_iot_jobs_data_plane.types.start_next_pending_job_execution_request.StartNextPendingJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["thing_name"] = thing_name
         if status_details is not None:
-            input["status_details"] = status_details
+            input_["status_details"] = status_details
         if step_timeout_in_minutes is not None:
-            input["step_timeout_in_minutes"] = step_timeout_in_minutes
+            input_["step_timeout_in_minutes"] = step_timeout_in_minutes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -409,25 +409,25 @@ class AsyncIoTJobsDataPlaneClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_jobs_data_plane.types.update_job_execution_request.UpdateJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["thing_name"] = thing_name
-        input["status"] = status
+        input_: aws_sdk_iot_jobs_data_plane.types.update_job_execution_request.UpdateJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["thing_name"] = thing_name
+        input_["status"] = status
         if status_details is not None:
-            input["status_details"] = status_details
+            input_["status_details"] = status_details
         if step_timeout_in_minutes is not None:
-            input["step_timeout_in_minutes"] = step_timeout_in_minutes
+            input_["step_timeout_in_minutes"] = step_timeout_in_minutes
         if expected_version is not None:
-            input["expected_version"] = expected_version
+            input_["expected_version"] = expected_version
         if include_job_execution_state is not None:
-            input["include_job_execution_state"] = include_job_execution_state
+            input_["include_job_execution_state"] = include_job_execution_state
         if include_job_document is not None:
-            input["include_job_document"] = include_job_document
+            input_["include_job_document"] = include_job_document
         if execution_number is not None:
-            input["execution_number"] = execution_number
+            input_["execution_number"] = execution_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -15,6 +15,72 @@ from aws_sdk_bedrock._auth._providers import (
     StaticBearerTokenProvider,
 )
 from aws_sdk_bedrock._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.advanced_prompt_optimization_job_resource import (
+    AsyncAdvancedPromptOptimizationJobResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.allowlist_resource import (
+    AsyncAllowlistResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.automated_reasoning_policy_resource import (
+    AsyncAutomatedReasoningPolicyResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.bedrock_marketplace_resource import (
+    AsyncBedrockMarketplaceResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.custom_model_deployment_resource import (
+    AsyncCustomModelDeploymentResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.custom_model_resource import (
+    AsyncCustomModelResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.data_retention_resource import (
+    AsyncDataRetentionResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.enforced_guardrail_configuration_resource import (
+    AsyncEnforcedGuardrailConfigurationResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.evaluation_job_resource import (
+    AsyncEvaluationJobResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.guardrails_resource import (
+    AsyncGuardrailsResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.inference_profile_resource import (
+    AsyncInferenceProfileResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.logging_resource import (
+    AsyncLoggingResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.model_copy_resource import (
+    AsyncModelCopyResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.model_import_resource import (
+    AsyncModelImportResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.model_invocation_job_resource import (
+    AsyncModelInvocationJobResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.model_resource import (
+    AsyncModelResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.prompt_router_resource import (
+    AsyncPromptRouterResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.provisioned_model_throughput_resource import (
+    AsyncProvisionedModelThroughputResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.resource_policy_resource import (
+    AsyncResourcePolicyResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.subscription_resource import (
+    AsyncSubscriptionResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.tagging_resource import (
+    AsyncTaggingResource,
+)
+from aws_sdk_bedrock._resources.amazon_bedrock_control_plane_service.training_resource import (
+    AsyncTrainingResource,
+)
 from aws_sdk_bedrock._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -106,6 +172,37 @@ class AsyncBedrockClient:
                 "bearer_provider": bearer_provider,
             }
         )
+        # resources
+        self.advanced_prompt_optimization_job_resource = (
+            AsyncAdvancedPromptOptimizationJobResource(self)
+        )
+        self.allowlist_resource = AsyncAllowlistResource(self)
+        self.automated_reasoning_policy_resource = (
+            AsyncAutomatedReasoningPolicyResource(self)
+        )
+        self.bedrock_marketplace_resource = AsyncBedrockMarketplaceResource(self)
+        self.custom_model_deployment_resource = AsyncCustomModelDeploymentResource(self)
+        self.custom_model_resource = AsyncCustomModelResource(self)
+        self.data_retention_resource = AsyncDataRetentionResource(self)
+        self.enforced_guardrail_configuration_resource = (
+            AsyncEnforcedGuardrailConfigurationResource(self)
+        )
+        self.evaluation_job_resource = AsyncEvaluationJobResource(self)
+        self.guardrails_resource = AsyncGuardrailsResource(self)
+        self.inference_profile_resource = AsyncInferenceProfileResource(self)
+        self.logging_resource = AsyncLoggingResource(self)
+        self.model_copy_resource = AsyncModelCopyResource(self)
+        self.model_import_resource = AsyncModelImportResource(self)
+        self.model_invocation_job_resource = AsyncModelInvocationJobResource(self)
+        self.model_resource = AsyncModelResource(self)
+        self.prompt_router_resource = AsyncPromptRouterResource(self)
+        self.provisioned_model_throughput_resource = (
+            AsyncProvisionedModelThroughputResource(self)
+        )
+        self.resource_policy_resource = AsyncResourcePolicyResource(self)
+        self.subscription_resource = AsyncSubscriptionResource(self)
+        self.tagging_resource = AsyncTaggingResource(self)
+        self.training_resource = AsyncTrainingResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncBedrockClientConfig] = None

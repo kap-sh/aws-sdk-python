@@ -14,6 +14,8 @@ from aws_sdk_codecatalyst._auth._providers import (
     StaticBearerTokenProvider,
 )
 from aws_sdk_codecatalyst._auth._zapros_handler import AuthMiddleware
+from aws_sdk_codecatalyst._resources.code_catalyst.access_token import AsyncAccessToken
+from aws_sdk_codecatalyst._resources.code_catalyst.space import AsyncSpace
 from aws_sdk_codecatalyst._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -97,6 +99,9 @@ class AsyncCodeCatalystClient:
                 "bearer_provider": bearer_provider,
             }
         )
+        # resources
+        self.access_token = AsyncAccessToken(self)
+        self.space = AsyncSpace(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncCodeCatalystClientConfig] = None
@@ -153,14 +158,14 @@ class AsyncCodeCatalystClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codecatalyst.types.get_user_details_request.GetUserDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codecatalyst.types.get_user_details_request.GetUserDetailsRequest = {}  # type: ignore[typeddict-item]
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

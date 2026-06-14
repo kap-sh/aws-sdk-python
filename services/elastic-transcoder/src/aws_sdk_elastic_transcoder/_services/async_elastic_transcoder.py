@@ -217,11 +217,11 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elastic_transcoder.types.cancel_job_request.CancelJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,25 +279,25 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
+        input_: aws_sdk_elastic_transcoder.types.create_job_request.CreateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
         if input is not None:
-            input["input"] = input
+            input_["input"] = input
         if inputs is not None:
-            input["inputs"] = inputs
+            input_["inputs"] = inputs
         if output is not None:
-            input["output"] = output
+            input_["output"] = output
         if outputs is not None:
-            input["outputs"] = outputs
+            input_["outputs"] = outputs
         if output_key_prefix is not None:
-            input["output_key_prefix"] = output_key_prefix
+            input_["output_key_prefix"] = output_key_prefix
         if playlists is not None:
-            input["playlists"] = playlists
+            input_["playlists"] = playlists
         if user_metadata is not None:
-            input["user_metadata"] = user_metadata
+            input_["user_metadata"] = user_metadata
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -355,23 +355,23 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.create_pipeline_request.CreatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["input_bucket"] = input_bucket
+        input_: aws_sdk_elastic_transcoder.types.create_pipeline_request.CreatePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["input_bucket"] = input_bucket
         if output_bucket is not None:
-            input["output_bucket"] = output_bucket
-        input["role"] = role
+            input_["output_bucket"] = output_bucket
+        input_["role"] = role
         if aws_kms_key_arn is not None:
-            input["aws_kms_key_arn"] = aws_kms_key_arn
+            input_["aws_kms_key_arn"] = aws_kms_key_arn
         if notifications is not None:
-            input["notifications"] = notifications
+            input_["notifications"] = notifications
         if content_config is not None:
-            input["content_config"] = content_config
+            input_["content_config"] = content_config
         if thumbnail_config is not None:
-            input["thumbnail_config"] = thumbnail_config
+            input_["thumbnail_config"] = thumbnail_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -423,20 +423,20 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.create_preset_request.CreatePresetRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_elastic_transcoder.types.create_preset_request.CreatePresetRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["container"] = container
+            input_["description"] = description
+        input_["container"] = container
         if video is not None:
-            input["video"] = video
+            input_["video"] = video
         if audio is not None:
-            input["audio"] = audio
+            input_["audio"] = audio
         if thumbnails is not None:
-            input["thumbnails"] = thumbnails
+            input_["thumbnails"] = thumbnails
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,11 +470,11 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.delete_pipeline_request.DeletePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elastic_transcoder.types.delete_pipeline_request.DeletePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -508,11 +508,11 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.delete_preset_request.DeletePresetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elastic_transcoder.types.delete_preset_request.DeletePresetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,15 +552,15 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.list_jobs_by_pipeline_request.ListJobsByPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["pipeline_id"] = pipeline_id
+        input_: aws_sdk_elastic_transcoder.types.list_jobs_by_pipeline_request.ListJobsByPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["pipeline_id"] = pipeline_id
         if ascending is not None:
-            input["ascending"] = ascending
+            input_["ascending"] = ascending
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,15 +625,15 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.list_jobs_by_status_request.ListJobsByStatusRequest = {}  # type: ignore[typeddict-item]
-        input["status"] = status
+        input_: aws_sdk_elastic_transcoder.types.list_jobs_by_status_request.ListJobsByStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["status"] = status
         if ascending is not None:
-            input["ascending"] = ascending
+            input_["ascending"] = ascending
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,14 +698,14 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.list_pipelines_request.ListPipelinesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_transcoder.types.list_pipelines_request.ListPipelinesRequest = {}  # type: ignore[typeddict-item]
         if ascending is not None:
-            input["ascending"] = ascending
+            input_["ascending"] = ascending
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -766,14 +766,14 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.list_presets_request.ListPresetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elastic_transcoder.types.list_presets_request.ListPresetsRequest = {}  # type: ignore[typeddict-item]
         if ascending is not None:
-            input["ascending"] = ascending
+            input_["ascending"] = ascending
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -830,11 +830,11 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.read_job_request.ReadJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elastic_transcoder.types.read_job_request.ReadJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -868,11 +868,11 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.read_pipeline_request.ReadPipelineRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elastic_transcoder.types.read_pipeline_request.ReadPipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -906,11 +906,11 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.read_preset_request.ReadPresetRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elastic_transcoder.types.read_preset_request.ReadPresetRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -950,14 +950,14 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.test_role_request.TestRoleRequest = {}  # type: ignore[typeddict-item]
-        input["role"] = role
-        input["input_bucket"] = input_bucket
-        input["output_bucket"] = output_bucket
-        input["topics"] = topics
+        input_: aws_sdk_elastic_transcoder.types.test_role_request.TestRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["role"] = role
+        input_["input_bucket"] = input_bucket
+        input_["output_bucket"] = output_bucket
+        input_["topics"] = topics
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1015,25 +1015,25 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.update_pipeline_request.UpdatePipelineRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_elastic_transcoder.types.update_pipeline_request.UpdatePipelineRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if input_bucket is not None:
-            input["input_bucket"] = input_bucket
+            input_["input_bucket"] = input_bucket
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if aws_kms_key_arn is not None:
-            input["aws_kms_key_arn"] = aws_kms_key_arn
+            input_["aws_kms_key_arn"] = aws_kms_key_arn
         if notifications is not None:
-            input["notifications"] = notifications
+            input_["notifications"] = notifications
         if content_config is not None:
-            input["content_config"] = content_config
+            input_["content_config"] = content_config
         if thumbnail_config is not None:
-            input["thumbnail_config"] = thumbnail_config
+            input_["thumbnail_config"] = thumbnail_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1069,12 +1069,12 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.update_pipeline_notifications_request.UpdatePipelineNotificationsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["notifications"] = notifications
+        input_: aws_sdk_elastic_transcoder.types.update_pipeline_notifications_request.UpdatePipelineNotificationsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["notifications"] = notifications
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1110,12 +1110,12 @@ class AsyncElasticTranscoderClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elastic_transcoder.types.update_pipeline_status_request.UpdatePipelineStatusRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["status"] = status
+        input_: aws_sdk_elastic_transcoder.types.update_pipeline_status_request.UpdatePipelineStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

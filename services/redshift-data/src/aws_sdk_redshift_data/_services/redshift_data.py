@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_redshift_data._auth._signers
+import aws_sdk_redshift_data._auth._sigv4
 from aws_sdk_redshift_data._auth._identity import Credentials
 from aws_sdk_redshift_data._auth._providers import (
     CredentialsProvider,
@@ -232,35 +234,35 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.batch_execute_statement_input.BatchExecuteStatementInput = {}  # type: ignore[typeddict-item]
-        input["sqls"] = sqls
+        input_: aws_sdk_redshift_data.types.batch_execute_statement_input.BatchExecuteStatementInput = {}  # type: ignore[typeddict-item]
+        input_["sqls"] = sqls
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if secret_arn is not None:
-            input["secret_arn"] = secret_arn
+            input_["secret_arn"] = secret_arn
         if db_user is not None:
-            input["db_user"] = db_user
+            input_["db_user"] = db_user
         if database is not None:
-            input["database"] = database
+            input_["database"] = database
         if with_event is not None:
-            input["with_event"] = with_event
+            input_["with_event"] = with_event
         if statement_name is not None:
-            input["statement_name"] = statement_name
+            input_["statement_name"] = statement_name
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if result_format is not None:
-            input["result_format"] = result_format
+            input_["result_format"] = result_format
         if session_keep_alive_seconds is not None:
-            input["session_keep_alive_seconds"] = session_keep_alive_seconds
+            input_["session_keep_alive_seconds"] = session_keep_alive_seconds
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,11 +297,11 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.cancel_statement_request.CancelStatementRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_redshift_data.types.cancel_statement_request.CancelStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,11 +334,11 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.describe_statement_request.DescribeStatementRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_redshift_data.types.describe_statement_request.DescribeStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -393,29 +395,29 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.describe_table_request.DescribeTableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_data.types.describe_table_request.DescribeTableRequest = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if secret_arn is not None:
-            input["secret_arn"] = secret_arn
+            input_["secret_arn"] = secret_arn
         if db_user is not None:
-            input["db_user"] = db_user
-        input["database"] = database
+            input_["db_user"] = db_user
+        input_["database"] = database
         if connected_database is not None:
-            input["connected_database"] = connected_database
+            input_["connected_database"] = connected_database
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
         if table is not None:
-            input["table"] = table
+            input_["table"] = table
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,35 +531,35 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.execute_statement_input.ExecuteStatementInput = {}  # type: ignore[typeddict-item]
-        input["sql"] = sql
+        input_: aws_sdk_redshift_data.types.execute_statement_input.ExecuteStatementInput = {}  # type: ignore[typeddict-item]
+        input_["sql"] = sql
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if secret_arn is not None:
-            input["secret_arn"] = secret_arn
+            input_["secret_arn"] = secret_arn
         if db_user is not None:
-            input["db_user"] = db_user
+            input_["db_user"] = db_user
         if database is not None:
-            input["database"] = database
+            input_["database"] = database
         if with_event is not None:
-            input["with_event"] = with_event
+            input_["with_event"] = with_event
         if statement_name is not None:
-            input["statement_name"] = statement_name
+            input_["statement_name"] = statement_name
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if result_format is not None:
-            input["result_format"] = result_format
+            input_["result_format"] = result_format
         if session_keep_alive_seconds is not None:
-            input["session_keep_alive_seconds"] = session_keep_alive_seconds
+            input_["session_keep_alive_seconds"] = session_keep_alive_seconds
         if session_id is not None:
-            input["session_id"] = session_id
+            input_["session_id"] = session_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,13 +594,13 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.get_statement_result_request.GetStatementResultRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_redshift_data.types.get_statement_result_request.GetStatementResultRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -654,13 +656,13 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.get_statement_result_v2_request.GetStatementResultV2Request = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_redshift_data.types.get_statement_result_v2_request.GetStatementResultV2Request = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -730,23 +732,23 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.list_databases_request.ListDatabasesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_data.types.list_databases_request.ListDatabasesRequest = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
-        input["database"] = database
+            input_["cluster_identifier"] = cluster_identifier
+        input_["database"] = database
         if secret_arn is not None:
-            input["secret_arn"] = secret_arn
+            input_["secret_arn"] = secret_arn
         if db_user is not None:
-            input["db_user"] = db_user
+            input_["db_user"] = db_user
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -836,27 +838,27 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.list_schemas_request.ListSchemasRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_data.types.list_schemas_request.ListSchemasRequest = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if secret_arn is not None:
-            input["secret_arn"] = secret_arn
+            input_["secret_arn"] = secret_arn
         if db_user is not None:
-            input["db_user"] = db_user
-        input["database"] = database
+            input_["db_user"] = db_user
+        input_["database"] = database
         if connected_database is not None:
-            input["connected_database"] = connected_database
+            input_["connected_database"] = connected_database
         if schema_pattern is not None:
-            input["schema_pattern"] = schema_pattern
+            input_["schema_pattern"] = schema_pattern
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -954,26 +956,26 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.list_statements_request.ListStatementsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_data.types.list_statements_request.ListStatementsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if statement_name is not None:
-            input["statement_name"] = statement_name
+            input_["statement_name"] = statement_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if role_level is not None:
-            input["role_level"] = role_level
+            input_["role_level"] = role_level
         if database is not None:
-            input["database"] = database
+            input_["database"] = database
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1073,29 +1075,29 @@ class RedshiftDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_data.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_data.types.list_tables_request.ListTablesRequest = {}  # type: ignore[typeddict-item]
         if cluster_identifier is not None:
-            input["cluster_identifier"] = cluster_identifier
+            input_["cluster_identifier"] = cluster_identifier
         if secret_arn is not None:
-            input["secret_arn"] = secret_arn
+            input_["secret_arn"] = secret_arn
         if db_user is not None:
-            input["db_user"] = db_user
-        input["database"] = database
+            input_["db_user"] = db_user
+        input_["database"] = database
         if connected_database is not None:
-            input["connected_database"] = connected_database
+            input_["connected_database"] = connected_database
         if schema_pattern is not None:
-            input["schema_pattern"] = schema_pattern
+            input_["schema_pattern"] = schema_pattern
         if table_pattern is not None:
-            input["table_pattern"] = table_pattern
+            input_["table_pattern"] = table_pattern
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

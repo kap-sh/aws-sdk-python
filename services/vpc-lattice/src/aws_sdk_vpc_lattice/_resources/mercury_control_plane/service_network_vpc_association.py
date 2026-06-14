@@ -94,22 +94,22 @@ class ServiceNetworkVpcAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_service_network_vpc_association_request.CreateServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.create_service_network_vpc_association_request.CreateServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["service_network_identifier"] = service_network_identifier
-        input["vpc_identifier"] = vpc_identifier
+            input_["client_token"] = client_token
+        input_["service_network_identifier"] = service_network_identifier
+        input_["vpc_identifier"] = vpc_identifier
         if private_dns_enabled is not None:
-            input["private_dns_enabled"] = private_dns_enabled
+            input_["private_dns_enabled"] = private_dns_enabled
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if dns_options is not None:
-            input["dns_options"] = dns_options
+            input_["dns_options"] = dns_options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,13 +142,13 @@ class ServiceNetworkVpcAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_service_network_vpc_association_request.GetServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_vpc_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.get_service_network_vpc_association_request.GetServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_vpc_association_identifier"] = (
             service_network_vpc_association_identifier
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -183,14 +183,14 @@ class ServiceNetworkVpcAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_service_network_vpc_association_request.UpdateServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_vpc_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.update_service_network_vpc_association_request.UpdateServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_vpc_association_identifier"] = (
             service_network_vpc_association_identifier
         )
-        input["security_group_ids"] = security_group_ids
+        input_["security_group_ids"] = security_group_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,13 +223,13 @@ class ServiceNetworkVpcAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_service_network_vpc_association_request.DeleteServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_vpc_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.delete_service_network_vpc_association_request.DeleteServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_vpc_association_identifier"] = (
             service_network_vpc_association_identifier
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -272,18 +272,18 @@ class ServiceNetworkVpcAssociation:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_service_network_vpc_associations_request.ListServiceNetworkVpcAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_service_network_vpc_associations_request.ListServiceNetworkVpcAssociationsRequest = {}  # type: ignore[typeddict-item]
         if service_network_identifier is not None:
-            input["service_network_identifier"] = service_network_identifier
+            input_["service_network_identifier"] = service_network_identifier
         if vpc_identifier is not None:
-            input["vpc_identifier"] = vpc_identifier
+            input_["vpc_identifier"] = vpc_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -342,22 +342,22 @@ class AsyncServiceNetworkVpcAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.create_service_network_vpc_association_request.CreateServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.create_service_network_vpc_association_request.CreateServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["service_network_identifier"] = service_network_identifier
-        input["vpc_identifier"] = vpc_identifier
+            input_["client_token"] = client_token
+        input_["service_network_identifier"] = service_network_identifier
+        input_["vpc_identifier"] = vpc_identifier
         if private_dns_enabled is not None:
-            input["private_dns_enabled"] = private_dns_enabled
+            input_["private_dns_enabled"] = private_dns_enabled
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if dns_options is not None:
-            input["dns_options"] = dns_options
+            input_["dns_options"] = dns_options
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,13 +391,13 @@ class AsyncServiceNetworkVpcAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.get_service_network_vpc_association_request.GetServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_vpc_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.get_service_network_vpc_association_request.GetServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_vpc_association_identifier"] = (
             service_network_vpc_association_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -433,14 +433,14 @@ class AsyncServiceNetworkVpcAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.update_service_network_vpc_association_request.UpdateServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_vpc_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.update_service_network_vpc_association_request.UpdateServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_vpc_association_identifier"] = (
             service_network_vpc_association_identifier
         )
-        input["security_group_ids"] = security_group_ids
+        input_["security_group_ids"] = security_group_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,13 +474,13 @@ class AsyncServiceNetworkVpcAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.delete_service_network_vpc_association_request.DeleteServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["service_network_vpc_association_identifier"] = (
+        input_: aws_sdk_vpc_lattice.types.delete_service_network_vpc_association_request.DeleteServiceNetworkVpcAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_network_vpc_association_identifier"] = (
             service_network_vpc_association_identifier
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -524,18 +524,18 @@ class AsyncServiceNetworkVpcAssociation:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_vpc_lattice.types.list_service_network_vpc_associations_request.ListServiceNetworkVpcAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_vpc_lattice.types.list_service_network_vpc_associations_request.ListServiceNetworkVpcAssociationsRequest = {}  # type: ignore[typeddict-item]
         if service_network_identifier is not None:
-            input["service_network_identifier"] = service_network_identifier
+            input_["service_network_identifier"] = service_network_identifier
         if vpc_identifier is not None:
-            input["vpc_identifier"] = vpc_identifier
+            input_["vpc_identifier"] = vpc_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

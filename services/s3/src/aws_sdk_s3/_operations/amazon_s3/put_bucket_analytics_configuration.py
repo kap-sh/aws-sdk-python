@@ -48,11 +48,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest,
+    input_: aws_sdk_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -72,19 +72,19 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}?analytics"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
     params: dict[str, str] = {}
-    if "id" in input:
-        params["id"] = str(input["id"])
+    if "id" in input_:
+        params["id"] = str(input_["id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    if "analytics_configuration" in input:
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    if "analytics_configuration" in input_:
         import aws_sdk_s3.types.analytics_configuration
 
         payload_root = Element("_")
         aws_sdk_s3.types.analytics_configuration.serialize_xml(
-            input["analytics_configuration"], payload_root, "AnalyticsConfiguration"
+            input_["analytics_configuration"], payload_root, "AnalyticsConfiguration"
         )
         body: bytes | None = tostring(payload_root[0])
         headers["content-type"] = "application/xml"
@@ -100,9 +100,9 @@ def build_request(
 
 def put_bucket_analytics_configuration(
     options: OperationOptions,
-    input: aws_sdk_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest,
+    input_: aws_sdk_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -116,9 +116,9 @@ def put_bucket_analytics_configuration(
 
 async def async_put_bucket_analytics_configuration(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest,
+    input_: aws_sdk_s3.types.put_bucket_analytics_configuration_request.PutBucketAnalyticsConfigurationRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

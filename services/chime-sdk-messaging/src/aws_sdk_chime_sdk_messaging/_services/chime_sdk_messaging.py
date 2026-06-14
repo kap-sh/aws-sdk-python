@@ -282,13 +282,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.associate_channel_flow_request.AssociateChannelFlowRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["channel_flow_arn"] = channel_flow_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.associate_channel_flow_request.AssociateChannelFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["channel_flow_arn"] = channel_flow_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,17 +333,17 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.batch_create_channel_membership_request.BatchCreateChannelMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_chime_sdk_messaging.types.batch_create_channel_membership_request.BatchCreateChannelMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if type is not None:
-            input["type"] = type
-        input["member_arns"] = member_arns
-        input["chime_bearer"] = chime_bearer
+            input_["type"] = type
+        input_["member_arns"] = member_arns
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,15 +384,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.channel_flow_callback_request.ChannelFlowCallbackRequest = {}  # type: ignore[typeddict-item]
-        input["callback_id"] = callback_id
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_chime_sdk_messaging.types.channel_flow_callback_request.ChannelFlowCallbackRequest = {}  # type: ignore[typeddict-item]
+        input_["callback_id"] = callback_id
+        input_["channel_arn"] = channel_arn
         if delete_resource is not None:
-            input["delete_resource"] = delete_resource
-        input["channel_message"] = channel_message
+            input_["delete_resource"] = delete_resource
+        input_["channel_message"] = channel_message
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,32 +465,32 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
-        input["name"] = name
+        input_: aws_sdk_chime_sdk_messaging.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
+        input_["name"] = name
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if privacy is not None:
-            input["privacy"] = privacy
+            input_["privacy"] = privacy
         if metadata is not None:
-            input["metadata"] = metadata
-        input["client_request_token"] = client_request_token
+            input_["metadata"] = metadata
+        input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
-        input["chime_bearer"] = chime_bearer
+            input_["tags"] = tags
+        input_["chime_bearer"] = chime_bearer
         if channel_id is not None:
-            input["channel_id"] = channel_id
+            input_["channel_id"] = channel_id
         if member_arns is not None:
-            input["member_arns"] = member_arns
+            input_["member_arns"] = member_arns
         if moderator_arns is not None:
-            input["moderator_arns"] = moderator_arns
+            input_["moderator_arns"] = moderator_arns
         if elastic_channel_configuration is not None:
-            input["elastic_channel_configuration"] = elastic_channel_configuration
+            input_["elastic_channel_configuration"] = elastic_channel_configuration
         if expiration_settings is not None:
-            input["expiration_settings"] = expiration_settings
+            input_["expiration_settings"] = expiration_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,13 +527,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.create_channel_ban_request.CreateChannelBanRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["member_arn"] = member_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.create_channel_ban_request.CreateChannelBanRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["member_arn"] = member_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,16 +574,16 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.create_channel_flow_request.CreateChannelFlowRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
-        input["processors"] = processors
-        input["name"] = name
+        input_: aws_sdk_chime_sdk_messaging.types.create_channel_flow_request.CreateChannelFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
+        input_["processors"] = processors
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
-        input["client_request_token"] = client_request_token
+            input_["tags"] = tags
+        input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -626,16 +626,16 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.create_channel_membership_request.CreateChannelMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["member_arn"] = member_arn
-        input["type"] = type
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.create_channel_membership_request.CreateChannelMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["member_arn"] = member_arn
+        input_["type"] = type
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -672,13 +672,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.create_channel_moderator_request.CreateChannelModeratorRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["channel_moderator_arn"] = channel_moderator_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.create_channel_moderator_request.CreateChannelModeratorRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["channel_moderator_arn"] = channel_moderator_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -711,12 +711,12 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -751,13 +751,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.delete_channel_ban_request.DeleteChannelBanRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["member_arn"] = member_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.delete_channel_ban_request.DeleteChannelBanRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["member_arn"] = member_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,11 +788,11 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.delete_channel_flow_request.DeleteChannelFlowRequest = {}  # type: ignore[typeddict-item]
-        input["channel_flow_arn"] = channel_flow_arn
+        input_: aws_sdk_chime_sdk_messaging.types.delete_channel_flow_request.DeleteChannelFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_flow_arn"] = channel_flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -831,15 +831,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.delete_channel_membership_request.DeleteChannelMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["member_arn"] = member_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.delete_channel_membership_request.DeleteChannelMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["member_arn"] = member_arn
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -878,15 +878,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.delete_channel_message_request.DeleteChannelMessageRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["message_id"] = message_id
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.delete_channel_message_request.DeleteChannelMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["message_id"] = message_id
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -921,13 +921,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.delete_channel_moderator_request.DeleteChannelModeratorRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["channel_moderator_arn"] = channel_moderator_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.delete_channel_moderator_request.DeleteChannelModeratorRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["channel_moderator_arn"] = channel_moderator_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -958,11 +958,11 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.delete_messaging_streaming_configurations_request.DeleteMessagingStreamingConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_messaging.types.delete_messaging_streaming_configurations_request.DeleteMessagingStreamingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,12 +997,12 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1039,13 +1039,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.describe_channel_ban_request.DescribeChannelBanRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["member_arn"] = member_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.describe_channel_ban_request.DescribeChannelBanRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["member_arn"] = member_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1078,11 +1078,11 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.describe_channel_flow_request.DescribeChannelFlowRequest = {}  # type: ignore[typeddict-item]
-        input["channel_flow_arn"] = channel_flow_arn
+        input_: aws_sdk_chime_sdk_messaging.types.describe_channel_flow_request.DescribeChannelFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_flow_arn"] = channel_flow_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1123,15 +1123,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.describe_channel_membership_request.DescribeChannelMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["member_arn"] = member_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.describe_channel_membership_request.DescribeChannelMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["member_arn"] = member_arn
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1168,13 +1168,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.describe_channel_membership_for_app_instance_user_request.DescribeChannelMembershipForAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["app_instance_user_arn"] = app_instance_user_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.describe_channel_membership_for_app_instance_user_request.DescribeChannelMembershipForAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["app_instance_user_arn"] = app_instance_user_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1211,13 +1211,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.describe_channel_moderated_by_app_instance_user_request.DescribeChannelModeratedByAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["app_instance_user_arn"] = app_instance_user_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.describe_channel_moderated_by_app_instance_user_request.DescribeChannelModeratedByAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["app_instance_user_arn"] = app_instance_user_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1254,13 +1254,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.describe_channel_moderator_request.DescribeChannelModeratorRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["channel_moderator_arn"] = channel_moderator_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.describe_channel_moderator_request.DescribeChannelModeratorRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["channel_moderator_arn"] = channel_moderator_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1295,13 +1295,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.disassociate_channel_flow_request.DisassociateChannelFlowRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["channel_flow_arn"] = channel_flow_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.disassociate_channel_flow_request.DisassociateChannelFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["channel_flow_arn"] = channel_flow_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1338,13 +1338,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.get_channel_membership_preferences_request.GetChannelMembershipPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["member_arn"] = member_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.get_channel_membership_preferences_request.GetChannelMembershipPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["member_arn"] = member_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1385,15 +1385,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.get_channel_message_request.GetChannelMessageRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["message_id"] = message_id
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.get_channel_message_request.GetChannelMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["message_id"] = message_id
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1434,15 +1434,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.get_channel_message_status_request.GetChannelMessageStatusRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["message_id"] = message_id
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.get_channel_message_status_request.GetChannelMessageStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["message_id"] = message_id
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1477,12 +1477,12 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.get_messaging_session_endpoint_request.GetMessagingSessionEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_messaging.types.get_messaging_session_endpoint_request.GetMessagingSessionEndpointRequest = {}  # type: ignore[typeddict-item]
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1515,11 +1515,11 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.get_messaging_streaming_configurations_request.GetMessagingStreamingConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_messaging.types.get_messaging_streaming_configurations_request.GetMessagingStreamingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1562,16 +1562,16 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channel_bans_request.ListChannelBansRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_chime_sdk_messaging.types.list_channel_bans_request.ListChannelBansRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["chime_bearer"] = chime_bearer
+            input_["next_token"] = next_token
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1612,15 +1612,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channel_flows_request.ListChannelFlowsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_messaging.types.list_channel_flows_request.ListChannelFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1671,20 +1671,20 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_request.ListChannelMembershipsRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_request.ListChannelMembershipsRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["chime_bearer"] = chime_bearer
+            input_["next_token"] = next_token
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1729,17 +1729,17 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_for_app_instance_user_request.ListChannelMembershipsForAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_for_app_instance_user_request.ListChannelMembershipsForAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
         if app_instance_user_arn is not None:
-            input["app_instance_user_arn"] = app_instance_user_arn
+            input_["app_instance_user_arn"] = app_instance_user_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["chime_bearer"] = chime_bearer
+            input_["next_token"] = next_token
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1798,24 +1798,24 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channel_messages_request.ListChannelMessagesRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_chime_sdk_messaging.types.list_channel_messages_request.ListChannelMessagesRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if not_before is not None:
-            input["not_before"] = not_before
+            input_["not_before"] = not_before
         if not_after is not None:
-            input["not_after"] = not_after
+            input_["not_after"] = not_after
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["chime_bearer"] = chime_bearer
+            input_["next_token"] = next_token
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1858,16 +1858,16 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channel_moderators_request.ListChannelModeratorsRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_chime_sdk_messaging.types.list_channel_moderators_request.ListChannelModeratorsRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["chime_bearer"] = chime_bearer
+            input_["next_token"] = next_token
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1916,18 +1916,18 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
+        input_: aws_sdk_chime_sdk_messaging.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
         if privacy is not None:
-            input["privacy"] = privacy
+            input_["privacy"] = privacy
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["chime_bearer"] = chime_bearer
+            input_["next_token"] = next_token
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1968,15 +1968,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channels_associated_with_channel_flow_request.ListChannelsAssociatedWithChannelFlowRequest = {}  # type: ignore[typeddict-item]
-        input["channel_flow_arn"] = channel_flow_arn
+        input_: aws_sdk_chime_sdk_messaging.types.list_channels_associated_with_channel_flow_request.ListChannelsAssociatedWithChannelFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_flow_arn"] = channel_flow_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2021,17 +2021,17 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_channels_moderated_by_app_instance_user_request.ListChannelsModeratedByAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_messaging.types.list_channels_moderated_by_app_instance_user_request.ListChannelsModeratedByAppInstanceUserRequest = {}  # type: ignore[typeddict-item]
         if app_instance_user_arn is not None:
-            input["app_instance_user_arn"] = app_instance_user_arn
+            input_["app_instance_user_arn"] = app_instance_user_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["chime_bearer"] = chime_bearer
+            input_["next_token"] = next_token
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2074,16 +2074,16 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_sub_channels_request.ListSubChannelsRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.list_sub_channels_request.ListSubChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["chime_bearer"] = chime_bearer
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2116,11 +2116,11 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_chime_sdk_messaging.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2161,15 +2161,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.put_channel_expiration_settings_request.PutChannelExpirationSettingsRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_chime_sdk_messaging.types.put_channel_expiration_settings_request.PutChannelExpirationSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if chime_bearer is not None:
-            input["chime_bearer"] = chime_bearer
+            input_["chime_bearer"] = chime_bearer
         if expiration_settings is not None:
-            input["expiration_settings"] = expiration_settings
+            input_["expiration_settings"] = expiration_settings
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2208,14 +2208,14 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.put_channel_membership_preferences_request.PutChannelMembershipPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["member_arn"] = member_arn
-        input["chime_bearer"] = chime_bearer
-        input["preferences"] = preferences
+        input_: aws_sdk_chime_sdk_messaging.types.put_channel_membership_preferences_request.PutChannelMembershipPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["member_arn"] = member_arn
+        input_["chime_bearer"] = chime_bearer
+        input_["preferences"] = preferences
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2250,12 +2250,12 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.put_messaging_streaming_configurations_request.PutMessagingStreamingConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["app_instance_arn"] = app_instance_arn
-        input["streaming_configurations"] = streaming_configurations
+        input_: aws_sdk_chime_sdk_messaging.types.put_messaging_streaming_configurations_request.PutMessagingStreamingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["app_instance_arn"] = app_instance_arn
+        input_["streaming_configurations"] = streaming_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2296,15 +2296,15 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.redact_channel_message_request.RedactChannelMessageRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["message_id"] = message_id
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.redact_channel_message_request.RedactChannelMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["message_id"] = message_id
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2349,17 +2349,17 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.search_channels_request.SearchChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_chime_sdk_messaging.types.search_channels_request.SearchChannelsRequest = {}  # type: ignore[typeddict-item]
         if chime_bearer is not None:
-            input["chime_bearer"] = chime_bearer
-        input["fields"] = fields
+            input_["chime_bearer"] = chime_bearer
+        input_["fields"] = fields
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2426,28 +2426,28 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.send_channel_message_request.SendChannelMessageRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["content"] = content
-        input["type"] = type
-        input["persistence"] = persistence
+        input_: aws_sdk_chime_sdk_messaging.types.send_channel_message_request.SendChannelMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["content"] = content
+        input_["type"] = type
+        input_["persistence"] = persistence
         if metadata is not None:
-            input["metadata"] = metadata
-        input["client_request_token"] = client_request_token
-        input["chime_bearer"] = chime_bearer
+            input_["metadata"] = metadata
+        input_["client_request_token"] = client_request_token
+        input_["chime_bearer"] = chime_bearer
         if push_notification is not None:
-            input["push_notification"] = push_notification
+            input_["push_notification"] = push_notification
         if message_attributes is not None:
-            input["message_attributes"] = message_attributes
+            input_["message_attributes"] = message_attributes
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
         if target is not None:
-            input["target"] = target
+            input_["target"] = target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2480,12 +2480,12 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_chime_sdk_messaging.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2518,12 +2518,12 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_chime_sdk_messaging.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2570,18 +2570,18 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_chime_sdk_messaging.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if metadata is not None:
-            input["metadata"] = metadata
-        input["chime_bearer"] = chime_bearer
+            input_["metadata"] = metadata
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2618,13 +2618,13 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.update_channel_flow_request.UpdateChannelFlowRequest = {}  # type: ignore[typeddict-item]
-        input["channel_flow_arn"] = channel_flow_arn
-        input["processors"] = processors
-        input["name"] = name
+        input_: aws_sdk_chime_sdk_messaging.types.update_channel_flow_request.UpdateChannelFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_flow_arn"] = channel_flow_arn
+        input_["processors"] = processors
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2675,20 +2675,20 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.update_channel_message_request.UpdateChannelMessageRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["message_id"] = message_id
-        input["content"] = content
+        input_: aws_sdk_chime_sdk_messaging.types.update_channel_message_request.UpdateChannelMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["message_id"] = message_id
+        input_["content"] = content
         if metadata is not None:
-            input["metadata"] = metadata
-        input["chime_bearer"] = chime_bearer
+            input_["metadata"] = metadata
+        input_["chime_bearer"] = chime_bearer
         if sub_channel_id is not None:
-            input["sub_channel_id"] = sub_channel_id
+            input_["sub_channel_id"] = sub_channel_id
         if content_type is not None:
-            input["content_type"] = content_type
+            input_["content_type"] = content_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2723,12 +2723,12 @@ class ChimeSDKMessagingClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_chime_sdk_messaging.types.update_channel_read_marker_request.UpdateChannelReadMarkerRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["chime_bearer"] = chime_bearer
+        input_: aws_sdk_chime_sdk_messaging.types.update_channel_read_marker_request.UpdateChannelReadMarkerRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["chime_bearer"] = chime_bearer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

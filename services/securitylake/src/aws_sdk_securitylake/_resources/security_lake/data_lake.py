@@ -95,11 +95,11 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_aws_log_source_request.CreateAwsLogSourceRequest = {}  # type: ignore[typeddict-item]
-        input["sources"] = sources
+        input_: aws_sdk_securitylake.types.create_aws_log_source_request.CreateAwsLogSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,16 +142,16 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_custom_log_source_request.CreateCustomLogSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source_name"] = source_name
+        input_: aws_sdk_securitylake.types.create_custom_log_source_request.CreateCustomLogSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_name"] = source_name
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
         if event_classes is not None:
-            input["event_classes"] = event_classes
-        input["configuration"] = configuration
+            input_["event_classes"] = event_classes
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,14 +188,14 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_data_lake_request.CreateDataLakeRequest = {}  # type: ignore[typeddict-item]
-        input["configurations"] = configurations
-        input["meta_store_manager_role_arn"] = meta_store_manager_role_arn
+        input_: aws_sdk_securitylake.types.create_data_lake_request.CreateDataLakeRequest = {}  # type: ignore[typeddict-item]
+        input_["configurations"] = configurations
+        input_["meta_store_manager_role_arn"] = meta_store_manager_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,12 +230,12 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_data_lake_organization_configuration_request.CreateDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.create_data_lake_organization_configuration_request.CreateDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
         if auto_enable_new_account is not None:
-            input["auto_enable_new_account"] = auto_enable_new_account
+            input_["auto_enable_new_account"] = auto_enable_new_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -268,11 +268,11 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_aws_log_source_request.DeleteAwsLogSourceRequest = {}  # type: ignore[typeddict-item]
-        input["sources"] = sources
+        input_: aws_sdk_securitylake.types.delete_aws_log_source_request.DeleteAwsLogSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,13 +309,13 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_custom_log_source_request.DeleteCustomLogSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source_name"] = source_name
+        input_: aws_sdk_securitylake.types.delete_custom_log_source_request.DeleteCustomLogSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_name"] = source_name
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,11 +348,11 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_data_lake_request.DeleteDataLakeRequest = {}  # type: ignore[typeddict-item]
-        input["regions"] = regions
+        input_: aws_sdk_securitylake.types.delete_data_lake_request.DeleteDataLakeRequest = {}  # type: ignore[typeddict-item]
+        input_["regions"] = regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,12 +387,12 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_data_lake_organization_configuration_request.DeleteDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.delete_data_lake_organization_configuration_request.DeleteDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
         if auto_enable_new_account is not None:
-            input["auto_enable_new_account"] = auto_enable_new_account
+            input_["auto_enable_new_account"] = auto_enable_new_account
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,10 +418,10 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.get_data_lake_organization_configuration_request.GetDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.get_data_lake_organization_configuration_request.GetDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,16 +462,16 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.get_data_lake_sources_request.GetDataLakeSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.get_data_lake_sources_request.GetDataLakeSourcesRequest = {}  # type: ignore[typeddict-item]
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -504,12 +504,12 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.list_data_lakes_request.ListDataLakesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.list_data_lakes_request.ListDataLakesRequest = {}  # type: ignore[typeddict-item]
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -556,20 +556,20 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.list_log_sources_request.ListLogSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.list_log_sources_request.ListLogSourcesRequest = {}  # type: ignore[typeddict-item]
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -606,13 +606,13 @@ class DataLake:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.update_data_lake_request.UpdateDataLakeRequest = {}  # type: ignore[typeddict-item]
-        input["configurations"] = configurations
+        input_: aws_sdk_securitylake.types.update_data_lake_request.UpdateDataLakeRequest = {}  # type: ignore[typeddict-item]
+        input_["configurations"] = configurations
         if meta_store_manager_role_arn is not None:
-            input["meta_store_manager_role_arn"] = meta_store_manager_role_arn
+            input_["meta_store_manager_role_arn"] = meta_store_manager_role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,11 +651,11 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_aws_log_source_request.CreateAwsLogSourceRequest = {}  # type: ignore[typeddict-item]
-        input["sources"] = sources
+        input_: aws_sdk_securitylake.types.create_aws_log_source_request.CreateAwsLogSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -699,16 +699,16 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_custom_log_source_request.CreateCustomLogSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source_name"] = source_name
+        input_: aws_sdk_securitylake.types.create_custom_log_source_request.CreateCustomLogSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_name"] = source_name
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
         if event_classes is not None:
-            input["event_classes"] = event_classes
-        input["configuration"] = configuration
+            input_["event_classes"] = event_classes
+        input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -746,14 +746,14 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_data_lake_request.CreateDataLakeRequest = {}  # type: ignore[typeddict-item]
-        input["configurations"] = configurations
-        input["meta_store_manager_role_arn"] = meta_store_manager_role_arn
+        input_: aws_sdk_securitylake.types.create_data_lake_request.CreateDataLakeRequest = {}  # type: ignore[typeddict-item]
+        input_["configurations"] = configurations
+        input_["meta_store_manager_role_arn"] = meta_store_manager_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -789,12 +789,12 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.create_data_lake_organization_configuration_request.CreateDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.create_data_lake_organization_configuration_request.CreateDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
         if auto_enable_new_account is not None:
-            input["auto_enable_new_account"] = auto_enable_new_account
+            input_["auto_enable_new_account"] = auto_enable_new_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -828,11 +828,11 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_aws_log_source_request.DeleteAwsLogSourceRequest = {}  # type: ignore[typeddict-item]
-        input["sources"] = sources
+        input_: aws_sdk_securitylake.types.delete_aws_log_source_request.DeleteAwsLogSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -870,13 +870,13 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_custom_log_source_request.DeleteCustomLogSourceRequest = {}  # type: ignore[typeddict-item]
-        input["source_name"] = source_name
+        input_: aws_sdk_securitylake.types.delete_custom_log_source_request.DeleteCustomLogSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["source_name"] = source_name
         if source_version is not None:
-            input["source_version"] = source_version
+            input_["source_version"] = source_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -910,11 +910,11 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_data_lake_request.DeleteDataLakeRequest = {}  # type: ignore[typeddict-item]
-        input["regions"] = regions
+        input_: aws_sdk_securitylake.types.delete_data_lake_request.DeleteDataLakeRequest = {}  # type: ignore[typeddict-item]
+        input_["regions"] = regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -950,12 +950,12 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.delete_data_lake_organization_configuration_request.DeleteDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.delete_data_lake_organization_configuration_request.DeleteDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
         if auto_enable_new_account is not None:
-            input["auto_enable_new_account"] = auto_enable_new_account
+            input_["auto_enable_new_account"] = auto_enable_new_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -982,10 +982,10 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.get_data_lake_organization_configuration_request.GetDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.get_data_lake_organization_configuration_request.GetDataLakeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1027,16 +1027,16 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.get_data_lake_sources_request.GetDataLakeSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.get_data_lake_sources_request.GetDataLakeSourcesRequest = {}  # type: ignore[typeddict-item]
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1070,12 +1070,12 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.list_data_lakes_request.ListDataLakesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.list_data_lakes_request.ListDataLakesRequest = {}  # type: ignore[typeddict-item]
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1123,20 +1123,20 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.list_log_sources_request.ListLogSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_securitylake.types.list_log_sources_request.ListLogSourcesRequest = {}  # type: ignore[typeddict-item]
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if sources is not None:
-            input["sources"] = sources
+            input_["sources"] = sources
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1174,13 +1174,13 @@ class AsyncDataLake:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_securitylake.types.update_data_lake_request.UpdateDataLakeRequest = {}  # type: ignore[typeddict-item]
-        input["configurations"] = configurations
+        input_: aws_sdk_securitylake.types.update_data_lake_request.UpdateDataLakeRequest = {}  # type: ignore[typeddict-item]
+        input_["configurations"] = configurations
         if meta_store_manager_role_arn is not None:
-            input["meta_store_manager_role_arn"] = meta_store_manager_role_arn
+            input_["meta_store_manager_role_arn"] = meta_store_manager_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -98,25 +98,25 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["data_source_configuration"] = data_source_configuration
+            input_["description"] = description
+        input_["data_source_configuration"] = data_source_configuration
         if data_deletion_policy is not None:
-            input["data_deletion_policy"] = data_deletion_policy
+            input_["data_deletion_policy"] = data_deletion_policy
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
         if vector_ingestion_configuration is not None:
-            input["vector_ingestion_configuration"] = vector_ingestion_configuration
+            input_["vector_ingestion_configuration"] = vector_ingestion_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,12 +151,12 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -191,12 +191,12 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -237,15 +237,15 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,24 +300,24 @@ class DataSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["data_source_configuration"] = data_source_configuration
+            input_["description"] = description
+        input_["data_source_configuration"] = data_source_configuration
         if data_deletion_policy is not None:
-            input["data_deletion_policy"] = data_deletion_policy
+            input_["data_deletion_policy"] = data_deletion_policy
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
         if vector_ingestion_configuration is not None:
-            input["vector_ingestion_configuration"] = vector_ingestion_configuration
+            input_["vector_ingestion_configuration"] = vector_ingestion_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,25 +380,25 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
+            input_["client_token"] = client_token
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["data_source_configuration"] = data_source_configuration
+            input_["description"] = description
+        input_["data_source_configuration"] = data_source_configuration
         if data_deletion_policy is not None:
-            input["data_deletion_policy"] = data_deletion_policy
+            input_["data_deletion_policy"] = data_deletion_policy
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
         if vector_ingestion_configuration is not None:
-            input["vector_ingestion_configuration"] = vector_ingestion_configuration
+            input_["vector_ingestion_configuration"] = vector_ingestion_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,12 +434,12 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -475,12 +475,12 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
+        input_: aws_sdk_bedrock_agent.types.get_data_source_request.GetDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,15 +522,15 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
+        input_: aws_sdk_bedrock_agent.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -586,24 +586,24 @@ class AsyncDataSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["knowledge_base_id"] = knowledge_base_id
-        input["data_source_id"] = data_source_id
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["knowledge_base_id"] = knowledge_base_id
+        input_["data_source_id"] = data_source_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["data_source_configuration"] = data_source_configuration
+            input_["description"] = description
+        input_["data_source_configuration"] = data_source_configuration
         if data_deletion_policy is not None:
-            input["data_deletion_policy"] = data_deletion_policy
+            input_["data_deletion_policy"] = data_deletion_policy
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
         if vector_ingestion_configuration is not None:
-            input["vector_ingestion_configuration"] = vector_ingestion_configuration
+            input_["vector_ingestion_configuration"] = vector_ingestion_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

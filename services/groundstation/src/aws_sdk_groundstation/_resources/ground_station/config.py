@@ -73,14 +73,14 @@ class Config:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.create_config_request.CreateConfigRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["config_data"] = config_data
+        input_: aws_sdk_groundstation.types.create_config_request.CreateConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["config_data"] = config_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,12 +115,12 @@ class Config:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_config_request.GetConfigRequest = {}  # type: ignore[typeddict-item]
-        input["config_id"] = config_id
-        input["config_type"] = config_type
+        input_: aws_sdk_groundstation.types.get_config_request.GetConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["config_id"] = config_id
+        input_["config_type"] = config_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,14 +159,14 @@ class Config:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_config_request.UpdateConfigRequest = {}  # type: ignore[typeddict-item]
-        input["config_id"] = config_id
-        input["name"] = name
-        input["config_type"] = config_type
-        input["config_data"] = config_data
+        input_: aws_sdk_groundstation.types.update_config_request.UpdateConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["config_id"] = config_id
+        input_["name"] = name
+        input_["config_type"] = config_type
+        input_["config_data"] = config_data
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,12 +201,12 @@ class Config:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.delete_config_request.DeleteConfigRequest = {}  # type: ignore[typeddict-item]
-        input["config_id"] = config_id
-        input["config_type"] = config_type
+        input_: aws_sdk_groundstation.types.delete_config_request.DeleteConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["config_id"] = config_id
+        input_["config_type"] = config_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,14 +245,14 @@ class Config:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_configs_request.ListConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_configs_request.ListConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,14 +295,14 @@ class AsyncConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.create_config_request.CreateConfigRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["config_data"] = config_data
+        input_: aws_sdk_groundstation.types.create_config_request.CreateConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["config_data"] = config_data
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,12 +338,12 @@ class AsyncConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_config_request.GetConfigRequest = {}  # type: ignore[typeddict-item]
-        input["config_id"] = config_id
-        input["config_type"] = config_type
+        input_: aws_sdk_groundstation.types.get_config_request.GetConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["config_id"] = config_id
+        input_["config_type"] = config_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,14 +383,14 @@ class AsyncConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_config_request.UpdateConfigRequest = {}  # type: ignore[typeddict-item]
-        input["config_id"] = config_id
-        input["name"] = name
-        input["config_type"] = config_type
-        input["config_data"] = config_data
+        input_: aws_sdk_groundstation.types.update_config_request.UpdateConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["config_id"] = config_id
+        input_["name"] = name
+        input_["config_type"] = config_type
+        input_["config_data"] = config_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -426,12 +426,12 @@ class AsyncConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.delete_config_request.DeleteConfigRequest = {}  # type: ignore[typeddict-item]
-        input["config_id"] = config_id
-        input["config_type"] = config_type
+        input_: aws_sdk_groundstation.types.delete_config_request.DeleteConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["config_id"] = config_id
+        input_["config_type"] = config_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -471,14 +471,14 @@ class AsyncConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.list_configs_request.ListConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_groundstation.types.list_configs_request.ListConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

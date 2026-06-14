@@ -13,6 +13,24 @@ from aws_sdk_location._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_location._auth._zapros_handler import AuthMiddleware
+from aws_sdk_location._resources.location_service.api_key_resource import ApiKeyResource
+from aws_sdk_location._resources.location_service.generic_resource import (
+    GenericResource,
+)
+from aws_sdk_location._resources.location_service.geofence_collection_resource import (
+    GeofenceCollectionResource,
+)
+from aws_sdk_location._resources.location_service.job_resource import JobResource
+from aws_sdk_location._resources.location_service.map_resource import MapResource
+from aws_sdk_location._resources.location_service.place_index_resource import (
+    PlaceIndexResource,
+)
+from aws_sdk_location._resources.location_service.route_calculator_resource import (
+    RouteCalculatorResource,
+)
+from aws_sdk_location._resources.location_service.tracker_resource import (
+    TrackerResource,
+)
 from aws_sdk_location._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +108,15 @@ class LocationClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.api_key_resource = ApiKeyResource(self)
+        self.generic_resource = GenericResource(self)
+        self.geofence_collection_resource = GeofenceCollectionResource(self)
+        self.job_resource = JobResource(self)
+        self.map_resource = MapResource(self)
+        self.place_index_resource = PlaceIndexResource(self)
+        self.route_calculator_resource = RouteCalculatorResource(self)
+        self.tracker_resource = TrackerResource(self)
 
     def operation_options(
         self, config_overrides: Optional[LocationClientConfig] = None

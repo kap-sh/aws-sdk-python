@@ -79,7 +79,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_acm.types.search_certificates_request.SearchCertificatesRequest,
+    input_: aws_sdk_acm.types.search_certificates_request.SearchCertificatesRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -96,7 +96,7 @@ def build_request(
     import aws_sdk_acm.types.search_certificates_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_acm.types.search_certificates_request.serialize_aws_json_1_1(input)
+        aws_sdk_acm.types.search_certificates_request.serialize_aws_json_1_1(input_)
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.1"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -109,12 +109,12 @@ def build_request(
 
 def search_certificates(
     options: OperationOptions,
-    input: aws_sdk_acm.types.search_certificates_request.SearchCertificatesRequest,
+    input_: aws_sdk_acm.types.search_certificates_request.SearchCertificatesRequest,
 ) -> tuple[
     aws_sdk_acm.types.search_certificates_response.SearchCertificatesResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -128,12 +128,12 @@ def search_certificates(
 
 async def async_search_certificates(
     options: AsyncOperationOptions,
-    input: aws_sdk_acm.types.search_certificates_request.SearchCertificatesRequest,
+    input_: aws_sdk_acm.types.search_certificates_request.SearchCertificatesRequest,
 ) -> tuple[
     aws_sdk_acm.types.search_certificates_response.SearchCertificatesResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

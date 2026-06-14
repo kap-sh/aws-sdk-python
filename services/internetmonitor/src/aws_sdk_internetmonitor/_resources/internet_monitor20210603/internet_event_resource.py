@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 import aws_sdk_internetmonitor._auth._signers
@@ -62,11 +63,11 @@ class InternetEventResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_internetmonitor.types.get_internet_event_input.GetInternetEventInput = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
+        input_: aws_sdk_internetmonitor.types.get_internet_event_input.GetInternetEventInput = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -111,22 +112,22 @@ class InternetEventResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_internetmonitor.types.list_internet_events_input.ListInternetEventsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_internetmonitor.types.list_internet_events_input.ListInternetEventsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if event_status is not None:
-            input["event_status"] = event_status
+            input_["event_status"] = event_status
         if event_type is not None:
-            input["event_type"] = event_type
+            input_["event_type"] = event_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -167,11 +168,11 @@ class AsyncInternetEventResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_internetmonitor.types.get_internet_event_input.GetInternetEventInput = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
+        input_: aws_sdk_internetmonitor.types.get_internet_event_input.GetInternetEventInput = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,22 +218,22 @@ class AsyncInternetEventResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_internetmonitor.types.list_internet_events_input.ListInternetEventsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_internetmonitor.types.list_internet_events_input.ListInternetEventsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if event_status is not None:
-            input["event_status"] = event_status
+            input_["event_status"] = event_status
         if event_type is not None:
-            input["event_type"] = event_type
+            input_["event_type"] = event_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

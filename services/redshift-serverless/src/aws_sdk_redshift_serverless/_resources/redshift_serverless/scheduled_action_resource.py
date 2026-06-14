@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_redshift_serverless._services._pipeline import (
@@ -83,23 +84,23 @@ class ScheduledActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_scheduled_action_request.CreateScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
-        input["target_action"] = target_action
-        input["schedule"] = schedule
-        input["role_arn"] = role_arn
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.create_scheduled_action_request.CreateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
+        input_["target_action"] = target_action
+        input_["schedule"] = schedule
+        input_["role_arn"] = role_arn
+        input_["namespace_name"] = namespace_name
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if scheduled_action_description is not None:
-            input["scheduled_action_description"] = scheduled_action_description
+            input_["scheduled_action_description"] = scheduled_action_description
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,11 +133,11 @@ class ScheduledActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_scheduled_action_request.DeleteScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_redshift_serverless.types.delete_scheduled_action_request.DeleteScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -169,11 +170,11 @@ class ScheduledActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_scheduled_action_request.GetScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_redshift_serverless.types.get_scheduled_action_request.GetScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,16 +215,16 @@ class ScheduledActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_scheduled_actions_request.ListScheduledActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_scheduled_actions_request.ListScheduledActionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -275,25 +276,25 @@ class ScheduledActionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_scheduled_action_request.UpdateScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_redshift_serverless.types.update_scheduled_action_request.UpdateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
         if target_action is not None:
-            input["target_action"] = target_action
+            input_["target_action"] = target_action
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if scheduled_action_description is not None:
-            input["scheduled_action_description"] = scheduled_action_description
+            input_["scheduled_action_description"] = scheduled_action_description
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -347,23 +348,23 @@ class AsyncScheduledActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_scheduled_action_request.CreateScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
-        input["target_action"] = target_action
-        input["schedule"] = schedule
-        input["role_arn"] = role_arn
-        input["namespace_name"] = namespace_name
+        input_: aws_sdk_redshift_serverless.types.create_scheduled_action_request.CreateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
+        input_["target_action"] = target_action
+        input_["schedule"] = schedule
+        input_["role_arn"] = role_arn
+        input_["namespace_name"] = namespace_name
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if scheduled_action_description is not None:
-            input["scheduled_action_description"] = scheduled_action_description
+            input_["scheduled_action_description"] = scheduled_action_description
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,11 +398,11 @@ class AsyncScheduledActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_scheduled_action_request.DeleteScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_redshift_serverless.types.delete_scheduled_action_request.DeleteScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,11 +436,11 @@ class AsyncScheduledActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_scheduled_action_request.GetScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_redshift_serverless.types.get_scheduled_action_request.GetScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,16 +482,16 @@ class AsyncScheduledActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_scheduled_actions_request.ListScheduledActionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_scheduled_actions_request.ListScheduledActionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -543,25 +544,25 @@ class AsyncScheduledActionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_scheduled_action_request.UpdateScheduledActionRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_action_name"] = scheduled_action_name
+        input_: aws_sdk_redshift_serverless.types.update_scheduled_action_request.UpdateScheduledActionRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_action_name"] = scheduled_action_name
         if target_action is not None:
-            input["target_action"] = target_action
+            input_["target_action"] = target_action
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if scheduled_action_description is not None:
-            input["scheduled_action_description"] = scheduled_action_description
+            input_["scheduled_action_description"] = scheduled_action_description
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

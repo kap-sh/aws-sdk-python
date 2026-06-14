@@ -97,18 +97,18 @@ class CloudConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_cloud_connector_request.CreateCloudConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["endpoint_config"] = endpoint_config
+        input_: aws_sdk_iot_managed_integrations.types.create_cloud_connector_request.CreateCloudConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["endpoint_config"] = endpoint_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,11 +152,11 @@ class CloudConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_cloud_connector_request.GetCloudConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_cloud_connector_request.GetCloudConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -203,15 +203,15 @@ class CloudConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_cloud_connector_request.UpdateCloudConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.update_cloud_connector_request.UpdateCloudConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -242,11 +242,11 @@ class CloudConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_cloud_connector_request.DeleteCloudConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.delete_cloud_connector_request.DeleteCloudConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,18 +301,18 @@ class CloudConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_cloud_connectors_request.ListCloudConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_cloud_connectors_request.ListCloudConnectorsRequest = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if lambda_arn is not None:
-            input["lambda_arn"] = lambda_arn
+            input_["lambda_arn"] = lambda_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,18 +376,18 @@ class AsyncCloudConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_cloud_connector_request.CreateCloudConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["endpoint_config"] = endpoint_config
+        input_: aws_sdk_iot_managed_integrations.types.create_cloud_connector_request.CreateCloudConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["endpoint_config"] = endpoint_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,11 +432,11 @@ class AsyncCloudConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_cloud_connector_request.GetCloudConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_cloud_connector_request.GetCloudConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,15 +484,15 @@ class AsyncCloudConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.update_cloud_connector_request.UpdateCloudConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.update_cloud_connector_request.UpdateCloudConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -524,11 +524,11 @@ class AsyncCloudConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_cloud_connector_request.DeleteCloudConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.delete_cloud_connector_request.DeleteCloudConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,18 +584,18 @@ class AsyncCloudConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_cloud_connectors_request.ListCloudConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_cloud_connectors_request.ListCloudConnectorsRequest = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if lambda_arn is not None:
-            input["lambda_arn"] = lambda_arn
+            input_["lambda_arn"] = lambda_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

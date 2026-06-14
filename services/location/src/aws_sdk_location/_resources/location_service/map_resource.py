@@ -90,18 +90,18 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_map_request.CreateMapRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
-        input["configuration"] = configuration
+        input_: aws_sdk_location.types.create_map_request.CreateMapRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
+        input_["configuration"] = configuration
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,11 +134,11 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_map_request.DescribeMapRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
+        input_: aws_sdk_location.types.describe_map_request.DescribeMapRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -183,17 +183,17 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_map_request.UpdateMapRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
+        input_: aws_sdk_location.types.update_map_request.UpdateMapRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if configuration_update is not None:
-            input["configuration_update"] = configuration_update
+            input_["configuration_update"] = configuration_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,11 +226,11 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_map_request.DeleteMapRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
+        input_: aws_sdk_location.types.delete_map_request.DeleteMapRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,14 +265,14 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_maps_request.ListMapsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_maps_request.ListMapsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,15 +311,15 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
-        input["font_stack"] = font_stack
-        input["font_unicode_range"] = font_unicode_range
+        input_: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
+        input_["font_stack"] = font_stack
+        input_["font_unicode_range"] = font_unicode_range
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -356,14 +356,14 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_map_sprites_request.GetMapSpritesRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
-        input["file_name"] = file_name
+        input_: aws_sdk_location.types.get_map_sprites_request.GetMapSpritesRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
+        input_["file_name"] = file_name
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,13 +398,13 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_map_style_descriptor_request.GetMapStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
+        input_: aws_sdk_location.types.get_map_style_descriptor_request.GetMapStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,16 +445,16 @@ class MapResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_map_tile_request.GetMapTileRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
-        input["z"] = z
-        input["x"] = x
-        input["y"] = y
+        input_: aws_sdk_location.types.get_map_tile_request.GetMapTileRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
+        input_["z"] = z
+        input_["x"] = x
+        input_["y"] = y
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,18 +505,18 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_map_request.CreateMapRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
-        input["configuration"] = configuration
+        input_: aws_sdk_location.types.create_map_request.CreateMapRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
+        input_["configuration"] = configuration
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -550,11 +550,11 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_map_request.DescribeMapRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
+        input_: aws_sdk_location.types.describe_map_request.DescribeMapRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -600,17 +600,17 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_map_request.UpdateMapRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
+        input_: aws_sdk_location.types.update_map_request.UpdateMapRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if configuration_update is not None:
-            input["configuration_update"] = configuration_update
+            input_["configuration_update"] = configuration_update
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -644,11 +644,11 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_map_request.DeleteMapRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
+        input_: aws_sdk_location.types.delete_map_request.DeleteMapRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -684,14 +684,14 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_maps_request.ListMapsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_maps_request.ListMapsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -731,15 +731,15 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
-        input["font_stack"] = font_stack
-        input["font_unicode_range"] = font_unicode_range
+        input_: aws_sdk_location.types.get_map_glyphs_request.GetMapGlyphsRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
+        input_["font_stack"] = font_stack
+        input_["font_unicode_range"] = font_unicode_range
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -777,14 +777,14 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_map_sprites_request.GetMapSpritesRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
-        input["file_name"] = file_name
+        input_: aws_sdk_location.types.get_map_sprites_request.GetMapSpritesRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
+        input_["file_name"] = file_name
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -820,13 +820,13 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_map_style_descriptor_request.GetMapStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
+        input_: aws_sdk_location.types.get_map_style_descriptor_request.GetMapStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -868,16 +868,16 @@ class AsyncMapResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_map_tile_request.GetMapTileRequest = {}  # type: ignore[typeddict-item]
-        input["map_name"] = map_name
-        input["z"] = z
-        input["x"] = x
-        input["y"] = y
+        input_: aws_sdk_location.types.get_map_tile_request.GetMapTileRequest = {}  # type: ignore[typeddict-item]
+        input_["map_name"] = map_name
+        input_["z"] = z
+        input_["x"] = x
+        input_["y"] = y
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

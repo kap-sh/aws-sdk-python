@@ -68,11 +68,11 @@ class LinkedWhatsAppPhoneNumberResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_phone_number_input.GetLinkedWhatsAppBusinessAccountPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_phone_number_input.GetLinkedWhatsAppBusinessAccountPhoneNumberInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -107,12 +107,12 @@ class LinkedWhatsAppPhoneNumberResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.delete_whats_app_message_media_input.DeleteWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
-        input["media_id"] = media_id
-        input["origination_phone_number_id"] = origination_phone_number_id
+        input_: aws_sdk_socialmessaging.types.delete_whats_app_message_media_input.DeleteWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
+        input_["media_id"] = media_id
+        input_["origination_phone_number_id"] = origination_phone_number_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,18 +157,18 @@ class LinkedWhatsAppPhoneNumberResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_whats_app_message_media_input.GetWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
-        input["media_id"] = media_id
-        input["origination_phone_number_id"] = origination_phone_number_id
+        input_: aws_sdk_socialmessaging.types.get_whats_app_message_media_input.GetWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
+        input_["media_id"] = media_id
+        input_["origination_phone_number_id"] = origination_phone_number_id
         if metadata_only is not None:
-            input["metadata_only"] = metadata_only
+            input_["metadata_only"] = metadata_only
         if destination_s3_presigned_url is not None:
-            input["destination_s3_presigned_url"] = destination_s3_presigned_url
+            input_["destination_s3_presigned_url"] = destination_s3_presigned_url
         if destination_s3_file is not None:
-            input["destination_s3_file"] = destination_s3_file
+            input_["destination_s3_file"] = destination_s3_file
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -207,15 +207,15 @@ class LinkedWhatsAppPhoneNumberResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.post_whats_app_message_media_input.PostWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
-        input["origination_phone_number_id"] = origination_phone_number_id
+        input_: aws_sdk_socialmessaging.types.post_whats_app_message_media_input.PostWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
+        input_["origination_phone_number_id"] = origination_phone_number_id
         if source_s3_presigned_url is not None:
-            input["source_s3_presigned_url"] = source_s3_presigned_url
+            input_["source_s3_presigned_url"] = source_s3_presigned_url
         if source_s3_file is not None:
-            input["source_s3_file"] = source_s3_file
+            input_["source_s3_file"] = source_s3_file
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,13 +252,13 @@ class LinkedWhatsAppPhoneNumberResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.send_whats_app_message_input.SendWhatsAppMessageInput = {}  # type: ignore[typeddict-item]
-        input["origination_phone_number_id"] = origination_phone_number_id
-        input["message"] = message
-        input["meta_api_version"] = meta_api_version
+        input_: aws_sdk_socialmessaging.types.send_whats_app_message_input.SendWhatsAppMessageInput = {}  # type: ignore[typeddict-item]
+        input_["origination_phone_number_id"] = origination_phone_number_id
+        input_["message"] = message
+        input_["meta_api_version"] = meta_api_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,11 +297,11 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_phone_number_input.GetLinkedWhatsAppBusinessAccountPhoneNumberInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_socialmessaging.types.get_linked_whats_app_business_account_phone_number_input.GetLinkedWhatsAppBusinessAccountPhoneNumberInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,12 +337,12 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.delete_whats_app_message_media_input.DeleteWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
-        input["media_id"] = media_id
-        input["origination_phone_number_id"] = origination_phone_number_id
+        input_: aws_sdk_socialmessaging.types.delete_whats_app_message_media_input.DeleteWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
+        input_["media_id"] = media_id
+        input_["origination_phone_number_id"] = origination_phone_number_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,18 +388,18 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.get_whats_app_message_media_input.GetWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
-        input["media_id"] = media_id
-        input["origination_phone_number_id"] = origination_phone_number_id
+        input_: aws_sdk_socialmessaging.types.get_whats_app_message_media_input.GetWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
+        input_["media_id"] = media_id
+        input_["origination_phone_number_id"] = origination_phone_number_id
         if metadata_only is not None:
-            input["metadata_only"] = metadata_only
+            input_["metadata_only"] = metadata_only
         if destination_s3_presigned_url is not None:
-            input["destination_s3_presigned_url"] = destination_s3_presigned_url
+            input_["destination_s3_presigned_url"] = destination_s3_presigned_url
         if destination_s3_file is not None:
-            input["destination_s3_file"] = destination_s3_file
+            input_["destination_s3_file"] = destination_s3_file
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -439,15 +439,15 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.post_whats_app_message_media_input.PostWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
-        input["origination_phone_number_id"] = origination_phone_number_id
+        input_: aws_sdk_socialmessaging.types.post_whats_app_message_media_input.PostWhatsAppMessageMediaInput = {}  # type: ignore[typeddict-item]
+        input_["origination_phone_number_id"] = origination_phone_number_id
         if source_s3_presigned_url is not None:
-            input["source_s3_presigned_url"] = source_s3_presigned_url
+            input_["source_s3_presigned_url"] = source_s3_presigned_url
         if source_s3_file is not None:
-            input["source_s3_file"] = source_s3_file
+            input_["source_s3_file"] = source_s3_file
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,13 +485,13 @@ class AsyncLinkedWhatsAppPhoneNumberResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_socialmessaging.types.send_whats_app_message_input.SendWhatsAppMessageInput = {}  # type: ignore[typeddict-item]
-        input["origination_phone_number_id"] = origination_phone_number_id
-        input["message"] = message
-        input["meta_api_version"] = meta_api_version
+        input_: aws_sdk_socialmessaging.types.send_whats_app_message_input.SendWhatsAppMessageInput = {}  # type: ignore[typeddict-item]
+        input_["origination_phone_number_id"] = origination_phone_number_id
+        input_["message"] = message
+        input_["meta_api_version"] = meta_api_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

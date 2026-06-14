@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_workspaces_instances._auth._signers
+import aws_sdk_workspaces_instances._auth._sigv4
 from aws_sdk_workspaces_instances._auth._identity import Credentials
 from aws_sdk_workspaces_instances._auth._providers import (
     CredentialsProvider,
@@ -198,13 +200,13 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.associate_volume_request.AssociateVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_instance_id"] = workspace_instance_id
-        input["volume_id"] = volume_id
-        input["device"] = device
+        input_: aws_sdk_workspaces_instances.types.associate_volume_request.AssociateVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_instance_id"] = workspace_instance_id
+        input_["volume_id"] = volume_id
+        input_["device"] = device
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -273,29 +275,29 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.create_volume_request.CreateVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["availability_zone"] = availability_zone
+        input_: aws_sdk_workspaces_instances.types.create_volume_request.CreateVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["availability_zone"] = availability_zone
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if encrypted is not None:
-            input["encrypted"] = encrypted
+            input_["encrypted"] = encrypted
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if size_in_gb is not None:
-            input["size_in_gb"] = size_in_gb
+            input_["size_in_gb"] = size_in_gb
         if snapshot_id is not None:
-            input["snapshot_id"] = snapshot_id
+            input_["snapshot_id"] = snapshot_id
         if tag_specifications is not None:
-            input["tag_specifications"] = tag_specifications
+            input_["tag_specifications"] = tag_specifications
         if throughput is not None:
-            input["throughput"] = throughput
+            input_["throughput"] = throughput
         if volume_type is not None:
-            input["volume_type"] = volume_type
+            input_["volume_type"] = volume_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,17 +340,17 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.create_workspace_instance_request.CreateWorkspaceInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_instances.types.create_workspace_instance_request.CreateWorkspaceInstanceRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
-        input["managed_instance"] = managed_instance
+            input_["tags"] = tags
+        input_["managed_instance"] = managed_instance
         if billing_configuration is not None:
-            input["billing_configuration"] = billing_configuration
+            input_["billing_configuration"] = billing_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -383,11 +385,11 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.delete_volume_request.DeleteVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["volume_id"] = volume_id
+        input_: aws_sdk_workspaces_instances.types.delete_volume_request.DeleteVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["volume_id"] = volume_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,11 +422,11 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.delete_workspace_instance_request.DeleteWorkspaceInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_instance_id"] = workspace_instance_id
+        input_: aws_sdk_workspaces_instances.types.delete_workspace_instance_request.DeleteWorkspaceInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_instance_id"] = workspace_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -467,16 +469,16 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.disassociate_volume_request.DisassociateVolumeRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_instance_id"] = workspace_instance_id
-        input["volume_id"] = volume_id
+        input_: aws_sdk_workspaces_instances.types.disassociate_volume_request.DisassociateVolumeRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_instance_id"] = workspace_instance_id
+        input_["volume_id"] = volume_id
         if device is not None:
-            input["device"] = device
+            input_["device"] = device
         if disassociate_mode is not None:
-            input["disassociate_mode"] = disassociate_mode
+            input_["disassociate_mode"] = disassociate_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,11 +511,11 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.get_workspace_instance_request.GetWorkspaceInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_instance_id"] = workspace_instance_id
+        input_: aws_sdk_workspaces_instances.types.get_workspace_instance_request.GetWorkspaceInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_instance_id"] = workspace_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -556,16 +558,16 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.list_instance_types_request.ListInstanceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_instances.types.list_instance_types_request.ListInstanceTypesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if instance_configuration_filter is not None:
-            input["instance_configuration_filter"] = instance_configuration_filter
+            input_["instance_configuration_filter"] = instance_configuration_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -633,14 +635,14 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.list_regions_request.ListRegionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_instances.types.list_regions_request.ListRegionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,11 +700,11 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_instance_id"] = workspace_instance_id
+        input_: aws_sdk_workspaces_instances.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_instance_id"] = workspace_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,16 +747,16 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.list_workspace_instances_request.ListWorkspaceInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_workspaces_instances.types.list_workspace_instances_request.ListWorkspaceInstancesRequest = {}  # type: ignore[typeddict-item]
         if provision_states is not None:
-            input["provision_states"] = provision_states
+            input_["provision_states"] = provision_states
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -818,12 +820,12 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_instance_id"] = workspace_instance_id
-        input["tags"] = tags
+        input_: aws_sdk_workspaces_instances.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_instance_id"] = workspace_instance_id
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -858,12 +860,12 @@ class WorkspacesInstancesClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workspaces_instances.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["workspace_instance_id"] = workspace_instance_id
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_workspaces_instances.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["workspace_instance_id"] = workspace_instance_id
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

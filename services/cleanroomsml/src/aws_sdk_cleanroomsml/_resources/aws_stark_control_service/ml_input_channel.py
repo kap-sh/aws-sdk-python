@@ -96,25 +96,25 @@ class MLInputChannel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_ml_input_channel_request.CreateMLInputChannelRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_model_algorithm_associations"] = (
+        input_: aws_sdk_cleanroomsml.types.create_ml_input_channel_request.CreateMLInputChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_model_algorithm_associations"] = (
             configured_model_algorithm_associations
         )
-        input["input_channel"] = input_channel
-        input["name"] = name
-        input["retention_in_days"] = retention_in_days
+        input_["input_channel"] = input_channel
+        input_["name"] = name
+        input_["retention_in_days"] = retention_in_days
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if payer_configuration is not None:
-            input["payer_configuration"] = payer_configuration
+            input_["payer_configuration"] = payer_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -149,12 +149,12 @@ class MLInputChannel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_ml_input_channel_request.GetMLInputChannelRequest = {}  # type: ignore[typeddict-item]
-        input["ml_input_channel_arn"] = ml_input_channel_arn
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.get_ml_input_channel_request.GetMLInputChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["ml_input_channel_arn"] = ml_input_channel_arn
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -187,12 +187,12 @@ class MLInputChannel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_ml_input_channel_data_request.DeleteMLInputChannelDataRequest = {}  # type: ignore[typeddict-item]
-        input["ml_input_channel_arn"] = ml_input_channel_arn
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.delete_ml_input_channel_data_request.DeleteMLInputChannelDataRequest = {}  # type: ignore[typeddict-item]
+        input_["ml_input_channel_arn"] = ml_input_channel_arn
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,15 +231,15 @@ class MLInputChannel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_ml_input_channels_request.ListMLInputChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_ml_input_channels_request.ListMLInputChannelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -274,12 +274,12 @@ class MLInputChannel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_collaboration_ml_input_channel_request.GetCollaborationMLInputChannelRequest = {}  # type: ignore[typeddict-item]
-        input["ml_input_channel_arn"] = ml_input_channel_arn
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanroomsml.types.get_collaboration_ml_input_channel_request.GetCollaborationMLInputChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["ml_input_channel_arn"] = ml_input_channel_arn
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,25 +340,25 @@ class AsyncMLInputChannel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_ml_input_channel_request.CreateMLInputChannelRequest = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["configured_model_algorithm_associations"] = (
+        input_: aws_sdk_cleanroomsml.types.create_ml_input_channel_request.CreateMLInputChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["configured_model_algorithm_associations"] = (
             configured_model_algorithm_associations
         )
-        input["input_channel"] = input_channel
-        input["name"] = name
-        input["retention_in_days"] = retention_in_days
+        input_["input_channel"] = input_channel
+        input_["name"] = name
+        input_["retention_in_days"] = retention_in_days
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if payer_configuration is not None:
-            input["payer_configuration"] = payer_configuration
+            input_["payer_configuration"] = payer_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,12 +394,12 @@ class AsyncMLInputChannel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_ml_input_channel_request.GetMLInputChannelRequest = {}  # type: ignore[typeddict-item]
-        input["ml_input_channel_arn"] = ml_input_channel_arn
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.get_ml_input_channel_request.GetMLInputChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["ml_input_channel_arn"] = ml_input_channel_arn
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -433,12 +433,12 @@ class AsyncMLInputChannel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_ml_input_channel_data_request.DeleteMLInputChannelDataRequest = {}  # type: ignore[typeddict-item]
-        input["ml_input_channel_arn"] = ml_input_channel_arn
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanroomsml.types.delete_ml_input_channel_data_request.DeleteMLInputChannelDataRequest = {}  # type: ignore[typeddict-item]
+        input_["ml_input_channel_arn"] = ml_input_channel_arn
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,15 +478,15 @@ class AsyncMLInputChannel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_ml_input_channels_request.ListMLInputChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_ml_input_channels_request.ListMLInputChannelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["membership_identifier"] = membership_identifier
+            input_["max_results"] = max_results
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,12 +522,12 @@ class AsyncMLInputChannel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_collaboration_ml_input_channel_request.GetCollaborationMLInputChannelRequest = {}  # type: ignore[typeddict-item]
-        input["ml_input_channel_arn"] = ml_input_channel_arn
-        input["collaboration_identifier"] = collaboration_identifier
+        input_: aws_sdk_cleanroomsml.types.get_collaboration_ml_input_channel_request.GetCollaborationMLInputChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["ml_input_channel_arn"] = ml_input_channel_arn
+        input_["collaboration_identifier"] = collaboration_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

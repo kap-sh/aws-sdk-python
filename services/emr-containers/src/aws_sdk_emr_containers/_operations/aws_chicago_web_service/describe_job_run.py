@@ -86,20 +86,20 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_emr_containers.types.describe_job_run_request.DescribeJobRunRequest,
+    input_: aws_sdk_emr_containers.types.describe_job_run_request.DescribeJobRunRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/virtualclusters/{virtualClusterId}/jobruns/{id}"
-    url = url.replace("{id}", quote(str(input["id"]), safe=""))
+    url = url.replace("{id}", quote(str(input_["id"]), safe=""))
     url = url.replace(
-        "{virtualClusterId}", quote(str(input["virtual_cluster_id"]), safe="")
+        "{virtualClusterId}", quote(str(input_["virtual_cluster_id"]), safe="")
     )
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -108,26 +108,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def describe_job_run(
     options: OperationOptions,
-    input: aws_sdk_emr_containers.types.describe_job_run_request.DescribeJobRunRequest,
+    input_: aws_sdk_emr_containers.types.describe_job_run_request.DescribeJobRunRequest,
 ) -> tuple[
     aws_sdk_emr_containers.types.describe_job_run_response.DescribeJobRunResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -136,16 +133,17 @@ def describe_job_run(
 
 async def async_describe_job_run(
     options: AsyncOperationOptions,
-    input: aws_sdk_emr_containers.types.describe_job_run_request.DescribeJobRunRequest,
+    input_: aws_sdk_emr_containers.types.describe_job_run_request.DescribeJobRunRequest,
 ) -> tuple[
     aws_sdk_emr_containers.types.describe_job_run_response.DescribeJobRunResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

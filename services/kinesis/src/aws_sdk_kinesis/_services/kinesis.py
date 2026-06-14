@@ -258,17 +258,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.add_tags_to_stream_input.AddTagsToStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.add_tags_to_stream_input.AddTagsToStreamInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["tags"] = tags
+            input_["stream_name"] = stream_name
+        input_["tags"] = tags
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -317,21 +317,21 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.create_stream_input.CreateStreamInput = {}  # type: ignore[typeddict-item]
-        input["stream_name"] = stream_name
+        input_: aws_sdk_kinesis.types.create_stream_input.CreateStreamInput = {}  # type: ignore[typeddict-item]
+        input_["stream_name"] = stream_name
         if shard_count is not None:
-            input["shard_count"] = shard_count
+            input_["shard_count"] = shard_count
         if stream_mode_details is not None:
-            input["stream_mode_details"] = stream_mode_details
+            input_["stream_mode_details"] = stream_mode_details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if warm_throughput_mi_bps is not None:
-            input["warm_throughput_mi_bps"] = warm_throughput_mi_bps
+            input_["warm_throughput_mi_bps"] = warm_throughput_mi_bps
         if max_record_size_in_ki_b is not None:
-            input["max_record_size_in_ki_b"] = max_record_size_in_ki_b
+            input_["max_record_size_in_ki_b"] = max_record_size_in_ki_b
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -368,17 +368,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.decrease_stream_retention_period_input.DecreaseStreamRetentionPeriodInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.decrease_stream_retention_period_input.DecreaseStreamRetentionPeriodInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["retention_period_hours"] = retention_period_hours
+            input_["stream_name"] = stream_name
+        input_["retention_period_hours"] = retention_period_hours
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -411,13 +411,13 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kinesis.types.delete_resource_policy_input.DeleteResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,18 +456,18 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.delete_stream_input.DeleteStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.delete_stream_input.DeleteStreamInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if enforce_consumer_deletion is not None:
-            input["enforce_consumer_deletion"] = enforce_consumer_deletion
+            input_["enforce_consumer_deletion"] = enforce_consumer_deletion
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -506,18 +506,18 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.deregister_stream_consumer_input.DeregisterStreamConsumerInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.deregister_stream_consumer_input.DeregisterStreamConsumerInput = {}  # type: ignore[typeddict-item]
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if consumer_name is not None:
-            input["consumer_name"] = consumer_name
+            input_["consumer_name"] = consumer_name
         if consumer_arn is not None:
-            input["consumer_arn"] = consumer_arn
+            input_["consumer_arn"] = consumer_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -543,10 +543,10 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.describe_account_settings_input.DescribeAccountSettingsInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,10 +572,10 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.describe_limits_input.DescribeLimitsInput = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,20 +620,20 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.describe_stream_input.DescribeStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.describe_stream_input.DescribeStreamInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if exclusive_start_shard_id is not None:
-            input["exclusive_start_shard_id"] = exclusive_start_shard_id
+            input_["exclusive_start_shard_id"] = exclusive_start_shard_id
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -731,18 +731,18 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.describe_stream_consumer_input.DescribeStreamConsumerInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.describe_stream_consumer_input.DescribeStreamConsumerInput = {}  # type: ignore[typeddict-item]
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if consumer_name is not None:
-            input["consumer_name"] = consumer_name
+            input_["consumer_name"] = consumer_name
         if consumer_arn is not None:
-            input["consumer_arn"] = consumer_arn
+            input_["consumer_arn"] = consumer_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -779,16 +779,16 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.describe_stream_summary_input.DescribeStreamSummaryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.describe_stream_summary_input.DescribeStreamSummaryInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -827,17 +827,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.disable_enhanced_monitoring_input.DisableEnhancedMonitoringInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.disable_enhanced_monitoring_input.DisableEnhancedMonitoringInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["shard_level_metrics"] = shard_level_metrics
+            input_["stream_name"] = stream_name
+        input_["shard_level_metrics"] = shard_level_metrics
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,17 +876,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.enable_enhanced_monitoring_input.EnableEnhancedMonitoringInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.enable_enhanced_monitoring_input.EnableEnhancedMonitoringInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["shard_level_metrics"] = shard_level_metrics
+            input_["stream_name"] = stream_name
+        input_["shard_level_metrics"] = shard_level_metrics
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -927,17 +927,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.get_records_input.GetRecordsInput = {}  # type: ignore[typeddict-item]
-        input["shard_iterator"] = shard_iterator
+        input_: aws_sdk_kinesis.types.get_records_input.GetRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["shard_iterator"] = shard_iterator
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -972,13 +972,13 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kinesis.types.get_resource_policy_input.GetResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1025,22 +1025,22 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.get_shard_iterator_input.GetShardIteratorInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.get_shard_iterator_input.GetShardIteratorInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["shard_id"] = shard_id
-        input["shard_iterator_type"] = shard_iterator_type
+            input_["stream_name"] = stream_name
+        input_["shard_id"] = shard_id
+        input_["shard_iterator_type"] = shard_iterator_type
         if starting_sequence_number is not None:
-            input["starting_sequence_number"] = starting_sequence_number
+            input_["starting_sequence_number"] = starting_sequence_number
         if timestamp is not None:
-            input["timestamp"] = timestamp
+            input_["timestamp"] = timestamp
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1077,17 +1077,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.increase_stream_retention_period_input.IncreaseStreamRetentionPeriodInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.increase_stream_retention_period_input.IncreaseStreamRetentionPeriodInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["retention_period_hours"] = retention_period_hours
+            input_["stream_name"] = stream_name
+        input_["retention_period_hours"] = retention_period_hours
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1140,26 +1140,26 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.list_shards_input.ListShardsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.list_shards_input.ListShardsInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if exclusive_start_shard_id is not None:
-            input["exclusive_start_shard_id"] = exclusive_start_shard_id
+            input_["exclusive_start_shard_id"] = exclusive_start_shard_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if stream_creation_timestamp is not None:
-            input["stream_creation_timestamp"] = stream_creation_timestamp
+            input_["stream_creation_timestamp"] = stream_creation_timestamp
         if shard_filter is not None:
-            input["shard_filter"] = shard_filter
+            input_["shard_filter"] = shard_filter
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1204,19 +1204,19 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.list_stream_consumers_input.ListStreamConsumersInput = {}  # type: ignore[typeddict-item]
-        input["stream_arn"] = stream_arn
+        input_: aws_sdk_kinesis.types.list_stream_consumers_input.ListStreamConsumersInput = {}  # type: ignore[typeddict-item]
+        input_["stream_arn"] = stream_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if stream_creation_timestamp is not None:
-            input["stream_creation_timestamp"] = stream_creation_timestamp
+            input_["stream_creation_timestamp"] = stream_creation_timestamp
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1257,16 +1257,16 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.list_streams_input.ListStreamsInput = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if exclusive_start_stream_name is not None:
-            input["exclusive_start_stream_name"] = exclusive_start_stream_name
+            input_["exclusive_start_stream_name"] = exclusive_start_stream_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1303,13 +1303,13 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kinesis.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1354,20 +1354,20 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.list_tags_for_stream_input.ListTagsForStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.list_tags_for_stream_input.ListTagsForStreamInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if exclusive_start_tag_key is not None:
-            input["exclusive_start_tag_key"] = exclusive_start_tag_key
+            input_["exclusive_start_tag_key"] = exclusive_start_tag_key
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1406,18 +1406,18 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.merge_shards_input.MergeShardsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.merge_shards_input.MergeShardsInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["shard_to_merge"] = shard_to_merge
-        input["adjacent_shard_to_merge"] = adjacent_shard_to_merge
+            input_["stream_name"] = stream_name
+        input_["shard_to_merge"] = shard_to_merge
+        input_["adjacent_shard_to_merge"] = adjacent_shard_to_merge
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1464,22 +1464,22 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.put_record_input.PutRecordInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.put_record_input.PutRecordInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["data"] = data
-        input["partition_key"] = partition_key
+            input_["stream_name"] = stream_name
+        input_["data"] = data
+        input_["partition_key"] = partition_key
         if explicit_hash_key is not None:
-            input["explicit_hash_key"] = explicit_hash_key
+            input_["explicit_hash_key"] = explicit_hash_key
         if sequence_number_for_ordering is not None:
-            input["sequence_number_for_ordering"] = sequence_number_for_ordering
+            input_["sequence_number_for_ordering"] = sequence_number_for_ordering
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1518,17 +1518,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.put_records_input.PutRecordsInput = {}  # type: ignore[typeddict-item]
-        input["records"] = records
+        input_: aws_sdk_kinesis.types.put_records_input.PutRecordsInput = {}  # type: ignore[typeddict-item]
+        input_["records"] = records
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1563,14 +1563,14 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kinesis.types.put_resource_policy_input.PutResourcePolicyInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
-        input["policy"] = policy
+            input_["stream_id"] = stream_id
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1609,16 +1609,16 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.register_stream_consumer_input.RegisterStreamConsumerInput = {}  # type: ignore[typeddict-item]
-        input["stream_arn"] = stream_arn
-        input["consumer_name"] = consumer_name
+        input_: aws_sdk_kinesis.types.register_stream_consumer_input.RegisterStreamConsumerInput = {}  # type: ignore[typeddict-item]
+        input_["stream_arn"] = stream_arn
+        input_["consumer_name"] = consumer_name
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1655,17 +1655,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.remove_tags_from_stream_input.RemoveTagsFromStreamInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.remove_tags_from_stream_input.RemoveTagsFromStreamInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["tag_keys"] = tag_keys
+            input_["stream_name"] = stream_name
+        input_["tag_keys"] = tag_keys
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1704,18 +1704,18 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.split_shard_input.SplitShardInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.split_shard_input.SplitShardInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["shard_to_split"] = shard_to_split
-        input["new_starting_hash_key"] = new_starting_hash_key
+            input_["stream_name"] = stream_name
+        input_["shard_to_split"] = shard_to_split
+        input_["new_starting_hash_key"] = new_starting_hash_key
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1754,18 +1754,18 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.start_stream_encryption_input.StartStreamEncryptionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.start_stream_encryption_input.StartStreamEncryptionInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["encryption_type"] = encryption_type
-        input["key_id"] = key_id
+            input_["stream_name"] = stream_name
+        input_["encryption_type"] = encryption_type
+        input_["key_id"] = key_id
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1804,18 +1804,18 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.stop_stream_encryption_input.StopStreamEncryptionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.stop_stream_encryption_input.StopStreamEncryptionInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["encryption_type"] = encryption_type
-        input["key_id"] = key_id
+            input_["stream_name"] = stream_name
+        input_["encryption_type"] = encryption_type
+        input_["key_id"] = key_id
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1854,15 +1854,15 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.subscribe_to_shard_input.SubscribeToShardInput = {}  # type: ignore[typeddict-item]
-        input["consumer_arn"] = consumer_arn
+        input_: aws_sdk_kinesis.types.subscribe_to_shard_input.SubscribeToShardInput = {}  # type: ignore[typeddict-item]
+        input_["consumer_arn"] = consumer_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
-        input["shard_id"] = shard_id
-        input["starting_position"] = starting_position
+            input_["stream_id"] = stream_id
+        input_["shard_id"] = shard_id
+        input_["starting_position"] = starting_position
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1897,14 +1897,14 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["tags"] = tags
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kinesis.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["tags"] = tags
+        input_["resource_arn"] = resource_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1939,14 +1939,14 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["tag_keys"] = tag_keys
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kinesis.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["tag_keys"] = tag_keys
+        input_["resource_arn"] = resource_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,13 +1979,13 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.update_account_settings_input.UpdateAccountSettingsInput = {}  # type: ignore[typeddict-item]
-        input["minimum_throughput_billing_commitment"] = (
+        input_: aws_sdk_kinesis.types.update_account_settings_input.UpdateAccountSettingsInput = {}  # type: ignore[typeddict-item]
+        input_["minimum_throughput_billing_commitment"] = (
             minimum_throughput_billing_commitment
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2020,15 +2020,15 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.update_max_record_size_input.UpdateMaxRecordSizeInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.update_max_record_size_input.UpdateMaxRecordSizeInput = {}  # type: ignore[typeddict-item]
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
-        input["max_record_size_in_ki_b"] = max_record_size_in_ki_b
+            input_["stream_id"] = stream_id
+        input_["max_record_size_in_ki_b"] = max_record_size_in_ki_b
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2069,18 +2069,18 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.update_shard_count_input.UpdateShardCountInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.update_shard_count_input.UpdateShardCountInput = {}  # type: ignore[typeddict-item]
         if stream_name is not None:
-            input["stream_name"] = stream_name
-        input["target_shard_count"] = target_shard_count
-        input["scaling_type"] = scaling_type
+            input_["stream_name"] = stream_name
+        input_["target_shard_count"] = target_shard_count
+        input_["scaling_type"] = scaling_type
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2119,16 +2119,16 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.update_stream_mode_input.UpdateStreamModeInput = {}  # type: ignore[typeddict-item]
-        input["stream_arn"] = stream_arn
+        input_: aws_sdk_kinesis.types.update_stream_mode_input.UpdateStreamModeInput = {}  # type: ignore[typeddict-item]
+        input_["stream_arn"] = stream_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
-        input["stream_mode_details"] = stream_mode_details
+            input_["stream_id"] = stream_id
+        input_["stream_mode_details"] = stream_mode_details
         if warm_throughput_mi_bps is not None:
-            input["warm_throughput_mi_bps"] = warm_throughput_mi_bps
+            input_["warm_throughput_mi_bps"] = warm_throughput_mi_bps
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2167,17 +2167,17 @@ class KinesisClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kinesis.types.update_stream_warm_throughput_input.UpdateStreamWarmThroughputInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kinesis.types.update_stream_warm_throughput_input.UpdateStreamWarmThroughputInput = {}  # type: ignore[typeddict-item]
         if stream_arn is not None:
-            input["stream_arn"] = stream_arn
+            input_["stream_arn"] = stream_arn
         if stream_name is not None:
-            input["stream_name"] = stream_name
+            input_["stream_name"] = stream_name
         if stream_id is not None:
-            input["stream_id"] = stream_id
-        input["warm_throughput_mi_bps"] = warm_throughput_mi_bps
+            input_["stream_id"] = stream_id
+        input_["warm_throughput_mi_bps"] = warm_throughput_mi_bps
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

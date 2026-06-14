@@ -87,12 +87,12 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_glyphs_request.GetGlyphsRequest = {}  # type: ignore[typeddict-item]
-        input["font_stack"] = font_stack
-        input["font_unicode_range"] = font_unicode_range
+        input_: aws_sdk_geo_maps.types.get_glyphs_request.GetGlyphsRequest = {}  # type: ignore[typeddict-item]
+        input_["font_stack"] = font_stack
+        input_["font_unicode_range"] = font_unicode_range
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,14 +131,14 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_sprites_request.GetSpritesRequest = {}  # type: ignore[typeddict-item]
-        input["file_name"] = file_name
-        input["style"] = style
-        input["color_scheme"] = color_scheme
-        input["variant"] = variant
+        input_: aws_sdk_geo_maps.types.get_sprites_request.GetSpritesRequest = {}  # type: ignore[typeddict-item]
+        input_["file_name"] = file_name
+        input_["style"] = style
+        input_["color_scheme"] = color_scheme
+        input_["variant"] = variant
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,47 +233,47 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest = {}  # type: ignore[typeddict-item]
         if bounding_box is not None:
-            input["bounding_box"] = bounding_box
+            input_["bounding_box"] = bounding_box
         if bounded_positions is not None:
-            input["bounded_positions"] = bounded_positions
+            input_["bounded_positions"] = bounded_positions
         if center is not None:
-            input["center"] = center
+            input_["center"] = center
         if color_scheme is not None:
-            input["color_scheme"] = color_scheme
+            input_["color_scheme"] = color_scheme
         if compact_overlay is not None:
-            input["compact_overlay"] = compact_overlay
+            input_["compact_overlay"] = compact_overlay
         if crop_labels is not None:
-            input["crop_labels"] = crop_labels
+            input_["crop_labels"] = crop_labels
         if geo_json_overlay is not None:
-            input["geo_json_overlay"] = geo_json_overlay
-        input["height"] = height
+            input_["geo_json_overlay"] = geo_json_overlay
+        input_["height"] = height
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if label_size is not None:
-            input["label_size"] = label_size
+            input_["label_size"] = label_size
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if padding is not None:
-            input["padding"] = padding
+            input_["padding"] = padding
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if points_of_interests is not None:
-            input["points_of_interests"] = points_of_interests
+            input_["points_of_interests"] = points_of_interests
         if radius is not None:
-            input["radius"] = radius
-        input["file_name"] = file_name
+            input_["radius"] = radius
+        input_["file_name"] = file_name
         if scale_bar_unit is not None:
-            input["scale_bar_unit"] = scale_bar_unit
+            input_["scale_bar_unit"] = scale_bar_unit
         if style is not None:
-            input["style"] = style
-        input["width"] = width
+            input_["style"] = style
+        input_["width"] = width
         if zoom is not None:
-            input["zoom"] = zoom
+            input_["zoom"] = zoom
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,27 +330,27 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_style_descriptor_request.GetStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
-        input["style"] = style
+        input_: aws_sdk_geo_maps.types.get_style_descriptor_request.GetStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
+        input_["style"] = style
         if color_scheme is not None:
-            input["color_scheme"] = color_scheme
+            input_["color_scheme"] = color_scheme
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if terrain is not None:
-            input["terrain"] = terrain
+            input_["terrain"] = terrain
         if contour_density is not None:
-            input["contour_density"] = contour_density
+            input_["contour_density"] = contour_density
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_modes is not None:
-            input["travel_modes"] = travel_modes
+            input_["travel_modes"] = travel_modes
         if buildings is not None:
-            input["buildings"] = buildings
+            input_["buildings"] = buildings
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -395,18 +395,18 @@ class ProviderResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_tile_request.GetTileRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_maps.types.get_tile_request.GetTileRequest = {}  # type: ignore[typeddict-item]
         if additional_features is not None:
-            input["additional_features"] = additional_features
-        input["tileset"] = tileset
-        input["z"] = z
-        input["x"] = x
-        input["y"] = y
+            input_["additional_features"] = additional_features
+        input_["tileset"] = tileset
+        input_["z"] = z
+        input_["x"] = x
+        input_["y"] = y
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,12 +447,12 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_glyphs_request.GetGlyphsRequest = {}  # type: ignore[typeddict-item]
-        input["font_stack"] = font_stack
-        input["font_unicode_range"] = font_unicode_range
+        input_: aws_sdk_geo_maps.types.get_glyphs_request.GetGlyphsRequest = {}  # type: ignore[typeddict-item]
+        input_["font_stack"] = font_stack
+        input_["font_unicode_range"] = font_unicode_range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,14 +492,14 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_sprites_request.GetSpritesRequest = {}  # type: ignore[typeddict-item]
-        input["file_name"] = file_name
-        input["style"] = style
-        input["color_scheme"] = color_scheme
-        input["variant"] = variant
+        input_: aws_sdk_geo_maps.types.get_sprites_request.GetSpritesRequest = {}  # type: ignore[typeddict-item]
+        input_["file_name"] = file_name
+        input_["style"] = style
+        input_["color_scheme"] = color_scheme
+        input_["variant"] = variant
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,47 +595,47 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_maps.types.get_static_map_request.GetStaticMapRequest = {}  # type: ignore[typeddict-item]
         if bounding_box is not None:
-            input["bounding_box"] = bounding_box
+            input_["bounding_box"] = bounding_box
         if bounded_positions is not None:
-            input["bounded_positions"] = bounded_positions
+            input_["bounded_positions"] = bounded_positions
         if center is not None:
-            input["center"] = center
+            input_["center"] = center
         if color_scheme is not None:
-            input["color_scheme"] = color_scheme
+            input_["color_scheme"] = color_scheme
         if compact_overlay is not None:
-            input["compact_overlay"] = compact_overlay
+            input_["compact_overlay"] = compact_overlay
         if crop_labels is not None:
-            input["crop_labels"] = crop_labels
+            input_["crop_labels"] = crop_labels
         if geo_json_overlay is not None:
-            input["geo_json_overlay"] = geo_json_overlay
-        input["height"] = height
+            input_["geo_json_overlay"] = geo_json_overlay
+        input_["height"] = height
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
         if label_size is not None:
-            input["label_size"] = label_size
+            input_["label_size"] = label_size
         if language is not None:
-            input["language"] = language
+            input_["language"] = language
         if padding is not None:
-            input["padding"] = padding
+            input_["padding"] = padding
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if points_of_interests is not None:
-            input["points_of_interests"] = points_of_interests
+            input_["points_of_interests"] = points_of_interests
         if radius is not None:
-            input["radius"] = radius
-        input["file_name"] = file_name
+            input_["radius"] = radius
+        input_["file_name"] = file_name
         if scale_bar_unit is not None:
-            input["scale_bar_unit"] = scale_bar_unit
+            input_["scale_bar_unit"] = scale_bar_unit
         if style is not None:
-            input["style"] = style
-        input["width"] = width
+            input_["style"] = style
+        input_["width"] = width
         if zoom is not None:
-            input["zoom"] = zoom
+            input_["zoom"] = zoom
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -693,27 +693,27 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_style_descriptor_request.GetStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
-        input["style"] = style
+        input_: aws_sdk_geo_maps.types.get_style_descriptor_request.GetStyleDescriptorRequest = {}  # type: ignore[typeddict-item]
+        input_["style"] = style
         if color_scheme is not None:
-            input["color_scheme"] = color_scheme
+            input_["color_scheme"] = color_scheme
         if political_view is not None:
-            input["political_view"] = political_view
+            input_["political_view"] = political_view
         if terrain is not None:
-            input["terrain"] = terrain
+            input_["terrain"] = terrain
         if contour_density is not None:
-            input["contour_density"] = contour_density
+            input_["contour_density"] = contour_density
         if traffic is not None:
-            input["traffic"] = traffic
+            input_["traffic"] = traffic
         if travel_modes is not None:
-            input["travel_modes"] = travel_modes
+            input_["travel_modes"] = travel_modes
         if buildings is not None:
-            input["buildings"] = buildings
+            input_["buildings"] = buildings
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -759,18 +759,18 @@ class AsyncProviderResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_geo_maps.types.get_tile_request.GetTileRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_geo_maps.types.get_tile_request.GetTileRequest = {}  # type: ignore[typeddict-item]
         if additional_features is not None:
-            input["additional_features"] = additional_features
-        input["tileset"] = tileset
-        input["z"] = z
-        input["x"] = x
-        input["y"] = y
+            input_["additional_features"] = additional_features
+        input_["tileset"] = tileset
+        input_["z"] = z
+        input_["x"] = x
+        input_["y"] = y
         if key is not None:
-            input["key"] = key
+            input_["key"] = key
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

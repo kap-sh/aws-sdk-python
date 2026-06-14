@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_frauddetector._auth._signers
+import aws_sdk_frauddetector._auth._sigv4
 from aws_sdk_frauddetector._auth._identity import Credentials
 from aws_sdk_frauddetector._auth._providers import (
     CredentialsProvider,
@@ -368,13 +370,13 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.batch_create_variable_request.BatchCreateVariableRequest = {}  # type: ignore[typeddict-item]
-        input["variable_entries"] = variable_entries
+        input_: aws_sdk_frauddetector.types.batch_create_variable_request.BatchCreateVariableRequest = {}  # type: ignore[typeddict-item]
+        input_["variable_entries"] = variable_entries
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,11 +410,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.batch_get_variable_request.BatchGetVariableRequest = {}  # type: ignore[typeddict-item]
-        input["names"] = names
+        input_: aws_sdk_frauddetector.types.batch_get_variable_request.BatchGetVariableRequest = {}  # type: ignore[typeddict-item]
+        input_["names"] = names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -446,11 +448,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.cancel_batch_import_job_request.CancelBatchImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_frauddetector.types.cancel_batch_import_job_request.CancelBatchImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,11 +486,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.cancel_batch_prediction_job_request.CancelBatchPredictionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_frauddetector.types.cancel_batch_prediction_job_request.CancelBatchPredictionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,17 +534,17 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.create_batch_import_job_request.CreateBatchImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["input_path"] = input_path
-        input["output_path"] = output_path
-        input["event_type_name"] = event_type_name
-        input["iam_role_arn"] = iam_role_arn
+        input_: aws_sdk_frauddetector.types.create_batch_import_job_request.CreateBatchImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["input_path"] = input_path
+        input_["output_path"] = output_path
+        input_["event_type_name"] = event_type_name
+        input_["iam_role_arn"] = iam_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,20 +594,20 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.create_batch_prediction_job_request.CreateBatchPredictionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["input_path"] = input_path
-        input["output_path"] = output_path
-        input["event_type_name"] = event_type_name
-        input["detector_name"] = detector_name
+        input_: aws_sdk_frauddetector.types.create_batch_prediction_job_request.CreateBatchPredictionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["input_path"] = input_path
+        input_["output_path"] = output_path
+        input_["event_type_name"] = event_type_name
+        input_["detector_name"] = detector_name
         if detector_version is not None:
-            input["detector_version"] = detector_version
-        input["iam_role_arn"] = iam_role_arn
+            input_["detector_version"] = detector_version
+        input_["iam_role_arn"] = iam_role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -659,22 +661,22 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.create_detector_version_request.CreateDetectorVersionRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_frauddetector.types.create_detector_version_request.CreateDetectorVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if external_model_endpoints is not None:
-            input["external_model_endpoints"] = external_model_endpoints
-        input["rules"] = rules
+            input_["external_model_endpoints"] = external_model_endpoints
+        input_["rules"] = rules
         if model_versions is not None:
-            input["model_versions"] = model_versions
+            input_["model_versions"] = model_versions
         if rule_execution_mode is not None:
-            input["rule_execution_mode"] = rule_execution_mode
+            input_["rule_execution_mode"] = rule_execution_mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,19 +724,19 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.create_list_request.CreateListRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.create_list_request.CreateListRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if elements is not None:
-            input["elements"] = elements
+            input_["elements"] = elements
         if variable_type is not None:
-            input["variable_type"] = variable_type
+            input_["variable_type"] = variable_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -778,17 +780,17 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.create_model_request.CreateModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["model_type"] = model_type
+        input_: aws_sdk_frauddetector.types.create_model_request.CreateModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["model_type"] = model_type
         if description is not None:
-            input["description"] = description
-        input["event_type_name"] = event_type_name
+            input_["description"] = description
+        input_["event_type_name"] = event_type_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -838,20 +840,20 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.create_model_version_request.CreateModelVersionRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["model_type"] = model_type
-        input["training_data_source"] = training_data_source
-        input["training_data_schema"] = training_data_schema
+        input_: aws_sdk_frauddetector.types.create_model_version_request.CreateModelVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["model_type"] = model_type
+        input_["training_data_source"] = training_data_source
+        input_["training_data_schema"] = training_data_schema
         if external_events_detail is not None:
-            input["external_events_detail"] = external_events_detail
+            input_["external_events_detail"] = external_events_detail
         if ingested_events_detail is not None:
-            input["ingested_events_detail"] = ingested_events_detail
+            input_["ingested_events_detail"] = ingested_events_detail
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -899,19 +901,19 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule_id"] = rule_id
-        input["detector_id"] = detector_id
+        input_: aws_sdk_frauddetector.types.create_rule_request.CreateRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule_id"] = rule_id
+        input_["detector_id"] = detector_id
         if description is not None:
-            input["description"] = description
-        input["expression"] = expression
-        input["language"] = language
-        input["outcomes"] = outcomes
+            input_["description"] = description
+        input_["expression"] = expression
+        input_["language"] = language
+        input_["outcomes"] = outcomes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -957,20 +959,20 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.create_variable_request.CreateVariableRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["data_type"] = data_type
-        input["data_source"] = data_source
-        input["default_value"] = default_value
+        input_: aws_sdk_frauddetector.types.create_variable_request.CreateVariableRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["data_type"] = data_type
+        input_["data_source"] = data_source
+        input_["default_value"] = default_value
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if variable_type is not None:
-            input["variable_type"] = variable_type
+            input_["variable_type"] = variable_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1004,11 +1006,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_batch_import_job_request.DeleteBatchImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_frauddetector.types.delete_batch_import_job_request.DeleteBatchImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1042,11 +1044,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_batch_prediction_job_request.DeleteBatchPredictionJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_frauddetector.types.delete_batch_prediction_job_request.DeleteBatchPredictionJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1080,11 +1082,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_detector_request.DeleteDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_frauddetector.types.delete_detector_request.DeleteDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1120,12 +1122,12 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_detector_version_request.DeleteDetectorVersionRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["detector_version_id"] = detector_version_id
+        input_: aws_sdk_frauddetector.types.delete_detector_version_request.DeleteDetectorVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["detector_version_id"] = detector_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1159,11 +1161,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_entity_type_request.DeleteEntityTypeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.delete_entity_type_request.DeleteEntityTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1203,14 +1205,14 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_event_request.DeleteEventRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
-        input["event_type_name"] = event_type_name
+        input_: aws_sdk_frauddetector.types.delete_event_request.DeleteEventRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
+        input_["event_type_name"] = event_type_name
         if delete_audit_history is not None:
-            input["delete_audit_history"] = delete_audit_history
+            input_["delete_audit_history"] = delete_audit_history
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1244,11 +1246,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_events_by_event_type_request.DeleteEventsByEventTypeRequest = {}  # type: ignore[typeddict-item]
-        input["event_type_name"] = event_type_name
+        input_: aws_sdk_frauddetector.types.delete_events_by_event_type_request.DeleteEventsByEventTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type_name"] = event_type_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1282,11 +1284,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_event_type_request.DeleteEventTypeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.delete_event_type_request.DeleteEventTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1320,11 +1322,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_external_model_request.DeleteExternalModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_endpoint"] = model_endpoint
+        input_: aws_sdk_frauddetector.types.delete_external_model_request.DeleteExternalModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_endpoint"] = model_endpoint
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1358,11 +1360,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_label_request.DeleteLabelRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.delete_label_request.DeleteLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1396,11 +1398,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_list_request.DeleteListRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.delete_list_request.DeleteListRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1436,12 +1438,12 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_model_request.DeleteModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["model_type"] = model_type
+        input_: aws_sdk_frauddetector.types.delete_model_request.DeleteModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["model_type"] = model_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1479,13 +1481,13 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_model_version_request.DeleteModelVersionRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["model_type"] = model_type
-        input["model_version_number"] = model_version_number
+        input_: aws_sdk_frauddetector.types.delete_model_version_request.DeleteModelVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["model_type"] = model_type
+        input_["model_version_number"] = model_version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1519,11 +1521,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_outcome_request.DeleteOutcomeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.delete_outcome_request.DeleteOutcomeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1553,11 +1555,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
-        input["rule"] = rule
+        input_: aws_sdk_frauddetector.types.delete_rule_request.DeleteRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["rule"] = rule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1591,11 +1593,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.delete_variable_request.DeleteVariableRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.delete_variable_request.DeleteVariableRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1635,15 +1637,15 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.describe_detector_request.DescribeDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_frauddetector.types.describe_detector_request.DescribeDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1693,20 +1695,20 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.describe_model_versions_request.DescribeModelVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.describe_model_versions_request.DescribeModelVersionsRequest = {}  # type: ignore[typeddict-item]
         if model_id is not None:
-            input["model_id"] = model_id
+            input_["model_id"] = model_id
         if model_version_number is not None:
-            input["model_version_number"] = model_version_number
+            input_["model_version_number"] = model_version_number
         if model_type is not None:
-            input["model_type"] = model_type
+            input_["model_type"] = model_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1746,16 +1748,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_batch_import_jobs_request.GetBatchImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_batch_import_jobs_request.GetBatchImportJobsRequest = {}  # type: ignore[typeddict-item]
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1795,16 +1797,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_batch_prediction_jobs_request.GetBatchPredictionJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_batch_prediction_jobs_request.GetBatchPredictionJobsRequest = {}  # type: ignore[typeddict-item]
         if job_id is not None:
-            input["job_id"] = job_id
+            input_["job_id"] = job_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1838,11 +1840,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_delete_events_by_event_type_status_request.GetDeleteEventsByEventTypeStatusRequest = {}  # type: ignore[typeddict-item]
-        input["event_type_name"] = event_type_name
+        input_: aws_sdk_frauddetector.types.get_delete_events_by_event_type_status_request.GetDeleteEventsByEventTypeStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["event_type_name"] = event_type_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1884,16 +1886,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_detectors_request.GetDetectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_detectors_request.GetDetectorsRequest = {}  # type: ignore[typeddict-item]
         if detector_id is not None:
-            input["detector_id"] = detector_id
+            input_["detector_id"] = detector_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1929,12 +1931,12 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_detector_version_request.GetDetectorVersionRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["detector_version_id"] = detector_version_id
+        input_: aws_sdk_frauddetector.types.get_detector_version_request.GetDetectorVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["detector_version_id"] = detector_version_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1974,16 +1976,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_entity_types_request.GetEntityTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_entity_types_request.GetEntityTypesRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2019,12 +2021,12 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_event_request.GetEventRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
-        input["event_type_name"] = event_type_name
+        input_: aws_sdk_frauddetector.types.get_event_request.GetEventRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
+        input_["event_type_name"] = event_type_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2076,22 +2078,22 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_event_prediction_request.GetEventPredictionRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_frauddetector.types.get_event_prediction_request.GetEventPredictionRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if detector_version_id is not None:
-            input["detector_version_id"] = detector_version_id
-        input["event_id"] = event_id
-        input["event_type_name"] = event_type_name
-        input["entities"] = entities
-        input["event_timestamp"] = event_timestamp
-        input["event_variables"] = event_variables
+            input_["detector_version_id"] = detector_version_id
+        input_["event_id"] = event_id
+        input_["event_type_name"] = event_type_name
+        input_["entities"] = entities
+        input_["event_timestamp"] = event_timestamp
+        input_["event_variables"] = event_variables
         if external_model_endpoint_data_blobs is not None:
-            input["external_model_endpoint_data_blobs"] = (
+            input_["external_model_endpoint_data_blobs"] = (
                 external_model_endpoint_data_blobs
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2133,15 +2135,15 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_event_prediction_metadata_request.GetEventPredictionMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
-        input["event_type_name"] = event_type_name
-        input["detector_id"] = detector_id
-        input["detector_version_id"] = detector_version_id
-        input["prediction_timestamp"] = prediction_timestamp
+        input_: aws_sdk_frauddetector.types.get_event_prediction_metadata_request.GetEventPredictionMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
+        input_["event_type_name"] = event_type_name
+        input_["detector_id"] = detector_id
+        input_["detector_version_id"] = detector_version_id
+        input_["prediction_timestamp"] = prediction_timestamp
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2181,16 +2183,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_event_types_request.GetEventTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_event_types_request.GetEventTypesRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2232,16 +2234,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_external_models_request.GetExternalModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_external_models_request.GetExternalModelsRequest = {}  # type: ignore[typeddict-item]
         if model_endpoint is not None:
-            input["model_endpoint"] = model_endpoint
+            input_["model_endpoint"] = model_endpoint
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2310,16 +2312,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_labels_request.GetLabelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_labels_request.GetLabelsRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2359,15 +2361,15 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_list_elements_request.GetListElementsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.get_list_elements_request.GetListElementsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2409,16 +2411,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_lists_metadata_request.GetListsMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_lists_metadata_request.GetListsMetadataRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2464,18 +2466,18 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_models_request.GetModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_models_request.GetModelsRequest = {}  # type: ignore[typeddict-item]
         if model_id is not None:
-            input["model_id"] = model_id
+            input_["model_id"] = model_id
         if model_type is not None:
-            input["model_type"] = model_type
+            input_["model_type"] = model_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2513,13 +2515,13 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_model_version_request.GetModelVersionRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["model_type"] = model_type
-        input["model_version_number"] = model_version_number
+        input_: aws_sdk_frauddetector.types.get_model_version_request.GetModelVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["model_type"] = model_type
+        input_["model_version_number"] = model_version_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2559,16 +2561,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_outcomes_request.GetOutcomesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_outcomes_request.GetOutcomesRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2614,19 +2616,19 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_rules_request.GetRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_rules_request.GetRulesRequest = {}  # type: ignore[typeddict-item]
         if rule_id is not None:
-            input["rule_id"] = rule_id
-        input["detector_id"] = detector_id
+            input_["rule_id"] = rule_id
+        input_["detector_id"] = detector_id
         if rule_version is not None:
-            input["rule_version"] = rule_version
+            input_["rule_version"] = rule_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2666,16 +2668,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.get_variables_request.GetVariablesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.get_variables_request.GetVariablesRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2733,24 +2735,24 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.list_event_predictions_request.ListEventPredictionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_frauddetector.types.list_event_predictions_request.ListEventPredictionsRequest = {}  # type: ignore[typeddict-item]
         if event_id is not None:
-            input["event_id"] = event_id
+            input_["event_id"] = event_id
         if event_type is not None:
-            input["event_type"] = event_type
+            input_["event_type"] = event_type
         if detector_id is not None:
-            input["detector_id"] = detector_id
+            input_["detector_id"] = detector_id
         if detector_version_id is not None:
-            input["detector_version_id"] = detector_version_id
+            input_["detector_version_id"] = detector_version_id
         if prediction_time_range is not None:
-            input["prediction_time_range"] = prediction_time_range
+            input_["prediction_time_range"] = prediction_time_range
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2790,15 +2792,15 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_frauddetector.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2840,16 +2842,16 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.put_detector_request.PutDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
+        input_: aws_sdk_frauddetector.types.put_detector_request.PutDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
         if description is not None:
-            input["description"] = description
-        input["event_type_name"] = event_type_name
+            input_["description"] = description
+        input_["event_type_name"] = event_type_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2889,15 +2891,15 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.put_entity_type_request.PutEntityTypeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.put_entity_type_request.PutEntityTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2953,23 +2955,23 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.put_event_type_request.PutEventTypeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.put_event_type_request.PutEventTypeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["event_variables"] = event_variables
+            input_["description"] = description
+        input_["event_variables"] = event_variables
         if labels is not None:
-            input["labels"] = labels
-        input["entity_types"] = entity_types
+            input_["labels"] = labels
+        input_["entity_types"] = entity_types
         if event_ingestion is not None:
-            input["event_ingestion"] = event_ingestion
+            input_["event_ingestion"] = event_ingestion
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if event_orchestration is not None:
-            input["event_orchestration"] = event_orchestration
+            input_["event_orchestration"] = event_orchestration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3015,18 +3017,18 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.put_external_model_request.PutExternalModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_endpoint"] = model_endpoint
-        input["model_source"] = model_source
-        input["invoke_model_endpoint_role_arn"] = invoke_model_endpoint_role_arn
-        input["input_configuration"] = input_configuration
-        input["output_configuration"] = output_configuration
-        input["model_endpoint_status"] = model_endpoint_status
+        input_: aws_sdk_frauddetector.types.put_external_model_request.PutExternalModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_endpoint"] = model_endpoint
+        input_["model_source"] = model_source
+        input_["invoke_model_endpoint_role_arn"] = invoke_model_endpoint_role_arn
+        input_["input_configuration"] = input_configuration
+        input_["output_configuration"] = output_configuration
+        input_["model_endpoint_status"] = model_endpoint_status
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3060,11 +3062,11 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.put_kms_encryption_key_request.PutKMSEncryptionKeyRequest = {}  # type: ignore[typeddict-item]
-        input["kms_encryption_key_arn"] = kms_encryption_key_arn
+        input_: aws_sdk_frauddetector.types.put_kms_encryption_key_request.PutKMSEncryptionKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["kms_encryption_key_arn"] = kms_encryption_key_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3104,15 +3106,15 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.put_label_request.PutLabelRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.put_label_request.PutLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3152,15 +3154,15 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.put_outcome_request.PutOutcomeRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.put_outcome_request.PutOutcomeRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3210,19 +3212,19 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.send_event_request.SendEventRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
-        input["event_type_name"] = event_type_name
-        input["event_timestamp"] = event_timestamp
-        input["event_variables"] = event_variables
+        input_: aws_sdk_frauddetector.types.send_event_request.SendEventRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
+        input_["event_type_name"] = event_type_name
+        input_["event_timestamp"] = event_timestamp
+        input_["event_variables"] = event_variables
         if assigned_label is not None:
-            input["assigned_label"] = assigned_label
+            input_["assigned_label"] = assigned_label
         if label_timestamp is not None:
-            input["label_timestamp"] = label_timestamp
-        input["entities"] = entities
+            input_["label_timestamp"] = label_timestamp
+        input_["entities"] = entities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3258,12 +3260,12 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_frauddetector.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3299,12 +3301,12 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_frauddetector.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3356,20 +3358,20 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_detector_version_request.UpdateDetectorVersionRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["detector_version_id"] = detector_version_id
-        input["external_model_endpoints"] = external_model_endpoints
-        input["rules"] = rules
+        input_: aws_sdk_frauddetector.types.update_detector_version_request.UpdateDetectorVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["detector_version_id"] = detector_version_id
+        input_["external_model_endpoints"] = external_model_endpoints
+        input_["rules"] = rules
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if model_versions is not None:
-            input["model_versions"] = model_versions
+            input_["model_versions"] = model_versions
         if rule_execution_mode is not None:
-            input["rule_execution_mode"] = rule_execution_mode
+            input_["rule_execution_mode"] = rule_execution_mode
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3407,13 +3409,13 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_detector_version_metadata_request.UpdateDetectorVersionMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["detector_version_id"] = detector_version_id
-        input["description"] = description
+        input_: aws_sdk_frauddetector.types.update_detector_version_metadata_request.UpdateDetectorVersionMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["detector_version_id"] = detector_version_id
+        input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3451,13 +3453,13 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_detector_version_status_request.UpdateDetectorVersionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["detector_id"] = detector_id
-        input["detector_version_id"] = detector_version_id
-        input["status"] = status
+        input_: aws_sdk_frauddetector.types.update_detector_version_status_request.UpdateDetectorVersionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_id"] = detector_id
+        input_["detector_version_id"] = detector_version_id
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3497,14 +3499,14 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_event_label_request.UpdateEventLabelRequest = {}  # type: ignore[typeddict-item]
-        input["event_id"] = event_id
-        input["event_type_name"] = event_type_name
-        input["assigned_label"] = assigned_label
-        input["label_timestamp"] = label_timestamp
+        input_: aws_sdk_frauddetector.types.update_event_label_request.UpdateEventLabelRequest = {}  # type: ignore[typeddict-item]
+        input_["event_id"] = event_id
+        input_["event_type_name"] = event_type_name
+        input_["assigned_label"] = assigned_label
+        input_["label_timestamp"] = label_timestamp
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3554,19 +3556,19 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_list_request.UpdateListRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.update_list_request.UpdateListRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if elements is not None:
-            input["elements"] = elements
+            input_["elements"] = elements
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if update_mode is not None:
-            input["update_mode"] = update_mode
+            input_["update_mode"] = update_mode
         if variable_type is not None:
-            input["variable_type"] = variable_type
+            input_["variable_type"] = variable_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3606,14 +3608,14 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_model_request.UpdateModelRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["model_type"] = model_type
+        input_: aws_sdk_frauddetector.types.update_model_request.UpdateModelRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["model_type"] = model_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3661,19 +3663,19 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_model_version_request.UpdateModelVersionRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["model_type"] = model_type
-        input["major_version_number"] = major_version_number
+        input_: aws_sdk_frauddetector.types.update_model_version_request.UpdateModelVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["model_type"] = model_type
+        input_["major_version_number"] = major_version_number
         if external_events_detail is not None:
-            input["external_events_detail"] = external_events_detail
+            input_["external_events_detail"] = external_events_detail
         if ingested_events_detail is not None:
-            input["ingested_events_detail"] = ingested_events_detail
+            input_["ingested_events_detail"] = ingested_events_detail
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3713,14 +3715,14 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_model_version_status_request.UpdateModelVersionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["model_id"] = model_id
-        input["model_type"] = model_type
-        input["model_version_number"] = model_version_number
-        input["status"] = status
+        input_: aws_sdk_frauddetector.types.update_model_version_status_request.UpdateModelVersionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["model_id"] = model_id
+        input_["model_type"] = model_type
+        input_["model_version_number"] = model_version_number
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3756,12 +3758,12 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_rule_metadata_request.UpdateRuleMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["rule"] = rule
-        input["description"] = description
+        input_: aws_sdk_frauddetector.types.update_rule_metadata_request.UpdateRuleMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["rule"] = rule
+        input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3809,18 +3811,18 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_rule_version_request.UpdateRuleVersionRequest = {}  # type: ignore[typeddict-item]
-        input["rule"] = rule
+        input_: aws_sdk_frauddetector.types.update_rule_version_request.UpdateRuleVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["rule"] = rule
         if description is not None:
-            input["description"] = description
-        input["expression"] = expression
-        input["language"] = language
-        input["outcomes"] = outcomes
+            input_["description"] = description
+        input_["expression"] = expression
+        input_["language"] = language
+        input_["outcomes"] = outcomes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3860,17 +3862,17 @@ class AsyncFraudDetectorClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_frauddetector.types.update_variable_request.UpdateVariableRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_frauddetector.types.update_variable_request.UpdateVariableRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if default_value is not None:
-            input["default_value"] = default_value
+            input_["default_value"] = default_value
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if variable_type is not None:
-            input["variable_type"] = variable_type
+            input_["variable_type"] = variable_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

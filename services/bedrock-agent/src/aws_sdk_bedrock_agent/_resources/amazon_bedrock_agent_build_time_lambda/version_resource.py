@@ -68,14 +68,14 @@ class VersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_agent_version_request.DeleteAgentVersionRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.delete_agent_version_request.DeleteAgentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -112,12 +112,12 @@ class VersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_version_request.GetAgentVersionRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.get_agent_version_request.GetAgentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -156,15 +156,15 @@ class VersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_versions_request.ListAgentVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.list_agent_versions_request.ListAgentVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -207,14 +207,14 @@ class AsyncVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_agent_version_request.DeleteAgentVersionRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.delete_agent_version_request.DeleteAgentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,12 +252,12 @@ class AsyncVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_agent_version_request.GetAgentVersionRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["agent_version"] = agent_version
+        input_: aws_sdk_bedrock_agent.types.get_agent_version_request.GetAgentVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["agent_version"] = agent_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,15 +297,15 @@ class AsyncVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_agent_versions_request.ListAgentVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_bedrock_agent.types.list_agent_versions_request.ListAgentVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

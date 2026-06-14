@@ -87,11 +87,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.create_session_request.CreateSessionRequest,
+    input_: aws_sdk_s3.types.create_session_request.CreateSessionRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -111,24 +111,24 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}?session"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "session_mode" in input:
-        headers["x-amz-create-session-mode"] = str(input["session_mode"])
-    if "server_side_encryption" in input:
-        headers["x-amz-server-side-encryption"] = str(input["server_side_encryption"])
-    if "ssekms_key_id" in input:
+    if "session_mode" in input_:
+        headers["x-amz-create-session-mode"] = str(input_["session_mode"])
+    if "server_side_encryption" in input_:
+        headers["x-amz-server-side-encryption"] = str(input_["server_side_encryption"])
+    if "ssekms_key_id" in input_:
         headers["x-amz-server-side-encryption-aws-kms-key-id"] = str(
-            input["ssekms_key_id"]
+            input_["ssekms_key_id"]
         )
-    if "ssekms_encryption_context" in input:
+    if "ssekms_encryption_context" in input_:
         headers["x-amz-server-side-encryption-context"] = str(
-            input["ssekms_encryption_context"]
+            input_["ssekms_encryption_context"]
         )
-    if "bucket_key_enabled" in input:
+    if "bucket_key_enabled" in input_:
         headers["x-amz-server-side-encryption-bucket-key-enabled"] = str(
-            input["bucket_key_enabled"]
+            input_["bucket_key_enabled"]
         )
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
@@ -141,9 +141,9 @@ def build_request(
 
 def create_session(
     options: OperationOptions,
-    input: aws_sdk_s3.types.create_session_request.CreateSessionRequest,
+    input_: aws_sdk_s3.types.create_session_request.CreateSessionRequest,
 ) -> tuple[aws_sdk_s3.types.create_session_output.CreateSessionOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -157,9 +157,9 @@ def create_session(
 
 async def async_create_session(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.create_session_request.CreateSessionRequest,
+    input_: aws_sdk_s3.types.create_session_request.CreateSessionRequest,
 ) -> tuple[aws_sdk_s3.types.create_session_output.CreateSessionOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

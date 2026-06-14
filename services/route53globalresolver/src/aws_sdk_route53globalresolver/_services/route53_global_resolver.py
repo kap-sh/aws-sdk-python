@@ -15,6 +15,30 @@ from aws_sdk_route53globalresolver._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_route53globalresolver._auth._zapros_handler import AuthMiddleware
+from aws_sdk_route53globalresolver._resources.ec2_dns_global_resolver_customer_api.access_source import (
+    AccessSource,
+)
+from aws_sdk_route53globalresolver._resources.ec2_dns_global_resolver_customer_api.access_token import (
+    AccessToken,
+)
+from aws_sdk_route53globalresolver._resources.ec2_dns_global_resolver_customer_api.dns_view import (
+    DNSView,
+)
+from aws_sdk_route53globalresolver._resources.ec2_dns_global_resolver_customer_api.firewall_domain_list import (
+    FirewallDomainList,
+)
+from aws_sdk_route53globalresolver._resources.ec2_dns_global_resolver_customer_api.firewall_rule import (
+    FirewallRule,
+)
+from aws_sdk_route53globalresolver._resources.ec2_dns_global_resolver_customer_api.global_resolver import (
+    GlobalResolver,
+)
+from aws_sdk_route53globalresolver._resources.ec2_dns_global_resolver_customer_api.hosted_zone_association import (
+    HostedZoneAssociation,
+)
+from aws_sdk_route53globalresolver._resources.ec2_dns_global_resolver_customer_api.managed_firewall_domain_list import (
+    ManagedFirewallDomainList,
+)
 from aws_sdk_route53globalresolver._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -105,6 +129,15 @@ class Route53GlobalResolverClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.access_source = AccessSource(self)
+        self.access_token = AccessToken(self)
+        self.dns_view = DNSView(self)
+        self.firewall_domain_list = FirewallDomainList(self)
+        self.firewall_rule = FirewallRule(self)
+        self.global_resolver = GlobalResolver(self)
+        self.hosted_zone_association = HostedZoneAssociation(self)
+        self.managed_firewall_domain_list = ManagedFirewallDomainList(self)
 
     def operation_options(
         self, config_overrides: Optional[Route53GlobalResolverClientConfig] = None
@@ -160,12 +193,12 @@ class Route53GlobalResolverClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.disassociate_hosted_zone_input.DisassociateHostedZoneInput = {}  # type: ignore[typeddict-item]
-        input["hosted_zone_id"] = hosted_zone_id
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_route53globalresolver.types.disassociate_hosted_zone_input.DisassociateHostedZoneInput = {}  # type: ignore[typeddict-item]
+        input_["hosted_zone_id"] = hosted_zone_id
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,11 +231,11 @@ class Route53GlobalResolverClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_route53globalresolver.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,12 +272,12 @@ class Route53GlobalResolverClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_route53globalresolver.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,12 +312,12 @@ class Route53GlobalResolverClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_route53globalresolver.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

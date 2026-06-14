@@ -191,17 +191,17 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.create_configuration_manager_input.CreateConfigurationManagerInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_quicksetup.types.create_configuration_manager_input.CreateConfigurationManagerInput = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["configuration_definitions"] = configuration_definitions
+            input_["description"] = description
+        input_["configuration_definitions"] = configuration_definitions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,11 +233,11 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.delete_configuration_manager_input.DeleteConfigurationManagerInput = {}  # type: ignore[typeddict-item]
-        input["manager_arn"] = manager_arn
+        input_: aws_sdk_ssm_quicksetup.types.delete_configuration_manager_input.DeleteConfigurationManagerInput = {}  # type: ignore[typeddict-item]
+        input_["manager_arn"] = manager_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,11 +271,11 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.get_configuration_input.GetConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["configuration_id"] = configuration_id
+        input_: aws_sdk_ssm_quicksetup.types.get_configuration_input.GetConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["configuration_id"] = configuration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,11 +309,11 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.get_configuration_manager_input.GetConfigurationManagerInput = {}  # type: ignore[typeddict-item]
-        input["manager_arn"] = manager_arn
+        input_: aws_sdk_ssm_quicksetup.types.get_configuration_manager_input.GetConfigurationManagerInput = {}  # type: ignore[typeddict-item]
+        input_["manager_arn"] = manager_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -382,16 +382,16 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.list_configuration_managers_input.ListConfigurationManagersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_quicksetup.types.list_configuration_managers_input.ListConfigurationManagersInput = {}  # type: ignore[typeddict-item]
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,20 +460,20 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.list_configurations_input.ListConfigurationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_quicksetup.types.list_configurations_input.ListConfigurationsInput = {}  # type: ignore[typeddict-item]
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if manager_arn is not None:
-            input["manager_arn"] = manager_arn
+            input_["manager_arn"] = manager_arn
         if configuration_definition_id is not None:
-            input["configuration_definition_id"] = configuration_definition_id
+            input_["configuration_definition_id"] = configuration_definition_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,11 +565,11 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ssm_quicksetup.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,12 +603,12 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_ssm_quicksetup.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -642,12 +642,12 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ssm_quicksetup.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -693,24 +693,24 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.update_configuration_definition_input.UpdateConfigurationDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["manager_arn"] = manager_arn
-        input["id"] = id
+        input_: aws_sdk_ssm_quicksetup.types.update_configuration_definition_input.UpdateConfigurationDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["manager_arn"] = manager_arn
+        input_["id"] = id
         if type_version is not None:
-            input["type_version"] = type_version
+            input_["type_version"] = type_version
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if local_deployment_execution_role_name is not None:
-            input["local_deployment_execution_role_name"] = (
+            input_["local_deployment_execution_role_name"] = (
                 local_deployment_execution_role_name
             )
         if local_deployment_administration_role_arn is not None:
-            input["local_deployment_administration_role_arn"] = (
+            input_["local_deployment_administration_role_arn"] = (
                 local_deployment_administration_role_arn
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -746,15 +746,15 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.update_configuration_manager_input.UpdateConfigurationManagerInput = {}  # type: ignore[typeddict-item]
-        input["manager_arn"] = manager_arn
+        input_: aws_sdk_ssm_quicksetup.types.update_configuration_manager_input.UpdateConfigurationManagerInput = {}  # type: ignore[typeddict-item]
+        input_["manager_arn"] = manager_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,12 +788,12 @@ class AsyncSSMQuickSetupClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ssm_quicksetup.types.update_service_settings_input.UpdateServiceSettingsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ssm_quicksetup.types.update_service_settings_input.UpdateServiceSettingsInput = {}  # type: ignore[typeddict-item]
         if explorer_enabling_role_arn is not None:
-            input["explorer_enabling_role_arn"] = explorer_enabling_role_arn
+            input_["explorer_enabling_role_arn"] = explorer_enabling_role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

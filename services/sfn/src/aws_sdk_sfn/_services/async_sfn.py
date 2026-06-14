@@ -282,15 +282,15 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.create_activity_input.CreateActivityInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sfn.types.create_activity_input.CreateActivityInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,27 +350,27 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.create_state_machine_input.CreateStateMachineInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["definition"] = definition
-        input["role_arn"] = role_arn
+        input_: aws_sdk_sfn.types.create_state_machine_input.CreateStateMachineInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["definition"] = definition
+        input_["role_arn"] = role_arn
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tracing_configuration is not None:
-            input["tracing_configuration"] = tracing_configuration
+            input_["tracing_configuration"] = tracing_configuration
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,14 +410,14 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.create_state_machine_alias_input.CreateStateMachineAliasInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sfn.types.create_state_machine_alias_input.CreateStateMachineAliasInput = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["name"] = name
-        input["routing_configuration"] = routing_configuration
+            input_["description"] = description
+        input_["name"] = name
+        input_["routing_configuration"] = routing_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,11 +451,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.delete_activity_input.DeleteActivityInput = {}  # type: ignore[typeddict-item]
-        input["activity_arn"] = activity_arn
+        input_: aws_sdk_sfn.types.delete_activity_input.DeleteActivityInput = {}  # type: ignore[typeddict-item]
+        input_["activity_arn"] = activity_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,11 +489,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.delete_state_machine_input.DeleteStateMachineInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_arn"] = state_machine_arn
+        input_: aws_sdk_sfn.types.delete_state_machine_input.DeleteStateMachineInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_arn"] = state_machine_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,11 +527,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.delete_state_machine_alias_input.DeleteStateMachineAliasInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_alias_arn"] = state_machine_alias_arn
+        input_: aws_sdk_sfn.types.delete_state_machine_alias_input.DeleteStateMachineAliasInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_alias_arn"] = state_machine_alias_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -565,11 +565,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.delete_state_machine_version_input.DeleteStateMachineVersionInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_version_arn"] = state_machine_version_arn
+        input_: aws_sdk_sfn.types.delete_state_machine_version_input.DeleteStateMachineVersionInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_version_arn"] = state_machine_version_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,11 +603,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.describe_activity_input.DescribeActivityInput = {}  # type: ignore[typeddict-item]
-        input["activity_arn"] = activity_arn
+        input_: aws_sdk_sfn.types.describe_activity_input.DescribeActivityInput = {}  # type: ignore[typeddict-item]
+        input_["activity_arn"] = activity_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -643,13 +643,13 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.describe_execution_input.DescribeExecutionInput = {}  # type: ignore[typeddict-item]
-        input["execution_arn"] = execution_arn
+        input_: aws_sdk_sfn.types.describe_execution_input.DescribeExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["execution_arn"] = execution_arn
         if included_data is not None:
-            input["included_data"] = included_data
+            input_["included_data"] = included_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,11 +683,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.describe_map_run_input.DescribeMapRunInput = {}  # type: ignore[typeddict-item]
-        input["map_run_arn"] = map_run_arn
+        input_: aws_sdk_sfn.types.describe_map_run_input.DescribeMapRunInput = {}  # type: ignore[typeddict-item]
+        input_["map_run_arn"] = map_run_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -723,13 +723,13 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.describe_state_machine_input.DescribeStateMachineInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_arn"] = state_machine_arn
+        input_: aws_sdk_sfn.types.describe_state_machine_input.DescribeStateMachineInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_arn"] = state_machine_arn
         if included_data is not None:
-            input["included_data"] = included_data
+            input_["included_data"] = included_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,11 +763,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.describe_state_machine_alias_input.DescribeStateMachineAliasInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_alias_arn"] = state_machine_alias_arn
+        input_: aws_sdk_sfn.types.describe_state_machine_alias_input.DescribeStateMachineAliasInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_alias_arn"] = state_machine_alias_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,13 +803,13 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.describe_state_machine_for_execution_input.DescribeStateMachineForExecutionInput = {}  # type: ignore[typeddict-item]
-        input["execution_arn"] = execution_arn
+        input_: aws_sdk_sfn.types.describe_state_machine_for_execution_input.DescribeStateMachineForExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["execution_arn"] = execution_arn
         if included_data is not None:
-            input["included_data"] = included_data
+            input_["included_data"] = included_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -845,13 +845,13 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.get_activity_task_input.GetActivityTaskInput = {}  # type: ignore[typeddict-item]
-        input["activity_arn"] = activity_arn
+        input_: aws_sdk_sfn.types.get_activity_task_input.GetActivityTaskInput = {}  # type: ignore[typeddict-item]
+        input_["activity_arn"] = activity_arn
         if worker_name is not None:
-            input["worker_name"] = worker_name
+            input_["worker_name"] = worker_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -895,19 +895,19 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.get_execution_history_input.GetExecutionHistoryInput = {}  # type: ignore[typeddict-item]
-        input["execution_arn"] = execution_arn
+        input_: aws_sdk_sfn.types.get_execution_history_input.GetExecutionHistoryInput = {}  # type: ignore[typeddict-item]
+        input_["execution_arn"] = execution_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if include_execution_data is not None:
-            input["include_execution_data"] = include_execution_data
+            input_["include_execution_data"] = include_execution_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -972,14 +972,14 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.list_activities_input.ListActivitiesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sfn.types.list_activities_input.ListActivitiesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1050,22 +1050,22 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.list_executions_input.ListExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sfn.types.list_executions_input.ListExecutionsInput = {}  # type: ignore[typeddict-item]
         if state_machine_arn is not None:
-            input["state_machine_arn"] = state_machine_arn
+            input_["state_machine_arn"] = state_machine_arn
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if map_run_arn is not None:
-            input["map_run_arn"] = map_run_arn
+            input_["map_run_arn"] = map_run_arn
         if redrive_filter is not None:
-            input["redrive_filter"] = redrive_filter
+            input_["redrive_filter"] = redrive_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1138,15 +1138,15 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.list_map_runs_input.ListMapRunsInput = {}  # type: ignore[typeddict-item]
-        input["execution_arn"] = execution_arn
+        input_: aws_sdk_sfn.types.list_map_runs_input.ListMapRunsInput = {}  # type: ignore[typeddict-item]
+        input_["execution_arn"] = execution_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1207,15 +1207,15 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.list_state_machine_aliases_input.ListStateMachineAliasesInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_arn"] = state_machine_arn
+        input_: aws_sdk_sfn.types.list_state_machine_aliases_input.ListStateMachineAliasesInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_arn"] = state_machine_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1251,14 +1251,14 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.list_state_machines_input.ListStateMachinesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sfn.types.list_state_machines_input.ListStateMachinesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1319,15 +1319,15 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.list_state_machine_versions_input.ListStateMachineVersionsInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_arn"] = state_machine_arn
+        input_: aws_sdk_sfn.types.list_state_machine_versions_input.ListStateMachineVersionsInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_arn"] = state_machine_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1361,11 +1361,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_sfn.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1405,15 +1405,15 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.publish_state_machine_version_input.PublishStateMachineVersionInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_arn"] = state_machine_arn
+        input_: aws_sdk_sfn.types.publish_state_machine_version_input.PublishStateMachineVersionInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_arn"] = state_machine_arn
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1449,13 +1449,13 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.redrive_execution_input.RedriveExecutionInput = {}  # type: ignore[typeddict-item]
-        input["execution_arn"] = execution_arn
+        input_: aws_sdk_sfn.types.redrive_execution_input.RedriveExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["execution_arn"] = execution_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1493,15 +1493,15 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.send_task_failure_input.SendTaskFailureInput = {}  # type: ignore[typeddict-item]
-        input["task_token"] = task_token
+        input_: aws_sdk_sfn.types.send_task_failure_input.SendTaskFailureInput = {}  # type: ignore[typeddict-item]
+        input_["task_token"] = task_token
         if error is not None:
-            input["error"] = error
+            input_["error"] = error
         if cause is not None:
-            input["cause"] = cause
+            input_["cause"] = cause
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1535,11 +1535,11 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.send_task_heartbeat_input.SendTaskHeartbeatInput = {}  # type: ignore[typeddict-item]
-        input["task_token"] = task_token
+        input_: aws_sdk_sfn.types.send_task_heartbeat_input.SendTaskHeartbeatInput = {}  # type: ignore[typeddict-item]
+        input_["task_token"] = task_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1575,12 +1575,12 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.send_task_success_input.SendTaskSuccessInput = {}  # type: ignore[typeddict-item]
-        input["task_token"] = task_token
-        input["output"] = output
+        input_: aws_sdk_sfn.types.send_task_success_input.SendTaskSuccessInput = {}  # type: ignore[typeddict-item]
+        input_["task_token"] = task_token
+        input_["output"] = output
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1620,17 +1620,17 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.start_execution_input.StartExecutionInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_arn"] = state_machine_arn
+        input_: aws_sdk_sfn.types.start_execution_input.StartExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_arn"] = state_machine_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if input is not None:
-            input["input"] = input
+            input_["input"] = input
         if trace_header is not None:
-            input["trace_header"] = trace_header
+            input_["trace_header"] = trace_header
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1672,19 +1672,19 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.start_sync_execution_input.StartSyncExecutionInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_arn"] = state_machine_arn
+        input_: aws_sdk_sfn.types.start_sync_execution_input.StartSyncExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_arn"] = state_machine_arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if input is not None:
-            input["input"] = input
+            input_["input"] = input
         if trace_header is not None:
-            input["trace_header"] = trace_header
+            input_["trace_header"] = trace_header
         if included_data is not None:
-            input["included_data"] = included_data
+            input_["included_data"] = included_data
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1722,15 +1722,15 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.stop_execution_input.StopExecutionInput = {}  # type: ignore[typeddict-item]
-        input["execution_arn"] = execution_arn
+        input_: aws_sdk_sfn.types.stop_execution_input.StopExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["execution_arn"] = execution_arn
         if error is not None:
-            input["error"] = error
+            input_["error"] = error
         if cause is not None:
-            input["cause"] = cause
+            input_["cause"] = cause
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1766,12 +1766,12 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_sfn.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1831,29 +1831,29 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.test_state_input.TestStateInput = {}  # type: ignore[typeddict-item]
-        input["definition"] = definition
+        input_: aws_sdk_sfn.types.test_state_input.TestStateInput = {}  # type: ignore[typeddict-item]
+        input_["definition"] = definition
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if input is not None:
-            input["input"] = input
+            input_["input"] = input
         if inspection_level is not None:
-            input["inspection_level"] = inspection_level
+            input_["inspection_level"] = inspection_level
         if reveal_secrets is not None:
-            input["reveal_secrets"] = reveal_secrets
+            input_["reveal_secrets"] = reveal_secrets
         if variables is not None:
-            input["variables"] = variables
+            input_["variables"] = variables
         if state_name is not None:
-            input["state_name"] = state_name
+            input_["state_name"] = state_name
         if mock is not None:
-            input["mock"] = mock
+            input_["mock"] = mock
         if context is not None:
-            input["context"] = context
+            input_["context"] = context
         if state_configuration is not None:
-            input["state_configuration"] = state_configuration
+            input_["state_configuration"] = state_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1889,12 +1889,12 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_sfn.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1940,17 +1940,17 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.update_map_run_input.UpdateMapRunInput = {}  # type: ignore[typeddict-item]
-        input["map_run_arn"] = map_run_arn
+        input_: aws_sdk_sfn.types.update_map_run_input.UpdateMapRunInput = {}  # type: ignore[typeddict-item]
+        input_["map_run_arn"] = map_run_arn
         if max_concurrency is not None:
-            input["max_concurrency"] = max_concurrency
+            input_["max_concurrency"] = max_concurrency
         if tolerated_failure_percentage is not None:
-            input["tolerated_failure_percentage"] = tolerated_failure_percentage
+            input_["tolerated_failure_percentage"] = tolerated_failure_percentage
         if tolerated_failure_count is not None:
-            input["tolerated_failure_count"] = tolerated_failure_count
+            input_["tolerated_failure_count"] = tolerated_failure_count
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2006,25 +2006,25 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.update_state_machine_input.UpdateStateMachineInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_arn"] = state_machine_arn
+        input_: aws_sdk_sfn.types.update_state_machine_input.UpdateStateMachineInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_arn"] = state_machine_arn
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if logging_configuration is not None:
-            input["logging_configuration"] = logging_configuration
+            input_["logging_configuration"] = logging_configuration
         if tracing_configuration is not None:
-            input["tracing_configuration"] = tracing_configuration
+            input_["tracing_configuration"] = tracing_configuration
         if publish is not None:
-            input["publish"] = publish
+            input_["publish"] = publish
         if version_description is not None:
-            input["version_description"] = version_description
+            input_["version_description"] = version_description
         if encryption_configuration is not None:
-            input["encryption_configuration"] = encryption_configuration
+            input_["encryption_configuration"] = encryption_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2066,15 +2066,15 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.update_state_machine_alias_input.UpdateStateMachineAliasInput = {}  # type: ignore[typeddict-item]
-        input["state_machine_alias_arn"] = state_machine_alias_arn
+        input_: aws_sdk_sfn.types.update_state_machine_alias_input.UpdateStateMachineAliasInput = {}  # type: ignore[typeddict-item]
+        input_["state_machine_alias_arn"] = state_machine_alias_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_configuration is not None:
-            input["routing_configuration"] = routing_configuration
+            input_["routing_configuration"] = routing_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2118,17 +2118,17 @@ class AsyncSFNClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sfn.types.validate_state_machine_definition_input.ValidateStateMachineDefinitionInput = {}  # type: ignore[typeddict-item]
-        input["definition"] = definition
+        input_: aws_sdk_sfn.types.validate_state_machine_definition_input.ValidateStateMachineDefinitionInput = {}  # type: ignore[typeddict-item]
+        input_["definition"] = definition
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if severity is not None:
-            input["severity"] = severity
+            input_["severity"] = severity
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

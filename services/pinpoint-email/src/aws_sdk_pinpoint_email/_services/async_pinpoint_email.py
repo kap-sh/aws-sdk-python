@@ -292,21 +292,21 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.create_configuration_set_request.CreateConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_email.types.create_configuration_set_request.CreateConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if tracking_options is not None:
-            input["tracking_options"] = tracking_options
+            input_["tracking_options"] = tracking_options
         if delivery_options is not None:
-            input["delivery_options"] = delivery_options
+            input_["delivery_options"] = delivery_options
         if reputation_options is not None:
-            input["reputation_options"] = reputation_options
+            input_["reputation_options"] = reputation_options
         if sending_options is not None:
-            input["sending_options"] = sending_options
+            input_["sending_options"] = sending_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,13 +344,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.create_configuration_set_event_destination_request.CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination_name"] = event_destination_name
-        input["event_destination"] = event_destination
+        input_: aws_sdk_pinpoint_email.types.create_configuration_set_event_destination_request.CreateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination_name"] = event_destination_name
+        input_["event_destination"] = event_destination
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,13 +386,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.create_dedicated_ip_pool_request.CreateDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_name"] = pool_name
+        input_: aws_sdk_pinpoint_email.types.create_dedicated_ip_pool_request.CreateDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_name"] = pool_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,16 +434,16 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.create_deliverability_test_report_request.CreateDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.create_deliverability_test_report_request.CreateDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
         if report_name is not None:
-            input["report_name"] = report_name
-        input["from_email_address"] = from_email_address
-        input["content"] = content
+            input_["report_name"] = report_name
+        input_["from_email_address"] = from_email_address
+        input_["content"] = content
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,13 +479,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.create_email_identity_request.CreateEmailIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_pinpoint_email.types.create_email_identity_request.CreateEmailIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -519,11 +519,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.delete_configuration_set_request.DeleteConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_email.types.delete_configuration_set_request.DeleteConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,12 +559,12 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.delete_configuration_set_event_destination_request.DeleteConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination_name"] = event_destination_name
+        input_: aws_sdk_pinpoint_email.types.delete_configuration_set_event_destination_request.DeleteConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination_name"] = event_destination_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -598,11 +598,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.delete_dedicated_ip_pool_request.DeleteDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
-        input["pool_name"] = pool_name
+        input_: aws_sdk_pinpoint_email.types.delete_dedicated_ip_pool_request.DeleteDedicatedIpPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["pool_name"] = pool_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,11 +636,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.delete_email_identity_request.DeleteEmailIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_pinpoint_email.types.delete_email_identity_request.DeleteEmailIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -667,10 +667,10 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_account_request.GetAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.get_account_request.GetAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -704,11 +704,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_blacklist_reports_request.GetBlacklistReportsRequest = {}  # type: ignore[typeddict-item]
-        input["blacklist_item_names"] = blacklist_item_names
+        input_: aws_sdk_pinpoint_email.types.get_blacklist_reports_request.GetBlacklistReportsRequest = {}  # type: ignore[typeddict-item]
+        input_["blacklist_item_names"] = blacklist_item_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -742,11 +742,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_configuration_set_request.GetConfigurationSetRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_email.types.get_configuration_set_request.GetConfigurationSetRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -780,11 +780,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_configuration_set_event_destinations_request.GetConfigurationSetEventDestinationsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_email.types.get_configuration_set_event_destinations_request.GetConfigurationSetEventDestinationsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -820,11 +820,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_dedicated_ip_request.GetDedicatedIpRequest = {}  # type: ignore[typeddict-item]
-        input["ip"] = ip
+        input_: aws_sdk_pinpoint_email.types.get_dedicated_ip_request.GetDedicatedIpRequest = {}  # type: ignore[typeddict-item]
+        input_["ip"] = ip
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -864,16 +864,16 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_dedicated_ips_request.GetDedicatedIpsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.get_dedicated_ips_request.GetDedicatedIpsRequest = {}  # type: ignore[typeddict-item]
         if pool_name is not None:
-            input["pool_name"] = pool_name
+            input_["pool_name"] = pool_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -900,10 +900,10 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_deliverability_dashboard_options_request.GetDeliverabilityDashboardOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.get_deliverability_dashboard_options_request.GetDeliverabilityDashboardOptionsRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -937,11 +937,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_deliverability_test_report_request.GetDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_pinpoint_email.types.get_deliverability_test_report_request.GetDeliverabilityTestReportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -975,11 +975,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_domain_deliverability_campaign_request.GetDomainDeliverabilityCampaignRequest = {}  # type: ignore[typeddict-item]
-        input["campaign_id"] = campaign_id
+        input_: aws_sdk_pinpoint_email.types.get_domain_deliverability_campaign_request.GetDomainDeliverabilityCampaignRequest = {}  # type: ignore[typeddict-item]
+        input_["campaign_id"] = campaign_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1017,13 +1017,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_domain_statistics_report_request.GetDomainStatisticsReportRequest = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["start_date"] = start_date
-        input["end_date"] = end_date
+        input_: aws_sdk_pinpoint_email.types.get_domain_statistics_report_request.GetDomainStatisticsReportRequest = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["start_date"] = start_date
+        input_["end_date"] = end_date
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1057,11 +1057,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.get_email_identity_request.GetEmailIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_pinpoint_email.types.get_email_identity_request.GetEmailIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1099,14 +1099,14 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.list_configuration_sets_request.ListConfigurationSetsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.list_configuration_sets_request.ListConfigurationSetsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1144,14 +1144,14 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.list_dedicated_ip_pools_request.ListDedicatedIpPoolsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.list_dedicated_ip_pools_request.ListDedicatedIpPoolsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1189,14 +1189,14 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.list_deliverability_test_reports_request.ListDeliverabilityTestReportsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.list_deliverability_test_reports_request.ListDeliverabilityTestReportsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1240,17 +1240,17 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.list_domain_deliverability_campaigns_request.ListDomainDeliverabilityCampaignsRequest = {}  # type: ignore[typeddict-item]
-        input["start_date"] = start_date
-        input["end_date"] = end_date
-        input["subscribed_domain"] = subscribed_domain
+        input_: aws_sdk_pinpoint_email.types.list_domain_deliverability_campaigns_request.ListDomainDeliverabilityCampaignsRequest = {}  # type: ignore[typeddict-item]
+        input_["start_date"] = start_date
+        input_["end_date"] = end_date
+        input_["subscribed_domain"] = subscribed_domain
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1288,14 +1288,14 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.list_email_identities_request.ListEmailIdentitiesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.list_email_identities_request.ListEmailIdentitiesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1329,11 +1329,11 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_pinpoint_email.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1369,12 +1369,12 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_account_dedicated_ip_warmup_attributes_request.PutAccountDedicatedIpWarmupAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.put_account_dedicated_ip_warmup_attributes_request.PutAccountDedicatedIpWarmupAttributesRequest = {}  # type: ignore[typeddict-item]
         if auto_warmup_enabled is not None:
-            input["auto_warmup_enabled"] = auto_warmup_enabled
+            input_["auto_warmup_enabled"] = auto_warmup_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1410,12 +1410,12 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_account_sending_attributes_request.PutAccountSendingAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.put_account_sending_attributes_request.PutAccountSendingAttributesRequest = {}  # type: ignore[typeddict-item]
         if sending_enabled is not None:
-            input["sending_enabled"] = sending_enabled
+            input_["sending_enabled"] = sending_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1457,15 +1457,15 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_configuration_set_delivery_options_request.PutConfigurationSetDeliveryOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_email.types.put_configuration_set_delivery_options_request.PutConfigurationSetDeliveryOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if tls_policy is not None:
-            input["tls_policy"] = tls_policy
+            input_["tls_policy"] = tls_policy
         if sending_pool_name is not None:
-            input["sending_pool_name"] = sending_pool_name
+            input_["sending_pool_name"] = sending_pool_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1503,13 +1503,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_configuration_set_reputation_options_request.PutConfigurationSetReputationOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_email.types.put_configuration_set_reputation_options_request.PutConfigurationSetReputationOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if reputation_metrics_enabled is not None:
-            input["reputation_metrics_enabled"] = reputation_metrics_enabled
+            input_["reputation_metrics_enabled"] = reputation_metrics_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1547,13 +1547,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_configuration_set_sending_options_request.PutConfigurationSetSendingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_email.types.put_configuration_set_sending_options_request.PutConfigurationSetSendingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if sending_enabled is not None:
-            input["sending_enabled"] = sending_enabled
+            input_["sending_enabled"] = sending_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1591,13 +1591,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_configuration_set_tracking_options_request.PutConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
+        input_: aws_sdk_pinpoint_email.types.put_configuration_set_tracking_options_request.PutConfigurationSetTrackingOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
         if custom_redirect_domain is not None:
-            input["custom_redirect_domain"] = custom_redirect_domain
+            input_["custom_redirect_domain"] = custom_redirect_domain
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1633,12 +1633,12 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_dedicated_ip_in_pool_request.PutDedicatedIpInPoolRequest = {}  # type: ignore[typeddict-item]
-        input["ip"] = ip
-        input["destination_pool_name"] = destination_pool_name
+        input_: aws_sdk_pinpoint_email.types.put_dedicated_ip_in_pool_request.PutDedicatedIpInPoolRequest = {}  # type: ignore[typeddict-item]
+        input_["ip"] = ip
+        input_["destination_pool_name"] = destination_pool_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1674,12 +1674,12 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_dedicated_ip_warmup_attributes_request.PutDedicatedIpWarmupAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["ip"] = ip
-        input["warmup_percentage"] = warmup_percentage
+        input_: aws_sdk_pinpoint_email.types.put_dedicated_ip_warmup_attributes_request.PutDedicatedIpWarmupAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["ip"] = ip
+        input_["warmup_percentage"] = warmup_percentage
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1717,13 +1717,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_deliverability_dashboard_option_request.PutDeliverabilityDashboardOptionRequest = {}  # type: ignore[typeddict-item]
-        input["dashboard_enabled"] = dashboard_enabled
+        input_: aws_sdk_pinpoint_email.types.put_deliverability_dashboard_option_request.PutDeliverabilityDashboardOptionRequest = {}  # type: ignore[typeddict-item]
+        input_["dashboard_enabled"] = dashboard_enabled
         if subscribed_domains is not None:
-            input["subscribed_domains"] = subscribed_domains
+            input_["subscribed_domains"] = subscribed_domains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1761,13 +1761,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_email_identity_dkim_attributes_request.PutEmailIdentityDkimAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_pinpoint_email.types.put_email_identity_dkim_attributes_request.PutEmailIdentityDkimAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if signing_enabled is not None:
-            input["signing_enabled"] = signing_enabled
+            input_["signing_enabled"] = signing_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1805,13 +1805,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_email_identity_feedback_attributes_request.PutEmailIdentityFeedbackAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_pinpoint_email.types.put_email_identity_feedback_attributes_request.PutEmailIdentityFeedbackAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if email_forwarding_enabled is not None:
-            input["email_forwarding_enabled"] = email_forwarding_enabled
+            input_["email_forwarding_enabled"] = email_forwarding_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1853,15 +1853,15 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.put_email_identity_mail_from_attributes_request.PutEmailIdentityMailFromAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["email_identity"] = email_identity
+        input_: aws_sdk_pinpoint_email.types.put_email_identity_mail_from_attributes_request.PutEmailIdentityMailFromAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["email_identity"] = email_identity
         if mail_from_domain is not None:
-            input["mail_from_domain"] = mail_from_domain
+            input_["mail_from_domain"] = mail_from_domain
         if behavior_on_mx_failure is not None:
-            input["behavior_on_mx_failure"] = behavior_on_mx_failure
+            input_["behavior_on_mx_failure"] = behavior_on_mx_failure
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1917,24 +1917,24 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.send_email_request.SendEmailRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_pinpoint_email.types.send_email_request.SendEmailRequest = {}  # type: ignore[typeddict-item]
         if from_email_address is not None:
-            input["from_email_address"] = from_email_address
-        input["destination"] = destination
+            input_["from_email_address"] = from_email_address
+        input_["destination"] = destination
         if reply_to_addresses is not None:
-            input["reply_to_addresses"] = reply_to_addresses
+            input_["reply_to_addresses"] = reply_to_addresses
         if feedback_forwarding_email_address is not None:
-            input["feedback_forwarding_email_address"] = (
+            input_["feedback_forwarding_email_address"] = (
                 feedback_forwarding_email_address
             )
-        input["content"] = content
+        input_["content"] = content
         if email_tags is not None:
-            input["email_tags"] = email_tags
+            input_["email_tags"] = email_tags
         if configuration_set_name is not None:
-            input["configuration_set_name"] = configuration_set_name
+            input_["configuration_set_name"] = configuration_set_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1970,12 +1970,12 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_pinpoint_email.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2011,12 +2011,12 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_pinpoint_email.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2054,13 +2054,13 @@ class AsyncPinpointEmailClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pinpoint_email.types.update_configuration_set_event_destination_request.UpdateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_set_name"] = configuration_set_name
-        input["event_destination_name"] = event_destination_name
-        input["event_destination"] = event_destination
+        input_: aws_sdk_pinpoint_email.types.update_configuration_set_event_destination_request.UpdateConfigurationSetEventDestinationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_set_name"] = configuration_set_name
+        input_["event_destination_name"] = event_destination_name
+        input_["event_destination"] = event_destination
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

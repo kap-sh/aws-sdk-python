@@ -88,19 +88,19 @@ class IdMappingTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_id_mapping_table_input.CreateIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["name"] = name
+        input_: aws_sdk_cleanrooms.types.create_id_mapping_table_input.CreateIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["input_reference_config"] = input_reference_config
+            input_["description"] = description
+        input_["input_reference_config"] = input_reference_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -135,12 +135,12 @@ class IdMappingTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_id_mapping_table_input.GetIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["id_mapping_table_identifier"] = id_mapping_table_identifier
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.get_id_mapping_table_input.GetIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["id_mapping_table_identifier"] = id_mapping_table_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,16 +181,16 @@ class IdMappingTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_id_mapping_table_input.UpdateIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["id_mapping_table_identifier"] = id_mapping_table_identifier
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.update_id_mapping_table_input.UpdateIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["id_mapping_table_identifier"] = id_mapping_table_identifier
+        input_["membership_identifier"] = membership_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -225,12 +225,12 @@ class IdMappingTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_id_mapping_table_input.DeleteIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["id_mapping_table_identifier"] = id_mapping_table_identifier
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.delete_id_mapping_table_input.DeleteIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["id_mapping_table_identifier"] = id_mapping_table_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,15 +269,15 @@ class IdMappingTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_id_mapping_tables_input.ListIdMappingTablesInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_id_mapping_tables_input.ListIdMappingTablesInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,14 +314,14 @@ class IdMappingTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.populate_id_mapping_table_input.PopulateIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["id_mapping_table_identifier"] = id_mapping_table_identifier
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.populate_id_mapping_table_input.PopulateIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["id_mapping_table_identifier"] = id_mapping_table_identifier
+        input_["membership_identifier"] = membership_identifier
         if job_type is not None:
-            input["job_type"] = job_type
+            input_["job_type"] = job_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,19 +372,19 @@ class AsyncIdMappingTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_id_mapping_table_input.CreateIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
-        input["name"] = name
+        input_: aws_sdk_cleanrooms.types.create_id_mapping_table_input.CreateIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["input_reference_config"] = input_reference_config
+            input_["description"] = description
+        input_["input_reference_config"] = input_reference_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,12 +420,12 @@ class AsyncIdMappingTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_id_mapping_table_input.GetIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["id_mapping_table_identifier"] = id_mapping_table_identifier
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.get_id_mapping_table_input.GetIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["id_mapping_table_identifier"] = id_mapping_table_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -467,16 +467,16 @@ class AsyncIdMappingTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_id_mapping_table_input.UpdateIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["id_mapping_table_identifier"] = id_mapping_table_identifier
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.update_id_mapping_table_input.UpdateIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["id_mapping_table_identifier"] = id_mapping_table_identifier
+        input_["membership_identifier"] = membership_identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -512,12 +512,12 @@ class AsyncIdMappingTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_id_mapping_table_input.DeleteIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["id_mapping_table_identifier"] = id_mapping_table_identifier
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.delete_id_mapping_table_input.DeleteIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["id_mapping_table_identifier"] = id_mapping_table_identifier
+        input_["membership_identifier"] = membership_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,15 +557,15 @@ class AsyncIdMappingTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_id_mapping_tables_input.ListIdMappingTablesInput = {}  # type: ignore[typeddict-item]
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.list_id_mapping_tables_input.ListIdMappingTablesInput = {}  # type: ignore[typeddict-item]
+        input_["membership_identifier"] = membership_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,14 +603,14 @@ class AsyncIdMappingTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.populate_id_mapping_table_input.PopulateIdMappingTableInput = {}  # type: ignore[typeddict-item]
-        input["id_mapping_table_identifier"] = id_mapping_table_identifier
-        input["membership_identifier"] = membership_identifier
+        input_: aws_sdk_cleanrooms.types.populate_id_mapping_table_input.PopulateIdMappingTableInput = {}  # type: ignore[typeddict-item]
+        input_["id_mapping_table_identifier"] = id_mapping_table_identifier
+        input_["membership_identifier"] = membership_identifier
         if job_type is not None:
-            input["job_type"] = job_type
+            input_["job_type"] = job_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

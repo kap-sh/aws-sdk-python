@@ -84,17 +84,17 @@ class SignalCatalogResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_signal_catalog_request.CreateSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_signal_catalog_request.CreateSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if nodes is not None:
-            input["nodes"] = nodes
+            input_["nodes"] = nodes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -127,11 +127,11 @@ class SignalCatalogResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_signal_catalog_request.GetSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.get_signal_catalog_request.GetSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -176,19 +176,19 @@ class SignalCatalogResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_signal_catalog_request.UpdateSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.update_signal_catalog_request.UpdateSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if nodes_to_add is not None:
-            input["nodes_to_add"] = nodes_to_add
+            input_["nodes_to_add"] = nodes_to_add
         if nodes_to_update is not None:
-            input["nodes_to_update"] = nodes_to_update
+            input_["nodes_to_update"] = nodes_to_update
         if nodes_to_remove is not None:
-            input["nodes_to_remove"] = nodes_to_remove
+            input_["nodes_to_remove"] = nodes_to_remove
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -221,11 +221,11 @@ class SignalCatalogResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_signal_catalog_request.DeleteSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.delete_signal_catalog_request.DeleteSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -262,14 +262,14 @@ class SignalCatalogResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_signal_catalogs_request.ListSignalCatalogsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_signal_catalogs_request.ListSignalCatalogsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,17 +310,17 @@ class SignalCatalogResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.import_signal_catalog_request.ImportSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.import_signal_catalog_request.ImportSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if vss is not None:
-            input["vss"] = vss
+            input_["vss"] = vss
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -363,17 +363,17 @@ class SignalCatalogResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_signal_catalog_nodes_request.ListSignalCatalogNodesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.list_signal_catalog_nodes_request.ListSignalCatalogNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if signal_node_type is not None:
-            input["signal_node_type"] = signal_node_type
+            input_["signal_node_type"] = signal_node_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,17 +420,17 @@ class AsyncSignalCatalogResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_signal_catalog_request.CreateSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_signal_catalog_request.CreateSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if nodes is not None:
-            input["nodes"] = nodes
+            input_["nodes"] = nodes
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,11 +464,11 @@ class AsyncSignalCatalogResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_signal_catalog_request.GetSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.get_signal_catalog_request.GetSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,19 +514,19 @@ class AsyncSignalCatalogResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_signal_catalog_request.UpdateSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.update_signal_catalog_request.UpdateSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if nodes_to_add is not None:
-            input["nodes_to_add"] = nodes_to_add
+            input_["nodes_to_add"] = nodes_to_add
         if nodes_to_update is not None:
-            input["nodes_to_update"] = nodes_to_update
+            input_["nodes_to_update"] = nodes_to_update
         if nodes_to_remove is not None:
-            input["nodes_to_remove"] = nodes_to_remove
+            input_["nodes_to_remove"] = nodes_to_remove
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -560,11 +560,11 @@ class AsyncSignalCatalogResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_signal_catalog_request.DeleteSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.delete_signal_catalog_request.DeleteSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -602,14 +602,14 @@ class AsyncSignalCatalogResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_signal_catalogs_request.ListSignalCatalogsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_signal_catalogs_request.ListSignalCatalogsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,17 +651,17 @@ class AsyncSignalCatalogResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.import_signal_catalog_request.ImportSignalCatalogRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.import_signal_catalog_request.ImportSignalCatalogRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if vss is not None:
-            input["vss"] = vss
+            input_["vss"] = vss
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -705,17 +705,17 @@ class AsyncSignalCatalogResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_signal_catalog_nodes_request.ListSignalCatalogNodesRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.list_signal_catalog_nodes_request.ListSignalCatalogNodesRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if signal_node_type is not None:
-            input["signal_node_type"] = signal_node_type
+            input_["signal_node_type"] = signal_node_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

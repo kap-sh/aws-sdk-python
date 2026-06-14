@@ -67,16 +67,16 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["ssm_instance_id"] = ssm_instance_id
+        input_: aws_sdk_mgn.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["ssm_instance_id"] = ssm_instance_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if ssm_command_config is not None:
-            input["ssm_command_config"] = ssm_command_config
+            input_["ssm_command_config"] = ssm_command_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -113,15 +113,15 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_connector_request.UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_mgn.types.update_connector_request.UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if ssm_command_config is not None:
-            input["ssm_command_config"] = ssm_command_config
+            input_["ssm_command_config"] = ssm_command_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,11 +152,11 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_mgn.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -199,16 +199,16 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -253,16 +253,16 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["ssm_instance_id"] = ssm_instance_id
+        input_: aws_sdk_mgn.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["ssm_instance_id"] = ssm_instance_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if ssm_command_config is not None:
-            input["ssm_command_config"] = ssm_command_config
+            input_["ssm_command_config"] = ssm_command_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,15 +300,15 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.update_connector_request.UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_mgn.types.update_connector_request.UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if ssm_command_config is not None:
-            input["ssm_command_config"] = ssm_command_config
+            input_["ssm_command_config"] = ssm_command_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -340,11 +340,11 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_mgn.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -388,16 +388,16 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

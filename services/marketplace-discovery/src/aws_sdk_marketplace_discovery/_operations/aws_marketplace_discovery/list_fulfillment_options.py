@@ -97,15 +97,13 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput,
+    input_: aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-            Region=options.region,
+            UseFIPS=options.use_fips, Endpoint=options.endpoint, Region=options.region
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2026-02-05/listFulfillmentOptions"
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -113,7 +111,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.serialize_json(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/json"
@@ -121,26 +119,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_fulfillment_options(
     options: OperationOptions,
-    input: aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput,
+    input_: aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput,
 ) -> tuple[
     aws_sdk_marketplace_discovery.types.list_fulfillment_options_output.ListFulfillmentOptionsOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -149,16 +144,17 @@ def list_fulfillment_options(
 
 async def async_list_fulfillment_options(
     options: AsyncOperationOptions,
-    input: aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput,
+    input_: aws_sdk_marketplace_discovery.types.list_fulfillment_options_input.ListFulfillmentOptionsInput,
 ) -> tuple[
     aws_sdk_marketplace_discovery.types.list_fulfillment_options_output.ListFulfillmentOptionsOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

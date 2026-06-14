@@ -16,6 +16,21 @@ from aws_sdk_bedrock_data_automation._auth._providers import (
 )
 from aws_sdk_bedrock_data_automation._auth._zapros_handler import AuthMiddleware
 from aws_sdk_bedrock_data_automation._pagination import resolve_path as _resolve_path
+from aws_sdk_bedrock_data_automation._resources.amazon_bedrock_keystone_build_time_service.blueprint_optimization_job_resource import (
+    AsyncBlueprintOptimizationJobResource,
+)
+from aws_sdk_bedrock_data_automation._resources.amazon_bedrock_keystone_build_time_service.blueprint_resource import (
+    AsyncBlueprintResource,
+)
+from aws_sdk_bedrock_data_automation._resources.amazon_bedrock_keystone_build_time_service.data_automation_library_ingestion_job_resource import (
+    AsyncDataAutomationLibraryIngestionJobResource,
+)
+from aws_sdk_bedrock_data_automation._resources.amazon_bedrock_keystone_build_time_service.data_automation_library_resource import (
+    AsyncDataAutomationLibraryResource,
+)
+from aws_sdk_bedrock_data_automation._resources.amazon_bedrock_keystone_build_time_service.data_automation_project_resource import (
+    AsyncDataAutomationProjectResource,
+)
 from aws_sdk_bedrock_data_automation._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -126,6 +141,16 @@ class AsyncBedrockDataAutomationClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.blueprint_optimization_job_resource = (
+            AsyncBlueprintOptimizationJobResource(self)
+        )
+        self.blueprint_resource = AsyncBlueprintResource(self)
+        self.data_automation_library_ingestion_job_resource = (
+            AsyncDataAutomationLibraryIngestionJobResource(self)
+        )
+        self.data_automation_library_resource = AsyncDataAutomationLibraryResource(self)
+        self.data_automation_project_resource = AsyncDataAutomationProjectResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncBedrockDataAutomationClientConfig] = None
@@ -191,15 +216,15 @@ class AsyncBedrockDataAutomationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.copy_blueprint_stage_request.CopyBlueprintStageRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_arn"] = blueprint_arn
-        input["source_stage"] = source_stage
-        input["target_stage"] = target_stage
+        input_: aws_sdk_bedrock_data_automation.types.copy_blueprint_stage_request.CopyBlueprintStageRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_arn"] = blueprint_arn
+        input_["source_stage"] = source_stage
+        input_["target_stage"] = target_stage
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -236,13 +261,13 @@ class AsyncBedrockDataAutomationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.create_blueprint_version_request.CreateBlueprintVersionRequest = {}  # type: ignore[typeddict-item]
-        input["blueprint_arn"] = blueprint_arn
+        input_: aws_sdk_bedrock_data_automation.types.create_blueprint_version_request.CreateBlueprintVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["blueprint_arn"] = blueprint_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -280,13 +305,13 @@ class AsyncBedrockDataAutomationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.get_data_automation_library_entity_request.GetDataAutomationLibraryEntityRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
-        input["entity_type"] = entity_type
-        input["entity_id"] = entity_id
+        input_: aws_sdk_bedrock_data_automation.types.get_data_automation_library_entity_request.GetDataAutomationLibraryEntityRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
+        input_["entity_type"] = entity_type
+        input_["entity_id"] = entity_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,16 +354,16 @@ class AsyncBedrockDataAutomationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_data_automation_library_entities_request.ListDataAutomationLibraryEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["library_arn"] = library_arn
-        input["entity_type"] = entity_type
+        input_: aws_sdk_bedrock_data_automation.types.list_data_automation_library_entities_request.ListDataAutomationLibraryEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["library_arn"] = library_arn
+        input_["entity_type"] = entity_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,11 +422,11 @@ class AsyncBedrockDataAutomationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_bedrock_data_automation.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -432,12 +457,12 @@ class AsyncBedrockDataAutomationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_bedrock_data_automation.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,12 +493,12 @@ class AsyncBedrockDataAutomationClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_bedrock_data_automation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_bedrock_data_automation.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

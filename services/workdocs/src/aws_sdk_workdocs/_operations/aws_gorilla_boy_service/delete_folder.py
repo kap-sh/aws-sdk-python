@@ -104,44 +104,41 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_workdocs.types.delete_folder_request.DeleteFolderRequest,
+    input_: aws_sdk_workdocs.types.delete_folder_request.DeleteFolderRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/api/v1/folders/{FolderId}"
-    url = url.replace("{FolderId}", quote(str(input["folder_id"]), safe=""))
+    url = url.replace("{FolderId}", quote(str(input_["folder_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "authentication_token" in input:
-        headers["Authentication"] = str(input["authentication_token"])
+    if "authentication_token" in input_:
+        headers["Authentication"] = str(input_["authentication_token"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "DELETE",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "DELETE", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def delete_folder(
     options: OperationOptions,
-    input: aws_sdk_workdocs.types.delete_folder_request.DeleteFolderRequest,
+    input_: aws_sdk_workdocs.types.delete_folder_request.DeleteFolderRequest,
 ) -> tuple[None, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return None, response
     except BaseException:
         response.close()
@@ -150,13 +147,14 @@ def delete_folder(
 
 async def async_delete_folder(
     options: AsyncOperationOptions,
-    input: aws_sdk_workdocs.types.delete_folder_request.DeleteFolderRequest,
+    input_: aws_sdk_workdocs.types.delete_folder_request.DeleteFolderRequest,
 ) -> tuple[None, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return None, response
     except BaseException:
         await response.aclose()

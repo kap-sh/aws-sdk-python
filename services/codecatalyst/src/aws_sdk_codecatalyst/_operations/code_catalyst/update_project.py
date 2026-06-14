@@ -94,50 +94,45 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_codecatalyst.types.update_project_request.UpdateProjectRequest,
+    input_: aws_sdk_codecatalyst.types.update_project_request.UpdateProjectRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            UseFIPS=options.use_fips,
-            Region=options.region,
-            Endpoint=options.endpoint,
+            UseFIPS=options.use_fips, Region=options.region, Endpoint=options.endpoint
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/v1/spaces/{spaceName}/projects/{name}"
-    url = url.replace("{spaceName}", quote(str(input["space_name"]), safe=""))
-    url = url.replace("{name}", quote(str(input["name"]), safe=""))
+    url = url.replace("{spaceName}", quote(str(input_["space_name"]), safe=""))
+    url = url.replace("{name}", quote(str(input_["name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_codecatalyst.types.update_project_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_codecatalyst.types.update_project_request.serialize_json(input)
+        aws_sdk_codecatalyst.types.update_project_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PATCH",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PATCH", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_project(
     options: OperationOptions,
-    input: aws_sdk_codecatalyst.types.update_project_request.UpdateProjectRequest,
+    input_: aws_sdk_codecatalyst.types.update_project_request.UpdateProjectRequest,
 ) -> tuple[
     aws_sdk_codecatalyst.types.update_project_response.UpdateProjectResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -146,16 +141,17 @@ def update_project(
 
 async def async_update_project(
     options: AsyncOperationOptions,
-    input: aws_sdk_codecatalyst.types.update_project_request.UpdateProjectRequest,
+    input_: aws_sdk_codecatalyst.types.update_project_request.UpdateProjectRequest,
 ) -> tuple[
     aws_sdk_codecatalyst.types.update_project_response.UpdateProjectResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

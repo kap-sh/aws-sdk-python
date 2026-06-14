@@ -75,19 +75,19 @@ class DeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if service_name is not None:
-            input["service_name"] = service_name
+            input_["service_name"] = service_name
         if service_instance_name is not None:
-            input["service_instance_name"] = service_instance_name
+            input_["service_instance_name"] = service_instance_name
         if component_name is not None:
-            input["component_name"] = component_name
+            input_["component_name"] = component_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -120,11 +120,11 @@ class DeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -177,22 +177,22 @@ class DeploymentResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if service_name is not None:
-            input["service_name"] = service_name
+            input_["service_name"] = service_name
         if service_instance_name is not None:
-            input["service_instance_name"] = service_instance_name
+            input_["service_instance_name"] = service_instance_name
         if component_name is not None:
-            input["component_name"] = component_name
+            input_["component_name"] = component_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -247,19 +247,19 @@ class AsyncDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if service_name is not None:
-            input["service_name"] = service_name
+            input_["service_name"] = service_name
         if service_instance_name is not None:
-            input["service_instance_name"] = service_instance_name
+            input_["service_instance_name"] = service_instance_name
         if component_name is not None:
-            input["component_name"] = component_name
+            input_["component_name"] = component_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,11 +293,11 @@ class AsyncDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_proton.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -351,22 +351,22 @@ class AsyncDeploymentResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if environment_name is not None:
-            input["environment_name"] = environment_name
+            input_["environment_name"] = environment_name
         if service_name is not None:
-            input["service_name"] = service_name
+            input_["service_name"] = service_name
         if service_instance_name is not None:
-            input["service_instance_name"] = service_instance_name
+            input_["service_instance_name"] = service_instance_name
         if component_name is not None:
-            input["component_name"] = component_name
+            input_["component_name"] = component_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

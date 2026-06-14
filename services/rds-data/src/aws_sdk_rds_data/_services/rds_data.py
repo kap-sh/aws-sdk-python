@@ -188,21 +188,21 @@ class RDSDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds_data.types.batch_execute_statement_request.BatchExecuteStatementRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["secret_arn"] = secret_arn
-        input["sql"] = sql
+        input_: aws_sdk_rds_data.types.batch_execute_statement_request.BatchExecuteStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["secret_arn"] = secret_arn
+        input_["sql"] = sql
         if database is not None:
-            input["database"] = database
+            input_["database"] = database
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
         if parameter_sets is not None:
-            input["parameter_sets"] = parameter_sets
+            input_["parameter_sets"] = parameter_sets
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,16 +241,16 @@ class RDSDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds_data.types.begin_transaction_request.BeginTransactionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["secret_arn"] = secret_arn
+        input_: aws_sdk_rds_data.types.begin_transaction_request.BeginTransactionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["secret_arn"] = secret_arn
         if database is not None:
-            input["database"] = database
+            input_["database"] = database
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,13 +287,13 @@ class RDSDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds_data.types.commit_transaction_request.CommitTransactionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["secret_arn"] = secret_arn
-        input["transaction_id"] = transaction_id
+        input_: aws_sdk_rds_data.types.commit_transaction_request.CommitTransactionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["secret_arn"] = secret_arn
+        input_["transaction_id"] = transaction_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,17 +334,17 @@ class RDSDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds_data.types.execute_sql_request.ExecuteSqlRequest = {}  # type: ignore[typeddict-item]
-        input["db_cluster_or_instance_arn"] = db_cluster_or_instance_arn
-        input["aws_secret_store_arn"] = aws_secret_store_arn
-        input["sql_statements"] = sql_statements
+        input_: aws_sdk_rds_data.types.execute_sql_request.ExecuteSqlRequest = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_or_instance_arn"] = db_cluster_or_instance_arn
+        input_["aws_secret_store_arn"] = aws_secret_store_arn
+        input_["sql_statements"] = sql_statements
         if database is not None:
-            input["database"] = database
+            input_["database"] = database
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,29 +407,29 @@ class RDSDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds_data.types.execute_statement_request.ExecuteStatementRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["secret_arn"] = secret_arn
-        input["sql"] = sql
+        input_: aws_sdk_rds_data.types.execute_statement_request.ExecuteStatementRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["secret_arn"] = secret_arn
+        input_["sql"] = sql
         if database is not None:
-            input["database"] = database
+            input_["database"] = database
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
+            input_["transaction_id"] = transaction_id
         if include_result_metadata is not None:
-            input["include_result_metadata"] = include_result_metadata
+            input_["include_result_metadata"] = include_result_metadata
         if continue_after_timeout is not None:
-            input["continue_after_timeout"] = continue_after_timeout
+            input_["continue_after_timeout"] = continue_after_timeout
         if result_set_options is not None:
-            input["result_set_options"] = result_set_options
+            input_["result_set_options"] = result_set_options
         if format_records_as is not None:
-            input["format_records_as"] = format_records_as
+            input_["format_records_as"] = format_records_as
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,13 +466,13 @@ class RDSDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_rds_data.types.rollback_transaction_request.RollbackTransactionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["secret_arn"] = secret_arn
-        input["transaction_id"] = transaction_id
+        input_: aws_sdk_rds_data.types.rollback_transaction_request.RollbackTransactionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["secret_arn"] = secret_arn
+        input_["transaction_id"] = transaction_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

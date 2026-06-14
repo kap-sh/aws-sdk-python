@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_ec2_instance_connect._auth._signers
+import aws_sdk_ec2_instance_connect._auth._sigv4
 from aws_sdk_ec2_instance_connect._auth._identity import Credentials
 from aws_sdk_ec2_instance_connect._auth._providers import (
     CredentialsProvider,
@@ -166,14 +168,14 @@ class EC2InstanceConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request.SendSerialConsoleSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_ec2_instance_connect.types.send_serial_console_ssh_public_key_request.SendSerialConsoleSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if serial_port is not None:
-            input["serial_port"] = serial_port
-        input["ssh_public_key"] = ssh_public_key
+            input_["serial_port"] = serial_port
+        input_["ssh_public_key"] = ssh_public_key
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,15 +222,15 @@ class EC2InstanceConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ec2_instance_connect.types.send_ssh_public_key_request.SendSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["instance_os_user"] = instance_os_user
-        input["ssh_public_key"] = ssh_public_key
+        input_: aws_sdk_ec2_instance_connect.types.send_ssh_public_key_request.SendSSHPublicKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["instance_os_user"] = instance_os_user
+        input_["ssh_public_key"] = ssh_public_key
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

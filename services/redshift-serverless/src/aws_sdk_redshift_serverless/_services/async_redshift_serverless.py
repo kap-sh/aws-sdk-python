@@ -16,6 +16,33 @@ from aws_sdk_redshift_serverless._auth._providers import (
 )
 from aws_sdk_redshift_serverless._auth._zapros_handler import AuthMiddleware
 from aws_sdk_redshift_serverless._pagination import resolve_path as _resolve_path
+from aws_sdk_redshift_serverless._resources.redshift_serverless.cross_vpc_endpoint_resource import (
+    AsyncCrossVpcEndpointResource,
+)
+from aws_sdk_redshift_serverless._resources.redshift_serverless.managed_workgroup_resource import (
+    AsyncManagedWorkgroupResource,
+)
+from aws_sdk_redshift_serverless._resources.redshift_serverless.namespace_resource import (
+    AsyncNamespaceResource,
+)
+from aws_sdk_redshift_serverless._resources.redshift_serverless.recovery_point_resource import (
+    AsyncRecoveryPointResource,
+)
+from aws_sdk_redshift_serverless._resources.redshift_serverless.reservation_resource import (
+    AsyncReservationResource,
+)
+from aws_sdk_redshift_serverless._resources.redshift_serverless.scheduled_action_resource import (
+    AsyncScheduledActionResource,
+)
+from aws_sdk_redshift_serverless._resources.redshift_serverless.snapshot_resource import (
+    AsyncSnapshotResource,
+)
+from aws_sdk_redshift_serverless._resources.redshift_serverless.usage_limit_resource import (
+    AsyncUsageLimitResource,
+)
+from aws_sdk_redshift_serverless._resources.redshift_serverless.workgroup_resource import (
+    AsyncWorkgroupResource,
+)
 from aws_sdk_redshift_serverless._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -142,6 +169,16 @@ class AsyncRedshiftServerlessClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.cross_vpc_endpoint_resource = AsyncCrossVpcEndpointResource(self)
+        self.managed_workgroup_resource = AsyncManagedWorkgroupResource(self)
+        self.namespace_resource = AsyncNamespaceResource(self)
+        self.recovery_point_resource = AsyncRecoveryPointResource(self)
+        self.reservation_resource = AsyncReservationResource(self)
+        self.scheduled_action_resource = AsyncScheduledActionResource(self)
+        self.snapshot_resource = AsyncSnapshotResource(self)
+        self.usage_limit_resource = AsyncUsageLimitResource(self)
+        self.workgroup_resource = AsyncWorkgroupResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncRedshiftServerlessClientConfig] = None
@@ -203,13 +240,13 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_custom_domain_association_request.CreateCustomDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
-        input["custom_domain_name"] = custom_domain_name
-        input["custom_domain_certificate_arn"] = custom_domain_certificate_arn
+        input_: aws_sdk_redshift_serverless.types.create_custom_domain_association_request.CreateCustomDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
+        input_["custom_domain_name"] = custom_domain_name
+        input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,12 +282,12 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_custom_domain_association_request.DeleteCustomDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
-        input["custom_domain_name"] = custom_domain_name
+        input_: aws_sdk_redshift_serverless.types.delete_custom_domain_association_request.DeleteCustomDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
+        input_["custom_domain_name"] = custom_domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,11 +321,11 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_redshift_serverless.types.delete_resource_policy_request.DeleteResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,18 +369,18 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_credentials_request.GetCredentialsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.get_credentials_request.GetCredentialsRequest = {}  # type: ignore[typeddict-item]
         if db_name is not None:
-            input["db_name"] = db_name
+            input_["db_name"] = db_name
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,12 +416,12 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_custom_domain_association_request.GetCustomDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["custom_domain_name"] = custom_domain_name
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.get_custom_domain_association_request.GetCustomDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["custom_domain_name"] = custom_domain_name
+        input_["workgroup_name"] = workgroup_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,11 +455,11 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_identity_center_auth_token_request.GetIdentityCenterAuthTokenRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_names"] = workgroup_names
+        input_: aws_sdk_redshift_serverless.types.get_identity_center_auth_token_request.GetIdentityCenterAuthTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_names"] = workgroup_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,11 +493,11 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_redshift_serverless.types.get_resource_policy_request.GetResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -494,11 +531,11 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_track_request.GetTrackRequest = {}  # type: ignore[typeddict-item]
-        input["track_name"] = track_name
+        input_: aws_sdk_redshift_serverless.types.get_track_request.GetTrackRequest = {}  # type: ignore[typeddict-item]
+        input_["track_name"] = track_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,18 +581,18 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_custom_domain_associations_request.ListCustomDomainAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_custom_domain_associations_request.ListCustomDomainAssociationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if custom_domain_name is not None:
-            input["custom_domain_name"] = custom_domain_name
+            input_["custom_domain_name"] = custom_domain_name
         if custom_domain_certificate_arn is not None:
-            input["custom_domain_certificate_arn"] = custom_domain_certificate_arn
+            input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,11 +657,11 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_redshift_serverless.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,14 +699,14 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_tracks_request.ListTracksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_tracks_request.ListTracksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -728,12 +765,12 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["policy"] = policy
+        input_: aws_sdk_redshift_serverless.types.put_resource_policy_request.PutResourcePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -769,12 +806,12 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_redshift_serverless.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -810,12 +847,12 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_redshift_serverless.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -853,13 +890,13 @@ class AsyncRedshiftServerlessClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_custom_domain_association_request.UpdateCustomDomainAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["workgroup_name"] = workgroup_name
-        input["custom_domain_name"] = custom_domain_name
-        input["custom_domain_certificate_arn"] = custom_domain_certificate_arn
+        input_: aws_sdk_redshift_serverless.types.update_custom_domain_association_request.UpdateCustomDomainAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["workgroup_name"] = workgroup_name
+        input_["custom_domain_name"] = custom_domain_name
+        input_["custom_domain_certificate_arn"] = custom_domain_certificate_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -15,6 +15,14 @@ from aws_sdk_braket._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_braket._auth._zapros_handler import AuthMiddleware
+from aws_sdk_braket._resources.braket.device_resource import AsyncDeviceResource
+from aws_sdk_braket._resources.braket.job_resource import AsyncJobResource
+from aws_sdk_braket._resources.braket.quantum_task_resource import (
+    AsyncQuantumTaskResource,
+)
+from aws_sdk_braket._resources.braket.spending_limit_resource import (
+    AsyncSpendingLimitResource,
+)
 from aws_sdk_braket._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -107,6 +115,11 @@ class AsyncBraketClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.device_resource = AsyncDeviceResource(self)
+        self.job_resource = AsyncJobResource(self)
+        self.quantum_task_resource = AsyncQuantumTaskResource(self)
+        self.spending_limit_resource = AsyncSpendingLimitResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncBraketClientConfig] = None
@@ -164,11 +177,11 @@ class AsyncBraketClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_braket.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_braket.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,12 +217,12 @@ class AsyncBraketClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_braket.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_braket.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,12 +258,12 @@ class AsyncBraketClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_braket.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_braket.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

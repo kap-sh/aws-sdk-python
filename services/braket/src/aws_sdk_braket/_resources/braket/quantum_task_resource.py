@@ -91,26 +91,26 @@ class QuantumTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.create_quantum_task_request.CreateQuantumTaskRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["device_arn"] = device_arn
+        input_: aws_sdk_braket.types.create_quantum_task_request.CreateQuantumTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["device_arn"] = device_arn
         if device_parameters is not None:
-            input["device_parameters"] = device_parameters
-        input["shots"] = shots
-        input["output_s3_bucket"] = output_s3_bucket
-        input["output_s3_key_prefix"] = output_s3_key_prefix
-        input["action"] = action
+            input_["device_parameters"] = device_parameters
+        input_["shots"] = shots
+        input_["output_s3_bucket"] = output_s3_bucket
+        input_["output_s3_key_prefix"] = output_s3_key_prefix
+        input_["action"] = action
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if job_token is not None:
-            input["job_token"] = job_token
+            input_["job_token"] = job_token
         if associations is not None:
-            input["associations"] = associations
+            input_["associations"] = associations
         if experimental_capabilities is not None:
-            input["experimental_capabilities"] = experimental_capabilities
+            input_["experimental_capabilities"] = experimental_capabilities
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -147,13 +147,13 @@ class QuantumTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.get_quantum_task_request.GetQuantumTaskRequest = {}  # type: ignore[typeddict-item]
-        input["quantum_task_arn"] = quantum_task_arn
+        input_: aws_sdk_braket.types.get_quantum_task_request.GetQuantumTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["quantum_task_arn"] = quantum_task_arn
         if additional_attribute_names is not None:
-            input["additional_attribute_names"] = additional_attribute_names
+            input_["additional_attribute_names"] = additional_attribute_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -188,12 +188,12 @@ class QuantumTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.cancel_quantum_task_request.CancelQuantumTaskRequest = {}  # type: ignore[typeddict-item]
-        input["quantum_task_arn"] = quantum_task_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_braket.types.cancel_quantum_task_request.CancelQuantumTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["quantum_task_arn"] = quantum_task_arn
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,15 +232,15 @@ class QuantumTaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.search_quantum_tasks_request.SearchQuantumTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_braket.types.search_quantum_tasks_request.SearchQuantumTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["filters"] = filters
+            input_["max_results"] = max_results
+        input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -301,26 +301,26 @@ class AsyncQuantumTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.create_quantum_task_request.CreateQuantumTaskRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["device_arn"] = device_arn
+        input_: aws_sdk_braket.types.create_quantum_task_request.CreateQuantumTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["device_arn"] = device_arn
         if device_parameters is not None:
-            input["device_parameters"] = device_parameters
-        input["shots"] = shots
-        input["output_s3_bucket"] = output_s3_bucket
-        input["output_s3_key_prefix"] = output_s3_key_prefix
-        input["action"] = action
+            input_["device_parameters"] = device_parameters
+        input_["shots"] = shots
+        input_["output_s3_bucket"] = output_s3_bucket
+        input_["output_s3_key_prefix"] = output_s3_key_prefix
+        input_["action"] = action
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if job_token is not None:
-            input["job_token"] = job_token
+            input_["job_token"] = job_token
         if associations is not None:
-            input["associations"] = associations
+            input_["associations"] = associations
         if experimental_capabilities is not None:
-            input["experimental_capabilities"] = experimental_capabilities
+            input_["experimental_capabilities"] = experimental_capabilities
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,13 +358,13 @@ class AsyncQuantumTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.get_quantum_task_request.GetQuantumTaskRequest = {}  # type: ignore[typeddict-item]
-        input["quantum_task_arn"] = quantum_task_arn
+        input_: aws_sdk_braket.types.get_quantum_task_request.GetQuantumTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["quantum_task_arn"] = quantum_task_arn
         if additional_attribute_names is not None:
-            input["additional_attribute_names"] = additional_attribute_names
+            input_["additional_attribute_names"] = additional_attribute_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -400,12 +400,12 @@ class AsyncQuantumTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.cancel_quantum_task_request.CancelQuantumTaskRequest = {}  # type: ignore[typeddict-item]
-        input["quantum_task_arn"] = quantum_task_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_braket.types.cancel_quantum_task_request.CancelQuantumTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["quantum_task_arn"] = quantum_task_arn
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,15 +445,15 @@ class AsyncQuantumTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_braket.types.search_quantum_tasks_request.SearchQuantumTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_braket.types.search_quantum_tasks_request.SearchQuantumTasksRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["filters"] = filters
+            input_["max_results"] = max_results
+        input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

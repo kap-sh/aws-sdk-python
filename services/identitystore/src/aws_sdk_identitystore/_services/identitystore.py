@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_identitystore._auth._signers
+import aws_sdk_identitystore._auth._sigv4
 from aws_sdk_identitystore._auth._identity import Credentials
 from aws_sdk_identitystore._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,15 @@ from aws_sdk_identitystore._auth._providers import (
 )
 from aws_sdk_identitystore._auth._zapros_handler import AuthMiddleware
 from aws_sdk_identitystore._pagination import resolve_path as _resolve_path
+from aws_sdk_identitystore._resources.aws_identity_store.group_membership_resource import (
+    GroupMembershipResource,
+)
+from aws_sdk_identitystore._resources.aws_identity_store.group_resource import (
+    GroupResource,
+)
+from aws_sdk_identitystore._resources.aws_identity_store.user_resource import (
+    UserResource,
+)
 from aws_sdk_identitystore._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -114,6 +125,10 @@ class identitystoreClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.group_membership_resource = GroupMembershipResource(self)
+        self.group_resource = GroupResource(self)
+        self.user_resource = UserResource(self)
 
     def operation_options(
         self, config_overrides: Optional[identitystoreClientConfig] = None
@@ -172,12 +187,12 @@ class identitystoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.get_group_id_request.GetGroupIdRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["alternate_identifier"] = alternate_identifier
+        input_: aws_sdk_identitystore.types.get_group_id_request.GetGroupIdRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["alternate_identifier"] = alternate_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,13 +229,13 @@ class identitystoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.get_group_membership_id_request.GetGroupMembershipIdRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["group_id"] = group_id
-        input["member_id"] = member_id
+        input_: aws_sdk_identitystore.types.get_group_membership_id_request.GetGroupMembershipIdRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["group_id"] = group_id
+        input_["member_id"] = member_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -255,12 +270,12 @@ class identitystoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.get_user_id_request.GetUserIdRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["alternate_identifier"] = alternate_identifier
+        input_: aws_sdk_identitystore.types.get_user_id_request.GetUserIdRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["alternate_identifier"] = alternate_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,13 +312,13 @@ class identitystoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.is_member_in_groups_request.IsMemberInGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["member_id"] = member_id
-        input["group_ids"] = group_ids
+        input_: aws_sdk_identitystore.types.is_member_in_groups_request.IsMemberInGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["member_id"] = member_id
+        input_["group_ids"] = group_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -344,16 +359,16 @@ class identitystoreClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_identitystore.types.list_group_memberships_for_member_request.ListGroupMembershipsForMemberRequest = {}  # type: ignore[typeddict-item]
-        input["identity_store_id"] = identity_store_id
-        input["member_id"] = member_id
+        input_: aws_sdk_identitystore.types.list_group_memberships_for_member_request.ListGroupMembershipsForMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["identity_store_id"] = identity_store_id
+        input_["member_id"] = member_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

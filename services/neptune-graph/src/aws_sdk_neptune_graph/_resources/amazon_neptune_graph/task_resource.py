@@ -91,11 +91,11 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_identifier"] = task_identifier
+        input_: aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_identifier"] = task_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -128,11 +128,11 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_identifier"] = task_identifier
+        input_: aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_identifier"] = task_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,39 +211,39 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.create_graph_using_import_task_input.CreateGraphUsingImportTaskInput = {}  # type: ignore[typeddict-item]
-        input["graph_name"] = graph_name
+        input_: aws_sdk_neptune_graph.types.create_graph_using_import_task_input.CreateGraphUsingImportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["graph_name"] = graph_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if public_connectivity is not None:
-            input["public_connectivity"] = public_connectivity
+            input_["public_connectivity"] = public_connectivity
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
         if vector_search_configuration is not None:
-            input["vector_search_configuration"] = vector_search_configuration
+            input_["vector_search_configuration"] = vector_search_configuration
         if replica_count is not None:
-            input["replica_count"] = replica_count
+            input_["replica_count"] = replica_count
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if import_options is not None:
-            input["import_options"] = import_options
+            input_["import_options"] = import_options
         if max_provisioned_memory is not None:
-            input["max_provisioned_memory"] = max_provisioned_memory
+            input_["max_provisioned_memory"] = max_provisioned_memory
         if min_provisioned_memory is not None:
-            input["min_provisioned_memory"] = min_provisioned_memory
+            input_["min_provisioned_memory"] = min_provisioned_memory
         if fail_on_error is not None:
-            input["fail_on_error"] = fail_on_error
-        input["source"] = source
+            input_["fail_on_error"] = fail_on_error
+        input_["source"] = source
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if parquet_type is not None:
-            input["parquet_type"] = parquet_type
+            input_["parquet_type"] = parquet_type
         if blank_node_handling is not None:
-            input["blank_node_handling"] = blank_node_handling
-        input["role_arn"] = role_arn
+            input_["blank_node_handling"] = blank_node_handling
+        input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -276,11 +276,11 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_identifier"] = task_identifier
+        input_: aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_identifier"] = task_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -313,11 +313,11 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_identifier"] = task_identifier
+        input_: aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_identifier"] = task_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,16 +360,16 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_export_tasks_input.ListExportTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune_graph.types.list_export_tasks_input.ListExportTasksInput = {}  # type: ignore[typeddict-item]
         if graph_identifier is not None:
-            input["graph_identifier"] = graph_identifier
+            input_["graph_identifier"] = graph_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -408,14 +408,14 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_import_tasks_input.ListImportTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune_graph.types.list_import_tasks_input.ListImportTasksInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -466,21 +466,21 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.start_export_task_input.StartExportTaskInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["role_arn"] = role_arn
-        input["format"] = format
-        input["destination"] = destination
-        input["kms_key_identifier"] = kms_key_identifier
+        input_: aws_sdk_neptune_graph.types.start_export_task_input.StartExportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["role_arn"] = role_arn
+        input_["format"] = format
+        input_["destination"] = destination
+        input_["kms_key_identifier"] = kms_key_identifier
         if parquet_type is not None:
-            input["parquet_type"] = parquet_type
+            input_["parquet_type"] = parquet_type
         if export_filter is not None:
-            input["export_filter"] = export_filter
+            input_["export_filter"] = export_filter
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -532,23 +532,23 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.start_import_task_input.StartImportTaskInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune_graph.types.start_import_task_input.StartImportTaskInput = {}  # type: ignore[typeddict-item]
         if import_options is not None:
-            input["import_options"] = import_options
+            input_["import_options"] = import_options
         if fail_on_error is not None:
-            input["fail_on_error"] = fail_on_error
-        input["source"] = source
+            input_["fail_on_error"] = fail_on_error
+        input_["source"] = source
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if parquet_type is not None:
-            input["parquet_type"] = parquet_type
+            input_["parquet_type"] = parquet_type
         if blank_node_handling is not None:
-            input["blank_node_handling"] = blank_node_handling
-        input["graph_identifier"] = graph_identifier
-        input["role_arn"] = role_arn
+            input_["blank_node_handling"] = blank_node_handling
+        input_["graph_identifier"] = graph_identifier
+        input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -587,11 +587,11 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_identifier"] = task_identifier
+        input_: aws_sdk_neptune_graph.types.cancel_export_task_input.CancelExportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_identifier"] = task_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,11 +625,11 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_identifier"] = task_identifier
+        input_: aws_sdk_neptune_graph.types.cancel_import_task_input.CancelImportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_identifier"] = task_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -709,39 +709,39 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.create_graph_using_import_task_input.CreateGraphUsingImportTaskInput = {}  # type: ignore[typeddict-item]
-        input["graph_name"] = graph_name
+        input_: aws_sdk_neptune_graph.types.create_graph_using_import_task_input.CreateGraphUsingImportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["graph_name"] = graph_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if public_connectivity is not None:
-            input["public_connectivity"] = public_connectivity
+            input_["public_connectivity"] = public_connectivity
         if kms_key_identifier is not None:
-            input["kms_key_identifier"] = kms_key_identifier
+            input_["kms_key_identifier"] = kms_key_identifier
         if vector_search_configuration is not None:
-            input["vector_search_configuration"] = vector_search_configuration
+            input_["vector_search_configuration"] = vector_search_configuration
         if replica_count is not None:
-            input["replica_count"] = replica_count
+            input_["replica_count"] = replica_count
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if import_options is not None:
-            input["import_options"] = import_options
+            input_["import_options"] = import_options
         if max_provisioned_memory is not None:
-            input["max_provisioned_memory"] = max_provisioned_memory
+            input_["max_provisioned_memory"] = max_provisioned_memory
         if min_provisioned_memory is not None:
-            input["min_provisioned_memory"] = min_provisioned_memory
+            input_["min_provisioned_memory"] = min_provisioned_memory
         if fail_on_error is not None:
-            input["fail_on_error"] = fail_on_error
-        input["source"] = source
+            input_["fail_on_error"] = fail_on_error
+        input_["source"] = source
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if parquet_type is not None:
-            input["parquet_type"] = parquet_type
+            input_["parquet_type"] = parquet_type
         if blank_node_handling is not None:
-            input["blank_node_handling"] = blank_node_handling
-        input["role_arn"] = role_arn
+            input_["blank_node_handling"] = blank_node_handling
+        input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -775,11 +775,11 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_identifier"] = task_identifier
+        input_: aws_sdk_neptune_graph.types.get_export_task_input.GetExportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_identifier"] = task_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -813,11 +813,11 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput = {}  # type: ignore[typeddict-item]
-        input["task_identifier"] = task_identifier
+        input_: aws_sdk_neptune_graph.types.get_import_task_input.GetImportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["task_identifier"] = task_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -861,16 +861,16 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_export_tasks_input.ListExportTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune_graph.types.list_export_tasks_input.ListExportTasksInput = {}  # type: ignore[typeddict-item]
         if graph_identifier is not None:
-            input["graph_identifier"] = graph_identifier
+            input_["graph_identifier"] = graph_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -910,14 +910,14 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_import_tasks_input.ListImportTasksInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune_graph.types.list_import_tasks_input.ListImportTasksInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -969,21 +969,21 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.start_export_task_input.StartExportTaskInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["role_arn"] = role_arn
-        input["format"] = format
-        input["destination"] = destination
-        input["kms_key_identifier"] = kms_key_identifier
+        input_: aws_sdk_neptune_graph.types.start_export_task_input.StartExportTaskInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["role_arn"] = role_arn
+        input_["format"] = format
+        input_["destination"] = destination
+        input_["kms_key_identifier"] = kms_key_identifier
         if parquet_type is not None:
-            input["parquet_type"] = parquet_type
+            input_["parquet_type"] = parquet_type
         if export_filter is not None:
-            input["export_filter"] = export_filter
+            input_["export_filter"] = export_filter
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1036,23 +1036,23 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.start_import_task_input.StartImportTaskInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune_graph.types.start_import_task_input.StartImportTaskInput = {}  # type: ignore[typeddict-item]
         if import_options is not None:
-            input["import_options"] = import_options
+            input_["import_options"] = import_options
         if fail_on_error is not None:
-            input["fail_on_error"] = fail_on_error
-        input["source"] = source
+            input_["fail_on_error"] = fail_on_error
+        input_["source"] = source
         if format is not None:
-            input["format"] = format
+            input_["format"] = format
         if parquet_type is not None:
-            input["parquet_type"] = parquet_type
+            input_["parquet_type"] = parquet_type
         if blank_node_handling is not None:
-            input["blank_node_handling"] = blank_node_handling
-        input["graph_identifier"] = graph_identifier
-        input["role_arn"] = role_arn
+            input_["blank_node_handling"] = blank_node_handling
+        input_["graph_identifier"] = graph_identifier
+        input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

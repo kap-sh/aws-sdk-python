@@ -80,15 +80,15 @@ class CaseRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_case_rule_request.CreateCaseRuleRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
+        input_: aws_sdk_connectcases.types.create_case_rule_request.CreateCaseRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["rule"] = rule
+            input_["description"] = description
+        input_["rule"] = rule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,18 +133,18 @@ class CaseRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.update_case_rule_request.UpdateCaseRuleRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["case_rule_id"] = case_rule_id
+        input_: aws_sdk_connectcases.types.update_case_rule_request.UpdateCaseRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["case_rule_id"] = case_rule_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rule is not None:
-            input["rule"] = rule
+            input_["rule"] = rule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,12 +179,12 @@ class CaseRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_case_rule_request.DeleteCaseRuleRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["case_rule_id"] = case_rule_id
+        input_: aws_sdk_connectcases.types.delete_case_rule_request.DeleteCaseRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["case_rule_id"] = case_rule_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,15 +223,15 @@ class CaseRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_case_rules_request.ListCaseRulesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.list_case_rules_request.ListCaseRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,12 +266,12 @@ class CaseRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.batch_get_case_rule_request.BatchGetCaseRuleRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["case_rules"] = case_rules
+        input_: aws_sdk_connectcases.types.batch_get_case_rule_request.BatchGetCaseRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["case_rules"] = case_rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,15 +318,15 @@ class AsyncCaseRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.create_case_rule_request.CreateCaseRuleRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["name"] = name
+        input_: aws_sdk_connectcases.types.create_case_rule_request.CreateCaseRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["rule"] = rule
+            input_["description"] = description
+        input_["rule"] = rule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,18 +372,18 @@ class AsyncCaseRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.update_case_rule_request.UpdateCaseRuleRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["case_rule_id"] = case_rule_id
+        input_: aws_sdk_connectcases.types.update_case_rule_request.UpdateCaseRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["case_rule_id"] = case_rule_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if rule is not None:
-            input["rule"] = rule
+            input_["rule"] = rule
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,12 +419,12 @@ class AsyncCaseRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.delete_case_rule_request.DeleteCaseRuleRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["case_rule_id"] = case_rule_id
+        input_: aws_sdk_connectcases.types.delete_case_rule_request.DeleteCaseRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["case_rule_id"] = case_rule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,15 +464,15 @@ class AsyncCaseRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.list_case_rules_request.ListCaseRulesRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
+        input_: aws_sdk_connectcases.types.list_case_rules_request.ListCaseRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -508,12 +508,12 @@ class AsyncCaseRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_connectcases.types.batch_get_case_rule_request.BatchGetCaseRuleRequest = {}  # type: ignore[typeddict-item]
-        input["domain_id"] = domain_id
-        input["case_rules"] = case_rules
+        input_: aws_sdk_connectcases.types.batch_get_case_rule_request.BatchGetCaseRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_id"] = domain_id
+        input_["case_rules"] = case_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -59,11 +59,11 @@ class ConnectionPreferences:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.get_connection_preferences_request.GetConnectionPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_account.types.get_connection_preferences_request.GetConnectionPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -104,15 +104,17 @@ class ConnectionPreferences:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.update_connection_preferences_request.UpdateConnectionPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["revision"] = revision
-        input["access_type"] = access_type
+        input_: aws_sdk_partnercentral_account.types.update_connection_preferences_request.UpdateConnectionPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["revision"] = revision
+        input_["access_type"] = access_type
         if excluded_participant_identifiers is not None:
-            input["excluded_participant_identifiers"] = excluded_participant_identifiers
+            input_["excluded_participant_identifiers"] = (
+                excluded_participant_identifiers
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,11 +153,11 @@ class AsyncConnectionPreferences:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.get_connection_preferences_request.GetConnectionPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_account.types.get_connection_preferences_request.GetConnectionPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,15 +199,17 @@ class AsyncConnectionPreferences:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.update_connection_preferences_request.UpdateConnectionPreferencesRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["revision"] = revision
-        input["access_type"] = access_type
+        input_: aws_sdk_partnercentral_account.types.update_connection_preferences_request.UpdateConnectionPreferencesRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["revision"] = revision
+        input_["access_type"] = access_type
         if excluded_participant_identifiers is not None:
-            input["excluded_participant_identifiers"] = excluded_participant_identifiers
+            input_["excluded_participant_identifiers"] = (
+                excluded_participant_identifiers
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

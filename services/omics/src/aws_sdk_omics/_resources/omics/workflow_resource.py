@@ -138,49 +138,49 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if definition_zip is not None:
-            input["definition_zip"] = definition_zip
+            input_["definition_zip"] = definition_zip
         if definition_uri is not None:
-            input["definition_uri"] = definition_uri
+            input_["definition_uri"] = definition_uri
         if main is not None:
-            input["main"] = main
+            input_["main"] = main
         if parameter_template is not None:
-            input["parameter_template"] = parameter_template
+            input_["parameter_template"] = parameter_template
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
+            input_["storage_capacity"] = storage_capacity
         if tags is not None:
-            input["tags"] = tags
-        input["request_id"] = request_id
+            input_["tags"] = tags
+        input_["request_id"] = request_id
         if accelerators is not None:
-            input["accelerators"] = accelerators
+            input_["accelerators"] = accelerators
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if container_registry_map is not None:
-            input["container_registry_map"] = container_registry_map
+            input_["container_registry_map"] = container_registry_map
         if container_registry_map_uri is not None:
-            input["container_registry_map_uri"] = container_registry_map_uri
+            input_["container_registry_map_uri"] = container_registry_map_uri
         if readme_markdown is not None:
-            input["readme_markdown"] = readme_markdown
+            input_["readme_markdown"] = readme_markdown
         if parameter_template_path is not None:
-            input["parameter_template_path"] = parameter_template_path
+            input_["parameter_template_path"] = parameter_template_path
         if readme_path is not None:
-            input["readme_path"] = readme_path
+            input_["readme_path"] = readme_path
         if definition_repository is not None:
-            input["definition_repository"] = definition_repository
+            input_["definition_repository"] = definition_repository
         if workflow_bucket_owner_id is not None:
-            input["workflow_bucket_owner_id"] = workflow_bucket_owner_id
+            input_["workflow_bucket_owner_id"] = workflow_bucket_owner_id
         if readme_uri is not None:
-            input["readme_uri"] = readme_uri
+            input_["readme_uri"] = readme_uri
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -223,17 +223,17 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if export is not None:
-            input["export"] = export
+            input_["export"] = export
         if workflow_owner_id is not None:
-            input["workflow_owner_id"] = workflow_owner_id
+            input_["workflow_owner_id"] = workflow_owner_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -278,21 +278,21 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
+            input_["storage_capacity"] = storage_capacity
         if readme_markdown is not None:
-            input["readme_markdown"] = readme_markdown
+            input_["readme_markdown"] = readme_markdown
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -323,11 +323,11 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -368,18 +368,18 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,49 +474,49 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if definition_zip is not None:
-            input["definition_zip"] = definition_zip
+            input_["definition_zip"] = definition_zip
         if definition_uri is not None:
-            input["definition_uri"] = definition_uri
+            input_["definition_uri"] = definition_uri
         if main is not None:
-            input["main"] = main
+            input_["main"] = main
         if parameter_template is not None:
-            input["parameter_template"] = parameter_template
+            input_["parameter_template"] = parameter_template
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
+            input_["storage_capacity"] = storage_capacity
         if tags is not None:
-            input["tags"] = tags
-        input["request_id"] = request_id
+            input_["tags"] = tags
+        input_["request_id"] = request_id
         if accelerators is not None:
-            input["accelerators"] = accelerators
+            input_["accelerators"] = accelerators
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if container_registry_map is not None:
-            input["container_registry_map"] = container_registry_map
+            input_["container_registry_map"] = container_registry_map
         if container_registry_map_uri is not None:
-            input["container_registry_map_uri"] = container_registry_map_uri
+            input_["container_registry_map_uri"] = container_registry_map_uri
         if readme_markdown is not None:
-            input["readme_markdown"] = readme_markdown
+            input_["readme_markdown"] = readme_markdown
         if parameter_template_path is not None:
-            input["parameter_template_path"] = parameter_template_path
+            input_["parameter_template_path"] = parameter_template_path
         if readme_path is not None:
-            input["readme_path"] = readme_path
+            input_["readme_path"] = readme_path
         if definition_repository is not None:
-            input["definition_repository"] = definition_repository
+            input_["definition_repository"] = definition_repository
         if workflow_bucket_owner_id is not None:
-            input["workflow_bucket_owner_id"] = workflow_bucket_owner_id
+            input_["workflow_bucket_owner_id"] = workflow_bucket_owner_id
         if readme_uri is not None:
-            input["readme_uri"] = readme_uri
+            input_["readme_uri"] = readme_uri
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -560,17 +560,17 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_workflow_request.GetWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if export is not None:
-            input["export"] = export
+            input_["export"] = export
         if workflow_owner_id is not None:
-            input["workflow_owner_id"] = workflow_owner_id
+            input_["workflow_owner_id"] = workflow_owner_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -616,21 +616,21 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.update_workflow_request.UpdateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if storage_capacity is not None:
-            input["storage_capacity"] = storage_capacity
+            input_["storage_capacity"] = storage_capacity
         if readme_markdown is not None:
-            input["readme_markdown"] = readme_markdown
+            input_["readme_markdown"] = readme_markdown
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,11 +662,11 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -708,18 +708,18 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

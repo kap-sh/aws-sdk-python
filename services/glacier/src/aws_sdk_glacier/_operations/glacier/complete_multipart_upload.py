@@ -94,53 +94,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput,
+    input_: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}"
     )
-    url = url.replace("{accountId}", quote(str(input["account_id"]), safe=""))
-    url = url.replace("{vaultName}", quote(str(input["vault_name"]), safe=""))
-    url = url.replace("{uploadId}", quote(str(input["upload_id"]), safe=""))
+    url = url.replace("{accountId}", quote(str(input_["account_id"]), safe=""))
+    url = url.replace("{vaultName}", quote(str(input_["vault_name"]), safe=""))
+    url = url.replace("{uploadId}", quote(str(input_["upload_id"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "archive_size" in input:
-        headers["x-amz-archive-size"] = str(input["archive_size"])
-    if "checksum" in input:
-        headers["x-amz-sha256-tree-hash"] = str(input["checksum"])
+    if "archive_size" in input_:
+        headers["x-amz-archive-size"] = str(input_["archive_size"])
+    if "checksum" in input_:
+        headers["x-amz-sha256-tree-hash"] = str(input_["checksum"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def complete_multipart_upload(
     options: OperationOptions,
-    input: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput,
+    input_: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput,
 ) -> tuple[
     aws_sdk_glacier.types.archive_creation_output.ArchiveCreationOutput, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -149,15 +146,16 @@ def complete_multipart_upload(
 
 async def async_complete_multipart_upload(
     options: AsyncOperationOptions,
-    input: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput,
+    input_: aws_sdk_glacier.types.complete_multipart_upload_input.CompleteMultipartUploadInput,
 ) -> tuple[
     aws_sdk_glacier.types.archive_creation_output.ArchiveCreationOutput, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

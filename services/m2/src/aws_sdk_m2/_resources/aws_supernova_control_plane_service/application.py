@@ -149,23 +149,23 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_m2.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["engine_type"] = engine_type
-        input["definition"] = definition
+            input_["description"] = description
+        input_["engine_type"] = engine_type
+        input_["definition"] = definition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -198,11 +198,11 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,16 +243,16 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if description is not None:
-            input["description"] = description
-        input["current_application_version"] = current_application_version
+            input_["description"] = description
+        input_["current_application_version"] = current_application_version
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -285,11 +285,11 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,18 +328,18 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,14 +378,14 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.cancel_batch_job_execution_request.CancelBatchJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_m2.types.cancel_batch_job_execution_request.CancelBatchJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["execution_id"] = execution_id
         if auth_secrets_manager_arn is not None:
-            input["auth_secrets_manager_arn"] = auth_secrets_manager_arn
+            input_["auth_secrets_manager_arn"] = auth_secrets_manager_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -424,16 +424,16 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_data_set_export_task_request.CreateDataSetExportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["export_config"] = export_config
+        input_: aws_sdk_m2.types.create_data_set_export_task_request.CreateDataSetExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["export_config"] = export_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,14 +470,14 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_data_set_import_task_request.CreateDataSetImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["import_config"] = import_config
+        input_: aws_sdk_m2.types.create_data_set_import_task_request.CreateDataSetImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["import_config"] = import_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,15 +516,15 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["application_id"] = application_id
-        input["application_version"] = application_version
+        input_: aws_sdk_m2.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["application_id"] = application_id
+        input_["application_version"] = application_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,12 +559,12 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.delete_application_from_environment_request.DeleteApplicationFromEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["environment_id"] = environment_id
+        input_: aws_sdk_m2.types.delete_application_from_environment_request.DeleteApplicationFromEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["environment_id"] = environment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,12 +599,12 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_application_version_request.GetApplicationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["application_version"] = application_version
+        input_: aws_sdk_m2.types.get_application_version_request.GetApplicationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["application_version"] = application_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -641,12 +641,12 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_batch_job_execution_request.GetBatchJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_m2.types.get_batch_job_execution_request.GetBatchJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["execution_id"] = execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -681,12 +681,12 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_data_set_details_request.GetDataSetDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["data_set_name"] = data_set_name
+        input_: aws_sdk_m2.types.get_data_set_details_request.GetDataSetDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["data_set_name"] = data_set_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -721,12 +721,12 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_data_set_export_task_request.GetDataSetExportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["task_id"] = task_id
+        input_: aws_sdk_m2.types.get_data_set_export_task_request.GetDataSetExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -761,12 +761,12 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_data_set_import_task_request.GetDataSetImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["task_id"] = task_id
+        input_: aws_sdk_m2.types.get_data_set_import_task_request.GetDataSetImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["task_id"] = task_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -801,12 +801,12 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -843,15 +843,15 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -890,17 +890,17 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_batch_job_definitions_request.ListBatchJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_batch_job_definitions_request.ListBatchJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -951,25 +951,25 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_batch_job_executions_request.ListBatchJobExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_batch_job_executions_request.ListBatchJobExecutionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
         if execution_ids is not None:
-            input["execution_ids"] = execution_ids
+            input_["execution_ids"] = execution_ids
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if started_after is not None:
-            input["started_after"] = started_after
+            input_["started_after"] = started_after
         if started_before is not None:
-            input["started_before"] = started_before
+            input_["started_before"] = started_before
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1008,14 +1008,14 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_batch_job_restart_points_request.ListBatchJobRestartPointsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_m2.types.list_batch_job_restart_points_request.ListBatchJobRestartPointsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["execution_id"] = execution_id
         if auth_secrets_manager_arn is not None:
-            input["auth_secrets_manager_arn"] = auth_secrets_manager_arn
+            input_["auth_secrets_manager_arn"] = auth_secrets_manager_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1052,15 +1052,15 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_data_set_export_history_request.ListDataSetExportHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_data_set_export_history_request.ListDataSetExportHistoryRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1097,15 +1097,15 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_data_set_import_history_request.ListDataSetImportHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_data_set_import_history_request.ListDataSetImportHistoryRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1146,19 +1146,19 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_data_sets_request.ListDataSetsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.list_data_sets_request.ListDataSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if name_filter is not None:
-            input["name_filter"] = name_filter
+            input_["name_filter"] = name_filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1195,15 +1195,15 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1236,11 +1236,11 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1283,16 +1283,16 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.start_batch_job_request.StartBatchJobRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["batch_job_identifier"] = batch_job_identifier
+        input_: aws_sdk_m2.types.start_batch_job_request.StartBatchJobRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["batch_job_identifier"] = batch_job_identifier
         if job_params is not None:
-            input["job_params"] = job_params
+            input_["job_params"] = job_params
         if auth_secrets_manager_arn is not None:
-            input["auth_secrets_manager_arn"] = auth_secrets_manager_arn
+            input_["auth_secrets_manager_arn"] = auth_secrets_manager_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1327,13 +1327,13 @@ class Application:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if force_stop is not None:
-            input["force_stop"] = force_stop
+            input_["force_stop"] = force_stop
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1388,23 +1388,23 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_m2.types.create_application_request.CreateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["engine_type"] = engine_type
-        input["definition"] = definition
+            input_["description"] = description
+        input_["engine_type"] = engine_type
+        input_["definition"] = definition
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1438,11 +1438,11 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.get_application_request.GetApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1484,16 +1484,16 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.update_application_request.UpdateApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if description is not None:
-            input["description"] = description
-        input["current_application_version"] = current_application_version
+            input_["description"] = description
+        input_["current_application_version"] = current_application_version
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1527,11 +1527,11 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.delete_application_request.DeleteApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1571,18 +1571,18 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_applications_request.ListApplicationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if environment_id is not None:
-            input["environment_id"] = environment_id
+            input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1622,14 +1622,14 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.cancel_batch_job_execution_request.CancelBatchJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_m2.types.cancel_batch_job_execution_request.CancelBatchJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["execution_id"] = execution_id
         if auth_secrets_manager_arn is not None:
-            input["auth_secrets_manager_arn"] = auth_secrets_manager_arn
+            input_["auth_secrets_manager_arn"] = auth_secrets_manager_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1669,16 +1669,16 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_data_set_export_task_request.CreateDataSetExportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["export_config"] = export_config
+        input_: aws_sdk_m2.types.create_data_set_export_task_request.CreateDataSetExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["export_config"] = export_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1716,14 +1716,14 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_data_set_import_task_request.CreateDataSetImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["import_config"] = import_config
+        input_: aws_sdk_m2.types.create_data_set_import_task_request.CreateDataSetImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["import_config"] = import_config
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1763,15 +1763,15 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["environment_id"] = environment_id
-        input["application_id"] = application_id
-        input["application_version"] = application_version
+        input_: aws_sdk_m2.types.create_deployment_request.CreateDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["environment_id"] = environment_id
+        input_["application_id"] = application_id
+        input_["application_version"] = application_version
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1807,12 +1807,12 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.delete_application_from_environment_request.DeleteApplicationFromEnvironmentRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["environment_id"] = environment_id
+        input_: aws_sdk_m2.types.delete_application_from_environment_request.DeleteApplicationFromEnvironmentRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["environment_id"] = environment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1848,12 +1848,12 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_application_version_request.GetApplicationVersionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["application_version"] = application_version
+        input_: aws_sdk_m2.types.get_application_version_request.GetApplicationVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["application_version"] = application_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1891,12 +1891,12 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_batch_job_execution_request.GetBatchJobExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_m2.types.get_batch_job_execution_request.GetBatchJobExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["execution_id"] = execution_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1932,12 +1932,12 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_data_set_details_request.GetDataSetDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["data_set_name"] = data_set_name
+        input_: aws_sdk_m2.types.get_data_set_details_request.GetDataSetDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["data_set_name"] = data_set_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1973,12 +1973,12 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_data_set_export_task_request.GetDataSetExportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["task_id"] = task_id
+        input_: aws_sdk_m2.types.get_data_set_export_task_request.GetDataSetExportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2014,12 +2014,12 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_data_set_import_task_request.GetDataSetImportTaskRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["task_id"] = task_id
+        input_: aws_sdk_m2.types.get_data_set_import_task_request.GetDataSetImportTaskRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["task_id"] = task_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2055,12 +2055,12 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.get_deployment_request.GetDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2098,15 +2098,15 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_application_versions_request.ListApplicationVersionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2146,17 +2146,17 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_batch_job_definitions_request.ListBatchJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_batch_job_definitions_request.ListBatchJobDefinitionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2208,25 +2208,25 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_batch_job_executions_request.ListBatchJobExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_batch_job_executions_request.ListBatchJobExecutionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
         if execution_ids is not None:
-            input["execution_ids"] = execution_ids
+            input_["execution_ids"] = execution_ids
         if job_name is not None:
-            input["job_name"] = job_name
+            input_["job_name"] = job_name
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if started_after is not None:
-            input["started_after"] = started_after
+            input_["started_after"] = started_after
         if started_before is not None:
-            input["started_before"] = started_before
+            input_["started_before"] = started_before
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2266,14 +2266,14 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_batch_job_restart_points_request.ListBatchJobRestartPointsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["execution_id"] = execution_id
+        input_: aws_sdk_m2.types.list_batch_job_restart_points_request.ListBatchJobRestartPointsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["execution_id"] = execution_id
         if auth_secrets_manager_arn is not None:
-            input["auth_secrets_manager_arn"] = auth_secrets_manager_arn
+            input_["auth_secrets_manager_arn"] = auth_secrets_manager_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2311,15 +2311,15 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_data_set_export_history_request.ListDataSetExportHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_data_set_export_history_request.ListDataSetExportHistoryRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2357,15 +2357,15 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_data_set_import_history_request.ListDataSetImportHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_data_set_import_history_request.ListDataSetImportHistoryRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2407,19 +2407,19 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_data_sets_request.ListDataSetsRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.list_data_sets_request.ListDataSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if prefix is not None:
-            input["prefix"] = prefix
+            input_["prefix"] = prefix
         if name_filter is not None:
-            input["name_filter"] = name_filter
+            input_["name_filter"] = name_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2457,15 +2457,15 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_m2.types.list_deployments_request.ListDeploymentsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["application_id"] = application_id
+            input_["max_results"] = max_results
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2499,11 +2499,11 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.start_application_request.StartApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2547,16 +2547,16 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.start_batch_job_request.StartBatchJobRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
-        input["batch_job_identifier"] = batch_job_identifier
+        input_: aws_sdk_m2.types.start_batch_job_request.StartBatchJobRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
+        input_["batch_job_identifier"] = batch_job_identifier
         if job_params is not None:
-            input["job_params"] = job_params
+            input_["job_params"] = job_params
         if auth_secrets_manager_arn is not None:
-            input["auth_secrets_manager_arn"] = auth_secrets_manager_arn
+            input_["auth_secrets_manager_arn"] = auth_secrets_manager_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2592,13 +2592,13 @@ class AsyncApplication:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_m2.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
-        input["application_id"] = application_id
+        input_: aws_sdk_m2.types.stop_application_request.StopApplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["application_id"] = application_id
         if force_stop is not None:
-            input["force_stop"] = force_stop
+            input_["force_stop"] = force_stop
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -68,13 +68,13 @@ class ProvisionedConcurrencyConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_provisioned_concurrency_config_request.PutProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
-        input["provisioned_concurrent_executions"] = provisioned_concurrent_executions
+        input_: aws_sdk_lambda.types.put_provisioned_concurrency_config_request.PutProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
+        input_["provisioned_concurrent_executions"] = provisioned_concurrent_executions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -119,12 +119,12 @@ class ProvisionedConcurrencyConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_provisioned_concurrency_config_request.GetProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
+        input_: aws_sdk_lambda.types.get_provisioned_concurrency_config_request.GetProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -163,12 +163,12 @@ class ProvisionedConcurrencyConfig:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_provisioned_concurrency_config_request.DeleteProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
+        input_: aws_sdk_lambda.types.delete_provisioned_concurrency_config_request.DeleteProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,13 +217,13 @@ class AsyncProvisionedConcurrencyConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.put_provisioned_concurrency_config_request.PutProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
-        input["provisioned_concurrent_executions"] = provisioned_concurrent_executions
+        input_: aws_sdk_lambda.types.put_provisioned_concurrency_config_request.PutProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
+        input_["provisioned_concurrent_executions"] = provisioned_concurrent_executions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,12 +269,12 @@ class AsyncProvisionedConcurrencyConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_provisioned_concurrency_config_request.GetProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
+        input_: aws_sdk_lambda.types.get_provisioned_concurrency_config_request.GetProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -314,12 +314,12 @@ class AsyncProvisionedConcurrencyConfig:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_provisioned_concurrency_config_request.DeleteProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["qualifier"] = qualifier
+        input_: aws_sdk_lambda.types.delete_provisioned_concurrency_config_request.DeleteProvisionedConcurrencyConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["qualifier"] = qualifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -109,13 +109,13 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_service_primary_task_set_request.UpdateServicePrimaryTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["service"] = service
-        input["primary_task_set"] = primary_task_set
+        input_: aws_sdk_ecs.types.update_service_primary_task_set_request.UpdateServicePrimaryTaskSetRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["service"] = service
+        input_["primary_task_set"] = primary_task_set
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -174,31 +174,31 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_express_gateway_service_request.CreateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input["execution_role_arn"] = execution_role_arn
-        input["infrastructure_role_arn"] = infrastructure_role_arn
+        input_: aws_sdk_ecs.types.create_express_gateway_service_request.CreateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["execution_role_arn"] = execution_role_arn
+        input_["infrastructure_role_arn"] = infrastructure_role_arn
         if service_name is not None:
-            input["service_name"] = service_name
+            input_["service_name"] = service_name
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if health_check_path is not None:
-            input["health_check_path"] = health_check_path
-        input["primary_container"] = primary_container
+            input_["health_check_path"] = health_check_path
+        input_["primary_container"] = primary_container
         if task_role_arn is not None:
-            input["task_role_arn"] = task_role_arn
+            input_["task_role_arn"] = task_role_arn
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if cpu is not None:
-            input["cpu"] = cpu
+            input_["cpu"] = cpu
         if memory is not None:
-            input["memory"] = memory
+            input_["memory"] = memory
         if scaling_target is not None:
-            input["scaling_target"] = scaling_target
+            input_["scaling_target"] = scaling_target
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,63 +325,63 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["service_name"] = service_name
+            input_["cluster"] = cluster
+        input_["service_name"] = service_name
         if task_definition is not None:
-            input["task_definition"] = task_definition
+            input_["task_definition"] = task_definition
         if availability_zone_rebalancing is not None:
-            input["availability_zone_rebalancing"] = availability_zone_rebalancing
+            input_["availability_zone_rebalancing"] = availability_zone_rebalancing
         if load_balancers is not None:
-            input["load_balancers"] = load_balancers
+            input_["load_balancers"] = load_balancers
         if service_registries is not None:
-            input["service_registries"] = service_registries
+            input_["service_registries"] = service_registries
         if desired_count is not None:
-            input["desired_count"] = desired_count
+            input_["desired_count"] = desired_count
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if launch_type is not None:
-            input["launch_type"] = launch_type
+            input_["launch_type"] = launch_type
         if capacity_provider_strategy is not None:
-            input["capacity_provider_strategy"] = capacity_provider_strategy
+            input_["capacity_provider_strategy"] = capacity_provider_strategy
         if platform_version is not None:
-            input["platform_version"] = platform_version
+            input_["platform_version"] = platform_version
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if placement_constraints is not None:
-            input["placement_constraints"] = placement_constraints
+            input_["placement_constraints"] = placement_constraints
         if placement_strategy is not None:
-            input["placement_strategy"] = placement_strategy
+            input_["placement_strategy"] = placement_strategy
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if health_check_grace_period_seconds is not None:
-            input["health_check_grace_period_seconds"] = (
+            input_["health_check_grace_period_seconds"] = (
                 health_check_grace_period_seconds
             )
         if scheduling_strategy is not None:
-            input["scheduling_strategy"] = scheduling_strategy
+            input_["scheduling_strategy"] = scheduling_strategy
         if deployment_controller is not None:
-            input["deployment_controller"] = deployment_controller
+            input_["deployment_controller"] = deployment_controller
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if service_connect_configuration is not None:
-            input["service_connect_configuration"] = service_connect_configuration
+            input_["service_connect_configuration"] = service_connect_configuration
         if volume_configurations is not None:
-            input["volume_configurations"] = volume_configurations
+            input_["volume_configurations"] = volume_configurations
         if vpc_lattice_configurations is not None:
-            input["vpc_lattice_configurations"] = vpc_lattice_configurations
+            input_["vpc_lattice_configurations"] = vpc_lattice_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,11 +414,11 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_express_gateway_service_request.DeleteExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_ecs.types.delete_express_gateway_service_request.DeleteExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,15 +461,15 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["service"] = service
+            input_["cluster"] = cluster
+        input_["service"] = service
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -506,13 +506,13 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_express_gateway_service_request.DescribeExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_ecs.types.describe_express_gateway_service_request.DescribeExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -561,15 +561,15 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["services"] = services
+            input_["cluster"] = cluster
+        input_["services"] = services
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,21 +620,21 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_service_deployments_request.ListServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["service"] = service
+        input_: aws_sdk_ecs.types.list_service_deployments_request.ListServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["service"] = service
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if created_at is not None:
-            input["created_at"] = created_at
+            input_["created_at"] = created_at
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -687,22 +687,22 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if launch_type is not None:
-            input["launch_type"] = launch_type
+            input_["launch_type"] = launch_type
         if scheduling_strategy is not None:
-            input["scheduling_strategy"] = scheduling_strategy
+            input_["scheduling_strategy"] = scheduling_strategy
         if resource_management_type is not None:
-            input["resource_management_type"] = resource_management_type
+            input_["resource_management_type"] = resource_management_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,13 +745,13 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.stop_service_deployment_request.StopServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["service_deployment_arn"] = service_deployment_arn
+        input_: aws_sdk_ecs.types.stop_service_deployment_request.StopServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_deployment_arn"] = service_deployment_arn
         if stop_type is not None:
-            input["stop_type"] = stop_type
+            input_["stop_type"] = stop_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,27 +806,27 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_express_gateway_service_request.UpdateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_ecs.types.update_express_gateway_service_request.UpdateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if health_check_path is not None:
-            input["health_check_path"] = health_check_path
+            input_["health_check_path"] = health_check_path
         if primary_container is not None:
-            input["primary_container"] = primary_container
+            input_["primary_container"] = primary_container
         if task_role_arn is not None:
-            input["task_role_arn"] = task_role_arn
+            input_["task_role_arn"] = task_role_arn
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if cpu is not None:
-            input["cpu"] = cpu
+            input_["cpu"] = cpu
         if memory is not None:
-            input["memory"] = memory
+            input_["memory"] = memory
         if scaling_target is not None:
-            input["scaling_target"] = scaling_target
+            input_["scaling_target"] = scaling_target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -946,55 +946,55 @@ class ServiceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["service"] = service
+            input_["cluster"] = cluster
+        input_["service"] = service
         if desired_count is not None:
-            input["desired_count"] = desired_count
+            input_["desired_count"] = desired_count
         if task_definition is not None:
-            input["task_definition"] = task_definition
+            input_["task_definition"] = task_definition
         if capacity_provider_strategy is not None:
-            input["capacity_provider_strategy"] = capacity_provider_strategy
+            input_["capacity_provider_strategy"] = capacity_provider_strategy
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if availability_zone_rebalancing is not None:
-            input["availability_zone_rebalancing"] = availability_zone_rebalancing
+            input_["availability_zone_rebalancing"] = availability_zone_rebalancing
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if placement_constraints is not None:
-            input["placement_constraints"] = placement_constraints
+            input_["placement_constraints"] = placement_constraints
         if placement_strategy is not None:
-            input["placement_strategy"] = placement_strategy
+            input_["placement_strategy"] = placement_strategy
         if platform_version is not None:
-            input["platform_version"] = platform_version
+            input_["platform_version"] = platform_version
         if force_new_deployment is not None:
-            input["force_new_deployment"] = force_new_deployment
+            input_["force_new_deployment"] = force_new_deployment
         if health_check_grace_period_seconds is not None:
-            input["health_check_grace_period_seconds"] = (
+            input_["health_check_grace_period_seconds"] = (
                 health_check_grace_period_seconds
             )
         if deployment_controller is not None:
-            input["deployment_controller"] = deployment_controller
+            input_["deployment_controller"] = deployment_controller
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if load_balancers is not None:
-            input["load_balancers"] = load_balancers
+            input_["load_balancers"] = load_balancers
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if service_registries is not None:
-            input["service_registries"] = service_registries
+            input_["service_registries"] = service_registries
         if service_connect_configuration is not None:
-            input["service_connect_configuration"] = service_connect_configuration
+            input_["service_connect_configuration"] = service_connect_configuration
         if volume_configurations is not None:
-            input["volume_configurations"] = volume_configurations
+            input_["volume_configurations"] = volume_configurations
         if vpc_lattice_configurations is not None:
-            input["vpc_lattice_configurations"] = vpc_lattice_configurations
+            input_["vpc_lattice_configurations"] = vpc_lattice_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1043,13 +1043,13 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_service_primary_task_set_request.UpdateServicePrimaryTaskSetRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["service"] = service
-        input["primary_task_set"] = primary_task_set
+        input_: aws_sdk_ecs.types.update_service_primary_task_set_request.UpdateServicePrimaryTaskSetRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["service"] = service
+        input_["primary_task_set"] = primary_task_set
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1109,31 +1109,31 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_express_gateway_service_request.CreateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input["execution_role_arn"] = execution_role_arn
-        input["infrastructure_role_arn"] = infrastructure_role_arn
+        input_: aws_sdk_ecs.types.create_express_gateway_service_request.CreateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["execution_role_arn"] = execution_role_arn
+        input_["infrastructure_role_arn"] = infrastructure_role_arn
         if service_name is not None:
-            input["service_name"] = service_name
+            input_["service_name"] = service_name
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if health_check_path is not None:
-            input["health_check_path"] = health_check_path
-        input["primary_container"] = primary_container
+            input_["health_check_path"] = health_check_path
+        input_["primary_container"] = primary_container
         if task_role_arn is not None:
-            input["task_role_arn"] = task_role_arn
+            input_["task_role_arn"] = task_role_arn
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if cpu is not None:
-            input["cpu"] = cpu
+            input_["cpu"] = cpu
         if memory is not None:
-            input["memory"] = memory
+            input_["memory"] = memory
         if scaling_target is not None:
-            input["scaling_target"] = scaling_target
+            input_["scaling_target"] = scaling_target
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1261,63 +1261,63 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.create_service_request.CreateServiceRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["service_name"] = service_name
+            input_["cluster"] = cluster
+        input_["service_name"] = service_name
         if task_definition is not None:
-            input["task_definition"] = task_definition
+            input_["task_definition"] = task_definition
         if availability_zone_rebalancing is not None:
-            input["availability_zone_rebalancing"] = availability_zone_rebalancing
+            input_["availability_zone_rebalancing"] = availability_zone_rebalancing
         if load_balancers is not None:
-            input["load_balancers"] = load_balancers
+            input_["load_balancers"] = load_balancers
         if service_registries is not None:
-            input["service_registries"] = service_registries
+            input_["service_registries"] = service_registries
         if desired_count is not None:
-            input["desired_count"] = desired_count
+            input_["desired_count"] = desired_count
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if launch_type is not None:
-            input["launch_type"] = launch_type
+            input_["launch_type"] = launch_type
         if capacity_provider_strategy is not None:
-            input["capacity_provider_strategy"] = capacity_provider_strategy
+            input_["capacity_provider_strategy"] = capacity_provider_strategy
         if platform_version is not None:
-            input["platform_version"] = platform_version
+            input_["platform_version"] = platform_version
         if role is not None:
-            input["role"] = role
+            input_["role"] = role
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if placement_constraints is not None:
-            input["placement_constraints"] = placement_constraints
+            input_["placement_constraints"] = placement_constraints
         if placement_strategy is not None:
-            input["placement_strategy"] = placement_strategy
+            input_["placement_strategy"] = placement_strategy
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if health_check_grace_period_seconds is not None:
-            input["health_check_grace_period_seconds"] = (
+            input_["health_check_grace_period_seconds"] = (
                 health_check_grace_period_seconds
             )
         if scheduling_strategy is not None:
-            input["scheduling_strategy"] = scheduling_strategy
+            input_["scheduling_strategy"] = scheduling_strategy
         if deployment_controller is not None:
-            input["deployment_controller"] = deployment_controller
+            input_["deployment_controller"] = deployment_controller
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if service_connect_configuration is not None:
-            input["service_connect_configuration"] = service_connect_configuration
+            input_["service_connect_configuration"] = service_connect_configuration
         if volume_configurations is not None:
-            input["volume_configurations"] = volume_configurations
+            input_["volume_configurations"] = volume_configurations
         if vpc_lattice_configurations is not None:
-            input["vpc_lattice_configurations"] = vpc_lattice_configurations
+            input_["vpc_lattice_configurations"] = vpc_lattice_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1351,11 +1351,11 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_express_gateway_service_request.DeleteExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_ecs.types.delete_express_gateway_service_request.DeleteExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1399,15 +1399,15 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.delete_service_request.DeleteServiceRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["service"] = service
+            input_["cluster"] = cluster
+        input_["service"] = service
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1445,13 +1445,13 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_express_gateway_service_request.DescribeExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_ecs.types.describe_express_gateway_service_request.DescribeExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1501,15 +1501,15 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.describe_services_request.DescribeServicesRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["services"] = services
+            input_["cluster"] = cluster
+        input_["services"] = services
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1561,21 +1561,21 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_service_deployments_request.ListServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
-        input["service"] = service
+        input_: aws_sdk_ecs.types.list_service_deployments_request.ListServiceDeploymentsRequest = {}  # type: ignore[typeddict-item]
+        input_["service"] = service
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if created_at is not None:
-            input["created_at"] = created_at
+            input_["created_at"] = created_at
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1629,22 +1629,22 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.list_services_request.ListServicesRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if launch_type is not None:
-            input["launch_type"] = launch_type
+            input_["launch_type"] = launch_type
         if scheduling_strategy is not None:
-            input["scheduling_strategy"] = scheduling_strategy
+            input_["scheduling_strategy"] = scheduling_strategy
         if resource_management_type is not None:
-            input["resource_management_type"] = resource_management_type
+            input_["resource_management_type"] = resource_management_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1688,13 +1688,13 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.stop_service_deployment_request.StopServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
-        input["service_deployment_arn"] = service_deployment_arn
+        input_: aws_sdk_ecs.types.stop_service_deployment_request.StopServiceDeploymentRequest = {}  # type: ignore[typeddict-item]
+        input_["service_deployment_arn"] = service_deployment_arn
         if stop_type is not None:
-            input["stop_type"] = stop_type
+            input_["stop_type"] = stop_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1750,27 +1750,27 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_express_gateway_service_request.UpdateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
-        input["service_arn"] = service_arn
+        input_: aws_sdk_ecs.types.update_express_gateway_service_request.UpdateExpressGatewayServiceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_arn"] = service_arn
         if execution_role_arn is not None:
-            input["execution_role_arn"] = execution_role_arn
+            input_["execution_role_arn"] = execution_role_arn
         if health_check_path is not None:
-            input["health_check_path"] = health_check_path
+            input_["health_check_path"] = health_check_path
         if primary_container is not None:
-            input["primary_container"] = primary_container
+            input_["primary_container"] = primary_container
         if task_role_arn is not None:
-            input["task_role_arn"] = task_role_arn
+            input_["task_role_arn"] = task_role_arn
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if cpu is not None:
-            input["cpu"] = cpu
+            input_["cpu"] = cpu
         if memory is not None:
-            input["memory"] = memory
+            input_["memory"] = memory
         if scaling_target is not None:
-            input["scaling_target"] = scaling_target
+            input_["scaling_target"] = scaling_target
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1891,55 +1891,55 @@ class AsyncServiceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.update_service_request.UpdateServiceRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["service"] = service
+            input_["cluster"] = cluster
+        input_["service"] = service
         if desired_count is not None:
-            input["desired_count"] = desired_count
+            input_["desired_count"] = desired_count
         if task_definition is not None:
-            input["task_definition"] = task_definition
+            input_["task_definition"] = task_definition
         if capacity_provider_strategy is not None:
-            input["capacity_provider_strategy"] = capacity_provider_strategy
+            input_["capacity_provider_strategy"] = capacity_provider_strategy
         if deployment_configuration is not None:
-            input["deployment_configuration"] = deployment_configuration
+            input_["deployment_configuration"] = deployment_configuration
         if availability_zone_rebalancing is not None:
-            input["availability_zone_rebalancing"] = availability_zone_rebalancing
+            input_["availability_zone_rebalancing"] = availability_zone_rebalancing
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if placement_constraints is not None:
-            input["placement_constraints"] = placement_constraints
+            input_["placement_constraints"] = placement_constraints
         if placement_strategy is not None:
-            input["placement_strategy"] = placement_strategy
+            input_["placement_strategy"] = placement_strategy
         if platform_version is not None:
-            input["platform_version"] = platform_version
+            input_["platform_version"] = platform_version
         if force_new_deployment is not None:
-            input["force_new_deployment"] = force_new_deployment
+            input_["force_new_deployment"] = force_new_deployment
         if health_check_grace_period_seconds is not None:
-            input["health_check_grace_period_seconds"] = (
+            input_["health_check_grace_period_seconds"] = (
                 health_check_grace_period_seconds
             )
         if deployment_controller is not None:
-            input["deployment_controller"] = deployment_controller
+            input_["deployment_controller"] = deployment_controller
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if load_balancers is not None:
-            input["load_balancers"] = load_balancers
+            input_["load_balancers"] = load_balancers
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if service_registries is not None:
-            input["service_registries"] = service_registries
+            input_["service_registries"] = service_registries
         if service_connect_configuration is not None:
-            input["service_connect_configuration"] = service_connect_configuration
+            input_["service_connect_configuration"] = service_connect_configuration
         if volume_configurations is not None:
-            input["volume_configurations"] = volume_configurations
+            input_["volume_configurations"] = volume_configurations
         if vpc_lattice_configurations is not None:
-            input["vpc_lattice_configurations"] = vpc_lattice_configurations
+            input_["vpc_lattice_configurations"] = vpc_lattice_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

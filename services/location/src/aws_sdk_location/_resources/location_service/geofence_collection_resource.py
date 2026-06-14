@@ -107,21 +107,21 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_geofence_collection_request.CreateGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.create_geofence_collection_request.CreateGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if pricing_plan_data_source is not None:
-            input["pricing_plan_data_source"] = pricing_plan_data_source
+            input_["pricing_plan_data_source"] = pricing_plan_data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -154,11 +154,11 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_geofence_collection_request.DescribeGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.describe_geofence_collection_request.DescribeGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,17 +201,17 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_geofence_collection_request.UpdateGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.update_geofence_collection_request.UpdateGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if pricing_plan_data_source is not None:
-            input["pricing_plan_data_source"] = pricing_plan_data_source
+            input_["pricing_plan_data_source"] = pricing_plan_data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,11 +244,11 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_geofence_collection_request.DeleteGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.delete_geofence_collection_request.DeleteGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,14 +283,14 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_geofence_collections_request.ListGeofenceCollectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_geofence_collections_request.ListGeofenceCollectionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,12 +325,12 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_delete_geofence_request.BatchDeleteGeofenceRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["geofence_ids"] = geofence_ids
+        input_: aws_sdk_location.types.batch_delete_geofence_request.BatchDeleteGeofenceRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["geofence_ids"] = geofence_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,12 +365,12 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_evaluate_geofences_request.BatchEvaluateGeofencesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["device_position_updates"] = device_position_updates
+        input_: aws_sdk_location.types.batch_evaluate_geofences_request.BatchEvaluateGeofencesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["device_position_updates"] = device_position_updates
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,12 +405,12 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_put_geofence_request.BatchPutGeofenceRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["entries"] = entries
+        input_: aws_sdk_location.types.batch_put_geofence_request.BatchPutGeofenceRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["entries"] = entries
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,22 +457,22 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.forecast_geofence_events_request.ForecastGeofenceEventsRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["device_state"] = device_state
+        input_: aws_sdk_location.types.forecast_geofence_events_request.ForecastGeofenceEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["device_state"] = device_state
         if time_horizon_minutes is not None:
-            input["time_horizon_minutes"] = time_horizon_minutes
+            input_["time_horizon_minutes"] = time_horizon_minutes
         if distance_unit is not None:
-            input["distance_unit"] = distance_unit
+            input_["distance_unit"] = distance_unit
         if speed_unit is not None:
-            input["speed_unit"] = speed_unit
+            input_["speed_unit"] = speed_unit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -507,12 +507,12 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_geofence_request.GetGeofenceRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["geofence_id"] = geofence_id
+        input_: aws_sdk_location.types.get_geofence_request.GetGeofenceRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["geofence_id"] = geofence_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -549,15 +549,15 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_geofences_request.ListGeofencesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.list_geofences_request.ListGeofencesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -598,15 +598,15 @@ class GeofenceCollectionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.put_geofence_request.PutGeofenceRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["geofence_id"] = geofence_id
-        input["geometry"] = geometry
+        input_: aws_sdk_location.types.put_geofence_request.PutGeofenceRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["geofence_id"] = geofence_id
+        input_["geometry"] = geometry
         if geofence_properties is not None:
-            input["geofence_properties"] = geofence_properties
+            input_["geofence_properties"] = geofence_properties
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -659,21 +659,21 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.create_geofence_collection_request.CreateGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.create_geofence_collection_request.CreateGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if pricing_plan_data_source is not None:
-            input["pricing_plan_data_source"] = pricing_plan_data_source
+            input_["pricing_plan_data_source"] = pricing_plan_data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -707,11 +707,11 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.describe_geofence_collection_request.DescribeGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.describe_geofence_collection_request.DescribeGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -755,17 +755,17 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.update_geofence_collection_request.UpdateGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.update_geofence_collection_request.UpdateGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
         if pricing_plan is not None:
-            input["pricing_plan"] = pricing_plan
+            input_["pricing_plan"] = pricing_plan
         if pricing_plan_data_source is not None:
-            input["pricing_plan_data_source"] = pricing_plan_data_source
+            input_["pricing_plan_data_source"] = pricing_plan_data_source
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -799,11 +799,11 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.delete_geofence_collection_request.DeleteGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.delete_geofence_collection_request.DeleteGeofenceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -839,14 +839,14 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_geofence_collections_request.ListGeofenceCollectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_location.types.list_geofence_collections_request.ListGeofenceCollectionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -882,12 +882,12 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_delete_geofence_request.BatchDeleteGeofenceRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["geofence_ids"] = geofence_ids
+        input_: aws_sdk_location.types.batch_delete_geofence_request.BatchDeleteGeofenceRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["geofence_ids"] = geofence_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -923,12 +923,12 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_evaluate_geofences_request.BatchEvaluateGeofencesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["device_position_updates"] = device_position_updates
+        input_: aws_sdk_location.types.batch_evaluate_geofences_request.BatchEvaluateGeofencesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["device_position_updates"] = device_position_updates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -964,12 +964,12 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.batch_put_geofence_request.BatchPutGeofenceRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["entries"] = entries
+        input_: aws_sdk_location.types.batch_put_geofence_request.BatchPutGeofenceRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["entries"] = entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1017,22 +1017,22 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.forecast_geofence_events_request.ForecastGeofenceEventsRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["device_state"] = device_state
+        input_: aws_sdk_location.types.forecast_geofence_events_request.ForecastGeofenceEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["device_state"] = device_state
         if time_horizon_minutes is not None:
-            input["time_horizon_minutes"] = time_horizon_minutes
+            input_["time_horizon_minutes"] = time_horizon_minutes
         if distance_unit is not None:
-            input["distance_unit"] = distance_unit
+            input_["distance_unit"] = distance_unit
         if speed_unit is not None:
-            input["speed_unit"] = speed_unit
+            input_["speed_unit"] = speed_unit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1068,12 +1068,12 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.get_geofence_request.GetGeofenceRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["geofence_id"] = geofence_id
+        input_: aws_sdk_location.types.get_geofence_request.GetGeofenceRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["geofence_id"] = geofence_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1111,15 +1111,15 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.list_geofences_request.ListGeofencesRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
+        input_: aws_sdk_location.types.list_geofences_request.ListGeofencesRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1161,15 +1161,15 @@ class AsyncGeofenceCollectionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_location.types.put_geofence_request.PutGeofenceRequest = {}  # type: ignore[typeddict-item]
-        input["collection_name"] = collection_name
-        input["geofence_id"] = geofence_id
-        input["geometry"] = geometry
+        input_: aws_sdk_location.types.put_geofence_request.PutGeofenceRequest = {}  # type: ignore[typeddict-item]
+        input_["collection_name"] = collection_name
+        input_["geofence_id"] = geofence_id
+        input_["geometry"] = geometry
         if geofence_properties is not None:
-            input["geofence_properties"] = geofence_properties
+            input_["geofence_properties"] = geofence_properties
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

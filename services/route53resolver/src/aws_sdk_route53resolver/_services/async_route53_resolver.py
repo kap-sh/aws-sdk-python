@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_route53resolver._auth._signers
+import aws_sdk_route53resolver._auth._sigv4
 from aws_sdk_route53resolver._auth._identity import Credentials
 from aws_sdk_route53resolver._auth._providers import (
     CredentialsProvider,
@@ -393,19 +395,19 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.associate_firewall_rule_group_request.AssociateFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["creator_request_id"] = creator_request_id
-        input["firewall_rule_group_id"] = firewall_rule_group_id
-        input["vpc_id"] = vpc_id
-        input["priority"] = priority
-        input["name"] = name
+        input_: aws_sdk_route53resolver.types.associate_firewall_rule_group_request.AssociateFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["creator_request_id"] = creator_request_id
+        input_["firewall_rule_group_id"] = firewall_rule_group_id
+        input_["vpc_id"] = vpc_id
+        input_["priority"] = priority
+        input_["name"] = name
         if mutation_protection is not None:
-            input["mutation_protection"] = mutation_protection
+            input_["mutation_protection"] = mutation_protection
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,12 +443,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.associate_resolver_endpoint_ip_address_request.AssociateResolverEndpointIpAddressRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_endpoint_id"] = resolver_endpoint_id
-        input["ip_address"] = ip_address
+        input_: aws_sdk_route53resolver.types.associate_resolver_endpoint_ip_address_request.AssociateResolverEndpointIpAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_endpoint_id"] = resolver_endpoint_id
+        input_["ip_address"] = ip_address
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -482,12 +484,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.associate_resolver_query_log_config_request.AssociateResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_query_log_config_id"] = resolver_query_log_config_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_route53resolver.types.associate_resolver_query_log_config_request.AssociateResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_query_log_config_id"] = resolver_query_log_config_id
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -525,14 +527,14 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.associate_resolver_rule_request.AssociateResolverRuleRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_rule_id"] = resolver_rule_id
+        input_: aws_sdk_route53resolver.types.associate_resolver_rule_request.AssociateResolverRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_rule_id"] = resolver_rule_id
         if name is not None:
-            input["name"] = name
-        input["vpc_id"] = vpc_id
+            input_["name"] = name
+        input_["vpc_id"] = vpc_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -566,11 +568,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.batch_create_firewall_rule_request.BatchCreateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
-        input["create_firewall_rule_entries"] = create_firewall_rule_entries
+        input_: aws_sdk_route53resolver.types.batch_create_firewall_rule_request.BatchCreateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["create_firewall_rule_entries"] = create_firewall_rule_entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,11 +606,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.batch_delete_firewall_rule_request.BatchDeleteFirewallRuleRequest = {}  # type: ignore[typeddict-item]
-        input["delete_firewall_rule_entries"] = delete_firewall_rule_entries
+        input_: aws_sdk_route53resolver.types.batch_delete_firewall_rule_request.BatchDeleteFirewallRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["delete_firewall_rule_entries"] = delete_firewall_rule_entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -642,11 +644,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.batch_update_firewall_rule_request.BatchUpdateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
-        input["update_firewall_rule_entries"] = update_firewall_rule_entries
+        input_: aws_sdk_route53resolver.types.batch_update_firewall_rule_request.BatchUpdateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["update_firewall_rule_entries"] = update_firewall_rule_entries
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -684,14 +686,14 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.create_firewall_domain_list_request.CreateFirewallDomainListRequest = {}  # type: ignore[typeddict-item]
-        input["creator_request_id"] = creator_request_id
-        input["name"] = name
+        input_: aws_sdk_route53resolver.types.create_firewall_domain_list_request.CreateFirewallDomainListRequest = {}  # type: ignore[typeddict-item]
+        input_["creator_request_id"] = creator_request_id
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -771,37 +773,37 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.create_firewall_rule_request.CreateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
-        input["creator_request_id"] = creator_request_id
-        input["firewall_rule_group_id"] = firewall_rule_group_id
+        input_: aws_sdk_route53resolver.types.create_firewall_rule_request.CreateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["creator_request_id"] = creator_request_id
+        input_["firewall_rule_group_id"] = firewall_rule_group_id
         if firewall_domain_list_id is not None:
-            input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["priority"] = priority
-        input["action"] = action
+            input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["priority"] = priority
+        input_["action"] = action
         if block_response is not None:
-            input["block_response"] = block_response
+            input_["block_response"] = block_response
         if block_override_domain is not None:
-            input["block_override_domain"] = block_override_domain
+            input_["block_override_domain"] = block_override_domain
         if block_override_dns_type is not None:
-            input["block_override_dns_type"] = block_override_dns_type
+            input_["block_override_dns_type"] = block_override_dns_type
         if block_override_ttl is not None:
-            input["block_override_ttl"] = block_override_ttl
-        input["name"] = name
+            input_["block_override_ttl"] = block_override_ttl
+        input_["name"] = name
         if firewall_domain_redirection_action is not None:
-            input["firewall_domain_redirection_action"] = (
+            input_["firewall_domain_redirection_action"] = (
                 firewall_domain_redirection_action
             )
         if qtype is not None:
-            input["qtype"] = qtype
+            input_["qtype"] = qtype
         if dns_threat_protection is not None:
-            input["dns_threat_protection"] = dns_threat_protection
+            input_["dns_threat_protection"] = dns_threat_protection
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
         if firewall_rule_type is not None:
-            input["firewall_rule_type"] = firewall_rule_type
+            input_["firewall_rule_type"] = firewall_rule_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -839,14 +841,14 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.create_firewall_rule_group_request.CreateFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["creator_request_id"] = creator_request_id
-        input["name"] = name
+        input_: aws_sdk_route53resolver.types.create_firewall_rule_group_request.CreateFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["creator_request_id"] = creator_request_id
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -892,18 +894,18 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.create_outpost_resolver_request.CreateOutpostResolverRequest = {}  # type: ignore[typeddict-item]
-        input["creator_request_id"] = creator_request_id
-        input["name"] = name
+        input_: aws_sdk_route53resolver.types.create_outpost_resolver_request.CreateOutpostResolverRequest = {}  # type: ignore[typeddict-item]
+        input_["creator_request_id"] = creator_request_id
+        input_["name"] = name
         if instance_count is not None:
-            input["instance_count"] = instance_count
-        input["preferred_instance_type"] = preferred_instance_type
-        input["outpost_arn"] = outpost_arn
+            input_["instance_count"] = instance_count
+        input_["preferred_instance_type"] = preferred_instance_type
+        input_["outpost_arn"] = outpost_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -979,36 +981,36 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.create_resolver_endpoint_request.CreateResolverEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["creator_request_id"] = creator_request_id
+        input_: aws_sdk_route53resolver.types.create_resolver_endpoint_request.CreateResolverEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["creator_request_id"] = creator_request_id
         if name is not None:
-            input["name"] = name
-        input["security_group_ids"] = security_group_ids
-        input["direction"] = direction
-        input["ip_addresses"] = ip_addresses
+            input_["name"] = name
+        input_["security_group_ids"] = security_group_ids
+        input_["direction"] = direction
+        input_["ip_addresses"] = ip_addresses
         if outpost_arn is not None:
-            input["outpost_arn"] = outpost_arn
+            input_["outpost_arn"] = outpost_arn
         if preferred_instance_type is not None:
-            input["preferred_instance_type"] = preferred_instance_type
+            input_["preferred_instance_type"] = preferred_instance_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if resolver_endpoint_type is not None:
-            input["resolver_endpoint_type"] = resolver_endpoint_type
+            input_["resolver_endpoint_type"] = resolver_endpoint_type
         if protocols is not None:
-            input["protocols"] = protocols
+            input_["protocols"] = protocols
         if rni_enhanced_metrics_enabled is not None:
-            input["rni_enhanced_metrics_enabled"] = rni_enhanced_metrics_enabled
+            input_["rni_enhanced_metrics_enabled"] = rni_enhanced_metrics_enabled
         if target_name_server_metrics_enabled is not None:
-            input["target_name_server_metrics_enabled"] = (
+            input_["target_name_server_metrics_enabled"] = (
                 target_name_server_metrics_enabled
             )
         if dns64_enabled is not None:
-            input["dns64_enabled"] = dns64_enabled
+            input_["dns64_enabled"] = dns64_enabled
         if ipv6_internet_access_enabled is not None:
-            input["ipv6_internet_access_enabled"] = ipv6_internet_access_enabled
+            input_["ipv6_internet_access_enabled"] = ipv6_internet_access_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1048,15 +1050,15 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.create_resolver_query_log_config_request.CreateResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["destination_arn"] = destination_arn
-        input["creator_request_id"] = creator_request_id
+        input_: aws_sdk_route53resolver.types.create_resolver_query_log_config_request.CreateResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["destination_arn"] = destination_arn
+        input_["creator_request_id"] = creator_request_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1112,24 +1114,24 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.create_resolver_rule_request.CreateResolverRuleRequest = {}  # type: ignore[typeddict-item]
-        input["creator_request_id"] = creator_request_id
+        input_: aws_sdk_route53resolver.types.create_resolver_rule_request.CreateResolverRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["creator_request_id"] = creator_request_id
         if name is not None:
-            input["name"] = name
-        input["rule_type"] = rule_type
+            input_["name"] = name
+        input_["rule_type"] = rule_type
         if domain_name is not None:
-            input["domain_name"] = domain_name
+            input_["domain_name"] = domain_name
         if target_ips is not None:
-            input["target_ips"] = target_ips
+            input_["target_ips"] = target_ips
         if resolver_endpoint_id is not None:
-            input["resolver_endpoint_id"] = resolver_endpoint_id
+            input_["resolver_endpoint_id"] = resolver_endpoint_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if delegation_record is not None:
-            input["delegation_record"] = delegation_record
+            input_["delegation_record"] = delegation_record
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1163,11 +1165,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.delete_firewall_domain_list_request.DeleteFirewallDomainListRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+        input_: aws_sdk_route53resolver.types.delete_firewall_domain_list_request.DeleteFirewallDomainListRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1211,17 +1213,17 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.delete_firewall_rule_request.DeleteFirewallRuleRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_group_id"] = firewall_rule_group_id
+        input_: aws_sdk_route53resolver.types.delete_firewall_rule_request.DeleteFirewallRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_group_id"] = firewall_rule_group_id
         if firewall_domain_list_id is not None:
-            input["firewall_domain_list_id"] = firewall_domain_list_id
+            input_["firewall_domain_list_id"] = firewall_domain_list_id
         if firewall_threat_protection_id is not None:
-            input["firewall_threat_protection_id"] = firewall_threat_protection_id
+            input_["firewall_threat_protection_id"] = firewall_threat_protection_id
         if qtype is not None:
-            input["qtype"] = qtype
+            input_["qtype"] = qtype
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1255,11 +1257,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.delete_firewall_rule_group_request.DeleteFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_group_id"] = firewall_rule_group_id
+        input_: aws_sdk_route53resolver.types.delete_firewall_rule_group_request.DeleteFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_group_id"] = firewall_rule_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1293,11 +1295,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.delete_outpost_resolver_request.DeleteOutpostResolverRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route53resolver.types.delete_outpost_resolver_request.DeleteOutpostResolverRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1331,11 +1333,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.delete_resolver_endpoint_request.DeleteResolverEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_endpoint_id"] = resolver_endpoint_id
+        input_: aws_sdk_route53resolver.types.delete_resolver_endpoint_request.DeleteResolverEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_endpoint_id"] = resolver_endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1369,11 +1371,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.delete_resolver_query_log_config_request.DeleteResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_query_log_config_id"] = resolver_query_log_config_id
+        input_: aws_sdk_route53resolver.types.delete_resolver_query_log_config_request.DeleteResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_query_log_config_id"] = resolver_query_log_config_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1407,11 +1409,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.delete_resolver_rule_request.DeleteResolverRuleRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_rule_id"] = resolver_rule_id
+        input_: aws_sdk_route53resolver.types.delete_resolver_rule_request.DeleteResolverRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_rule_id"] = resolver_rule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1445,11 +1447,13 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.disassociate_firewall_rule_group_request.DisassociateFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_group_association_id"] = firewall_rule_group_association_id
+        input_: aws_sdk_route53resolver.types.disassociate_firewall_rule_group_request.DisassociateFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_group_association_id"] = (
+            firewall_rule_group_association_id
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1485,12 +1489,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.disassociate_resolver_endpoint_ip_address_request.DisassociateResolverEndpointIpAddressRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_endpoint_id"] = resolver_endpoint_id
-        input["ip_address"] = ip_address
+        input_: aws_sdk_route53resolver.types.disassociate_resolver_endpoint_ip_address_request.DisassociateResolverEndpointIpAddressRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_endpoint_id"] = resolver_endpoint_id
+        input_["ip_address"] = ip_address
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1526,12 +1530,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.disassociate_resolver_query_log_config_request.DisassociateResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_query_log_config_id"] = resolver_query_log_config_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_route53resolver.types.disassociate_resolver_query_log_config_request.DisassociateResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_query_log_config_id"] = resolver_query_log_config_id
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1567,12 +1571,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.disassociate_resolver_rule_request.DisassociateResolverRuleRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["resolver_rule_id"] = resolver_rule_id
+        input_: aws_sdk_route53resolver.types.disassociate_resolver_rule_request.DisassociateResolverRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["resolver_rule_id"] = resolver_rule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1606,11 +1610,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_firewall_config_request.GetFirewallConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_route53resolver.types.get_firewall_config_request.GetFirewallConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1644,11 +1648,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_firewall_domain_list_request.GetFirewallDomainListRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+        input_: aws_sdk_route53resolver.types.get_firewall_domain_list_request.GetFirewallDomainListRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1682,11 +1686,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_firewall_rule_group_request.GetFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_group_id"] = firewall_rule_group_id
+        input_: aws_sdk_route53resolver.types.get_firewall_rule_group_request.GetFirewallRuleGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_group_id"] = firewall_rule_group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1720,11 +1724,13 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_firewall_rule_group_association_request.GetFirewallRuleGroupAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_group_association_id"] = firewall_rule_group_association_id
+        input_: aws_sdk_route53resolver.types.get_firewall_rule_group_association_request.GetFirewallRuleGroupAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_group_association_id"] = (
+            firewall_rule_group_association_id
+        )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1758,11 +1764,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_firewall_rule_group_policy_request.GetFirewallRuleGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_route53resolver.types.get_firewall_rule_group_policy_request.GetFirewallRuleGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1796,11 +1802,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_outpost_resolver_request.GetOutpostResolverRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route53resolver.types.get_outpost_resolver_request.GetOutpostResolverRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1834,11 +1840,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_config_request.GetResolverConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_route53resolver.types.get_resolver_config_request.GetResolverConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1872,11 +1878,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_dnssec_config_request.GetResolverDnssecConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
+        input_: aws_sdk_route53resolver.types.get_resolver_dnssec_config_request.GetResolverDnssecConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1910,11 +1916,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_endpoint_request.GetResolverEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_endpoint_id"] = resolver_endpoint_id
+        input_: aws_sdk_route53resolver.types.get_resolver_endpoint_request.GetResolverEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_endpoint_id"] = resolver_endpoint_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1948,11 +1954,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_query_log_config_request.GetResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_query_log_config_id"] = resolver_query_log_config_id
+        input_: aws_sdk_route53resolver.types.get_resolver_query_log_config_request.GetResolverQueryLogConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_query_log_config_id"] = resolver_query_log_config_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1986,13 +1992,13 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_query_log_config_association_request.GetResolverQueryLogConfigAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_query_log_config_association_id"] = (
+        input_: aws_sdk_route53resolver.types.get_resolver_query_log_config_association_request.GetResolverQueryLogConfigAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_query_log_config_association_id"] = (
             resolver_query_log_config_association_id
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2026,11 +2032,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_query_log_config_policy_request.GetResolverQueryLogConfigPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_route53resolver.types.get_resolver_query_log_config_policy_request.GetResolverQueryLogConfigPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2064,11 +2070,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_rule_request.GetResolverRuleRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_rule_id"] = resolver_rule_id
+        input_: aws_sdk_route53resolver.types.get_resolver_rule_request.GetResolverRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_rule_id"] = resolver_rule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2102,11 +2108,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_rule_association_request.GetResolverRuleAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_rule_association_id"] = resolver_rule_association_id
+        input_: aws_sdk_route53resolver.types.get_resolver_rule_association_request.GetResolverRuleAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_rule_association_id"] = resolver_rule_association_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2140,11 +2146,11 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.get_resolver_rule_policy_request.GetResolverRulePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_route53resolver.types.get_resolver_rule_policy_request.GetResolverRulePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2182,13 +2188,13 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.import_firewall_domains_request.ImportFirewallDomainsRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["operation"] = operation
-        input["domain_file_url"] = domain_file_url
+        input_: aws_sdk_route53resolver.types.import_firewall_domains_request.ImportFirewallDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["operation"] = operation
+        input_["domain_file_url"] = domain_file_url
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2228,14 +2234,14 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_firewall_configs_request.ListFirewallConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_firewall_configs_request.ListFirewallConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2300,14 +2306,14 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_firewall_domain_lists_request.ListFirewallDomainListsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_firewall_domain_lists_request.ListFirewallDomainListsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2374,15 +2380,15 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_firewall_domains_request.ListFirewallDomainsRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+        input_: aws_sdk_route53resolver.types.list_firewall_domains_request.ListFirewallDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2461,22 +2467,22 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_firewall_rule_group_associations_request.ListFirewallRuleGroupAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_firewall_rule_group_associations_request.ListFirewallRuleGroupAssociationsRequest = {}  # type: ignore[typeddict-item]
         if firewall_rule_group_id is not None:
-            input["firewall_rule_group_id"] = firewall_rule_group_id
+            input_["firewall_rule_group_id"] = firewall_rule_group_id
         if vpc_id is not None:
-            input["vpc_id"] = vpc_id
+            input_["vpc_id"] = vpc_id
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2553,14 +2559,14 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_firewall_rule_groups_request.ListFirewallRuleGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_firewall_rule_groups_request.ListFirewallRuleGroupsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2631,19 +2637,19 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_firewall_rules_request.ListFirewallRulesRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_group_id"] = firewall_rule_group_id
+        input_: aws_sdk_route53resolver.types.list_firewall_rules_request.ListFirewallRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_group_id"] = firewall_rule_group_id
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2718,16 +2724,16 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_firewall_rule_types_request.ListFirewallRuleTypesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_firewall_rule_types_request.ListFirewallRuleTypesRequest = {}  # type: ignore[typeddict-item]
         if rule_type is not None:
-            input["rule_type"] = rule_type
+            input_["rule_type"] = rule_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2800,16 +2806,16 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_outpost_resolvers_request.ListOutpostResolversRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_outpost_resolvers_request.ListOutpostResolversRequest = {}  # type: ignore[typeddict-item]
         if outpost_arn is not None:
-            input["outpost_arn"] = outpost_arn
+            input_["outpost_arn"] = outpost_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2880,14 +2886,14 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_resolver_configs_request.ListResolverConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_resolver_configs_request.ListResolverConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2954,16 +2960,16 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_resolver_dnssec_configs_request.ListResolverDnssecConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_resolver_dnssec_configs_request.ListResolverDnssecConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3032,15 +3038,15 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_resolver_endpoint_ip_addresses_request.ListResolverEndpointIpAddressesRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_endpoint_id"] = resolver_endpoint_id
+        input_: aws_sdk_route53resolver.types.list_resolver_endpoint_ip_addresses_request.ListResolverEndpointIpAddressesRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_endpoint_id"] = resolver_endpoint_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3109,16 +3115,16 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_resolver_endpoints_request.ListResolverEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_resolver_endpoints_request.ListResolverEndpointsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3193,20 +3199,20 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_resolver_query_log_config_associations_request.ListResolverQueryLogConfigAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_resolver_query_log_config_associations_request.ListResolverQueryLogConfigAssociationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3289,20 +3295,20 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_resolver_query_log_configs_request.ListResolverQueryLogConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_resolver_query_log_configs_request.ListResolverQueryLogConfigsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3377,16 +3383,16 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_resolver_rule_associations_request.ListResolverRuleAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_resolver_rule_associations_request.ListResolverRuleAssociationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3455,16 +3461,16 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_resolver_rules_request.ListResolverRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53resolver.types.list_resolver_rules_request.ListResolverRulesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3533,15 +3539,15 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_route53resolver.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3604,12 +3610,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.put_firewall_rule_group_policy_request.PutFirewallRuleGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["firewall_rule_group_policy"] = firewall_rule_group_policy
+        input_: aws_sdk_route53resolver.types.put_firewall_rule_group_policy_request.PutFirewallRuleGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["firewall_rule_group_policy"] = firewall_rule_group_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3645,12 +3651,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.put_resolver_query_log_config_policy_request.PutResolverQueryLogConfigPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["resolver_query_log_config_policy"] = resolver_query_log_config_policy
+        input_: aws_sdk_route53resolver.types.put_resolver_query_log_config_policy_request.PutResolverQueryLogConfigPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["resolver_query_log_config_policy"] = resolver_query_log_config_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3686,12 +3692,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.put_resolver_rule_policy_request.PutResolverRulePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
-        input["resolver_rule_policy"] = resolver_rule_policy
+        input_: aws_sdk_route53resolver.types.put_resolver_rule_policy_request.PutResolverRulePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
+        input_["resolver_rule_policy"] = resolver_rule_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3727,12 +3733,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_route53resolver.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3768,12 +3774,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_route53resolver.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3809,12 +3815,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_firewall_config_request.UpdateFirewallConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["firewall_fail_open"] = firewall_fail_open
+        input_: aws_sdk_route53resolver.types.update_firewall_config_request.UpdateFirewallConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["firewall_fail_open"] = firewall_fail_open
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3852,13 +3858,13 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_firewall_domains_request.UpdateFirewallDomainsRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["operation"] = operation
-        input["domains"] = domains
+        input_: aws_sdk_route53resolver.types.update_firewall_domains_request.UpdateFirewallDomainsRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["operation"] = operation
+        input_["domains"] = domains
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3940,41 +3946,41 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_firewall_rule_request.UpdateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_group_id"] = firewall_rule_group_id
+        input_: aws_sdk_route53resolver.types.update_firewall_rule_request.UpdateFirewallRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_group_id"] = firewall_rule_group_id
         if firewall_domain_list_id is not None:
-            input["firewall_domain_list_id"] = firewall_domain_list_id
+            input_["firewall_domain_list_id"] = firewall_domain_list_id
         if firewall_threat_protection_id is not None:
-            input["firewall_threat_protection_id"] = firewall_threat_protection_id
+            input_["firewall_threat_protection_id"] = firewall_threat_protection_id
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if block_response is not None:
-            input["block_response"] = block_response
+            input_["block_response"] = block_response
         if block_override_domain is not None:
-            input["block_override_domain"] = block_override_domain
+            input_["block_override_domain"] = block_override_domain
         if block_override_dns_type is not None:
-            input["block_override_dns_type"] = block_override_dns_type
+            input_["block_override_dns_type"] = block_override_dns_type
         if block_override_ttl is not None:
-            input["block_override_ttl"] = block_override_ttl
+            input_["block_override_ttl"] = block_override_ttl
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if firewall_domain_redirection_action is not None:
-            input["firewall_domain_redirection_action"] = (
+            input_["firewall_domain_redirection_action"] = (
                 firewall_domain_redirection_action
             )
         if qtype is not None:
-            input["qtype"] = qtype
+            input_["qtype"] = qtype
         if dns_threat_protection is not None:
-            input["dns_threat_protection"] = dns_threat_protection
+            input_["dns_threat_protection"] = dns_threat_protection
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
         if firewall_rule_type is not None:
-            input["firewall_rule_type"] = firewall_rule_type
+            input_["firewall_rule_type"] = firewall_rule_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4016,17 +4022,19 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_firewall_rule_group_association_request.UpdateFirewallRuleGroupAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_group_association_id"] = firewall_rule_group_association_id
+        input_: aws_sdk_route53resolver.types.update_firewall_rule_group_association_request.UpdateFirewallRuleGroupAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_group_association_id"] = (
+            firewall_rule_group_association_id
+        )
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
         if mutation_protection is not None:
-            input["mutation_protection"] = mutation_protection
+            input_["mutation_protection"] = mutation_protection
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4072,17 +4080,17 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_outpost_resolver_request.UpdateOutpostResolverRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_route53resolver.types.update_outpost_resolver_request.UpdateOutpostResolverRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if instance_count is not None:
-            input["instance_count"] = instance_count
+            input_["instance_count"] = instance_count
         if preferred_instance_type is not None:
-            input["preferred_instance_type"] = preferred_instance_type
+            input_["preferred_instance_type"] = preferred_instance_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4118,12 +4126,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_resolver_config_request.UpdateResolverConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["autodefined_reverse_flag"] = autodefined_reverse_flag
+        input_: aws_sdk_route53resolver.types.update_resolver_config_request.UpdateResolverConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["autodefined_reverse_flag"] = autodefined_reverse_flag
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4159,12 +4167,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_resolver_dnssec_config_request.UpdateResolverDnssecConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["validation"] = validation
+        input_: aws_sdk_route53resolver.types.update_resolver_dnssec_config_request.UpdateResolverDnssecConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["validation"] = validation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4228,29 +4236,29 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_resolver_endpoint_request.UpdateResolverEndpointRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_endpoint_id"] = resolver_endpoint_id
+        input_: aws_sdk_route53resolver.types.update_resolver_endpoint_request.UpdateResolverEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_endpoint_id"] = resolver_endpoint_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if resolver_endpoint_type is not None:
-            input["resolver_endpoint_type"] = resolver_endpoint_type
+            input_["resolver_endpoint_type"] = resolver_endpoint_type
         if update_ip_addresses is not None:
-            input["update_ip_addresses"] = update_ip_addresses
+            input_["update_ip_addresses"] = update_ip_addresses
         if protocols is not None:
-            input["protocols"] = protocols
+            input_["protocols"] = protocols
         if rni_enhanced_metrics_enabled is not None:
-            input["rni_enhanced_metrics_enabled"] = rni_enhanced_metrics_enabled
+            input_["rni_enhanced_metrics_enabled"] = rni_enhanced_metrics_enabled
         if target_name_server_metrics_enabled is not None:
-            input["target_name_server_metrics_enabled"] = (
+            input_["target_name_server_metrics_enabled"] = (
                 target_name_server_metrics_enabled
             )
         if dns64_enabled is not None:
-            input["dns64_enabled"] = dns64_enabled
+            input_["dns64_enabled"] = dns64_enabled
         if ipv6_internet_access_enabled is not None:
-            input["ipv6_internet_access_enabled"] = ipv6_internet_access_enabled
+            input_["ipv6_internet_access_enabled"] = ipv6_internet_access_enabled
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4286,12 +4294,12 @@ class AsyncRoute53ResolverClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_route53resolver.types.update_resolver_rule_request.UpdateResolverRuleRequest = {}  # type: ignore[typeddict-item]
-        input["resolver_rule_id"] = resolver_rule_id
-        input["config"] = config
+        input_: aws_sdk_route53resolver.types.update_resolver_rule_request.UpdateResolverRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["resolver_rule_id"] = resolver_rule_id
+        input_["config"] = config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

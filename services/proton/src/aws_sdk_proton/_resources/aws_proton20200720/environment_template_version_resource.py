@@ -80,20 +80,20 @@ class EnvironmentTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_environment_template_version_input.CreateEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.create_environment_template_version_input.CreateEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["template_name"] = template_name
+            input_["client_token"] = client_token
+        input_["template_name"] = template_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if major_version is not None:
-            input["major_version"] = major_version
-        input["source"] = source
+            input_["major_version"] = major_version
+        input_["source"] = source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -130,13 +130,13 @@ class EnvironmentTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_environment_template_version_input.GetEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.get_environment_template_version_input.GetEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,17 +179,17 @@ class EnvironmentTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_environment_template_version_input.UpdateEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.update_environment_template_version_input.UpdateEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,13 +226,13 @@ class EnvironmentTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_environment_template_version_input.DeleteEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.delete_environment_template_version_input.DeleteEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -275,17 +275,17 @@ class EnvironmentTemplateVersionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_environment_template_versions_input.ListEnvironmentTemplateVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_environment_template_versions_input.ListEnvironmentTemplateVersionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["template_name"] = template_name
+            input_["max_results"] = max_results
+        input_["template_name"] = template_name
         if major_version is not None:
-            input["major_version"] = major_version
+            input_["major_version"] = major_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -336,20 +336,20 @@ class AsyncEnvironmentTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.create_environment_template_version_input.CreateEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.create_environment_template_version_input.CreateEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["template_name"] = template_name
+            input_["client_token"] = client_token
+        input_["template_name"] = template_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if major_version is not None:
-            input["major_version"] = major_version
-        input["source"] = source
+            input_["major_version"] = major_version
+        input_["source"] = source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,13 +387,13 @@ class AsyncEnvironmentTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.get_environment_template_version_input.GetEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.get_environment_template_version_input.GetEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,17 +437,17 @@ class AsyncEnvironmentTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_environment_template_version_input.UpdateEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.update_environment_template_version_input.UpdateEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,13 +485,13 @@ class AsyncEnvironmentTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.delete_environment_template_version_input.DeleteEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
-        input["template_name"] = template_name
-        input["major_version"] = major_version
-        input["minor_version"] = minor_version
+        input_: aws_sdk_proton.types.delete_environment_template_version_input.DeleteEnvironmentTemplateVersionInput = {}  # type: ignore[typeddict-item]
+        input_["template_name"] = template_name
+        input_["major_version"] = major_version
+        input_["minor_version"] = minor_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -535,17 +535,17 @@ class AsyncEnvironmentTemplateVersionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.list_environment_template_versions_input.ListEnvironmentTemplateVersionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_proton.types.list_environment_template_versions_input.ListEnvironmentTemplateVersionsInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["template_name"] = template_name
+            input_["max_results"] = max_results
+        input_["template_name"] = template_name
         if major_version is not None:
-            input["major_version"] = major_version
+            input_["major_version"] = major_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

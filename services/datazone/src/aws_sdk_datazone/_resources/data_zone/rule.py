@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_datazone._services.async_data_zone import ensure_async_iterator
 from aws_sdk_datazone._services.data_zone import ensure_sync_iterator
+import datetime
 from aws_sdk_datazone._services._pipeline import (
     OperationRequest,
     OperationResponse,
@@ -96,20 +97,20 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_rule_input.CreateRuleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
-        input["target"] = target
-        input["action"] = action
-        input["scope"] = scope
-        input["detail"] = detail
+        input_: aws_sdk_datazone.types.create_rule_input.CreateRuleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
+        input_["target"] = target
+        input_["action"] = action
+        input_["scope"] = scope
+        input_["detail"] = detail
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -144,14 +145,14 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_rule_input.GetRuleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_rule_input.GetRuleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,22 +197,22 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_rule_input.UpdateRuleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_rule_input.UpdateRuleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if detail is not None:
-            input["detail"] = detail
+            input_["detail"] = detail
         if include_child_domain_units is not None:
-            input["include_child_domain_units"] = include_child_domain_units
+            input_["include_child_domain_units"] = include_child_domain_units
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,12 +247,12 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_rule_input.DeleteRuleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_rule_input.DeleteRuleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,29 +309,29 @@ class Rule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_rules_input.ListRulesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["target_type"] = target_type
-        input["target_identifier"] = target_identifier
+        input_: aws_sdk_datazone.types.list_rules_input.ListRulesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["target_type"] = target_type
+        input_["target_identifier"] = target_identifier
         if rule_type is not None:
-            input["rule_type"] = rule_type
+            input_["rule_type"] = rule_type
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if project_ids is not None:
-            input["project_ids"] = project_ids
+            input_["project_ids"] = project_ids
         if asset_types is not None:
-            input["asset_types"] = asset_types
+            input_["asset_types"] = asset_types
         if data_product is not None:
-            input["data_product"] = data_product
+            input_["data_product"] = data_product
         if include_cascaded is not None:
-            input["include_cascaded"] = include_cascaded
+            input_["include_cascaded"] = include_cascaded
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -385,20 +386,20 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.create_rule_input.CreateRuleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["name"] = name
-        input["target"] = target
-        input["action"] = action
-        input["scope"] = scope
-        input["detail"] = detail
+        input_: aws_sdk_datazone.types.create_rule_input.CreateRuleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["name"] = name
+        input_["target"] = target
+        input_["action"] = action
+        input_["scope"] = scope
+        input_["detail"] = detail
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -436,14 +437,14 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.get_rule_input.GetRuleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.get_rule_input.GetRuleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if revision is not None:
-            input["revision"] = revision
+            input_["revision"] = revision
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,22 +490,22 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.update_rule_input.UpdateRuleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.update_rule_input.UpdateRuleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if scope is not None:
-            input["scope"] = scope
+            input_["scope"] = scope
         if detail is not None:
-            input["detail"] = detail
+            input_["detail"] = detail
         if include_child_domain_units is not None:
-            input["include_child_domain_units"] = include_child_domain_units
+            input_["include_child_domain_units"] = include_child_domain_units
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -540,12 +541,12 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.delete_rule_input.DeleteRuleInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["identifier"] = identifier
+        input_: aws_sdk_datazone.types.delete_rule_input.DeleteRuleInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -603,29 +604,29 @@ class AsyncRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_datazone.types.list_rules_input.ListRulesInput = {}  # type: ignore[typeddict-item]
-        input["domain_identifier"] = domain_identifier
-        input["target_type"] = target_type
-        input["target_identifier"] = target_identifier
+        input_: aws_sdk_datazone.types.list_rules_input.ListRulesInput = {}  # type: ignore[typeddict-item]
+        input_["domain_identifier"] = domain_identifier
+        input_["target_type"] = target_type
+        input_["target_identifier"] = target_identifier
         if rule_type is not None:
-            input["rule_type"] = rule_type
+            input_["rule_type"] = rule_type
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if project_ids is not None:
-            input["project_ids"] = project_ids
+            input_["project_ids"] = project_ids
         if asset_types is not None:
-            input["asset_types"] = asset_types
+            input_["asset_types"] = asset_types
         if data_product is not None:
-            input["data_product"] = data_product
+            input_["data_product"] = data_product
         if include_cascaded is not None:
-            input["include_cascaded"] = include_cascaded
+            input_["include_cascaded"] = include_cascaded
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

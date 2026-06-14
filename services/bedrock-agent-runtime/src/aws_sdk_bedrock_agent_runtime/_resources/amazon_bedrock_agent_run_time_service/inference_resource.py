@@ -103,31 +103,31 @@ class InferenceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.invoke_agent_request.InvokeAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.invoke_agent_request.InvokeAgentRequest = {}  # type: ignore[typeddict-item]
         if session_state is not None:
-            input["session_state"] = session_state
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
-        input["session_id"] = session_id
+            input_["session_state"] = session_state
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
+        input_["session_id"] = session_id
         if end_session is not None:
-            input["end_session"] = end_session
+            input_["end_session"] = end_session
         if enable_trace is not None:
-            input["enable_trace"] = enable_trace
+            input_["enable_trace"] = enable_trace
         if input_text is not None:
-            input["input_text"] = input_text
+            input_["input_text"] = input_text
         if memory_id is not None:
-            input["memory_id"] = memory_id
+            input_["memory_id"] = memory_id
         if bedrock_model_configurations is not None:
-            input["bedrock_model_configurations"] = bedrock_model_configurations
+            input_["bedrock_model_configurations"] = bedrock_model_configurations
         if streaming_configurations is not None:
-            input["streaming_configurations"] = streaming_configurations
+            input_["streaming_configurations"] = streaming_configurations
         if prompt_creation_configurations is not None:
-            input["prompt_creation_configurations"] = prompt_creation_configurations
+            input_["prompt_creation_configurations"] = prompt_creation_configurations
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,31 +204,31 @@ class AsyncInferenceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent_runtime.types.invoke_agent_request.InvokeAgentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent_runtime.types.invoke_agent_request.InvokeAgentRequest = {}  # type: ignore[typeddict-item]
         if session_state is not None:
-            input["session_state"] = session_state
-        input["agent_id"] = agent_id
-        input["agent_alias_id"] = agent_alias_id
-        input["session_id"] = session_id
+            input_["session_state"] = session_state
+        input_["agent_id"] = agent_id
+        input_["agent_alias_id"] = agent_alias_id
+        input_["session_id"] = session_id
         if end_session is not None:
-            input["end_session"] = end_session
+            input_["end_session"] = end_session
         if enable_trace is not None:
-            input["enable_trace"] = enable_trace
+            input_["enable_trace"] = enable_trace
         if input_text is not None:
-            input["input_text"] = input_text
+            input_["input_text"] = input_text
         if memory_id is not None:
-            input["memory_id"] = memory_id
+            input_["memory_id"] = memory_id
         if bedrock_model_configurations is not None:
-            input["bedrock_model_configurations"] = bedrock_model_configurations
+            input_["bedrock_model_configurations"] = bedrock_model_configurations
         if streaming_configurations is not None:
-            input["streaming_configurations"] = streaming_configurations
+            input_["streaming_configurations"] = streaming_configurations
         if prompt_creation_configurations is not None:
-            input["prompt_creation_configurations"] = prompt_creation_configurations
+            input_["prompt_creation_configurations"] = prompt_creation_configurations
         if source_arn is not None:
-            input["source_arn"] = source_arn
+            input_["source_arn"] = source_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

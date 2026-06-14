@@ -143,53 +143,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput,
+    input_: aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/loader/{loadId}"
-    url = url.replace("{loadId}", quote(str(input["load_id"]), safe=""))
+    url = url.replace("{loadId}", quote(str(input_["load_id"]), safe=""))
     params: dict[str, str] = {}
-    if "details" in input:
-        params["details"] = str(input["details"])
-    if "errors" in input:
-        params["errors"] = str(input["errors"])
-    if "page" in input:
-        params["page"] = str(input["page"])
-    if "errors_per_page" in input:
-        params["errorsPerPage"] = str(input["errors_per_page"])
+    if "details" in input_:
+        params["details"] = str(input_["details"])
+    if "errors" in input_:
+        params["errors"] = str(input_["errors"])
+    if "page" in input_:
+        params["page"] = str(input_["page"])
+    if "errors_per_page" in input_:
+        params["errorsPerPage"] = str(input_["errors_per_page"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_loader_job_status(
     options: OperationOptions,
-    input: aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput,
+    input_: aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput,
 ) -> tuple[
     aws_sdk_neptunedata.types.get_loader_job_status_output.GetLoaderJobStatusOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -198,16 +195,17 @@ def get_loader_job_status(
 
 async def async_get_loader_job_status(
     options: AsyncOperationOptions,
-    input: aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput,
+    input_: aws_sdk_neptunedata.types.get_loader_job_status_input.GetLoaderJobStatusInput,
 ) -> tuple[
     aws_sdk_neptunedata.types.get_loader_job_status_output.GetLoaderJobStatusOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

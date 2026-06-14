@@ -96,21 +96,21 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.create_agent_space_input.CreateAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_devops_agent.types.create_agent_space_input.CreateAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -143,11 +143,11 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_agent_space_input.GetAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.get_agent_space_input.GetAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -190,17 +190,17 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_agent_space_input.UpdateAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.update_agent_space_input.UpdateAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -233,11 +233,11 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.delete_agent_space_input.DeleteAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.delete_agent_space_input.DeleteAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,13 +270,13 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.disable_operator_app_input.DisableOperatorAppInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.disable_operator_app_input.DisableOperatorAppInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if auth_flow is not None:
-            input["auth_flow"] = auth_flow
+            input_["auth_flow"] = auth_flow
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,23 +329,23 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.enable_operator_app_input.EnableOperatorAppInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["auth_flow"] = auth_flow
-        input["operator_app_role_arn"] = operator_app_role_arn
+        input_: aws_sdk_devops_agent.types.enable_operator_app_input.EnableOperatorAppInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["auth_flow"] = auth_flow
+        input_["operator_app_role_arn"] = operator_app_role_arn
         if idc_instance_arn is not None:
-            input["idc_instance_arn"] = idc_instance_arn
+            input_["idc_instance_arn"] = idc_instance_arn
         if issuer_url is not None:
-            input["issuer_url"] = issuer_url
+            input_["issuer_url"] = issuer_url
         if idp_client_id is not None:
-            input["idp_client_id"] = idp_client_id
+            input_["idp_client_id"] = idp_client_id
         if idp_client_secret is not None:
-            input["idp_client_secret"] = idp_client_secret
+            input_["idp_client_secret"] = idp_client_secret
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,11 +378,11 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_operator_app_input.GetOperatorAppInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.get_operator_app_input.GetOperatorAppInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,13 +419,13 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_operator_app_idp_config_input.UpdateOperatorAppIdpConfigInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.update_operator_app_idp_config_input.UpdateOperatorAppIdpConfigInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if idp_client_secret is not None:
-            input["idp_client_secret"] = idp_client_secret
+            input_["idp_client_secret"] = idp_client_secret
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,14 +460,14 @@ class AgentSpaceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_agent_spaces_input.ListAgentSpacesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_agent.types.list_agent_spaces_input.ListAgentSpacesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,21 +520,21 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.create_agent_space_input.CreateAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_devops_agent.types.create_agent_space_input.CreateAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -568,11 +568,11 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_agent_space_input.GetAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.get_agent_space_input.GetAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -616,17 +616,17 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_agent_space_input.UpdateAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.update_agent_space_input.UpdateAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -660,11 +660,11 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.delete_agent_space_input.DeleteAgentSpaceInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.delete_agent_space_input.DeleteAgentSpaceInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -698,13 +698,13 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.disable_operator_app_input.DisableOperatorAppInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.disable_operator_app_input.DisableOperatorAppInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if auth_flow is not None:
-            input["auth_flow"] = auth_flow
+            input_["auth_flow"] = auth_flow
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -758,23 +758,23 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.enable_operator_app_input.EnableOperatorAppInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
-        input["auth_flow"] = auth_flow
-        input["operator_app_role_arn"] = operator_app_role_arn
+        input_: aws_sdk_devops_agent.types.enable_operator_app_input.EnableOperatorAppInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
+        input_["auth_flow"] = auth_flow
+        input_["operator_app_role_arn"] = operator_app_role_arn
         if idc_instance_arn is not None:
-            input["idc_instance_arn"] = idc_instance_arn
+            input_["idc_instance_arn"] = idc_instance_arn
         if issuer_url is not None:
-            input["issuer_url"] = issuer_url
+            input_["issuer_url"] = issuer_url
         if idp_client_id is not None:
-            input["idp_client_id"] = idp_client_id
+            input_["idp_client_id"] = idp_client_id
         if idp_client_secret is not None:
-            input["idp_client_secret"] = idp_client_secret
+            input_["idp_client_secret"] = idp_client_secret
         if provider is not None:
-            input["provider"] = provider
+            input_["provider"] = provider
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -808,11 +808,11 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.get_operator_app_input.GetOperatorAppInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.get_operator_app_input.GetOperatorAppInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -850,13 +850,13 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.update_operator_app_idp_config_input.UpdateOperatorAppIdpConfigInput = {}  # type: ignore[typeddict-item]
-        input["agent_space_id"] = agent_space_id
+        input_: aws_sdk_devops_agent.types.update_operator_app_idp_config_input.UpdateOperatorAppIdpConfigInput = {}  # type: ignore[typeddict-item]
+        input_["agent_space_id"] = agent_space_id
         if idp_client_secret is not None:
-            input["idp_client_secret"] = idp_client_secret
+            input_["idp_client_secret"] = idp_client_secret
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -892,14 +892,14 @@ class AsyncAgentSpaceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_devops_agent.types.list_agent_spaces_input.ListAgentSpacesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_agent.types.list_agent_spaces_input.ListAgentSpacesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

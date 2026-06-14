@@ -16,6 +16,45 @@ from aws_sdk_mgn._auth._providers import (
 )
 from aws_sdk_mgn._auth._zapros_handler import AuthMiddleware
 from aws_sdk_mgn._pagination import resolve_path as _resolve_path
+from aws_sdk_mgn._resources.application_migration_service.account_resource import (
+    AccountResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.appliance_resource import (
+    ApplianceResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.application_resource import (
+    ApplicationResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.connector_resource import (
+    ConnectorResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.export_resource import (
+    ExportResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.import_resource import (
+    ImportResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.job_resource import (
+    JobResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.launch_configuration_template_resource import (
+    LaunchConfigurationTemplateResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.network_migration_definition_resource import (
+    NetworkMigrationDefinitionResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.replication_configuration_template_resource import (
+    ReplicationConfigurationTemplateResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.source_server_resource import (
+    SourceServerResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.vcenter_client_resource import (
+    VcenterClientResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.wave_resource import (
+    WaveResource,
+)
 from aws_sdk_mgn._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -122,6 +161,26 @@ class mgnClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_resource = AccountResource(self)
+        self.appliance_resource = ApplianceResource(self)
+        self.application_resource = ApplicationResource(self)
+        self.connector_resource = ConnectorResource(self)
+        self.export_resource = ExportResource(self)
+        self.import_resource = ImportResource(self)
+        self.job_resource = JobResource(self)
+        self.launch_configuration_template_resource = (
+            LaunchConfigurationTemplateResource(self)
+        )
+        self.network_migration_definition_resource = NetworkMigrationDefinitionResource(
+            self
+        )
+        self.replication_configuration_template_resource = (
+            ReplicationConfigurationTemplateResource(self)
+        )
+        self.source_server_resource = SourceServerResource(self)
+        self.vcenter_client_resource = VcenterClientResource(self)
+        self.wave_resource = WaveResource(self)
 
     def operation_options(
         self, config_overrides: Optional[mgnClientConfig] = None
@@ -171,10 +230,10 @@ class mgnClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.initialize_service_request.InitializeServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.initialize_service_request.InitializeServiceRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,16 +281,16 @@ class mgnClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_import_file_enrichments_request.ListImportFileEnrichmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.list_import_file_enrichments_request.ListImportFileEnrichmentsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -299,14 +358,14 @@ class mgnClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_managed_accounts_request.ListManagedAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.list_managed_accounts_request.ListManagedAccountsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -366,11 +425,11 @@ class mgnClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mgn.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,16 +477,16 @@ class mgnClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.start_import_file_enrichment_request.StartImportFileEnrichmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.start_import_file_enrichment_request.StartImportFileEnrichmentRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["s3_bucket_source"] = s3_bucket_source
-        input["s3_bucket_target"] = s3_bucket_target
+            input_["client_token"] = client_token
+        input_["s3_bucket_source"] = s3_bucket_source
+        input_["s3_bucket_target"] = s3_bucket_target
         if ip_assignment_strategy is not None:
-            input["ip_assignment_strategy"] = ip_assignment_strategy
+            input_["ip_assignment_strategy"] = ip_assignment_strategy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,12 +519,12 @@ class mgnClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mgn.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -498,12 +557,12 @@ class mgnClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mgn.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

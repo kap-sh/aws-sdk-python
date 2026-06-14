@@ -97,13 +97,11 @@ def build_request(
     options: OperationOptions | AsyncOperationOptions,
     input: aws_sdk_backupsearch.types.get_search_result_export_job_input.GetSearchResultExportJobInput,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-            Region=options.region,
+            UseFIPS=options.use_fips, Endpoint=options.endpoint, Region=options.region
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/export-search-jobs/{ExportJobIdentifier}"
     url = url.replace(
         "{ExportJobIdentifier}", quote(str(input["export_job_identifier"]), safe="")
@@ -115,11 +113,7 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
@@ -135,6 +129,7 @@ def get_search_result_export_job(
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -153,6 +148,7 @@ async def async_get_search_result_export_job(
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

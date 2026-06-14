@@ -275,23 +275,23 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.count_closed_workflow_executions_input.CountClosedWorkflowExecutionsInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_swf.types.count_closed_workflow_executions_input.CountClosedWorkflowExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if start_time_filter is not None:
-            input["start_time_filter"] = start_time_filter
+            input_["start_time_filter"] = start_time_filter
         if close_time_filter is not None:
-            input["close_time_filter"] = close_time_filter
+            input_["close_time_filter"] = close_time_filter
         if execution_filter is not None:
-            input["execution_filter"] = execution_filter
+            input_["execution_filter"] = execution_filter
         if type_filter is not None:
-            input["type_filter"] = type_filter
+            input_["type_filter"] = type_filter
         if tag_filter is not None:
-            input["tag_filter"] = tag_filter
+            input_["tag_filter"] = tag_filter
         if close_status_filter is not None:
-            input["close_status_filter"] = close_status_filter
+            input_["close_status_filter"] = close_status_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,18 +337,18 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.count_open_workflow_executions_input.CountOpenWorkflowExecutionsInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["start_time_filter"] = start_time_filter
+        input_: aws_sdk_swf.types.count_open_workflow_executions_input.CountOpenWorkflowExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["start_time_filter"] = start_time_filter
         if type_filter is not None:
-            input["type_filter"] = type_filter
+            input_["type_filter"] = type_filter
         if tag_filter is not None:
-            input["tag_filter"] = tag_filter
+            input_["tag_filter"] = tag_filter
         if execution_filter is not None:
-            input["execution_filter"] = execution_filter
+            input_["execution_filter"] = execution_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,12 +384,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.count_pending_activity_tasks_input.CountPendingActivityTasksInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["task_list"] = task_list
+        input_: aws_sdk_swf.types.count_pending_activity_tasks_input.CountPendingActivityTasksInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["task_list"] = task_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -425,12 +425,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.count_pending_decision_tasks_input.CountPendingDecisionTasksInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["task_list"] = task_list
+        input_: aws_sdk_swf.types.count_pending_decision_tasks_input.CountPendingDecisionTasksInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["task_list"] = task_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,12 +464,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.delete_activity_type_input.DeleteActivityTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["activity_type"] = activity_type
+        input_: aws_sdk_swf.types.delete_activity_type_input.DeleteActivityTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["activity_type"] = activity_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -503,12 +503,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.delete_workflow_type_input.DeleteWorkflowTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["workflow_type"] = workflow_type
+        input_: aws_sdk_swf.types.delete_workflow_type_input.DeleteWorkflowTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["workflow_type"] = workflow_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,12 +542,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.deprecate_activity_type_input.DeprecateActivityTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["activity_type"] = activity_type
+        input_: aws_sdk_swf.types.deprecate_activity_type_input.DeprecateActivityTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["activity_type"] = activity_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,11 +579,11 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.deprecate_domain_input.DeprecateDomainInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_swf.types.deprecate_domain_input.DeprecateDomainInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,12 +617,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.deprecate_workflow_type_input.DeprecateWorkflowTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["workflow_type"] = workflow_type
+        input_: aws_sdk_swf.types.deprecate_workflow_type_input.DeprecateWorkflowTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["workflow_type"] = workflow_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -658,12 +658,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.describe_activity_type_input.DescribeActivityTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["activity_type"] = activity_type
+        input_: aws_sdk_swf.types.describe_activity_type_input.DescribeActivityTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["activity_type"] = activity_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -695,11 +695,11 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.describe_domain_input.DescribeDomainInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_swf.types.describe_domain_input.DescribeDomainInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -735,12 +735,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.describe_workflow_execution_input.DescribeWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["execution"] = execution
+        input_: aws_sdk_swf.types.describe_workflow_execution_input.DescribeWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["execution"] = execution
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -776,12 +776,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.describe_workflow_type_input.DescribeWorkflowTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["workflow_type"] = workflow_type
+        input_: aws_sdk_swf.types.describe_workflow_type_input.DescribeWorkflowTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["workflow_type"] = workflow_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -821,18 +821,18 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.get_workflow_execution_history_input.GetWorkflowExecutionHistoryInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["execution"] = execution
+        input_: aws_sdk_swf.types.get_workflow_execution_history_input.GetWorkflowExecutionHistoryInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["execution"] = execution
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if maximum_page_size is not None:
-            input["maximum_page_size"] = maximum_page_size
+            input_["maximum_page_size"] = maximum_page_size
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -903,20 +903,20 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.list_activity_types_input.ListActivityTypesInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_swf.types.list_activity_types_input.ListActivityTypesInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if name is not None:
-            input["name"] = name
-        input["registration_status"] = registration_status
+            input_["name"] = name
+        input_["registration_status"] = registration_status
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if maximum_page_size is not None:
-            input["maximum_page_size"] = maximum_page_size
+            input_["maximum_page_size"] = maximum_page_size
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1007,29 +1007,29 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.list_closed_workflow_executions_input.ListClosedWorkflowExecutionsInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_swf.types.list_closed_workflow_executions_input.ListClosedWorkflowExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if start_time_filter is not None:
-            input["start_time_filter"] = start_time_filter
+            input_["start_time_filter"] = start_time_filter
         if close_time_filter is not None:
-            input["close_time_filter"] = close_time_filter
+            input_["close_time_filter"] = close_time_filter
         if execution_filter is not None:
-            input["execution_filter"] = execution_filter
+            input_["execution_filter"] = execution_filter
         if close_status_filter is not None:
-            input["close_status_filter"] = close_status_filter
+            input_["close_status_filter"] = close_status_filter
         if type_filter is not None:
-            input["type_filter"] = type_filter
+            input_["type_filter"] = type_filter
         if tag_filter is not None:
-            input["tag_filter"] = tag_filter
+            input_["tag_filter"] = tag_filter
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if maximum_page_size is not None:
-            input["maximum_page_size"] = maximum_page_size
+            input_["maximum_page_size"] = maximum_page_size
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1116,17 +1116,17 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.list_domains_input.ListDomainsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_swf.types.list_domains_input.ListDomainsInput = {}  # type: ignore[typeddict-item]
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
-        input["registration_status"] = registration_status
+            input_["next_page_token"] = next_page_token
+        input_["registration_status"] = registration_status
         if maximum_page_size is not None:
-            input["maximum_page_size"] = maximum_page_size
+            input_["maximum_page_size"] = maximum_page_size
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1203,24 +1203,24 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.list_open_workflow_executions_input.ListOpenWorkflowExecutionsInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["start_time_filter"] = start_time_filter
+        input_: aws_sdk_swf.types.list_open_workflow_executions_input.ListOpenWorkflowExecutionsInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["start_time_filter"] = start_time_filter
         if type_filter is not None:
-            input["type_filter"] = type_filter
+            input_["type_filter"] = type_filter
         if tag_filter is not None:
-            input["tag_filter"] = tag_filter
+            input_["tag_filter"] = tag_filter
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if maximum_page_size is not None:
-            input["maximum_page_size"] = maximum_page_size
+            input_["maximum_page_size"] = maximum_page_size
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
         if execution_filter is not None:
-            input["execution_filter"] = execution_filter
+            input_["execution_filter"] = execution_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1293,11 +1293,11 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_swf.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1341,20 +1341,20 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.list_workflow_types_input.ListWorkflowTypesInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
+        input_: aws_sdk_swf.types.list_workflow_types_input.ListWorkflowTypesInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
         if name is not None:
-            input["name"] = name
-        input["registration_status"] = registration_status
+            input_["name"] = name
+        input_["registration_status"] = registration_status
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if maximum_page_size is not None:
-            input["maximum_page_size"] = maximum_page_size
+            input_["maximum_page_size"] = maximum_page_size
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1419,14 +1419,14 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.poll_for_activity_task_input.PollForActivityTaskInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["task_list"] = task_list
+        input_: aws_sdk_swf.types.poll_for_activity_task_input.PollForActivityTaskInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["task_list"] = task_list
         if identity is not None:
-            input["identity"] = identity
+            input_["identity"] = identity
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1472,22 +1472,22 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.poll_for_decision_task_input.PollForDecisionTaskInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["task_list"] = task_list
+        input_: aws_sdk_swf.types.poll_for_decision_task_input.PollForDecisionTaskInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["task_list"] = task_list
         if identity is not None:
-            input["identity"] = identity
+            input_["identity"] = identity
         if next_page_token is not None:
-            input["next_page_token"] = next_page_token
+            input_["next_page_token"] = next_page_token
         if maximum_page_size is not None:
-            input["maximum_page_size"] = maximum_page_size
+            input_["maximum_page_size"] = maximum_page_size
         if reverse_order is not None:
-            input["reverse_order"] = reverse_order
+            input_["reverse_order"] = reverse_order
         if start_at_previous_started_event is not None:
-            input["start_at_previous_started_event"] = start_at_previous_started_event
+            input_["start_at_previous_started_event"] = start_at_previous_started_event
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1556,13 +1556,13 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.record_activity_task_heartbeat_input.RecordActivityTaskHeartbeatInput = {}  # type: ignore[typeddict-item]
-        input["task_token"] = task_token
+        input_: aws_sdk_swf.types.record_activity_task_heartbeat_input.RecordActivityTaskHeartbeatInput = {}  # type: ignore[typeddict-item]
+        input_["task_token"] = task_token
         if details is not None:
-            input["details"] = details
+            input_["details"] = details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1622,33 +1622,33 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.register_activity_type_input.RegisterActivityTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["name"] = name
-        input["version"] = version
+        input_: aws_sdk_swf.types.register_activity_type_input.RegisterActivityTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["name"] = name
+        input_["version"] = version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if default_task_start_to_close_timeout is not None:
-            input["default_task_start_to_close_timeout"] = (
+            input_["default_task_start_to_close_timeout"] = (
                 default_task_start_to_close_timeout
             )
         if default_task_heartbeat_timeout is not None:
-            input["default_task_heartbeat_timeout"] = default_task_heartbeat_timeout
+            input_["default_task_heartbeat_timeout"] = default_task_heartbeat_timeout
         if default_task_list is not None:
-            input["default_task_list"] = default_task_list
+            input_["default_task_list"] = default_task_list
         if default_task_priority is not None:
-            input["default_task_priority"] = default_task_priority
+            input_["default_task_priority"] = default_task_priority
         if default_task_schedule_to_start_timeout is not None:
-            input["default_task_schedule_to_start_timeout"] = (
+            input_["default_task_schedule_to_start_timeout"] = (
                 default_task_schedule_to_start_timeout
             )
         if default_task_schedule_to_close_timeout is not None:
-            input["default_task_schedule_to_close_timeout"] = (
+            input_["default_task_schedule_to_close_timeout"] = (
                 default_task_schedule_to_close_timeout
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1686,18 +1686,18 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.register_domain_input.RegisterDomainInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_swf.types.register_domain_input.RegisterDomainInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["workflow_execution_retention_period_in_days"] = (
+            input_["description"] = description
+        input_["workflow_execution_retention_period_in_days"] = (
             workflow_execution_retention_period_in_days
         )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1755,31 +1755,31 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.register_workflow_type_input.RegisterWorkflowTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["name"] = name
-        input["version"] = version
+        input_: aws_sdk_swf.types.register_workflow_type_input.RegisterWorkflowTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["name"] = name
+        input_["version"] = version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if default_task_start_to_close_timeout is not None:
-            input["default_task_start_to_close_timeout"] = (
+            input_["default_task_start_to_close_timeout"] = (
                 default_task_start_to_close_timeout
             )
         if default_execution_start_to_close_timeout is not None:
-            input["default_execution_start_to_close_timeout"] = (
+            input_["default_execution_start_to_close_timeout"] = (
                 default_execution_start_to_close_timeout
             )
         if default_task_list is not None:
-            input["default_task_list"] = default_task_list
+            input_["default_task_list"] = default_task_list
         if default_task_priority is not None:
-            input["default_task_priority"] = default_task_priority
+            input_["default_task_priority"] = default_task_priority
         if default_child_policy is not None:
-            input["default_child_policy"] = default_child_policy
+            input_["default_child_policy"] = default_child_policy
         if default_lambda_role is not None:
-            input["default_lambda_role"] = default_lambda_role
+            input_["default_lambda_role"] = default_lambda_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1817,14 +1817,14 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.request_cancel_workflow_execution_input.RequestCancelWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_swf.types.request_cancel_workflow_execution_input.RequestCancelWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["workflow_id"] = workflow_id
         if run_id is not None:
-            input["run_id"] = run_id
+            input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1858,13 +1858,13 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.respond_activity_task_canceled_input.RespondActivityTaskCanceledInput = {}  # type: ignore[typeddict-item]
-        input["task_token"] = task_token
+        input_: aws_sdk_swf.types.respond_activity_task_canceled_input.RespondActivityTaskCanceledInput = {}  # type: ignore[typeddict-item]
+        input_["task_token"] = task_token
         if details is not None:
-            input["details"] = details
+            input_["details"] = details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1898,13 +1898,13 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.respond_activity_task_completed_input.RespondActivityTaskCompletedInput = {}  # type: ignore[typeddict-item]
-        input["task_token"] = task_token
+        input_: aws_sdk_swf.types.respond_activity_task_completed_input.RespondActivityTaskCompletedInput = {}  # type: ignore[typeddict-item]
+        input_["task_token"] = task_token
         if result is not None:
-            input["result"] = result
+            input_["result"] = result
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1940,15 +1940,15 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.respond_activity_task_failed_input.RespondActivityTaskFailedInput = {}  # type: ignore[typeddict-item]
-        input["task_token"] = task_token
+        input_: aws_sdk_swf.types.respond_activity_task_failed_input.RespondActivityTaskFailedInput = {}  # type: ignore[typeddict-item]
+        input_["task_token"] = task_token
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
         if details is not None:
-            input["details"] = details
+            input_["details"] = details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1990,21 +1990,21 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.respond_decision_task_completed_input.RespondDecisionTaskCompletedInput = {}  # type: ignore[typeddict-item]
-        input["task_token"] = task_token
+        input_: aws_sdk_swf.types.respond_decision_task_completed_input.RespondDecisionTaskCompletedInput = {}  # type: ignore[typeddict-item]
+        input_["task_token"] = task_token
         if decisions is not None:
-            input["decisions"] = decisions
+            input_["decisions"] = decisions
         if execution_context is not None:
-            input["execution_context"] = execution_context
+            input_["execution_context"] = execution_context
         if task_list is not None:
-            input["task_list"] = task_list
+            input_["task_list"] = task_list
         if task_list_schedule_to_start_timeout is not None:
-            input["task_list_schedule_to_start_timeout"] = (
+            input_["task_list_schedule_to_start_timeout"] = (
                 task_list_schedule_to_start_timeout
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2046,17 +2046,17 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.signal_workflow_execution_input.SignalWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_swf.types.signal_workflow_execution_input.SignalWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["workflow_id"] = workflow_id
         if run_id is not None:
-            input["run_id"] = run_id
-        input["signal_name"] = signal_name
+            input_["run_id"] = run_id
+        input_["signal_name"] = signal_name
         if input is not None:
-            input["input"] = input
+            input_["input"] = input
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2112,29 +2112,31 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.start_workflow_execution_input.StartWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["workflow_id"] = workflow_id
-        input["workflow_type"] = workflow_type
+        input_: aws_sdk_swf.types.start_workflow_execution_input.StartWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["workflow_id"] = workflow_id
+        input_["workflow_type"] = workflow_type
         if task_list is not None:
-            input["task_list"] = task_list
+            input_["task_list"] = task_list
         if task_priority is not None:
-            input["task_priority"] = task_priority
+            input_["task_priority"] = task_priority
         if input is not None:
-            input["input"] = input
+            input_["input"] = input
         if execution_start_to_close_timeout is not None:
-            input["execution_start_to_close_timeout"] = execution_start_to_close_timeout
+            input_["execution_start_to_close_timeout"] = (
+                execution_start_to_close_timeout
+            )
         if tag_list is not None:
-            input["tag_list"] = tag_list
+            input_["tag_list"] = tag_list
         if task_start_to_close_timeout is not None:
-            input["task_start_to_close_timeout"] = task_start_to_close_timeout
+            input_["task_start_to_close_timeout"] = task_start_to_close_timeout
         if child_policy is not None:
-            input["child_policy"] = child_policy
+            input_["child_policy"] = child_policy
         if lambda_role is not None:
-            input["lambda_role"] = lambda_role
+            input_["lambda_role"] = lambda_role
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2168,12 +2170,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_swf.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2217,20 +2219,20 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.terminate_workflow_execution_input.TerminateWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_swf.types.terminate_workflow_execution_input.TerminateWorkflowExecutionInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["workflow_id"] = workflow_id
         if run_id is not None:
-            input["run_id"] = run_id
+            input_["run_id"] = run_id
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
         if details is not None:
-            input["details"] = details
+            input_["details"] = details
         if child_policy is not None:
-            input["child_policy"] = child_policy
+            input_["child_policy"] = child_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2264,12 +2266,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.undeprecate_activity_type_input.UndeprecateActivityTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["activity_type"] = activity_type
+        input_: aws_sdk_swf.types.undeprecate_activity_type_input.UndeprecateActivityTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["activity_type"] = activity_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2301,11 +2303,11 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.undeprecate_domain_input.UndeprecateDomainInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_swf.types.undeprecate_domain_input.UndeprecateDomainInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2339,12 +2341,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.undeprecate_workflow_type_input.UndeprecateWorkflowTypeInput = {}  # type: ignore[typeddict-item]
-        input["domain"] = domain
-        input["workflow_type"] = workflow_type
+        input_: aws_sdk_swf.types.undeprecate_workflow_type_input.UndeprecateWorkflowTypeInput = {}  # type: ignore[typeddict-item]
+        input_["domain"] = domain
+        input_["workflow_type"] = workflow_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2378,12 +2380,12 @@ class AsyncSWFClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_swf.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_swf.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -15,6 +15,30 @@ from aws_sdk_controltower._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_controltower._auth._zapros_handler import AuthMiddleware
+from aws_sdk_controltower._resources.aws_control_tower_apis.baseline_operation_resource import (
+    AsyncBaselineOperationResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.baseline_resource import (
+    AsyncBaselineResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.control_operation_resource import (
+    AsyncControlOperationResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.enabled_baseline_resource import (
+    AsyncEnabledBaselineResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.enabled_control_resource import (
+    AsyncEnabledControlResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.landing_zone_operation_resource import (
+    AsyncLandingZoneOperationResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.landing_zone_resource import (
+    AsyncLandingZoneResource,
+)
+from aws_sdk_controltower._resources.aws_control_tower_apis.tagging_resource import (
+    AsyncTaggingResource,
+)
 from aws_sdk_controltower._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -104,6 +128,15 @@ class AsyncControlTowerClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.baseline_operation_resource = AsyncBaselineOperationResource(self)
+        self.baseline_resource = AsyncBaselineResource(self)
+        self.control_operation_resource = AsyncControlOperationResource(self)
+        self.enabled_baseline_resource = AsyncEnabledBaselineResource(self)
+        self.enabled_control_resource = AsyncEnabledControlResource(self)
+        self.landing_zone_operation_resource = AsyncLandingZoneOperationResource(self)
+        self.landing_zone_resource = AsyncLandingZoneResource(self)
+        self.tagging_resource = AsyncTaggingResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncControlTowerClientConfig] = None
@@ -171,16 +204,16 @@ class AsyncControlTowerClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_controltower.types.disable_control_input.DisableControlInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_controltower.types.disable_control_input.DisableControlInput = {}  # type: ignore[typeddict-item]
         if control_identifier is not None:
-            input["control_identifier"] = control_identifier
+            input_["control_identifier"] = control_identifier
         if target_identifier is not None:
-            input["target_identifier"] = target_identifier
+            input_["target_identifier"] = target_identifier
         if enabled_control_identifier is not None:
-            input["enabled_control_identifier"] = enabled_control_identifier
+            input_["enabled_control_identifier"] = enabled_control_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

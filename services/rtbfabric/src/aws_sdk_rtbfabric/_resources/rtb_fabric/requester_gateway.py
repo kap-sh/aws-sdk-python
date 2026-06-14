@@ -82,18 +82,18 @@ class RequesterGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.create_requester_gateway_request.CreateRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
-        input["client_token"] = client_token
+        input_: aws_sdk_rtbfabric.types.create_requester_gateway_request.CreateRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
+        input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -132,11 +132,11 @@ class RequesterGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.get_requester_gateway_request.GetRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.get_requester_gateway_request.GetRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -175,11 +175,11 @@ class RequesterGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.delete_requester_gateway_request.DeleteRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.delete_requester_gateway_request.DeleteRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -222,14 +222,14 @@ class RequesterGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.update_requester_gateway_request.UpdateRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.update_requester_gateway_request.UpdateRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["gateway_id"] = gateway_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -284,18 +284,18 @@ class AsyncRequesterGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.create_requester_gateway_request.CreateRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
-        input["client_token"] = client_token
+        input_: aws_sdk_rtbfabric.types.create_requester_gateway_request.CreateRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
+        input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,11 +335,11 @@ class AsyncRequesterGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.get_requester_gateway_request.GetRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.get_requester_gateway_request.GetRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,11 +379,11 @@ class AsyncRequesterGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.delete_requester_gateway_request.DeleteRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.delete_requester_gateway_request.DeleteRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,14 +427,14 @@ class AsyncRequesterGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.update_requester_gateway_request.UpdateRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.update_requester_gateway_request.UpdateRequesterGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["gateway_id"] = gateway_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -86,22 +86,22 @@ class RunCacheResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_run_cache_request.CreateRunCacheRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.create_run_cache_request.CreateRunCacheRequest = {}  # type: ignore[typeddict-item]
         if cache_behavior is not None:
-            input["cache_behavior"] = cache_behavior
-        input["cache_s3_location"] = cache_s3_location
+            input_["cache_behavior"] = cache_behavior
+        input_["cache_s3_location"] = cache_s3_location
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if name is not None:
-            input["name"] = name
-        input["request_id"] = request_id
+            input_["name"] = name
+        input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if cache_bucket_owner_id is not None:
-            input["cache_bucket_owner_id"] = cache_bucket_owner_id
+            input_["cache_bucket_owner_id"] = cache_bucket_owner_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -134,11 +134,11 @@ class RunCacheResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_run_cache_request.GetRunCacheRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_run_cache_request.GetRunCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,17 +179,17 @@ class RunCacheResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_run_cache_request.UpdateRunCacheRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.update_run_cache_request.UpdateRunCacheRequest = {}  # type: ignore[typeddict-item]
         if cache_behavior is not None:
-            input["cache_behavior"] = cache_behavior
+            input_["cache_behavior"] = cache_behavior
         if description is not None:
-            input["description"] = description
-        input["id"] = id
+            input_["description"] = description
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,11 +220,11 @@ class RunCacheResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_run_cache_request.DeleteRunCacheRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_run_cache_request.DeleteRunCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,14 +259,14 @@ class RunCacheResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_run_caches_request.ListRunCachesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_run_caches_request.ListRunCachesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -323,22 +323,22 @@ class AsyncRunCacheResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_run_cache_request.CreateRunCacheRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.create_run_cache_request.CreateRunCacheRequest = {}  # type: ignore[typeddict-item]
         if cache_behavior is not None:
-            input["cache_behavior"] = cache_behavior
-        input["cache_s3_location"] = cache_s3_location
+            input_["cache_behavior"] = cache_behavior
+        input_["cache_s3_location"] = cache_s3_location
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if name is not None:
-            input["name"] = name
-        input["request_id"] = request_id
+            input_["name"] = name
+        input_["request_id"] = request_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if cache_bucket_owner_id is not None:
-            input["cache_bucket_owner_id"] = cache_bucket_owner_id
+            input_["cache_bucket_owner_id"] = cache_bucket_owner_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,11 +372,11 @@ class AsyncRunCacheResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_run_cache_request.GetRunCacheRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.get_run_cache_request.GetRunCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,17 +418,17 @@ class AsyncRunCacheResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_run_cache_request.UpdateRunCacheRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.update_run_cache_request.UpdateRunCacheRequest = {}  # type: ignore[typeddict-item]
         if cache_behavior is not None:
-            input["cache_behavior"] = cache_behavior
+            input_["cache_behavior"] = cache_behavior
         if description is not None:
-            input["description"] = description
-        input["id"] = id
+            input_["description"] = description
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,11 +460,11 @@ class AsyncRunCacheResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_run_cache_request.DeleteRunCacheRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_omics.types.delete_run_cache_request.DeleteRunCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,14 +500,14 @@ class AsyncRunCacheResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_run_caches_request.ListRunCachesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_omics.types.list_run_caches_request.ListRunCachesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if starting_token is not None:
-            input["starting_token"] = starting_token
+            input_["starting_token"] = starting_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

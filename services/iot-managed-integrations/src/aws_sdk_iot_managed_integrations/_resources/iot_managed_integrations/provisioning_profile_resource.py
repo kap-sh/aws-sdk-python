@@ -90,21 +90,21 @@ class ProvisioningProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_provisioning_profile_request.CreateProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["provisioning_type"] = provisioning_type
+        input_: aws_sdk_iot_managed_integrations.types.create_provisioning_profile_request.CreateProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["provisioning_type"] = provisioning_type
         if ca_certificate is not None:
-            input["ca_certificate"] = ca_certificate
+            input_["ca_certificate"] = ca_certificate
         if claim_certificate is not None:
-            input["claim_certificate"] = claim_certificate
+            input_["claim_certificate"] = claim_certificate
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -137,11 +137,11 @@ class ProvisioningProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_provisioning_profile_request.GetProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_provisioning_profile_request.GetProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -172,11 +172,11 @@ class ProvisioningProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_provisioning_profile_request.DeleteProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.delete_provisioning_profile_request.DeleteProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -215,14 +215,14 @@ class ProvisioningProfileResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_provisioning_profiles_request.ListProvisioningProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_provisioning_profiles_request.ListProvisioningProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,21 +281,21 @@ class AsyncProvisioningProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.create_provisioning_profile_request.CreateProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["provisioning_type"] = provisioning_type
+        input_: aws_sdk_iot_managed_integrations.types.create_provisioning_profile_request.CreateProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["provisioning_type"] = provisioning_type
         if ca_certificate is not None:
-            input["ca_certificate"] = ca_certificate
+            input_["ca_certificate"] = ca_certificate
         if claim_certificate is not None:
-            input["claim_certificate"] = claim_certificate
+            input_["claim_certificate"] = claim_certificate
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,11 +329,11 @@ class AsyncProvisioningProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_provisioning_profile_request.GetProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.get_provisioning_profile_request.GetProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,11 +365,11 @@ class AsyncProvisioningProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.delete_provisioning_profile_request.DeleteProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iot_managed_integrations.types.delete_provisioning_profile_request.DeleteProvisioningProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -409,14 +409,14 @@ class AsyncProvisioningProfileResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_provisioning_profiles_request.ListProvisioningProfilesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.list_provisioning_profiles_request.ListProvisioningProfilesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

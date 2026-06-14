@@ -82,16 +82,16 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.describe_recovery_instances_request.DescribeRecoveryInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.describe_recovery_instances_request.DescribeRecoveryInstancesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,11 +122,11 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_recovery_instance_request.DeleteRecoveryInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.delete_recovery_instance_request.DeleteRecoveryInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -157,11 +157,11 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.disconnect_recovery_instance_request.DisconnectRecoveryInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.disconnect_recovery_instance_request.DisconnectRecoveryInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -194,11 +194,11 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.get_failback_replication_configuration_request.GetFailbackReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.get_failback_replication_configuration_request.GetFailbackReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,11 +231,11 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.reverse_replication_request.ReverseReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.reverse_replication_request.ReverseReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,11 +266,11 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.stop_failback_request.StopFailbackRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.stop_failback_request.StopFailbackRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -313,19 +313,19 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.update_failback_replication_configuration_request.UpdateFailbackReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.update_failback_replication_configuration_request.UpdateFailbackReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if bandwidth_throttling is not None:
-            input["bandwidth_throttling"] = bandwidth_throttling
+            input_["bandwidth_throttling"] = bandwidth_throttling
         if use_private_ip is not None:
-            input["use_private_ip"] = use_private_ip
+            input_["use_private_ip"] = use_private_ip
         if internet_protocol is not None:
-            input["internet_protocol"] = internet_protocol
+            input_["internet_protocol"] = internet_protocol
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -360,13 +360,13 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.start_failback_launch_request.StartFailbackLaunchRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_i_ds"] = recovery_instance_i_ds
+        input_: aws_sdk_drs.types.start_failback_launch_request.StartFailbackLaunchRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_i_ds"] = recovery_instance_i_ds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -399,11 +399,11 @@ class RecoveryInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.terminate_recovery_instances_request.TerminateRecoveryInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_i_ds"] = recovery_instance_i_ds
+        input_: aws_sdk_drs.types.terminate_recovery_instances_request.TerminateRecoveryInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_i_ds"] = recovery_instance_i_ds
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -452,16 +452,16 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.describe_recovery_instances_request.DescribeRecoveryInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_drs.types.describe_recovery_instances_request.DescribeRecoveryInstancesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -493,11 +493,11 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.delete_recovery_instance_request.DeleteRecoveryInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.delete_recovery_instance_request.DeleteRecoveryInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,11 +529,11 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.disconnect_recovery_instance_request.DisconnectRecoveryInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.disconnect_recovery_instance_request.DisconnectRecoveryInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,11 +567,11 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.get_failback_replication_configuration_request.GetFailbackReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.get_failback_replication_configuration_request.GetFailbackReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -605,11 +605,11 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.reverse_replication_request.ReverseReplicationRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.reverse_replication_request.ReverseReplicationRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -641,11 +641,11 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.stop_failback_request.StopFailbackRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.stop_failback_request.StopFailbackRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -689,19 +689,19 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.update_failback_replication_configuration_request.UpdateFailbackReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_id"] = recovery_instance_id
+        input_: aws_sdk_drs.types.update_failback_replication_configuration_request.UpdateFailbackReplicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_id"] = recovery_instance_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if bandwidth_throttling is not None:
-            input["bandwidth_throttling"] = bandwidth_throttling
+            input_["bandwidth_throttling"] = bandwidth_throttling
         if use_private_ip is not None:
-            input["use_private_ip"] = use_private_ip
+            input_["use_private_ip"] = use_private_ip
         if internet_protocol is not None:
-            input["internet_protocol"] = internet_protocol
+            input_["internet_protocol"] = internet_protocol
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -737,13 +737,13 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.start_failback_launch_request.StartFailbackLaunchRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_i_ds"] = recovery_instance_i_ds
+        input_: aws_sdk_drs.types.start_failback_launch_request.StartFailbackLaunchRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_i_ds"] = recovery_instance_i_ds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -777,11 +777,11 @@ class AsyncRecoveryInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_drs.types.terminate_recovery_instances_request.TerminateRecoveryInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_instance_i_ds"] = recovery_instance_i_ds
+        input_: aws_sdk_drs.types.terminate_recovery_instances_request.TerminateRecoveryInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_instance_i_ds"] = recovery_instance_i_ds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

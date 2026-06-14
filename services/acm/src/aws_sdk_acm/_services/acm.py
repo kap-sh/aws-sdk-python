@@ -209,12 +209,12 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.add_tags_to_certificate_request.AddTagsToCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
-        input["tags"] = tags
+        input_: aws_sdk_acm.types.add_tags_to_certificate_request.AddTagsToCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,11 +245,11 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
+        input_: aws_sdk_acm.types.delete_certificate_request.DeleteCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -282,11 +282,11 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
+        input_: aws_sdk_acm.types.describe_certificate_request.DescribeCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -321,12 +321,12 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.export_certificate_request.ExportCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
-        input["passphrase"] = passphrase
+        input_: aws_sdk_acm.types.export_certificate_request.ExportCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
+        input_["passphrase"] = passphrase
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,11 +387,11 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.get_certificate_request.GetCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
+        input_: aws_sdk_acm.types.get_certificate_request.GetCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -434,18 +434,18 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.import_certificate_request.ImportCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_acm.types.import_certificate_request.ImportCertificateRequest = {}  # type: ignore[typeddict-item]
         if certificate_arn is not None:
-            input["certificate_arn"] = certificate_arn
-        input["certificate"] = certificate
-        input["private_key"] = private_key
+            input_["certificate_arn"] = certificate_arn
+        input_["certificate"] = certificate
+        input_["private_key"] = private_key
         if certificate_chain is not None:
-            input["certificate_chain"] = certificate_chain
+            input_["certificate_chain"] = certificate_chain
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -490,22 +490,22 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_acm.types.list_certificates_request.ListCertificatesRequest = {}  # type: ignore[typeddict-item]
         if certificate_statuses is not None:
-            input["certificate_statuses"] = certificate_statuses
+            input_["certificate_statuses"] = certificate_statuses
         if includes is not None:
-            input["includes"] = includes
+            input_["includes"] = includes
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -569,11 +569,11 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.list_tags_for_certificate_request.ListTagsForCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
+        input_: aws_sdk_acm.types.list_tags_for_certificate_request.ListTagsForCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -608,13 +608,13 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.put_account_configuration_request.PutAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_acm.types.put_account_configuration_request.PutAccountConfigurationRequest = {}  # type: ignore[typeddict-item]
         if expiry_events is not None:
-            input["expiry_events"] = expiry_events
-        input["idempotency_token"] = idempotency_token
+            input_["expiry_events"] = expiry_events
+        input_["idempotency_token"] = idempotency_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -647,12 +647,12 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.remove_tags_from_certificate_request.RemoveTagsFromCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
-        input["tags"] = tags
+        input_: aws_sdk_acm.types.remove_tags_from_certificate_request.RemoveTagsFromCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -683,11 +683,11 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.renew_certificate_request.RenewCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
+        input_: aws_sdk_acm.types.renew_certificate_request.RenewCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -750,29 +750,29 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.request_certificate_request.RequestCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["domain_name"] = domain_name
+        input_: aws_sdk_acm.types.request_certificate_request.RequestCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["domain_name"] = domain_name
         if validation_method is not None:
-            input["validation_method"] = validation_method
+            input_["validation_method"] = validation_method
         if subject_alternative_names is not None:
-            input["subject_alternative_names"] = subject_alternative_names
+            input_["subject_alternative_names"] = subject_alternative_names
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
         if domain_validation_options is not None:
-            input["domain_validation_options"] = domain_validation_options
+            input_["domain_validation_options"] = domain_validation_options
         if options is not None:
-            input["options"] = options
+            input_["options"] = options
         if certificate_authority_arn is not None:
-            input["certificate_authority_arn"] = certificate_authority_arn
+            input_["certificate_authority_arn"] = certificate_authority_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if key_algorithm is not None:
-            input["key_algorithm"] = key_algorithm
+            input_["key_algorithm"] = key_algorithm
         if managed_by is not None:
-            input["managed_by"] = managed_by
+            input_["managed_by"] = managed_by
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -807,13 +807,13 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.resend_validation_email_request.ResendValidationEmailRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
-        input["domain"] = domain
-        input["validation_domain"] = validation_domain
+        input_: aws_sdk_acm.types.resend_validation_email_request.ResendValidationEmailRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
+        input_["domain"] = domain
+        input_["validation_domain"] = validation_domain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -848,12 +848,12 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.revoke_certificate_request.RevokeCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
-        input["revocation_reason"] = revocation_reason
+        input_: aws_sdk_acm.types.revoke_certificate_request.RevokeCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
+        input_["revocation_reason"] = revocation_reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -902,20 +902,20 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.search_certificates_request.SearchCertificatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_acm.types.search_certificates_request.SearchCertificatesRequest = {}  # type: ignore[typeddict-item]
         if filter_statement is not None:
-            input["filter_statement"] = filter_statement
+            input_["filter_statement"] = filter_statement
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -985,12 +985,12 @@ class ACMClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_acm.types.update_certificate_options_request.UpdateCertificateOptionsRequest = {}  # type: ignore[typeddict-item]
-        input["certificate_arn"] = certificate_arn
-        input["options"] = options
+        input_: aws_sdk_acm.types.update_certificate_options_request.UpdateCertificateOptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["certificate_arn"] = certificate_arn
+        input_["options"] = options
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

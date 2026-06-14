@@ -164,11 +164,11 @@ class AsyncWorkMailMessageFlowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmailmessageflow.types.get_raw_message_content_request.GetRawMessageContentRequest = {}  # type: ignore[typeddict-item]
-        input["message_id"] = message_id
+        input_: aws_sdk_workmailmessageflow.types.get_raw_message_content_request.GetRawMessageContentRequest = {}  # type: ignore[typeddict-item]
+        input_["message_id"] = message_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -204,12 +204,12 @@ class AsyncWorkMailMessageFlowClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_workmailmessageflow.types.put_raw_message_content_request.PutRawMessageContentRequest = {}  # type: ignore[typeddict-item]
-        input["message_id"] = message_id
-        input["content"] = content
+        input_: aws_sdk_workmailmessageflow.types.put_raw_message_content_request.PutRawMessageContentRequest = {}  # type: ignore[typeddict-item]
+        input_["message_id"] = message_id
+        input_["content"] = content
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

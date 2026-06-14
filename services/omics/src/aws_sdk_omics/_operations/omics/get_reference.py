@@ -105,53 +105,50 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_omics.types.get_reference_request.GetReferenceRequest,
+    input_: aws_sdk_omics.types.get_reference_request.GetReferenceRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/referencestore/{referenceStoreId}/reference/{id}"
-    url = url.replace("{id}", quote(str(input["id"]), safe=""))
+    url = url.replace("{id}", quote(str(input_["id"]), safe=""))
     url = url.replace(
-        "{referenceStoreId}", quote(str(input["reference_store_id"]), safe="")
+        "{referenceStoreId}", quote(str(input_["reference_store_id"]), safe="")
     )
     params: dict[str, str] = {}
-    if "part_number" in input:
-        params["partNumber"] = str(input["part_number"])
-    if "file" in input:
-        params["file"] = str(input["file"])
+    if "part_number" in input_:
+        params["partNumber"] = str(input_["part_number"])
+    if "file" in input_:
+        params["file"] = str(input_["file"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "range" in input:
-        headers["Range"] = str(input["range"])
+    if "range" in input_:
+        headers["Range"] = str(input_["range"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_reference(
     options: OperationOptions,
-    input: aws_sdk_omics.types.get_reference_request.GetReferenceRequest,
+    input_: aws_sdk_omics.types.get_reference_request.GetReferenceRequest,
 ) -> tuple[
     aws_sdk_omics.types.get_reference_response.GetReferenceResponse, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -160,15 +157,16 @@ def get_reference(
 
 async def async_get_reference(
     options: AsyncOperationOptions,
-    input: aws_sdk_omics.types.get_reference_request.GetReferenceRequest,
+    input_: aws_sdk_omics.types.get_reference_request.GetReferenceRequest,
 ) -> tuple[
     aws_sdk_omics.types.get_reference_response.GetReferenceResponse, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

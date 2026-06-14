@@ -7,12 +7,23 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_backup_gateway._auth._signers
+import aws_sdk_backup_gateway._auth._sigv4
 from aws_sdk_backup_gateway._auth._identity import Credentials
 from aws_sdk_backup_gateway._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_backup_gateway._auth._zapros_handler import AuthMiddleware
+from aws_sdk_backup_gateway._resources.backup_on_premises_v20210101.gateway_resource import (
+    AsyncGatewayResource,
+)
+from aws_sdk_backup_gateway._resources.backup_on_premises_v20210101.hypervisor_resource import (
+    AsyncHypervisorResource,
+)
+from aws_sdk_backup_gateway._resources.backup_on_premises_v20210101.virtual_machine_resource import (
+    AsyncVirtualMachineResource,
+)
 from aws_sdk_backup_gateway._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -106,6 +117,10 @@ class AsyncBackupGatewayClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.gateway_resource = AsyncGatewayResource(self)
+        self.hypervisor_resource = AsyncHypervisorResource(self)
+        self.virtual_machine_resource = AsyncVirtualMachineResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncBackupGatewayClientConfig] = None

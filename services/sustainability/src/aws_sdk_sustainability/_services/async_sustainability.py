@@ -197,25 +197,25 @@ class AsyncSustainabilityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sustainability.types.get_estimated_carbon_emissions_request.GetEstimatedCarbonEmissionsRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
+        input_: aws_sdk_sustainability.types.get_estimated_carbon_emissions_request.GetEstimatedCarbonEmissionsRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if filter_by is not None:
-            input["filter_by"] = filter_by
+            input_["filter_by"] = filter_by
         if emissions_types is not None:
-            input["emissions_types"] = emissions_types
+            input_["emissions_types"] = emissions_types
         if granularity is not None:
-            input["granularity"] = granularity
+            input_["granularity"] = granularity
         if granularity_configuration is not None:
-            input["granularity_configuration"] = granularity_configuration
+            input_["granularity_configuration"] = granularity_configuration
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -311,16 +311,16 @@ class AsyncSustainabilityClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sustainability.types.get_estimated_carbon_emissions_dimension_values_request.GetEstimatedCarbonEmissionsDimensionValuesRequest = {}  # type: ignore[typeddict-item]
-        input["time_period"] = time_period
-        input["dimensions"] = dimensions
+        input_: aws_sdk_sustainability.types.get_estimated_carbon_emissions_dimension_values_request.GetEstimatedCarbonEmissionsDimensionValuesRequest = {}  # type: ignore[typeddict-item]
+        input_["time_period"] = time_period
+        input_["dimensions"] = dimensions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

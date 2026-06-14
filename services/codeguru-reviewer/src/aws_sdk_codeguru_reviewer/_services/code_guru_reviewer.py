@@ -218,17 +218,17 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.associate_repository_request.AssociateRepositoryRequest = {}  # type: ignore[typeddict-item]
-        input["repository"] = repository
+        input_: aws_sdk_codeguru_reviewer.types.associate_repository_request.AssociateRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_["repository"] = repository
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_details is not None:
-            input["kms_key_details"] = kms_key_details
+            input_["kms_key_details"] = kms_key_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -269,15 +269,15 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.create_code_review_request.CreateCodeReviewRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["repository_association_arn"] = repository_association_arn
-        input["type"] = type
+        input_: aws_sdk_codeguru_reviewer.types.create_code_review_request.CreateCodeReviewRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["repository_association_arn"] = repository_association_arn
+        input_["type"] = type
         if client_request_token is not None:
-            input["client_request_token"] = client_request_token
+            input_["client_request_token"] = client_request_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -310,11 +310,11 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.describe_code_review_request.DescribeCodeReviewRequest = {}  # type: ignore[typeddict-item]
-        input["code_review_arn"] = code_review_arn
+        input_: aws_sdk_codeguru_reviewer.types.describe_code_review_request.DescribeCodeReviewRequest = {}  # type: ignore[typeddict-item]
+        input_["code_review_arn"] = code_review_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -351,14 +351,14 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.describe_recommendation_feedback_request.DescribeRecommendationFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["code_review_arn"] = code_review_arn
-        input["recommendation_id"] = recommendation_id
+        input_: aws_sdk_codeguru_reviewer.types.describe_recommendation_feedback_request.DescribeRecommendationFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["code_review_arn"] = code_review_arn
+        input_["recommendation_id"] = recommendation_id
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -391,11 +391,11 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.describe_repository_association_request.DescribeRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["association_arn"] = association_arn
+        input_: aws_sdk_codeguru_reviewer.types.describe_repository_association_request.DescribeRepositoryAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["association_arn"] = association_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,11 +428,11 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.disassociate_repository_request.DisassociateRepositoryRequest = {}  # type: ignore[typeddict-item]
-        input["association_arn"] = association_arn
+        input_: aws_sdk_codeguru_reviewer.types.disassociate_repository_request.DisassociateRepositoryRequest = {}  # type: ignore[typeddict-item]
+        input_["association_arn"] = association_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -483,21 +483,21 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.list_code_reviews_request.ListCodeReviewsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguru_reviewer.types.list_code_reviews_request.ListCodeReviewsRequest = {}  # type: ignore[typeddict-item]
         if provider_types is not None:
-            input["provider_types"] = provider_types
+            input_["provider_types"] = provider_types
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if repository_names is not None:
-            input["repository_names"] = repository_names
-        input["type"] = type
+            input_["repository_names"] = repository_names
+        input_["type"] = type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,19 +544,19 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.list_recommendation_feedback_request.ListRecommendationFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguru_reviewer.types.list_recommendation_feedback_request.ListRecommendationFeedbackRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["code_review_arn"] = code_review_arn
+            input_["max_results"] = max_results
+        input_["code_review_arn"] = code_review_arn
         if user_ids is not None:
-            input["user_ids"] = user_ids
+            input_["user_ids"] = user_ids
         if recommendation_ids is not None:
-            input["recommendation_ids"] = recommendation_ids
+            input_["recommendation_ids"] = recommendation_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,15 +597,15 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguru_reviewer.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["code_review_arn"] = code_review_arn
+            input_["max_results"] = max_results
+        input_["code_review_arn"] = code_review_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -656,22 +656,22 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.list_repository_associations_request.ListRepositoryAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_codeguru_reviewer.types.list_repository_associations_request.ListRepositoryAssociationsRequest = {}  # type: ignore[typeddict-item]
         if provider_types is not None:
-            input["provider_types"] = provider_types
+            input_["provider_types"] = provider_types
         if states is not None:
-            input["states"] = states
+            input_["states"] = states
         if names is not None:
-            input["names"] = names
+            input_["names"] = names
         if owners is not None:
-            input["owners"] = owners
+            input_["owners"] = owners
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -741,11 +741,11 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_codeguru_reviewer.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -782,13 +782,13 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.put_recommendation_feedback_request.PutRecommendationFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["code_review_arn"] = code_review_arn
-        input["recommendation_id"] = recommendation_id
-        input["reactions"] = reactions
+        input_: aws_sdk_codeguru_reviewer.types.put_recommendation_feedback_request.PutRecommendationFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["code_review_arn"] = code_review_arn
+        input_["recommendation_id"] = recommendation_id
+        input_["reactions"] = reactions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -823,12 +823,12 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_codeguru_reviewer.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -865,12 +865,12 @@ class CodeGuruReviewerClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_codeguru_reviewer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_codeguru_reviewer.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

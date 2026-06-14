@@ -102,29 +102,29 @@ class Collection:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_collection_request.CreateCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.create_collection_request.CreateCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if standby_replicas is not None:
-            input["standby_replicas"] = standby_replicas
+            input_["standby_replicas"] = standby_replicas
         if vector_options is not None:
-            input["vector_options"] = vector_options
+            input_["vector_options"] = vector_options
         if collection_group_name is not None:
-            input["collection_group_name"] = collection_group_name
+            input_["collection_group_name"] = collection_group_name
         if encryption_config is not None:
-            input["encryption_config"] = encryption_config
+            input_["encryption_config"] = encryption_config
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -171,19 +171,19 @@ class Collection:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_collection_request.UpdateCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.update_collection_request.UpdateCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if vector_options is not None:
-            input["vector_options"] = vector_options
+            input_["vector_options"] = vector_options
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,13 +220,13 @@ class Collection:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_collection_request.DeleteCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.delete_collection_request.DeleteCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -265,16 +265,16 @@ class Collection:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_collections_request.ListCollectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.list_collections_request.ListCollectionsRequest = {}  # type: ignore[typeddict-item]
         if collection_filters is not None:
-            input["collection_filters"] = collection_filters
+            input_["collection_filters"] = collection_filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,29 +345,29 @@ class AsyncCollection:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.create_collection_request.CreateCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_opensearchserverless.types.create_collection_request.CreateCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if standby_replicas is not None:
-            input["standby_replicas"] = standby_replicas
+            input_["standby_replicas"] = standby_replicas
         if vector_options is not None:
-            input["vector_options"] = vector_options
+            input_["vector_options"] = vector_options
         if collection_group_name is not None:
-            input["collection_group_name"] = collection_group_name
+            input_["collection_group_name"] = collection_group_name
         if encryption_config is not None:
-            input["encryption_config"] = encryption_config
+            input_["encryption_config"] = encryption_config
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,19 +415,19 @@ class AsyncCollection:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.update_collection_request.UpdateCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.update_collection_request.UpdateCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if vector_options is not None:
-            input["vector_options"] = vector_options
+            input_["vector_options"] = vector_options
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,13 +465,13 @@ class AsyncCollection:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.delete_collection_request.DeleteCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_opensearchserverless.types.delete_collection_request.DeleteCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -511,16 +511,16 @@ class AsyncCollection:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_opensearchserverless.types.list_collections_request.ListCollectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_opensearchserverless.types.list_collections_request.ListCollectionsRequest = {}  # type: ignore[typeddict-item]
         if collection_filters is not None:
-            input["collection_filters"] = collection_filters
+            input_["collection_filters"] = collection_filters
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

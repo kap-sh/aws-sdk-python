@@ -72,17 +72,17 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["steps"] = steps
+            input_["description"] = description
+        input_["steps"] = steps
         if on_exception_steps is not None:
-            input["on_exception_steps"] = on_exception_steps
+            input_["on_exception_steps"] = on_exception_steps
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -115,11 +115,11 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_workflow_request.DescribeWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_transfer.types.describe_workflow_request.DescribeWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -150,11 +150,11 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_transfer.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,14 +189,14 @@ class WorkflowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,17 +245,17 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_workflow_request.CreateWorkflowRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["steps"] = steps
+            input_["description"] = description
+        input_["steps"] = steps
         if on_exception_steps is not None:
-            input["on_exception_steps"] = on_exception_steps
+            input_["on_exception_steps"] = on_exception_steps
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -289,11 +289,11 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_workflow_request.DescribeWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_transfer.types.describe_workflow_request.DescribeWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -325,11 +325,11 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_id"] = workflow_id
+        input_: aws_sdk_transfer.types.delete_workflow_request.DeleteWorkflowRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_id"] = workflow_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -365,14 +365,14 @@ class AsyncWorkflowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_workflows_request.ListWorkflowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

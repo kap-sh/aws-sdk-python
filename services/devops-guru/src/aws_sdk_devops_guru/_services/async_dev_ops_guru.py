@@ -260,11 +260,11 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.add_notification_channel_request.AddNotificationChannelRequest = {}  # type: ignore[typeddict-item]
-        input["config"] = config
+        input_: aws_sdk_devops_guru.types.add_notification_channel_request.AddNotificationChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["config"] = config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -298,11 +298,11 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.delete_insight_request.DeleteInsightRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_devops_guru.types.delete_insight_request.DeleteInsightRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -329,10 +329,10 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_account_health_request.DescribeAccountHealthRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.describe_account_health_request.DescribeAccountHealthRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -368,13 +368,13 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_account_overview_request.DescribeAccountOverviewRequest = {}  # type: ignore[typeddict-item]
-        input["from_time"] = from_time
+        input_: aws_sdk_devops_guru.types.describe_account_overview_request.DescribeAccountOverviewRequest = {}  # type: ignore[typeddict-item]
+        input_["from_time"] = from_time
         if to_time is not None:
-            input["to_time"] = to_time
+            input_["to_time"] = to_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,13 +412,13 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_anomaly_request.DescribeAnomalyRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_devops_guru.types.describe_anomaly_request.DescribeAnomalyRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -445,10 +445,10 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_event_sources_config_request.DescribeEventSourcesConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.describe_event_sources_config_request.DescribeEventSourcesConfigRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -484,12 +484,12 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_feedback_request.DescribeFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.describe_feedback_request.DescribeFeedbackRequest = {}  # type: ignore[typeddict-item]
         if insight_id is not None:
-            input["insight_id"] = insight_id
+            input_["insight_id"] = insight_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -527,13 +527,13 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_insight_request.DescribeInsightRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_devops_guru.types.describe_insight_request.DescribeInsightRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -573,14 +573,14 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_organization_health_request.DescribeOrganizationHealthRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.describe_organization_health_request.DescribeOrganizationHealthRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if organizational_unit_ids is not None:
-            input["organizational_unit_ids"] = organizational_unit_ids
+            input_["organizational_unit_ids"] = organizational_unit_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -624,17 +624,17 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_organization_overview_request.DescribeOrganizationOverviewRequest = {}  # type: ignore[typeddict-item]
-        input["from_time"] = from_time
+        input_: aws_sdk_devops_guru.types.describe_organization_overview_request.DescribeOrganizationOverviewRequest = {}  # type: ignore[typeddict-item]
+        input_["from_time"] = from_time
         if to_time is not None:
-            input["to_time"] = to_time
+            input_["to_time"] = to_time
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if organizational_unit_ids is not None:
-            input["organizational_unit_ids"] = organizational_unit_ids
+            input_["organizational_unit_ids"] = organizational_unit_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -684,21 +684,21 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_organization_resource_collection_health_request.DescribeOrganizationResourceCollectionHealthRequest = {}  # type: ignore[typeddict-item]
-        input["organization_resource_collection_type"] = (
+        input_: aws_sdk_devops_guru.types.describe_organization_resource_collection_health_request.DescribeOrganizationResourceCollectionHealthRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_resource_collection_type"] = (
             organization_resource_collection_type
         )
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if organizational_unit_ids is not None:
-            input["organizational_unit_ids"] = organizational_unit_ids
+            input_["organizational_unit_ids"] = organizational_unit_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -736,13 +736,13 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_resource_collection_health_request.DescribeResourceCollectionHealthRequest = {}  # type: ignore[typeddict-item]
-        input["resource_collection_type"] = resource_collection_type
+        input_: aws_sdk_devops_guru.types.describe_resource_collection_health_request.DescribeResourceCollectionHealthRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_collection_type"] = resource_collection_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -769,10 +769,10 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.describe_service_integration_request.DescribeServiceIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.describe_service_integration_request.DescribeServiceIntegrationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -808,12 +808,12 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.get_cost_estimation_request.GetCostEstimationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.get_cost_estimation_request.GetCostEstimationRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,13 +851,13 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.get_resource_collection_request.GetResourceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["resource_collection_type"] = resource_collection_type
+        input_: aws_sdk_devops_guru.types.get_resource_collection_request.GetResourceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_collection_type"] = resource_collection_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -911,21 +911,21 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.list_anomalies_for_insight_request.ListAnomaliesForInsightRequest = {}  # type: ignore[typeddict-item]
-        input["insight_id"] = insight_id
+        input_: aws_sdk_devops_guru.types.list_anomalies_for_insight_request.ListAnomaliesForInsightRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_id"] = insight_id
         if start_time_range is not None:
-            input["start_time_range"] = start_time_range
+            input_["start_time_range"] = start_time_range
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -967,15 +967,15 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.list_anomalous_log_groups_request.ListAnomalousLogGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["insight_id"] = insight_id
+        input_: aws_sdk_devops_guru.types.list_anomalous_log_groups_request.ListAnomalousLogGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_id"] = insight_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1021,17 +1021,17 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.list_events_request.ListEventsRequest = {}  # type: ignore[typeddict-item]
-        input["filters"] = filters
+        input_: aws_sdk_devops_guru.types.list_events_request.ListEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1104,15 +1104,15 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.list_insights_request.ListInsightsRequest = {}  # type: ignore[typeddict-item]
-        input["status_filter"] = status_filter
+        input_: aws_sdk_devops_guru.types.list_insights_request.ListInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_["status_filter"] = status_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1156,16 +1156,16 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.list_monitored_resources_request.ListMonitoredResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.list_monitored_resources_request.ListMonitoredResourcesRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1201,12 +1201,12 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.list_notification_channels_request.ListNotificationChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.list_notification_channels_request.ListNotificationChannelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1276,19 +1276,19 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.list_organization_insights_request.ListOrganizationInsightsRequest = {}  # type: ignore[typeddict-item]
-        input["status_filter"] = status_filter
+        input_: aws_sdk_devops_guru.types.list_organization_insights_request.ListOrganizationInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_["status_filter"] = status_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if organizational_unit_ids is not None:
-            input["organizational_unit_ids"] = organizational_unit_ids
+            input_["organizational_unit_ids"] = organizational_unit_ids
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1332,17 +1332,17 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["insight_id"] = insight_id
+        input_: aws_sdk_devops_guru.types.list_recommendations_request.ListRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["insight_id"] = insight_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if locale is not None:
-            input["locale"] = locale
+            input_["locale"] = locale
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1407,12 +1407,12 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.put_feedback_request.PutFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.put_feedback_request.PutFeedbackRequest = {}  # type: ignore[typeddict-item]
         if insight_feedback is not None:
-            input["insight_feedback"] = insight_feedback
+            input_["insight_feedback"] = insight_feedback
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1446,11 +1446,11 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.remove_notification_channel_request.RemoveNotificationChannelRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_devops_guru.types.remove_notification_channel_request.RemoveNotificationChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1498,18 +1498,18 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.search_insights_request.SearchInsightsRequest = {}  # type: ignore[typeddict-item]
-        input["start_time_range"] = start_time_range
+        input_: aws_sdk_devops_guru.types.search_insights_request.SearchInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_["start_time_range"] = start_time_range
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["type"] = type
+            input_["next_token"] = next_token
+        input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1558,19 +1558,19 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.search_organization_insights_request.SearchOrganizationInsightsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
-        input["start_time_range"] = start_time_range
+        input_: aws_sdk_devops_guru.types.search_organization_insights_request.SearchOrganizationInsightsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
+        input_["start_time_range"] = start_time_range
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["type"] = type
+            input_["next_token"] = next_token
+        input_["type"] = type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1608,13 +1608,13 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.start_cost_estimation_request.StartCostEstimationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_collection"] = resource_collection
+        input_: aws_sdk_devops_guru.types.start_cost_estimation_request.StartCostEstimationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_collection"] = resource_collection
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1650,12 +1650,12 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.update_event_sources_config_request.UpdateEventSourcesConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_devops_guru.types.update_event_sources_config_request.UpdateEventSourcesConfigRequest = {}  # type: ignore[typeddict-item]
         if event_sources is not None:
-            input["event_sources"] = event_sources
+            input_["event_sources"] = event_sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1690,12 +1690,12 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.update_resource_collection_request.UpdateResourceCollectionRequest = {}  # type: ignore[typeddict-item]
-        input["action"] = action
-        input["resource_collection"] = resource_collection
+        input_: aws_sdk_devops_guru.types.update_resource_collection_request.UpdateResourceCollectionRequest = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
+        input_["resource_collection"] = resource_collection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1729,11 +1729,11 @@ class AsyncDevOpsGuruClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_devops_guru.types.update_service_integration_request.UpdateServiceIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["service_integration"] = service_integration
+        input_: aws_sdk_devops_guru.types.update_service_integration_request.UpdateServiceIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["service_integration"] = service_integration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

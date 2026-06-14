@@ -172,13 +172,13 @@ class SSOClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sso.types.get_role_credentials_request.GetRoleCredentialsRequest = {}  # type: ignore[typeddict-item]
-        input["role_name"] = role_name
-        input["account_id"] = account_id
-        input["access_token"] = access_token
+        input_: aws_sdk_sso.types.get_role_credentials_request.GetRoleCredentialsRequest = {}  # type: ignore[typeddict-item]
+        input_["role_name"] = role_name
+        input_["account_id"] = account_id
+        input_["access_token"] = access_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -217,16 +217,16 @@ class SSOClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sso.types.list_account_roles_request.ListAccountRolesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sso.types.list_account_roles_request.ListAccountRolesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["access_token"] = access_token
-        input["account_id"] = account_id
+            input_["max_results"] = max_results
+        input_["access_token"] = access_token
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -288,15 +288,15 @@ class SSOClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sso.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sso.types.list_accounts_request.ListAccountsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["access_token"] = access_token
+            input_["max_results"] = max_results
+        input_["access_token"] = access_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,11 +350,11 @@ class SSOClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sso.types.logout_request.LogoutRequest = {}  # type: ignore[typeddict-item]
-        input["access_token"] = access_token
+        input_: aws_sdk_sso.types.logout_request.LogoutRequest = {}  # type: ignore[typeddict-item]
+        input_["access_token"] = access_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

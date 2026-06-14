@@ -104,55 +104,52 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_request.ListChannelMembershipsRequest,
+    input_: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_request.ListChannelMembershipsRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/channels/{ChannelArn}/memberships"
-    url = url.replace("{ChannelArn}", quote(str(input["channel_arn"]), safe=""))
+    url = url.replace("{ChannelArn}", quote(str(input_["channel_arn"]), safe=""))
     params: dict[str, str] = {}
-    if "type" in input:
-        params["type"] = str(input["type"])
-    if "max_results" in input:
-        params["max-results"] = str(input["max_results"])
-    if "next_token" in input:
-        params["next-token"] = str(input["next_token"])
-    if "sub_channel_id" in input:
-        params["sub-channel-id"] = str(input["sub_channel_id"])
+    if "type" in input_:
+        params["type"] = str(input_["type"])
+    if "max_results" in input_:
+        params["max-results"] = str(input_["max_results"])
+    if "next_token" in input_:
+        params["next-token"] = str(input_["next_token"])
+    if "sub_channel_id" in input_:
+        params["sub-channel-id"] = str(input_["sub_channel_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "chime_bearer" in input:
-        headers["x-amz-chime-bearer"] = str(input["chime_bearer"])
+    if "chime_bearer" in input_:
+        headers["x-amz-chime-bearer"] = str(input_["chime_bearer"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def list_channel_memberships(
     options: OperationOptions,
-    input: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_request.ListChannelMembershipsRequest,
+    input_: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_request.ListChannelMembershipsRequest,
 ) -> tuple[
     aws_sdk_chime_sdk_messaging.types.list_channel_memberships_response.ListChannelMembershipsResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -161,16 +158,17 @@ def list_channel_memberships(
 
 async def async_list_channel_memberships(
     options: AsyncOperationOptions,
-    input: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_request.ListChannelMembershipsRequest,
+    input_: aws_sdk_chime_sdk_messaging.types.list_channel_memberships_request.ListChannelMembershipsRequest,
 ) -> tuple[
     aws_sdk_chime_sdk_messaging.types.list_channel_memberships_response.ListChannelMembershipsResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

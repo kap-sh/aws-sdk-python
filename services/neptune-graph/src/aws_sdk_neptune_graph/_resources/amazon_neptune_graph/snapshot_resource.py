@@ -72,14 +72,14 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.create_graph_snapshot_input.CreateGraphSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_neptune_graph.types.create_graph_snapshot_input.CreateGraphSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["snapshot_name"] = snapshot_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -112,11 +112,11 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["snapshot_identifier"] = snapshot_identifier
+        input_: aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["snapshot_identifier"] = snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -149,11 +149,11 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["snapshot_identifier"] = snapshot_identifier
+        input_: aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["snapshot_identifier"] = snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,16 +196,16 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_graph_snapshots_input.ListGraphSnapshotsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune_graph.types.list_graph_snapshots_input.ListGraphSnapshotsInput = {}  # type: ignore[typeddict-item]
         if graph_identifier is not None:
-            input["graph_identifier"] = graph_identifier
+            input_["graph_identifier"] = graph_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -248,14 +248,14 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.create_graph_snapshot_input.CreateGraphSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["graph_identifier"] = graph_identifier
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_neptune_graph.types.create_graph_snapshot_input.CreateGraphSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["graph_identifier"] = graph_identifier
+        input_["snapshot_name"] = snapshot_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -289,11 +289,11 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["snapshot_identifier"] = snapshot_identifier
+        input_: aws_sdk_neptune_graph.types.delete_graph_snapshot_input.DeleteGraphSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["snapshot_identifier"] = snapshot_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,11 +327,11 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput = {}  # type: ignore[typeddict-item]
-        input["snapshot_identifier"] = snapshot_identifier
+        input_: aws_sdk_neptune_graph.types.get_graph_snapshot_input.GetGraphSnapshotInput = {}  # type: ignore[typeddict-item]
+        input_["snapshot_identifier"] = snapshot_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -375,16 +375,16 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_neptune_graph.types.list_graph_snapshots_input.ListGraphSnapshotsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune_graph.types.list_graph_snapshots_input.ListGraphSnapshotsInput = {}  # type: ignore[typeddict-item]
         if graph_identifier is not None:
-            input["graph_identifier"] = graph_identifier
+            input_["graph_identifier"] = graph_identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

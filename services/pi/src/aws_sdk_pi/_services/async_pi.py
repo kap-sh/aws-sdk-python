@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_pi._auth._signers
+import aws_sdk_pi._auth._sigv4
 from aws_sdk_pi._auth._identity import Credentials
 from aws_sdk_pi._auth._providers import (
     CredentialsProvider,
@@ -216,17 +218,17 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.create_performance_analysis_report_request.CreatePerformanceAnalysisReportRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["start_time"] = start_time
+        input_: aws_sdk_pi.types.create_performance_analysis_report_request.CreatePerformanceAnalysisReportRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -264,13 +266,13 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.delete_performance_analysis_report_request.DeletePerformanceAnalysisReportRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["analysis_report_id"] = analysis_report_id
+        input_: aws_sdk_pi.types.delete_performance_analysis_report_request.DeletePerformanceAnalysisReportRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["analysis_report_id"] = analysis_report_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,28 +334,28 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.describe_dimension_keys_request.DescribeDimensionKeysRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["start_time"] = start_time
-        input["end_time"] = end_time
-        input["metric"] = metric
+        input_: aws_sdk_pi.types.describe_dimension_keys_request.DescribeDimensionKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
+        input_["metric"] = metric
         if period_in_seconds is not None:
-            input["period_in_seconds"] = period_in_seconds
-        input["group_by"] = group_by
+            input_["period_in_seconds"] = period_in_seconds
+        input_["group_by"] = group_by
         if additional_metrics is not None:
-            input["additional_metrics"] = additional_metrics
+            input_["additional_metrics"] = additional_metrics
         if partition_by is not None:
-            input["partition_by"] = partition_by
+            input_["partition_by"] = partition_by
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,16 +399,16 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.get_dimension_key_details_request.GetDimensionKeyDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["group"] = group
-        input["group_identifier"] = group_identifier
+        input_: aws_sdk_pi.types.get_dimension_key_details_request.GetDimensionKeyDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["group"] = group
+        input_["group_identifier"] = group_identifier
         if requested_dimensions is not None:
-            input["requested_dimensions"] = requested_dimensions
+            input_["requested_dimensions"] = requested_dimensions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -450,17 +452,17 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.get_performance_analysis_report_request.GetPerformanceAnalysisReportRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["analysis_report_id"] = analysis_report_id
+        input_: aws_sdk_pi.types.get_performance_analysis_report_request.GetPerformanceAnalysisReportRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["analysis_report_id"] = analysis_report_id
         if text_format is not None:
-            input["text_format"] = text_format
+            input_["text_format"] = text_format
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,12 +498,12 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.get_resource_metadata_request.GetResourceMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
+        input_: aws_sdk_pi.types.get_resource_metadata_request.GetResourceMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -553,23 +555,23 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.get_resource_metrics_request.GetResourceMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["metric_queries"] = metric_queries
-        input["start_time"] = start_time
-        input["end_time"] = end_time
+        input_: aws_sdk_pi.types.get_resource_metrics_request.GetResourceMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["metric_queries"] = metric_queries
+        input_["start_time"] = start_time
+        input_["end_time"] = end_time
         if period_in_seconds is not None:
-            input["period_in_seconds"] = period_in_seconds
+            input_["period_in_seconds"] = period_in_seconds
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if period_alignment is not None:
-            input["period_alignment"] = period_alignment
+            input_["period_alignment"] = period_alignment
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -615,19 +617,19 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.list_available_resource_dimensions_request.ListAvailableResourceDimensionsRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["metrics"] = metrics
+        input_: aws_sdk_pi.types.list_available_resource_dimensions_request.ListAvailableResourceDimensionsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["metrics"] = metrics
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if authorized_actions is not None:
-            input["authorized_actions"] = authorized_actions
+            input_["authorized_actions"] = authorized_actions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -669,17 +671,17 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.list_available_resource_metrics_request.ListAvailableResourceMetricsRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["metric_types"] = metric_types
+        input_: aws_sdk_pi.types.list_available_resource_metrics_request.ListAvailableResourceMetricsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["metric_types"] = metric_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -725,19 +727,19 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.list_performance_analysis_report_recommendations_request.ListPerformanceAnalysisReportRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
-        input["analysis_report_id"] = analysis_report_id
+        input_: aws_sdk_pi.types.list_performance_analysis_report_recommendations_request.ListPerformanceAnalysisReportRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
+        input_["analysis_report_id"] = analysis_report_id
         if recommendation_ids is not None:
-            input["recommendation_ids"] = recommendation_ids
+            input_["recommendation_ids"] = recommendation_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -810,18 +812,18 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.list_performance_analysis_reports_request.ListPerformanceAnalysisReportsRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["identifier"] = identifier
+        input_: aws_sdk_pi.types.list_performance_analysis_reports_request.ListPerformanceAnalysisReportsRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["identifier"] = identifier
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_tags is not None:
-            input["list_tags"] = list_tags
+            input_["list_tags"] = list_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -857,12 +859,12 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_pi.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -900,13 +902,13 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_pi.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -944,13 +946,13 @@ class AsyncPIClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_pi.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["service_type"] = service_type
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_pi.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["service_type"] = service_type
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

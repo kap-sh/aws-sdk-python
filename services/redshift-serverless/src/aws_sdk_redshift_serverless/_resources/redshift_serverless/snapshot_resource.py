@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_redshift_serverless._services._pipeline import (
@@ -91,16 +92,16 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_redshift_serverless.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["snapshot_name"] = snapshot_name
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -141,16 +142,16 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_snapshot_copy_configuration_request.CreateSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["destination_region"] = destination_region
+        input_: aws_sdk_redshift_serverless.types.create_snapshot_copy_configuration_request.CreateSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["destination_region"] = destination_region
         if snapshot_retention_period is not None:
-            input["snapshot_retention_period"] = snapshot_retention_period
+            input_["snapshot_retention_period"] = snapshot_retention_period
         if destination_kms_key_id is not None:
-            input["destination_kms_key_id"] = destination_kms_key_id
+            input_["destination_kms_key_id"] = destination_kms_key_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -183,11 +184,11 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_redshift_serverless.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_name"] = snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -220,11 +221,11 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_snapshot_copy_configuration_request.DeleteSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_copy_configuration_id"] = snapshot_copy_configuration_id
+        input_: aws_sdk_redshift_serverless.types.delete_snapshot_copy_configuration_request.DeleteSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_copy_configuration_id"] = snapshot_copy_configuration_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,16 +262,16 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_snapshot_request.GetSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.get_snapshot_request.GetSnapshotRequest = {}  # type: ignore[typeddict-item]
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -303,11 +304,11 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_table_restore_status_request.GetTableRestoreStatusRequest = {}  # type: ignore[typeddict-item]
-        input["table_restore_request_id"] = table_restore_request_id
+        input_: aws_sdk_redshift_serverless.types.get_table_restore_status_request.GetTableRestoreStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["table_restore_request_id"] = table_restore_request_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,16 +349,16 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_snapshot_copy_configurations_request.ListSnapshotCopyConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_snapshot_copy_configurations_request.ListSnapshotCopyConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,24 +403,24 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_snapshots_request.ListSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_snapshots_request.ListSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
         if namespace_arn is not None:
-            input["namespace_arn"] = namespace_arn
+            input_["namespace_arn"] = namespace_arn
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,18 +461,18 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_table_restore_status_request.ListTableRestoreStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_table_restore_status_request.ListTableRestoreStatusRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -518,22 +519,24 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.restore_from_snapshot_request.RestoreFromSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.restore_from_snapshot_request.RestoreFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["workgroup_name"] = workgroup_name
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if manage_admin_password is not None:
-            input["manage_admin_password"] = manage_admin_password
+            input_["manage_admin_password"] = manage_admin_password
         if admin_password_secret_kms_key_id is not None:
-            input["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
+            input_["admin_password_secret_kms_key_id"] = (
+                admin_password_secret_kms_key_id
+            )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,26 +587,26 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.restore_table_from_snapshot_request.RestoreTableFromSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["workgroup_name"] = workgroup_name
-        input["snapshot_name"] = snapshot_name
-        input["source_database_name"] = source_database_name
+        input_: aws_sdk_redshift_serverless.types.restore_table_from_snapshot_request.RestoreTableFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["workgroup_name"] = workgroup_name
+        input_["snapshot_name"] = snapshot_name
+        input_["source_database_name"] = source_database_name
         if source_schema_name is not None:
-            input["source_schema_name"] = source_schema_name
-        input["source_table_name"] = source_table_name
+            input_["source_schema_name"] = source_schema_name
+        input_["source_table_name"] = source_table_name
         if target_database_name is not None:
-            input["target_database_name"] = target_database_name
+            input_["target_database_name"] = target_database_name
         if target_schema_name is not None:
-            input["target_schema_name"] = target_schema_name
-        input["new_table_name"] = new_table_name
+            input_["target_schema_name"] = target_schema_name
+        input_["new_table_name"] = new_table_name
         if activate_case_sensitive_identifier is not None:
-            input["activate_case_sensitive_identifier"] = (
+            input_["activate_case_sensitive_identifier"] = (
                 activate_case_sensitive_identifier
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -638,13 +641,13 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_snapshot_request.UpdateSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_redshift_serverless.types.update_snapshot_request.UpdateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_name"] = snapshot_name
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -679,13 +682,13 @@ class SnapshotResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_snapshot_copy_configuration_request.UpdateSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_copy_configuration_id"] = snapshot_copy_configuration_id
+        input_: aws_sdk_redshift_serverless.types.update_snapshot_copy_configuration_request.UpdateSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_copy_configuration_id"] = snapshot_copy_configuration_id
         if snapshot_retention_period is not None:
-            input["snapshot_retention_period"] = snapshot_retention_period
+            input_["snapshot_retention_period"] = snapshot_retention_period
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -730,16 +733,16 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_redshift_serverless.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["snapshot_name"] = snapshot_name
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -781,16 +784,16 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.create_snapshot_copy_configuration_request.CreateSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["destination_region"] = destination_region
+        input_: aws_sdk_redshift_serverless.types.create_snapshot_copy_configuration_request.CreateSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["destination_region"] = destination_region
         if snapshot_retention_period is not None:
-            input["snapshot_retention_period"] = snapshot_retention_period
+            input_["snapshot_retention_period"] = snapshot_retention_period
         if destination_kms_key_id is not None:
-            input["destination_kms_key_id"] = destination_kms_key_id
+            input_["destination_kms_key_id"] = destination_kms_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -824,11 +827,11 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_redshift_serverless.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_name"] = snapshot_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -862,11 +865,11 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.delete_snapshot_copy_configuration_request.DeleteSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_copy_configuration_id"] = snapshot_copy_configuration_id
+        input_: aws_sdk_redshift_serverless.types.delete_snapshot_copy_configuration_request.DeleteSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_copy_configuration_id"] = snapshot_copy_configuration_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -904,16 +907,16 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_snapshot_request.GetSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.get_snapshot_request.GetSnapshotRequest = {}  # type: ignore[typeddict-item]
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -947,11 +950,11 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_table_restore_status_request.GetTableRestoreStatusRequest = {}  # type: ignore[typeddict-item]
-        input["table_restore_request_id"] = table_restore_request_id
+        input_: aws_sdk_redshift_serverless.types.get_table_restore_status_request.GetTableRestoreStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["table_restore_request_id"] = table_restore_request_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -993,16 +996,16 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_snapshot_copy_configurations_request.ListSnapshotCopyConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_snapshot_copy_configurations_request.ListSnapshotCopyConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1048,24 +1051,24 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_snapshots_request.ListSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_snapshots_request.ListSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
         if namespace_arn is not None:
-            input["namespace_arn"] = namespace_arn
+            input_["namespace_arn"] = namespace_arn
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1107,18 +1110,18 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_table_restore_status_request.ListTableRestoreStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_table_restore_status_request.ListTableRestoreStatusRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
         if workgroup_name is not None:
-            input["workgroup_name"] = workgroup_name
+            input_["workgroup_name"] = workgroup_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1166,22 +1169,24 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.restore_from_snapshot_request.RestoreFromSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.restore_from_snapshot_request.RestoreFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["workgroup_name"] = workgroup_name
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if snapshot_arn is not None:
-            input["snapshot_arn"] = snapshot_arn
+            input_["snapshot_arn"] = snapshot_arn
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if manage_admin_password is not None:
-            input["manage_admin_password"] = manage_admin_password
+            input_["manage_admin_password"] = manage_admin_password
         if admin_password_secret_kms_key_id is not None:
-            input["admin_password_secret_kms_key_id"] = admin_password_secret_kms_key_id
+            input_["admin_password_secret_kms_key_id"] = (
+                admin_password_secret_kms_key_id
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1233,26 +1238,26 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.restore_table_from_snapshot_request.RestoreTableFromSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["workgroup_name"] = workgroup_name
-        input["snapshot_name"] = snapshot_name
-        input["source_database_name"] = source_database_name
+        input_: aws_sdk_redshift_serverless.types.restore_table_from_snapshot_request.RestoreTableFromSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["workgroup_name"] = workgroup_name
+        input_["snapshot_name"] = snapshot_name
+        input_["source_database_name"] = source_database_name
         if source_schema_name is not None:
-            input["source_schema_name"] = source_schema_name
-        input["source_table_name"] = source_table_name
+            input_["source_schema_name"] = source_schema_name
+        input_["source_table_name"] = source_table_name
         if target_database_name is not None:
-            input["target_database_name"] = target_database_name
+            input_["target_database_name"] = target_database_name
         if target_schema_name is not None:
-            input["target_schema_name"] = target_schema_name
-        input["new_table_name"] = new_table_name
+            input_["target_schema_name"] = target_schema_name
+        input_["new_table_name"] = new_table_name
         if activate_case_sensitive_identifier is not None:
-            input["activate_case_sensitive_identifier"] = (
+            input_["activate_case_sensitive_identifier"] = (
                 activate_case_sensitive_identifier
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1288,13 +1293,13 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_snapshot_request.UpdateSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_redshift_serverless.types.update_snapshot_request.UpdateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_name"] = snapshot_name
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1330,13 +1335,13 @@ class AsyncSnapshotResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.update_snapshot_copy_configuration_request.UpdateSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_copy_configuration_id"] = snapshot_copy_configuration_id
+        input_: aws_sdk_redshift_serverless.types.update_snapshot_copy_configuration_request.UpdateSnapshotCopyConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_copy_configuration_id"] = snapshot_copy_configuration_id
         if snapshot_retention_period is not None:
-            input["snapshot_retention_period"] = snapshot_retention_period
+            input_["snapshot_retention_period"] = snapshot_retention_period
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

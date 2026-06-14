@@ -135,35 +135,35 @@ class FirewallRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_firewall_rule_input.CreateFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["action"] = action
+        input_: aws_sdk_route53globalresolver.types.create_firewall_rule_input.CreateFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
         if block_override_dns_type is not None:
-            input["block_override_dns_type"] = block_override_dns_type
+            input_["block_override_dns_type"] = block_override_dns_type
         if block_override_domain is not None:
-            input["block_override_domain"] = block_override_domain
+            input_["block_override_domain"] = block_override_domain
         if block_override_ttl is not None:
-            input["block_override_ttl"] = block_override_ttl
+            input_["block_override_ttl"] = block_override_ttl
         if block_response is not None:
-            input["block_response"] = block_response
+            input_["block_response"] = block_response
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dns_advanced_protection is not None:
-            input["dns_advanced_protection"] = dns_advanced_protection
+            input_["dns_advanced_protection"] = dns_advanced_protection
         if firewall_domain_list_id is not None:
-            input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["name"] = name
+            input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["name"] = name
         if priority is not None:
-            input["priority"] = priority
-        input["dns_view_id"] = dns_view_id
+            input_["priority"] = priority
+        input_["dns_view_id"] = dns_view_id
         if q_type is not None:
-            input["q_type"] = q_type
+            input_["q_type"] = q_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -196,11 +196,11 @@ class FirewallRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_firewall_rule_input.GetFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_id"] = firewall_rule_id
+        input_: aws_sdk_route53globalresolver.types.get_firewall_rule_input.GetFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_id"] = firewall_rule_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -275,32 +275,32 @@ class FirewallRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_firewall_rule_input.UpdateFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.update_firewall_rule_input.UpdateFirewallRuleInput = {}  # type: ignore[typeddict-item]
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if block_override_dns_type is not None:
-            input["block_override_dns_type"] = block_override_dns_type
+            input_["block_override_dns_type"] = block_override_dns_type
         if block_override_domain is not None:
-            input["block_override_domain"] = block_override_domain
+            input_["block_override_domain"] = block_override_domain
         if block_override_ttl is not None:
-            input["block_override_ttl"] = block_override_ttl
+            input_["block_override_ttl"] = block_override_ttl
         if block_response is not None:
-            input["block_response"] = block_response
-        input["client_token"] = client_token
+            input_["block_response"] = block_response
+        input_["client_token"] = client_token
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dns_advanced_protection is not None:
-            input["dns_advanced_protection"] = dns_advanced_protection
-        input["firewall_rule_id"] = firewall_rule_id
+            input_["dns_advanced_protection"] = dns_advanced_protection
+        input_["firewall_rule_id"] = firewall_rule_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,11 +333,11 @@ class FirewallRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_firewall_rule_input.DeleteFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_id"] = firewall_rule_id
+        input_: aws_sdk_route53globalresolver.types.delete_firewall_rule_input.DeleteFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_id"] = firewall_rule_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,17 +376,17 @@ class FirewallRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_firewall_rules_input.ListFirewallRulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_firewall_rules_input.ListFirewallRulesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["dns_view_id"] = dns_view_id
+            input_["next_token"] = next_token
+        input_["dns_view_id"] = dns_view_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -419,11 +419,11 @@ class FirewallRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.batch_create_firewall_rule_input.BatchCreateFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rules"] = firewall_rules
+        input_: aws_sdk_route53globalresolver.types.batch_create_firewall_rule_input.BatchCreateFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rules"] = firewall_rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,11 +456,11 @@ class FirewallRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.batch_delete_firewall_rule_input.BatchDeleteFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rules"] = firewall_rules
+        input_: aws_sdk_route53globalresolver.types.batch_delete_firewall_rule_input.BatchDeleteFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rules"] = firewall_rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -493,11 +493,11 @@ class FirewallRule:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.batch_update_firewall_rule_input.BatchUpdateFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rules"] = firewall_rules
+        input_: aws_sdk_route53globalresolver.types.batch_update_firewall_rule_input.BatchUpdateFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rules"] = firewall_rules
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,35 +584,35 @@ class AsyncFirewallRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_firewall_rule_input.CreateFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["action"] = action
+        input_: aws_sdk_route53globalresolver.types.create_firewall_rule_input.CreateFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
         if block_override_dns_type is not None:
-            input["block_override_dns_type"] = block_override_dns_type
+            input_["block_override_dns_type"] = block_override_dns_type
         if block_override_domain is not None:
-            input["block_override_domain"] = block_override_domain
+            input_["block_override_domain"] = block_override_domain
         if block_override_ttl is not None:
-            input["block_override_ttl"] = block_override_ttl
+            input_["block_override_ttl"] = block_override_ttl
         if block_response is not None:
-            input["block_response"] = block_response
+            input_["block_response"] = block_response
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dns_advanced_protection is not None:
-            input["dns_advanced_protection"] = dns_advanced_protection
+            input_["dns_advanced_protection"] = dns_advanced_protection
         if firewall_domain_list_id is not None:
-            input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["name"] = name
+            input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["name"] = name
         if priority is not None:
-            input["priority"] = priority
-        input["dns_view_id"] = dns_view_id
+            input_["priority"] = priority
+        input_["dns_view_id"] = dns_view_id
         if q_type is not None:
-            input["q_type"] = q_type
+            input_["q_type"] = q_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -646,11 +646,11 @@ class AsyncFirewallRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_firewall_rule_input.GetFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_id"] = firewall_rule_id
+        input_: aws_sdk_route53globalresolver.types.get_firewall_rule_input.GetFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_id"] = firewall_rule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -726,32 +726,32 @@ class AsyncFirewallRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_firewall_rule_input.UpdateFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.update_firewall_rule_input.UpdateFirewallRuleInput = {}  # type: ignore[typeddict-item]
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if block_override_dns_type is not None:
-            input["block_override_dns_type"] = block_override_dns_type
+            input_["block_override_dns_type"] = block_override_dns_type
         if block_override_domain is not None:
-            input["block_override_domain"] = block_override_domain
+            input_["block_override_domain"] = block_override_domain
         if block_override_ttl is not None:
-            input["block_override_ttl"] = block_override_ttl
+            input_["block_override_ttl"] = block_override_ttl
         if block_response is not None:
-            input["block_response"] = block_response
-        input["client_token"] = client_token
+            input_["block_response"] = block_response
+        input_["client_token"] = client_token
         if confidence_threshold is not None:
-            input["confidence_threshold"] = confidence_threshold
+            input_["confidence_threshold"] = confidence_threshold
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if dns_advanced_protection is not None:
-            input["dns_advanced_protection"] = dns_advanced_protection
-        input["firewall_rule_id"] = firewall_rule_id
+            input_["dns_advanced_protection"] = dns_advanced_protection
+        input_["firewall_rule_id"] = firewall_rule_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if priority is not None:
-            input["priority"] = priority
+            input_["priority"] = priority
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -785,11 +785,11 @@ class AsyncFirewallRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_firewall_rule_input.DeleteFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rule_id"] = firewall_rule_id
+        input_: aws_sdk_route53globalresolver.types.delete_firewall_rule_input.DeleteFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rule_id"] = firewall_rule_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,17 +829,17 @@ class AsyncFirewallRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_firewall_rules_input.ListFirewallRulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_firewall_rules_input.ListFirewallRulesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["dns_view_id"] = dns_view_id
+            input_["next_token"] = next_token
+        input_["dns_view_id"] = dns_view_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -873,11 +873,11 @@ class AsyncFirewallRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.batch_create_firewall_rule_input.BatchCreateFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rules"] = firewall_rules
+        input_: aws_sdk_route53globalresolver.types.batch_create_firewall_rule_input.BatchCreateFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rules"] = firewall_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -911,11 +911,11 @@ class AsyncFirewallRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.batch_delete_firewall_rule_input.BatchDeleteFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rules"] = firewall_rules
+        input_: aws_sdk_route53globalresolver.types.batch_delete_firewall_rule_input.BatchDeleteFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rules"] = firewall_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -949,11 +949,11 @@ class AsyncFirewallRule:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.batch_update_firewall_rule_input.BatchUpdateFirewallRuleInput = {}  # type: ignore[typeddict-item]
-        input["firewall_rules"] = firewall_rules
+        input_: aws_sdk_route53globalresolver.types.batch_update_firewall_rule_input.BatchUpdateFirewallRuleInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_rules"] = firewall_rules
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

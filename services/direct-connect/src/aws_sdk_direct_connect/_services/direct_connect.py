@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_direct_connect._auth._signers
+import aws_sdk_direct_connect._auth._sigv4
 from aws_sdk_direct_connect._auth._identity import Credentials
 from aws_sdk_direct_connect._auth._providers import (
     CredentialsProvider,
@@ -319,17 +321,17 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.accept_direct_connect_gateway_association_proposal_request.AcceptDirectConnectGatewayAssociationProposalRequest = {}  # type: ignore[typeddict-item]
-        input["direct_connect_gateway_id"] = direct_connect_gateway_id
-        input["proposal_id"] = proposal_id
-        input["associated_gateway_owner_account"] = associated_gateway_owner_account
+        input_: aws_sdk_direct_connect.types.accept_direct_connect_gateway_association_proposal_request.AcceptDirectConnectGatewayAssociationProposalRequest = {}  # type: ignore[typeddict-item]
+        input_["direct_connect_gateway_id"] = direct_connect_gateway_id
+        input_["proposal_id"] = proposal_id
+        input_["associated_gateway_owner_account"] = associated_gateway_owner_account
         if override_allowed_prefixes_to_direct_connect_gateway is not None:
-            input["override_allowed_prefixes_to_direct_connect_gateway"] = (
+            input_["override_allowed_prefixes_to_direct_connect_gateway"] = (
                 override_allowed_prefixes_to_direct_connect_gateway
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -368,15 +370,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.allocate_connection_on_interconnect_request.AllocateConnectionOnInterconnectRequest = {}  # type: ignore[typeddict-item]
-        input["bandwidth"] = bandwidth
-        input["connection_name"] = connection_name
-        input["owner_account"] = owner_account
-        input["interconnect_id"] = interconnect_id
-        input["vlan"] = vlan
+        input_: aws_sdk_direct_connect.types.allocate_connection_on_interconnect_request.AllocateConnectionOnInterconnectRequest = {}  # type: ignore[typeddict-item]
+        input_["bandwidth"] = bandwidth
+        input_["connection_name"] = connection_name
+        input_["owner_account"] = owner_account
+        input_["interconnect_id"] = interconnect_id
+        input_["vlan"] = vlan
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,17 +419,17 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.allocate_hosted_connection_request.AllocateHostedConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["owner_account"] = owner_account
-        input["bandwidth"] = bandwidth
-        input["connection_name"] = connection_name
-        input["vlan"] = vlan
+        input_: aws_sdk_direct_connect.types.allocate_hosted_connection_request.AllocateHostedConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["owner_account"] = owner_account
+        input_["bandwidth"] = bandwidth
+        input_["connection_name"] = connection_name
+        input_["vlan"] = vlan
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -464,15 +466,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.allocate_private_virtual_interface_request.AllocatePrivateVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["owner_account"] = owner_account
-        input["new_private_virtual_interface_allocation"] = (
+        input_: aws_sdk_direct_connect.types.allocate_private_virtual_interface_request.AllocatePrivateVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["owner_account"] = owner_account
+        input_["new_private_virtual_interface_allocation"] = (
             new_private_virtual_interface_allocation
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -509,15 +511,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.allocate_public_virtual_interface_request.AllocatePublicVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["owner_account"] = owner_account
-        input["new_public_virtual_interface_allocation"] = (
+        input_: aws_sdk_direct_connect.types.allocate_public_virtual_interface_request.AllocatePublicVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["owner_account"] = owner_account
+        input_["new_public_virtual_interface_allocation"] = (
             new_public_virtual_interface_allocation
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -554,15 +556,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.allocate_transit_virtual_interface_request.AllocateTransitVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["owner_account"] = owner_account
-        input["new_transit_virtual_interface_allocation"] = (
+        input_: aws_sdk_direct_connect.types.allocate_transit_virtual_interface_request.AllocateTransitVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["owner_account"] = owner_account
+        input_["new_transit_virtual_interface_allocation"] = (
             new_transit_virtual_interface_allocation
         )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -595,12 +597,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.associate_connection_with_lag_request.AssociateConnectionWithLagRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["lag_id"] = lag_id
+        input_: aws_sdk_direct_connect.types.associate_connection_with_lag_request.AssociateConnectionWithLagRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["lag_id"] = lag_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -633,12 +635,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.associate_hosted_connection_request.AssociateHostedConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["parent_connection_id"] = parent_connection_id
+        input_: aws_sdk_direct_connect.types.associate_hosted_connection_request.AssociateHostedConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["parent_connection_id"] = parent_connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -679,17 +681,17 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.associate_mac_sec_key_request.AssociateMacSecKeyRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_direct_connect.types.associate_mac_sec_key_request.AssociateMacSecKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
         if secret_arn is not None:
-            input["secret_arn"] = secret_arn
+            input_["secret_arn"] = secret_arn
         if ckn is not None:
-            input["ckn"] = ckn
+            input_["ckn"] = ckn
         if cak is not None:
-            input["cak"] = cak
+            input_["cak"] = cak
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -724,12 +726,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.associate_virtual_interface_request.AssociateVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
-        input["connection_id"] = connection_id
+        input_: aws_sdk_direct_connect.types.associate_virtual_interface_request.AssociateVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
+        input_["connection_id"] = connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -762,11 +764,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.confirm_connection_request.ConfirmConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_direct_connect.types.confirm_connection_request.ConfirmConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -801,12 +803,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.confirm_customer_agreement_request.ConfirmCustomerAgreementRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.confirm_customer_agreement_request.ConfirmCustomerAgreementRequest = {}  # type: ignore[typeddict-item]
         if agreement_name is not None:
-            input["agreement_name"] = agreement_name
+            input_["agreement_name"] = agreement_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -847,15 +849,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.confirm_private_virtual_interface_request.ConfirmPrivateVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
+        input_: aws_sdk_direct_connect.types.confirm_private_virtual_interface_request.ConfirmPrivateVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
         if virtual_gateway_id is not None:
-            input["virtual_gateway_id"] = virtual_gateway_id
+            input_["virtual_gateway_id"] = virtual_gateway_id
         if direct_connect_gateway_id is not None:
-            input["direct_connect_gateway_id"] = direct_connect_gateway_id
+            input_["direct_connect_gateway_id"] = direct_connect_gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -888,11 +890,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.confirm_public_virtual_interface_request.ConfirmPublicVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
+        input_: aws_sdk_direct_connect.types.confirm_public_virtual_interface_request.ConfirmPublicVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -927,12 +929,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.confirm_transit_virtual_interface_request.ConfirmTransitVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
-        input["direct_connect_gateway_id"] = direct_connect_gateway_id
+        input_: aws_sdk_direct_connect.types.confirm_transit_virtual_interface_request.ConfirmTransitVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
+        input_["direct_connect_gateway_id"] = direct_connect_gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -971,14 +973,14 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_bgp_peer_request.CreateBGPPeerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.create_bgp_peer_request.CreateBGPPeerRequest = {}  # type: ignore[typeddict-item]
         if virtual_interface_id is not None:
-            input["virtual_interface_id"] = virtual_interface_id
+            input_["virtual_interface_id"] = virtual_interface_id
         if new_bgp_peer is not None:
-            input["new_bgp_peer"] = new_bgp_peer
+            input_["new_bgp_peer"] = new_bgp_peer
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1025,21 +1027,21 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["location"] = location
-        input["bandwidth"] = bandwidth
-        input["connection_name"] = connection_name
+        input_: aws_sdk_direct_connect.types.create_connection_request.CreateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["location"] = location
+        input_["bandwidth"] = bandwidth
+        input_["connection_name"] = connection_name
         if lag_id is not None:
-            input["lag_id"] = lag_id
+            input_["lag_id"] = lag_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
         if request_mac_sec is not None:
-            input["request_mac_sec"] = request_mac_sec
+            input_["request_mac_sec"] = request_mac_sec
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1078,15 +1080,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_direct_connect_gateway_request.CreateDirectConnectGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["direct_connect_gateway_name"] = direct_connect_gateway_name
+        input_: aws_sdk_direct_connect.types.create_direct_connect_gateway_request.CreateDirectConnectGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["direct_connect_gateway_name"] = direct_connect_gateway_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if amazon_side_asn is not None:
-            input["amazon_side_asn"] = amazon_side_asn
+            input_["amazon_side_asn"] = amazon_side_asn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1131,19 +1133,19 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_direct_connect_gateway_association_request.CreateDirectConnectGatewayAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["direct_connect_gateway_id"] = direct_connect_gateway_id
+        input_: aws_sdk_direct_connect.types.create_direct_connect_gateway_association_request.CreateDirectConnectGatewayAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["direct_connect_gateway_id"] = direct_connect_gateway_id
         if gateway_id is not None:
-            input["gateway_id"] = gateway_id
+            input_["gateway_id"] = gateway_id
         if add_allowed_prefixes_to_direct_connect_gateway is not None:
-            input["add_allowed_prefixes_to_direct_connect_gateway"] = (
+            input_["add_allowed_prefixes_to_direct_connect_gateway"] = (
                 add_allowed_prefixes_to_direct_connect_gateway
             )
         if virtual_gateway_id is not None:
-            input["virtual_gateway_id"] = virtual_gateway_id
+            input_["virtual_gateway_id"] = virtual_gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1188,23 +1190,23 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_direct_connect_gateway_association_proposal_request.CreateDirectConnectGatewayAssociationProposalRequest = {}  # type: ignore[typeddict-item]
-        input["direct_connect_gateway_id"] = direct_connect_gateway_id
-        input["direct_connect_gateway_owner_account"] = (
+        input_: aws_sdk_direct_connect.types.create_direct_connect_gateway_association_proposal_request.CreateDirectConnectGatewayAssociationProposalRequest = {}  # type: ignore[typeddict-item]
+        input_["direct_connect_gateway_id"] = direct_connect_gateway_id
+        input_["direct_connect_gateway_owner_account"] = (
             direct_connect_gateway_owner_account
         )
-        input["gateway_id"] = gateway_id
+        input_["gateway_id"] = gateway_id
         if add_allowed_prefixes_to_direct_connect_gateway is not None:
-            input["add_allowed_prefixes_to_direct_connect_gateway"] = (
+            input_["add_allowed_prefixes_to_direct_connect_gateway"] = (
                 add_allowed_prefixes_to_direct_connect_gateway
             )
         if remove_allowed_prefixes_to_direct_connect_gateway is not None:
-            input["remove_allowed_prefixes_to_direct_connect_gateway"] = (
+            input_["remove_allowed_prefixes_to_direct_connect_gateway"] = (
                 remove_allowed_prefixes_to_direct_connect_gateway
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1253,21 +1255,21 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_interconnect_request.CreateInterconnectRequest = {}  # type: ignore[typeddict-item]
-        input["interconnect_name"] = interconnect_name
-        input["bandwidth"] = bandwidth
-        input["location"] = location
+        input_: aws_sdk_direct_connect.types.create_interconnect_request.CreateInterconnectRequest = {}  # type: ignore[typeddict-item]
+        input_["interconnect_name"] = interconnect_name
+        input_["bandwidth"] = bandwidth
+        input_["location"] = location
         if lag_id is not None:
-            input["lag_id"] = lag_id
+            input_["lag_id"] = lag_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
         if request_mac_sec is not None:
-            input["request_mac_sec"] = request_mac_sec
+            input_["request_mac_sec"] = request_mac_sec
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1322,24 +1324,24 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_lag_request.CreateLagRequest = {}  # type: ignore[typeddict-item]
-        input["number_of_connections"] = number_of_connections
-        input["location"] = location
-        input["connections_bandwidth"] = connections_bandwidth
-        input["lag_name"] = lag_name
+        input_: aws_sdk_direct_connect.types.create_lag_request.CreateLagRequest = {}  # type: ignore[typeddict-item]
+        input_["number_of_connections"] = number_of_connections
+        input_["location"] = location
+        input_["connections_bandwidth"] = connections_bandwidth
+        input_["lag_name"] = lag_name
         if connection_id is not None:
-            input["connection_id"] = connection_id
+            input_["connection_id"] = connection_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if child_connection_tags is not None:
-            input["child_connection_tags"] = child_connection_tags
+            input_["child_connection_tags"] = child_connection_tags
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
         if request_mac_sec is not None:
-            input["request_mac_sec"] = request_mac_sec
+            input_["request_mac_sec"] = request_mac_sec
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1374,12 +1376,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_private_virtual_interface_request.CreatePrivateVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["new_private_virtual_interface"] = new_private_virtual_interface
+        input_: aws_sdk_direct_connect.types.create_private_virtual_interface_request.CreatePrivateVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["new_private_virtual_interface"] = new_private_virtual_interface
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1414,12 +1416,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_public_virtual_interface_request.CreatePublicVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["new_public_virtual_interface"] = new_public_virtual_interface
+        input_: aws_sdk_direct_connect.types.create_public_virtual_interface_request.CreatePublicVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["new_public_virtual_interface"] = new_public_virtual_interface
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1454,12 +1456,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.create_transit_virtual_interface_request.CreateTransitVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["new_transit_virtual_interface"] = new_transit_virtual_interface
+        input_: aws_sdk_direct_connect.types.create_transit_virtual_interface_request.CreateTransitVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["new_transit_virtual_interface"] = new_transit_virtual_interface
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1506,20 +1508,20 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.delete_bgp_peer_request.DeleteBGPPeerRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.delete_bgp_peer_request.DeleteBGPPeerRequest = {}  # type: ignore[typeddict-item]
         if virtual_interface_id is not None:
-            input["virtual_interface_id"] = virtual_interface_id
+            input_["virtual_interface_id"] = virtual_interface_id
         if asn is not None:
-            input["asn"] = asn
+            input_["asn"] = asn
         if asn_long is not None:
-            input["asn_long"] = asn_long
+            input_["asn_long"] = asn_long
         if customer_address is not None:
-            input["customer_address"] = customer_address
+            input_["customer_address"] = customer_address
         if bgp_peer_id is not None:
-            input["bgp_peer_id"] = bgp_peer_id
+            input_["bgp_peer_id"] = bgp_peer_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1550,11 +1552,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_direct_connect.types.delete_connection_request.DeleteConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1587,11 +1589,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.delete_direct_connect_gateway_request.DeleteDirectConnectGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["direct_connect_gateway_id"] = direct_connect_gateway_id
+        input_: aws_sdk_direct_connect.types.delete_direct_connect_gateway_request.DeleteDirectConnectGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["direct_connect_gateway_id"] = direct_connect_gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1634,16 +1636,16 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.delete_direct_connect_gateway_association_request.DeleteDirectConnectGatewayAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.delete_direct_connect_gateway_association_request.DeleteDirectConnectGatewayAssociationRequest = {}  # type: ignore[typeddict-item]
         if association_id is not None:
-            input["association_id"] = association_id
+            input_["association_id"] = association_id
         if direct_connect_gateway_id is not None:
-            input["direct_connect_gateway_id"] = direct_connect_gateway_id
+            input_["direct_connect_gateway_id"] = direct_connect_gateway_id
         if virtual_gateway_id is not None:
-            input["virtual_gateway_id"] = virtual_gateway_id
+            input_["virtual_gateway_id"] = virtual_gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1676,11 +1678,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.delete_direct_connect_gateway_association_proposal_request.DeleteDirectConnectGatewayAssociationProposalRequest = {}  # type: ignore[typeddict-item]
-        input["proposal_id"] = proposal_id
+        input_: aws_sdk_direct_connect.types.delete_direct_connect_gateway_association_proposal_request.DeleteDirectConnectGatewayAssociationProposalRequest = {}  # type: ignore[typeddict-item]
+        input_["proposal_id"] = proposal_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1713,11 +1715,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.delete_interconnect_request.DeleteInterconnectRequest = {}  # type: ignore[typeddict-item]
-        input["interconnect_id"] = interconnect_id
+        input_: aws_sdk_direct_connect.types.delete_interconnect_request.DeleteInterconnectRequest = {}  # type: ignore[typeddict-item]
+        input_["interconnect_id"] = interconnect_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1748,11 +1750,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.delete_lag_request.DeleteLagRequest = {}  # type: ignore[typeddict-item]
-        input["lag_id"] = lag_id
+        input_: aws_sdk_direct_connect.types.delete_lag_request.DeleteLagRequest = {}  # type: ignore[typeddict-item]
+        input_["lag_id"] = lag_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1785,11 +1787,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.delete_virtual_interface_request.DeleteVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
+        input_: aws_sdk_direct_connect.types.delete_virtual_interface_request.DeleteVirtualInterfaceRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1830,15 +1832,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_connection_loa_request.DescribeConnectionLoaRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_direct_connect.types.describe_connection_loa_request.DescribeConnectionLoaRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
         if loa_content_type is not None:
-            input["loa_content_type"] = loa_content_type
+            input_["loa_content_type"] = loa_content_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1879,16 +1881,16 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_connections_request.DescribeConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.describe_connections_request.DescribeConnectionsRequest = {}  # type: ignore[typeddict-item]
         if connection_id is not None:
-            input["connection_id"] = connection_id
+            input_["connection_id"] = connection_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1919,11 +1921,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_connections_on_interconnect_request.DescribeConnectionsOnInterconnectRequest = {}  # type: ignore[typeddict-item]
-        input["interconnect_id"] = interconnect_id
+        input_: aws_sdk_direct_connect.types.describe_connections_on_interconnect_request.DescribeConnectionsOnInterconnectRequest = {}  # type: ignore[typeddict-item]
+        input_["interconnect_id"] = interconnect_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2002,20 +2004,20 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_direct_connect_gateway_association_proposals_request.DescribeDirectConnectGatewayAssociationProposalsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.describe_direct_connect_gateway_association_proposals_request.DescribeDirectConnectGatewayAssociationProposalsRequest = {}  # type: ignore[typeddict-item]
         if direct_connect_gateway_id is not None:
-            input["direct_connect_gateway_id"] = direct_connect_gateway_id
+            input_["direct_connect_gateway_id"] = direct_connect_gateway_id
         if proposal_id is not None:
-            input["proposal_id"] = proposal_id
+            input_["proposal_id"] = proposal_id
         if associated_gateway_id is not None:
-            input["associated_gateway_id"] = associated_gateway_id
+            input_["associated_gateway_id"] = associated_gateway_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2070,22 +2072,22 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_direct_connect_gateway_associations_request.DescribeDirectConnectGatewayAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.describe_direct_connect_gateway_associations_request.DescribeDirectConnectGatewayAssociationsRequest = {}  # type: ignore[typeddict-item]
         if association_id is not None:
-            input["association_id"] = association_id
+            input_["association_id"] = association_id
         if associated_gateway_id is not None:
-            input["associated_gateway_id"] = associated_gateway_id
+            input_["associated_gateway_id"] = associated_gateway_id
         if direct_connect_gateway_id is not None:
-            input["direct_connect_gateway_id"] = direct_connect_gateway_id
+            input_["direct_connect_gateway_id"] = direct_connect_gateway_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if virtual_gateway_id is not None:
-            input["virtual_gateway_id"] = virtual_gateway_id
+            input_["virtual_gateway_id"] = virtual_gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2132,18 +2134,18 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_direct_connect_gateway_attachments_request.DescribeDirectConnectGatewayAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.describe_direct_connect_gateway_attachments_request.DescribeDirectConnectGatewayAttachmentsRequest = {}  # type: ignore[typeddict-item]
         if direct_connect_gateway_id is not None:
-            input["direct_connect_gateway_id"] = direct_connect_gateway_id
+            input_["direct_connect_gateway_id"] = direct_connect_gateway_id
         if virtual_interface_id is not None:
-            input["virtual_interface_id"] = virtual_interface_id
+            input_["virtual_interface_id"] = virtual_interface_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2186,16 +2188,16 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_direct_connect_gateways_request.DescribeDirectConnectGatewaysRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.describe_direct_connect_gateways_request.DescribeDirectConnectGatewaysRequest = {}  # type: ignore[typeddict-item]
         if direct_connect_gateway_id is not None:
-            input["direct_connect_gateway_id"] = direct_connect_gateway_id
+            input_["direct_connect_gateway_id"] = direct_connect_gateway_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2234,15 +2236,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_hosted_connections_request.DescribeHostedConnectionsRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_direct_connect.types.describe_hosted_connections_request.DescribeHostedConnectionsRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2283,15 +2285,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_interconnect_loa_request.DescribeInterconnectLoaRequest = {}  # type: ignore[typeddict-item]
-        input["interconnect_id"] = interconnect_id
+        input_: aws_sdk_direct_connect.types.describe_interconnect_loa_request.DescribeInterconnectLoaRequest = {}  # type: ignore[typeddict-item]
+        input_["interconnect_id"] = interconnect_id
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
         if loa_content_type is not None:
-            input["loa_content_type"] = loa_content_type
+            input_["loa_content_type"] = loa_content_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2334,16 +2336,16 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_interconnects_request.DescribeInterconnectsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.describe_interconnects_request.DescribeInterconnectsRequest = {}  # type: ignore[typeddict-item]
         if interconnect_id is not None:
-            input["interconnect_id"] = interconnect_id
+            input_["interconnect_id"] = interconnect_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2382,16 +2384,16 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_lags_request.DescribeLagsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.describe_lags_request.DescribeLagsRequest = {}  # type: ignore[typeddict-item]
         if lag_id is not None:
-            input["lag_id"] = lag_id
+            input_["lag_id"] = lag_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2430,15 +2432,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_loa_request.DescribeLoaRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_direct_connect.types.describe_loa_request.DescribeLoaRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
         if loa_content_type is not None:
-            input["loa_content_type"] = loa_content_type
+            input_["loa_content_type"] = loa_content_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2501,13 +2503,13 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_router_configuration_request.DescribeRouterConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
+        input_: aws_sdk_direct_connect.types.describe_router_configuration_request.DescribeRouterConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
         if router_type_identifier is not None:
-            input["router_type_identifier"] = router_type_identifier
+            input_["router_type_identifier"] = router_type_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2540,11 +2542,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arns"] = resource_arns
+        input_: aws_sdk_direct_connect.types.describe_tags_request.DescribeTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arns"] = resource_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2619,18 +2621,18 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.describe_virtual_interfaces_request.DescribeVirtualInterfacesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.describe_virtual_interfaces_request.DescribeVirtualInterfacesRequest = {}  # type: ignore[typeddict-item]
         if connection_id is not None:
-            input["connection_id"] = connection_id
+            input_["connection_id"] = connection_id
         if virtual_interface_id is not None:
-            input["virtual_interface_id"] = virtual_interface_id
+            input_["virtual_interface_id"] = virtual_interface_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2663,12 +2665,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.disassociate_connection_from_lag_request.DisassociateConnectionFromLagRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["lag_id"] = lag_id
+        input_: aws_sdk_direct_connect.types.disassociate_connection_from_lag_request.DisassociateConnectionFromLagRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["lag_id"] = lag_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2703,12 +2705,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.disassociate_mac_sec_key_request.DisassociateMacSecKeyRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
-        input["secret_arn"] = secret_arn
+        input_: aws_sdk_direct_connect.types.disassociate_mac_sec_key_request.DisassociateMacSecKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
+        input_["secret_arn"] = secret_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2761,22 +2763,22 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.list_virtual_interface_test_history_request.ListVirtualInterfaceTestHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.list_virtual_interface_test_history_request.ListVirtualInterfaceTestHistoryRequest = {}  # type: ignore[typeddict-item]
         if test_id is not None:
-            input["test_id"] = test_id
+            input_["test_id"] = test_id
         if virtual_interface_id is not None:
-            input["virtual_interface_id"] = virtual_interface_id
+            input_["virtual_interface_id"] = virtual_interface_id
         if bgp_peers is not None:
-            input["bgp_peers"] = bgp_peers
+            input_["bgp_peers"] = bgp_peers
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2817,15 +2819,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.start_bgp_failover_test_request.StartBgpFailoverTestRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
+        input_: aws_sdk_direct_connect.types.start_bgp_failover_test_request.StartBgpFailoverTestRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
         if bgp_peers is not None:
-            input["bgp_peers"] = bgp_peers
+            input_["bgp_peers"] = bgp_peers
         if test_duration_in_minutes is not None:
-            input["test_duration_in_minutes"] = test_duration_in_minutes
+            input_["test_duration_in_minutes"] = test_duration_in_minutes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2858,11 +2860,11 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.stop_bgp_failover_test_request.StopBgpFailoverTestRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
+        input_: aws_sdk_direct_connect.types.stop_bgp_failover_test_request.StopBgpFailoverTestRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2897,12 +2899,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_direct_connect.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2937,12 +2939,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_direct_connect.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2981,15 +2983,15 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
-        input["connection_id"] = connection_id
+        input_: aws_sdk_direct_connect.types.update_connection_request.UpdateConnectionRequest = {}  # type: ignore[typeddict-item]
+        input_["connection_id"] = connection_id
         if connection_name is not None:
-            input["connection_name"] = connection_name
+            input_["connection_name"] = connection_name
         if encryption_mode is not None:
-            input["encryption_mode"] = encryption_mode
+            input_["encryption_mode"] = encryption_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3024,12 +3026,12 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.update_direct_connect_gateway_request.UpdateDirectConnectGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["direct_connect_gateway_id"] = direct_connect_gateway_id
-        input["new_direct_connect_gateway_name"] = new_direct_connect_gateway_name
+        input_: aws_sdk_direct_connect.types.update_direct_connect_gateway_request.UpdateDirectConnectGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["direct_connect_gateway_id"] = direct_connect_gateway_id
+        input_["new_direct_connect_gateway_name"] = new_direct_connect_gateway_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3072,20 +3074,20 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.update_direct_connect_gateway_association_request.UpdateDirectConnectGatewayAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_direct_connect.types.update_direct_connect_gateway_association_request.UpdateDirectConnectGatewayAssociationRequest = {}  # type: ignore[typeddict-item]
         if association_id is not None:
-            input["association_id"] = association_id
+            input_["association_id"] = association_id
         if add_allowed_prefixes_to_direct_connect_gateway is not None:
-            input["add_allowed_prefixes_to_direct_connect_gateway"] = (
+            input_["add_allowed_prefixes_to_direct_connect_gateway"] = (
                 add_allowed_prefixes_to_direct_connect_gateway
             )
         if remove_allowed_prefixes_to_direct_connect_gateway is not None:
-            input["remove_allowed_prefixes_to_direct_connect_gateway"] = (
+            input_["remove_allowed_prefixes_to_direct_connect_gateway"] = (
                 remove_allowed_prefixes_to_direct_connect_gateway
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3124,17 +3126,17 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.update_lag_request.UpdateLagRequest = {}  # type: ignore[typeddict-item]
-        input["lag_id"] = lag_id
+        input_: aws_sdk_direct_connect.types.update_lag_request.UpdateLagRequest = {}  # type: ignore[typeddict-item]
+        input_["lag_id"] = lag_id
         if lag_name is not None:
-            input["lag_name"] = lag_name
+            input_["lag_name"] = lag_name
         if minimum_links is not None:
-            input["minimum_links"] = minimum_links
+            input_["minimum_links"] = minimum_links
         if encryption_mode is not None:
-            input["encryption_mode"] = encryption_mode
+            input_["encryption_mode"] = encryption_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3177,17 +3179,17 @@ class DirectConnectClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_direct_connect.types.update_virtual_interface_attributes_request.UpdateVirtualInterfaceAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["virtual_interface_id"] = virtual_interface_id
+        input_: aws_sdk_direct_connect.types.update_virtual_interface_attributes_request.UpdateVirtualInterfaceAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["virtual_interface_id"] = virtual_interface_id
         if mtu is not None:
-            input["mtu"] = mtu
+            input_["mtu"] = mtu
         if enable_site_link is not None:
-            input["enable_site_link"] = enable_site_link
+            input_["enable_site_link"] = enable_site_link
         if virtual_interface_name is not None:
-            input["virtual_interface_name"] = virtual_interface_name
+            input_["virtual_interface_name"] = virtual_interface_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

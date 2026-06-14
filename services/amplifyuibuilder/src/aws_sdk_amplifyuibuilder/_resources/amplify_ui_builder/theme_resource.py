@@ -76,15 +76,15 @@ class ThemeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.create_theme_request.CreateThemeRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.create_theme_request.CreateThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["theme_to_create"] = theme_to_create
+            input_["client_token"] = client_token
+        input_["theme_to_create"] = theme_to_create
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,13 +121,13 @@ class ThemeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.get_theme_request.GetThemeRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["id"] = id
+        input_: aws_sdk_amplifyuibuilder.types.get_theme_request.GetThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,16 +168,16 @@ class ThemeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["id"] = id
+        input_: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["updated_theme"] = updated_theme
+            input_["client_token"] = client_token
+        input_["updated_theme"] = updated_theme
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -212,13 +212,13 @@ class ThemeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.delete_theme_request.DeleteThemeRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["id"] = id
+        input_: aws_sdk_amplifyuibuilder.types.delete_theme_request.DeleteThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["id"] = id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,16 +259,16 @@ class ThemeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.list_themes_request.ListThemesRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.list_themes_request.ListThemesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -305,14 +305,14 @@ class ThemeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.export_themes_request.ExportThemesRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.export_themes_request.ExportThemesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -357,15 +357,15 @@ class AsyncThemeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.create_theme_request.CreateThemeRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.create_theme_request.CreateThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if client_token is not None:
-            input["client_token"] = client_token
-        input["theme_to_create"] = theme_to_create
+            input_["client_token"] = client_token
+        input_["theme_to_create"] = theme_to_create
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,13 +403,13 @@ class AsyncThemeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.get_theme_request.GetThemeRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["id"] = id
+        input_: aws_sdk_amplifyuibuilder.types.get_theme_request.GetThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,16 +451,16 @@ class AsyncThemeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["id"] = id
+        input_: aws_sdk_amplifyuibuilder.types.update_theme_request.UpdateThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["id"] = id
         if client_token is not None:
-            input["client_token"] = client_token
-        input["updated_theme"] = updated_theme
+            input_["client_token"] = client_token
+        input_["updated_theme"] = updated_theme
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,13 +496,13 @@ class AsyncThemeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.delete_theme_request.DeleteThemeRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
-        input["id"] = id
+        input_: aws_sdk_amplifyuibuilder.types.delete_theme_request.DeleteThemeRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,16 +544,16 @@ class AsyncThemeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.list_themes_request.ListThemesRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.list_themes_request.ListThemesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,14 +591,14 @@ class AsyncThemeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_amplifyuibuilder.types.export_themes_request.ExportThemesRequest = {}  # type: ignore[typeddict-item]
-        input["app_id"] = app_id
-        input["environment_name"] = environment_name
+        input_: aws_sdk_amplifyuibuilder.types.export_themes_request.ExportThemesRequest = {}  # type: ignore[typeddict-item]
+        input_["app_id"] = app_id
+        input_["environment_name"] = environment_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

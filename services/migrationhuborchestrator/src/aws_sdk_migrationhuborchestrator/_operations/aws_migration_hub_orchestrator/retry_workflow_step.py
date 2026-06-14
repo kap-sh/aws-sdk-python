@@ -92,49 +92,46 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest,
+    input_: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/retryworkflowstep/{id}"
-    url = url.replace("{id}", quote(str(input["id"]), safe=""))
+    url = url.replace("{id}", quote(str(input_["id"]), safe=""))
     params: dict[str, str] = {}
-    if "workflow_id" in input:
-        params["workflowId"] = str(input["workflow_id"])
-    if "step_group_id" in input:
-        params["stepGroupId"] = str(input["step_group_id"])
+    if "workflow_id" in input_:
+        params["workflowId"] = str(input_["workflow_id"])
+    if "step_group_id" in input_:
+        params["stepGroupId"] = str(input_["step_group_id"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def retry_workflow_step(
     options: OperationOptions,
-    input: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest,
+    input_: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest,
 ) -> tuple[
     aws_sdk_migrationhuborchestrator.types.retry_workflow_step_response.RetryWorkflowStepResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -143,16 +140,17 @@ def retry_workflow_step(
 
 async def async_retry_workflow_step(
     options: AsyncOperationOptions,
-    input: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest,
+    input_: aws_sdk_migrationhuborchestrator.types.retry_workflow_step_request.RetryWorkflowStepRequest,
 ) -> tuple[
     aws_sdk_migrationhuborchestrator.types.retry_workflow_step_response.RetryWorkflowStepResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

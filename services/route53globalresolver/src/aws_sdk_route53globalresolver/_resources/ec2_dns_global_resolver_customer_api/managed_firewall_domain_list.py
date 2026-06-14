@@ -59,11 +59,11 @@ class ManagedFirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_managed_firewall_domain_list_input.GetManagedFirewallDomainListInput = {}  # type: ignore[typeddict-item]
-        input["managed_firewall_domain_list_id"] = managed_firewall_domain_list_id
+        input_: aws_sdk_route53globalresolver.types.get_managed_firewall_domain_list_input.GetManagedFirewallDomainListInput = {}  # type: ignore[typeddict-item]
+        input_["managed_firewall_domain_list_id"] = managed_firewall_domain_list_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -100,15 +100,15 @@ class ManagedFirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_managed_firewall_domain_lists_input.ListManagedFirewallDomainListsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_managed_firewall_domain_lists_input.ListManagedFirewallDomainListsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["managed_firewall_domain_list_type"] = managed_firewall_domain_list_type
+            input_["next_token"] = next_token
+        input_["managed_firewall_domain_list_type"] = managed_firewall_domain_list_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -147,11 +147,11 @@ class AsyncManagedFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_managed_firewall_domain_list_input.GetManagedFirewallDomainListInput = {}  # type: ignore[typeddict-item]
-        input["managed_firewall_domain_list_id"] = managed_firewall_domain_list_id
+        input_: aws_sdk_route53globalresolver.types.get_managed_firewall_domain_list_input.GetManagedFirewallDomainListInput = {}  # type: ignore[typeddict-item]
+        input_["managed_firewall_domain_list_id"] = managed_firewall_domain_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,15 +189,15 @@ class AsyncManagedFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_managed_firewall_domain_lists_input.ListManagedFirewallDomainListsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_managed_firewall_domain_lists_input.ListManagedFirewallDomainListsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["managed_firewall_domain_list_type"] = managed_firewall_domain_list_type
+            input_["next_token"] = next_token
+        input_["managed_firewall_domain_list_type"] = managed_firewall_domain_list_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

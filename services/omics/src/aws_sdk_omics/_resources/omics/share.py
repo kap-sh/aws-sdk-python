@@ -68,14 +68,14 @@ class Share:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_share_request.CreateShareRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["principal_subscriber"] = principal_subscriber
+        input_: aws_sdk_omics.types.create_share_request.CreateShareRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["principal_subscriber"] = principal_subscriber
         if share_name is not None:
-            input["share_name"] = share_name
+            input_["share_name"] = share_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -103,11 +103,11 @@ class Share:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_share_request.GetShareRequest = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
+        input_: aws_sdk_omics.types.get_share_request.GetShareRequest = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -137,11 +137,11 @@ class Share:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.accept_share_request.AcceptShareRequest = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
+        input_: aws_sdk_omics.types.accept_share_request.AcceptShareRequest = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -171,11 +171,11 @@ class Share:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_share_request.DeleteShareRequest = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
+        input_: aws_sdk_omics.types.delete_share_request.DeleteShareRequest = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,17 +214,17 @@ class Share:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_shares_request.ListSharesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_owner"] = resource_owner
+        input_: aws_sdk_omics.types.list_shares_request.ListSharesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_owner"] = resource_owner
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -267,14 +267,14 @@ class AsyncShare:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_share_request.CreateShareRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["principal_subscriber"] = principal_subscriber
+        input_: aws_sdk_omics.types.create_share_request.CreateShareRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["principal_subscriber"] = principal_subscriber
         if share_name is not None:
-            input["share_name"] = share_name
+            input_["share_name"] = share_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,11 +308,11 @@ class AsyncShare:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_share_request.GetShareRequest = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
+        input_: aws_sdk_omics.types.get_share_request.GetShareRequest = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,11 +346,11 @@ class AsyncShare:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.accept_share_request.AcceptShareRequest = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
+        input_: aws_sdk_omics.types.accept_share_request.AcceptShareRequest = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,11 +384,11 @@ class AsyncShare:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_share_request.DeleteShareRequest = {}  # type: ignore[typeddict-item]
-        input["share_id"] = share_id
+        input_: aws_sdk_omics.types.delete_share_request.DeleteShareRequest = {}  # type: ignore[typeddict-item]
+        input_["share_id"] = share_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,17 +428,17 @@ class AsyncShare:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_shares_request.ListSharesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_owner"] = resource_owner
+        input_: aws_sdk_omics.types.list_shares_request.ListSharesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_owner"] = resource_owner
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

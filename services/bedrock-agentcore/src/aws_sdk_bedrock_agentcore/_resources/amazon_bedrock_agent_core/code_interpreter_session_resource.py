@@ -1,6 +1,7 @@
 from typing import Optional, TYPE_CHECKING
 from aws_sdk_bedrock_agentcore._services.async_bedrock_agent_core import ensure_async_iterator
 from aws_sdk_bedrock_agentcore._services.bedrock_agent_core import ensure_sync_iterator
+import datetime
 from aws_sdk_bedrock_agentcore._services._pipeline import OperationRequest, OperationResponse, execute_pipeline, AsyncOperationRequest, AsyncOperationResponse, aexecute_pipeline
 import aws_sdk_bedrock_agentcore._auth._signers
 import aws_sdk_bedrock_agentcore._auth._sigv4
@@ -40,11 +41,11 @@ class CodeInterpreterSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_code_interpreter_session_request.GetCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
-        input["code_interpreter_identifier"] = code_interpreter_identifier
-        input["session_id"] = session_id
+        input_: aws_sdk_bedrock_agentcore.types.get_code_interpreter_session_request.GetCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
+        input_["session_id"] = session_id
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def list_code_interpreter_sessions(self, code_interpreter_identifier: str, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.next_token.NextToken"] = None, status: Optional["aws_sdk_bedrock_agentcore.types.code_interpreter_session_status.CodeInterpreterSessionStatus"] = None) -> "aws_sdk_bedrock_agentcore.types.list_code_interpreter_sessions_response.ListCodeInterpreterSessionsResponse":
         """<p>Retrieves a list of code interpreter sessions in Amazon Bedrock AgentCore that match the specified criteria. This operation returns summary information about each session, including identifiers, status, and timestamps.</p> <p>You can filter the results by code interpreter identifier and session status. The operation supports pagination to handle large result sets efficiently.</p> <p>We recommend using pagination to ensure that the operation returns quickly and successfully when retrieving large numbers of sessions.</p> <p>The following operations are related to <code>ListCodeInterpreterSessions</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html\">StartCodeInterpreterSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html\">GetCodeInterpreterSession</a> </p> </li> </ul>
@@ -61,16 +62,16 @@ class CodeInterpreterSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_code_interpreter_sessions_request.ListCodeInterpreterSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["code_interpreter_identifier"] = code_interpreter_identifier
+        input_: aws_sdk_bedrock_agentcore.types.list_code_interpreter_sessions_request.ListCodeInterpreterSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def start_code_interpreter_session(self, code_interpreter_identifier: str, *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, name: Optional["aws_sdk_bedrock_agentcore.types.name.Name"] = None, session_timeout_seconds: Optional["aws_sdk_bedrock_agentcore.types.code_interpreter_session_timeout.CodeInterpreterSessionTimeout"] = None, certificates: Optional["aws_sdk_bedrock_agentcore.types.certificates.Certificates"] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_response.StartCodeInterpreterSessionResponse":
         """<p>Creates and initializes a code interpreter session in Amazon Bedrock AgentCore. The session enables agents to execute code as part of their response generation, supporting programming languages such as Python for data analysis, visualization, and computation tasks.</p> <p>To create a session, you must specify a code interpreter identifier and a name. The session remains active until it times out or you explicitly stop it using the <code>StopCodeInterpreterSession</code> operation.</p> <p>The following operations are related to <code>StartCodeInterpreterSession</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeCodeInterpreter.html\">InvokeCodeInterpreter</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html\">GetCodeInterpreterSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopCodeInterpreterSession.html\">StopCodeInterpreterSession</a> </p> </li> </ul>
@@ -90,22 +91,22 @@ class CodeInterpreterSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["code_interpreter_identifier"] = code_interpreter_identifier
+            input_["trace_parent"] = trace_parent
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if session_timeout_seconds is not None:
-            input["session_timeout_seconds"] = session_timeout_seconds
+            input_["session_timeout_seconds"] = session_timeout_seconds
         if certificates is not None:
-            input["certificates"] = certificates
+            input_["certificates"] = certificates
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     def stop_code_interpreter_session(self, code_interpreter_identifier: str, session_id: "aws_sdk_bedrock_agentcore.types.code_interpreter_session_id.CodeInterpreterSessionId", *, config_overrides: Optional[BedrockAgentCoreClientConfig] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.stop_code_interpreter_session_response.StopCodeInterpreterSessionResponse":
         """<p>Terminates an active code interpreter session in Amazon Bedrock AgentCore. This operation stops the session, releases associated resources, and makes the session unavailable for further use.</p> <p>To stop a code interpreter session, you must specify both the code interpreter identifier and the session ID. Once stopped, a session cannot be restarted; you must create a new session using <code>StartCodeInterpreterSession</code>.</p> <p>The following operations are related to <code>StopCodeInterpreterSession</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html\">StartCodeInterpreterSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html\">GetCodeInterpreterSession</a> </p> </li> </ul>
@@ -123,17 +124,17 @@ class CodeInterpreterSessionResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.stop_code_interpreter_session_request.StopCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.stop_code_interpreter_session_request.StopCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["code_interpreter_identifier"] = code_interpreter_identifier
-        input["session_id"] = session_id
+            input_["trace_parent"] = trace_parent
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
+        input_["session_id"] = session_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = execute_pipeline(OperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = execute_pipeline(OperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
 
 class AsyncCodeInterpreterSessionResource:
@@ -152,11 +153,11 @@ class AsyncCodeInterpreterSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.get_code_interpreter_session_request.GetCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
-        input["code_interpreter_identifier"] = code_interpreter_identifier
-        input["session_id"] = session_id
+        input_: aws_sdk_bedrock_agentcore.types.get_code_interpreter_session_request.GetCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
+        input_["session_id"] = session_id
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def list_code_interpreter_sessions(self, code_interpreter_identifier: str, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, max_results: Optional["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"] = None, next_token: Optional["aws_sdk_bedrock_agentcore.types.next_token.NextToken"] = None, status: Optional["aws_sdk_bedrock_agentcore.types.code_interpreter_session_status.CodeInterpreterSessionStatus"] = None) -> "aws_sdk_bedrock_agentcore.types.list_code_interpreter_sessions_response.ListCodeInterpreterSessionsResponse":
         """<p>Retrieves a list of code interpreter sessions in Amazon Bedrock AgentCore that match the specified criteria. This operation returns summary information about each session, including identifiers, status, and timestamps.</p> <p>You can filter the results by code interpreter identifier and session status. The operation supports pagination to handle large result sets efficiently.</p> <p>We recommend using pagination to ensure that the operation returns quickly and successfully when retrieving large numbers of sessions.</p> <p>The following operations are related to <code>ListCodeInterpreterSessions</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html\">StartCodeInterpreterSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html\">GetCodeInterpreterSession</a> </p> </li> </ul>
@@ -173,16 +174,16 @@ class AsyncCodeInterpreterSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.list_code_interpreter_sessions_request.ListCodeInterpreterSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["code_interpreter_identifier"] = code_interpreter_identifier
+        input_: aws_sdk_bedrock_agentcore.types.list_code_interpreter_sessions_request.ListCodeInterpreterSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def start_code_interpreter_session(self, code_interpreter_identifier: str, *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, name: Optional["aws_sdk_bedrock_agentcore.types.name.Name"] = None, session_timeout_seconds: Optional["aws_sdk_bedrock_agentcore.types.code_interpreter_session_timeout.CodeInterpreterSessionTimeout"] = None, certificates: Optional["aws_sdk_bedrock_agentcore.types.certificates.Certificates"] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_response.StartCodeInterpreterSessionResponse":
         """<p>Creates and initializes a code interpreter session in Amazon Bedrock AgentCore. The session enables agents to execute code as part of their response generation, supporting programming languages such as Python for data analysis, visualization, and computation tasks.</p> <p>To create a session, you must specify a code interpreter identifier and a name. The session remains active until it times out or you explicitly stop it using the <code>StopCodeInterpreterSession</code> operation.</p> <p>The following operations are related to <code>StartCodeInterpreterSession</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_InvokeCodeInterpreter.html\">InvokeCodeInterpreter</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html\">GetCodeInterpreterSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StopCodeInterpreterSession.html\">StopCodeInterpreterSession</a> </p> </li> </ul>
@@ -202,22 +203,22 @@ class AsyncCodeInterpreterSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.start_code_interpreter_session_request.StartCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["code_interpreter_identifier"] = code_interpreter_identifier
+            input_["trace_parent"] = trace_parent
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if session_timeout_seconds is not None:
-            input["session_timeout_seconds"] = session_timeout_seconds
+            input_["session_timeout_seconds"] = session_timeout_seconds
         if certificates is not None:
-            input["certificates"] = certificates
+            input_["certificates"] = certificates
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output
     async def stop_code_interpreter_session(self, code_interpreter_identifier: str, session_id: "aws_sdk_bedrock_agentcore.types.code_interpreter_session_id.CodeInterpreterSessionId", *, config_overrides: Optional[AsyncBedrockAgentCoreClientConfig] = None, trace_id: Optional[str] = None, trace_parent: Optional[str] = None, client_token: Optional["aws_sdk_bedrock_agentcore.types.client_token.ClientToken"] = None) -> "aws_sdk_bedrock_agentcore.types.stop_code_interpreter_session_response.StopCodeInterpreterSessionResponse":
         """<p>Terminates an active code interpreter session in Amazon Bedrock AgentCore. This operation stops the session, releases associated resources, and makes the session unavailable for further use.</p> <p>To stop a code interpreter session, you must specify both the code interpreter identifier and the session ID. Once stopped, a session cannot be restarted; you must create a new session using <code>StartCodeInterpreterSession</code>.</p> <p>The following operations are related to <code>StopCodeInterpreterSession</code>:</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_StartCodeInterpreterSession.html\">StartCodeInterpreterSession</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/API_GetCodeInterpreterSession.html\">GetCodeInterpreterSession</a> </p> </li> </ul>
@@ -235,15 +236,15 @@ class AsyncCodeInterpreterSessionResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agentcore.types.stop_code_interpreter_session_request.StopCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agentcore.types.stop_code_interpreter_session_request.StopCodeInterpreterSessionRequest = {}  # type: ignore[typeddict-item]
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if trace_parent is not None:
-            input["trace_parent"] = trace_parent
-        input["code_interpreter_identifier"] = code_interpreter_identifier
-        input["session_id"] = session_id
+            input_["trace_parent"] = trace_parent
+        input_["code_interpreter_identifier"] = code_interpreter_identifier
+        input_["session_id"] = session_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
-        response = await aexecute_pipeline(AsyncOperationRequest(input=input, options=options_), handler=_handler, interceptors=list(interceptors_))
+        response = await aexecute_pipeline(AsyncOperationRequest(input=input_, options=options_), handler=_handler, interceptors=list(interceptors_))
         return response.output

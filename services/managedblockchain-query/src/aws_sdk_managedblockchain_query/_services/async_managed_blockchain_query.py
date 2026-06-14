@@ -200,12 +200,12 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.batch_get_token_balance_input.BatchGetTokenBalanceInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_managedblockchain_query.types.batch_get_token_balance_input.BatchGetTokenBalanceInput = {}  # type: ignore[typeddict-item]
         if get_token_balance_inputs is not None:
-            input["get_token_balance_inputs"] = get_token_balance_inputs
+            input_["get_token_balance_inputs"] = get_token_balance_inputs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -239,11 +239,11 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.get_asset_contract_input.GetAssetContractInput = {}  # type: ignore[typeddict-item]
-        input["contract_identifier"] = contract_identifier
+        input_: aws_sdk_managedblockchain_query.types.get_asset_contract_input.GetAssetContractInput = {}  # type: ignore[typeddict-item]
+        input_["contract_identifier"] = contract_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -283,14 +283,14 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.get_token_balance_input.GetTokenBalanceInput = {}  # type: ignore[typeddict-item]
-        input["token_identifier"] = token_identifier
-        input["owner_identifier"] = owner_identifier
+        input_: aws_sdk_managedblockchain_query.types.get_token_balance_input.GetTokenBalanceInput = {}  # type: ignore[typeddict-item]
+        input_["token_identifier"] = token_identifier
+        input_["owner_identifier"] = owner_identifier
         if at_blockchain_instant is not None:
-            input["at_blockchain_instant"] = at_blockchain_instant
+            input_["at_blockchain_instant"] = at_blockchain_instant
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -332,15 +332,15 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.get_transaction_input.GetTransactionInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_managedblockchain_query.types.get_transaction_input.GetTransactionInput = {}  # type: ignore[typeddict-item]
         if transaction_hash is not None:
-            input["transaction_hash"] = transaction_hash
+            input_["transaction_hash"] = transaction_hash
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
-        input["network"] = network
+            input_["transaction_id"] = transaction_id
+        input_["network"] = network
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,15 +380,15 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.list_asset_contracts_input.ListAssetContractsInput = {}  # type: ignore[typeddict-item]
-        input["contract_filter"] = contract_filter
+        input_: aws_sdk_managedblockchain_query.types.list_asset_contracts_input.ListAssetContractsInput = {}  # type: ignore[typeddict-item]
+        input_["contract_filter"] = contract_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -470,24 +470,24 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.list_filtered_transaction_events_input.ListFilteredTransactionEventsInput = {}  # type: ignore[typeddict-item]
-        input["network"] = network
-        input["address_identifier_filter"] = address_identifier_filter
+        input_: aws_sdk_managedblockchain_query.types.list_filtered_transaction_events_input.ListFilteredTransactionEventsInput = {}  # type: ignore[typeddict-item]
+        input_["network"] = network
+        input_["address_identifier_filter"] = address_identifier_filter
         if time_filter is not None:
-            input["time_filter"] = time_filter
+            input_["time_filter"] = time_filter
         if vout_filter is not None:
-            input["vout_filter"] = vout_filter
+            input_["vout_filter"] = vout_filter
         if confirmation_status_filter is not None:
-            input["confirmation_status_filter"] = confirmation_status_filter
+            input_["confirmation_status_filter"] = confirmation_status_filter
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,17 +574,17 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.list_token_balances_input.ListTokenBalancesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_managedblockchain_query.types.list_token_balances_input.ListTokenBalancesInput = {}  # type: ignore[typeddict-item]
         if owner_filter is not None:
-            input["owner_filter"] = owner_filter
-        input["token_filter"] = token_filter
+            input_["owner_filter"] = owner_filter
+        input_["token_filter"] = token_filter
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -661,19 +661,19 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.list_transaction_events_input.ListTransactionEventsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_managedblockchain_query.types.list_transaction_events_input.ListTransactionEventsInput = {}  # type: ignore[typeddict-item]
         if transaction_hash is not None:
-            input["transaction_hash"] = transaction_hash
+            input_["transaction_hash"] = transaction_hash
         if transaction_id is not None:
-            input["transaction_id"] = transaction_id
-        input["network"] = network
+            input_["transaction_id"] = transaction_id
+        input_["network"] = network
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -762,24 +762,24 @@ class AsyncManagedBlockchainQueryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_managedblockchain_query.types.list_transactions_input.ListTransactionsInput = {}  # type: ignore[typeddict-item]
-        input["address"] = address
-        input["network"] = network
+        input_: aws_sdk_managedblockchain_query.types.list_transactions_input.ListTransactionsInput = {}  # type: ignore[typeddict-item]
+        input_["address"] = address
+        input_["network"] = network
         if from_blockchain_instant is not None:
-            input["from_blockchain_instant"] = from_blockchain_instant
+            input_["from_blockchain_instant"] = from_blockchain_instant
         if to_blockchain_instant is not None:
-            input["to_blockchain_instant"] = to_blockchain_instant
+            input_["to_blockchain_instant"] = to_blockchain_instant
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if confirmation_status_filter is not None:
-            input["confirmation_status_filter"] = confirmation_status_filter
+            input_["confirmation_status_filter"] = confirmation_status_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

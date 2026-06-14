@@ -95,21 +95,21 @@ class AccessSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_access_source_input.CreateAccessSourceInput = {}  # type: ignore[typeddict-item]
-        input["cidr"] = cidr
+        input_: aws_sdk_route53globalresolver.types.create_access_source_input.CreateAccessSourceInput = {}  # type: ignore[typeddict-item]
+        input_["cidr"] = cidr
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if name is not None:
-            input["name"] = name
-        input["dns_view_id"] = dns_view_id
-        input["protocol"] = protocol
+            input_["name"] = name
+        input_["dns_view_id"] = dns_view_id
+        input_["protocol"] = protocol
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,11 +142,11 @@ class AccessSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_access_source_input.GetAccessSourceInput = {}  # type: ignore[typeddict-item]
-        input["access_source_id"] = access_source_id
+        input_: aws_sdk_route53globalresolver.types.get_access_source_input.GetAccessSourceInput = {}  # type: ignore[typeddict-item]
+        input_["access_source_id"] = access_source_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -193,19 +193,19 @@ class AccessSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_access_source_input.UpdateAccessSourceInput = {}  # type: ignore[typeddict-item]
-        input["access_source_id"] = access_source_id
+        input_: aws_sdk_route53globalresolver.types.update_access_source_input.UpdateAccessSourceInput = {}  # type: ignore[typeddict-item]
+        input_["access_source_id"] = access_source_id
         if cidr is not None:
-            input["cidr"] = cidr
+            input_["cidr"] = cidr
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -238,11 +238,11 @@ class AccessSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_access_source_input.DeleteAccessSourceInput = {}  # type: ignore[typeddict-item]
-        input["access_source_id"] = access_source_id
+        input_: aws_sdk_route53globalresolver.types.delete_access_source_input.DeleteAccessSourceInput = {}  # type: ignore[typeddict-item]
+        input_["access_source_id"] = access_source_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -279,16 +279,16 @@ class AccessSource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_access_sources_input.ListAccessSourcesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_access_sources_input.ListAccessSourcesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -350,21 +350,21 @@ class AsyncAccessSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_access_source_input.CreateAccessSourceInput = {}  # type: ignore[typeddict-item]
-        input["cidr"] = cidr
+        input_: aws_sdk_route53globalresolver.types.create_access_source_input.CreateAccessSourceInput = {}  # type: ignore[typeddict-item]
+        input_["cidr"] = cidr
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if name is not None:
-            input["name"] = name
-        input["dns_view_id"] = dns_view_id
-        input["protocol"] = protocol
+            input_["name"] = name
+        input_["dns_view_id"] = dns_view_id
+        input_["protocol"] = protocol
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,11 +398,11 @@ class AsyncAccessSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_access_source_input.GetAccessSourceInput = {}  # type: ignore[typeddict-item]
-        input["access_source_id"] = access_source_id
+        input_: aws_sdk_route53globalresolver.types.get_access_source_input.GetAccessSourceInput = {}  # type: ignore[typeddict-item]
+        input_["access_source_id"] = access_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -450,19 +450,19 @@ class AsyncAccessSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_access_source_input.UpdateAccessSourceInput = {}  # type: ignore[typeddict-item]
-        input["access_source_id"] = access_source_id
+        input_: aws_sdk_route53globalresolver.types.update_access_source_input.UpdateAccessSourceInput = {}  # type: ignore[typeddict-item]
+        input_["access_source_id"] = access_source_id
         if cidr is not None:
-            input["cidr"] = cidr
+            input_["cidr"] = cidr
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if protocol is not None:
-            input["protocol"] = protocol
+            input_["protocol"] = protocol
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -496,11 +496,11 @@ class AsyncAccessSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_access_source_input.DeleteAccessSourceInput = {}  # type: ignore[typeddict-item]
-        input["access_source_id"] = access_source_id
+        input_: aws_sdk_route53globalresolver.types.delete_access_source_input.DeleteAccessSourceInput = {}  # type: ignore[typeddict-item]
+        input_["access_source_id"] = access_source_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -538,16 +538,16 @@ class AsyncAccessSource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_access_sources_input.ListAccessSourcesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_access_sources_input.ListAccessSourcesInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -66,17 +66,17 @@ class ServicePipelineResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_pipeline_input.UpdateServicePipelineInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["spec"] = spec
-        input["deployment_type"] = deployment_type
+        input_: aws_sdk_proton.types.update_service_pipeline_input.UpdateServicePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["spec"] = spec
+        input_["deployment_type"] = deployment_type
         if template_major_version is not None:
-            input["template_major_version"] = template_major_version
+            input_["template_major_version"] = template_major_version
         if template_minor_version is not None:
-            input["template_minor_version"] = template_minor_version
+            input_["template_minor_version"] = template_minor_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -127,17 +127,17 @@ class AsyncServicePipelineResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_proton.types.update_service_pipeline_input.UpdateServicePipelineInput = {}  # type: ignore[typeddict-item]
-        input["service_name"] = service_name
-        input["spec"] = spec
-        input["deployment_type"] = deployment_type
+        input_: aws_sdk_proton.types.update_service_pipeline_input.UpdateServicePipelineInput = {}  # type: ignore[typeddict-item]
+        input_["service_name"] = service_name
+        input_["spec"] = spec
+        input_["deployment_type"] = deployment_type
         if template_major_version is not None:
-            input["template_major_version"] = template_major_version
+            input_["template_major_version"] = template_major_version
         if template_minor_version is not None:
-            input["template_minor_version"] = template_minor_version
+            input_["template_minor_version"] = template_minor_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

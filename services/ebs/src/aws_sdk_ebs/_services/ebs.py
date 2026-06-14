@@ -197,18 +197,18 @@ class EBSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ebs.types.complete_snapshot_request.CompleteSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_id"] = snapshot_id
-        input["changed_blocks_count"] = changed_blocks_count
+        input_: aws_sdk_ebs.types.complete_snapshot_request.CompleteSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_id"] = snapshot_id
+        input_["changed_blocks_count"] = changed_blocks_count
         if checksum is not None:
-            input["checksum"] = checksum
+            input_["checksum"] = checksum
         if checksum_algorithm is not None:
-            input["checksum_algorithm"] = checksum_algorithm
+            input_["checksum_algorithm"] = checksum_algorithm
         if checksum_aggregation_method is not None:
-            input["checksum_aggregation_method"] = checksum_aggregation_method
+            input_["checksum_aggregation_method"] = checksum_aggregation_method
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -246,13 +246,13 @@ class EBSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ebs.types.get_snapshot_block_request.GetSnapshotBlockRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_id"] = snapshot_id
-        input["block_index"] = block_index
-        input["block_token"] = block_token
+        input_: aws_sdk_ebs.types.get_snapshot_block_request.GetSnapshotBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_id"] = snapshot_id
+        input_["block_index"] = block_index
+        input_["block_token"] = block_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,19 +295,19 @@ class EBSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ebs.types.list_changed_blocks_request.ListChangedBlocksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ebs.types.list_changed_blocks_request.ListChangedBlocksRequest = {}  # type: ignore[typeddict-item]
         if first_snapshot_id is not None:
-            input["first_snapshot_id"] = first_snapshot_id
-        input["second_snapshot_id"] = second_snapshot_id
+            input_["first_snapshot_id"] = first_snapshot_id
+        input_["second_snapshot_id"] = second_snapshot_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if starting_block_index is not None:
-            input["starting_block_index"] = starting_block_index
+            input_["starting_block_index"] = starting_block_index
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,17 +348,17 @@ class EBSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ebs.types.list_snapshot_blocks_request.ListSnapshotBlocksRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_id"] = snapshot_id
+        input_: aws_sdk_ebs.types.list_snapshot_blocks_request.ListSnapshotBlocksRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_id"] = snapshot_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if starting_block_index is not None:
-            input["starting_block_index"] = starting_block_index
+            input_["starting_block_index"] = starting_block_index
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,18 +403,18 @@ class EBSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_id"] = snapshot_id
-        input["block_index"] = block_index
-        input["block_data"] = ensure_sync_iterator(block_data)  # type: ignore
-        input["data_length"] = data_length
+        input_: aws_sdk_ebs.types.put_snapshot_block_request.PutSnapshotBlockRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_id"] = snapshot_id
+        input_["block_index"] = block_index
+        input_["block_data"] = ensure_sync_iterator(block_data)  # type: ignore
+        input_["data_length"] = data_length
         if progress is not None:
-            input["progress"] = progress
-        input["checksum"] = checksum
-        input["checksum_algorithm"] = checksum_algorithm
+            input_["progress"] = progress
+        input_["checksum"] = checksum
+        input_["checksum_algorithm"] = checksum_algorithm
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,25 +463,25 @@ class EBSClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ebs.types.start_snapshot_request.StartSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["volume_size"] = volume_size
+        input_: aws_sdk_ebs.types.start_snapshot_request.StartSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["volume_size"] = volume_size
         if parent_snapshot_id is not None:
-            input["parent_snapshot_id"] = parent_snapshot_id
+            input_["parent_snapshot_id"] = parent_snapshot_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if encrypted is not None:
-            input["encrypted"] = encrypted
+            input_["encrypted"] = encrypted
         if kms_key_arn is not None:
-            input["kms_key_arn"] = kms_key_arn
+            input_["kms_key_arn"] = kms_key_arn
         if timeout is not None:
-            input["timeout"] = timeout
+            input_["timeout"] = timeout
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

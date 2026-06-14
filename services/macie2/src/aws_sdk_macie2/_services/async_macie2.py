@@ -385,15 +385,15 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
         if administrator_account_id is not None:
-            input["administrator_account_id"] = administrator_account_id
-        input["invitation_id"] = invitation_id
+            input_["administrator_account_id"] = administrator_account_id
+        input_["invitation_id"] = invitation_id
         if master_account is not None:
-            input["master_account"] = master_account
+            input_["master_account"] = master_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -427,12 +427,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.batch_get_custom_data_identifiers_request.BatchGetCustomDataIdentifiersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.batch_get_custom_data_identifiers_request.BatchGetCustomDataIdentifiersRequest = {}  # type: ignore[typeddict-item]
         if ids is not None:
-            input["ids"] = ids
+            input_["ids"] = ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,12 +468,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.batch_update_automated_discovery_accounts_request.BatchUpdateAutomatedDiscoveryAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.batch_update_automated_discovery_accounts_request.BatchUpdateAutomatedDiscoveryAccountsRequest = {}  # type: ignore[typeddict-item]
         if accounts is not None:
-            input["accounts"] = accounts
+            input_["accounts"] = accounts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -517,17 +517,17 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.create_allow_list_request.CreateAllowListRequest = {}  # type: ignore[typeddict-item]
-        input["client_token"] = client_token
-        input["criteria"] = criteria
+        input_: aws_sdk_macie2.types.create_allow_list_request.CreateAllowListRequest = {}  # type: ignore[typeddict-item]
+        input_["client_token"] = client_token
+        input_["criteria"] = criteria
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -597,32 +597,34 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.create_classification_job_request.CreateClassificationJobRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.create_classification_job_request.CreateClassificationJobRequest = {}  # type: ignore[typeddict-item]
         if allow_list_ids is not None:
-            input["allow_list_ids"] = allow_list_ids
-        input["client_token"] = client_token
+            input_["allow_list_ids"] = allow_list_ids
+        input_["client_token"] = client_token
         if custom_data_identifier_ids is not None:
-            input["custom_data_identifier_ids"] = custom_data_identifier_ids
+            input_["custom_data_identifier_ids"] = custom_data_identifier_ids
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if initial_run is not None:
-            input["initial_run"] = initial_run
-        input["job_type"] = job_type
+            input_["initial_run"] = initial_run
+        input_["job_type"] = job_type
         if managed_data_identifier_ids is not None:
-            input["managed_data_identifier_ids"] = managed_data_identifier_ids
+            input_["managed_data_identifier_ids"] = managed_data_identifier_ids
         if managed_data_identifier_selector is not None:
-            input["managed_data_identifier_selector"] = managed_data_identifier_selector
-        input["name"] = name
-        input["s3_job_definition"] = s3_job_definition
+            input_["managed_data_identifier_selector"] = (
+                managed_data_identifier_selector
+            )
+        input_["name"] = name
+        input_["s3_job_definition"] = s3_job_definition
         if sampling_percentage is not None:
-            input["sampling_percentage"] = sampling_percentage
+            input_["sampling_percentage"] = sampling_percentage
         if schedule_frequency is not None:
-            input["schedule_frequency"] = schedule_frequency
+            input_["schedule_frequency"] = schedule_frequency
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -680,26 +682,26 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.create_custom_data_identifier_request.CreateCustomDataIdentifierRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.create_custom_data_identifier_request.CreateCustomDataIdentifierRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if ignore_words is not None:
-            input["ignore_words"] = ignore_words
+            input_["ignore_words"] = ignore_words
         if keywords is not None:
-            input["keywords"] = keywords
+            input_["keywords"] = keywords
         if maximum_match_distance is not None:
-            input["maximum_match_distance"] = maximum_match_distance
-        input["name"] = name
-        input["regex"] = regex
+            input_["maximum_match_distance"] = maximum_match_distance
+        input_["name"] = name
+        input_["regex"] = regex
         if severity_levels is not None:
-            input["severity_levels"] = severity_levels
+            input_["severity_levels"] = severity_levels
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,21 +747,21 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.create_findings_filter_request.CreateFindingsFilterRequest = {}  # type: ignore[typeddict-item]
-        input["action"] = action
+        input_: aws_sdk_macie2.types.create_findings_filter_request.CreateFindingsFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
-        input["finding_criteria"] = finding_criteria
-        input["name"] = name
+            input_["description"] = description
+        input_["finding_criteria"] = finding_criteria
+        input_["name"] = name
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -799,15 +801,15 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.create_invitations_request.CreateInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_macie2.types.create_invitations_request.CreateInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
         if disable_email_notification is not None:
-            input["disable_email_notification"] = disable_email_notification
+            input_["disable_email_notification"] = disable_email_notification
         if message is not None:
-            input["message"] = message
+            input_["message"] = message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -843,13 +845,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.create_member_request.CreateMemberRequest = {}  # type: ignore[typeddict-item]
-        input["account"] = account
+        input_: aws_sdk_macie2.types.create_member_request.CreateMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["account"] = account
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -885,12 +887,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.create_sample_findings_request.CreateSampleFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.create_sample_findings_request.CreateSampleFindingsRequest = {}  # type: ignore[typeddict-item]
         if finding_types is not None:
-            input["finding_types"] = finding_types
+            input_["finding_types"] = finding_types
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -924,11 +926,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_macie2.types.decline_invitations_request.DeclineInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -964,13 +966,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.delete_allow_list_request.DeleteAllowListRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.delete_allow_list_request.DeleteAllowListRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if ignore_job_checks is not None:
-            input["ignore_job_checks"] = ignore_job_checks
+            input_["ignore_job_checks"] = ignore_job_checks
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1004,11 +1006,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.delete_custom_data_identifier_request.DeleteCustomDataIdentifierRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.delete_custom_data_identifier_request.DeleteCustomDataIdentifierRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1042,11 +1044,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.delete_findings_filter_request.DeleteFindingsFilterRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.delete_findings_filter_request.DeleteFindingsFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1080,11 +1082,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_macie2.types.delete_invitations_request.DeleteInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1118,11 +1120,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.delete_member_request.DeleteMemberRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.delete_member_request.DeleteMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1166,18 +1168,18 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.describe_buckets_request.DescribeBucketsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.describe_buckets_request.DescribeBucketsRequest = {}  # type: ignore[typeddict-item]
         if criteria is not None:
-            input["criteria"] = criteria
+            input_["criteria"] = criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1240,11 +1242,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.describe_classification_job_request.DescribeClassificationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_macie2.types.describe_classification_job_request.DescribeClassificationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1271,10 +1273,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1301,10 +1303,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.disable_macie_request.DisableMacieRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.disable_macie_request.DisableMacieRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1338,11 +1340,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account_id"] = admin_account_id
+        input_: aws_sdk_macie2.types.disable_organization_admin_account_request.DisableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account_id"] = admin_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1369,10 +1371,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.disassociate_from_administrator_account_request.DisassociateFromAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.disassociate_from_administrator_account_request.DisassociateFromAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1399,10 +1401,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.disassociate_from_master_account_request.DisassociateFromMasterAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1436,11 +1438,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.disassociate_member_request.DisassociateMemberRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.disassociate_member_request.DisassociateMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1480,16 +1482,16 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.enable_macie_request.EnableMacieRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.enable_macie_request.EnableMacieRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if finding_publishing_frequency is not None:
-            input["finding_publishing_frequency"] = finding_publishing_frequency
+            input_["finding_publishing_frequency"] = finding_publishing_frequency
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1525,13 +1527,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["admin_account_id"] = admin_account_id
+        input_: aws_sdk_macie2.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["admin_account_id"] = admin_account_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1558,10 +1560,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_administrator_account_request.GetAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_administrator_account_request.GetAdministratorAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1595,11 +1597,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_allow_list_request.GetAllowListRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.get_allow_list_request.GetAllowListRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1626,10 +1628,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_automated_discovery_configuration_request.GetAutomatedDiscoveryConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_automated_discovery_configuration_request.GetAutomatedDiscoveryConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1663,12 +1665,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_bucket_statistics_request.GetBucketStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_bucket_statistics_request.GetBucketStatisticsRequest = {}  # type: ignore[typeddict-item]
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1695,10 +1697,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_classification_export_configuration_request.GetClassificationExportConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_classification_export_configuration_request.GetClassificationExportConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1732,11 +1734,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_classification_scope_request.GetClassificationScopeRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.get_classification_scope_request.GetClassificationScopeRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1770,11 +1772,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_custom_data_identifier_request.GetCustomDataIdentifierRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.get_custom_data_identifier_request.GetCustomDataIdentifierRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1812,13 +1814,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
-        input["finding_ids"] = finding_ids
+        input_: aws_sdk_macie2.types.get_findings_request.GetFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_ids"] = finding_ids
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1852,11 +1854,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_findings_filter_request.GetFindingsFilterRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.get_findings_filter_request.GetFindingsFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1883,10 +1885,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_findings_publication_configuration_request.GetFindingsPublicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_findings_publication_configuration_request.GetFindingsPublicationConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1930,17 +1932,17 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_finding_statistics_request.GetFindingStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_finding_statistics_request.GetFindingStatisticsRequest = {}  # type: ignore[typeddict-item]
         if finding_criteria is not None:
-            input["finding_criteria"] = finding_criteria
-        input["group_by"] = group_by
+            input_["finding_criteria"] = finding_criteria
+        input_["group_by"] = group_by
         if size is not None:
-            input["size"] = size
+            input_["size"] = size
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1967,10 +1969,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_invitations_count_request.GetInvitationsCountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_invitations_count_request.GetInvitationsCountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1997,10 +1999,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_macie_session_request.GetMacieSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_macie_session_request.GetMacieSessionRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2027,10 +2029,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_master_account_request.GetMasterAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_master_account_request.GetMasterAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2064,11 +2066,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_member_request.GetMemberRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.get_member_request.GetMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2104,11 +2106,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_resource_profile_request.GetResourceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_macie2.types.get_resource_profile_request.GetResourceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2135,10 +2137,10 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_reveal_configuration_request.GetRevealConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_reveal_configuration_request.GetRevealConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2172,11 +2174,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_sensitive_data_occurrences_request.GetSensitiveDataOccurrencesRequest = {}  # type: ignore[typeddict-item]
-        input["finding_id"] = finding_id
+        input_: aws_sdk_macie2.types.get_sensitive_data_occurrences_request.GetSensitiveDataOccurrencesRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2210,11 +2212,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_sensitive_data_occurrences_availability_request.GetSensitiveDataOccurrencesAvailabilityRequest = {}  # type: ignore[typeddict-item]
-        input["finding_id"] = finding_id
+        input_: aws_sdk_macie2.types.get_sensitive_data_occurrences_availability_request.GetSensitiveDataOccurrencesAvailabilityRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_id"] = finding_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2248,11 +2250,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_sensitivity_inspection_template_request.GetSensitivityInspectionTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.get_sensitivity_inspection_template_request.GetSensitivityInspectionTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2300,20 +2302,20 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_usage_statistics_request.GetUsageStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_usage_statistics_request.GetUsageStatisticsRequest = {}  # type: ignore[typeddict-item]
         if filter_by is not None:
-            input["filter_by"] = filter_by
+            input_["filter_by"] = filter_by
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if time_range is not None:
-            input["time_range"] = time_range
+            input_["time_range"] = time_range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2378,12 +2380,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.get_usage_totals_request.GetUsageTotalsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.get_usage_totals_request.GetUsageTotalsRequest = {}  # type: ignore[typeddict-item]
         if time_range is not None:
-            input["time_range"] = time_range
+            input_["time_range"] = time_range
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2419,14 +2421,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_allow_lists_request.ListAllowListsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_allow_lists_request.ListAllowListsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2487,16 +2489,16 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_automated_discovery_accounts_request.ListAutomatedDiscoveryAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_automated_discovery_accounts_request.ListAutomatedDiscoveryAccountsRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2565,18 +2567,18 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_classification_jobs_request.ListClassificationJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_classification_jobs_request.ListClassificationJobsRequest = {}  # type: ignore[typeddict-item]
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2641,14 +2643,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_classification_scopes_request.ListClassificationScopesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_classification_scopes_request.ListClassificationScopesRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2705,14 +2707,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_custom_data_identifiers_request.ListCustomDataIdentifiersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_custom_data_identifiers_request.ListCustomDataIdentifiersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2777,18 +2779,18 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
         if finding_criteria is not None:
-            input["finding_criteria"] = finding_criteria
+            input_["finding_criteria"] = finding_criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2853,14 +2855,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_findings_filters_request.ListFindingsFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_findings_filters_request.ListFindingsFiltersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2917,14 +2919,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_invitations_request.ListInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_invitations_request.ListInvitationsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2979,12 +2981,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_managed_data_identifiers_request.ListManagedDataIdentifiersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_managed_data_identifiers_request.ListManagedDataIdentifiersRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3041,16 +3043,16 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if only_associated is not None:
-            input["only_associated"] = only_associated
+            input_["only_associated"] = only_associated
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3109,14 +3111,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_organization_admin_accounts_request.ListOrganizationAdminAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_organization_admin_accounts_request.ListOrganizationAdminAccountsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3173,13 +3175,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_resource_profile_artifacts_request.ListResourceProfileArtifactsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_resource_profile_artifacts_request.ListResourceProfileArtifactsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_arn"] = resource_arn
+            input_["next_token"] = next_token
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3238,15 +3240,15 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_resource_profile_detections_request.ListResourceProfileDetectionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_resource_profile_detections_request.ListResourceProfileDetectionsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["resource_arn"] = resource_arn
+            input_["next_token"] = next_token
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3305,14 +3307,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_sensitivity_inspection_templates_request.ListSensitivityInspectionTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.list_sensitivity_inspection_templates_request.ListSensitivityInspectionTemplatesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3367,11 +3369,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_macie2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3405,11 +3407,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.put_classification_export_configuration_request.PutClassificationExportConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration"] = configuration
+        input_: aws_sdk_macie2.types.put_classification_export_configuration_request.PutClassificationExportConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3447,14 +3449,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.put_findings_publication_configuration_request.PutFindingsPublicationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.put_findings_publication_configuration_request.PutFindingsPublicationConfigurationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if security_hub_configuration is not None:
-            input["security_hub_configuration"] = security_hub_configuration
+            input_["security_hub_configuration"] = security_hub_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3498,18 +3500,18 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.search_resources_request.SearchResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.search_resources_request.SearchResourcesRequest = {}  # type: ignore[typeddict-item]
         if bucket_criteria is not None:
-            input["bucket_criteria"] = bucket_criteria
+            input_["bucket_criteria"] = bucket_criteria
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3574,12 +3576,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_macie2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3627,18 +3629,18 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.test_custom_data_identifier_request.TestCustomDataIdentifierRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.test_custom_data_identifier_request.TestCustomDataIdentifierRequest = {}  # type: ignore[typeddict-item]
         if ignore_words is not None:
-            input["ignore_words"] = ignore_words
+            input_["ignore_words"] = ignore_words
         if keywords is not None:
-            input["keywords"] = keywords
+            input_["keywords"] = keywords
         if maximum_match_distance is not None:
-            input["maximum_match_distance"] = maximum_match_distance
-        input["regex"] = regex
-        input["sample_text"] = sample_text
+            input_["maximum_match_distance"] = maximum_match_distance
+        input_["regex"] = regex
+        input_["sample_text"] = sample_text
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3674,12 +3676,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_macie2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3721,15 +3723,15 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_allow_list_request.UpdateAllowListRequest = {}  # type: ignore[typeddict-item]
-        input["criteria"] = criteria
+        input_: aws_sdk_macie2.types.update_allow_list_request.UpdateAllowListRequest = {}  # type: ignore[typeddict-item]
+        input_["criteria"] = criteria
         if description is not None:
-            input["description"] = description
-        input["id"] = id
-        input["name"] = name
+            input_["description"] = description
+        input_["id"] = id
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3767,13 +3769,15 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_automated_discovery_configuration_request.UpdateAutomatedDiscoveryConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.update_automated_discovery_configuration_request.UpdateAutomatedDiscoveryConfigurationRequest = {}  # type: ignore[typeddict-item]
         if auto_enable_organization_members is not None:
-            input["auto_enable_organization_members"] = auto_enable_organization_members
-        input["status"] = status
+            input_["auto_enable_organization_members"] = (
+                auto_enable_organization_members
+            )
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3809,12 +3813,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_classification_job_request.UpdateClassificationJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
-        input["job_status"] = job_status
+        input_: aws_sdk_macie2.types.update_classification_job_request.UpdateClassificationJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
+        input_["job_status"] = job_status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3852,13 +3856,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_classification_scope_request.UpdateClassificationScopeRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_macie2.types.update_classification_scope_request.UpdateClassificationScopeRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if s3 is not None:
-            input["s3"] = s3
+            input_["s3"] = s3
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3908,23 +3912,23 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_findings_filter_request.UpdateFindingsFilterRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.update_findings_filter_request.UpdateFindingsFilterRequest = {}  # type: ignore[typeddict-item]
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if finding_criteria is not None:
-            input["finding_criteria"] = finding_criteria
-        input["id"] = id
+            input_["finding_criteria"] = finding_criteria
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if position is not None:
-            input["position"] = position
+            input_["position"] = position
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3964,14 +3968,14 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_macie_session_request.UpdateMacieSessionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.update_macie_session_request.UpdateMacieSessionRequest = {}  # type: ignore[typeddict-item]
         if finding_publishing_frequency is not None:
-            input["finding_publishing_frequency"] = finding_publishing_frequency
+            input_["finding_publishing_frequency"] = finding_publishing_frequency
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4007,12 +4011,12 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_member_session_request.UpdateMemberSessionRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["status"] = status
+        input_: aws_sdk_macie2.types.update_member_session_request.UpdateMemberSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["status"] = status
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4046,11 +4050,11 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["auto_enable"] = auto_enable
+        input_: aws_sdk_macie2.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_enable"] = auto_enable
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4088,13 +4092,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_resource_profile_request.UpdateResourceProfileRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_macie2.types.update_resource_profile_request.UpdateResourceProfileRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if sensitivity_score_override is not None:
-            input["sensitivity_score_override"] = sensitivity_score_override
+            input_["sensitivity_score_override"] = sensitivity_score_override
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4132,13 +4136,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_resource_profile_detections_request.UpdateResourceProfileDetectionsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_macie2.types.update_resource_profile_detections_request.UpdateResourceProfileDetectionsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if suppress_data_identifiers is not None:
-            input["suppress_data_identifiers"] = suppress_data_identifiers
+            input_["suppress_data_identifiers"] = suppress_data_identifiers
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4176,13 +4180,13 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_reveal_configuration_request.UpdateRevealConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["configuration"] = configuration
+        input_: aws_sdk_macie2.types.update_reveal_configuration_request.UpdateRevealConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration"] = configuration
         if retrieval_configuration is not None:
-            input["retrieval_configuration"] = retrieval_configuration
+            input_["retrieval_configuration"] = retrieval_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4226,17 +4230,17 @@ class AsyncMacie2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_macie2.types.update_sensitivity_inspection_template_request.UpdateSensitivityInspectionTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_macie2.types.update_sensitivity_inspection_template_request.UpdateSensitivityInspectionTemplateRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if excludes is not None:
-            input["excludes"] = excludes
-        input["id"] = id
+            input_["excludes"] = excludes
+        input_["id"] = id
         if includes is not None:
-            input["includes"] = includes
+            input_["includes"] = includes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -93,18 +93,18 @@ class Deployment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.create_deployment_input.CreateDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["workload_name"] = workload_name
-        input["deployment_pattern_name"] = deployment_pattern_name
-        input["name"] = name
-        input["specifications"] = specifications
+        input_: aws_sdk_launch_wizard.types.create_deployment_input.CreateDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["workload_name"] = workload_name
+        input_["deployment_pattern_name"] = deployment_pattern_name
+        input_["name"] = name
+        input_["specifications"] = specifications
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,11 +142,11 @@ class Deployment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_launch_wizard.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,20 +201,20 @@ class Deployment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.update_deployment_input.UpdateDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["specifications"] = specifications
+        input_: aws_sdk_launch_wizard.types.update_deployment_input.UpdateDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["specifications"] = specifications
         if workload_version_name is not None:
-            input["workload_version_name"] = workload_version_name
+            input_["workload_version_name"] = workload_version_name
         if deployment_pattern_version_name is not None:
-            input["deployment_pattern_version_name"] = deployment_pattern_version_name
+            input_["deployment_pattern_version_name"] = deployment_pattern_version_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,11 +252,11 @@ class Deployment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_launch_wizard.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,16 +302,16 @@ class Deployment:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_launch_wizard.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -368,18 +368,18 @@ class AsyncDeployment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.create_deployment_input.CreateDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["workload_name"] = workload_name
-        input["deployment_pattern_name"] = deployment_pattern_name
-        input["name"] = name
-        input["specifications"] = specifications
+        input_: aws_sdk_launch_wizard.types.create_deployment_input.CreateDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["workload_name"] = workload_name
+        input_["deployment_pattern_name"] = deployment_pattern_name
+        input_["name"] = name
+        input_["specifications"] = specifications
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,11 +418,11 @@ class AsyncDeployment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_launch_wizard.types.get_deployment_input.GetDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -478,20 +478,20 @@ class AsyncDeployment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.update_deployment_input.UpdateDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
-        input["specifications"] = specifications
+        input_: aws_sdk_launch_wizard.types.update_deployment_input.UpdateDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
+        input_["specifications"] = specifications
         if workload_version_name is not None:
-            input["workload_version_name"] = workload_version_name
+            input_["workload_version_name"] = workload_version_name
         if deployment_pattern_version_name is not None:
-            input["deployment_pattern_version_name"] = deployment_pattern_version_name
+            input_["deployment_pattern_version_name"] = deployment_pattern_version_name
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -530,11 +530,11 @@ class AsyncDeployment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
-        input["deployment_id"] = deployment_id
+        input_: aws_sdk_launch_wizard.types.delete_deployment_input.DeleteDeploymentInput = {}  # type: ignore[typeddict-item]
+        input_["deployment_id"] = deployment_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -581,16 +581,16 @@ class AsyncDeployment:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_launch_wizard.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_launch_wizard.types.list_deployments_input.ListDeploymentsInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

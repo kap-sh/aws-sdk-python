@@ -119,30 +119,30 @@ class ResponderGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.create_responder_gateway_request.CreateResponderGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
+        input_: aws_sdk_rtbfabric.types.create_responder_gateway_request.CreateResponderGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
         if domain_name is not None:
-            input["domain_name"] = domain_name
-        input["port"] = port
-        input["protocol"] = protocol
+            input_["domain_name"] = domain_name
+        input_["port"] = port
+        input_["protocol"] = protocol
         if listener_config is not None:
-            input["listener_config"] = listener_config
+            input_["listener_config"] = listener_config
         if trust_store_configuration is not None:
-            input["trust_store_configuration"] = trust_store_configuration
+            input_["trust_store_configuration"] = trust_store_configuration
         if managed_endpoint_configuration is not None:
-            input["managed_endpoint_configuration"] = managed_endpoint_configuration
-        input["client_token"] = client_token
+            input_["managed_endpoint_configuration"] = managed_endpoint_configuration
+        input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if gateway_type is not None:
-            input["gateway_type"] = gateway_type
+            input_["gateway_type"] = gateway_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -181,11 +181,11 @@ class ResponderGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.get_responder_gateway_request.GetResponderGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.get_responder_gateway_request.GetResponderGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -224,11 +224,11 @@ class ResponderGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.delete_responder_gateway_request.DeleteResponderGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.delete_responder_gateway_request.DeleteResponderGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,13 +271,13 @@ class ResponderGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.associate_certificate_request.AssociateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["acm_certificate_arn"] = acm_certificate_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_rtbfabric.types.associate_certificate_request.AssociateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["acm_certificate_arn"] = acm_certificate_arn
+        input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,12 +318,12 @@ class ResponderGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.disassociate_certificate_request.DisassociateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["acm_certificate_arn"] = acm_certificate_arn
+        input_: aws_sdk_rtbfabric.types.disassociate_certificate_request.DisassociateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["acm_certificate_arn"] = acm_certificate_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,12 +364,12 @@ class ResponderGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.get_certificate_association_request.GetCertificateAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["acm_certificate_arn"] = acm_certificate_arn
+        input_: aws_sdk_rtbfabric.types.get_certificate_association_request.GetCertificateAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["acm_certificate_arn"] = acm_certificate_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -412,15 +412,15 @@ class ResponderGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.list_certificate_associations_request.ListCertificateAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.list_certificate_associations_request.ListCertificateAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,24 +481,24 @@ class ResponderGateway:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.update_responder_gateway_request.UpdateResponderGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rtbfabric.types.update_responder_gateway_request.UpdateResponderGatewayRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
-        input["port"] = port
-        input["protocol"] = protocol
+            input_["domain_name"] = domain_name
+        input_["port"] = port
+        input_["protocol"] = protocol
         if listener_config is not None:
-            input["listener_config"] = listener_config
+            input_["listener_config"] = listener_config
         if trust_store_configuration is not None:
-            input["trust_store_configuration"] = trust_store_configuration
+            input_["trust_store_configuration"] = trust_store_configuration
         if managed_endpoint_configuration is not None:
-            input["managed_endpoint_configuration"] = managed_endpoint_configuration
-        input["client_token"] = client_token
-        input["gateway_id"] = gateway_id
+            input_["managed_endpoint_configuration"] = managed_endpoint_configuration
+        input_["client_token"] = client_token
+        input_["gateway_id"] = gateway_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -574,30 +574,30 @@ class AsyncResponderGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.create_responder_gateway_request.CreateResponderGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["vpc_id"] = vpc_id
-        input["subnet_ids"] = subnet_ids
-        input["security_group_ids"] = security_group_ids
+        input_: aws_sdk_rtbfabric.types.create_responder_gateway_request.CreateResponderGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["vpc_id"] = vpc_id
+        input_["subnet_ids"] = subnet_ids
+        input_["security_group_ids"] = security_group_ids
         if domain_name is not None:
-            input["domain_name"] = domain_name
-        input["port"] = port
-        input["protocol"] = protocol
+            input_["domain_name"] = domain_name
+        input_["port"] = port
+        input_["protocol"] = protocol
         if listener_config is not None:
-            input["listener_config"] = listener_config
+            input_["listener_config"] = listener_config
         if trust_store_configuration is not None:
-            input["trust_store_configuration"] = trust_store_configuration
+            input_["trust_store_configuration"] = trust_store_configuration
         if managed_endpoint_configuration is not None:
-            input["managed_endpoint_configuration"] = managed_endpoint_configuration
-        input["client_token"] = client_token
+            input_["managed_endpoint_configuration"] = managed_endpoint_configuration
+        input_["client_token"] = client_token
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if gateway_type is not None:
-            input["gateway_type"] = gateway_type
+            input_["gateway_type"] = gateway_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -637,11 +637,11 @@ class AsyncResponderGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.get_responder_gateway_request.GetResponderGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.get_responder_gateway_request.GetResponderGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -681,11 +681,11 @@ class AsyncResponderGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.delete_responder_gateway_request.DeleteResponderGatewayRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.delete_responder_gateway_request.DeleteResponderGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -729,13 +729,13 @@ class AsyncResponderGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.associate_certificate_request.AssociateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["acm_certificate_arn"] = acm_certificate_arn
-        input["client_token"] = client_token
+        input_: aws_sdk_rtbfabric.types.associate_certificate_request.AssociateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["acm_certificate_arn"] = acm_certificate_arn
+        input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -777,12 +777,12 @@ class AsyncResponderGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.disassociate_certificate_request.DisassociateCertificateRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["acm_certificate_arn"] = acm_certificate_arn
+        input_: aws_sdk_rtbfabric.types.disassociate_certificate_request.DisassociateCertificateRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["acm_certificate_arn"] = acm_certificate_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -824,12 +824,12 @@ class AsyncResponderGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.get_certificate_association_request.GetCertificateAssociationRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
-        input["acm_certificate_arn"] = acm_certificate_arn
+        input_: aws_sdk_rtbfabric.types.get_certificate_association_request.GetCertificateAssociationRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
+        input_["acm_certificate_arn"] = acm_certificate_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -873,15 +873,15 @@ class AsyncResponderGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.list_certificate_associations_request.ListCertificateAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["gateway_id"] = gateway_id
+        input_: aws_sdk_rtbfabric.types.list_certificate_associations_request.ListCertificateAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["gateway_id"] = gateway_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -943,24 +943,24 @@ class AsyncResponderGateway:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_rtbfabric.types.update_responder_gateway_request.UpdateResponderGatewayRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_rtbfabric.types.update_responder_gateway_request.UpdateResponderGatewayRequest = {}  # type: ignore[typeddict-item]
         if domain_name is not None:
-            input["domain_name"] = domain_name
-        input["port"] = port
-        input["protocol"] = protocol
+            input_["domain_name"] = domain_name
+        input_["port"] = port
+        input_["protocol"] = protocol
         if listener_config is not None:
-            input["listener_config"] = listener_config
+            input_["listener_config"] = listener_config
         if trust_store_configuration is not None:
-            input["trust_store_configuration"] = trust_store_configuration
+            input_["trust_store_configuration"] = trust_store_configuration
         if managed_endpoint_configuration is not None:
-            input["managed_endpoint_configuration"] = managed_endpoint_configuration
-        input["client_token"] = client_token
-        input["gateway_id"] = gateway_id
+            input_["managed_endpoint_configuration"] = managed_endpoint_configuration
+        input_["client_token"] = client_token
+        input_["gateway_id"] = gateway_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -7,12 +7,18 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_b2bi._auth._signers
+import aws_sdk_b2bi._auth._sigv4
 from aws_sdk_b2bi._auth._identity import Credentials
 from aws_sdk_b2bi._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_b2bi._auth._zapros_handler import AuthMiddleware
+from aws_sdk_b2bi._resources.b2_bi.capability import Capability
+from aws_sdk_b2bi._resources.b2_bi.partnership import Partnership
+from aws_sdk_b2bi._resources.b2_bi.profile import Profile
+from aws_sdk_b2bi._resources.b2_bi.transformer import Transformer
 from aws_sdk_b2bi._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -130,6 +136,11 @@ class b2biClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.capability = Capability(self)
+        self.partnership = Partnership(self)
+        self.profile = Profile(self)
+        self.transformer = Transformer(self)
 
     def operation_options(
         self, config_overrides: Optional[b2biClientConfig] = None

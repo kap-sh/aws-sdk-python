@@ -15,6 +15,63 @@ from aws_sdk_iot_managed_integrations._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_iot_managed_integrations._auth._zapros_handler import AuthMiddleware
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.account_association_resource import (
+    AccountAssociationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.cloud_connector_resource import (
+    CloudConnectorResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.connector_destination_resource import (
+    ConnectorDestinationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.credential_locker_resource import (
+    CredentialLockerResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.destination_resource import (
+    DestinationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.device_discovery_resource import (
+    DeviceDiscoveryResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.event_log_configuration_resource import (
+    EventLogConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.hub_configuration_resource import (
+    HubConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.kms_key_association_resource import (
+    KmsKeyAssociationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.managed_thing_association_resource import (
+    ManagedThingAssociationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.managed_thing_command_resource import (
+    ManagedThingCommandResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.managed_thing_resource import (
+    ManagedThingResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.managed_thing_state_resource import (
+    ManagedThingStateResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.notification_configuration_resource import (
+    NotificationConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.ota_task_configuration_resource import (
+    OtaTaskConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.ota_task_resource import (
+    OtaTaskResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.provisioning_profile_resource import (
+    ProvisioningProfileResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.runtime_log_configuration_resource import (
+    RuntimeLogConfigurationResource,
+)
+from aws_sdk_iot_managed_integrations._resources.iot_managed_integrations.schema_version_resource import (
+    SchemaVersionResource,
+)
 from aws_sdk_iot_managed_integrations._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -119,6 +176,28 @@ class IoTManagedIntegrationsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_association_resource = AccountAssociationResource(self)
+        self.cloud_connector_resource = CloudConnectorResource(self)
+        self.connector_destination_resource = ConnectorDestinationResource(self)
+        self.credential_locker_resource = CredentialLockerResource(self)
+        self.destination_resource = DestinationResource(self)
+        self.device_discovery_resource = DeviceDiscoveryResource(self)
+        self.event_log_configuration_resource = EventLogConfigurationResource(self)
+        self.hub_configuration_resource = HubConfigurationResource(self)
+        self.kms_key_association_resource = KmsKeyAssociationResource(self)
+        self.managed_thing_association_resource = ManagedThingAssociationResource(self)
+        self.managed_thing_command_resource = ManagedThingCommandResource(self)
+        self.managed_thing_resource = ManagedThingResource(self)
+        self.managed_thing_state_resource = ManagedThingStateResource(self)
+        self.notification_configuration_resource = NotificationConfigurationResource(
+            self
+        )
+        self.ota_task_configuration_resource = OtaTaskConfigurationResource(self)
+        self.ota_task_resource = OtaTaskResource(self)
+        self.provisioning_profile_resource = ProvisioningProfileResource(self)
+        self.runtime_log_configuration_resource = RuntimeLogConfigurationResource(self)
+        self.schema_version_resource = SchemaVersionResource(self)
 
     def operation_options(
         self, config_overrides: Optional[IoTManagedIntegrationsClientConfig] = None
@@ -165,10 +244,10 @@ class IoTManagedIntegrationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.get_custom_endpoint_request.GetCustomEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.get_custom_endpoint_request.GetCustomEndpointRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,11 +280,11 @@ class IoTManagedIntegrationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_iot_managed_integrations.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -231,10 +310,10 @@ class IoTManagedIntegrationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.register_custom_endpoint_request.RegisterCustomEndpointRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iot_managed_integrations.types.register_custom_endpoint_request.RegisterCustomEndpointRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -316,30 +395,30 @@ class IoTManagedIntegrationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.send_connector_event_request.SendConnectorEventRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_iot_managed_integrations.types.send_connector_event_request.SendConnectorEventRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
         if user_id is not None:
-            input["user_id"] = user_id
-        input["operation"] = operation
+            input_["user_id"] = user_id
+        input_["operation"] = operation
         if operation_version is not None:
-            input["operation_version"] = operation_version
+            input_["operation_version"] = operation_version
         if status_code is not None:
-            input["status_code"] = status_code
+            input_["status_code"] = status_code
         if message is not None:
-            input["message"] = message
+            input_["message"] = message
         if device_discovery_id is not None:
-            input["device_discovery_id"] = device_discovery_id
+            input_["device_discovery_id"] = device_discovery_id
         if connector_device_id is not None:
-            input["connector_device_id"] = connector_device_id
+            input_["connector_device_id"] = connector_device_id
         if trace_id is not None:
-            input["trace_id"] = trace_id
+            input_["trace_id"] = trace_id
         if devices is not None:
-            input["devices"] = devices
+            input_["devices"] = devices
         if matter_endpoint is not None:
-            input["matter_endpoint"] = matter_endpoint
+            input_["matter_endpoint"] = matter_endpoint
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,12 +453,12 @@ class IoTManagedIntegrationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_iot_managed_integrations.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -414,12 +493,12 @@ class IoTManagedIntegrationsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_managed_integrations.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_iot_managed_integrations.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

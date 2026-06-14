@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_docdb._auth._signers
+import aws_sdk_docdb._auth._sigv4
 from aws_sdk_docdb._auth._identity import Credentials
 from aws_sdk_docdb._auth._providers import (
     CredentialsProvider,
@@ -293,12 +295,12 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["source_identifier"] = source_identifier
+        input_: aws_sdk_docdb.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -331,12 +333,12 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tags"] = tags
+        input_: aws_sdk_docdb.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -373,13 +375,13 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["apply_action"] = apply_action
-        input["opt_in_type"] = opt_in_type
+        input_: aws_sdk_docdb.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["apply_action"] = apply_action
+        input_["opt_in_type"] = opt_in_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,21 +420,21 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_cluster_parameter_group_identifier"] = (
+        input_: aws_sdk_docdb.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_cluster_parameter_group_identifier"] = (
             source_db_cluster_parameter_group_identifier
         )
-        input["target_db_cluster_parameter_group_identifier"] = (
+        input_["target_db_cluster_parameter_group_identifier"] = (
             target_db_cluster_parameter_group_identifier
         )
-        input["target_db_cluster_parameter_group_description"] = (
+        input_["target_db_cluster_parameter_group_description"] = (
             target_db_cluster_parameter_group_description
         )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -477,24 +479,24 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_cluster_snapshot_identifier"] = (
+        input_: aws_sdk_docdb.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_cluster_snapshot_identifier"] = (
             source_db_cluster_snapshot_identifier
         )
-        input["target_db_cluster_snapshot_identifier"] = (
+        input_["target_db_cluster_snapshot_identifier"] = (
             target_db_cluster_snapshot_identifier
         )
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -599,60 +601,60 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.create_db_cluster_message.CreateDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.create_db_cluster_message.CreateDBClusterMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
-        input["db_cluster_identifier"] = db_cluster_identifier
+            input_["backup_retention_period"] = backup_retention_period
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
-        input["engine"] = engine
+            input_["db_subnet_group_name"] = db_subnet_group_name
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if master_username is not None:
-            input["master_username"] = master_username
+            input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if global_cluster_identifier is not None:
-            input["global_cluster_identifier"] = global_cluster_identifier
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -691,15 +693,15 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input["db_parameter_group_family"] = db_parameter_group_family
-        input["description"] = description
+        input_: aws_sdk_docdb.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_["db_parameter_group_family"] = db_parameter_group_family
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -736,14 +738,14 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_docdb.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -812,32 +814,32 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
-        input["db_instance_class"] = db_instance_class
-        input["engine"] = engine
+        input_: aws_sdk_docdb.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
+        input_["db_instance_class"] = db_instance_class
+        input_["engine"] = engine
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if tags is not None:
-            input["tags"] = tags
-        input["db_cluster_identifier"] = db_cluster_identifier
+            input_["tags"] = tags
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if promotion_tier is not None:
-            input["promotion_tier"] = promotion_tier
+            input_["promotion_tier"] = promotion_tier
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,15 +878,15 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
-        input["db_subnet_group_description"] = db_subnet_group_description
-        input["subnet_ids"] = subnet_ids
+        input_: aws_sdk_docdb.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
+        input_["db_subnet_group_description"] = db_subnet_group_description
+        input_["subnet_ids"] = subnet_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -935,22 +937,22 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["sns_topic_arn"] = sns_topic_arn
+        input_: aws_sdk_docdb.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if source_ids is not None:
-            input["source_ids"] = source_ids
+            input_["source_ids"] = source_ids
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1001,23 +1003,23 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_docdb.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
         if source_db_cluster_identifier is not None:
-            input["source_db_cluster_identifier"] = source_db_cluster_identifier
+            input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1056,15 +1058,15 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_docdb.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if skip_final_snapshot is not None:
-            input["skip_final_snapshot"] = skip_final_snapshot
+            input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
-            input["final_db_snapshot_identifier"] = final_db_snapshot_identifier
+            input_["final_db_snapshot_identifier"] = final_db_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1095,11 +1097,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_docdb.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1132,11 +1134,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_: aws_sdk_docdb.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1169,11 +1171,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_docdb.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1204,11 +1206,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
+        input_: aws_sdk_docdb.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1241,11 +1243,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_docdb.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1278,11 +1280,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_docdb.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1323,18 +1325,18 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_certificates_message.DescribeCertificatesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_certificates_message.DescribeCertificatesMessage = {}  # type: ignore[typeddict-item]
         if certificate_identifier is not None:
-            input["certificate_identifier"] = certificate_identifier
+            input_["certificate_identifier"] = certificate_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1404,18 +1406,18 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_db_cluster_parameter_groups_message.DescribeDBClusterParameterGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_db_cluster_parameter_groups_message.DescribeDBClusterParameterGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,19 +1489,19 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_docdb.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1569,18 +1571,18 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_db_clusters_message.DescribeDBClustersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_db_clusters_message.DescribeDBClustersMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1640,11 +1642,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_: aws_sdk_docdb.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1695,26 +1697,26 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_db_cluster_snapshots_message.DescribeDBClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_db_cluster_snapshots_message.DescribeDBClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_snapshot_identifier is not None:
-            input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
         if snapshot_type is not None:
-            input["snapshot_type"] = snapshot_type
+            input_["snapshot_type"] = snapshot_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if include_shared is not None:
-            input["include_shared"] = include_shared
+            input_["include_shared"] = include_shared
         if include_public is not None:
-            input["include_public"] = include_public
+            input_["include_public"] = include_public
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1806,28 +1808,28 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_db_engine_versions_message.DescribeDBEngineVersionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_db_engine_versions_message.DescribeDBEngineVersionsMessage = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if db_parameter_group_family is not None:
-            input["db_parameter_group_family"] = db_parameter_group_family
+            input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if default_only is not None:
-            input["default_only"] = default_only
+            input_["default_only"] = default_only
         if list_supported_character_sets is not None:
-            input["list_supported_character_sets"] = list_supported_character_sets
+            input_["list_supported_character_sets"] = list_supported_character_sets
         if list_supported_timezones is not None:
-            input["list_supported_timezones"] = list_supported_timezones
+            input_["list_supported_timezones"] = list_supported_timezones
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1909,18 +1911,18 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_db_instances_message.DescribeDBInstancesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_db_instances_message.DescribeDBInstancesMessage = {}  # type: ignore[typeddict-item]
         if db_instance_identifier is not None:
-            input["db_instance_identifier"] = db_instance_identifier
+            input_["db_instance_identifier"] = db_instance_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1988,18 +1990,18 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_db_subnet_groups_message.DescribeDBSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_db_subnet_groups_message.DescribeDBSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2067,17 +2069,17 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_family"] = db_parameter_group_family
+        input_: aws_sdk_docdb.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2112,14 +2114,14 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2172,28 +2174,28 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
         if source_identifier is not None:
-            input["source_identifier"] = source_identifier
+            input_["source_identifier"] = source_identifier
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2275,18 +2277,18 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
         if subscription_name is not None:
-            input["subscription_name"] = subscription_name
+            input_["subscription_name"] = subscription_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2356,18 +2358,18 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_global_clusters_message.DescribeGlobalClustersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_global_clusters_message.DescribeGlobalClustersMessage = {}  # type: ignore[typeddict-item]
         if global_cluster_identifier is not None:
-            input["global_cluster_identifier"] = global_cluster_identifier
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2445,25 +2447,25 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
-        input["engine"] = engine
+        input_: aws_sdk_docdb.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if vpc is not None:
-            input["vpc"] = vpc
+            input_["vpc"] = vpc
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2539,18 +2541,18 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.describe_pending_maintenance_actions_message.DescribePendingMaintenanceActionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.describe_pending_maintenance_actions_message.DescribePendingMaintenanceActionsMessage = {}  # type: ignore[typeddict-item]
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2614,14 +2616,14 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.failover_db_cluster_message.FailoverDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.failover_db_cluster_message.FailoverDBClusterMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if target_db_instance_identifier is not None:
-            input["target_db_instance_identifier"] = target_db_instance_identifier
+            input_["target_db_instance_identifier"] = target_db_instance_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2666,16 +2668,16 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["target_db_cluster_identifier"] = target_db_cluster_identifier
+        input_: aws_sdk_docdb.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
         if allow_data_loss is not None:
-            input["allow_data_loss"] = allow_data_loss
+            input_["allow_data_loss"] = allow_data_loss
         if switchover is not None:
-            input["switchover"] = switchover
+            input_["switchover"] = switchover
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2708,13 +2710,13 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_docdb.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2807,53 +2809,53 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_docdb.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if new_db_cluster_identifier is not None:
-            input["new_db_cluster_identifier"] = new_db_cluster_identifier
+            input_["new_db_cluster_identifier"] = new_db_cluster_identifier
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if cloudwatch_logs_export_configuration is not None:
-            input["cloudwatch_logs_export_configuration"] = (
+            input_["cloudwatch_logs_export_configuration"] = (
                 cloudwatch_logs_export_configuration
             )
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if allow_major_version_upgrade is not None:
-            input["allow_major_version_upgrade"] = allow_major_version_upgrade
+            input_["allow_major_version_upgrade"] = allow_major_version_upgrade
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if manage_master_user_password is not None:
-            input["manage_master_user_password"] = manage_master_user_password
+            input_["manage_master_user_password"] = manage_master_user_password
         if master_user_secret_kms_key_id is not None:
-            input["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
+            input_["master_user_secret_kms_key_id"] = master_user_secret_kms_key_id
         if rotate_master_user_password is not None:
-            input["rotate_master_user_password"] = rotate_master_user_password
+            input_["rotate_master_user_password"] = rotate_master_user_password
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2888,12 +2890,12 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input["parameters"] = parameters
+        input_: aws_sdk_docdb.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2936,16 +2938,16 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_docdb.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_["attribute_name"] = attribute_name
         if values_to_add is not None:
-            input["values_to_add"] = values_to_add
+            input_["values_to_add"] = values_to_add
         if values_to_remove is not None:
-            input["values_to_remove"] = values_to_remove
+            input_["values_to_remove"] = values_to_remove
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3016,33 +3018,33 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_docdb.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if new_db_instance_identifier is not None:
-            input["new_db_instance_identifier"] = new_db_instance_identifier
+            input_["new_db_instance_identifier"] = new_db_instance_identifier
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if promotion_tier is not None:
-            input["promotion_tier"] = promotion_tier
+            input_["promotion_tier"] = promotion_tier
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if certificate_rotation_restart is not None:
-            input["certificate_rotation_restart"] = certificate_rotation_restart
+            input_["certificate_rotation_restart"] = certificate_rotation_restart
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3081,14 +3083,14 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
+        input_: aws_sdk_docdb.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
         if db_subnet_group_description is not None:
-            input["db_subnet_group_description"] = db_subnet_group_description
-        input["subnet_ids"] = subnet_ids
+            input_["db_subnet_group_description"] = db_subnet_group_description
+        input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3133,19 +3135,19 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_docdb.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3186,15 +3188,15 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_docdb.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
         if new_global_cluster_identifier is not None:
-            input["new_global_cluster_identifier"] = new_global_cluster_identifier
+            input_["new_global_cluster_identifier"] = new_global_cluster_identifier
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3231,13 +3233,13 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_docdb.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if force_failover is not None:
-            input["force_failover"] = force_failover
+            input_["force_failover"] = force_failover
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3272,12 +3274,12 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_docdb.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3312,12 +3314,12 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["source_identifier"] = source_identifier
+        input_: aws_sdk_docdb.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3350,12 +3352,12 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_docdb.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3394,15 +3396,15 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_docdb.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if reset_all_parameters is not None:
-            input["reset_all_parameters"] = reset_all_parameters
+            input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3477,41 +3479,41 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_docdb.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["snapshot_identifier"] = snapshot_identifier
-        input["engine"] = engine
+            input_["availability_zones"] = availability_zones
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["snapshot_identifier"] = snapshot_identifier
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3582,40 +3584,40 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_docdb.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if restore_type is not None:
-            input["restore_type"] = restore_type
-        input["source_db_cluster_identifier"] = source_db_cluster_identifier
+            input_["restore_type"] = restore_type
+        input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if restore_to_time is not None:
-            input["restore_to_time"] = restore_to_time
+            input_["restore_to_time"] = restore_to_time
         if use_latest_restorable_time is not None:
-            input["use_latest_restorable_time"] = use_latest_restorable_time
+            input_["use_latest_restorable_time"] = use_latest_restorable_time
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3648,11 +3650,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_docdb.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3685,11 +3687,11 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_docdb.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3724,12 +3726,12 @@ class DocDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_docdb.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["target_db_cluster_identifier"] = target_db_cluster_identifier
+        input_: aws_sdk_docdb.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

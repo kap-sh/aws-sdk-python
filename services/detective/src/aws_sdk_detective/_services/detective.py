@@ -220,11 +220,11 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.accept_invitation_request.AcceptInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,12 +259,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.batch_get_graph_member_datasources_request.BatchGetGraphMemberDatasourcesRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["account_ids"] = account_ids
+        input_: aws_sdk_detective.types.batch_get_graph_member_datasources_request.BatchGetGraphMemberDatasourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -297,11 +297,11 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.batch_get_membership_datasources_request.BatchGetMembershipDatasourcesRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arns"] = graph_arns
+        input_: aws_sdk_detective.types.batch_get_membership_datasources_request.BatchGetMembershipDatasourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arns"] = graph_arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -334,12 +334,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.create_graph_request.CreateGraphRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_detective.types.create_graph_request.CreateGraphRequest = {}  # type: ignore[typeddict-item]
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,16 +380,16 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.create_members_request.CreateMembersRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.create_members_request.CreateMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
         if message is not None:
-            input["message"] = message
+            input_["message"] = message
         if disable_email_notification is not None:
-            input["disable_email_notification"] = disable_email_notification
-        input["accounts"] = accounts
+            input_["disable_email_notification"] = disable_email_notification
+        input_["accounts"] = accounts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,11 +420,11 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.delete_graph_request.DeleteGraphRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.delete_graph_request.DeleteGraphRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,12 +459,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.delete_members_request.DeleteMembersRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["account_ids"] = account_ids
+        input_: aws_sdk_detective.types.delete_members_request.DeleteMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -497,11 +497,11 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -556,11 +556,11 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.disassociate_membership_request.DisassociateMembershipRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.disassociate_membership_request.DisassociateMembershipRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -591,11 +591,11 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_detective.types.enable_organization_admin_account_request.EnableOrganizationAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -630,12 +630,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.get_investigation_request.GetInvestigationRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["investigation_id"] = investigation_id
+        input_: aws_sdk_detective.types.get_investigation_request.GetInvestigationRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["investigation_id"] = investigation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -670,12 +670,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.get_members_request.GetMembersRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["account_ids"] = account_ids
+        input_: aws_sdk_detective.types.get_members_request.GetMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["account_ids"] = account_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -716,15 +716,15 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.list_datasource_packages_request.ListDatasourcePackagesRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.list_datasource_packages_request.ListDatasourcePackagesRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -763,14 +763,14 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.list_graphs_request.ListGraphsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_detective.types.list_graphs_request.ListGraphsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -815,18 +815,18 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.list_indicators_request.ListIndicatorsRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["investigation_id"] = investigation_id
+        input_: aws_sdk_detective.types.list_indicators_request.ListIndicatorsRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["investigation_id"] = investigation_id
         if indicator_type is not None:
-            input["indicator_type"] = indicator_type
+            input_["indicator_type"] = indicator_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -873,19 +873,19 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.list_investigations_request.ListInvestigationsRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.list_investigations_request.ListInvestigationsRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -924,14 +924,14 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.list_invitations_request.ListInvitationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_detective.types.list_invitations_request.ListInvitationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -972,15 +972,15 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1019,14 +1019,14 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.list_organization_admin_accounts_request.ListOrganizationAdminAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_detective.types.list_organization_admin_accounts_request.ListOrganizationAdminAccountsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1059,11 +1059,11 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_detective.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1094,11 +1094,11 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.reject_invitation_request.RejectInvitationRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.reject_invitation_request.RejectInvitationRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1137,14 +1137,14 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.start_investigation_request.StartInvestigationRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["entity_arn"] = entity_arn
-        input["scope_start_time"] = scope_start_time
-        input["scope_end_time"] = scope_end_time
+        input_: aws_sdk_detective.types.start_investigation_request.StartInvestigationRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["entity_arn"] = entity_arn
+        input_["scope_start_time"] = scope_start_time
+        input_["scope_end_time"] = scope_end_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1177,12 +1177,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.start_monitoring_member_request.StartMonitoringMemberRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["account_id"] = account_id
+        input_: aws_sdk_detective.types.start_monitoring_member_request.StartMonitoringMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["account_id"] = account_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1217,12 +1217,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_detective.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1257,12 +1257,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_detective.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1295,12 +1295,12 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.update_datasource_packages_request.UpdateDatasourcePackagesRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["datasource_packages"] = datasource_packages
+        input_: aws_sdk_detective.types.update_datasource_packages_request.UpdateDatasourcePackagesRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["datasource_packages"] = datasource_packages
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1335,13 +1335,13 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.update_investigation_state_request.UpdateInvestigationStateRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
-        input["investigation_id"] = investigation_id
-        input["state"] = state
+        input_: aws_sdk_detective.types.update_investigation_state_request.UpdateInvestigationStateRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
+        input_["investigation_id"] = investigation_id
+        input_["state"] = state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1374,13 +1374,13 @@ class DetectiveClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_detective.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["graph_arn"] = graph_arn
+        input_: aws_sdk_detective.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["graph_arn"] = graph_arn
         if auto_enable is not None:
-            input["auto_enable"] = auto_enable
+            input_["auto_enable"] = auto_enable
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

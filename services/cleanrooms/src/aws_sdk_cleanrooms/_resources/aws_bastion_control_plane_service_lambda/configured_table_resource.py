@@ -99,20 +99,20 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_configured_table_input.CreateConfiguredTableInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cleanrooms.types.create_configured_table_input.CreateConfiguredTableInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["table_reference"] = table_reference
-        input["allowed_columns"] = allowed_columns
-        input["analysis_method"] = analysis_method
+            input_["description"] = description
+        input_["table_reference"] = table_reference
+        input_["allowed_columns"] = allowed_columns
+        input_["analysis_method"] = analysis_method
         if selected_analysis_methods is not None:
-            input["selected_analysis_methods"] = selected_analysis_methods
+            input_["selected_analysis_methods"] = selected_analysis_methods
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -147,11 +147,11 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_configured_table_input.GetConfiguredTableInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
+        input_: aws_sdk_cleanrooms.types.get_configured_table_input.GetConfiguredTableInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,23 +205,23 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_configured_table_input.UpdateConfiguredTableInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
+        input_: aws_sdk_cleanrooms.types.update_configured_table_input.UpdateConfiguredTableInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if table_reference is not None:
-            input["table_reference"] = table_reference
+            input_["table_reference"] = table_reference
         if allowed_columns is not None:
-            input["allowed_columns"] = allowed_columns
+            input_["allowed_columns"] = allowed_columns
         if analysis_method is not None:
-            input["analysis_method"] = analysis_method
+            input_["analysis_method"] = analysis_method
         if selected_analysis_methods is not None:
-            input["selected_analysis_methods"] = selected_analysis_methods
+            input_["selected_analysis_methods"] = selected_analysis_methods
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -254,11 +254,11 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_configured_table_input.DeleteConfiguredTableInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
+        input_: aws_sdk_cleanrooms.types.delete_configured_table_input.DeleteConfiguredTableInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,14 +295,14 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_configured_tables_input.ListConfiguredTablesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanrooms.types.list_configured_tables_input.ListConfiguredTablesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -339,13 +339,13 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_configured_table_analysis_rule_input.CreateConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
-        input["analysis_rule_type"] = analysis_rule_type
-        input["analysis_rule_policy"] = analysis_rule_policy
+        input_: aws_sdk_cleanrooms.types.create_configured_table_analysis_rule_input.CreateConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_policy"] = analysis_rule_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -380,12 +380,12 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_configured_table_analysis_rule_input.DeleteConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
-        input["analysis_rule_type"] = analysis_rule_type
+        input_: aws_sdk_cleanrooms.types.delete_configured_table_analysis_rule_input.DeleteConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["analysis_rule_type"] = analysis_rule_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -420,12 +420,12 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_configured_table_analysis_rule_input.GetConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
-        input["analysis_rule_type"] = analysis_rule_type
+        input_: aws_sdk_cleanrooms.types.get_configured_table_analysis_rule_input.GetConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["analysis_rule_type"] = analysis_rule_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,13 +462,13 @@ class ConfiguredTableResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_configured_table_analysis_rule_input.UpdateConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
-        input["analysis_rule_type"] = analysis_rule_type
-        input["analysis_rule_policy"] = analysis_rule_policy
+        input_: aws_sdk_cleanrooms.types.update_configured_table_analysis_rule_input.UpdateConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_policy"] = analysis_rule_policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -523,20 +523,20 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_configured_table_input.CreateConfiguredTableInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_cleanrooms.types.create_configured_table_input.CreateConfiguredTableInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["table_reference"] = table_reference
-        input["allowed_columns"] = allowed_columns
-        input["analysis_method"] = analysis_method
+            input_["description"] = description
+        input_["table_reference"] = table_reference
+        input_["allowed_columns"] = allowed_columns
+        input_["analysis_method"] = analysis_method
         if selected_analysis_methods is not None:
-            input["selected_analysis_methods"] = selected_analysis_methods
+            input_["selected_analysis_methods"] = selected_analysis_methods
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -572,11 +572,11 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_configured_table_input.GetConfiguredTableInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
+        input_: aws_sdk_cleanrooms.types.get_configured_table_input.GetConfiguredTableInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -631,23 +631,23 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_configured_table_input.UpdateConfiguredTableInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
+        input_: aws_sdk_cleanrooms.types.update_configured_table_input.UpdateConfiguredTableInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if table_reference is not None:
-            input["table_reference"] = table_reference
+            input_["table_reference"] = table_reference
         if allowed_columns is not None:
-            input["allowed_columns"] = allowed_columns
+            input_["allowed_columns"] = allowed_columns
         if analysis_method is not None:
-            input["analysis_method"] = analysis_method
+            input_["analysis_method"] = analysis_method
         if selected_analysis_methods is not None:
-            input["selected_analysis_methods"] = selected_analysis_methods
+            input_["selected_analysis_methods"] = selected_analysis_methods
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -681,11 +681,11 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_configured_table_input.DeleteConfiguredTableInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
+        input_: aws_sdk_cleanrooms.types.delete_configured_table_input.DeleteConfiguredTableInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -723,14 +723,14 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.list_configured_tables_input.ListConfiguredTablesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanrooms.types.list_configured_tables_input.ListConfiguredTablesInput = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -768,13 +768,13 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.create_configured_table_analysis_rule_input.CreateConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
-        input["analysis_rule_type"] = analysis_rule_type
-        input["analysis_rule_policy"] = analysis_rule_policy
+        input_: aws_sdk_cleanrooms.types.create_configured_table_analysis_rule_input.CreateConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_policy"] = analysis_rule_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -810,12 +810,12 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.delete_configured_table_analysis_rule_input.DeleteConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
-        input["analysis_rule_type"] = analysis_rule_type
+        input_: aws_sdk_cleanrooms.types.delete_configured_table_analysis_rule_input.DeleteConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["analysis_rule_type"] = analysis_rule_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -851,12 +851,12 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.get_configured_table_analysis_rule_input.GetConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
-        input["analysis_rule_type"] = analysis_rule_type
+        input_: aws_sdk_cleanrooms.types.get_configured_table_analysis_rule_input.GetConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["analysis_rule_type"] = analysis_rule_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -894,13 +894,13 @@ class AsyncConfiguredTableResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanrooms.types.update_configured_table_analysis_rule_input.UpdateConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
-        input["configured_table_identifier"] = configured_table_identifier
-        input["analysis_rule_type"] = analysis_rule_type
-        input["analysis_rule_policy"] = analysis_rule_policy
+        input_: aws_sdk_cleanrooms.types.update_configured_table_analysis_rule_input.UpdateConfiguredTableAnalysisRuleInput = {}  # type: ignore[typeddict-item]
+        input_["configured_table_identifier"] = configured_table_identifier
+        input_["analysis_rule_type"] = analysis_rule_type
+        input_["analysis_rule_policy"] = analysis_rule_policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

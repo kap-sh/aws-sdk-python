@@ -94,22 +94,22 @@ class Assistant:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.create_assistant_request.CreateAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.create_assistant_request.CreateAssistantRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
-        input["type"] = type
+            input_["client_token"] = client_token
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -142,11 +142,11 @@ class Assistant:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.get_assistant_request.GetAssistantRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
+        input_: aws_sdk_wisdom.types.get_assistant_request.GetAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -179,11 +179,11 @@ class Assistant:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.delete_assistant_request.DeleteAssistantRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
+        input_: aws_sdk_wisdom.types.delete_assistant_request.DeleteAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -218,14 +218,14 @@ class Assistant:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.list_assistants_request.ListAssistantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.list_assistants_request.ListAssistantsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,16 +266,16 @@ class Assistant:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
-        input["session_id"] = session_id
+        input_: aws_sdk_wisdom.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
+        input_["session_id"] = session_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if wait_time_seconds is not None:
-            input["wait_time_seconds"] = wait_time_seconds
+            input_["wait_time_seconds"] = wait_time_seconds
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,13 +312,13 @@ class Assistant:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.notify_recommendations_received_request.NotifyRecommendationsReceivedRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
-        input["session_id"] = session_id
-        input["recommendation_ids"] = recommendation_ids
+        input_: aws_sdk_wisdom.types.notify_recommendations_received_request.NotifyRecommendationsReceivedRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
+        input_["session_id"] = session_id
+        input_["recommendation_ids"] = recommendation_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -357,16 +357,16 @@ class Assistant:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.query_assistant_request.QueryAssistantRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
-        input["query_text"] = query_text
+        input_: aws_sdk_wisdom.types.query_assistant_request.QueryAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
+        input_["query_text"] = query_text
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -405,16 +405,16 @@ class Assistant:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.search_sessions_request.SearchSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.search_sessions_request.SearchSessionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["assistant_id"] = assistant_id
-        input["search_expression"] = search_expression
+            input_["max_results"] = max_results
+        input_["assistant_id"] = assistant_id
+        input_["search_expression"] = search_expression
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,22 +465,22 @@ class AsyncAssistant:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.create_assistant_request.CreateAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.create_assistant_request.CreateAssistantRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["name"] = name
-        input["type"] = type
+            input_["client_token"] = client_token
+        input_["name"] = name
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,11 +514,11 @@ class AsyncAssistant:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.get_assistant_request.GetAssistantRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
+        input_: aws_sdk_wisdom.types.get_assistant_request.GetAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,11 +552,11 @@ class AsyncAssistant:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.delete_assistant_request.DeleteAssistantRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
+        input_: aws_sdk_wisdom.types.delete_assistant_request.DeleteAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,14 +592,14 @@ class AsyncAssistant:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.list_assistants_request.ListAssistantsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.list_assistants_request.ListAssistantsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -641,16 +641,16 @@ class AsyncAssistant:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
-        input["session_id"] = session_id
+        input_: aws_sdk_wisdom.types.get_recommendations_request.GetRecommendationsRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
+        input_["session_id"] = session_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if wait_time_seconds is not None:
-            input["wait_time_seconds"] = wait_time_seconds
+            input_["wait_time_seconds"] = wait_time_seconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -688,13 +688,13 @@ class AsyncAssistant:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.notify_recommendations_received_request.NotifyRecommendationsReceivedRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
-        input["session_id"] = session_id
-        input["recommendation_ids"] = recommendation_ids
+        input_: aws_sdk_wisdom.types.notify_recommendations_received_request.NotifyRecommendationsReceivedRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
+        input_["session_id"] = session_id
+        input_["recommendation_ids"] = recommendation_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -734,16 +734,16 @@ class AsyncAssistant:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.query_assistant_request.QueryAssistantRequest = {}  # type: ignore[typeddict-item]
-        input["assistant_id"] = assistant_id
-        input["query_text"] = query_text
+        input_: aws_sdk_wisdom.types.query_assistant_request.QueryAssistantRequest = {}  # type: ignore[typeddict-item]
+        input_["assistant_id"] = assistant_id
+        input_["query_text"] = query_text
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -783,16 +783,16 @@ class AsyncAssistant:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_wisdom.types.search_sessions_request.SearchSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_wisdom.types.search_sessions_request.SearchSessionsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
-        input["assistant_id"] = assistant_id
-        input["search_expression"] = search_expression
+            input_["max_results"] = max_results
+        input_["assistant_id"] = assistant_id
+        input_["search_expression"] = search_expression
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

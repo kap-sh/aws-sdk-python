@@ -60,12 +60,12 @@ class InvestigationGroupPolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.put_investigation_group_policy_request.PutInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["policy"] = policy
+        input_: aws_sdk_aiops.types.put_investigation_group_policy_request.PutInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["policy"] = policy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -98,11 +98,11 @@ class InvestigationGroupPolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.get_investigation_group_policy_request.GetInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.get_investigation_group_policy_request.GetInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -135,11 +135,11 @@ class InvestigationGroupPolicy:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.delete_investigation_group_policy_request.DeleteInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.delete_investigation_group_policy_request.DeleteInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -180,12 +180,12 @@ class AsyncInvestigationGroupPolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.put_investigation_group_policy_request.PutInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
-        input["policy"] = policy
+        input_: aws_sdk_aiops.types.put_investigation_group_policy_request.PutInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
+        input_["policy"] = policy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -219,11 +219,11 @@ class AsyncInvestigationGroupPolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.get_investigation_group_policy_request.GetInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.get_investigation_group_policy_request.GetInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -257,11 +257,11 @@ class AsyncInvestigationGroupPolicy:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_aiops.types.delete_investigation_group_policy_request.DeleteInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_aiops.types.delete_investigation_group_policy_request.DeleteInvestigationGroupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

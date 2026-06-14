@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_service_catalog._auth._signers
+import aws_sdk_service_catalog._auth._sigv4
 from aws_sdk_service_catalog._auth._identity import Credentials
 from aws_sdk_service_catalog._auth._providers import (
     CredentialsProvider,
@@ -425,15 +427,15 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.accept_portfolio_share_input.AcceptPortfolioShareInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.accept_portfolio_share_input.AcceptPortfolioShareInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
         if portfolio_share_type is not None:
-            input["portfolio_share_type"] = portfolio_share_type
+            input_["portfolio_share_type"] = portfolio_share_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -469,12 +471,12 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.associate_budget_with_resource_input.AssociateBudgetWithResourceInput = {}  # type: ignore[typeddict-item]
-        input["budget_name"] = budget_name
-        input["resource_id"] = resource_id
+        input_: aws_sdk_service_catalog.types.associate_budget_with_resource_input.AssociateBudgetWithResourceInput = {}  # type: ignore[typeddict-item]
+        input_["budget_name"] = budget_name
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -516,15 +518,15 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.associate_principal_with_portfolio_input.AssociatePrincipalWithPortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.associate_principal_with_portfolio_input.AssociatePrincipalWithPortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
-        input["principal_arn"] = principal_arn
-        input["principal_type"] = principal_type
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
+        input_["principal_arn"] = principal_arn
+        input_["principal_type"] = principal_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -566,16 +568,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.associate_product_with_portfolio_input.AssociateProductWithPortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.associate_product_with_portfolio_input.AssociateProductWithPortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
+        input_["portfolio_id"] = portfolio_id
         if source_portfolio_id is not None:
-            input["source_portfolio_id"] = source_portfolio_id
+            input_["source_portfolio_id"] = source_portfolio_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -621,17 +623,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.associate_service_action_with_provisioning_artifact_input.AssociateServiceActionWithProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
-        input["product_id"] = product_id
-        input["provisioning_artifact_id"] = provisioning_artifact_id
-        input["service_action_id"] = service_action_id
+        input_: aws_sdk_service_catalog.types.associate_service_action_with_provisioning_artifact_input.AssociateServiceActionWithProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_["product_id"] = product_id
+        input_["provisioning_artifact_id"] = provisioning_artifact_id
+        input_["service_action_id"] = service_action_id
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -667,12 +669,12 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.associate_tag_option_with_resource_input.AssociateTagOptionWithResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_option_id"] = tag_option_id
+        input_: aws_sdk_service_catalog.types.associate_tag_option_with_resource_input.AssociateTagOptionWithResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_option_id"] = tag_option_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -710,13 +712,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.batch_associate_service_action_with_provisioning_artifact_input.BatchAssociateServiceActionWithProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
-        input["service_action_associations"] = service_action_associations
+        input_: aws_sdk_service_catalog.types.batch_associate_service_action_with_provisioning_artifact_input.BatchAssociateServiceActionWithProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_["service_action_associations"] = service_action_associations
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,13 +756,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.batch_disassociate_service_action_from_provisioning_artifact_input.BatchDisassociateServiceActionFromProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
-        input["service_action_associations"] = service_action_associations
+        input_: aws_sdk_service_catalog.types.batch_disassociate_service_action_from_provisioning_artifact_input.BatchDisassociateServiceActionFromProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_["service_action_associations"] = service_action_associations
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -814,24 +816,24 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.copy_product_input.CopyProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.copy_product_input.CopyProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["source_product_arn"] = source_product_arn
+            input_["accept_language"] = accept_language
+        input_["source_product_arn"] = source_product_arn
         if target_product_id is not None:
-            input["target_product_id"] = target_product_id
+            input_["target_product_id"] = target_product_id
         if target_product_name is not None:
-            input["target_product_name"] = target_product_name
+            input_["target_product_name"] = target_product_name
         if source_provisioning_artifact_identifiers is not None:
-            input["source_provisioning_artifact_identifiers"] = (
+            input_["source_provisioning_artifact_identifiers"] = (
                 source_provisioning_artifact_identifiers
             )
         if copy_options is not None:
-            input["copy_options"] = copy_options
-        input["idempotency_token"] = idempotency_token
+            input_["copy_options"] = copy_options
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -883,19 +885,19 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.create_constraint_input.CreateConstraintInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.create_constraint_input.CreateConstraintInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
-        input["product_id"] = product_id
-        input["parameters"] = parameters
-        input["type"] = type
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
+        input_["product_id"] = product_id
+        input_["parameters"] = parameters
+        input_["type"] = type
         if description is not None:
-            input["description"] = description
-        input["idempotency_token"] = idempotency_token
+            input_["description"] = description
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -943,19 +945,19 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.create_portfolio_input.CreatePortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.create_portfolio_input.CreatePortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["display_name"] = display_name
+            input_["accept_language"] = accept_language
+        input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
-        input["provider_name"] = provider_name
+            input_["description"] = description
+        input_["provider_name"] = provider_name
         if tags is not None:
-            input["tags"] = tags
-        input["idempotency_token"] = idempotency_token
+            input_["tags"] = tags
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1009,21 +1011,21 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.create_portfolio_share_input.CreatePortfolioShareInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.create_portfolio_share_input.CreatePortfolioShareInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if organization_node is not None:
-            input["organization_node"] = organization_node
+            input_["organization_node"] = organization_node
         if share_tag_options is not None:
-            input["share_tag_options"] = share_tag_options
+            input_["share_tag_options"] = share_tag_options
         if share_principals is not None:
-            input["share_principals"] = share_principals
+            input_["share_principals"] = share_principals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1097,32 +1099,34 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.create_product_input.CreateProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.create_product_input.CreateProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["name"] = name
-        input["owner"] = owner
+            input_["accept_language"] = accept_language
+        input_["name"] = name
+        input_["owner"] = owner
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if distributor is not None:
-            input["distributor"] = distributor
+            input_["distributor"] = distributor
         if support_description is not None:
-            input["support_description"] = support_description
+            input_["support_description"] = support_description
         if support_email is not None:
-            input["support_email"] = support_email
+            input_["support_email"] = support_email
         if support_url is not None:
-            input["support_url"] = support_url
-        input["product_type"] = product_type
+            input_["support_url"] = support_url
+        input_["product_type"] = product_type
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if provisioning_artifact_parameters is not None:
-            input["provisioning_artifact_parameters"] = provisioning_artifact_parameters
-        input["idempotency_token"] = idempotency_token
+            input_["provisioning_artifact_parameters"] = (
+                provisioning_artifact_parameters
+            )
+        input_["idempotency_token"] = idempotency_token
         if source_connection is not None:
-            input["source_connection"] = source_connection
+            input_["source_connection"] = source_connection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1182,26 +1186,26 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.create_provisioned_product_plan_input.CreateProvisionedProductPlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.create_provisioned_product_plan_input.CreateProvisionedProductPlanInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["plan_name"] = plan_name
-        input["plan_type"] = plan_type
+            input_["accept_language"] = accept_language
+        input_["plan_name"] = plan_name
+        input_["plan_type"] = plan_type
         if notification_arns is not None:
-            input["notification_arns"] = notification_arns
+            input_["notification_arns"] = notification_arns
         if path_id is not None:
-            input["path_id"] = path_id
-        input["product_id"] = product_id
-        input["provisioned_product_name"] = provisioned_product_name
-        input["provisioning_artifact_id"] = provisioning_artifact_id
+            input_["path_id"] = path_id
+        input_["product_id"] = product_id
+        input_["provisioned_product_name"] = provisioned_product_name
+        input_["provisioning_artifact_id"] = provisioning_artifact_id
         if provisioning_parameters is not None:
-            input["provisioning_parameters"] = provisioning_parameters
-        input["idempotency_token"] = idempotency_token
+            input_["provisioning_parameters"] = provisioning_parameters
+        input_["idempotency_token"] = idempotency_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1243,15 +1247,15 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.create_provisioning_artifact_input.CreateProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.create_provisioning_artifact_input.CreateProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
-        input["parameters"] = parameters
-        input["idempotency_token"] = idempotency_token
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
+        input_["parameters"] = parameters
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1299,18 +1303,18 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.create_service_action_input.CreateServiceActionInput = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["definition_type"] = definition_type
-        input["definition"] = definition
+        input_: aws_sdk_service_catalog.types.create_service_action_input.CreateServiceActionInput = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["definition_type"] = definition_type
+        input_["definition"] = definition
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["idempotency_token"] = idempotency_token
+            input_["accept_language"] = accept_language
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1346,12 +1350,12 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.create_tag_option_input.CreateTagOptionInput = {}  # type: ignore[typeddict-item]
-        input["key"] = key
-        input["value"] = value
+        input_: aws_sdk_service_catalog.types.create_tag_option_input.CreateTagOptionInput = {}  # type: ignore[typeddict-item]
+        input_["key"] = key
+        input_["value"] = value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1391,13 +1395,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.delete_constraint_input.DeleteConstraintInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.delete_constraint_input.DeleteConstraintInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1435,13 +1439,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.delete_portfolio_input.DeletePortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.delete_portfolio_input.DeletePortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,17 +1491,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.delete_portfolio_share_input.DeletePortfolioShareInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.delete_portfolio_share_input.DeletePortfolioShareInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if organization_node is not None:
-            input["organization_node"] = organization_node
+            input_["organization_node"] = organization_node
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1535,13 +1539,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.delete_product_input.DeleteProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.delete_product_input.DeleteProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1583,15 +1587,15 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.delete_provisioned_product_plan_input.DeleteProvisionedProductPlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.delete_provisioned_product_plan_input.DeleteProvisionedProductPlanInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["plan_id"] = plan_id
+            input_["accept_language"] = accept_language
+        input_["plan_id"] = plan_id
         if ignore_errors is not None:
-            input["ignore_errors"] = ignore_errors
+            input_["ignore_errors"] = ignore_errors
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1631,14 +1635,14 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.delete_provisioning_artifact_input.DeleteProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.delete_provisioning_artifact_input.DeleteProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
-        input["provisioning_artifact_id"] = provisioning_artifact_id
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
+        input_["provisioning_artifact_id"] = provisioning_artifact_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1680,15 +1684,15 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.delete_service_action_input.DeleteServiceActionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_service_catalog.types.delete_service_action_input.DeleteServiceActionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1722,11 +1726,11 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.delete_tag_option_input.DeleteTagOptionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_service_catalog.types.delete_tag_option_input.DeleteTagOptionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1764,13 +1768,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_constraint_input.DescribeConstraintInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_constraint_input.DescribeConstraintInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1808,13 +1812,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_copy_product_status_input.DescribeCopyProductStatusInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_copy_product_status_input.DescribeCopyProductStatusInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["copy_product_token"] = copy_product_token
+            input_["accept_language"] = accept_language
+        input_["copy_product_token"] = copy_product_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1852,13 +1856,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_portfolio_input.DescribePortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_portfolio_input.DescribePortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1902,16 +1906,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_portfolio_shares_input.DescribePortfolioSharesInput = {}  # type: ignore[typeddict-item]
-        input["portfolio_id"] = portfolio_id
-        input["type"] = type
+        input_: aws_sdk_service_catalog.types.describe_portfolio_shares_input.DescribePortfolioSharesInput = {}  # type: ignore[typeddict-item]
+        input_["portfolio_id"] = portfolio_id
+        input_["type"] = type
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1945,11 +1949,11 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_portfolio_share_status_input.DescribePortfolioShareStatusInput = {}  # type: ignore[typeddict-item]
-        input["portfolio_share_token"] = portfolio_share_token
+        input_: aws_sdk_service_catalog.types.describe_portfolio_share_status_input.DescribePortfolioShareStatusInput = {}  # type: ignore[typeddict-item]
+        input_["portfolio_share_token"] = portfolio_share_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1991,16 +1995,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_product_input.DescribeProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_product_input.DescribeProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2044,18 +2048,18 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_product_as_admin_input.DescribeProductAsAdminInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_product_as_admin_input.DescribeProductAsAdminInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if source_portfolio_id is not None:
-            input["source_portfolio_id"] = source_portfolio_id
+            input_["source_portfolio_id"] = source_portfolio_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2093,13 +2097,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_product_view_input.DescribeProductViewInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_product_view_input.DescribeProductViewInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2141,16 +2145,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_provisioned_product_input.DescribeProvisionedProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_provisioned_product_input.DescribeProvisionedProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if id is not None:
-            input["id"] = id
+            input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2194,17 +2198,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_provisioned_product_plan_input.DescribeProvisionedProductPlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_provisioned_product_plan_input.DescribeProvisionedProductPlanInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["plan_id"] = plan_id
+            input_["accept_language"] = accept_language
+        input_["plan_id"] = plan_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2260,26 +2264,26 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_provisioning_artifact_input.DescribeProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_provisioning_artifact_input.DescribeProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if provisioning_artifact_id is not None:
-            input["provisioning_artifact_id"] = provisioning_artifact_id
+            input_["provisioning_artifact_id"] = provisioning_artifact_id
         if product_id is not None:
-            input["product_id"] = product_id
+            input_["product_id"] = product_id
         if provisioning_artifact_name is not None:
-            input["provisioning_artifact_name"] = provisioning_artifact_name
+            input_["provisioning_artifact_name"] = provisioning_artifact_name
         if product_name is not None:
-            input["product_name"] = product_name
+            input_["product_name"] = product_name
         if verbose is not None:
-            input["verbose"] = verbose
+            input_["verbose"] = verbose
         if include_provisioning_artifact_parameters is not None:
-            input["include_provisioning_artifact_parameters"] = (
+            input_["include_provisioning_artifact_parameters"] = (
                 include_provisioning_artifact_parameters
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2335,24 +2339,24 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_provisioning_parameters_input.DescribeProvisioningParametersInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_provisioning_parameters_input.DescribeProvisioningParametersInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if product_id is not None:
-            input["product_id"] = product_id
+            input_["product_id"] = product_id
         if product_name is not None:
-            input["product_name"] = product_name
+            input_["product_name"] = product_name
         if provisioning_artifact_id is not None:
-            input["provisioning_artifact_id"] = provisioning_artifact_id
+            input_["provisioning_artifact_id"] = provisioning_artifact_id
         if provisioning_artifact_name is not None:
-            input["provisioning_artifact_name"] = provisioning_artifact_name
+            input_["provisioning_artifact_name"] = provisioning_artifact_name
         if path_id is not None:
-            input["path_id"] = path_id
+            input_["path_id"] = path_id
         if path_name is not None:
-            input["path_name"] = path_name
+            input_["path_name"] = path_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2396,17 +2400,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_record_input.DescribeRecordInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.describe_record_input.DescribeRecordInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2444,13 +2448,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_service_action_input.DescribeServiceActionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_service_catalog.types.describe_service_action_input.DescribeServiceActionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2490,14 +2494,14 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_service_action_execution_parameters_input.DescribeServiceActionExecutionParametersInput = {}  # type: ignore[typeddict-item]
-        input["provisioned_product_id"] = provisioned_product_id
-        input["service_action_id"] = service_action_id
+        input_: aws_sdk_service_catalog.types.describe_service_action_execution_parameters_input.DescribeServiceActionExecutionParametersInput = {}  # type: ignore[typeddict-item]
+        input_["provisioned_product_id"] = provisioned_product_id
+        input_["service_action_id"] = service_action_id
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2531,11 +2535,11 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.describe_tag_option_input.DescribeTagOptionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_service_catalog.types.describe_tag_option_input.DescribeTagOptionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2562,10 +2566,10 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.disable_aws_organizations_access_input.DisableAWSOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.disable_aws_organizations_access_input.DisableAWSOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2601,12 +2605,12 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.disassociate_budget_from_resource_input.DisassociateBudgetFromResourceInput = {}  # type: ignore[typeddict-item]
-        input["budget_name"] = budget_name
-        input["resource_id"] = resource_id
+        input_: aws_sdk_service_catalog.types.disassociate_budget_from_resource_input.DisassociateBudgetFromResourceInput = {}  # type: ignore[typeddict-item]
+        input_["budget_name"] = budget_name
+        input_["resource_id"] = resource_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2650,16 +2654,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.disassociate_principal_from_portfolio_input.DisassociatePrincipalFromPortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.disassociate_principal_from_portfolio_input.DisassociatePrincipalFromPortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
-        input["principal_arn"] = principal_arn
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
+        input_["principal_arn"] = principal_arn
         if principal_type is not None:
-            input["principal_type"] = principal_type
+            input_["principal_type"] = principal_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2699,14 +2703,14 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.disassociate_product_from_portfolio_input.DisassociateProductFromPortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.disassociate_product_from_portfolio_input.DisassociateProductFromPortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
+        input_["portfolio_id"] = portfolio_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2752,17 +2756,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.disassociate_service_action_from_provisioning_artifact_input.DisassociateServiceActionFromProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
-        input["product_id"] = product_id
-        input["provisioning_artifact_id"] = provisioning_artifact_id
-        input["service_action_id"] = service_action_id
+        input_: aws_sdk_service_catalog.types.disassociate_service_action_from_provisioning_artifact_input.DisassociateServiceActionFromProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_["product_id"] = product_id
+        input_["provisioning_artifact_id"] = provisioning_artifact_id
+        input_["service_action_id"] = service_action_id
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if idempotency_token is not None:
-            input["idempotency_token"] = idempotency_token
+            input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2798,12 +2802,12 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.disassociate_tag_option_from_resource_input.DisassociateTagOptionFromResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_id"] = resource_id
-        input["tag_option_id"] = tag_option_id
+        input_: aws_sdk_service_catalog.types.disassociate_tag_option_from_resource_input.DisassociateTagOptionFromResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_id"] = resource_id
+        input_["tag_option_id"] = tag_option_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2830,10 +2834,10 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.enable_aws_organizations_access_input.EnableAWSOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.enable_aws_organizations_access_input.EnableAWSOrganizationsAccessInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2873,14 +2877,14 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.execute_provisioned_product_plan_input.ExecuteProvisionedProductPlanInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.execute_provisioned_product_plan_input.ExecuteProvisionedProductPlanInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["plan_id"] = plan_id
-        input["idempotency_token"] = idempotency_token
+            input_["accept_language"] = accept_language
+        input_["plan_id"] = plan_id
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2926,17 +2930,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.execute_provisioned_product_service_action_input.ExecuteProvisionedProductServiceActionInput = {}  # type: ignore[typeddict-item]
-        input["provisioned_product_id"] = provisioned_product_id
-        input["service_action_id"] = service_action_id
-        input["execute_token"] = execute_token
+        input_: aws_sdk_service_catalog.types.execute_provisioned_product_service_action_input.ExecuteProvisionedProductServiceActionInput = {}  # type: ignore[typeddict-item]
+        input_["provisioned_product_id"] = provisioned_product_id
+        input_["service_action_id"] = service_action_id
+        input_["execute_token"] = execute_token
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2963,10 +2967,10 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.get_aws_organizations_access_status_input.GetAWSOrganizationsAccessStatusInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.get_aws_organizations_access_status_input.GetAWSOrganizationsAccessStatusInput = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3018,22 +3022,22 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.get_provisioned_product_outputs_input.GetProvisionedProductOutputsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.get_provisioned_product_outputs_input.GetProvisionedProductOutputsInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if provisioned_product_id is not None:
-            input["provisioned_product_id"] = provisioned_product_id
+            input_["provisioned_product_id"] = provisioned_product_id
         if provisioned_product_name is not None:
-            input["provisioned_product_name"] = provisioned_product_name
+            input_["provisioned_product_name"] = provisioned_product_name
         if output_keys is not None:
-            input["output_keys"] = output_keys
+            input_["output_keys"] = output_keys
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3079,17 +3083,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.import_as_provisioned_product_input.ImportAsProvisionedProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.import_as_provisioned_product_input.ImportAsProvisionedProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
-        input["provisioning_artifact_id"] = provisioning_artifact_id
-        input["provisioned_product_name"] = provisioned_product_name
-        input["physical_id"] = physical_id
-        input["idempotency_token"] = idempotency_token
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
+        input_["provisioning_artifact_id"] = provisioning_artifact_id
+        input_["provisioned_product_name"] = provisioned_product_name
+        input_["physical_id"] = physical_id
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3137,18 +3141,18 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_accepted_portfolio_shares_input.ListAcceptedPortfolioSharesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_accepted_portfolio_shares_input.ListAcceptedPortfolioSharesInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if portfolio_share_type is not None:
-            input["portfolio_share_type"] = portfolio_share_type
+            input_["portfolio_share_type"] = portfolio_share_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3192,17 +3196,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_budgets_for_resource_input.ListBudgetsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_budgets_for_resource_input.ListBudgetsForResourceInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["resource_id"] = resource_id
+            input_["accept_language"] = accept_language
+        input_["resource_id"] = resource_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3248,19 +3252,19 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_constraints_for_portfolio_input.ListConstraintsForPortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_constraints_for_portfolio_input.ListConstraintsForPortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
         if product_id is not None:
-            input["product_id"] = product_id
+            input_["product_id"] = product_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3304,17 +3308,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_launch_paths_input.ListLaunchPathsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_launch_paths_input.ListLaunchPathsInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3360,18 +3364,18 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_organization_portfolio_access_input.ListOrganizationPortfolioAccessInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_organization_portfolio_access_input.ListOrganizationPortfolioAccessInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
-        input["organization_node_type"] = organization_node_type
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
+        input_["organization_node_type"] = organization_node_type
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3419,19 +3423,19 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_portfolio_access_input.ListPortfolioAccessInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_portfolio_access_input.ListPortfolioAccessInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
         if organization_parent_id is not None:
-            input["organization_parent_id"] = organization_parent_id
+            input_["organization_parent_id"] = organization_parent_id
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3475,16 +3479,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_portfolios_input.ListPortfoliosInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_portfolios_input.ListPortfoliosInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3530,17 +3534,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_portfolios_for_product_input.ListPortfoliosForProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_portfolios_for_product_input.ListPortfoliosForProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3584,17 +3588,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_principals_for_portfolio_input.ListPrincipalsForPortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_principals_for_portfolio_input.ListPrincipalsForPortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3642,20 +3646,20 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_provisioned_product_plans_input.ListProvisionedProductPlansInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_provisioned_product_plans_input.ListProvisionedProductPlansInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if provision_product_id is not None:
-            input["provision_product_id"] = provision_product_id
+            input_["provision_product_id"] = provision_product_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if access_level_filter is not None:
-            input["access_level_filter"] = access_level_filter
+            input_["access_level_filter"] = access_level_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3693,13 +3697,13 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_provisioning_artifacts_input.ListProvisioningArtifactsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_provisioning_artifacts_input.ListProvisioningArtifactsInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3743,17 +3747,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_provisioning_artifacts_for_service_action_input.ListProvisioningArtifactsForServiceActionInput = {}  # type: ignore[typeddict-item]
-        input["service_action_id"] = service_action_id
+        input_: aws_sdk_service_catalog.types.list_provisioning_artifacts_for_service_action_input.ListProvisioningArtifactsForServiceActionInput = {}  # type: ignore[typeddict-item]
+        input_["service_action_id"] = service_action_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3803,20 +3807,20 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_record_history_input.ListRecordHistoryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_record_history_input.ListRecordHistoryInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if access_level_filter is not None:
-            input["access_level_filter"] = access_level_filter
+            input_["access_level_filter"] = access_level_filter
         if search_filter is not None:
-            input["search_filter"] = search_filter
+            input_["search_filter"] = search_filter
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3860,17 +3864,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_resources_for_tag_option_input.ListResourcesForTagOptionInput = {}  # type: ignore[typeddict-item]
-        input["tag_option_id"] = tag_option_id
+        input_: aws_sdk_service_catalog.types.list_resources_for_tag_option_input.ListResourcesForTagOptionInput = {}  # type: ignore[typeddict-item]
+        input_["tag_option_id"] = tag_option_id
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3912,16 +3916,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_service_actions_input.ListServiceActionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_service_actions_input.ListServiceActionsInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3967,18 +3971,18 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_service_actions_for_provisioning_artifact_input.ListServiceActionsForProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
-        input["product_id"] = product_id
-        input["provisioning_artifact_id"] = provisioning_artifact_id
+        input_: aws_sdk_service_catalog.types.list_service_actions_for_provisioning_artifact_input.ListServiceActionsForProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_["product_id"] = product_id
+        input_["provisioning_artifact_id"] = provisioning_artifact_id
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4022,17 +4026,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_stack_instances_for_provisioned_product_input.ListStackInstancesForProvisionedProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_stack_instances_for_provisioned_product_input.ListStackInstancesForProvisionedProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["provisioned_product_id"] = provisioned_product_id
+            input_["accept_language"] = accept_language
+        input_["provisioned_product_id"] = provisioned_product_id
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4074,16 +4078,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.list_tag_options_input.ListTagOptionsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.list_tag_options_input.ListTagOptionsInput = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4135,20 +4139,20 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.notify_provision_product_engine_workflow_result_input.NotifyProvisionProductEngineWorkflowResultInput = {}  # type: ignore[typeddict-item]
-        input["workflow_token"] = workflow_token
-        input["record_id"] = record_id
-        input["status"] = status
+        input_: aws_sdk_service_catalog.types.notify_provision_product_engine_workflow_result_input.NotifyProvisionProductEngineWorkflowResultInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_token"] = workflow_token
+        input_["record_id"] = record_id
+        input_["status"] = status
         if failure_reason is not None:
-            input["failure_reason"] = failure_reason
+            input_["failure_reason"] = failure_reason
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if outputs is not None:
-            input["outputs"] = outputs
-        input["idempotency_token"] = idempotency_token
+            input_["outputs"] = outputs
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4192,16 +4196,16 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.notify_terminate_provisioned_product_engine_workflow_result_input.NotifyTerminateProvisionedProductEngineWorkflowResultInput = {}  # type: ignore[typeddict-item]
-        input["workflow_token"] = workflow_token
-        input["record_id"] = record_id
-        input["status"] = status
+        input_: aws_sdk_service_catalog.types.notify_terminate_provisioned_product_engine_workflow_result_input.NotifyTerminateProvisionedProductEngineWorkflowResultInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_token"] = workflow_token
+        input_["record_id"] = record_id
+        input_["status"] = status
         if failure_reason is not None:
-            input["failure_reason"] = failure_reason
-        input["idempotency_token"] = idempotency_token
+            input_["failure_reason"] = failure_reason
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4249,18 +4253,18 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.notify_update_provisioned_product_engine_workflow_result_input.NotifyUpdateProvisionedProductEngineWorkflowResultInput = {}  # type: ignore[typeddict-item]
-        input["workflow_token"] = workflow_token
-        input["record_id"] = record_id
-        input["status"] = status
+        input_: aws_sdk_service_catalog.types.notify_update_provisioned_product_engine_workflow_result_input.NotifyUpdateProvisionedProductEngineWorkflowResultInput = {}  # type: ignore[typeddict-item]
+        input_["workflow_token"] = workflow_token
+        input_["record_id"] = record_id
+        input_["status"] = status
         if failure_reason is not None:
-            input["failure_reason"] = failure_reason
+            input_["failure_reason"] = failure_reason
         if outputs is not None:
-            input["outputs"] = outputs
-        input["idempotency_token"] = idempotency_token
+            input_["outputs"] = outputs
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4336,34 +4340,34 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.provision_product_input.ProvisionProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.provision_product_input.ProvisionProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if product_id is not None:
-            input["product_id"] = product_id
+            input_["product_id"] = product_id
         if product_name is not None:
-            input["product_name"] = product_name
+            input_["product_name"] = product_name
         if provisioning_artifact_id is not None:
-            input["provisioning_artifact_id"] = provisioning_artifact_id
+            input_["provisioning_artifact_id"] = provisioning_artifact_id
         if provisioning_artifact_name is not None:
-            input["provisioning_artifact_name"] = provisioning_artifact_name
+            input_["provisioning_artifact_name"] = provisioning_artifact_name
         if path_id is not None:
-            input["path_id"] = path_id
+            input_["path_id"] = path_id
         if path_name is not None:
-            input["path_name"] = path_name
-        input["provisioned_product_name"] = provisioned_product_name
+            input_["path_name"] = path_name
+        input_["provisioned_product_name"] = provisioned_product_name
         if provisioning_parameters is not None:
-            input["provisioning_parameters"] = provisioning_parameters
+            input_["provisioning_parameters"] = provisioning_parameters
         if provisioning_preferences is not None:
-            input["provisioning_preferences"] = provisioning_preferences
+            input_["provisioning_preferences"] = provisioning_preferences
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if notification_arns is not None:
-            input["notification_arns"] = notification_arns
-        input["provision_token"] = provision_token
+            input_["notification_arns"] = notification_arns
+        input_["provision_token"] = provision_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4405,15 +4409,15 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.reject_portfolio_share_input.RejectPortfolioShareInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.reject_portfolio_share_input.RejectPortfolioShareInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
         if portfolio_share_type is not None:
-            input["portfolio_share_type"] = portfolio_share_type
+            input_["portfolio_share_type"] = portfolio_share_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4459,18 +4463,18 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.scan_provisioned_products_input.ScanProvisionedProductsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.scan_provisioned_products_input.ScanProvisionedProductsInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if access_level_filter is not None:
-            input["access_level_filter"] = access_level_filter
+            input_["access_level_filter"] = access_level_filter
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4526,22 +4530,22 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.search_products_input.SearchProductsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.search_products_input.SearchProductsInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4601,26 +4605,26 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.search_products_as_admin_input.SearchProductsAsAdminInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.search_products_as_admin_input.SearchProductsAsAdminInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if portfolio_id is not None:
-            input["portfolio_id"] = portfolio_id
+            input_["portfolio_id"] = portfolio_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if product_source is not None:
-            input["product_source"] = product_source
+            input_["product_source"] = product_source
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4678,24 +4682,24 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.search_provisioned_products_input.SearchProvisionedProductsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.search_provisioned_products_input.SearchProvisionedProductsInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if access_level_filter is not None:
-            input["access_level_filter"] = access_level_filter
+            input_["access_level_filter"] = access_level_filter
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if page_token is not None:
-            input["page_token"] = page_token
+            input_["page_token"] = page_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4747,21 +4751,21 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.terminate_provisioned_product_input.TerminateProvisionedProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.terminate_provisioned_product_input.TerminateProvisionedProductInput = {}  # type: ignore[typeddict-item]
         if provisioned_product_name is not None:
-            input["provisioned_product_name"] = provisioned_product_name
+            input_["provisioned_product_name"] = provisioned_product_name
         if provisioned_product_id is not None:
-            input["provisioned_product_id"] = provisioned_product_id
-        input["terminate_token"] = terminate_token
+            input_["provisioned_product_id"] = provisioned_product_id
+        input_["terminate_token"] = terminate_token
         if ignore_errors is not None:
-            input["ignore_errors"] = ignore_errors
+            input_["ignore_errors"] = ignore_errors
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if retain_physical_resources is not None:
-            input["retain_physical_resources"] = retain_physical_resources
+            input_["retain_physical_resources"] = retain_physical_resources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4809,17 +4813,17 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_constraint_input.UpdateConstraintInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.update_constraint_input.UpdateConstraintInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4873,23 +4877,23 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_portfolio_input.UpdatePortfolioInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.update_portfolio_input.UpdatePortfolioInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
         if display_name is not None:
-            input["display_name"] = display_name
+            input_["display_name"] = display_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if provider_name is not None:
-            input["provider_name"] = provider_name
+            input_["provider_name"] = provider_name
         if add_tags is not None:
-            input["add_tags"] = add_tags
+            input_["add_tags"] = add_tags
         if remove_tags is not None:
-            input["remove_tags"] = remove_tags
+            input_["remove_tags"] = remove_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4942,21 +4946,21 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_portfolio_share_input.UpdatePortfolioShareInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.update_portfolio_share_input.UpdatePortfolioShareInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["portfolio_id"] = portfolio_id
+            input_["accept_language"] = accept_language
+        input_["portfolio_id"] = portfolio_id
         if account_id is not None:
-            input["account_id"] = account_id
+            input_["account_id"] = account_id
         if organization_node is not None:
-            input["organization_node"] = organization_node
+            input_["organization_node"] = organization_node
         if share_tag_options is not None:
-            input["share_tag_options"] = share_tag_options
+            input_["share_tag_options"] = share_tag_options
         if share_principals is not None:
-            input["share_principals"] = share_principals
+            input_["share_principals"] = share_principals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5030,33 +5034,33 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_product_input.UpdateProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.update_product_input.UpdateProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["id"] = id
+            input_["accept_language"] = accept_language
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if owner is not None:
-            input["owner"] = owner
+            input_["owner"] = owner
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if distributor is not None:
-            input["distributor"] = distributor
+            input_["distributor"] = distributor
         if support_description is not None:
-            input["support_description"] = support_description
+            input_["support_description"] = support_description
         if support_email is not None:
-            input["support_email"] = support_email
+            input_["support_email"] = support_email
         if support_url is not None:
-            input["support_url"] = support_url
+            input_["support_url"] = support_url
         if add_tags is not None:
-            input["add_tags"] = add_tags
+            input_["add_tags"] = add_tags
         if remove_tags is not None:
-            input["remove_tags"] = remove_tags
+            input_["remove_tags"] = remove_tags
         if source_connection is not None:
-            input["source_connection"] = source_connection
+            input_["source_connection"] = source_connection
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5130,35 +5134,35 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_provisioned_product_input.UpdateProvisionedProductInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.update_provisioned_product_input.UpdateProvisionedProductInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
         if provisioned_product_name is not None:
-            input["provisioned_product_name"] = provisioned_product_name
+            input_["provisioned_product_name"] = provisioned_product_name
         if provisioned_product_id is not None:
-            input["provisioned_product_id"] = provisioned_product_id
+            input_["provisioned_product_id"] = provisioned_product_id
         if product_id is not None:
-            input["product_id"] = product_id
+            input_["product_id"] = product_id
         if product_name is not None:
-            input["product_name"] = product_name
+            input_["product_name"] = product_name
         if provisioning_artifact_id is not None:
-            input["provisioning_artifact_id"] = provisioning_artifact_id
+            input_["provisioning_artifact_id"] = provisioning_artifact_id
         if provisioning_artifact_name is not None:
-            input["provisioning_artifact_name"] = provisioning_artifact_name
+            input_["provisioning_artifact_name"] = provisioning_artifact_name
         if path_id is not None:
-            input["path_id"] = path_id
+            input_["path_id"] = path_id
         if path_name is not None:
-            input["path_name"] = path_name
+            input_["path_name"] = path_name
         if provisioning_parameters is not None:
-            input["provisioning_parameters"] = provisioning_parameters
+            input_["provisioning_parameters"] = provisioning_parameters
         if provisioning_preferences is not None:
-            input["provisioning_preferences"] = provisioning_preferences
+            input_["provisioning_preferences"] = provisioning_preferences
         if tags is not None:
-            input["tags"] = tags
-        input["update_token"] = update_token
+            input_["tags"] = tags
+        input_["update_token"] = update_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5200,15 +5204,15 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_provisioned_product_properties_input.UpdateProvisionedProductPropertiesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.update_provisioned_product_properties_input.UpdateProvisionedProductPropertiesInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["provisioned_product_id"] = provisioned_product_id
-        input["provisioned_product_properties"] = provisioned_product_properties
-        input["idempotency_token"] = idempotency_token
+            input_["accept_language"] = accept_language
+        input_["provisioned_product_id"] = provisioned_product_id
+        input_["provisioned_product_properties"] = provisioned_product_properties
+        input_["idempotency_token"] = idempotency_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5264,22 +5268,22 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_provisioning_artifact_input.UpdateProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_service_catalog.types.update_provisioning_artifact_input.UpdateProvisioningArtifactInput = {}  # type: ignore[typeddict-item]
         if accept_language is not None:
-            input["accept_language"] = accept_language
-        input["product_id"] = product_id
-        input["provisioning_artifact_id"] = provisioning_artifact_id
+            input_["accept_language"] = accept_language
+        input_["product_id"] = product_id
+        input_["provisioning_artifact_id"] = provisioning_artifact_id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if active is not None:
-            input["active"] = active
+            input_["active"] = active
         if guidance is not None:
-            input["guidance"] = guidance
+            input_["guidance"] = guidance
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5329,19 +5333,19 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_service_action_input.UpdateServiceActionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_service_catalog.types.update_service_action_input.UpdateServiceActionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if accept_language is not None:
-            input["accept_language"] = accept_language
+            input_["accept_language"] = accept_language
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5383,15 +5387,15 @@ class AsyncServiceCatalogClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_service_catalog.types.update_tag_option_input.UpdateTagOptionInput = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_service_catalog.types.update_tag_option_input.UpdateTagOptionInput = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if value is not None:
-            input["value"] = value
+            input_["value"] = value
         if active is not None:
-            input["active"] = active
+            input_["active"] = active
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

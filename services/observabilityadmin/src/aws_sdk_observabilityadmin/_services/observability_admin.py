@@ -16,6 +16,9 @@ from aws_sdk_observabilityadmin._auth._providers import (
 )
 from aws_sdk_observabilityadmin._auth._zapros_handler import AuthMiddleware
 from aws_sdk_observabilityadmin._pagination import resolve_path as _resolve_path
+from aws_sdk_observabilityadmin._resources.observability_admin.telemetry_pipeline_resource import (
+    TelemetryPipelineResource,
+)
 from aws_sdk_observabilityadmin._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -179,6 +182,8 @@ class ObservabilityAdminClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.telemetry_pipeline_resource = TelemetryPipelineResource(self)
 
     def operation_options(
         self, config_overrides: Optional[ObservabilityAdminClientConfig] = None
@@ -241,14 +246,14 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.create_centralization_rule_for_organization_input.CreateCentralizationRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
-        input["rule"] = rule
+        input_: aws_sdk_observabilityadmin.types.create_centralization_rule_for_organization_input.CreateCentralizationRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
+        input_["rule"] = rule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,14 +292,14 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.create_s3_table_integration_input.CreateS3TableIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["encryption"] = encryption
-        input["role_arn"] = role_arn
+        input_: aws_sdk_observabilityadmin.types.create_s3_table_integration_input.CreateS3TableIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["encryption"] = encryption
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,14 +338,14 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.create_telemetry_rule_input.CreateTelemetryRuleInput = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
-        input["rule"] = rule
+        input_: aws_sdk_observabilityadmin.types.create_telemetry_rule_input.CreateTelemetryRuleInput = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
+        input_["rule"] = rule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -379,14 +384,14 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.create_telemetry_rule_for_organization_input.CreateTelemetryRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
-        input["rule_name"] = rule_name
-        input["rule"] = rule
+        input_: aws_sdk_observabilityadmin.types.create_telemetry_rule_for_organization_input.CreateTelemetryRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_["rule_name"] = rule_name
+        input_["rule"] = rule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -417,11 +422,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.delete_centralization_rule_for_organization_input.DeleteCentralizationRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_observabilityadmin.types.delete_centralization_rule_for_organization_input.DeleteCentralizationRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -452,11 +457,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.delete_s3_table_integration_input.DeleteS3TableIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_observabilityadmin.types.delete_s3_table_integration_input.DeleteS3TableIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,11 +492,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.delete_telemetry_rule_input.DeleteTelemetryRuleInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_observabilityadmin.types.delete_telemetry_rule_input.DeleteTelemetryRuleInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,11 +527,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.delete_telemetry_rule_for_organization_input.DeleteTelemetryRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_observabilityadmin.types.delete_telemetry_rule_for_organization_input.DeleteTelemetryRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,11 +564,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.get_centralization_rule_for_organization_input.GetCentralizationRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_observabilityadmin.types.get_centralization_rule_for_organization_input.GetCentralizationRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -596,11 +601,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.get_s3_table_integration_input.GetS3TableIntegrationInput = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_observabilityadmin.types.get_s3_table_integration_input.GetS3TableIntegrationInput = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -717,11 +722,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.get_telemetry_rule_input.GetTelemetryRuleInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_observabilityadmin.types.get_telemetry_rule_input.GetTelemetryRuleInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,11 +759,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.get_telemetry_rule_for_organization_input.GetTelemetryRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
+        input_: aws_sdk_observabilityadmin.types.get_telemetry_rule_for_organization_input.GetTelemetryRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -801,18 +806,18 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.list_centralization_rules_for_organization_input.ListCentralizationRulesForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_observabilityadmin.types.list_centralization_rules_for_organization_input.ListCentralizationRulesForOrganizationInput = {}  # type: ignore[typeddict-item]
         if rule_name_prefix is not None:
-            input["rule_name_prefix"] = rule_name_prefix
+            input_["rule_name_prefix"] = rule_name_prefix
         if all_regions is not None:
-            input["all_regions"] = all_regions
+            input_["all_regions"] = all_regions
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -896,22 +901,22 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.list_resource_telemetry_input.ListResourceTelemetryInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_observabilityadmin.types.list_resource_telemetry_input.ListResourceTelemetryInput = {}  # type: ignore[typeddict-item]
         if resource_identifier_prefix is not None:
-            input["resource_identifier_prefix"] = resource_identifier_prefix
+            input_["resource_identifier_prefix"] = resource_identifier_prefix
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if telemetry_configuration_state is not None:
-            input["telemetry_configuration_state"] = telemetry_configuration_state
+            input_["telemetry_configuration_state"] = telemetry_configuration_state
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1011,24 +1016,24 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.list_resource_telemetry_for_organization_input.ListResourceTelemetryForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_observabilityadmin.types.list_resource_telemetry_for_organization_input.ListResourceTelemetryForOrganizationInput = {}  # type: ignore[typeddict-item]
         if account_identifiers is not None:
-            input["account_identifiers"] = account_identifiers
+            input_["account_identifiers"] = account_identifiers
         if resource_identifier_prefix is not None:
-            input["resource_identifier_prefix"] = resource_identifier_prefix
+            input_["resource_identifier_prefix"] = resource_identifier_prefix
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if telemetry_configuration_state is not None:
-            input["telemetry_configuration_state"] = telemetry_configuration_state
+            input_["telemetry_configuration_state"] = telemetry_configuration_state
         if resource_tags is not None:
-            input["resource_tags"] = resource_tags
+            input_["resource_tags"] = resource_tags
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1112,14 +1117,14 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.list_s3_table_integrations_input.ListS3TableIntegrationsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_observabilityadmin.types.list_s3_table_integrations_input.ListS3TableIntegrationsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1177,11 +1182,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_observabilityadmin.types.list_tags_for_resource_input.ListTagsForResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1222,16 +1227,16 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.list_telemetry_rules_input.ListTelemetryRulesInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_observabilityadmin.types.list_telemetry_rules_input.ListTelemetryRulesInput = {}  # type: ignore[typeddict-item]
         if rule_name_prefix is not None:
-            input["rule_name_prefix"] = rule_name_prefix
+            input_["rule_name_prefix"] = rule_name_prefix
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1307,20 +1312,20 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.list_telemetry_rules_for_organization_input.ListTelemetryRulesForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_observabilityadmin.types.list_telemetry_rules_for_organization_input.ListTelemetryRulesForOrganizationInput = {}  # type: ignore[typeddict-item]
         if rule_name_prefix is not None:
-            input["rule_name_prefix"] = rule_name_prefix
+            input_["rule_name_prefix"] = rule_name_prefix
         if source_account_ids is not None:
-            input["source_account_ids"] = source_account_ids
+            input_["source_account_ids"] = source_account_ids
         if source_organization_unit_ids is not None:
-            input["source_organization_unit_ids"] = source_organization_unit_ids
+            input_["source_organization_unit_ids"] = source_organization_unit_ids
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1418,14 +1423,14 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.start_telemetry_evaluation_input.StartTelemetryEvaluationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_observabilityadmin.types.start_telemetry_evaluation_input.StartTelemetryEvaluationInput = {}  # type: ignore[typeddict-item]
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if all_regions is not None:
-            input["all_regions"] = all_regions
+            input_["all_regions"] = all_regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1460,14 +1465,14 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.start_telemetry_evaluation_for_organization_input.StartTelemetryEvaluationForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_observabilityadmin.types.start_telemetry_evaluation_for_organization_input.StartTelemetryEvaluationForOrganizationInput = {}  # type: ignore[typeddict-item]
         if regions is not None:
-            input["regions"] = regions
+            input_["regions"] = regions
         if all_regions is not None:
-            input["all_regions"] = all_regions
+            input_["all_regions"] = all_regions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1576,12 +1581,12 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_observabilityadmin.types.tag_resource_input.TagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1616,12 +1621,12 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.test_telemetry_pipeline_input.TestTelemetryPipelineInput = {}  # type: ignore[typeddict-item]
-        input["records"] = records
-        input["configuration"] = configuration
+        input_: aws_sdk_observabilityadmin.types.test_telemetry_pipeline_input.TestTelemetryPipelineInput = {}  # type: ignore[typeddict-item]
+        input_["records"] = records
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1654,12 +1659,12 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_observabilityadmin.types.untag_resource_input.UntagResourceInput = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1694,12 +1699,12 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.update_centralization_rule_for_organization_input.UpdateCentralizationRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
-        input["rule"] = rule
+        input_: aws_sdk_observabilityadmin.types.update_centralization_rule_for_organization_input.UpdateCentralizationRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
+        input_["rule"] = rule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1734,12 +1739,12 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.update_telemetry_rule_input.UpdateTelemetryRuleInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
-        input["rule"] = rule
+        input_: aws_sdk_observabilityadmin.types.update_telemetry_rule_input.UpdateTelemetryRuleInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
+        input_["rule"] = rule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1774,12 +1779,12 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.update_telemetry_rule_for_organization_input.UpdateTelemetryRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
-        input["rule_identifier"] = rule_identifier
-        input["rule"] = rule
+        input_: aws_sdk_observabilityadmin.types.update_telemetry_rule_for_organization_input.UpdateTelemetryRuleForOrganizationInput = {}  # type: ignore[typeddict-item]
+        input_["rule_identifier"] = rule_identifier
+        input_["rule"] = rule
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1812,11 +1817,11 @@ class ObservabilityAdminClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_observabilityadmin.types.validate_telemetry_pipeline_configuration_input.ValidateTelemetryPipelineConfigurationInput = {}  # type: ignore[typeddict-item]
-        input["configuration"] = configuration
+        input_: aws_sdk_observabilityadmin.types.validate_telemetry_pipeline_configuration_input.ValidateTelemetryPipelineConfigurationInput = {}  # type: ignore[typeddict-item]
+        input_["configuration"] = configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_cloudhsm._auth._signers
+import aws_sdk_cloudhsm._auth._sigv4
 from aws_sdk_cloudhsm._auth._identity import Credentials
 from aws_sdk_cloudhsm._auth._providers import (
     CredentialsProvider,
@@ -220,12 +222,12 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.add_tags_to_resource_request.AddTagsToResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_list"] = tag_list
+        input_: aws_sdk_cloudhsm.types.add_tags_to_resource_request.AddTagsToResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_list"] = tag_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,11 +261,11 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.create_hapg_request.CreateHapgRequest = {}  # type: ignore[typeddict-item]
-        input["label"] = label
+        input_: aws_sdk_cloudhsm.types.create_hapg_request.CreateHapgRequest = {}  # type: ignore[typeddict-item]
+        input_["label"] = label
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -312,22 +314,22 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.create_hsm_request.CreateHsmRequest = {}  # type: ignore[typeddict-item]
-        input["subnet_id"] = subnet_id
-        input["ssh_key"] = ssh_key
+        input_: aws_sdk_cloudhsm.types.create_hsm_request.CreateHsmRequest = {}  # type: ignore[typeddict-item]
+        input_["subnet_id"] = subnet_id
+        input_["ssh_key"] = ssh_key
         if eni_ip is not None:
-            input["eni_ip"] = eni_ip
-        input["iam_role_arn"] = iam_role_arn
+            input_["eni_ip"] = eni_ip
+        input_["iam_role_arn"] = iam_role_arn
         if external_id is not None:
-            input["external_id"] = external_id
-        input["subscription_type"] = subscription_type
+            input_["external_id"] = external_id
+        input_["subscription_type"] = subscription_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if syslog_ip is not None:
-            input["syslog_ip"] = syslog_ip
+            input_["syslog_ip"] = syslog_ip
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -363,13 +365,13 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.create_luna_client_request.CreateLunaClientRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm.types.create_luna_client_request.CreateLunaClientRequest = {}  # type: ignore[typeddict-item]
         if label is not None:
-            input["label"] = label
-        input["certificate"] = certificate
+            input_["label"] = label
+        input_["certificate"] = certificate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,11 +405,11 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.delete_hapg_request.DeleteHapgRequest = {}  # type: ignore[typeddict-item]
-        input["hapg_arn"] = hapg_arn
+        input_: aws_sdk_cloudhsm.types.delete_hapg_request.DeleteHapgRequest = {}  # type: ignore[typeddict-item]
+        input_["hapg_arn"] = hapg_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -441,11 +443,11 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.delete_hsm_request.DeleteHsmRequest = {}  # type: ignore[typeddict-item]
-        input["hsm_arn"] = hsm_arn
+        input_: aws_sdk_cloudhsm.types.delete_hsm_request.DeleteHsmRequest = {}  # type: ignore[typeddict-item]
+        input_["hsm_arn"] = hsm_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -479,11 +481,11 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.delete_luna_client_request.DeleteLunaClientRequest = {}  # type: ignore[typeddict-item]
-        input["client_arn"] = client_arn
+        input_: aws_sdk_cloudhsm.types.delete_luna_client_request.DeleteLunaClientRequest = {}  # type: ignore[typeddict-item]
+        input_["client_arn"] = client_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -517,11 +519,11 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.describe_hapg_request.DescribeHapgRequest = {}  # type: ignore[typeddict-item]
-        input["hapg_arn"] = hapg_arn
+        input_: aws_sdk_cloudhsm.types.describe_hapg_request.DescribeHapgRequest = {}  # type: ignore[typeddict-item]
+        input_["hapg_arn"] = hapg_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -559,14 +561,14 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.describe_hsm_request.DescribeHsmRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm.types.describe_hsm_request.DescribeHsmRequest = {}  # type: ignore[typeddict-item]
         if hsm_arn is not None:
-            input["hsm_arn"] = hsm_arn
+            input_["hsm_arn"] = hsm_arn
         if hsm_serial_number is not None:
-            input["hsm_serial_number"] = hsm_serial_number
+            input_["hsm_serial_number"] = hsm_serial_number
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,14 +606,14 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.describe_luna_client_request.DescribeLunaClientRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm.types.describe_luna_client_request.DescribeLunaClientRequest = {}  # type: ignore[typeddict-item]
         if client_arn is not None:
-            input["client_arn"] = client_arn
+            input_["client_arn"] = client_arn
         if certificate_fingerprint is not None:
-            input["certificate_fingerprint"] = certificate_fingerprint
+            input_["certificate_fingerprint"] = certificate_fingerprint
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -649,13 +651,13 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.get_config_request.GetConfigRequest = {}  # type: ignore[typeddict-item]
-        input["client_arn"] = client_arn
-        input["client_version"] = client_version
-        input["hapg_list"] = hapg_list
+        input_: aws_sdk_cloudhsm.types.get_config_request.GetConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["client_arn"] = client_arn
+        input_["client_version"] = client_version
+        input_["hapg_list"] = hapg_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -682,10 +684,10 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.list_available_zones_request.ListAvailableZonesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm.types.list_available_zones_request.ListAvailableZonesRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -721,12 +723,12 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.list_hapgs_request.ListHapgsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm.types.list_hapgs_request.ListHapgsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -762,12 +764,12 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.list_hsms_request.ListHsmsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm.types.list_hsms_request.ListHsmsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -803,12 +805,12 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.list_luna_clients_request.ListLunaClientsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cloudhsm.types.list_luna_clients_request.ListLunaClientsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -842,11 +844,11 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_cloudhsm.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -886,15 +888,15 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.modify_hapg_request.ModifyHapgRequest = {}  # type: ignore[typeddict-item]
-        input["hapg_arn"] = hapg_arn
+        input_: aws_sdk_cloudhsm.types.modify_hapg_request.ModifyHapgRequest = {}  # type: ignore[typeddict-item]
+        input_["hapg_arn"] = hapg_arn
         if label is not None:
-            input["label"] = label
+            input_["label"] = label
         if partition_serial_list is not None:
-            input["partition_serial_list"] = partition_serial_list
+            input_["partition_serial_list"] = partition_serial_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -938,21 +940,21 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.modify_hsm_request.ModifyHsmRequest = {}  # type: ignore[typeddict-item]
-        input["hsm_arn"] = hsm_arn
+        input_: aws_sdk_cloudhsm.types.modify_hsm_request.ModifyHsmRequest = {}  # type: ignore[typeddict-item]
+        input_["hsm_arn"] = hsm_arn
         if subnet_id is not None:
-            input["subnet_id"] = subnet_id
+            input_["subnet_id"] = subnet_id
         if eni_ip is not None:
-            input["eni_ip"] = eni_ip
+            input_["eni_ip"] = eni_ip
         if iam_role_arn is not None:
-            input["iam_role_arn"] = iam_role_arn
+            input_["iam_role_arn"] = iam_role_arn
         if external_id is not None:
-            input["external_id"] = external_id
+            input_["external_id"] = external_id
         if syslog_ip is not None:
-            input["syslog_ip"] = syslog_ip
+            input_["syslog_ip"] = syslog_ip
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -988,12 +990,12 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.modify_luna_client_request.ModifyLunaClientRequest = {}  # type: ignore[typeddict-item]
-        input["client_arn"] = client_arn
-        input["certificate"] = certificate
+        input_: aws_sdk_cloudhsm.types.modify_luna_client_request.ModifyLunaClientRequest = {}  # type: ignore[typeddict-item]
+        input_["client_arn"] = client_arn
+        input_["certificate"] = certificate
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1029,12 +1031,12 @@ class AsyncCloudHSMClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_cloudhsm.types.remove_tags_from_resource_request.RemoveTagsFromResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_key_list"] = tag_key_list
+        input_: aws_sdk_cloudhsm.types.remove_tags_from_resource_request.RemoveTagsFromResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_key_list"] = tag_key_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

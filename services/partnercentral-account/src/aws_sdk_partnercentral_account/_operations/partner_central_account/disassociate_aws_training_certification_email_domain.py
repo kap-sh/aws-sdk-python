@@ -93,15 +93,13 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_request.DisassociateAwsTrainingCertificationEmailDomainRequest,
+    input_: aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_request.DisassociateAwsTrainingCertificationEmailDomainRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
-            UseFIPS=options.use_fips,
-            Endpoint=options.endpoint,
-            Region=options.region,
+            UseFIPS=options.use_fips, Endpoint=options.endpoint, Region=options.region
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + ""
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
@@ -112,7 +110,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_request.serialize_aws_json_1_0(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
@@ -120,26 +118,23 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def disassociate_aws_training_certification_email_domain(
     options: OperationOptions,
-    input: aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_request.DisassociateAwsTrainingCertificationEmailDomainRequest,
+    input_: aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_request.DisassociateAwsTrainingCertificationEmailDomainRequest,
 ) -> tuple[
     aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_response.DisassociateAwsTrainingCertificationEmailDomainResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -148,16 +143,17 @@ def disassociate_aws_training_certification_email_domain(
 
 async def async_disassociate_aws_training_certification_email_domain(
     options: AsyncOperationOptions,
-    input: aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_request.DisassociateAwsTrainingCertificationEmailDomainRequest,
+    input_: aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_request.DisassociateAwsTrainingCertificationEmailDomainRequest,
 ) -> tuple[
     aws_sdk_partnercentral_account.types.disassociate_aws_training_certification_email_domain_response.DisassociateAwsTrainingCertificationEmailDomainResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

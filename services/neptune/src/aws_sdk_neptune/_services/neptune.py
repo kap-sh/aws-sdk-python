@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_neptune._auth._signers
+import aws_sdk_neptune._auth._sigv4
 from aws_sdk_neptune._auth._identity import Credentials
 from aws_sdk_neptune._auth._providers import (
     CredentialsProvider,
@@ -322,14 +324,14 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.add_role_to_db_cluster_message.AddRoleToDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["role_arn"] = role_arn
+        input_: aws_sdk_neptune.types.add_role_to_db_cluster_message.AddRoleToDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["role_arn"] = role_arn
         if feature_name is not None:
-            input["feature_name"] = feature_name
+            input_["feature_name"] = feature_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,12 +366,12 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["source_identifier"] = source_identifier
+        input_: aws_sdk_neptune.types.add_source_identifier_to_subscription_message.AddSourceIdentifierToSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,12 +404,12 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tags"] = tags
+        input_: aws_sdk_neptune.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -444,13 +446,13 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
-        input["resource_identifier"] = resource_identifier
-        input["apply_action"] = apply_action
-        input["opt_in_type"] = opt_in_type
+        input_: aws_sdk_neptune.types.apply_pending_maintenance_action_message.ApplyPendingMaintenanceActionMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_identifier"] = resource_identifier
+        input_["apply_action"] = apply_action
+        input_["opt_in_type"] = opt_in_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -489,21 +491,21 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_cluster_parameter_group_identifier"] = (
+        input_: aws_sdk_neptune.types.copy_db_cluster_parameter_group_message.CopyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_cluster_parameter_group_identifier"] = (
             source_db_cluster_parameter_group_identifier
         )
-        input["target_db_cluster_parameter_group_identifier"] = (
+        input_["target_db_cluster_parameter_group_identifier"] = (
             target_db_cluster_parameter_group_identifier
         )
-        input["target_db_cluster_parameter_group_description"] = (
+        input_["target_db_cluster_parameter_group_description"] = (
             target_db_cluster_parameter_group_description
         )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -548,24 +550,24 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_cluster_snapshot_identifier"] = (
+        input_: aws_sdk_neptune.types.copy_db_cluster_snapshot_message.CopyDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_cluster_snapshot_identifier"] = (
             source_db_cluster_snapshot_identifier
         )
-        input["target_db_cluster_snapshot_identifier"] = (
+        input_["target_db_cluster_snapshot_identifier"] = (
             target_db_cluster_snapshot_identifier
         )
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if copy_tags is not None:
-            input["copy_tags"] = copy_tags
+            input_["copy_tags"] = copy_tags
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -604,21 +606,21 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.copy_db_parameter_group_message.CopyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["source_db_parameter_group_identifier"] = (
+        input_: aws_sdk_neptune.types.copy_db_parameter_group_message.CopyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["source_db_parameter_group_identifier"] = (
             source_db_parameter_group_identifier
         )
-        input["target_db_parameter_group_identifier"] = (
+        input_["target_db_parameter_group_identifier"] = (
             target_db_parameter_group_identifier
         )
-        input["target_db_parameter_group_description"] = (
+        input_["target_db_parameter_group_description"] = (
             target_db_parameter_group_description
         )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -733,70 +735,70 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_db_cluster_message.CreateDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.create_db_cluster_message.CreateDBClusterMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
+            input_["availability_zones"] = availability_zones
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if character_set_name is not None:
-            input["character_set_name"] = character_set_name
+            input_["character_set_name"] = character_set_name
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if database_name is not None:
-            input["database_name"] = database_name
-        input["db_cluster_identifier"] = db_cluster_identifier
+            input_["database_name"] = database_name
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
-        input["engine"] = engine
+            input_["db_subnet_group_name"] = db_subnet_group_name
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if master_username is not None:
-            input["master_username"] = master_username
+            input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if replication_source_identifier is not None:
-            input["replication_source_identifier"] = replication_source_identifier
+            input_["replication_source_identifier"] = replication_source_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if pre_signed_url is not None:
-            input["pre_signed_url"] = pre_signed_url
+            input_["pre_signed_url"] = pre_signed_url
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if global_cluster_identifier is not None:
-            input["global_cluster_identifier"] = global_cluster_identifier
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -841,19 +843,19 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_db_cluster_endpoint_message.CreateDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
-        input["endpoint_type"] = endpoint_type
+        input_: aws_sdk_neptune.types.create_db_cluster_endpoint_message.CreateDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        input_["endpoint_type"] = endpoint_type
         if static_members is not None:
-            input["static_members"] = static_members
+            input_["static_members"] = static_members
         if excluded_members is not None:
-            input["excluded_members"] = excluded_members
+            input_["excluded_members"] = excluded_members
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -892,15 +894,15 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input["db_parameter_group_family"] = db_parameter_group_family
-        input["description"] = description
+        input_: aws_sdk_neptune.types.create_db_cluster_parameter_group_message.CreateDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_["db_parameter_group_family"] = db_parameter_group_family
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -937,14 +939,14 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_neptune.types.create_db_cluster_snapshot_message.CreateDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1097,94 +1099,94 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.create_db_instance_message.CreateDBInstanceMessage = {}  # type: ignore[typeddict-item]
         if db_name is not None:
-            input["db_name"] = db_name
-        input["db_instance_identifier"] = db_instance_identifier
+            input_["db_name"] = db_name
+        input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
-        input["db_instance_class"] = db_instance_class
-        input["engine"] = engine
+            input_["allocated_storage"] = allocated_storage
+        input_["db_instance_class"] = db_instance_class
+        input_["engine"] = engine
         if master_username is not None:
-            input["master_username"] = master_username
+            input_["master_username"] = master_username
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if db_security_groups is not None:
-            input["db_security_groups"] = db_security_groups
+            input_["db_security_groups"] = db_security_groups
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if availability_zone is not None:
-            input["availability_zone"] = availability_zone
+            input_["availability_zone"] = availability_zone
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if character_set_name is not None:
-            input["character_set_name"] = character_set_name
+            input_["character_set_name"] = character_set_name
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if tags is not None:
-            input["tags"] = tags
-        input["db_cluster_identifier"] = db_cluster_identifier
+            input_["tags"] = tags
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if tde_credential_arn is not None:
-            input["tde_credential_arn"] = tde_credential_arn
+            input_["tde_credential_arn"] = tde_credential_arn
         if tde_credential_password is not None:
-            input["tde_credential_password"] = tde_credential_password
+            input_["tde_credential_password"] = tde_credential_password
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if promotion_tier is not None:
-            input["promotion_tier"] = promotion_tier
+            input_["promotion_tier"] = promotion_tier
         if timezone is not None:
-            input["timezone"] = timezone
+            input_["timezone"] = timezone
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1223,15 +1225,15 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_db_parameter_group_message.CreateDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
-        input["db_parameter_group_family"] = db_parameter_group_family
-        input["description"] = description
+        input_: aws_sdk_neptune.types.create_db_parameter_group_message.CreateDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
+        input_["db_parameter_group_family"] = db_parameter_group_family
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1272,15 +1274,15 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
-        input["db_subnet_group_description"] = db_subnet_group_description
-        input["subnet_ids"] = subnet_ids
+        input_: aws_sdk_neptune.types.create_db_subnet_group_message.CreateDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
+        input_["db_subnet_group_description"] = db_subnet_group_description
+        input_["subnet_ids"] = subnet_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1331,22 +1333,22 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["sns_topic_arn"] = sns_topic_arn
+        input_: aws_sdk_neptune.types.create_event_subscription_message.CreateEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if source_ids is not None:
-            input["source_ids"] = source_ids
+            input_["source_ids"] = source_ids
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1399,25 +1401,25 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_neptune.types.create_global_cluster_message.CreateGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
         if source_db_cluster_identifier is not None:
-            input["source_db_cluster_identifier"] = source_db_cluster_identifier
+            input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if storage_encrypted is not None:
-            input["storage_encrypted"] = storage_encrypted
+            input_["storage_encrypted"] = storage_encrypted
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1456,15 +1458,15 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_neptune.types.delete_db_cluster_message.DeleteDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if skip_final_snapshot is not None:
-            input["skip_final_snapshot"] = skip_final_snapshot
+            input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
-            input["final_db_snapshot_identifier"] = final_db_snapshot_identifier
+            input_["final_db_snapshot_identifier"] = final_db_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1497,11 +1499,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_db_cluster_endpoint_message.DeleteDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        input_: aws_sdk_neptune.types.delete_db_cluster_endpoint_message.DeleteDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1532,11 +1534,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_neptune.types.delete_db_cluster_parameter_group_message.DeleteDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1569,11 +1571,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_: aws_sdk_neptune.types.delete_db_cluster_snapshot_message.DeleteDBClusterSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1612,15 +1614,15 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_neptune.types.delete_db_instance_message.DeleteDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if skip_final_snapshot is not None:
-            input["skip_final_snapshot"] = skip_final_snapshot
+            input_["skip_final_snapshot"] = skip_final_snapshot
         if final_db_snapshot_identifier is not None:
-            input["final_db_snapshot_identifier"] = final_db_snapshot_identifier
+            input_["final_db_snapshot_identifier"] = final_db_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1651,11 +1653,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_db_parameter_group_message.DeleteDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
+        input_: aws_sdk_neptune.types.delete_db_parameter_group_message.DeleteDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1686,11 +1688,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
+        input_: aws_sdk_neptune.types.delete_db_subnet_group_message.DeleteDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1723,11 +1725,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_neptune.types.delete_event_subscription_message.DeleteEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1760,11 +1762,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_neptune.types.delete_global_cluster_message.DeleteGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1809,20 +1811,20 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_cluster_endpoints_message.DescribeDBClusterEndpointsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_db_cluster_endpoints_message.DescribeDBClusterEndpointsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_endpoint_identifier is not None:
-            input["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+            input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1896,18 +1898,18 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_cluster_parameter_groups_message.DescribeDBClusterParameterGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_db_cluster_parameter_groups_message.DescribeDBClusterParameterGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1979,19 +1981,19 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_neptune.types.describe_db_cluster_parameters_message.DescribeDBClusterParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2061,18 +2063,18 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_clusters_message.DescribeDBClustersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_db_clusters_message.DescribeDBClustersMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2132,11 +2134,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_: aws_sdk_neptune.types.describe_db_cluster_snapshot_attributes_message.DescribeDBClusterSnapshotAttributesMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2187,26 +2189,26 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_cluster_snapshots_message.DescribeDBClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_db_cluster_snapshots_message.DescribeDBClusterSnapshotsMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if db_cluster_snapshot_identifier is not None:
-            input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+            input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
         if snapshot_type is not None:
-            input["snapshot_type"] = snapshot_type
+            input_["snapshot_type"] = snapshot_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if include_shared is not None:
-            input["include_shared"] = include_shared
+            input_["include_shared"] = include_shared
         if include_public is not None:
-            input["include_public"] = include_public
+            input_["include_public"] = include_public
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2300,28 +2302,28 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_engine_versions_message.DescribeDBEngineVersionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_db_engine_versions_message.DescribeDBEngineVersionsMessage = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if db_parameter_group_family is not None:
-            input["db_parameter_group_family"] = db_parameter_group_family
+            input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if default_only is not None:
-            input["default_only"] = default_only
+            input_["default_only"] = default_only
         if list_supported_character_sets is not None:
-            input["list_supported_character_sets"] = list_supported_character_sets
+            input_["list_supported_character_sets"] = list_supported_character_sets
         if list_supported_timezones is not None:
-            input["list_supported_timezones"] = list_supported_timezones
+            input_["list_supported_timezones"] = list_supported_timezones
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2405,18 +2407,18 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_instances_message.DescribeDBInstancesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_db_instances_message.DescribeDBInstancesMessage = {}  # type: ignore[typeddict-item]
         if db_instance_identifier is not None:
-            input["db_instance_identifier"] = db_instance_identifier
+            input_["db_instance_identifier"] = db_instance_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2484,18 +2486,18 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_parameter_groups_message.DescribeDBParameterGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_db_parameter_groups_message.DescribeDBParameterGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2565,19 +2567,19 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_parameters_message.DescribeDBParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
+        input_: aws_sdk_neptune.types.describe_db_parameters_message.DescribeDBParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2647,18 +2649,18 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_db_subnet_groups_message.DescribeDBSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_db_subnet_groups_message.DescribeDBSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2726,17 +2728,17 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_family"] = db_parameter_group_family
+        input_: aws_sdk_neptune.types.describe_engine_default_cluster_parameters_message.DescribeEngineDefaultClusterParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2777,17 +2779,17 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_family"] = db_parameter_group_family
+        input_: aws_sdk_neptune.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_family"] = db_parameter_group_family
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2849,14 +2851,14 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_event_categories_message.DescribeEventCategoriesMessage = {}  # type: ignore[typeddict-item]
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2909,28 +2911,28 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
         if source_identifier is not None:
-            input["source_identifier"] = source_identifier
+            input_["source_identifier"] = source_identifier
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3012,18 +3014,18 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_event_subscriptions_message.DescribeEventSubscriptionsMessage = {}  # type: ignore[typeddict-item]
         if subscription_name is not None:
-            input["subscription_name"] = subscription_name
+            input_["subscription_name"] = subscription_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3091,16 +3093,16 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_global_clusters_message.DescribeGlobalClustersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_global_clusters_message.DescribeGlobalClustersMessage = {}  # type: ignore[typeddict-item]
         if global_cluster_identifier is not None:
-            input["global_cluster_identifier"] = global_cluster_identifier
+            input_["global_cluster_identifier"] = global_cluster_identifier
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3176,25 +3178,25 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
-        input["engine"] = engine
+        input_: aws_sdk_neptune.types.describe_orderable_db_instance_options_message.DescribeOrderableDBInstanceOptionsMessage = {}  # type: ignore[typeddict-item]
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if vpc is not None:
-            input["vpc"] = vpc
+            input_["vpc"] = vpc
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3270,18 +3272,18 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_pending_maintenance_actions_message.DescribePendingMaintenanceActionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.describe_pending_maintenance_actions_message.DescribePendingMaintenanceActionsMessage = {}  # type: ignore[typeddict-item]
         if resource_identifier is not None:
-            input["resource_identifier"] = resource_identifier
+            input_["resource_identifier"] = resource_identifier
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3341,11 +3343,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.describe_valid_db_instance_modifications_message.DescribeValidDBInstanceModificationsMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_neptune.types.describe_valid_db_instance_modifications_message.DescribeValidDBInstanceModificationsMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3382,14 +3384,14 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.failover_db_cluster_message.FailoverDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.failover_db_cluster_message.FailoverDBClusterMessage = {}  # type: ignore[typeddict-item]
         if db_cluster_identifier is not None:
-            input["db_cluster_identifier"] = db_cluster_identifier
+            input_["db_cluster_identifier"] = db_cluster_identifier
         if target_db_instance_identifier is not None:
-            input["target_db_instance_identifier"] = target_db_instance_identifier
+            input_["target_db_instance_identifier"] = target_db_instance_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3432,16 +3434,16 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["target_db_cluster_identifier"] = target_db_cluster_identifier
+        input_: aws_sdk_neptune.types.failover_global_cluster_message.FailoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
         if allow_data_loss is not None:
-            input["allow_data_loss"] = allow_data_loss
+            input_["allow_data_loss"] = allow_data_loss
         if switchover is not None:
-            input["switchover"] = switchover
+            input_["switchover"] = switchover
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3474,13 +3476,13 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_neptune.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3577,57 +3579,59 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_neptune.types.modify_db_cluster_message.ModifyDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if new_db_cluster_identifier is not None:
-            input["new_db_cluster_identifier"] = new_db_cluster_identifier
+            input_["new_db_cluster_identifier"] = new_db_cluster_identifier
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if cloudwatch_logs_export_configuration is not None:
-            input["cloudwatch_logs_export_configuration"] = (
+            input_["cloudwatch_logs_export_configuration"] = (
                 cloudwatch_logs_export_configuration
             )
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if allow_major_version_upgrade is not None:
-            input["allow_major_version_upgrade"] = allow_major_version_upgrade
+            input_["allow_major_version_upgrade"] = allow_major_version_upgrade
         if db_instance_parameter_group_name is not None:
-            input["db_instance_parameter_group_name"] = db_instance_parameter_group_name
+            input_["db_instance_parameter_group_name"] = (
+                db_instance_parameter_group_name
+            )
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3668,17 +3672,17 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_db_cluster_endpoint_message.ModifyDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
+        input_: aws_sdk_neptune.types.modify_db_cluster_endpoint_message.ModifyDBClusterEndpointMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_endpoint_identifier"] = db_cluster_endpoint_identifier
         if endpoint_type is not None:
-            input["endpoint_type"] = endpoint_type
+            input_["endpoint_type"] = endpoint_type
         if static_members is not None:
-            input["static_members"] = static_members
+            input_["static_members"] = static_members
         if excluded_members is not None:
-            input["excluded_members"] = excluded_members
+            input_["excluded_members"] = excluded_members
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3713,12 +3717,12 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
-        input["parameters"] = parameters
+        input_: aws_sdk_neptune.types.modify_db_cluster_parameter_group_message.ModifyDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3761,16 +3765,16 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
-        input["attribute_name"] = attribute_name
+        input_: aws_sdk_neptune.types.modify_db_cluster_snapshot_attribute_message.ModifyDBClusterSnapshotAttributeMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+        input_["attribute_name"] = attribute_name
         if values_to_add is not None:
-            input["values_to_add"] = values_to_add
+            input_["values_to_add"] = values_to_add
         if values_to_remove is not None:
-            input["values_to_remove"] = values_to_remove
+            input_["values_to_remove"] = values_to_remove
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3917,87 +3921,87 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_neptune.types.modify_db_instance_message.ModifyDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if allocated_storage is not None:
-            input["allocated_storage"] = allocated_storage
+            input_["allocated_storage"] = allocated_storage
         if db_instance_class is not None:
-            input["db_instance_class"] = db_instance_class
+            input_["db_instance_class"] = db_instance_class
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if db_security_groups is not None:
-            input["db_security_groups"] = db_security_groups
+            input_["db_security_groups"] = db_security_groups
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if master_user_password is not None:
-            input["master_user_password"] = master_user_password
+            input_["master_user_password"] = master_user_password
         if db_parameter_group_name is not None:
-            input["db_parameter_group_name"] = db_parameter_group_name
+            input_["db_parameter_group_name"] = db_parameter_group_name
         if backup_retention_period is not None:
-            input["backup_retention_period"] = backup_retention_period
+            input_["backup_retention_period"] = backup_retention_period
         if preferred_backup_window is not None:
-            input["preferred_backup_window"] = preferred_backup_window
+            input_["preferred_backup_window"] = preferred_backup_window
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if multi_az is not None:
-            input["multi_az"] = multi_az
+            input_["multi_az"] = multi_az
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if allow_major_version_upgrade is not None:
-            input["allow_major_version_upgrade"] = allow_major_version_upgrade
+            input_["allow_major_version_upgrade"] = allow_major_version_upgrade
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if license_model is not None:
-            input["license_model"] = license_model
+            input_["license_model"] = license_model
         if iops is not None:
-            input["iops"] = iops
+            input_["iops"] = iops
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if new_db_instance_identifier is not None:
-            input["new_db_instance_identifier"] = new_db_instance_identifier
+            input_["new_db_instance_identifier"] = new_db_instance_identifier
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if tde_credential_arn is not None:
-            input["tde_credential_arn"] = tde_credential_arn
+            input_["tde_credential_arn"] = tde_credential_arn
         if tde_credential_password is not None:
-            input["tde_credential_password"] = tde_credential_password
+            input_["tde_credential_password"] = tde_credential_password
         if ca_certificate_identifier is not None:
-            input["ca_certificate_identifier"] = ca_certificate_identifier
+            input_["ca_certificate_identifier"] = ca_certificate_identifier
         if domain is not None:
-            input["domain"] = domain
+            input_["domain"] = domain
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if monitoring_interval is not None:
-            input["monitoring_interval"] = monitoring_interval
+            input_["monitoring_interval"] = monitoring_interval
         if db_port_number is not None:
-            input["db_port_number"] = db_port_number
+            input_["db_port_number"] = db_port_number
         if publicly_accessible is not None:
-            input["publicly_accessible"] = publicly_accessible
+            input_["publicly_accessible"] = publicly_accessible
         if monitoring_role_arn is not None:
-            input["monitoring_role_arn"] = monitoring_role_arn
+            input_["monitoring_role_arn"] = monitoring_role_arn
         if domain_iam_role_name is not None:
-            input["domain_iam_role_name"] = domain_iam_role_name
+            input_["domain_iam_role_name"] = domain_iam_role_name
         if promotion_tier is not None:
-            input["promotion_tier"] = promotion_tier
+            input_["promotion_tier"] = promotion_tier
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if enable_performance_insights is not None:
-            input["enable_performance_insights"] = enable_performance_insights
+            input_["enable_performance_insights"] = enable_performance_insights
         if performance_insights_kms_key_id is not None:
-            input["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            input_["performance_insights_kms_key_id"] = performance_insights_kms_key_id
         if cloudwatch_logs_export_configuration is not None:
-            input["cloudwatch_logs_export_configuration"] = (
+            input_["cloudwatch_logs_export_configuration"] = (
                 cloudwatch_logs_export_configuration
             )
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4032,12 +4036,12 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_db_parameter_group_message.ModifyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
-        input["parameters"] = parameters
+        input_: aws_sdk_neptune.types.modify_db_parameter_group_message.ModifyDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
+        input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4078,14 +4082,14 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_subnet_group_name"] = db_subnet_group_name
+        input_: aws_sdk_neptune.types.modify_db_subnet_group_message.ModifyDBSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_subnet_group_name"] = db_subnet_group_name
         if db_subnet_group_description is not None:
-            input["db_subnet_group_description"] = db_subnet_group_description
-        input["subnet_ids"] = subnet_ids
+            input_["db_subnet_group_description"] = db_subnet_group_description
+        input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4130,19 +4134,19 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
+        input_: aws_sdk_neptune.types.modify_event_subscription_message.ModifyEventSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if event_categories is not None:
-            input["event_categories"] = event_categories
+            input_["event_categories"] = event_categories
         if enabled is not None:
-            input["enabled"] = enabled
+            input_["enabled"] = enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4189,19 +4193,19 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
+        input_: aws_sdk_neptune.types.modify_global_cluster_message.ModifyGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
         if new_global_cluster_identifier is not None:
-            input["new_global_cluster_identifier"] = new_global_cluster_identifier
+            input_["new_global_cluster_identifier"] = new_global_cluster_identifier
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if allow_major_version_upgrade is not None:
-            input["allow_major_version_upgrade"] = allow_major_version_upgrade
+            input_["allow_major_version_upgrade"] = allow_major_version_upgrade
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4234,11 +4238,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.promote_read_replica_db_cluster_message.PromoteReadReplicaDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_neptune.types.promote_read_replica_db_cluster_message.PromoteReadReplicaDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4275,13 +4279,13 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
-        input["db_instance_identifier"] = db_instance_identifier
+        input_: aws_sdk_neptune.types.reboot_db_instance_message.RebootDBInstanceMessage = {}  # type: ignore[typeddict-item]
+        input_["db_instance_identifier"] = db_instance_identifier
         if force_failover is not None:
-            input["force_failover"] = force_failover
+            input_["force_failover"] = force_failover
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4316,12 +4320,12 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_neptune.types.remove_from_global_cluster_message.RemoveFromGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4356,14 +4360,14 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.remove_role_from_db_cluster_message.RemoveRoleFromDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["role_arn"] = role_arn
+        input_: aws_sdk_neptune.types.remove_role_from_db_cluster_message.RemoveRoleFromDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["role_arn"] = role_arn
         if feature_name is not None:
-            input["feature_name"] = feature_name
+            input_["feature_name"] = feature_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4398,12 +4402,12 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
-        input["subscription_name"] = subscription_name
-        input["source_identifier"] = source_identifier
+        input_: aws_sdk_neptune.types.remove_source_identifier_from_subscription_message.RemoveSourceIdentifierFromSubscriptionMessage = {}  # type: ignore[typeddict-item]
+        input_["subscription_name"] = subscription_name
+        input_["source_identifier"] = source_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4436,12 +4440,12 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_neptune.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4480,15 +4484,15 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        input_: aws_sdk_neptune.types.reset_db_cluster_parameter_group_message.ResetDBClusterParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if reset_all_parameters is not None:
-            input["reset_all_parameters"] = reset_all_parameters
+            input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4527,15 +4531,15 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.reset_db_parameter_group_message.ResetDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["db_parameter_group_name"] = db_parameter_group_name
+        input_: aws_sdk_neptune.types.reset_db_parameter_group_message.ResetDBParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["db_parameter_group_name"] = db_parameter_group_name
         if reset_all_parameters is not None:
-            input["reset_all_parameters"] = reset_all_parameters
+            input_["reset_all_parameters"] = reset_all_parameters
         if parameters is not None:
-            input["parameters"] = parameters
+            input_["parameters"] = parameters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4622,51 +4626,51 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_neptune.types.restore_db_cluster_from_snapshot_message.RestoreDBClusterFromSnapshotMessage = {}  # type: ignore[typeddict-item]
         if availability_zones is not None:
-            input["availability_zones"] = availability_zones
-        input["db_cluster_identifier"] = db_cluster_identifier
-        input["snapshot_identifier"] = snapshot_identifier
-        input["engine"] = engine
+            input_["availability_zones"] = availability_zones
+        input_["db_cluster_identifier"] = db_cluster_identifier
+        input_["snapshot_identifier"] = snapshot_identifier
+        input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if database_name is not None:
-            input["database_name"] = database_name
+            input_["database_name"] = database_name
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if copy_tags_to_snapshot is not None:
-            input["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            input_["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4747,48 +4751,48 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_neptune.types.restore_db_cluster_to_point_in_time_message.RestoreDBClusterToPointInTimeMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
         if restore_type is not None:
-            input["restore_type"] = restore_type
-        input["source_db_cluster_identifier"] = source_db_cluster_identifier
+            input_["restore_type"] = restore_type
+        input_["source_db_cluster_identifier"] = source_db_cluster_identifier
         if restore_to_time is not None:
-            input["restore_to_time"] = restore_to_time
+            input_["restore_to_time"] = restore_to_time
         if use_latest_restorable_time is not None:
-            input["use_latest_restorable_time"] = use_latest_restorable_time
+            input_["use_latest_restorable_time"] = use_latest_restorable_time
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if db_subnet_group_name is not None:
-            input["db_subnet_group_name"] = db_subnet_group_name
+            input_["db_subnet_group_name"] = db_subnet_group_name
         if option_group_name is not None:
-            input["option_group_name"] = option_group_name
+            input_["option_group_name"] = option_group_name
         if vpc_security_group_ids is not None:
-            input["vpc_security_group_ids"] = vpc_security_group_ids
+            input_["vpc_security_group_ids"] = vpc_security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if enable_iam_database_authentication is not None:
-            input["enable_iam_database_authentication"] = (
+            input_["enable_iam_database_authentication"] = (
                 enable_iam_database_authentication
             )
         if enable_cloudwatch_logs_exports is not None:
-            input["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            input_["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         if db_cluster_parameter_group_name is not None:
-            input["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            input_["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
         if deletion_protection is not None:
-            input["deletion_protection"] = deletion_protection
+            input_["deletion_protection"] = deletion_protection
         if serverless_v2_scaling_configuration is not None:
-            input["serverless_v2_scaling_configuration"] = (
+            input_["serverless_v2_scaling_configuration"] = (
                 serverless_v2_scaling_configuration
             )
         if storage_type is not None:
-            input["storage_type"] = storage_type
+            input_["storage_type"] = storage_type
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4821,11 +4825,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_neptune.types.start_db_cluster_message.StartDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4858,11 +4862,11 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
-        input["db_cluster_identifier"] = db_cluster_identifier
+        input_: aws_sdk_neptune.types.stop_db_cluster_message.StopDBClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["db_cluster_identifier"] = db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4897,12 +4901,12 @@ class NeptuneClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_neptune.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
-        input["global_cluster_identifier"] = global_cluster_identifier
-        input["target_db_cluster_identifier"] = target_db_cluster_identifier
+        input_: aws_sdk_neptune.types.switchover_global_cluster_message.SwitchoverGlobalClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["global_cluster_identifier"] = global_cluster_identifier
+        input_["target_db_cluster_identifier"] = target_db_cluster_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

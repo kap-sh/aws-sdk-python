@@ -16,6 +16,45 @@ from aws_sdk_mgn._auth._providers import (
 )
 from aws_sdk_mgn._auth._zapros_handler import AuthMiddleware
 from aws_sdk_mgn._pagination import resolve_path as _resolve_path
+from aws_sdk_mgn._resources.application_migration_service.account_resource import (
+    AsyncAccountResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.appliance_resource import (
+    AsyncApplianceResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.application_resource import (
+    AsyncApplicationResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.connector_resource import (
+    AsyncConnectorResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.export_resource import (
+    AsyncExportResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.import_resource import (
+    AsyncImportResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.job_resource import (
+    AsyncJobResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.launch_configuration_template_resource import (
+    AsyncLaunchConfigurationTemplateResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.network_migration_definition_resource import (
+    AsyncNetworkMigrationDefinitionResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.replication_configuration_template_resource import (
+    AsyncReplicationConfigurationTemplateResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.source_server_resource import (
+    AsyncSourceServerResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.vcenter_client_resource import (
+    AsyncVcenterClientResource,
+)
+from aws_sdk_mgn._resources.application_migration_service.wave_resource import (
+    AsyncWaveResource,
+)
 from aws_sdk_mgn._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -124,6 +163,26 @@ class AsyncmgnClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_resource = AsyncAccountResource(self)
+        self.appliance_resource = AsyncApplianceResource(self)
+        self.application_resource = AsyncApplicationResource(self)
+        self.connector_resource = AsyncConnectorResource(self)
+        self.export_resource = AsyncExportResource(self)
+        self.import_resource = AsyncImportResource(self)
+        self.job_resource = AsyncJobResource(self)
+        self.launch_configuration_template_resource = (
+            AsyncLaunchConfigurationTemplateResource(self)
+        )
+        self.network_migration_definition_resource = (
+            AsyncNetworkMigrationDefinitionResource(self)
+        )
+        self.replication_configuration_template_resource = (
+            AsyncReplicationConfigurationTemplateResource(self)
+        )
+        self.source_server_resource = AsyncSourceServerResource(self)
+        self.vcenter_client_resource = AsyncVcenterClientResource(self)
+        self.wave_resource = AsyncWaveResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncmgnClientConfig] = None
@@ -174,10 +233,10 @@ class AsyncmgnClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.initialize_service_request.InitializeServiceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.initialize_service_request.InitializeServiceRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -226,16 +285,16 @@ class AsyncmgnClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_import_file_enrichments_request.ListImportFileEnrichmentsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.list_import_file_enrichments_request.ListImportFileEnrichmentsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -304,14 +363,14 @@ class AsyncmgnClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_managed_accounts_request.ListManagedAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.list_managed_accounts_request.ListManagedAccountsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -372,11 +431,11 @@ class AsyncmgnClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_mgn.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -425,16 +484,16 @@ class AsyncmgnClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.start_import_file_enrichment_request.StartImportFileEnrichmentRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mgn.types.start_import_file_enrichment_request.StartImportFileEnrichmentRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["s3_bucket_source"] = s3_bucket_source
-        input["s3_bucket_target"] = s3_bucket_target
+            input_["client_token"] = client_token
+        input_["s3_bucket_source"] = s3_bucket_source
+        input_["s3_bucket_target"] = s3_bucket_target
         if ip_assignment_strategy is not None:
-            input["ip_assignment_strategy"] = ip_assignment_strategy
+            input_["ip_assignment_strategy"] = ip_assignment_strategy
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -468,12 +527,12 @@ class AsyncmgnClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_mgn.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -507,12 +566,12 @@ class AsyncmgnClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_mgn.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_mgn.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

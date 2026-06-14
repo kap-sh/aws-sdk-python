@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_memorydb._auth._signers
+import aws_sdk_memorydb._auth._sigv4
 from aws_sdk_memorydb._auth._identity import Credentials
 from aws_sdk_memorydb._auth._providers import (
     CredentialsProvider,
@@ -288,13 +290,13 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.batch_update_cluster_request.BatchUpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_names"] = cluster_names
+        input_: aws_sdk_memorydb.types.batch_update_cluster_request.BatchUpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_names"] = cluster_names
         if service_update is not None:
-            input["service_update"] = service_update
+            input_["service_update"] = service_update
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -337,18 +339,18 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.copy_snapshot_request.CopySnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["source_snapshot_name"] = source_snapshot_name
-        input["target_snapshot_name"] = target_snapshot_name
+        input_: aws_sdk_memorydb.types.copy_snapshot_request.CopySnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["source_snapshot_name"] = source_snapshot_name
+        input_["target_snapshot_name"] = target_snapshot_name
         if target_bucket is not None:
-            input["target_bucket"] = target_bucket
+            input_["target_bucket"] = target_bucket
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,15 +389,15 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.create_acl_request.CreateACLRequest = {}  # type: ignore[typeddict-item]
-        input["acl_name"] = acl_name
+        input_: aws_sdk_memorydb.types.create_acl_request.CreateACLRequest = {}  # type: ignore[typeddict-item]
+        input_["acl_name"] = acl_name
         if user_names is not None:
-            input["user_names"] = user_names
+            input_["user_names"] = user_names
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,59 +504,59 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["node_type"] = node_type
+        input_: aws_sdk_memorydb.types.create_cluster_request.CreateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["node_type"] = node_type
         if multi_region_cluster_name is not None:
-            input["multi_region_cluster_name"] = multi_region_cluster_name
+            input_["multi_region_cluster_name"] = multi_region_cluster_name
         if parameter_group_name is not None:
-            input["parameter_group_name"] = parameter_group_name
+            input_["parameter_group_name"] = parameter_group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if num_shards is not None:
-            input["num_shards"] = num_shards
+            input_["num_shards"] = num_shards
         if num_replicas_per_shard is not None:
-            input["num_replicas_per_shard"] = num_replicas_per_shard
+            input_["num_replicas_per_shard"] = num_replicas_per_shard
         if subnet_group_name is not None:
-            input["subnet_group_name"] = subnet_group_name
+            input_["subnet_group_name"] = subnet_group_name
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
+            input_["maintenance_window"] = maintenance_window
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if tls_enabled is not None:
-            input["tls_enabled"] = tls_enabled
+            input_["tls_enabled"] = tls_enabled
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if snapshot_arns is not None:
-            input["snapshot_arns"] = snapshot_arns
+            input_["snapshot_arns"] = snapshot_arns
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if snapshot_retention_limit is not None:
-            input["snapshot_retention_limit"] = snapshot_retention_limit
+            input_["snapshot_retention_limit"] = snapshot_retention_limit
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if snapshot_window is not None:
-            input["snapshot_window"] = snapshot_window
-        input["acl_name"] = acl_name
+            input_["snapshot_window"] = snapshot_window
+        input_["acl_name"] = acl_name
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if data_tiering is not None:
-            input["data_tiering"] = data_tiering
+            input_["data_tiering"] = data_tiering
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if ip_discovery is not None:
-            input["ip_discovery"] = ip_discovery
+            input_["ip_discovery"] = ip_discovery
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -609,28 +611,28 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.create_multi_region_cluster_request.CreateMultiRegionClusterRequest = {}  # type: ignore[typeddict-item]
-        input["multi_region_cluster_name_suffix"] = multi_region_cluster_name_suffix
+        input_: aws_sdk_memorydb.types.create_multi_region_cluster_request.CreateMultiRegionClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["multi_region_cluster_name_suffix"] = multi_region_cluster_name_suffix
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
-        input["node_type"] = node_type
+            input_["engine_version"] = engine_version
+        input_["node_type"] = node_type
         if multi_region_parameter_group_name is not None:
-            input["multi_region_parameter_group_name"] = (
+            input_["multi_region_parameter_group_name"] = (
                 multi_region_parameter_group_name
             )
         if num_shards is not None:
-            input["num_shards"] = num_shards
+            input_["num_shards"] = num_shards
         if tls_enabled is not None:
-            input["tls_enabled"] = tls_enabled
+            input_["tls_enabled"] = tls_enabled
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -669,16 +671,16 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.create_parameter_group_request.CreateParameterGroupRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
-        input["family"] = family
+        input_: aws_sdk_memorydb.types.create_parameter_group_request.CreateParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
+        input_["family"] = family
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -717,16 +719,16 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_memorydb.types.create_snapshot_request.CreateSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["snapshot_name"] = snapshot_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -767,16 +769,16 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.create_subnet_group_request.CreateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["subnet_group_name"] = subnet_group_name
+        input_: aws_sdk_memorydb.types.create_subnet_group_request.CreateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["subnet_group_name"] = subnet_group_name
         if description is not None:
-            input["description"] = description
-        input["subnet_ids"] = subnet_ids
+            input_["description"] = description
+        input_["subnet_ids"] = subnet_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -815,15 +817,15 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
-        input["authentication_mode"] = authentication_mode
-        input["access_string"] = access_string
+        input_: aws_sdk_memorydb.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
+        input_["authentication_mode"] = authentication_mode
+        input_["access_string"] = access_string
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -856,11 +858,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.delete_acl_request.DeleteACLRequest = {}  # type: ignore[typeddict-item]
-        input["acl_name"] = acl_name
+        input_: aws_sdk_memorydb.types.delete_acl_request.DeleteACLRequest = {}  # type: ignore[typeddict-item]
+        input_["acl_name"] = acl_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -899,15 +901,15 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_memorydb.types.delete_cluster_request.DeleteClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if multi_region_cluster_name is not None:
-            input["multi_region_cluster_name"] = multi_region_cluster_name
+            input_["multi_region_cluster_name"] = multi_region_cluster_name
         if final_snapshot_name is not None:
-            input["final_snapshot_name"] = final_snapshot_name
+            input_["final_snapshot_name"] = final_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -940,11 +942,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.delete_multi_region_cluster_request.DeleteMultiRegionClusterRequest = {}  # type: ignore[typeddict-item]
-        input["multi_region_cluster_name"] = multi_region_cluster_name
+        input_: aws_sdk_memorydb.types.delete_multi_region_cluster_request.DeleteMultiRegionClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["multi_region_cluster_name"] = multi_region_cluster_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -977,11 +979,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.delete_parameter_group_request.DeleteParameterGroupRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_memorydb.types.delete_parameter_group_request.DeleteParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1014,11 +1016,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_memorydb.types.delete_snapshot_request.DeleteSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["snapshot_name"] = snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1053,11 +1055,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.delete_subnet_group_request.DeleteSubnetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["subnet_group_name"] = subnet_group_name
+        input_: aws_sdk_memorydb.types.delete_subnet_group_request.DeleteSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["subnet_group_name"] = subnet_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1090,11 +1092,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
+        input_: aws_sdk_memorydb.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1133,16 +1135,16 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_ac_ls_request.DescribeACLsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_ac_ls_request.DescribeACLsRequest = {}  # type: ignore[typeddict-item]
         if acl_name is not None:
-            input["acl_name"] = acl_name
+            input_["acl_name"] = acl_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1210,18 +1212,18 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_clusters_request.DescribeClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_clusters_request.DescribeClustersRequest = {}  # type: ignore[typeddict-item]
         if cluster_name is not None:
-            input["cluster_name"] = cluster_name
+            input_["cluster_name"] = cluster_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if show_shard_details is not None:
-            input["show_shard_details"] = show_shard_details
+            input_["show_shard_details"] = show_shard_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1295,22 +1297,22 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_engine_versions_request.DescribeEngineVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_engine_versions_request.DescribeEngineVersionsRequest = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if parameter_group_family is not None:
-            input["parameter_group_family"] = parameter_group_family
+            input_["parameter_group_family"] = parameter_group_family
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if default_only is not None:
-            input["default_only"] = default_only
+            input_["default_only"] = default_only
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1390,24 +1392,24 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_events_request.DescribeEventsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_events_request.DescribeEventsRequest = {}  # type: ignore[typeddict-item]
         if source_name is not None:
-            input["source_name"] = source_name
+            input_["source_name"] = source_name
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,18 +1489,18 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_multi_region_clusters_request.DescribeMultiRegionClustersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_multi_region_clusters_request.DescribeMultiRegionClustersRequest = {}  # type: ignore[typeddict-item]
         if multi_region_cluster_name is not None:
-            input["multi_region_cluster_name"] = multi_region_cluster_name
+            input_["multi_region_cluster_name"] = multi_region_cluster_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if show_cluster_details is not None:
-            input["show_cluster_details"] = show_cluster_details
+            input_["show_cluster_details"] = show_cluster_details
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1570,18 +1572,18 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_multi_region_parameter_groups_request.DescribeMultiRegionParameterGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_multi_region_parameter_groups_request.DescribeMultiRegionParameterGroupsRequest = {}  # type: ignore[typeddict-item]
         if multi_region_parameter_group_name is not None:
-            input["multi_region_parameter_group_name"] = (
+            input_["multi_region_parameter_group_name"] = (
                 multi_region_parameter_group_name
             )
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1622,17 +1624,17 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_multi_region_parameters_request.DescribeMultiRegionParametersRequest = {}  # type: ignore[typeddict-item]
-        input["multi_region_parameter_group_name"] = multi_region_parameter_group_name
+        input_: aws_sdk_memorydb.types.describe_multi_region_parameters_request.DescribeMultiRegionParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["multi_region_parameter_group_name"] = multi_region_parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1671,16 +1673,16 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_parameter_groups_request.DescribeParameterGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_parameter_groups_request.DescribeParameterGroupsRequest = {}  # type: ignore[typeddict-item]
         if parameter_group_name is not None:
-            input["parameter_group_name"] = parameter_group_name
+            input_["parameter_group_name"] = parameter_group_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1746,15 +1748,15 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_parameters_request.DescribeParametersRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_memorydb.types.describe_parameters_request.DescribeParametersRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1828,24 +1830,24 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_reserved_nodes_request.DescribeReservedNodesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_reserved_nodes_request.DescribeReservedNodesRequest = {}  # type: ignore[typeddict-item]
         if reservation_id is not None:
-            input["reservation_id"] = reservation_id
+            input_["reservation_id"] = reservation_id
         if reserved_nodes_offering_id is not None:
-            input["reserved_nodes_offering_id"] = reserved_nodes_offering_id
+            input_["reserved_nodes_offering_id"] = reserved_nodes_offering_id
         if node_type is not None:
-            input["node_type"] = node_type
+            input_["node_type"] = node_type
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if offering_type is not None:
-            input["offering_type"] = offering_type
+            input_["offering_type"] = offering_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1927,22 +1929,22 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_reserved_nodes_offerings_request.DescribeReservedNodesOfferingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_reserved_nodes_offerings_request.DescribeReservedNodesOfferingsRequest = {}  # type: ignore[typeddict-item]
         if reserved_nodes_offering_id is not None:
-            input["reserved_nodes_offering_id"] = reserved_nodes_offering_id
+            input_["reserved_nodes_offering_id"] = reserved_nodes_offering_id
         if node_type is not None:
-            input["node_type"] = node_type
+            input_["node_type"] = node_type
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if offering_type is not None:
-            input["offering_type"] = offering_type
+            input_["offering_type"] = offering_type
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2024,20 +2026,20 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_service_updates_request.DescribeServiceUpdatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_service_updates_request.DescribeServiceUpdatesRequest = {}  # type: ignore[typeddict-item]
         if service_update_name is not None:
-            input["service_update_name"] = service_update_name
+            input_["service_update_name"] = service_update_name
         if cluster_names is not None:
-            input["cluster_names"] = cluster_names
+            input_["cluster_names"] = cluster_names
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2117,22 +2119,22 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_snapshots_request.DescribeSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_snapshots_request.DescribeSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if cluster_name is not None:
-            input["cluster_name"] = cluster_name
+            input_["cluster_name"] = cluster_name
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if show_detail is not None:
-            input["show_detail"] = show_detail
+            input_["show_detail"] = show_detail
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2204,16 +2206,16 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_subnet_groups_request.DescribeSubnetGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_subnet_groups_request.DescribeSubnetGroupsRequest = {}  # type: ignore[typeddict-item]
         if subnet_group_name is not None:
-            input["subnet_group_name"] = subnet_group_name
+            input_["subnet_group_name"] = subnet_group_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2279,18 +2281,18 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.describe_users_request.DescribeUsersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_memorydb.types.describe_users_request.DescribeUsersRequest = {}  # type: ignore[typeddict-item]
         if user_name is not None:
-            input["user_name"] = user_name
+            input_["user_name"] = user_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2352,12 +2354,12 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.failover_shard_request.FailoverShardRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
-        input["shard_name"] = shard_name
+        input_: aws_sdk_memorydb.types.failover_shard_request.FailoverShardRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
+        input_["shard_name"] = shard_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2390,11 +2392,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.list_allowed_multi_region_cluster_updates_request.ListAllowedMultiRegionClusterUpdatesRequest = {}  # type: ignore[typeddict-item]
-        input["multi_region_cluster_name"] = multi_region_cluster_name
+        input_: aws_sdk_memorydb.types.list_allowed_multi_region_cluster_updates_request.ListAllowedMultiRegionClusterUpdatesRequest = {}  # type: ignore[typeddict-item]
+        input_["multi_region_cluster_name"] = multi_region_cluster_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2427,11 +2429,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.list_allowed_node_type_updates_request.ListAllowedNodeTypeUpdatesRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_memorydb.types.list_allowed_node_type_updates_request.ListAllowedNodeTypeUpdatesRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2464,11 +2466,11 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_memorydb.types.list_tags_request.ListTagsRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2509,17 +2511,17 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.purchase_reserved_nodes_offering_request.PurchaseReservedNodesOfferingRequest = {}  # type: ignore[typeddict-item]
-        input["reserved_nodes_offering_id"] = reserved_nodes_offering_id
+        input_: aws_sdk_memorydb.types.purchase_reserved_nodes_offering_request.PurchaseReservedNodesOfferingRequest = {}  # type: ignore[typeddict-item]
+        input_["reserved_nodes_offering_id"] = reserved_nodes_offering_id
         if reservation_id is not None:
-            input["reservation_id"] = reservation_id
+            input_["reservation_id"] = reservation_id
         if node_count is not None:
-            input["node_count"] = node_count
+            input_["node_count"] = node_count
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2558,15 +2560,15 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.reset_parameter_group_request.ResetParameterGroupRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
+        input_: aws_sdk_memorydb.types.reset_parameter_group_request.ResetParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
         if all_parameters is not None:
-            input["all_parameters"] = all_parameters
+            input_["all_parameters"] = all_parameters
         if parameter_names is not None:
-            input["parameter_names"] = parameter_names
+            input_["parameter_names"] = parameter_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2601,12 +2603,12 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_memorydb.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2641,12 +2643,12 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_memorydb.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2687,15 +2689,15 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.update_acl_request.UpdateACLRequest = {}  # type: ignore[typeddict-item]
-        input["acl_name"] = acl_name
+        input_: aws_sdk_memorydb.types.update_acl_request.UpdateACLRequest = {}  # type: ignore[typeddict-item]
+        input_["acl_name"] = acl_name
         if user_names_to_add is not None:
-            input["user_names_to_add"] = user_names_to_add
+            input_["user_names_to_add"] = user_names_to_add
         if user_names_to_remove is not None:
-            input["user_names_to_remove"] = user_names_to_remove
+            input_["user_names_to_remove"] = user_names_to_remove
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2768,41 +2770,41 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
-        input["cluster_name"] = cluster_name
+        input_: aws_sdk_memorydb.types.update_cluster_request.UpdateClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster_name"] = cluster_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if maintenance_window is not None:
-            input["maintenance_window"] = maintenance_window
+            input_["maintenance_window"] = maintenance_window
         if sns_topic_arn is not None:
-            input["sns_topic_arn"] = sns_topic_arn
+            input_["sns_topic_arn"] = sns_topic_arn
         if sns_topic_status is not None:
-            input["sns_topic_status"] = sns_topic_status
+            input_["sns_topic_status"] = sns_topic_status
         if parameter_group_name is not None:
-            input["parameter_group_name"] = parameter_group_name
+            input_["parameter_group_name"] = parameter_group_name
         if snapshot_window is not None:
-            input["snapshot_window"] = snapshot_window
+            input_["snapshot_window"] = snapshot_window
         if snapshot_retention_limit is not None:
-            input["snapshot_retention_limit"] = snapshot_retention_limit
+            input_["snapshot_retention_limit"] = snapshot_retention_limit
         if node_type is not None:
-            input["node_type"] = node_type
+            input_["node_type"] = node_type
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if replica_configuration is not None:
-            input["replica_configuration"] = replica_configuration
+            input_["replica_configuration"] = replica_configuration
         if shard_configuration is not None:
-            input["shard_configuration"] = shard_configuration
+            input_["shard_configuration"] = shard_configuration
         if acl_name is not None:
-            input["acl_name"] = acl_name
+            input_["acl_name"] = acl_name
         if ip_discovery is not None:
-            input["ip_discovery"] = ip_discovery
+            input_["ip_discovery"] = ip_discovery
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2852,25 +2854,25 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.update_multi_region_cluster_request.UpdateMultiRegionClusterRequest = {}  # type: ignore[typeddict-item]
-        input["multi_region_cluster_name"] = multi_region_cluster_name
+        input_: aws_sdk_memorydb.types.update_multi_region_cluster_request.UpdateMultiRegionClusterRequest = {}  # type: ignore[typeddict-item]
+        input_["multi_region_cluster_name"] = multi_region_cluster_name
         if node_type is not None:
-            input["node_type"] = node_type
+            input_["node_type"] = node_type
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if shard_configuration is not None:
-            input["shard_configuration"] = shard_configuration
+            input_["shard_configuration"] = shard_configuration
         if multi_region_parameter_group_name is not None:
-            input["multi_region_parameter_group_name"] = (
+            input_["multi_region_parameter_group_name"] = (
                 multi_region_parameter_group_name
             )
         if update_strategy is not None:
-            input["update_strategy"] = update_strategy
+            input_["update_strategy"] = update_strategy
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2905,12 +2907,12 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.update_parameter_group_request.UpdateParameterGroupRequest = {}  # type: ignore[typeddict-item]
-        input["parameter_group_name"] = parameter_group_name
-        input["parameter_name_values"] = parameter_name_values
+        input_: aws_sdk_memorydb.types.update_parameter_group_request.UpdateParameterGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["parameter_group_name"] = parameter_group_name
+        input_["parameter_name_values"] = parameter_name_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2951,15 +2953,15 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.update_subnet_group_request.UpdateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
-        input["subnet_group_name"] = subnet_group_name
+        input_: aws_sdk_memorydb.types.update_subnet_group_request.UpdateSubnetGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["subnet_group_name"] = subnet_group_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3000,15 +3002,15 @@ class MemoryDBClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_memorydb.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["user_name"] = user_name
+        input_: aws_sdk_memorydb.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["user_name"] = user_name
         if authentication_mode is not None:
-            input["authentication_mode"] = authentication_mode
+            input_["authentication_mode"] = authentication_mode
         if access_string is not None:
-            input["access_string"] = access_string
+            input_["access_string"] = access_string
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

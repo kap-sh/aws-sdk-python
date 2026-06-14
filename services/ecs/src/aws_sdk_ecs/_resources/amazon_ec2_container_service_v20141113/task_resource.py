@@ -81,15 +81,15 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_tasks_request.DescribeTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.describe_tasks_request.DescribeTasksRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["tasks"] = tasks
+            input_["cluster"] = cluster
+        input_["tasks"] = tasks
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -130,13 +130,13 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.get_task_protection_request.GetTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
+        input_: aws_sdk_ecs.types.get_task_protection_request.GetTaskProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
         if tasks is not None:
-            input["tasks"] = tasks
+            input_["tasks"] = tasks
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -221,47 +221,47 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.run_task_request.RunTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.run_task_request.RunTaskRequest = {}  # type: ignore[typeddict-item]
         if capacity_provider_strategy is not None:
-            input["capacity_provider_strategy"] = capacity_provider_strategy
+            input_["capacity_provider_strategy"] = capacity_provider_strategy
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if count is not None:
-            input["count"] = count
+            input_["count"] = count
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
         if launch_type is not None:
-            input["launch_type"] = launch_type
+            input_["launch_type"] = launch_type
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if overrides is not None:
-            input["overrides"] = overrides
+            input_["overrides"] = overrides
         if placement_constraints is not None:
-            input["placement_constraints"] = placement_constraints
+            input_["placement_constraints"] = placement_constraints
         if placement_strategy is not None:
-            input["placement_strategy"] = placement_strategy
+            input_["placement_strategy"] = placement_strategy
         if platform_version is not None:
-            input["platform_version"] = platform_version
+            input_["platform_version"] = platform_version
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if reference_id is not None:
-            input["reference_id"] = reference_id
+            input_["reference_id"] = reference_id
         if started_by is not None:
-            input["started_by"] = started_by
+            input_["started_by"] = started_by
         if tags is not None:
-            input["tags"] = tags
-        input["task_definition"] = task_definition
+            input_["tags"] = tags
+        input_["task_definition"] = task_definition
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if volume_configurations is not None:
-            input["volume_configurations"] = volume_configurations
+            input_["volume_configurations"] = volume_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -330,34 +330,34 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.start_task_request.StartTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.start_task_request.StartTaskRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["container_instances"] = container_instances
+            input_["cluster"] = cluster
+        input_["container_instances"] = container_instances
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if overrides is not None:
-            input["overrides"] = overrides
+            input_["overrides"] = overrides
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if reference_id is not None:
-            input["reference_id"] = reference_id
+            input_["reference_id"] = reference_id
         if started_by is not None:
-            input["started_by"] = started_by
+            input_["started_by"] = started_by
         if tags is not None:
-            input["tags"] = tags
-        input["task_definition"] = task_definition
+            input_["tags"] = tags
+        input_["task_definition"] = task_definition
         if volume_configurations is not None:
-            input["volume_configurations"] = volume_configurations
+            input_["volume_configurations"] = volume_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,15 +398,15 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.stop_task_request.StopTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.stop_task_request.StopTaskRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["task"] = task
+            input_["cluster"] = cluster
+        input_["task"] = task
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -463,15 +463,15 @@ class TaskResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_task_protection_request.UpdateTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["tasks"] = tasks
-        input["protection_enabled"] = protection_enabled
+        input_: aws_sdk_ecs.types.update_task_protection_request.UpdateTaskProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["tasks"] = tasks
+        input_["protection_enabled"] = protection_enabled
         if expires_in_minutes is not None:
-            input["expires_in_minutes"] = expires_in_minutes
+            input_["expires_in_minutes"] = expires_in_minutes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -520,15 +520,15 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.describe_tasks_request.DescribeTasksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.describe_tasks_request.DescribeTasksRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["tasks"] = tasks
+            input_["cluster"] = cluster
+        input_["tasks"] = tasks
         if include is not None:
-            input["include"] = include
+            input_["include"] = include
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -570,13 +570,13 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.get_task_protection_request.GetTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
+        input_: aws_sdk_ecs.types.get_task_protection_request.GetTaskProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
         if tasks is not None:
-            input["tasks"] = tasks
+            input_["tasks"] = tasks
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -664,47 +664,47 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.run_task_request.RunTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.run_task_request.RunTaskRequest = {}  # type: ignore[typeddict-item]
         if capacity_provider_strategy is not None:
-            input["capacity_provider_strategy"] = capacity_provider_strategy
+            input_["capacity_provider_strategy"] = capacity_provider_strategy
         if cluster is not None:
-            input["cluster"] = cluster
+            input_["cluster"] = cluster
         if count is not None:
-            input["count"] = count
+            input_["count"] = count
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
         if launch_type is not None:
-            input["launch_type"] = launch_type
+            input_["launch_type"] = launch_type
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if overrides is not None:
-            input["overrides"] = overrides
+            input_["overrides"] = overrides
         if placement_constraints is not None:
-            input["placement_constraints"] = placement_constraints
+            input_["placement_constraints"] = placement_constraints
         if placement_strategy is not None:
-            input["placement_strategy"] = placement_strategy
+            input_["placement_strategy"] = placement_strategy
         if platform_version is not None:
-            input["platform_version"] = platform_version
+            input_["platform_version"] = platform_version
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if reference_id is not None:
-            input["reference_id"] = reference_id
+            input_["reference_id"] = reference_id
         if started_by is not None:
-            input["started_by"] = started_by
+            input_["started_by"] = started_by
         if tags is not None:
-            input["tags"] = tags
-        input["task_definition"] = task_definition
+            input_["tags"] = tags
+        input_["task_definition"] = task_definition
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if volume_configurations is not None:
-            input["volume_configurations"] = volume_configurations
+            input_["volume_configurations"] = volume_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -774,34 +774,34 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.start_task_request.StartTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.start_task_request.StartTaskRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["container_instances"] = container_instances
+            input_["cluster"] = cluster
+        input_["container_instances"] = container_instances
         if enable_ecs_managed_tags is not None:
-            input["enable_ecs_managed_tags"] = enable_ecs_managed_tags
+            input_["enable_ecs_managed_tags"] = enable_ecs_managed_tags
         if enable_execute_command is not None:
-            input["enable_execute_command"] = enable_execute_command
+            input_["enable_execute_command"] = enable_execute_command
         if group is not None:
-            input["group"] = group
+            input_["group"] = group
         if network_configuration is not None:
-            input["network_configuration"] = network_configuration
+            input_["network_configuration"] = network_configuration
         if overrides is not None:
-            input["overrides"] = overrides
+            input_["overrides"] = overrides
         if propagate_tags is not None:
-            input["propagate_tags"] = propagate_tags
+            input_["propagate_tags"] = propagate_tags
         if reference_id is not None:
-            input["reference_id"] = reference_id
+            input_["reference_id"] = reference_id
         if started_by is not None:
-            input["started_by"] = started_by
+            input_["started_by"] = started_by
         if tags is not None:
-            input["tags"] = tags
-        input["task_definition"] = task_definition
+            input_["tags"] = tags
+        input_["task_definition"] = task_definition
         if volume_configurations is not None:
-            input["volume_configurations"] = volume_configurations
+            input_["volume_configurations"] = volume_configurations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -845,15 +845,15 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.stop_task_request.StopTaskRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ecs.types.stop_task_request.StopTaskRequest = {}  # type: ignore[typeddict-item]
         if cluster is not None:
-            input["cluster"] = cluster
-        input["task"] = task
+            input_["cluster"] = cluster
+        input_["task"] = task
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -911,15 +911,15 @@ class AsyncTaskResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_ecs.types.update_task_protection_request.UpdateTaskProtectionRequest = {}  # type: ignore[typeddict-item]
-        input["cluster"] = cluster
-        input["tasks"] = tasks
-        input["protection_enabled"] = protection_enabled
+        input_: aws_sdk_ecs.types.update_task_protection_request.UpdateTaskProtectionRequest = {}  # type: ignore[typeddict-item]
+        input_["cluster"] = cluster
+        input_["tasks"] = tasks
+        input_["protection_enabled"] = protection_enabled
         if expires_in_minutes is not None:
-            input["expires_in_minutes"] = expires_in_minutes
+            input_["expires_in_minutes"] = expires_in_minutes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

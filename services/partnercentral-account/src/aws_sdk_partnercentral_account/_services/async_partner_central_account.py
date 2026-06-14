@@ -7,12 +7,26 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_partnercentral_account._auth._signers
+import aws_sdk_partnercentral_account._auth._sigv4
 from aws_sdk_partnercentral_account._auth._identity import Credentials
 from aws_sdk_partnercentral_account._auth._providers import (
     CredentialsProvider,
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_partnercentral_account._auth._zapros_handler import AuthMiddleware
+from aws_sdk_partnercentral_account._resources.partner_central_account.connection_invitation import (
+    AsyncConnectionInvitation,
+)
+from aws_sdk_partnercentral_account._resources.partner_central_account.connection_preferences import (
+    AsyncConnectionPreferences,
+)
+from aws_sdk_partnercentral_account._resources.partner_central_account.connection_resource import (
+    AsyncConnectionResource,
+)
+from aws_sdk_partnercentral_account._resources.partner_central_account.partner import (
+    AsyncPartner,
+)
 from aws_sdk_partnercentral_account._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -113,6 +127,11 @@ class AsyncPartnerCentralAccountClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.connection_invitation = AsyncConnectionInvitation(self)
+        self.connection_preferences = AsyncConnectionPreferences(self)
+        self.connection_resource = AsyncConnectionResource(self)
+        self.partner = AsyncPartner(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncPartnerCentralAccountClientConfig] = None
@@ -167,11 +186,11 @@ class AsyncPartnerCentralAccountClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.get_verification_request.GetVerificationRequest = {}  # type: ignore[typeddict-item]
-        input["verification_type"] = verification_type
+        input_: aws_sdk_partnercentral_account.types.get_verification_request.GetVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_["verification_type"] = verification_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,11 +224,11 @@ class AsyncPartnerCentralAccountClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_partnercentral_account.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,12 +264,12 @@ class AsyncPartnerCentralAccountClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.send_email_verification_code_request.SendEmailVerificationCodeRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
-        input["email"] = email
+        input_: aws_sdk_partnercentral_account.types.send_email_verification_code_request.SendEmailVerificationCodeRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
+        input_["email"] = email
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -290,14 +309,14 @@ class AsyncPartnerCentralAccountClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.start_verification_request.StartVerificationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_partnercentral_account.types.start_verification_request.StartVerificationRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if verification_details is not None:
-            input["verification_details"] = verification_details
+            input_["verification_details"] = verification_details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,12 +354,12 @@ class AsyncPartnerCentralAccountClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_partnercentral_account.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -376,12 +395,12 @@ class AsyncPartnerCentralAccountClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_account.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_partnercentral_account.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

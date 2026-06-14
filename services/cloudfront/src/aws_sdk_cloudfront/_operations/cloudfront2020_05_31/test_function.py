@@ -97,34 +97,34 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.test_function_request.TestFunctionRequest,
+    input_: aws_sdk_cloudfront.types.test_function_request.TestFunctionRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
             Region=options.region,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/2020-05-31/function/{Name}/test"
-    url = url.replace("{Name}", quote(str(input["name"]), safe=""))
+    url = url.replace("{Name}", quote(str(input_["name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "if_match" in input:
-        headers["If-Match"] = str(input["if_match"])
+    if "if_match" in input_:
+        headers["If-Match"] = str(input_["if_match"])
     root = Element("TestFunctionRequest")
-    if "stage" in input:
+    if "stage" in input_:
         import aws_sdk_cloudfront.types.function_stage
 
         aws_sdk_cloudfront.types.function_stage.serialize_xml(
-            input["stage"], root, "Stage"
+            input_["stage"], root, "Stage"
         )
-    if "event_object" in input:
+    if "event_object" in input_:
         import aws_sdk_cloudfront.types.function_event_object
 
         aws_sdk_cloudfront.types.function_event_object.serialize_xml(
-            input["event_object"], root, "EventObject"
+            input_["event_object"], root, "EventObject"
         )
     body: bytes | None = tostring(root)
     headers["content-type"] = "application/xml"
@@ -132,25 +132,22 @@ def build_request(
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "POST",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "POST", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def test_function(
     options: OperationOptions,
-    input: aws_sdk_cloudfront.types.test_function_request.TestFunctionRequest,
+    input_: aws_sdk_cloudfront.types.test_function_request.TestFunctionRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.test_function_result.TestFunctionResult, zapros.Response
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -159,15 +156,16 @@ def test_function(
 
 async def async_test_function(
     options: AsyncOperationOptions,
-    input: aws_sdk_cloudfront.types.test_function_request.TestFunctionRequest,
+    input_: aws_sdk_cloudfront.types.test_function_request.TestFunctionRequest,
 ) -> tuple[
     aws_sdk_cloudfront.types.test_function_result.TestFunctionResult, zapros.Response
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

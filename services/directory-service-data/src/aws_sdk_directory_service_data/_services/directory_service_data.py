@@ -228,17 +228,17 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.add_group_member_request.AddGroupMemberRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["group_name"] = group_name
-        input["member_name"] = member_name
+        input_: aws_sdk_directory_service_data.types.add_group_member_request.AddGroupMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["group_name"] = group_name
+        input_["member_name"] = member_name
         if member_realm is not None:
-            input["member_realm"] = member_realm
+            input_["member_realm"] = member_realm
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -295,20 +295,20 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["sam_account_name"] = sam_account_name
+        input_: aws_sdk_directory_service_data.types.create_group_request.CreateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["sam_account_name"] = sam_account_name
         if group_type is not None:
-            input["group_type"] = group_type
+            input_["group_type"] = group_type
         if group_scope is not None:
-            input["group_scope"] = group_scope
+            input_["group_scope"] = group_scope
         if other_attributes is not None:
-            input["other_attributes"] = other_attributes
+            input_["other_attributes"] = other_attributes
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -369,22 +369,22 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["sam_account_name"] = sam_account_name
+        input_: aws_sdk_directory_service_data.types.create_user_request.CreateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["sam_account_name"] = sam_account_name
         if email_address is not None:
-            input["email_address"] = email_address
+            input_["email_address"] = email_address
         if given_name is not None:
-            input["given_name"] = given_name
+            input_["given_name"] = given_name
         if surname is not None:
-            input["surname"] = surname
+            input_["surname"] = surname
         if other_attributes is not None:
-            input["other_attributes"] = other_attributes
+            input_["other_attributes"] = other_attributes
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -429,14 +429,14 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["sam_account_name"] = sam_account_name
+        input_: aws_sdk_directory_service_data.types.delete_group_request.DeleteGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["sam_account_name"] = sam_account_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,14 +481,14 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["sam_account_name"] = sam_account_name
+        input_: aws_sdk_directory_service_data.types.delete_user_request.DeleteUserRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["sam_account_name"] = sam_account_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -537,16 +537,16 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service_data.types.describe_group_request.DescribeGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if realm is not None:
-            input["realm"] = realm
-        input["sam_account_name"] = sam_account_name
+            input_["realm"] = realm
+        input_["sam_account_name"] = sam_account_name
         if other_attributes is not None:
-            input["other_attributes"] = other_attributes
+            input_["other_attributes"] = other_attributes
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,16 +593,16 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["sam_account_name"] = sam_account_name
+        input_: aws_sdk_directory_service_data.types.describe_user_request.DescribeUserRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["sam_account_name"] = sam_account_name
         if other_attributes is not None:
-            input["other_attributes"] = other_attributes
+            input_["other_attributes"] = other_attributes
         if realm is not None:
-            input["realm"] = realm
+            input_["realm"] = realm
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -647,14 +647,14 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.disable_user_request.DisableUserRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["sam_account_name"] = sam_account_name
+        input_: aws_sdk_directory_service_data.types.disable_user_request.DisableUserRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["sam_account_name"] = sam_account_name
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -709,20 +709,20 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.list_group_members_request.ListGroupMembersRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service_data.types.list_group_members_request.ListGroupMembersRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if realm is not None:
-            input["realm"] = realm
+            input_["realm"] = realm
         if member_realm is not None:
-            input["member_realm"] = member_realm
-        input["sam_account_name"] = sam_account_name
+            input_["member_realm"] = member_realm
+        input_["sam_account_name"] = sam_account_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -806,17 +806,17 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service_data.types.list_groups_request.ListGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if realm is not None:
-            input["realm"] = realm
+            input_["realm"] = realm
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -900,20 +900,20 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.list_groups_for_member_request.ListGroupsForMemberRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service_data.types.list_groups_for_member_request.ListGroupsForMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if realm is not None:
-            input["realm"] = realm
+            input_["realm"] = realm
         if member_realm is not None:
-            input["member_realm"] = member_realm
-        input["sam_account_name"] = sam_account_name
+            input_["member_realm"] = member_realm
+        input_["sam_account_name"] = sam_account_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -997,17 +997,17 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service_data.types.list_users_request.ListUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if realm is not None:
-            input["realm"] = realm
+            input_["realm"] = realm
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1087,17 +1087,17 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.remove_group_member_request.RemoveGroupMemberRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["group_name"] = group_name
-        input["member_name"] = member_name
+        input_: aws_sdk_directory_service_data.types.remove_group_member_request.RemoveGroupMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["group_name"] = group_name
+        input_["member_name"] = member_name
         if member_realm is not None:
-            input["member_realm"] = member_realm
+            input_["member_realm"] = member_realm
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1150,19 +1150,19 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.search_groups_request.SearchGroupsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["search_string"] = search_string
-        input["search_attributes"] = search_attributes
+        input_: aws_sdk_directory_service_data.types.search_groups_request.SearchGroupsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["search_string"] = search_string
+        input_["search_attributes"] = search_attributes
         if realm is not None:
-            input["realm"] = realm
+            input_["realm"] = realm
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1248,19 +1248,19 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.search_users_request.SearchUsersRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
+        input_: aws_sdk_directory_service_data.types.search_users_request.SearchUsersRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
         if realm is not None:
-            input["realm"] = realm
-        input["search_string"] = search_string
-        input["search_attributes"] = search_attributes
+            input_["realm"] = realm
+        input_["search_string"] = search_string
+        input_["search_attributes"] = search_attributes
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1354,22 +1354,22 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["sam_account_name"] = sam_account_name
+        input_: aws_sdk_directory_service_data.types.update_group_request.UpdateGroupRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["sam_account_name"] = sam_account_name
         if group_type is not None:
-            input["group_type"] = group_type
+            input_["group_type"] = group_type
         if group_scope is not None:
-            input["group_scope"] = group_scope
+            input_["group_scope"] = group_scope
         if other_attributes is not None:
-            input["other_attributes"] = other_attributes
+            input_["other_attributes"] = other_attributes
         if update_type is not None:
-            input["update_type"] = update_type
+            input_["update_type"] = update_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1434,24 +1434,24 @@ class DirectoryServiceDataClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_directory_service_data.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
-        input["directory_id"] = directory_id
-        input["sam_account_name"] = sam_account_name
+        input_: aws_sdk_directory_service_data.types.update_user_request.UpdateUserRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_id"] = directory_id
+        input_["sam_account_name"] = sam_account_name
         if email_address is not None:
-            input["email_address"] = email_address
+            input_["email_address"] = email_address
         if given_name is not None:
-            input["given_name"] = given_name
+            input_["given_name"] = given_name
         if surname is not None:
-            input["surname"] = surname
+            input_["surname"] = surname
         if other_attributes is not None:
-            input["other_attributes"] = other_attributes
+            input_["other_attributes"] = other_attributes
         if update_type is not None:
-            input["update_type"] = update_type
+            input_["update_type"] = update_type
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

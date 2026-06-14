@@ -1,3 +1,4 @@
+import datetime
 from typing import TYPE_CHECKING, Optional
 
 from aws_sdk_redshift_serverless._services._pipeline import (
@@ -71,16 +72,16 @@ class RecoveryPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.convert_recovery_point_to_snapshot_request.ConvertRecoveryPointToSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_point_id"] = recovery_point_id
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_redshift_serverless.types.convert_recovery_point_to_snapshot_request.ConvertRecoveryPointToSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_id"] = recovery_point_id
+        input_["snapshot_name"] = snapshot_name
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -113,11 +114,11 @@ class RecoveryPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_recovery_point_request.GetRecoveryPointRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_point_id"] = recovery_point_id
+        input_: aws_sdk_redshift_serverless.types.get_recovery_point_request.GetRecoveryPointRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_id"] = recovery_point_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -162,22 +163,22 @@ class RecoveryPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_recovery_points_request.ListRecoveryPointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_recovery_points_request.ListRecoveryPointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
         if namespace_arn is not None:
-            input["namespace_arn"] = namespace_arn
+            input_["namespace_arn"] = namespace_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,13 +215,13 @@ class RecoveryPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.restore_from_recovery_point_request.RestoreFromRecoveryPointRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_point_id"] = recovery_point_id
-        input["namespace_name"] = namespace_name
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.restore_from_recovery_point_request.RestoreFromRecoveryPointRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_id"] = recovery_point_id
+        input_["namespace_name"] = namespace_name
+        input_["workgroup_name"] = workgroup_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -271,26 +272,26 @@ class RecoveryPointResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.restore_table_from_recovery_point_request.RestoreTableFromRecoveryPointRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["workgroup_name"] = workgroup_name
-        input["recovery_point_id"] = recovery_point_id
-        input["source_database_name"] = source_database_name
+        input_: aws_sdk_redshift_serverless.types.restore_table_from_recovery_point_request.RestoreTableFromRecoveryPointRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["workgroup_name"] = workgroup_name
+        input_["recovery_point_id"] = recovery_point_id
+        input_["source_database_name"] = source_database_name
         if source_schema_name is not None:
-            input["source_schema_name"] = source_schema_name
-        input["source_table_name"] = source_table_name
+            input_["source_schema_name"] = source_schema_name
+        input_["source_table_name"] = source_table_name
         if target_database_name is not None:
-            input["target_database_name"] = target_database_name
+            input_["target_database_name"] = target_database_name
         if target_schema_name is not None:
-            input["target_schema_name"] = target_schema_name
-        input["new_table_name"] = new_table_name
+            input_["target_schema_name"] = target_schema_name
+        input_["new_table_name"] = new_table_name
         if activate_case_sensitive_identifier is not None:
-            input["activate_case_sensitive_identifier"] = (
+            input_["activate_case_sensitive_identifier"] = (
                 activate_case_sensitive_identifier
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,16 +336,16 @@ class AsyncRecoveryPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.convert_recovery_point_to_snapshot_request.ConvertRecoveryPointToSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_point_id"] = recovery_point_id
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_redshift_serverless.types.convert_recovery_point_to_snapshot_request.ConvertRecoveryPointToSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_id"] = recovery_point_id
+        input_["snapshot_name"] = snapshot_name
         if retention_period is not None:
-            input["retention_period"] = retention_period
+            input_["retention_period"] = retention_period
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,11 +379,11 @@ class AsyncRecoveryPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.get_recovery_point_request.GetRecoveryPointRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_point_id"] = recovery_point_id
+        input_: aws_sdk_redshift_serverless.types.get_recovery_point_request.GetRecoveryPointRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_id"] = recovery_point_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,22 +429,22 @@ class AsyncRecoveryPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.list_recovery_points_request.ListRecoveryPointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_redshift_serverless.types.list_recovery_points_request.ListRecoveryPointsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if namespace_name is not None:
-            input["namespace_name"] = namespace_name
+            input_["namespace_name"] = namespace_name
         if namespace_arn is not None:
-            input["namespace_arn"] = namespace_arn
+            input_["namespace_arn"] = namespace_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -481,13 +482,13 @@ class AsyncRecoveryPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.restore_from_recovery_point_request.RestoreFromRecoveryPointRequest = {}  # type: ignore[typeddict-item]
-        input["recovery_point_id"] = recovery_point_id
-        input["namespace_name"] = namespace_name
-        input["workgroup_name"] = workgroup_name
+        input_: aws_sdk_redshift_serverless.types.restore_from_recovery_point_request.RestoreFromRecoveryPointRequest = {}  # type: ignore[typeddict-item]
+        input_["recovery_point_id"] = recovery_point_id
+        input_["namespace_name"] = namespace_name
+        input_["workgroup_name"] = workgroup_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,26 +540,26 @@ class AsyncRecoveryPointResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_redshift_serverless.types.restore_table_from_recovery_point_request.RestoreTableFromRecoveryPointRequest = {}  # type: ignore[typeddict-item]
-        input["namespace_name"] = namespace_name
-        input["workgroup_name"] = workgroup_name
-        input["recovery_point_id"] = recovery_point_id
-        input["source_database_name"] = source_database_name
+        input_: aws_sdk_redshift_serverless.types.restore_table_from_recovery_point_request.RestoreTableFromRecoveryPointRequest = {}  # type: ignore[typeddict-item]
+        input_["namespace_name"] = namespace_name
+        input_["workgroup_name"] = workgroup_name
+        input_["recovery_point_id"] = recovery_point_id
+        input_["source_database_name"] = source_database_name
         if source_schema_name is not None:
-            input["source_schema_name"] = source_schema_name
-        input["source_table_name"] = source_table_name
+            input_["source_schema_name"] = source_schema_name
+        input_["source_table_name"] = source_table_name
         if target_database_name is not None:
-            input["target_database_name"] = target_database_name
+            input_["target_database_name"] = target_database_name
         if target_schema_name is not None:
-            input["target_schema_name"] = target_schema_name
-        input["new_table_name"] = new_table_name
+            input_["target_schema_name"] = target_schema_name
+        input_["new_table_name"] = new_table_name
         if activate_case_sensitive_identifier is not None:
-            input["activate_case_sensitive_identifier"] = (
+            input_["activate_case_sensitive_identifier"] = (
                 activate_case_sensitive_identifier
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

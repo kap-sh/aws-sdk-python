@@ -82,23 +82,23 @@ class Solution:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_solutions_request.ListSolutionsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_solutions_request.ListSolutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if identifier is not None:
-            input["identifier"] = identifier
+            input_["identifier"] = identifier
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,23 +159,23 @@ class AsyncSolution:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_partnercentral_selling.types.list_solutions_request.ListSolutionsRequest = {}  # type: ignore[typeddict-item]
-        input["catalog"] = catalog
+        input_: aws_sdk_partnercentral_selling.types.list_solutions_request.ListSolutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["catalog"] = catalog
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if sort is not None:
-            input["sort"] = sort
+            input_["sort"] = sort
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if identifier is not None:
-            input["identifier"] = identifier
+            input_["identifier"] = identifier
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

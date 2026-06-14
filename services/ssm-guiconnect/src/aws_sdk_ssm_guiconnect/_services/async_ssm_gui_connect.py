@@ -13,6 +13,25 @@ from aws_sdk_ssm_guiconnect._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_ssm_guiconnect._auth._zapros_handler import AuthMiddleware
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.connection import AsyncConnection
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.connection_access import (
+    AsyncConnectionAccess,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.connection_preferences import (
+    AsyncConnectionPreferences,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.connections_collection import (
+    AsyncConnectionsCollection,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.modify_connection_preferences import (
+    AsyncModifyConnectionPreferences,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.modify_recording_preferences import (
+    AsyncModifyRecordingPreferences,
+)
+from aws_sdk_ssm_guiconnect._resources.ssm_gui_connect.recording_preferences import (
+    AsyncRecordingPreferences,
+)
 from aws_sdk_ssm_guiconnect._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -92,6 +111,14 @@ class AsyncSSMGuiConnectClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.connection = AsyncConnection(self)
+        self.connection_access = AsyncConnectionAccess(self)
+        self.connection_preferences = AsyncConnectionPreferences(self)
+        self.connections_collection = AsyncConnectionsCollection(self)
+        self.modify_connection_preferences = AsyncModifyConnectionPreferences(self)
+        self.modify_recording_preferences = AsyncModifyRecordingPreferences(self)
+        self.recording_preferences = AsyncRecordingPreferences(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncSSMGuiConnectClientConfig] = None

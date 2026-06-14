@@ -177,16 +177,16 @@ class AsyncSagemakerJobRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemakerjobruntime.types.complete_rollout_request.CompleteRolloutRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
-        input["trajectory_id"] = trajectory_id
+        input_: aws_sdk_sagemakerjobruntime.types.complete_rollout_request.CompleteRolloutRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
+        input_["trajectory_id"] = trajectory_id
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -230,13 +230,13 @@ class AsyncSagemakerJobRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemakerjobruntime.types.sample_request.SampleRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
-        input["trajectory_id"] = trajectory_id
-        input["body"] = body
+        input_: aws_sdk_sagemakerjobruntime.types.sample_request.SampleRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
+        input_["trajectory_id"] = trajectory_id
+        input_["body"] = body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -281,13 +281,13 @@ class AsyncSagemakerJobRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_request.SampleWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
-        input["trajectory_id"] = trajectory_id
-        input["body"] = body
+        input_: aws_sdk_sagemakerjobruntime.types.sample_with_response_stream_request.SampleWithResponseStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
+        input_["trajectory_id"] = trajectory_id
+        input_["body"] = body
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -335,15 +335,15 @@ class AsyncSagemakerJobRuntimeClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sagemakerjobruntime.types.update_reward_request.UpdateRewardRequest = {}  # type: ignore[typeddict-item]
-        input["job_arn"] = job_arn
-        input["trajectory_id"] = trajectory_id
-        input["rewards"] = rewards
+        input_: aws_sdk_sagemakerjobruntime.types.update_reward_request.UpdateRewardRequest = {}  # type: ignore[typeddict-item]
+        input_["job_arn"] = job_arn
+        input_["trajectory_id"] = trajectory_id
+        input_["rewards"] = rewards
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

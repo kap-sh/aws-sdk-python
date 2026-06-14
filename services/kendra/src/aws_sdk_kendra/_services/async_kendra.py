@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_kendra._auth._signers
+import aws_sdk_kendra._auth._sigv4
 from aws_sdk_kendra._auth._identity import Credentials
 from aws_sdk_kendra._auth._providers import (
     CredentialsProvider,
@@ -371,13 +373,13 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.associate_entities_to_experience_request.AssociateEntitiesToExperienceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
-        input["entity_list"] = entity_list
+        input_: aws_sdk_kendra.types.associate_entities_to_experience_request.AssociateEntitiesToExperienceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
+        input_["entity_list"] = entity_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -415,13 +417,13 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.associate_personas_to_entities_request.AssociatePersonasToEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
-        input["personas"] = personas
+        input_: aws_sdk_kendra.types.associate_personas_to_entities_request.AssociatePersonasToEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
+        input_["personas"] = personas
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,16 +462,16 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.batch_delete_document_request.BatchDeleteDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["document_id_list"] = document_id_list
+        input_: aws_sdk_kendra.types.batch_delete_document_request.BatchDeleteDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["document_id_list"] = document_id_list
         if data_source_sync_job_metric_target is not None:
-            input["data_source_sync_job_metric_target"] = (
+            input_["data_source_sync_job_metric_target"] = (
                 data_source_sync_job_metric_target
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -505,12 +507,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.batch_delete_featured_results_set_request.BatchDeleteFeaturedResultsSetRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["featured_results_set_ids"] = featured_results_set_ids
+        input_: aws_sdk_kendra.types.batch_delete_featured_results_set_request.BatchDeleteFeaturedResultsSetRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["featured_results_set_ids"] = featured_results_set_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,12 +548,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.batch_get_document_status_request.BatchGetDocumentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["document_info_list"] = document_info_list
+        input_: aws_sdk_kendra.types.batch_get_document_status_request.BatchGetDocumentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["document_info_list"] = document_info_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -593,18 +595,18 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.batch_put_document_request.BatchPutDocumentRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.batch_put_document_request.BatchPutDocumentRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
-        input["documents"] = documents
+            input_["role_arn"] = role_arn
+        input_["documents"] = documents
         if custom_document_enrichment_configuration is not None:
-            input["custom_document_enrichment_configuration"] = (
+            input_["custom_document_enrichment_configuration"] = (
                 custom_document_enrichment_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -636,11 +638,11 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.clear_query_suggestions_request.ClearQuerySuggestionsRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.clear_query_suggestions_request.ClearQuerySuggestionsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,20 +692,22 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.create_access_control_configuration_request.CreateAccessControlConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["name"] = name
+        input_: aws_sdk_kendra.types.create_access_control_configuration_request.CreateAccessControlConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if access_control_list is not None:
-            input["access_control_list"] = access_control_list
+            input_["access_control_list"] = access_control_list
         if hierarchical_access_control_list is not None:
-            input["hierarchical_access_control_list"] = hierarchical_access_control_list
+            input_["hierarchical_access_control_list"] = (
+                hierarchical_access_control_list
+            )
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -769,33 +773,33 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["index_id"] = index_id
-        input["type"] = type
+        input_: aws_sdk_kendra.types.create_data_source_request.CreateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["index_id"] = index_id
+        input_["type"] = type
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if vpc_configuration is not None:
-            input["vpc_configuration"] = vpc_configuration
+            input_["vpc_configuration"] = vpc_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if custom_document_enrichment_configuration is not None:
-            input["custom_document_enrichment_configuration"] = (
+            input_["custom_document_enrichment_configuration"] = (
                 custom_document_enrichment_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -843,20 +847,20 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.create_experience_request.CreateExperienceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.create_experience_request.CreateExperienceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["index_id"] = index_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -912,24 +916,24 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.create_faq_request.CreateFaqRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["name"] = name
+        input_: aws_sdk_kendra.types.create_faq_request.CreateFaqRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["s3_path"] = s3_path
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["s3_path"] = s3_path
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if file_format is not None:
-            input["file_format"] = file_format
+            input_["file_format"] = file_format
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -987,24 +991,24 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.create_featured_results_set_request.CreateFeaturedResultsSetRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["featured_results_set_name"] = featured_results_set_name
+        input_: aws_sdk_kendra.types.create_featured_results_set_request.CreateFeaturedResultsSetRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["featured_results_set_name"] = featured_results_set_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if query_texts is not None:
-            input["query_texts"] = query_texts
+            input_["query_texts"] = query_texts
         if featured_documents is not None:
-            input["featured_documents"] = featured_documents
+            input_["featured_documents"] = featured_documents
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1066,32 +1070,32 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_kendra.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if edition is not None:
-            input["edition"] = edition
-        input["role_arn"] = role_arn
+            input_["edition"] = edition
+        input_["role_arn"] = role_arn
         if server_side_encryption_configuration is not None:
-            input["server_side_encryption_configuration"] = (
+            input_["server_side_encryption_configuration"] = (
                 server_side_encryption_configuration
             )
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if user_token_configurations is not None:
-            input["user_token_configurations"] = user_token_configurations
+            input_["user_token_configurations"] = user_token_configurations
         if user_context_policy is not None:
-            input["user_context_policy"] = user_context_policy
+            input_["user_context_policy"] = user_context_policy
         if user_group_resolution_configuration is not None:
-            input["user_group_resolution_configuration"] = (
+            input_["user_group_resolution_configuration"] = (
                 user_group_resolution_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1139,20 +1143,20 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.create_query_suggestions_block_list_request.CreateQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["name"] = name
+        input_: aws_sdk_kendra.types.create_query_suggestions_block_list_request.CreateQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["source_s3_path"] = source_s3_path
+            input_["description"] = description
+        input_["source_s3_path"] = source_s3_path
         if client_token is not None:
-            input["client_token"] = client_token
-        input["role_arn"] = role_arn
+            input_["client_token"] = client_token
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1200,20 +1204,20 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.create_thesaurus_request.CreateThesaurusRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["name"] = name
+        input_: aws_sdk_kendra.types.create_thesaurus_request.CreateThesaurusRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["role_arn"] = role_arn
+            input_["description"] = description
+        input_["role_arn"] = role_arn
         if tags is not None:
-            input["tags"] = tags
-        input["source_s3_path"] = source_s3_path
+            input_["tags"] = tags
+        input_["source_s3_path"] = source_s3_path
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1249,12 +1253,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.delete_access_control_configuration_request.DeleteAccessControlConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["id"] = id
+        input_: aws_sdk_kendra.types.delete_access_control_configuration_request.DeleteAccessControlConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1288,12 +1292,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.delete_data_source_request.DeleteDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1329,12 +1333,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.delete_experience_request.DeleteExperienceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.delete_experience_request.DeleteExperienceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1368,12 +1372,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.delete_faq_request.DeleteFaqRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.delete_faq_request.DeleteFaqRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1405,11 +1409,11 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.delete_index_request.DeleteIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra.types.delete_index_request.DeleteIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1451,16 +1455,16 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.delete_principal_mapping_request.DeletePrincipalMappingRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.delete_principal_mapping_request.DeletePrincipalMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
-        input["group_id"] = group_id
+            input_["data_source_id"] = data_source_id
+        input_["group_id"] = group_id
         if ordering_id is not None:
-            input["ordering_id"] = ordering_id
+            input_["ordering_id"] = ordering_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1494,12 +1498,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.delete_query_suggestions_block_list_request.DeleteQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["id"] = id
+        input_: aws_sdk_kendra.types.delete_query_suggestions_block_list_request.DeleteQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,12 +1537,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.delete_thesaurus_request.DeleteThesaurusRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.delete_thesaurus_request.DeleteThesaurusRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1574,12 +1578,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_access_control_configuration_request.DescribeAccessControlConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["id"] = id
+        input_: aws_sdk_kendra.types.describe_access_control_configuration_request.DescribeAccessControlConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1617,12 +1621,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_data_source_request.DescribeDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.describe_data_source_request.DescribeDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1658,12 +1662,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_experience_request.DescribeExperienceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.describe_experience_request.DescribeExperienceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1699,12 +1703,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_faq_request.DescribeFaqRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.describe_faq_request.DescribeFaqRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1740,12 +1744,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_featured_results_set_request.DescribeFeaturedResultsSetRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["featured_results_set_id"] = featured_results_set_id
+        input_: aws_sdk_kendra.types.describe_featured_results_set_request.DescribeFeaturedResultsSetRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["featured_results_set_id"] = featured_results_set_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1779,11 +1783,11 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_index_request.DescribeIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra.types.describe_index_request.DescribeIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1823,14 +1827,14 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_principal_mapping_request.DescribePrincipalMappingRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.describe_principal_mapping_request.DescribePrincipalMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
-        input["group_id"] = group_id
+            input_["data_source_id"] = data_source_id
+        input_["group_id"] = group_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1866,12 +1870,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_query_suggestions_block_list_request.DescribeQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["id"] = id
+        input_: aws_sdk_kendra.types.describe_query_suggestions_block_list_request.DescribeQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["id"] = id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1905,11 +1909,11 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_query_suggestions_config_request.DescribeQuerySuggestionsConfigRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.describe_query_suggestions_config_request.DescribeQuerySuggestionsConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1945,12 +1949,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.describe_thesaurus_request.DescribeThesaurusRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.describe_thesaurus_request.DescribeThesaurusRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1988,13 +1992,13 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.disassociate_entities_from_experience_request.DisassociateEntitiesFromExperienceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
-        input["entity_list"] = entity_list
+        input_: aws_sdk_kendra.types.disassociate_entities_from_experience_request.DisassociateEntitiesFromExperienceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
+        input_["entity_list"] = entity_list
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2032,13 +2036,13 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.disassociate_personas_from_entities_request.DisassociatePersonasFromEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
-        input["entity_ids"] = entity_ids
+        input_: aws_sdk_kendra.types.disassociate_personas_from_entities_request.DisassociatePersonasFromEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
+        input_["entity_ids"] = entity_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2084,18 +2088,18 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.get_query_suggestions_request.GetQuerySuggestionsRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["query_text"] = query_text
+        input_: aws_sdk_kendra.types.get_query_suggestions_request.GetQuerySuggestionsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["query_text"] = query_text
         if max_suggestions_count is not None:
-            input["max_suggestions_count"] = max_suggestions_count
+            input_["max_suggestions_count"] = max_suggestions_count
         if suggestion_types is not None:
-            input["suggestion_types"] = suggestion_types
+            input_["suggestion_types"] = suggestion_types
         if attribute_suggestions_config is not None:
-            input["attribute_suggestions_config"] = attribute_suggestions_config
+            input_["attribute_suggestions_config"] = attribute_suggestions_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2137,17 +2141,17 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.get_snapshots_request.GetSnapshotsRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["interval"] = interval
-        input["metric_type"] = metric_type
+        input_: aws_sdk_kendra.types.get_snapshots_request.GetSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["interval"] = interval
+        input_["metric_type"] = metric_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2187,15 +2191,15 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_access_control_configurations_request.ListAccessControlConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_access_control_configurations_request.ListAccessControlConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2235,15 +2239,15 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_data_sources_request.ListDataSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2291,20 +2295,20 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_data_source_sync_jobs_request.ListDataSourceSyncJobsRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_data_source_sync_jobs_request.ListDataSourceSyncJobsRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if start_time_filter is not None:
-            input["start_time_filter"] = start_time_filter
+            input_["start_time_filter"] = start_time_filter
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2348,16 +2352,16 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_entity_personas_request.ListEntityPersonasRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_entity_personas_request.ListEntityPersonasRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2395,14 +2399,14 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_experience_entities_request.ListExperienceEntitiesRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_experience_entities_request.ListExperienceEntitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2442,15 +2446,15 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_experiences_request.ListExperiencesRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_experiences_request.ListExperiencesRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2490,15 +2494,15 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_faqs_request.ListFaqsRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_faqs_request.ListFaqsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2538,15 +2542,15 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_featured_results_sets_request.ListFeaturedResultsSetsRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_featured_results_sets_request.ListFeaturedResultsSetsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2592,18 +2596,18 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_groups_older_than_ordering_id_request.ListGroupsOlderThanOrderingIdRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_groups_older_than_ordering_id_request.ListGroupsOlderThanOrderingIdRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
-        input["ordering_id"] = ordering_id
+            input_["data_source_id"] = data_source_id
+        input_["ordering_id"] = ordering_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2641,14 +2645,14 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_indices_request.ListIndicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_kendra.types.list_indices_request.ListIndicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2688,15 +2692,15 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_query_suggestions_block_lists_request.ListQuerySuggestionsBlockListsRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_query_suggestions_block_lists_request.ListQuerySuggestionsBlockListsRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2730,11 +2734,11 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_kendra.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2774,15 +2778,15 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.list_thesauri_request.ListThesauriRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.list_thesauri_request.ListThesauriRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2828,19 +2832,19 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.put_principal_mapping_request.PutPrincipalMappingRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.put_principal_mapping_request.PutPrincipalMappingRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if data_source_id is not None:
-            input["data_source_id"] = data_source_id
-        input["group_id"] = group_id
-        input["group_members"] = group_members
+            input_["data_source_id"] = data_source_id
+        input_["group_id"] = group_id
+        input_["group_members"] = group_members
         if ordering_id is not None:
-            input["ordering_id"] = ordering_id
+            input_["ordering_id"] = ordering_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2916,41 +2920,41 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.query_request.QueryRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.query_request.QueryRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if query_text is not None:
-            input["query_text"] = query_text
+            input_["query_text"] = query_text
         if attribute_filter is not None:
-            input["attribute_filter"] = attribute_filter
+            input_["attribute_filter"] = attribute_filter
         if facets is not None:
-            input["facets"] = facets
+            input_["facets"] = facets
         if requested_document_attributes is not None:
-            input["requested_document_attributes"] = requested_document_attributes
+            input_["requested_document_attributes"] = requested_document_attributes
         if query_result_type_filter is not None:
-            input["query_result_type_filter"] = query_result_type_filter
+            input_["query_result_type_filter"] = query_result_type_filter
         if document_relevance_override_configurations is not None:
-            input["document_relevance_override_configurations"] = (
+            input_["document_relevance_override_configurations"] = (
                 document_relevance_override_configurations
             )
         if page_number is not None:
-            input["page_number"] = page_number
+            input_["page_number"] = page_number
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if sorting_configuration is not None:
-            input["sorting_configuration"] = sorting_configuration
+            input_["sorting_configuration"] = sorting_configuration
         if sorting_configurations is not None:
-            input["sorting_configurations"] = sorting_configurations
+            input_["sorting_configurations"] = sorting_configurations
         if user_context is not None:
-            input["user_context"] = user_context
+            input_["user_context"] = user_context
         if visitor_id is not None:
-            input["visitor_id"] = visitor_id
+            input_["visitor_id"] = visitor_id
         if spell_correction_configuration is not None:
-            input["spell_correction_configuration"] = spell_correction_configuration
+            input_["spell_correction_configuration"] = spell_correction_configuration
         if collapse_configuration is not None:
-            input["collapse_configuration"] = collapse_configuration
+            input_["collapse_configuration"] = collapse_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3004,26 +3008,26 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.retrieve_request.RetrieveRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["query_text"] = query_text
+        input_: aws_sdk_kendra.types.retrieve_request.RetrieveRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["query_text"] = query_text
         if attribute_filter is not None:
-            input["attribute_filter"] = attribute_filter
+            input_["attribute_filter"] = attribute_filter
         if requested_document_attributes is not None:
-            input["requested_document_attributes"] = requested_document_attributes
+            input_["requested_document_attributes"] = requested_document_attributes
         if document_relevance_override_configurations is not None:
-            input["document_relevance_override_configurations"] = (
+            input_["document_relevance_override_configurations"] = (
                 document_relevance_override_configurations
             )
         if page_number is not None:
-            input["page_number"] = page_number
+            input_["page_number"] = page_number
         if page_size is not None:
-            input["page_size"] = page_size
+            input_["page_size"] = page_size
         if user_context is not None:
-            input["user_context"] = user_context
+            input_["user_context"] = user_context
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3059,12 +3063,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.start_data_source_sync_job_request.StartDataSourceSyncJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.start_data_source_sync_job_request.StartDataSourceSyncJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3098,12 +3102,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.stop_data_source_sync_job_request.StopDataSourceSyncJobRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.stop_data_source_sync_job_request.StopDataSourceSyncJobRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
+        input_["index_id"] = index_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3145,16 +3149,16 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.submit_feedback_request.SubmitFeedbackRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["query_id"] = query_id
+        input_: aws_sdk_kendra.types.submit_feedback_request.SubmitFeedbackRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["query_id"] = query_id
         if click_feedback_items is not None:
-            input["click_feedback_items"] = click_feedback_items
+            input_["click_feedback_items"] = click_feedback_items
         if relevance_feedback_items is not None:
-            input["relevance_feedback_items"] = relevance_feedback_items
+            input_["relevance_feedback_items"] = relevance_feedback_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3190,12 +3194,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_kendra.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3231,12 +3235,12 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_kendra.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3286,20 +3290,22 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.update_access_control_configuration_request.UpdateAccessControlConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["id"] = id
+        input_: aws_sdk_kendra.types.update_access_control_configuration_request.UpdateAccessControlConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if access_control_list is not None:
-            input["access_control_list"] = access_control_list
+            input_["access_control_list"] = access_control_list
         if hierarchical_access_control_list is not None:
-            input["hierarchical_access_control_list"] = hierarchical_access_control_list
+            input_["hierarchical_access_control_list"] = (
+                hierarchical_access_control_list
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3357,30 +3363,30 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra.types.update_data_source_request.UpdateDataSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
-        input["index_id"] = index_id
+            input_["name"] = name
+        input_["index_id"] = index_id
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if vpc_configuration is not None:
-            input["vpc_configuration"] = vpc_configuration
+            input_["vpc_configuration"] = vpc_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if language_code is not None:
-            input["language_code"] = language_code
+            input_["language_code"] = language_code
         if custom_document_enrichment_configuration is not None:
-            input["custom_document_enrichment_configuration"] = (
+            input_["custom_document_enrichment_configuration"] = (
                 custom_document_enrichment_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3424,20 +3430,20 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.update_experience_request.UpdateExperienceRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra.types.update_experience_request.UpdateExperienceRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
-        input["index_id"] = index_id
+            input_["name"] = name
+        input_["index_id"] = index_id
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if configuration is not None:
-            input["configuration"] = configuration
+            input_["configuration"] = configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3493,22 +3499,22 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.update_featured_results_set_request.UpdateFeaturedResultsSetRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["featured_results_set_id"] = featured_results_set_id
+        input_: aws_sdk_kendra.types.update_featured_results_set_request.UpdateFeaturedResultsSetRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["featured_results_set_id"] = featured_results_set_id
         if featured_results_set_name is not None:
-            input["featured_results_set_name"] = featured_results_set_name
+            input_["featured_results_set_name"] = featured_results_set_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if status is not None:
-            input["status"] = status
+            input_["status"] = status
         if query_texts is not None:
-            input["query_texts"] = query_texts
+            input_["query_texts"] = query_texts
         if featured_documents is not None:
-            input["featured_documents"] = featured_documents
+            input_["featured_documents"] = featured_documents
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3566,31 +3572,31 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.update_index_request.UpdateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra.types.update_index_request.UpdateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if document_metadata_configuration_updates is not None:
-            input["document_metadata_configuration_updates"] = (
+            input_["document_metadata_configuration_updates"] = (
                 document_metadata_configuration_updates
             )
         if capacity_units is not None:
-            input["capacity_units"] = capacity_units
+            input_["capacity_units"] = capacity_units
         if user_token_configurations is not None:
-            input["user_token_configurations"] = user_token_configurations
+            input_["user_token_configurations"] = user_token_configurations
         if user_context_policy is not None:
-            input["user_context_policy"] = user_context_policy
+            input_["user_context_policy"] = user_context_policy
         if user_group_resolution_configuration is not None:
-            input["user_group_resolution_configuration"] = (
+            input_["user_group_resolution_configuration"] = (
                 user_group_resolution_configuration
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3634,20 +3640,20 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.update_query_suggestions_block_list_request.UpdateQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
-        input["id"] = id
+        input_: aws_sdk_kendra.types.update_query_suggestions_block_list_request.UpdateQuerySuggestionsBlockListRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if source_s3_path is not None:
-            input["source_s3_path"] = source_s3_path
+            input_["source_s3_path"] = source_s3_path
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3701,27 +3707,29 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.update_query_suggestions_config_request.UpdateQuerySuggestionsConfigRequest = {}  # type: ignore[typeddict-item]
-        input["index_id"] = index_id
+        input_: aws_sdk_kendra.types.update_query_suggestions_config_request.UpdateQuerySuggestionsConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["index_id"] = index_id
         if mode is not None:
-            input["mode"] = mode
+            input_["mode"] = mode
         if query_log_look_back_window_in_days is not None:
-            input["query_log_look_back_window_in_days"] = (
+            input_["query_log_look_back_window_in_days"] = (
                 query_log_look_back_window_in_days
             )
         if include_queries_without_user_information is not None:
-            input["include_queries_without_user_information"] = (
+            input_["include_queries_without_user_information"] = (
                 include_queries_without_user_information
             )
         if minimum_number_of_querying_users is not None:
-            input["minimum_number_of_querying_users"] = minimum_number_of_querying_users
+            input_["minimum_number_of_querying_users"] = (
+                minimum_number_of_querying_users
+            )
         if minimum_query_count is not None:
-            input["minimum_query_count"] = minimum_query_count
+            input_["minimum_query_count"] = minimum_query_count
         if attribute_suggestions_config is not None:
-            input["attribute_suggestions_config"] = attribute_suggestions_config
+            input_["attribute_suggestions_config"] = attribute_suggestions_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3762,20 +3770,20 @@ class AsynckendraClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_kendra.types.update_thesaurus_request.UpdateThesaurusRequest = {}  # type: ignore[typeddict-item]
-        input["id"] = id
+        input_: aws_sdk_kendra.types.update_thesaurus_request.UpdateThesaurusRequest = {}  # type: ignore[typeddict-item]
+        input_["id"] = id
         if name is not None:
-            input["name"] = name
-        input["index_id"] = index_id
+            input_["name"] = name
+        input_["index_id"] = index_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if role_arn is not None:
-            input["role_arn"] = role_arn
+            input_["role_arn"] = role_arn
         if source_s3_path is not None:
-            input["source_s3_path"] = source_s3_path
+            input_["source_s3_path"] = source_s3_path
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

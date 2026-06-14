@@ -1,9 +1,7 @@
 """Generated from Smithy shape ``com.amazonaws.appconfigdata#ResourceNotFoundException``."""
 
 from typing import TYPE_CHECKING, TypedDict
-
 from typing_extensions import NotRequired
-
 from aws_sdk_appconfigdata.errors import ServiceError
 
 if TYPE_CHECKING:

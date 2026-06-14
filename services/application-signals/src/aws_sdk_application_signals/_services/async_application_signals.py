@@ -17,6 +17,9 @@ from aws_sdk_application_signals._auth._providers import (
 )
 from aws_sdk_application_signals._auth._zapros_handler import AuthMiddleware
 from aws_sdk_application_signals._pagination import resolve_path as _resolve_path
+from aws_sdk_application_signals._resources.application_signals.service_level_objective_resource import (
+    AsyncServiceLevelObjectiveResource,
+)
 from aws_sdk_application_signals._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -161,6 +164,8 @@ class AsyncApplicationSignalsClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.service_level_objective_resource = AsyncServiceLevelObjectiveResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncApplicationSignalsClientConfig] = None

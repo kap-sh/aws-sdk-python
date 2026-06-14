@@ -106,54 +106,51 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_finspace.types.update_kx_volume_request.UpdateKxVolumeRequest,
+    input_: aws_sdk_finspace.types.update_kx_volume_request.UpdateKxVolumeRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = (
         endpoint.url.rstrip("/")
         + "/kx/environments/{environmentId}/kxvolumes/{volumeName}"
     )
-    url = url.replace("{environmentId}", quote(str(input["environment_id"]), safe=""))
-    url = url.replace("{volumeName}", quote(str(input["volume_name"]), safe=""))
+    url = url.replace("{environmentId}", quote(str(input_["environment_id"]), safe=""))
+    url = url.replace("{volumeName}", quote(str(input_["volume_name"]), safe=""))
     params: dict[str, str] = {}
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     import aws_sdk_finspace.types.update_kx_volume_request
 
     body: bytes | None = json.dumps(
-        aws_sdk_finspace.types.update_kx_volume_request.serialize_json(input)
+        aws_sdk_finspace.types.update_kx_volume_request.serialize_json(input_)
     ).encode()
     headers["content-type"] = "application/json"
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "PATCH",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "PATCH", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def update_kx_volume(
     options: OperationOptions,
-    input: aws_sdk_finspace.types.update_kx_volume_request.UpdateKxVolumeRequest,
+    input_: aws_sdk_finspace.types.update_kx_volume_request.UpdateKxVolumeRequest,
 ) -> tuple[
     aws_sdk_finspace.types.update_kx_volume_response.UpdateKxVolumeResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -162,16 +159,17 @@ def update_kx_volume(
 
 async def async_update_kx_volume(
     options: AsyncOperationOptions,
-    input: aws_sdk_finspace.types.update_kx_volume_request.UpdateKxVolumeRequest,
+    input_: aws_sdk_finspace.types.update_kx_volume_request.UpdateKxVolumeRequest,
 ) -> tuple[
     aws_sdk_finspace.types.update_kx_volume_response.UpdateKxVolumeResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

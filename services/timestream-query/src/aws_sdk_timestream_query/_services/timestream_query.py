@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_timestream_query._auth._signers
+import aws_sdk_timestream_query._auth._sigv4
 from aws_sdk_timestream_query._auth._identity import Credentials
 from aws_sdk_timestream_query._auth._providers import (
     CredentialsProvider,
@@ -209,11 +211,11 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.cancel_query_request.CancelQueryRequest = {}  # type: ignore[typeddict-item]
-        input["query_id"] = query_id
+        input_: aws_sdk_timestream_query.types.cancel_query_request.CancelQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["query_id"] = query_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,24 +272,26 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.create_scheduled_query_request.CreateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["query_string"] = query_string
-        input["schedule_configuration"] = schedule_configuration
-        input["notification_configuration"] = notification_configuration
+        input_: aws_sdk_timestream_query.types.create_scheduled_query_request.CreateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["query_string"] = query_string
+        input_["schedule_configuration"] = schedule_configuration
+        input_["notification_configuration"] = notification_configuration
         if target_configuration is not None:
-            input["target_configuration"] = target_configuration
+            input_["target_configuration"] = target_configuration
         if client_token is not None:
-            input["client_token"] = client_token
-        input["scheduled_query_execution_role_arn"] = scheduled_query_execution_role_arn
+            input_["client_token"] = client_token
+        input_["scheduled_query_execution_role_arn"] = (
+            scheduled_query_execution_role_arn
+        )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
-        input["error_report_configuration"] = error_report_configuration
+            input_["kms_key_id"] = kms_key_id
+        input_["error_report_configuration"] = error_report_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -318,11 +322,11 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.delete_scheduled_query_request.DeleteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_query_arn"] = scheduled_query_arn
+        input_: aws_sdk_timestream_query.types.delete_scheduled_query_request.DeleteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_query_arn"] = scheduled_query_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,10 +352,10 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.describe_account_settings_request.DescribeAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_query.types.describe_account_settings_request.DescribeAccountSettingsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -377,10 +381,10 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_query.types.describe_endpoints_request.DescribeEndpointsRequest = {}  # type: ignore[typeddict-item]
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -413,11 +417,11 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.describe_scheduled_query_request.DescribeScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_query_arn"] = scheduled_query_arn
+        input_: aws_sdk_timestream_query.types.describe_scheduled_query_request.DescribeScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_query_arn"] = scheduled_query_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,16 +462,16 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.execute_scheduled_query_request.ExecuteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_query_arn"] = scheduled_query_arn
-        input["invocation_time"] = invocation_time
+        input_: aws_sdk_timestream_query.types.execute_scheduled_query_request.ExecuteScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_query_arn"] = scheduled_query_arn
+        input_["invocation_time"] = invocation_time
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if query_insights is not None:
-            input["query_insights"] = query_insights
+            input_["query_insights"] = query_insights
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -506,14 +510,14 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.list_scheduled_queries_request.ListScheduledQueriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_query.types.list_scheduled_queries_request.ListScheduledQueriesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -579,15 +583,15 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_timestream_query.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -651,13 +655,13 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.prepare_query_request.PrepareQueryRequest = {}  # type: ignore[typeddict-item]
-        input["query_string"] = query_string
+        input_: aws_sdk_timestream_query.types.prepare_query_request.PrepareQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["query_string"] = query_string
         if validate_only is not None:
-            input["validate_only"] = validate_only
+            input_["validate_only"] = validate_only
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -706,19 +710,19 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.query_request.QueryRequest = {}  # type: ignore[typeddict-item]
-        input["query_string"] = query_string
+        input_: aws_sdk_timestream_query.types.query_request.QueryRequest = {}  # type: ignore[typeddict-item]
+        input_["query_string"] = query_string
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_rows is not None:
-            input["max_rows"] = max_rows
+            input_["max_rows"] = max_rows
         if query_insights is not None:
-            input["query_insights"] = query_insights
+            input_["query_insights"] = query_insights
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -788,12 +792,12 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_timestream_query.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -828,12 +832,12 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_timestream_query.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,16 +880,16 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_timestream_query.types.update_account_settings_request.UpdateAccountSettingsRequest = {}  # type: ignore[typeddict-item]
         if max_query_tcu is not None:
-            input["max_query_tcu"] = max_query_tcu
+            input_["max_query_tcu"] = max_query_tcu
         if query_pricing_model is not None:
-            input["query_pricing_model"] = query_pricing_model
+            input_["query_pricing_model"] = query_pricing_model
         if query_compute is not None:
-            input["query_compute"] = query_compute
+            input_["query_compute"] = query_compute
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -918,12 +922,12 @@ class TimestreamQueryClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_timestream_query.types.update_scheduled_query_request.UpdateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
-        input["scheduled_query_arn"] = scheduled_query_arn
-        input["state"] = state
+        input_: aws_sdk_timestream_query.types.update_scheduled_query_request.UpdateScheduledQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["scheduled_query_arn"] = scheduled_query_arn
+        input_["state"] = state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

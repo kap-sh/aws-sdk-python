@@ -87,18 +87,18 @@ class FirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_firewall_domain_list_input.CreateFirewallDomainListInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.create_firewall_domain_list_input.CreateFirewallDomainListInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["global_resolver_id"] = global_resolver_id
+            input_["client_token"] = client_token
+        input_["global_resolver_id"] = global_resolver_id
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,11 +131,11 @@ class FirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_firewall_domain_list_input.GetFirewallDomainListInput = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+        input_: aws_sdk_route53globalresolver.types.get_firewall_domain_list_input.GetFirewallDomainListInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -168,11 +168,11 @@ class FirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_firewall_domain_list_input.DeleteFirewallDomainListInput = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+        input_: aws_sdk_route53globalresolver.types.delete_firewall_domain_list_input.DeleteFirewallDomainListInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -211,16 +211,16 @@ class FirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_firewall_domain_lists_input.ListFirewallDomainListsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_firewall_domain_lists_input.ListFirewallDomainListsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if global_resolver_id is not None:
-            input["global_resolver_id"] = global_resolver_id
+            input_["global_resolver_id"] = global_resolver_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -257,13 +257,13 @@ class FirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.import_firewall_domains_input.ImportFirewallDomainsInput = {}  # type: ignore[typeddict-item]
-        input["domain_file_url"] = domain_file_url
-        input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["operation"] = operation
+        input_: aws_sdk_route53globalresolver.types.import_firewall_domains_input.ImportFirewallDomainsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_file_url"] = domain_file_url
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["operation"] = operation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,15 +300,15 @@ class FirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_firewall_domains_input.ListFirewallDomainsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_firewall_domains_input.ListFirewallDomainsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+            input_["next_token"] = next_token
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -345,13 +345,13 @@ class FirewallDomainList:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_firewall_domains_input.UpdateFirewallDomainsInput = {}  # type: ignore[typeddict-item]
-        input["domains"] = domains
-        input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["operation"] = operation
+        input_: aws_sdk_route53globalresolver.types.update_firewall_domains_input.UpdateFirewallDomainsInput = {}  # type: ignore[typeddict-item]
+        input_["domains"] = domains
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["operation"] = operation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,18 +402,18 @@ class AsyncFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.create_firewall_domain_list_input.CreateFirewallDomainListInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.create_firewall_domain_list_input.CreateFirewallDomainListInput = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["global_resolver_id"] = global_resolver_id
+            input_["client_token"] = client_token
+        input_["global_resolver_id"] = global_resolver_id
         if description is not None:
-            input["description"] = description
-        input["name"] = name
+            input_["description"] = description
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,11 +447,11 @@ class AsyncFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.get_firewall_domain_list_input.GetFirewallDomainListInput = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+        input_: aws_sdk_route53globalresolver.types.get_firewall_domain_list_input.GetFirewallDomainListInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,11 +485,11 @@ class AsyncFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.delete_firewall_domain_list_input.DeleteFirewallDomainListInput = {}  # type: ignore[typeddict-item]
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+        input_: aws_sdk_route53globalresolver.types.delete_firewall_domain_list_input.DeleteFirewallDomainListInput = {}  # type: ignore[typeddict-item]
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,16 +529,16 @@ class AsyncFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_firewall_domain_lists_input.ListFirewallDomainListsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_firewall_domain_lists_input.ListFirewallDomainListsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if global_resolver_id is not None:
-            input["global_resolver_id"] = global_resolver_id
+            input_["global_resolver_id"] = global_resolver_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -576,13 +576,13 @@ class AsyncFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.import_firewall_domains_input.ImportFirewallDomainsInput = {}  # type: ignore[typeddict-item]
-        input["domain_file_url"] = domain_file_url
-        input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["operation"] = operation
+        input_: aws_sdk_route53globalresolver.types.import_firewall_domains_input.ImportFirewallDomainsInput = {}  # type: ignore[typeddict-item]
+        input_["domain_file_url"] = domain_file_url
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["operation"] = operation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -620,15 +620,15 @@ class AsyncFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.list_firewall_domains_input.ListFirewallDomainsInput = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_route53globalresolver.types.list_firewall_domains_input.ListFirewallDomainsInput = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["firewall_domain_list_id"] = firewall_domain_list_id
+            input_["next_token"] = next_token
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -666,13 +666,13 @@ class AsyncFirewallDomainList:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_route53globalresolver.types.update_firewall_domains_input.UpdateFirewallDomainsInput = {}  # type: ignore[typeddict-item]
-        input["domains"] = domains
-        input["firewall_domain_list_id"] = firewall_domain_list_id
-        input["operation"] = operation
+        input_: aws_sdk_route53globalresolver.types.update_firewall_domains_input.UpdateFirewallDomainsInput = {}  # type: ignore[typeddict-item]
+        input_["domains"] = domains
+        input_["firewall_domain_list_id"] = firewall_domain_list_id
+        input_["operation"] = operation
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

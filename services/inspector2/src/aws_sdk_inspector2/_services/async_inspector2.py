@@ -421,11 +421,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.associate_member_request.AssociateMemberRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_inspector2.types.associate_member_request.AssociateMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -459,11 +459,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.batch_associate_code_security_scan_configuration_request.BatchAssociateCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["associate_configuration_requests"] = associate_configuration_requests
+        input_: aws_sdk_inspector2.types.batch_associate_code_security_scan_configuration_request.BatchAssociateCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["associate_configuration_requests"] = associate_configuration_requests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -497,13 +497,13 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.batch_disassociate_code_security_scan_configuration_request.BatchDisassociateCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["disassociate_configuration_requests"] = (
+        input_: aws_sdk_inspector2.types.batch_disassociate_code_security_scan_configuration_request.BatchDisassociateCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["disassociate_configuration_requests"] = (
             disassociate_configuration_requests
         )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -539,12 +539,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.batch_get_account_status_request.BatchGetAccountStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.batch_get_account_status_request.BatchGetAccountStatusRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -578,11 +578,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.batch_get_code_snippet_request.BatchGetCodeSnippetRequest = {}  # type: ignore[typeddict-item]
-        input["finding_arns"] = finding_arns
+        input_: aws_sdk_inspector2.types.batch_get_code_snippet_request.BatchGetCodeSnippetRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_arns"] = finding_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -621,11 +621,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.batch_get_finding_details_request.BatchGetFindingDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["finding_arns"] = finding_arns
+        input_: aws_sdk_inspector2.types.batch_get_finding_details_request.BatchGetFindingDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["finding_arns"] = finding_arns
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -659,11 +659,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.batch_get_free_trial_info_request.BatchGetFreeTrialInfoRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_inspector2.types.batch_get_free_trial_info_request.BatchGetFreeTrialInfoRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -699,12 +699,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.batch_get_member_ec2_deep_inspection_status_request.BatchGetMemberEc2DeepInspectionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.batch_get_member_ec2_deep_inspection_status_request.BatchGetMemberEc2DeepInspectionStatusRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -738,11 +738,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.batch_update_member_ec2_deep_inspection_status_request.BatchUpdateMemberEc2DeepInspectionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["account_ids"] = account_ids
+        input_: aws_sdk_inspector2.types.batch_update_member_ec2_deep_inspection_status_request.BatchUpdateMemberEc2DeepInspectionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -776,11 +776,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.cancel_findings_report_request.CancelFindingsReportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_inspector2.types.cancel_findings_report_request.CancelFindingsReportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -816,11 +816,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.cancel_sbom_export_request.CancelSbomExportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_inspector2.types.cancel_sbom_export_request.CancelSbomExportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -867,16 +867,16 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.create_cis_scan_configuration_request.CreateCisScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["scan_name"] = scan_name
-        input["security_level"] = security_level
-        input["schedule"] = schedule
-        input["targets"] = targets
+        input_: aws_sdk_inspector2.types.create_cis_scan_configuration_request.CreateCisScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_name"] = scan_name
+        input_["security_level"] = security_level
+        input_["schedule"] = schedule
+        input_["targets"] = targets
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -918,16 +918,16 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.create_code_security_integration_request.CreateCodeSecurityIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["type"] = type
+        input_: aws_sdk_inspector2.types.create_code_security_integration_request.CreateCodeSecurityIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["type"] = type
         if details is not None:
-            input["details"] = details
+            input_["details"] = details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -971,17 +971,17 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.create_code_security_scan_configuration_request.CreateCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["level"] = level
-        input["configuration"] = configuration
+        input_: aws_sdk_inspector2.types.create_code_security_scan_configuration_request.CreateCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["level"] = level
+        input_["configuration"] = configuration
         if scope_settings is not None:
-            input["scope_settings"] = scope_settings
+            input_["scope_settings"] = scope_settings
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1027,19 +1027,19 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.create_filter_request.CreateFilterRequest = {}  # type: ignore[typeddict-item]
-        input["action"] = action
+        input_: aws_sdk_inspector2.types.create_filter_request.CreateFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["action"] = action
         if description is not None:
-            input["description"] = description
-        input["filter_criteria"] = filter_criteria
-        input["name"] = name
+            input_["description"] = description
+        input_["filter_criteria"] = filter_criteria
+        input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1079,14 +1079,14 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.create_findings_report_request.CreateFindingsReportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.create_findings_report_request.CreateFindingsReportRequest = {}  # type: ignore[typeddict-item]
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
-        input["report_format"] = report_format
-        input["s3_destination"] = s3_destination
+            input_["filter_criteria"] = filter_criteria
+        input_["report_format"] = report_format
+        input_["s3_destination"] = s3_destination
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1128,14 +1128,14 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.create_sbom_export_request.CreateSbomExportRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.create_sbom_export_request.CreateSbomExportRequest = {}  # type: ignore[typeddict-item]
         if resource_filter_criteria is not None:
-            input["resource_filter_criteria"] = resource_filter_criteria
-        input["report_format"] = report_format
-        input["s3_destination"] = s3_destination
+            input_["resource_filter_criteria"] = resource_filter_criteria
+        input_["report_format"] = report_format
+        input_["s3_destination"] = s3_destination
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1174,11 +1174,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.delete_cis_scan_configuration_request.DeleteCisScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["scan_configuration_arn"] = scan_configuration_arn
+        input_: aws_sdk_inspector2.types.delete_cis_scan_configuration_request.DeleteCisScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_configuration_arn"] = scan_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1212,11 +1212,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.delete_code_security_integration_request.DeleteCodeSecurityIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_arn"] = integration_arn
+        input_: aws_sdk_inspector2.types.delete_code_security_integration_request.DeleteCodeSecurityIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_arn"] = integration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1250,11 +1250,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.delete_code_security_scan_configuration_request.DeleteCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["scan_configuration_arn"] = scan_configuration_arn
+        input_: aws_sdk_inspector2.types.delete_code_security_scan_configuration_request.DeleteCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_configuration_arn"] = scan_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1288,11 +1288,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.delete_filter_request.DeleteFilterRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_inspector2.types.delete_filter_request.DeleteFilterRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1319,10 +1319,10 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.describe_organization_configuration_request.DescribeOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1362,14 +1362,14 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.disable_request.DisableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.disable_request.DisableRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1403,11 +1403,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.disable_delegated_admin_account_request.DisableDelegatedAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["delegated_admin_account_id"] = delegated_admin_account_id
+        input_: aws_sdk_inspector2.types.disable_delegated_admin_account_request.DisableDelegatedAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["delegated_admin_account_id"] = delegated_admin_account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1441,11 +1441,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.disassociate_member_request.DisassociateMemberRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_inspector2.types.disassociate_member_request.DisassociateMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1487,15 +1487,15 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.enable_request.EnableRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.enable_request.EnableRequest = {}  # type: ignore[typeddict-item]
         if account_ids is not None:
-            input["account_ids"] = account_ids
-        input["resource_types"] = resource_types
+            input_["account_ids"] = account_ids
+        input_["resource_types"] = resource_types
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1533,13 +1533,13 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.enable_delegated_admin_account_request.EnableDelegatedAdminAccountRequest = {}  # type: ignore[typeddict-item]
-        input["delegated_admin_account_id"] = delegated_admin_account_id
+        input_: aws_sdk_inspector2.types.enable_delegated_admin_account_request.EnableDelegatedAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_["delegated_admin_account_id"] = delegated_admin_account_id
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1588,15 +1588,15 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_cis_scan_report_request.GetCisScanReportRequest = {}  # type: ignore[typeddict-item]
-        input["scan_arn"] = scan_arn
+        input_: aws_sdk_inspector2.types.get_cis_scan_report_request.GetCisScanReportRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_arn"] = scan_arn
         if target_accounts is not None:
-            input["target_accounts"] = target_accounts
+            input_["target_accounts"] = target_accounts
         if report_format is not None:
-            input["report_format"] = report_format
+            input_["report_format"] = report_format
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1657,23 +1657,23 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_cis_scan_result_details_request.GetCisScanResultDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["scan_arn"] = scan_arn
-        input["target_resource_id"] = target_resource_id
-        input["account_id"] = account_id
+        input_: aws_sdk_inspector2.types.get_cis_scan_result_details_request.GetCisScanResultDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_arn"] = scan_arn
+        input_["target_resource_id"] = target_resource_id
+        input_["account_id"] = account_id
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1754,15 +1754,15 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_clusters_for_image_request.GetClustersForImageRequest = {}  # type: ignore[typeddict-item]
-        input["filter"] = filter
+        input_: aws_sdk_inspector2.types.get_clusters_for_image_request.GetClustersForImageRequest = {}  # type: ignore[typeddict-item]
+        input_["filter"] = filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1825,13 +1825,13 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_code_security_integration_request.GetCodeSecurityIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_arn"] = integration_arn
+        input_: aws_sdk_inspector2.types.get_code_security_integration_request.GetCodeSecurityIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_arn"] = integration_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1867,12 +1867,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_code_security_scan_request.GetCodeSecurityScanRequest = {}  # type: ignore[typeddict-item]
-        input["resource"] = resource
-        input["scan_id"] = scan_id
+        input_: aws_sdk_inspector2.types.get_code_security_scan_request.GetCodeSecurityScanRequest = {}  # type: ignore[typeddict-item]
+        input_["resource"] = resource
+        input_["scan_id"] = scan_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1906,11 +1906,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_code_security_scan_configuration_request.GetCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["scan_configuration_arn"] = scan_configuration_arn
+        input_: aws_sdk_inspector2.types.get_code_security_scan_configuration_request.GetCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_configuration_arn"] = scan_configuration_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1937,10 +1937,10 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_configuration_request.GetConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.get_configuration_request.GetConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1967,10 +1967,10 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_delegated_admin_account_request.GetDelegatedAdminAccountRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.get_delegated_admin_account_request.GetDelegatedAdminAccountRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1997,10 +1997,10 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_ec2_deep_inspection_configuration_request.GetEc2DeepInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.get_ec2_deep_inspection_configuration_request.GetEc2DeepInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2038,12 +2038,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_encryption_key_request.GetEncryptionKeyRequest = {}  # type: ignore[typeddict-item]
-        input["scan_type"] = scan_type
-        input["resource_type"] = resource_type
+        input_: aws_sdk_inspector2.types.get_encryption_key_request.GetEncryptionKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_type"] = scan_type
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2077,12 +2077,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_findings_report_status_request.GetFindingsReportStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.get_findings_report_status_request.GetFindingsReportStatusRequest = {}  # type: ignore[typeddict-item]
         if report_id is not None:
-            input["report_id"] = report_id
+            input_["report_id"] = report_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2116,11 +2116,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_member_request.GetMemberRequest = {}  # type: ignore[typeddict-item]
-        input["account_id"] = account_id
+        input_: aws_sdk_inspector2.types.get_member_request.GetMemberRequest = {}  # type: ignore[typeddict-item]
+        input_["account_id"] = account_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2154,11 +2154,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.get_sbom_export_request.GetSbomExportRequest = {}  # type: ignore[typeddict-item]
-        input["report_id"] = report_id
+        input_: aws_sdk_inspector2.types.get_sbom_export_request.GetSbomExportRequest = {}  # type: ignore[typeddict-item]
+        input_["report_id"] = report_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2198,16 +2198,16 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_account_permissions_request.ListAccountPermissionsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_account_permissions_request.ListAccountPermissionsRequest = {}  # type: ignore[typeddict-item]
         if service is not None:
-            input["service"] = service
+            input_["service"] = service
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2287,20 +2287,20 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_cis_scan_configurations_request.ListCisScanConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_cis_scan_configurations_request.ListCisScanConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2392,21 +2392,21 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_cis_scan_results_aggregated_by_checks_request.ListCisScanResultsAggregatedByChecksRequest = {}  # type: ignore[typeddict-item]
-        input["scan_arn"] = scan_arn
+        input_: aws_sdk_inspector2.types.list_cis_scan_results_aggregated_by_checks_request.ListCisScanResultsAggregatedByChecksRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_arn"] = scan_arn
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2500,21 +2500,21 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_cis_scan_results_aggregated_by_target_resource_request.ListCisScanResultsAggregatedByTargetResourceRequest = {}  # type: ignore[typeddict-item]
-        input["scan_arn"] = scan_arn
+        input_: aws_sdk_inspector2.types.list_cis_scan_results_aggregated_by_target_resource_request.ListCisScanResultsAggregatedByTargetResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_arn"] = scan_arn
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2610,22 +2610,22 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_cis_scans_request.ListCisScansRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_cis_scans_request.ListCisScansRequest = {}  # type: ignore[typeddict-item]
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if detail_level is not None:
-            input["detail_level"] = detail_level
+            input_["detail_level"] = detail_level
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2700,14 +2700,14 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_code_security_integrations_request.ListCodeSecurityIntegrationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_code_security_integrations_request.ListCodeSecurityIntegrationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2745,15 +2745,15 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_code_security_scan_configuration_associations_request.ListCodeSecurityScanConfigurationAssociationsRequest = {}  # type: ignore[typeddict-item]
-        input["scan_configuration_arn"] = scan_configuration_arn
+        input_: aws_sdk_inspector2.types.list_code_security_scan_configuration_associations_request.ListCodeSecurityScanConfigurationAssociationsRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_configuration_arn"] = scan_configuration_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2789,14 +2789,14 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_code_security_scan_configurations_request.ListCodeSecurityScanConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_code_security_scan_configurations_request.ListCodeSecurityScanConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2838,16 +2838,16 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_coverage_request.ListCoverageRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_coverage_request.ListCoverageRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2914,16 +2914,16 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_coverage_statistics_request.ListCoverageStatisticsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_coverage_statistics_request.ListCoverageStatisticsRequest = {}  # type: ignore[typeddict-item]
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if group_by is not None:
-            input["group_by"] = group_by
+            input_["group_by"] = group_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2986,14 +2986,14 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_delegated_admin_accounts_request.ListDelegatedAdminAccountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_delegated_admin_accounts_request.ListDelegatedAdminAccountsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3058,18 +3058,18 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_filters_request.ListFiltersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_filters_request.ListFiltersRequest = {}  # type: ignore[typeddict-item]
         if arns is not None:
-            input["arns"] = arns
+            input_["arns"] = arns
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3144,19 +3144,19 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_finding_aggregations_request.ListFindingAggregationsRequest = {}  # type: ignore[typeddict-item]
-        input["aggregation_type"] = aggregation_type
+        input_: aws_sdk_inspector2.types.list_finding_aggregations_request.ListFindingAggregationsRequest = {}  # type: ignore[typeddict-item]
+        input_["aggregation_type"] = aggregation_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
         if aggregation_request is not None:
-            input["aggregation_request"] = aggregation_request
+            input_["aggregation_request"] = aggregation_request
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3235,18 +3235,18 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_findings_request.ListFindingsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if sort_criteria is not None:
-            input["sort_criteria"] = sort_criteria
+            input_["sort_criteria"] = sort_criteria
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3317,16 +3317,16 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_members_request.ListMembersRequest = {}  # type: ignore[typeddict-item]
         if only_associated is not None:
-            input["only_associated"] = only_associated
+            input_["only_associated"] = only_associated
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3385,11 +3385,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_inspector2.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3433,16 +3433,16 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.list_usage_totals_request.ListUsageTotalsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.list_usage_totals_request.ListUsageTotalsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if account_ids is not None:
-            input["account_ids"] = account_ids
+            input_["account_ids"] = account_ids
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3507,12 +3507,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.reset_encryption_key_request.ResetEncryptionKeyRequest = {}  # type: ignore[typeddict-item]
-        input["scan_type"] = scan_type
-        input["resource_type"] = resource_type
+        input_: aws_sdk_inspector2.types.reset_encryption_key_request.ResetEncryptionKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_type"] = scan_type
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3548,13 +3548,13 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.search_vulnerabilities_request.SearchVulnerabilitiesRequest = {}  # type: ignore[typeddict-item]
-        input["filter_criteria"] = filter_criteria
+        input_: aws_sdk_inspector2.types.search_vulnerabilities_request.SearchVulnerabilitiesRequest = {}  # type: ignore[typeddict-item]
+        input_["filter_criteria"] = filter_criteria
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3616,12 +3616,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.send_cis_session_health_request.SendCisSessionHealthRequest = {}  # type: ignore[typeddict-item]
-        input["scan_job_id"] = scan_job_id
-        input["session_token"] = session_token
+        input_: aws_sdk_inspector2.types.send_cis_session_health_request.SendCisSessionHealthRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_job_id"] = scan_job_id
+        input_["session_token"] = session_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3664,13 +3664,13 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.send_cis_session_telemetry_request.SendCisSessionTelemetryRequest = {}  # type: ignore[typeddict-item]
-        input["scan_job_id"] = scan_job_id
-        input["session_token"] = session_token
-        input["messages"] = messages
+        input_: aws_sdk_inspector2.types.send_cis_session_telemetry_request.SendCisSessionTelemetryRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_job_id"] = scan_job_id
+        input_["session_token"] = session_token
+        input_["messages"] = messages
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3711,12 +3711,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.start_cis_session_request.StartCisSessionRequest = {}  # type: ignore[typeddict-item]
-        input["scan_job_id"] = scan_job_id
-        input["message"] = message
+        input_: aws_sdk_inspector2.types.start_cis_session_request.StartCisSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_job_id"] = scan_job_id
+        input_["message"] = message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3754,13 +3754,13 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.start_code_security_scan_request.StartCodeSecurityScanRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.start_code_security_scan_request.StartCodeSecurityScanRequest = {}  # type: ignore[typeddict-item]
         if client_token is not None:
-            input["client_token"] = client_token
-        input["resource"] = resource
+            input_["client_token"] = client_token
+        input_["resource"] = resource
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3803,13 +3803,13 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.stop_cis_session_request.StopCisSessionRequest = {}  # type: ignore[typeddict-item]
-        input["scan_job_id"] = scan_job_id
-        input["session_token"] = session_token
-        input["message"] = message
+        input_: aws_sdk_inspector2.types.stop_cis_session_request.StopCisSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_job_id"] = scan_job_id
+        input_["session_token"] = session_token
+        input_["message"] = message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3845,12 +3845,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_inspector2.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3886,12 +3886,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_inspector2.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3944,19 +3944,19 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_cis_scan_configuration_request.UpdateCisScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["scan_configuration_arn"] = scan_configuration_arn
+        input_: aws_sdk_inspector2.types.update_cis_scan_configuration_request.UpdateCisScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_configuration_arn"] = scan_configuration_arn
         if scan_name is not None:
-            input["scan_name"] = scan_name
+            input_["scan_name"] = scan_name
         if security_level is not None:
-            input["security_level"] = security_level
+            input_["security_level"] = security_level
         if schedule is not None:
-            input["schedule"] = schedule
+            input_["schedule"] = schedule
         if targets is not None:
-            input["targets"] = targets
+            input_["targets"] = targets
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3992,12 +3992,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_code_security_integration_request.UpdateCodeSecurityIntegrationRequest = {}  # type: ignore[typeddict-item]
-        input["integration_arn"] = integration_arn
-        input["details"] = details
+        input_: aws_sdk_inspector2.types.update_code_security_integration_request.UpdateCodeSecurityIntegrationRequest = {}  # type: ignore[typeddict-item]
+        input_["integration_arn"] = integration_arn
+        input_["details"] = details
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4033,12 +4033,12 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_code_security_scan_configuration_request.UpdateCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["scan_configuration_arn"] = scan_configuration_arn
-        input["configuration"] = configuration
+        input_: aws_sdk_inspector2.types.update_code_security_scan_configuration_request.UpdateCodeSecurityScanConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["scan_configuration_arn"] = scan_configuration_arn
+        input_["configuration"] = configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4078,14 +4078,14 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_configuration_request.UpdateConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.update_configuration_request.UpdateConfigurationRequest = {}  # type: ignore[typeddict-item]
         if ecr_configuration is not None:
-            input["ecr_configuration"] = ecr_configuration
+            input_["ecr_configuration"] = ecr_configuration
         if ec2_configuration is not None:
-            input["ec2_configuration"] = ec2_configuration
+            input_["ec2_configuration"] = ec2_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4121,14 +4121,14 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_ec2_deep_inspection_configuration_request.UpdateEc2DeepInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.update_ec2_deep_inspection_configuration_request.UpdateEc2DeepInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
         if activate_deep_inspection is not None:
-            input["activate_deep_inspection"] = activate_deep_inspection
+            input_["activate_deep_inspection"] = activate_deep_inspection
         if package_paths is not None:
-            input["package_paths"] = package_paths
+            input_["package_paths"] = package_paths
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4166,13 +4166,13 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_encryption_key_request.UpdateEncryptionKeyRequest = {}  # type: ignore[typeddict-item]
-        input["kms_key_id"] = kms_key_id
-        input["scan_type"] = scan_type
-        input["resource_type"] = resource_type
+        input_: aws_sdk_inspector2.types.update_encryption_key_request.UpdateEncryptionKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["kms_key_id"] = kms_key_id
+        input_["scan_type"] = scan_type
+        input_["resource_type"] = resource_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4220,21 +4220,21 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_filter_request.UpdateFilterRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_inspector2.types.update_filter_request.UpdateFilterRequest = {}  # type: ignore[typeddict-item]
         if action is not None:
-            input["action"] = action
+            input_["action"] = action
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if filter_criteria is not None:
-            input["filter_criteria"] = filter_criteria
+            input_["filter_criteria"] = filter_criteria
         if name is not None:
-            input["name"] = name
-        input["filter_arn"] = filter_arn
+            input_["name"] = name
+        input_["filter_arn"] = filter_arn
         if reason is not None:
-            input["reason"] = reason
+            input_["reason"] = reason
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4268,11 +4268,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["auto_enable"] = auto_enable
+        input_: aws_sdk_inspector2.types.update_organization_configuration_request.UpdateOrganizationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["auto_enable"] = auto_enable
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4306,11 +4306,11 @@ class AsyncInspector2Client:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_inspector2.types.update_org_ec2_deep_inspection_configuration_request.UpdateOrgEc2DeepInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["org_package_paths"] = org_package_paths
+        input_: aws_sdk_inspector2.types.update_org_ec2_deep_inspection_configuration_request.UpdateOrgEc2DeepInspectionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["org_package_paths"] = org_package_paths
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

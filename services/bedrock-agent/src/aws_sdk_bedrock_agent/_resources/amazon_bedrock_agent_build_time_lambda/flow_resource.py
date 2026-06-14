@@ -96,22 +96,22 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["execution_role_arn"] = execution_role_arn
+            input_["description"] = description
+        input_["execution_role_arn"] = execution_role_arn
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -144,11 +144,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_flow_request.GetFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_identifier"] = flow_identifier
+        input_: aws_sdk_bedrock_agent.types.get_flow_request.GetFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_identifier"] = flow_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -197,19 +197,19 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["execution_role_arn"] = execution_role_arn
+            input_["description"] = description
+        input_["execution_role_arn"] = execution_role_arn
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if definition is not None:
-            input["definition"] = definition
-        input["flow_identifier"] = flow_identifier
+            input_["definition"] = definition
+        input_["flow_identifier"] = flow_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,13 +244,13 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_identifier"] = flow_identifier
+        input_: aws_sdk_bedrock_agent.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_identifier"] = flow_identifier
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,14 +287,14 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -327,11 +327,11 @@ class FlowResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.prepare_flow_request.PrepareFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_identifier"] = flow_identifier
+        input_: aws_sdk_bedrock_agent.types.prepare_flow_request.PrepareFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_identifier"] = flow_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -390,22 +390,22 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.create_flow_request.CreateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["execution_role_arn"] = execution_role_arn
+            input_["description"] = description
+        input_["execution_role_arn"] = execution_role_arn
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if definition is not None:
-            input["definition"] = definition
+            input_["definition"] = definition
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -439,11 +439,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.get_flow_request.GetFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_identifier"] = flow_identifier
+        input_: aws_sdk_bedrock_agent.types.get_flow_request.GetFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_identifier"] = flow_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -493,19 +493,19 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_bedrock_agent.types.update_flow_request.UpdateFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["execution_role_arn"] = execution_role_arn
+            input_["description"] = description
+        input_["execution_role_arn"] = execution_role_arn
         if customer_encryption_key_arn is not None:
-            input["customer_encryption_key_arn"] = customer_encryption_key_arn
+            input_["customer_encryption_key_arn"] = customer_encryption_key_arn
         if definition is not None:
-            input["definition"] = definition
-        input["flow_identifier"] = flow_identifier
+            input_["definition"] = definition
+        input_["flow_identifier"] = flow_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -541,13 +541,13 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_identifier"] = flow_identifier
+        input_: aws_sdk_bedrock_agent.types.delete_flow_request.DeleteFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_identifier"] = flow_identifier
         if skip_resource_in_use_check is not None:
-            input["skip_resource_in_use_check"] = skip_resource_in_use_check
+            input_["skip_resource_in_use_check"] = skip_resource_in_use_check
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -585,14 +585,14 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_bedrock_agent.types.list_flows_request.ListFlowsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -626,11 +626,11 @@ class AsyncFlowResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_bedrock_agent.types.prepare_flow_request.PrepareFlowRequest = {}  # type: ignore[typeddict-item]
-        input["flow_identifier"] = flow_identifier
+        input_: aws_sdk_bedrock_agent.types.prepare_flow_request.PrepareFlowRequest = {}  # type: ignore[typeddict-item]
+        input_["flow_identifier"] = flow_identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

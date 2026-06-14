@@ -71,18 +71,20 @@ class TrainedModelExportJob:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.start_trained_model_export_job_request.StartTrainedModelExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["trained_model_arn"] = trained_model_arn
+        input_: aws_sdk_cleanroomsml.types.start_trained_model_export_job_request.StartTrainedModelExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
-        input["membership_identifier"] = membership_identifier
-        input["output_configuration"] = output_configuration
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
+        input_["membership_identifier"] = membership_identifier
+        input_["output_configuration"] = output_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -133,18 +135,20 @@ class AsyncTrainedModelExportJob:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.start_trained_model_export_job_request.StartTrainedModelExportJobRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["trained_model_arn"] = trained_model_arn
+        input_: aws_sdk_cleanroomsml.types.start_trained_model_export_job_request.StartTrainedModelExportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["trained_model_arn"] = trained_model_arn
         if trained_model_version_identifier is not None:
-            input["trained_model_version_identifier"] = trained_model_version_identifier
-        input["membership_identifier"] = membership_identifier
-        input["output_configuration"] = output_configuration
+            input_["trained_model_version_identifier"] = (
+                trained_model_version_identifier
+            )
+        input_["membership_identifier"] = membership_identifier
+        input_["output_configuration"] = output_configuration
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

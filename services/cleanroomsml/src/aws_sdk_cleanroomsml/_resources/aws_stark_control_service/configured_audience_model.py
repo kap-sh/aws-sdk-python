@@ -99,26 +99,26 @@ class ConfiguredAudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_configured_audience_model_request.CreateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["audience_model_arn"] = audience_model_arn
-        input["output_config"] = output_config
+        input_: aws_sdk_cleanroomsml.types.create_configured_audience_model_request.CreateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["audience_model_arn"] = audience_model_arn
+        input_["output_config"] = output_config
         if description is not None:
-            input["description"] = description
-        input["shared_audience_metrics"] = shared_audience_metrics
+            input_["description"] = description
+        input_["shared_audience_metrics"] = shared_audience_metrics
         if min_matching_seed_size is not None:
-            input["min_matching_seed_size"] = min_matching_seed_size
+            input_["min_matching_seed_size"] = min_matching_seed_size
         if audience_size_config is not None:
-            input["audience_size_config"] = audience_size_config
+            input_["audience_size_config"] = audience_size_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if child_resource_tag_on_create_policy is not None:
-            input["child_resource_tag_on_create_policy"] = (
+            input_["child_resource_tag_on_create_policy"] = (
                 child_resource_tag_on_create_policy
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -151,11 +151,11 @@ class ConfiguredAudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_configured_audience_model_request.GetConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["configured_audience_model_arn"] = configured_audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.get_configured_audience_model_request.GetConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_audience_model_arn"] = configured_audience_model_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -212,23 +212,23 @@ class ConfiguredAudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.update_configured_audience_model_request.UpdateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["configured_audience_model_arn"] = configured_audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.update_configured_audience_model_request.UpdateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_audience_model_arn"] = configured_audience_model_arn
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
         if audience_model_arn is not None:
-            input["audience_model_arn"] = audience_model_arn
+            input_["audience_model_arn"] = audience_model_arn
         if shared_audience_metrics is not None:
-            input["shared_audience_metrics"] = shared_audience_metrics
+            input_["shared_audience_metrics"] = shared_audience_metrics
         if min_matching_seed_size is not None:
-            input["min_matching_seed_size"] = min_matching_seed_size
+            input_["min_matching_seed_size"] = min_matching_seed_size
         if audience_size_config is not None:
-            input["audience_size_config"] = audience_size_config
+            input_["audience_size_config"] = audience_size_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -259,11 +259,11 @@ class ConfiguredAudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_configured_audience_model_request.DeleteConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["configured_audience_model_arn"] = configured_audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.delete_configured_audience_model_request.DeleteConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_audience_model_arn"] = configured_audience_model_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,14 +300,14 @@ class ConfiguredAudienceModel:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_configured_audience_models_request.ListConfiguredAudienceModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_configured_audience_models_request.ListConfiguredAudienceModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -370,26 +370,26 @@ class AsyncConfiguredAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.create_configured_audience_model_request.CreateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["audience_model_arn"] = audience_model_arn
-        input["output_config"] = output_config
+        input_: aws_sdk_cleanroomsml.types.create_configured_audience_model_request.CreateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["audience_model_arn"] = audience_model_arn
+        input_["output_config"] = output_config
         if description is not None:
-            input["description"] = description
-        input["shared_audience_metrics"] = shared_audience_metrics
+            input_["description"] = description
+        input_["shared_audience_metrics"] = shared_audience_metrics
         if min_matching_seed_size is not None:
-            input["min_matching_seed_size"] = min_matching_seed_size
+            input_["min_matching_seed_size"] = min_matching_seed_size
         if audience_size_config is not None:
-            input["audience_size_config"] = audience_size_config
+            input_["audience_size_config"] = audience_size_config
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if child_resource_tag_on_create_policy is not None:
-            input["child_resource_tag_on_create_policy"] = (
+            input_["child_resource_tag_on_create_policy"] = (
                 child_resource_tag_on_create_policy
             )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -423,11 +423,11 @@ class AsyncConfiguredAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.get_configured_audience_model_request.GetConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["configured_audience_model_arn"] = configured_audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.get_configured_audience_model_request.GetConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_audience_model_arn"] = configured_audience_model_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -485,23 +485,23 @@ class AsyncConfiguredAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.update_configured_audience_model_request.UpdateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["configured_audience_model_arn"] = configured_audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.update_configured_audience_model_request.UpdateConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_audience_model_arn"] = configured_audience_model_arn
         if output_config is not None:
-            input["output_config"] = output_config
+            input_["output_config"] = output_config
         if audience_model_arn is not None:
-            input["audience_model_arn"] = audience_model_arn
+            input_["audience_model_arn"] = audience_model_arn
         if shared_audience_metrics is not None:
-            input["shared_audience_metrics"] = shared_audience_metrics
+            input_["shared_audience_metrics"] = shared_audience_metrics
         if min_matching_seed_size is not None:
-            input["min_matching_seed_size"] = min_matching_seed_size
+            input_["min_matching_seed_size"] = min_matching_seed_size
         if audience_size_config is not None:
-            input["audience_size_config"] = audience_size_config
+            input_["audience_size_config"] = audience_size_config
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -533,11 +533,11 @@ class AsyncConfiguredAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.delete_configured_audience_model_request.DeleteConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
-        input["configured_audience_model_arn"] = configured_audience_model_arn
+        input_: aws_sdk_cleanroomsml.types.delete_configured_audience_model_request.DeleteConfiguredAudienceModelRequest = {}  # type: ignore[typeddict-item]
+        input_["configured_audience_model_arn"] = configured_audience_model_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,14 +575,14 @@ class AsyncConfiguredAudienceModel:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_cleanroomsml.types.list_configured_audience_models_request.ListConfiguredAudienceModelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_cleanroomsml.types.list_configured_audience_models_request.ListConfiguredAudienceModelsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -103,23 +103,23 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if filler_slate is not None:
-            input["filler_slate"] = filler_slate
-        input["outputs"] = outputs
-        input["playback_mode"] = playback_mode
+            input_["filler_slate"] = filler_slate
+        input_["outputs"] = outputs
+        input_["playback_mode"] = playback_mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if time_shift_configuration is not None:
-            input["time_shift_configuration"] = time_shift_configuration
+            input_["time_shift_configuration"] = time_shift_configuration
         if audiences is not None:
-            input["audiences"] = audiences
+            input_["audiences"] = audiences
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,11 +152,11 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -201,18 +201,18 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if filler_slate is not None:
-            input["filler_slate"] = filler_slate
-        input["outputs"] = outputs
+            input_["filler_slate"] = filler_slate
+        input_["outputs"] = outputs
         if time_shift_configuration is not None:
-            input["time_shift_configuration"] = time_shift_configuration
+            input_["time_shift_configuration"] = time_shift_configuration
         if audiences is not None:
-            input["audiences"] = audiences
+            input_["audiences"] = audiences
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -245,11 +245,11 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -286,14 +286,14 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -328,12 +328,12 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.configure_logs_for_channel_request.ConfigureLogsForChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
-        input["log_types"] = log_types
+        input_: aws_sdk_mediatailor.types.configure_logs_for_channel_request.ConfigureLogsForChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
+        input_["log_types"] = log_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -386,23 +386,23 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if filler_slate is not None:
-            input["filler_slate"] = filler_slate
-        input["outputs"] = outputs
-        input["playback_mode"] = playback_mode
+            input_["filler_slate"] = filler_slate
+        input_["outputs"] = outputs
+        input_["playback_mode"] = playback_mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if time_shift_configuration is not None:
-            input["time_shift_configuration"] = time_shift_configuration
+            input_["time_shift_configuration"] = time_shift_configuration
         if audiences is not None:
-            input["audiences"] = audiences
+            input_["audiences"] = audiences
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -447,19 +447,19 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.get_channel_schedule_request.GetChannelScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.get_channel_schedule_request.GetChannelScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if duration_minutes is not None:
-            input["duration_minutes"] = duration_minutes
+            input_["duration_minutes"] = duration_minutes
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if audience is not None:
-            input["audience"] = audience
+            input_["audience"] = audience
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,11 +492,11 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.start_channel_request.StartChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.start_channel_request.StartChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -529,11 +529,11 @@ class ChannelResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.stop_channel_request.StopChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.stop_channel_request.StopChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,23 +592,23 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if filler_slate is not None:
-            input["filler_slate"] = filler_slate
-        input["outputs"] = outputs
-        input["playback_mode"] = playback_mode
+            input_["filler_slate"] = filler_slate
+        input_["outputs"] = outputs
+        input_["playback_mode"] = playback_mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if time_shift_configuration is not None:
-            input["time_shift_configuration"] = time_shift_configuration
+            input_["time_shift_configuration"] = time_shift_configuration
         if audiences is not None:
-            input["audiences"] = audiences
+            input_["audiences"] = audiences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -642,11 +642,11 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.describe_channel_request.DescribeChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -692,18 +692,18 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if filler_slate is not None:
-            input["filler_slate"] = filler_slate
-        input["outputs"] = outputs
+            input_["filler_slate"] = filler_slate
+        input_["outputs"] = outputs
         if time_shift_configuration is not None:
-            input["time_shift_configuration"] = time_shift_configuration
+            input_["time_shift_configuration"] = time_shift_configuration
         if audiences is not None:
-            input["audiences"] = audiences
+            input_["audiences"] = audiences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -737,11 +737,11 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -779,14 +779,14 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -822,12 +822,12 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.configure_logs_for_channel_request.ConfigureLogsForChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
-        input["log_types"] = log_types
+        input_: aws_sdk_mediatailor.types.configure_logs_for_channel_request.ConfigureLogsForChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
+        input_["log_types"] = log_types
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -881,23 +881,23 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if filler_slate is not None:
-            input["filler_slate"] = filler_slate
-        input["outputs"] = outputs
-        input["playback_mode"] = playback_mode
+            input_["filler_slate"] = filler_slate
+        input_["outputs"] = outputs
+        input_["playback_mode"] = playback_mode
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if tier is not None:
-            input["tier"] = tier
+            input_["tier"] = tier
         if time_shift_configuration is not None:
-            input["time_shift_configuration"] = time_shift_configuration
+            input_["time_shift_configuration"] = time_shift_configuration
         if audiences is not None:
-            input["audiences"] = audiences
+            input_["audiences"] = audiences
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -943,19 +943,19 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.get_channel_schedule_request.GetChannelScheduleRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.get_channel_schedule_request.GetChannelScheduleRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
         if duration_minutes is not None:
-            input["duration_minutes"] = duration_minutes
+            input_["duration_minutes"] = duration_minutes
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if audience is not None:
-            input["audience"] = audience
+            input_["audience"] = audience
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -989,11 +989,11 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.start_channel_request.StartChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.start_channel_request.StartChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1027,11 +1027,11 @@ class AsyncChannelResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.stop_channel_request.StopChannelRequest = {}  # type: ignore[typeddict-item]
-        input["channel_name"] = channel_name
+        input_: aws_sdk_mediatailor.types.stop_channel_request.StopChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_name"] = channel_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

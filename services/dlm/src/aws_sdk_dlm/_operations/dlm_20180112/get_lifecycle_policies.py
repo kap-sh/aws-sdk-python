@@ -83,56 +83,53 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dlm.types.get_lifecycle_policies_request.GetLifecyclePoliciesRequest,
+    input_: aws_sdk_dlm.types.get_lifecycle_policies_request.GetLifecyclePoliciesRequest,
 ) -> zapros.Request:
-    endpoint = resolve(  # noqa: F841
+    endpoint = resolve(
         EndpointParams(
             Region=options.region,
             UseDualStack=options.use_dual_stack,
             UseFIPS=options.use_fips,
             Endpoint=options.endpoint,
         )
-    )
+    )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/policies"
     params: dict[str, str] = {}
-    if "policy_ids" in input:
-        params["policyIds"] = str(input["policy_ids"])
-    if "state" in input:
-        params["state"] = str(input["state"])
-    if "resource_types" in input:
-        params["resourceTypes"] = str(input["resource_types"])
-    if "target_tags" in input:
-        params["targetTags"] = str(input["target_tags"])
-    if "tags_to_add" in input:
-        params["tagsToAdd"] = str(input["tags_to_add"])
-    if "default_policy_type" in input:
-        params["defaultPolicyType"] = str(input["default_policy_type"])
+    if "policy_ids" in input_:
+        params["policyIds"] = str(input_["policy_ids"])
+    if "state" in input_:
+        params["state"] = str(input_["state"])
+    if "resource_types" in input_:
+        params["resourceTypes"] = str(input_["resource_types"])
+    if "target_tags" in input_:
+        params["targetTags"] = str(input_["target_tags"])
+    if "tags_to_add" in input_:
+        params["tagsToAdd"] = str(input_["tags_to_add"])
+    if "default_policy_type" in input_:
+        params["defaultPolicyType"] = str(input_["default_policy_type"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
     normalized_url.search_params.update(params)
     return zapros.Request(
-        normalized_url,
-        "GET",
-        headers=headers,
-        body=body,
-        context={"signer": signer},
+        normalized_url, "GET", headers=headers, body=body, context={"signer": signer}
     )
 
 
 def get_lifecycle_policies(
     options: OperationOptions,
-    input: aws_sdk_dlm.types.get_lifecycle_policies_request.GetLifecyclePoliciesRequest,
+    input_: aws_sdk_dlm.types.get_lifecycle_policies_request.GetLifecyclePoliciesRequest,
 ) -> tuple[
     aws_sdk_dlm.types.get_lifecycle_policies_response.GetLifecyclePoliciesResponse,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
             handle_error(response)
+        response.read()
         return handle_response(response, is_async=False), response
     except BaseException:
         response.close()
@@ -141,16 +138,17 @@ def get_lifecycle_policies(
 
 async def async_get_lifecycle_policies(
     options: AsyncOperationOptions,
-    input: aws_sdk_dlm.types.get_lifecycle_policies_request.GetLifecyclePoliciesRequest,
+    input_: aws_sdk_dlm.types.get_lifecycle_policies_request.GetLifecyclePoliciesRequest,
 ) -> tuple[
     aws_sdk_dlm.types.get_lifecycle_policies_response.GetLifecyclePoliciesResponse,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()
             handle_error(response)
+        await response.aread()
         return handle_response(response, is_async=True), response
     except BaseException:
         await response.aclose()

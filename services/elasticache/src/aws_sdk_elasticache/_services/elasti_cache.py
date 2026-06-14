@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_elasticache._auth._signers
+import aws_sdk_elasticache._auth._sigv4
 from aws_sdk_elasticache._auth._identity import Credentials
 from aws_sdk_elasticache._auth._providers import (
     CredentialsProvider,
@@ -370,12 +372,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tags"] = tags
+        input_: aws_sdk_elasticache.types.add_tags_to_resource_message.AddTagsToResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,13 +420,13 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.authorize_cache_security_group_ingress_message.AuthorizeCacheSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input["cache_security_group_name"] = cache_security_group_name
-        input["ec2_security_group_name"] = ec2_security_group_name
-        input["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+        input_: aws_sdk_elasticache.types.authorize_cache_security_group_ingress_message.AuthorizeCacheSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_security_group_name"] = cache_security_group_name
+        input_["ec2_security_group_name"] = ec2_security_group_name
+        input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,15 +467,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.batch_apply_update_action_message.BatchApplyUpdateActionMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.batch_apply_update_action_message.BatchApplyUpdateActionMessage = {}  # type: ignore[typeddict-item]
         if replication_group_ids is not None:
-            input["replication_group_ids"] = replication_group_ids
+            input_["replication_group_ids"] = replication_group_ids
         if cache_cluster_ids is not None:
-            input["cache_cluster_ids"] = cache_cluster_ids
-        input["service_update_name"] = service_update_name
+            input_["cache_cluster_ids"] = cache_cluster_ids
+        input_["service_update_name"] = service_update_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -514,15 +516,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.batch_stop_update_action_message.BatchStopUpdateActionMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.batch_stop_update_action_message.BatchStopUpdateActionMessage = {}  # type: ignore[typeddict-item]
         if replication_group_ids is not None:
-            input["replication_group_ids"] = replication_group_ids
+            input_["replication_group_ids"] = replication_group_ids
         if cache_cluster_ids is not None:
-            input["cache_cluster_ids"] = cache_cluster_ids
-        input["service_update_name"] = service_update_name
+            input_["cache_cluster_ids"] = cache_cluster_ids
+        input_["service_update_name"] = service_update_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,13 +559,13 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.complete_migration_message.CompleteMigrationMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
+        input_: aws_sdk_elasticache.types.complete_migration_message.CompleteMigrationMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -602,20 +604,20 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.copy_serverless_cache_snapshot_request.CopyServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["source_serverless_cache_snapshot_name"] = (
+        input_: aws_sdk_elasticache.types.copy_serverless_cache_snapshot_request.CopyServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["source_serverless_cache_snapshot_name"] = (
             source_serverless_cache_snapshot_name
         )
-        input["target_serverless_cache_snapshot_name"] = (
+        input_["target_serverless_cache_snapshot_name"] = (
             target_serverless_cache_snapshot_name
         )
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -662,18 +664,18 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.copy_snapshot_message.CopySnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["source_snapshot_name"] = source_snapshot_name
-        input["target_snapshot_name"] = target_snapshot_name
+        input_: aws_sdk_elasticache.types.copy_snapshot_message.CopySnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["source_snapshot_name"] = source_snapshot_name
+        input_["target_snapshot_name"] = target_snapshot_name
         if target_bucket is not None:
-            input["target_bucket"] = target_bucket
+            input_["target_bucket"] = target_bucket
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -818,69 +820,69 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_cache_cluster_message.CreateCacheClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cache_cluster_id"] = cache_cluster_id
+        input_: aws_sdk_elasticache.types.create_cache_cluster_message.CreateCacheClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_cluster_id"] = cache_cluster_id
         if replication_group_id is not None:
-            input["replication_group_id"] = replication_group_id
+            input_["replication_group_id"] = replication_group_id
         if az_mode is not None:
-            input["az_mode"] = az_mode
+            input_["az_mode"] = az_mode
         if preferred_availability_zone is not None:
-            input["preferred_availability_zone"] = preferred_availability_zone
+            input_["preferred_availability_zone"] = preferred_availability_zone
         if preferred_availability_zones is not None:
-            input["preferred_availability_zones"] = preferred_availability_zones
+            input_["preferred_availability_zones"] = preferred_availability_zones
         if num_cache_nodes is not None:
-            input["num_cache_nodes"] = num_cache_nodes
+            input_["num_cache_nodes"] = num_cache_nodes
         if cache_node_type is not None:
-            input["cache_node_type"] = cache_node_type
+            input_["cache_node_type"] = cache_node_type
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if cache_parameter_group_name is not None:
-            input["cache_parameter_group_name"] = cache_parameter_group_name
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
         if cache_subnet_group_name is not None:
-            input["cache_subnet_group_name"] = cache_subnet_group_name
+            input_["cache_subnet_group_name"] = cache_subnet_group_name
         if cache_security_group_names is not None:
-            input["cache_security_group_names"] = cache_security_group_names
+            input_["cache_security_group_names"] = cache_security_group_names
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if snapshot_arns is not None:
-            input["snapshot_arns"] = snapshot_arns
+            input_["snapshot_arns"] = snapshot_arns
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if notification_topic_arn is not None:
-            input["notification_topic_arn"] = notification_topic_arn
+            input_["notification_topic_arn"] = notification_topic_arn
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if snapshot_retention_limit is not None:
-            input["snapshot_retention_limit"] = snapshot_retention_limit
+            input_["snapshot_retention_limit"] = snapshot_retention_limit
         if snapshot_window is not None:
-            input["snapshot_window"] = snapshot_window
+            input_["snapshot_window"] = snapshot_window
         if auth_token is not None:
-            input["auth_token"] = auth_token
+            input_["auth_token"] = auth_token
         if outpost_mode is not None:
-            input["outpost_mode"] = outpost_mode
+            input_["outpost_mode"] = outpost_mode
         if preferred_outpost_arn is not None:
-            input["preferred_outpost_arn"] = preferred_outpost_arn
+            input_["preferred_outpost_arn"] = preferred_outpost_arn
         if preferred_outpost_arns is not None:
-            input["preferred_outpost_arns"] = preferred_outpost_arns
+            input_["preferred_outpost_arns"] = preferred_outpost_arns
         if log_delivery_configurations is not None:
-            input["log_delivery_configurations"] = log_delivery_configurations
+            input_["log_delivery_configurations"] = log_delivery_configurations
         if transit_encryption_enabled is not None:
-            input["transit_encryption_enabled"] = transit_encryption_enabled
+            input_["transit_encryption_enabled"] = transit_encryption_enabled
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if ip_discovery is not None:
-            input["ip_discovery"] = ip_discovery
+            input_["ip_discovery"] = ip_discovery
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -925,15 +927,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_cache_parameter_group_message.CreateCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_parameter_group_name"] = cache_parameter_group_name
-        input["cache_parameter_group_family"] = cache_parameter_group_family
-        input["description"] = description
+        input_: aws_sdk_elasticache.types.create_cache_parameter_group_message.CreateCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_parameter_group_name"] = cache_parameter_group_name
+        input_["cache_parameter_group_family"] = cache_parameter_group_family
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -976,14 +978,14 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_cache_security_group_message.CreateCacheSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_security_group_name"] = cache_security_group_name
-        input["description"] = description
+        input_: aws_sdk_elasticache.types.create_cache_security_group_message.CreateCacheSecurityGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_security_group_name"] = cache_security_group_name
+        input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1028,15 +1030,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_cache_subnet_group_message.CreateCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_subnet_group_name"] = cache_subnet_group_name
-        input["cache_subnet_group_description"] = cache_subnet_group_description
-        input["subnet_ids"] = subnet_ids
+        input_: aws_sdk_elasticache.types.create_cache_subnet_group_message.CreateCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_subnet_group_name"] = cache_subnet_group_name
+        input_["cache_subnet_group_description"] = cache_subnet_group_description
+        input_["subnet_ids"] = subnet_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1075,16 +1077,18 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_global_replication_group_message.CreateGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["global_replication_group_id_suffix"] = global_replication_group_id_suffix
+        input_: aws_sdk_elasticache.types.create_global_replication_group_message.CreateGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["global_replication_group_id_suffix"] = (
+            global_replication_group_id_suffix
+        )
         if global_replication_group_description is not None:
-            input["global_replication_group_description"] = (
+            input_["global_replication_group_description"] = (
                 global_replication_group_description
             )
-        input["primary_replication_group_id"] = primary_replication_group_id
+        input_["primary_replication_group_id"] = primary_replication_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1261,88 +1265,88 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_replication_group_message.CreateReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
-        input["replication_group_description"] = replication_group_description
+        input_: aws_sdk_elasticache.types.create_replication_group_message.CreateReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
+        input_["replication_group_description"] = replication_group_description
         if global_replication_group_id is not None:
-            input["global_replication_group_id"] = global_replication_group_id
+            input_["global_replication_group_id"] = global_replication_group_id
         if primary_cluster_id is not None:
-            input["primary_cluster_id"] = primary_cluster_id
+            input_["primary_cluster_id"] = primary_cluster_id
         if automatic_failover_enabled is not None:
-            input["automatic_failover_enabled"] = automatic_failover_enabled
+            input_["automatic_failover_enabled"] = automatic_failover_enabled
         if multi_az_enabled is not None:
-            input["multi_az_enabled"] = multi_az_enabled
+            input_["multi_az_enabled"] = multi_az_enabled
         if num_cache_clusters is not None:
-            input["num_cache_clusters"] = num_cache_clusters
+            input_["num_cache_clusters"] = num_cache_clusters
         if preferred_cache_cluster_a_zs is not None:
-            input["preferred_cache_cluster_a_zs"] = preferred_cache_cluster_a_zs
+            input_["preferred_cache_cluster_a_zs"] = preferred_cache_cluster_a_zs
         if num_node_groups is not None:
-            input["num_node_groups"] = num_node_groups
+            input_["num_node_groups"] = num_node_groups
         if replicas_per_node_group is not None:
-            input["replicas_per_node_group"] = replicas_per_node_group
+            input_["replicas_per_node_group"] = replicas_per_node_group
         if node_group_configuration is not None:
-            input["node_group_configuration"] = node_group_configuration
+            input_["node_group_configuration"] = node_group_configuration
         if cache_node_type is not None:
-            input["cache_node_type"] = cache_node_type
+            input_["cache_node_type"] = cache_node_type
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if cache_parameter_group_name is not None:
-            input["cache_parameter_group_name"] = cache_parameter_group_name
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
         if cache_subnet_group_name is not None:
-            input["cache_subnet_group_name"] = cache_subnet_group_name
+            input_["cache_subnet_group_name"] = cache_subnet_group_name
         if cache_security_group_names is not None:
-            input["cache_security_group_names"] = cache_security_group_names
+            input_["cache_security_group_names"] = cache_security_group_names
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if snapshot_arns is not None:
-            input["snapshot_arns"] = snapshot_arns
+            input_["snapshot_arns"] = snapshot_arns
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if port is not None:
-            input["port"] = port
+            input_["port"] = port
         if notification_topic_arn is not None:
-            input["notification_topic_arn"] = notification_topic_arn
+            input_["notification_topic_arn"] = notification_topic_arn
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if snapshot_retention_limit is not None:
-            input["snapshot_retention_limit"] = snapshot_retention_limit
+            input_["snapshot_retention_limit"] = snapshot_retention_limit
         if snapshot_window is not None:
-            input["snapshot_window"] = snapshot_window
+            input_["snapshot_window"] = snapshot_window
         if auth_token is not None:
-            input["auth_token"] = auth_token
+            input_["auth_token"] = auth_token
         if transit_encryption_enabled is not None:
-            input["transit_encryption_enabled"] = transit_encryption_enabled
+            input_["transit_encryption_enabled"] = transit_encryption_enabled
         if at_rest_encryption_enabled is not None:
-            input["at_rest_encryption_enabled"] = at_rest_encryption_enabled
+            input_["at_rest_encryption_enabled"] = at_rest_encryption_enabled
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if user_group_ids is not None:
-            input["user_group_ids"] = user_group_ids
+            input_["user_group_ids"] = user_group_ids
         if log_delivery_configurations is not None:
-            input["log_delivery_configurations"] = log_delivery_configurations
+            input_["log_delivery_configurations"] = log_delivery_configurations
         if data_tiering_enabled is not None:
-            input["data_tiering_enabled"] = data_tiering_enabled
+            input_["data_tiering_enabled"] = data_tiering_enabled
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
         if ip_discovery is not None:
-            input["ip_discovery"] = ip_discovery
+            input_["ip_discovery"] = ip_discovery
         if transit_encryption_mode is not None:
-            input["transit_encryption_mode"] = transit_encryption_mode
+            input_["transit_encryption_mode"] = transit_encryption_mode
         if cluster_mode is not None:
-            input["cluster_mode"] = cluster_mode
+            input_["cluster_mode"] = cluster_mode
         if serverless_cache_snapshot_name is not None:
-            input["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
+            input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
         if durability is not None:
-            input["durability"] = durability
+            input_["durability"] = durability
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1415,36 +1419,36 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_serverless_cache_request.CreateServerlessCacheRequest = {}  # type: ignore[typeddict-item]
-        input["serverless_cache_name"] = serverless_cache_name
+        input_: aws_sdk_elasticache.types.create_serverless_cache_request.CreateServerlessCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["serverless_cache_name"] = serverless_cache_name
         if description is not None:
-            input["description"] = description
-        input["engine"] = engine
+            input_["description"] = description
+        input_["engine"] = engine
         if major_engine_version is not None:
-            input["major_engine_version"] = major_engine_version
+            input_["major_engine_version"] = major_engine_version
         if cache_usage_limits is not None:
-            input["cache_usage_limits"] = cache_usage_limits
+            input_["cache_usage_limits"] = cache_usage_limits
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if snapshot_arns_to_restore is not None:
-            input["snapshot_arns_to_restore"] = snapshot_arns_to_restore
+            input_["snapshot_arns_to_restore"] = snapshot_arns_to_restore
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if user_group_id is not None:
-            input["user_group_id"] = user_group_id
+            input_["user_group_id"] = user_group_id
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
         if snapshot_retention_limit is not None:
-            input["snapshot_retention_limit"] = snapshot_retention_limit
+            input_["snapshot_retention_limit"] = snapshot_retention_limit
         if daily_snapshot_time is not None:
-            input["daily_snapshot_time"] = daily_snapshot_time
+            input_["daily_snapshot_time"] = daily_snapshot_time
         if network_type is not None:
-            input["network_type"] = network_type
+            input_["network_type"] = network_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1483,16 +1487,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_serverless_cache_snapshot_request.CreateServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
-        input["serverless_cache_name"] = serverless_cache_name
+        input_: aws_sdk_elasticache.types.create_serverless_cache_snapshot_request.CreateServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
+        input_["serverless_cache_name"] = serverless_cache_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1549,19 +1553,19 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_snapshot_message.CreateSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.create_snapshot_message.CreateSnapshotMessage = {}  # type: ignore[typeddict-item]
         if replication_group_id is not None:
-            input["replication_group_id"] = replication_group_id
+            input_["replication_group_id"] = replication_group_id
         if cache_cluster_id is not None:
-            input["cache_cluster_id"] = cache_cluster_id
-        input["snapshot_name"] = snapshot_name
+            input_["cache_cluster_id"] = cache_cluster_id
+        input_["snapshot_name"] = snapshot_name
         if kms_key_id is not None:
-            input["kms_key_id"] = kms_key_id
+            input_["kms_key_id"] = kms_key_id
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1612,22 +1616,22 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_user_message.CreateUserMessage = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
-        input["user_name"] = user_name
-        input["engine"] = engine
+        input_: aws_sdk_elasticache.types.create_user_message.CreateUserMessage = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
+        input_["user_name"] = user_name
+        input_["engine"] = engine
         if passwords is not None:
-            input["passwords"] = passwords
-        input["access_string"] = access_string
+            input_["passwords"] = passwords
+        input_["access_string"] = access_string
         if no_password_required is not None:
-            input["no_password_required"] = no_password_required
+            input_["no_password_required"] = no_password_required
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if authentication_mode is not None:
-            input["authentication_mode"] = authentication_mode
+            input_["authentication_mode"] = authentication_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1666,16 +1670,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.create_user_group_message.CreateUserGroupMessage = {}  # type: ignore[typeddict-item]
-        input["user_group_id"] = user_group_id
-        input["engine"] = engine
+        input_: aws_sdk_elasticache.types.create_user_group_message.CreateUserGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["user_group_id"] = user_group_id
+        input_["engine"] = engine
         if user_ids is not None:
-            input["user_ids"] = user_ids
+            input_["user_ids"] = user_ids
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1720,17 +1724,17 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.decrease_node_groups_in_global_replication_group_message.DecreaseNodeGroupsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["global_replication_group_id"] = global_replication_group_id
-        input["node_group_count"] = node_group_count
+        input_: aws_sdk_elasticache.types.decrease_node_groups_in_global_replication_group_message.DecreaseNodeGroupsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["global_replication_group_id"] = global_replication_group_id
+        input_["node_group_count"] = node_group_count
         if global_node_groups_to_remove is not None:
-            input["global_node_groups_to_remove"] = global_node_groups_to_remove
+            input_["global_node_groups_to_remove"] = global_node_groups_to_remove
         if global_node_groups_to_retain is not None:
-            input["global_node_groups_to_retain"] = global_node_groups_to_retain
-        input["apply_immediately"] = apply_immediately
+            input_["global_node_groups_to_retain"] = global_node_groups_to_retain
+        input_["apply_immediately"] = apply_immediately
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1777,18 +1781,18 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.decrease_replica_count_message.DecreaseReplicaCountMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
+        input_: aws_sdk_elasticache.types.decrease_replica_count_message.DecreaseReplicaCountMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
         if new_replica_count is not None:
-            input["new_replica_count"] = new_replica_count
+            input_["new_replica_count"] = new_replica_count
         if replica_configuration is not None:
-            input["replica_configuration"] = replica_configuration
+            input_["replica_configuration"] = replica_configuration
         if replicas_to_remove is not None:
-            input["replicas_to_remove"] = replicas_to_remove
-        input["apply_immediately"] = apply_immediately
+            input_["replicas_to_remove"] = replicas_to_remove
+        input_["apply_immediately"] = apply_immediately
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1833,13 +1837,13 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_cache_cluster_message.DeleteCacheClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cache_cluster_id"] = cache_cluster_id
+        input_: aws_sdk_elasticache.types.delete_cache_cluster_message.DeleteCacheClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_cluster_id"] = cache_cluster_id
         if final_snapshot_identifier is not None:
-            input["final_snapshot_identifier"] = final_snapshot_identifier
+            input_["final_snapshot_identifier"] = final_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1876,11 +1880,11 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_cache_parameter_group_message.DeleteCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_parameter_group_name"] = cache_parameter_group_name
+        input_: aws_sdk_elasticache.types.delete_cache_parameter_group_message.DeleteCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_parameter_group_name"] = cache_parameter_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1917,11 +1921,11 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_cache_security_group_message.DeleteCacheSecurityGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_security_group_name"] = cache_security_group_name
+        input_: aws_sdk_elasticache.types.delete_cache_security_group_message.DeleteCacheSecurityGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_security_group_name"] = cache_security_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1958,11 +1962,11 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_cache_subnet_group_message.DeleteCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_subnet_group_name"] = cache_subnet_group_name
+        input_: aws_sdk_elasticache.types.delete_cache_subnet_group_message.DeleteCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_subnet_group_name"] = cache_subnet_group_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1997,12 +2001,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_global_replication_group_message.DeleteGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["global_replication_group_id"] = global_replication_group_id
-        input["retain_primary_replication_group"] = retain_primary_replication_group
+        input_: aws_sdk_elasticache.types.delete_global_replication_group_message.DeleteGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["global_replication_group_id"] = global_replication_group_id
+        input_["retain_primary_replication_group"] = retain_primary_replication_group
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2049,15 +2053,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_replication_group_message.DeleteReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
+        input_: aws_sdk_elasticache.types.delete_replication_group_message.DeleteReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
         if retain_primary_cluster is not None:
-            input["retain_primary_cluster"] = retain_primary_cluster
+            input_["retain_primary_cluster"] = retain_primary_cluster
         if final_snapshot_identifier is not None:
-            input["final_snapshot_identifier"] = final_snapshot_identifier
+            input_["final_snapshot_identifier"] = final_snapshot_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2092,13 +2096,13 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_serverless_cache_request.DeleteServerlessCacheRequest = {}  # type: ignore[typeddict-item]
-        input["serverless_cache_name"] = serverless_cache_name
+        input_: aws_sdk_elasticache.types.delete_serverless_cache_request.DeleteServerlessCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["serverless_cache_name"] = serverless_cache_name
         if final_snapshot_name is not None:
-            input["final_snapshot_name"] = final_snapshot_name
+            input_["final_snapshot_name"] = final_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2131,11 +2135,11 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_serverless_cache_snapshot_request.DeleteServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
+        input_: aws_sdk_elasticache.types.delete_serverless_cache_snapshot_request.DeleteServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2174,11 +2178,11 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_snapshot_message.DeleteSnapshotMessage = {}  # type: ignore[typeddict-item]
-        input["snapshot_name"] = snapshot_name
+        input_: aws_sdk_elasticache.types.delete_snapshot_message.DeleteSnapshotMessage = {}  # type: ignore[typeddict-item]
+        input_["snapshot_name"] = snapshot_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2209,11 +2213,11 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_user_message.DeleteUserMessage = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_elasticache.types.delete_user_message.DeleteUserMessage = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2244,11 +2248,11 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.delete_user_group_message.DeleteUserGroupMessage = {}  # type: ignore[typeddict-item]
-        input["user_group_id"] = user_group_id
+        input_: aws_sdk_elasticache.types.delete_user_group_message.DeleteUserGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["user_group_id"] = user_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2305,22 +2309,22 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_cache_clusters_message.DescribeCacheClustersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_cache_clusters_message.DescribeCacheClustersMessage = {}  # type: ignore[typeddict-item]
         if cache_cluster_id is not None:
-            input["cache_cluster_id"] = cache_cluster_id
+            input_["cache_cluster_id"] = cache_cluster_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if show_cache_node_info is not None:
-            input["show_cache_node_info"] = show_cache_node_info
+            input_["show_cache_node_info"] = show_cache_node_info
         if show_cache_clusters_not_in_replication_groups is not None:
-            input["show_cache_clusters_not_in_replication_groups"] = (
+            input_["show_cache_clusters_not_in_replication_groups"] = (
                 show_cache_clusters_not_in_replication_groups
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2410,22 +2414,22 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_cache_engine_versions_message.DescribeCacheEngineVersionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_cache_engine_versions_message.DescribeCacheEngineVersionsMessage = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if cache_parameter_group_family is not None:
-            input["cache_parameter_group_family"] = cache_parameter_group_family
+            input_["cache_parameter_group_family"] = cache_parameter_group_family
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if default_only is not None:
-            input["default_only"] = default_only
+            input_["default_only"] = default_only
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2505,16 +2509,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_cache_parameter_groups_message.DescribeCacheParameterGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_cache_parameter_groups_message.DescribeCacheParameterGroupsMessage = {}  # type: ignore[typeddict-item]
         if cache_parameter_group_name is not None:
-            input["cache_parameter_group_name"] = cache_parameter_group_name
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2590,17 +2594,17 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_cache_parameters_message.DescribeCacheParametersMessage = {}  # type: ignore[typeddict-item]
-        input["cache_parameter_group_name"] = cache_parameter_group_name
+        input_: aws_sdk_elasticache.types.describe_cache_parameters_message.DescribeCacheParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_parameter_group_name"] = cache_parameter_group_name
         if source is not None:
-            input["source"] = source
+            input_["source"] = source
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2674,16 +2678,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_cache_security_groups_message.DescribeCacheSecurityGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_cache_security_groups_message.DescribeCacheSecurityGroupsMessage = {}  # type: ignore[typeddict-item]
         if cache_security_group_name is not None:
-            input["cache_security_group_name"] = cache_security_group_name
+            input_["cache_security_group_name"] = cache_security_group_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2757,16 +2761,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_cache_subnet_groups_message.DescribeCacheSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_cache_subnet_groups_message.DescribeCacheSubnetGroupsMessage = {}  # type: ignore[typeddict-item]
         if cache_subnet_group_name is not None:
-            input["cache_subnet_group_name"] = cache_subnet_group_name
+            input_["cache_subnet_group_name"] = cache_subnet_group_name
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2838,15 +2842,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
-        input["cache_parameter_group_family"] = cache_parameter_group_family
+        input_: aws_sdk_elasticache.types.describe_engine_default_parameters_message.DescribeEngineDefaultParametersMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_parameter_group_family"] = cache_parameter_group_family
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2932,24 +2936,24 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_events_message.DescribeEventsMessage = {}  # type: ignore[typeddict-item]
         if source_identifier is not None:
-            input["source_identifier"] = source_identifier
+            input_["source_identifier"] = source_identifier
         if source_type is not None:
-            input["source_type"] = source_type
+            input_["source_type"] = source_type
         if start_time is not None:
-            input["start_time"] = start_time
+            input_["start_time"] = start_time
         if end_time is not None:
-            input["end_time"] = end_time
+            input_["end_time"] = end_time
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3031,18 +3035,18 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_global_replication_groups_message.DescribeGlobalReplicationGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_global_replication_groups_message.DescribeGlobalReplicationGroupsMessage = {}  # type: ignore[typeddict-item]
         if global_replication_group_id is not None:
-            input["global_replication_group_id"] = global_replication_group_id
+            input_["global_replication_group_id"] = global_replication_group_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if show_member_info is not None:
-            input["show_member_info"] = show_member_info
+            input_["show_member_info"] = show_member_info
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3120,16 +3124,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_replication_groups_message.DescribeReplicationGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_replication_groups_message.DescribeReplicationGroupsMessage = {}  # type: ignore[typeddict-item]
         if replication_group_id is not None:
-            input["replication_group_id"] = replication_group_id
+            input_["replication_group_id"] = replication_group_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3217,26 +3221,28 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_reserved_cache_nodes_message.DescribeReservedCacheNodesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_reserved_cache_nodes_message.DescribeReservedCacheNodesMessage = {}  # type: ignore[typeddict-item]
         if reserved_cache_node_id is not None:
-            input["reserved_cache_node_id"] = reserved_cache_node_id
+            input_["reserved_cache_node_id"] = reserved_cache_node_id
         if reserved_cache_nodes_offering_id is not None:
-            input["reserved_cache_nodes_offering_id"] = reserved_cache_nodes_offering_id
+            input_["reserved_cache_nodes_offering_id"] = (
+                reserved_cache_nodes_offering_id
+            )
         if cache_node_type is not None:
-            input["cache_node_type"] = cache_node_type
+            input_["cache_node_type"] = cache_node_type
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if product_description is not None:
-            input["product_description"] = product_description
+            input_["product_description"] = product_description
         if offering_type is not None:
-            input["offering_type"] = offering_type
+            input_["offering_type"] = offering_type
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3338,24 +3344,26 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_reserved_cache_nodes_offerings_message.DescribeReservedCacheNodesOfferingsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_reserved_cache_nodes_offerings_message.DescribeReservedCacheNodesOfferingsMessage = {}  # type: ignore[typeddict-item]
         if reserved_cache_nodes_offering_id is not None:
-            input["reserved_cache_nodes_offering_id"] = reserved_cache_nodes_offering_id
+            input_["reserved_cache_nodes_offering_id"] = (
+                reserved_cache_nodes_offering_id
+            )
         if cache_node_type is not None:
-            input["cache_node_type"] = cache_node_type
+            input_["cache_node_type"] = cache_node_type
         if duration is not None:
-            input["duration"] = duration
+            input_["duration"] = duration
         if product_description is not None:
-            input["product_description"] = product_description
+            input_["product_description"] = product_description
         if offering_type is not None:
-            input["offering_type"] = offering_type
+            input_["offering_type"] = offering_type
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3431,16 +3439,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_serverless_caches_request.DescribeServerlessCachesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_serverless_caches_request.DescribeServerlessCachesRequest = {}  # type: ignore[typeddict-item]
         if serverless_cache_name is not None:
-            input["serverless_cache_name"] = serverless_cache_name
+            input_["serverless_cache_name"] = serverless_cache_name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3514,20 +3522,20 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_serverless_cache_snapshots_request.DescribeServerlessCacheSnapshotsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_serverless_cache_snapshots_request.DescribeServerlessCacheSnapshotsRequest = {}  # type: ignore[typeddict-item]
         if serverless_cache_name is not None:
-            input["serverless_cache_name"] = serverless_cache_name
+            input_["serverless_cache_name"] = serverless_cache_name
         if serverless_cache_snapshot_name is not None:
-            input["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
+            input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
         if snapshot_type is not None:
-            input["snapshot_type"] = snapshot_type
+            input_["snapshot_type"] = snapshot_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3603,18 +3611,18 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_service_updates_message.DescribeServiceUpdatesMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_service_updates_message.DescribeServiceUpdatesMessage = {}  # type: ignore[typeddict-item]
         if service_update_name is not None:
-            input["service_update_name"] = service_update_name
+            input_["service_update_name"] = service_update_name
         if service_update_status is not None:
-            input["service_update_status"] = service_update_status
+            input_["service_update_status"] = service_update_status
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3700,24 +3708,24 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_snapshots_message.DescribeSnapshotsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_snapshots_message.DescribeSnapshotsMessage = {}  # type: ignore[typeddict-item]
         if replication_group_id is not None:
-            input["replication_group_id"] = replication_group_id
+            input_["replication_group_id"] = replication_group_id
         if cache_cluster_id is not None:
-            input["cache_cluster_id"] = cache_cluster_id
+            input_["cache_cluster_id"] = cache_cluster_id
         if snapshot_name is not None:
-            input["snapshot_name"] = snapshot_name
+            input_["snapshot_name"] = snapshot_name
         if snapshot_source is not None:
-            input["snapshot_source"] = snapshot_source
+            input_["snapshot_source"] = snapshot_source
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if show_node_group_config is not None:
-            input["show_node_group_config"] = show_node_group_config
+            input_["show_node_group_config"] = show_node_group_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3819,30 +3827,30 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_update_actions_message.DescribeUpdateActionsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_update_actions_message.DescribeUpdateActionsMessage = {}  # type: ignore[typeddict-item]
         if service_update_name is not None:
-            input["service_update_name"] = service_update_name
+            input_["service_update_name"] = service_update_name
         if replication_group_ids is not None:
-            input["replication_group_ids"] = replication_group_ids
+            input_["replication_group_ids"] = replication_group_ids
         if cache_cluster_ids is not None:
-            input["cache_cluster_ids"] = cache_cluster_ids
+            input_["cache_cluster_ids"] = cache_cluster_ids
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if service_update_status is not None:
-            input["service_update_status"] = service_update_status
+            input_["service_update_status"] = service_update_status
         if service_update_time_range is not None:
-            input["service_update_time_range"] = service_update_time_range
+            input_["service_update_time_range"] = service_update_time_range
         if update_action_status is not None:
-            input["update_action_status"] = update_action_status
+            input_["update_action_status"] = update_action_status
         if show_node_level_update_status is not None:
-            input["show_node_level_update_status"] = show_node_level_update_status
+            input_["show_node_level_update_status"] = show_node_level_update_status
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3934,16 +3942,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_user_groups_message.DescribeUserGroupsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_user_groups_message.DescribeUserGroupsMessage = {}  # type: ignore[typeddict-item]
         if user_group_id is not None:
-            input["user_group_id"] = user_group_id
+            input_["user_group_id"] = user_group_id
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4011,20 +4019,20 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.describe_users_message.DescribeUsersMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.describe_users_message.DescribeUsersMessage = {}  # type: ignore[typeddict-item]
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if user_id is not None:
-            input["user_id"] = user_id
+            input_["user_id"] = user_id
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_records is not None:
-            input["max_records"] = max_records
+            input_["max_records"] = max_records
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4090,13 +4098,13 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.disassociate_global_replication_group_message.DisassociateGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["global_replication_group_id"] = global_replication_group_id
-        input["replication_group_id"] = replication_group_id
-        input["replication_group_region"] = replication_group_region
+        input_: aws_sdk_elasticache.types.disassociate_global_replication_group_message.DisassociateGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["global_replication_group_id"] = global_replication_group_id
+        input_["replication_group_id"] = replication_group_id
+        input_["replication_group_region"] = replication_group_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4131,12 +4139,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.export_serverless_cache_snapshot_request.ExportServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
-        input["s3_bucket_name"] = s3_bucket_name
+        input_: aws_sdk_elasticache.types.export_serverless_cache_snapshot_request.ExportServerlessCacheSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["serverless_cache_snapshot_name"] = serverless_cache_snapshot_name
+        input_["s3_bucket_name"] = s3_bucket_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4173,13 +4181,13 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.failover_global_replication_group_message.FailoverGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["global_replication_group_id"] = global_replication_group_id
-        input["primary_region"] = primary_region
-        input["primary_replication_group_id"] = primary_replication_group_id
+        input_: aws_sdk_elasticache.types.failover_global_replication_group_message.FailoverGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["global_replication_group_id"] = global_replication_group_id
+        input_["primary_region"] = primary_region
+        input_["primary_replication_group_id"] = primary_replication_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4220,15 +4228,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.increase_node_groups_in_global_replication_group_message.IncreaseNodeGroupsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["global_replication_group_id"] = global_replication_group_id
-        input["node_group_count"] = node_group_count
+        input_: aws_sdk_elasticache.types.increase_node_groups_in_global_replication_group_message.IncreaseNodeGroupsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["global_replication_group_id"] = global_replication_group_id
+        input_["node_group_count"] = node_group_count
         if regional_configurations is not None:
-            input["regional_configurations"] = regional_configurations
-        input["apply_immediately"] = apply_immediately
+            input_["regional_configurations"] = regional_configurations
+        input_["apply_immediately"] = apply_immediately
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4271,16 +4279,16 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.increase_replica_count_message.IncreaseReplicaCountMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
+        input_: aws_sdk_elasticache.types.increase_replica_count_message.IncreaseReplicaCountMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
         if new_replica_count is not None:
-            input["new_replica_count"] = new_replica_count
+            input_["new_replica_count"] = new_replica_count
         if replica_configuration is not None:
-            input["replica_configuration"] = replica_configuration
-        input["apply_immediately"] = apply_immediately
+            input_["replica_configuration"] = replica_configuration
+        input_["apply_immediately"] = apply_immediately
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4327,14 +4335,14 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.list_allowed_node_type_modifications_message.ListAllowedNodeTypeModificationsMessage = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_elasticache.types.list_allowed_node_type_modifications_message.ListAllowedNodeTypeModificationsMessage = {}  # type: ignore[typeddict-item]
         if cache_cluster_id is not None:
-            input["cache_cluster_id"] = cache_cluster_id
+            input_["cache_cluster_id"] = cache_cluster_id
         if replication_group_id is not None:
-            input["replication_group_id"] = replication_group_id
+            input_["replication_group_id"] = replication_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4373,11 +4381,11 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
+        input_: aws_sdk_elasticache.types.list_tags_for_resource_message.ListTagsForResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4492,55 +4500,55 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_cache_cluster_message.ModifyCacheClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cache_cluster_id"] = cache_cluster_id
+        input_: aws_sdk_elasticache.types.modify_cache_cluster_message.ModifyCacheClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_cluster_id"] = cache_cluster_id
         if num_cache_nodes is not None:
-            input["num_cache_nodes"] = num_cache_nodes
+            input_["num_cache_nodes"] = num_cache_nodes
         if cache_node_ids_to_remove is not None:
-            input["cache_node_ids_to_remove"] = cache_node_ids_to_remove
+            input_["cache_node_ids_to_remove"] = cache_node_ids_to_remove
         if az_mode is not None:
-            input["az_mode"] = az_mode
+            input_["az_mode"] = az_mode
         if new_availability_zones is not None:
-            input["new_availability_zones"] = new_availability_zones
+            input_["new_availability_zones"] = new_availability_zones
         if cache_security_group_names is not None:
-            input["cache_security_group_names"] = cache_security_group_names
+            input_["cache_security_group_names"] = cache_security_group_names
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if notification_topic_arn is not None:
-            input["notification_topic_arn"] = notification_topic_arn
+            input_["notification_topic_arn"] = notification_topic_arn
         if cache_parameter_group_name is not None:
-            input["cache_parameter_group_name"] = cache_parameter_group_name
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
         if notification_topic_status is not None:
-            input["notification_topic_status"] = notification_topic_status
+            input_["notification_topic_status"] = notification_topic_status
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if snapshot_retention_limit is not None:
-            input["snapshot_retention_limit"] = snapshot_retention_limit
+            input_["snapshot_retention_limit"] = snapshot_retention_limit
         if snapshot_window is not None:
-            input["snapshot_window"] = snapshot_window
+            input_["snapshot_window"] = snapshot_window
         if cache_node_type is not None:
-            input["cache_node_type"] = cache_node_type
+            input_["cache_node_type"] = cache_node_type
         if auth_token is not None:
-            input["auth_token"] = auth_token
+            input_["auth_token"] = auth_token
         if auth_token_update_strategy is not None:
-            input["auth_token_update_strategy"] = auth_token_update_strategy
+            input_["auth_token_update_strategy"] = auth_token_update_strategy
         if log_delivery_configurations is not None:
-            input["log_delivery_configurations"] = log_delivery_configurations
+            input_["log_delivery_configurations"] = log_delivery_configurations
         if ip_discovery is not None:
-            input["ip_discovery"] = ip_discovery
+            input_["ip_discovery"] = ip_discovery
         if scale_config is not None:
-            input["scale_config"] = scale_config
+            input_["scale_config"] = scale_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4581,12 +4589,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_cache_parameter_group_message.ModifyCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_parameter_group_name"] = cache_parameter_group_name
-        input["parameter_name_values"] = parameter_name_values
+        input_: aws_sdk_elasticache.types.modify_cache_parameter_group_message.ModifyCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_parameter_group_name"] = cache_parameter_group_name
+        input_["parameter_name_values"] = parameter_name_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4633,15 +4641,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_cache_subnet_group_message.ModifyCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_subnet_group_name"] = cache_subnet_group_name
+        input_: aws_sdk_elasticache.types.modify_cache_subnet_group_message.ModifyCacheSubnetGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_subnet_group_name"] = cache_subnet_group_name
         if cache_subnet_group_description is not None:
-            input["cache_subnet_group_description"] = cache_subnet_group_description
+            input_["cache_subnet_group_description"] = cache_subnet_group_description
         if subnet_ids is not None:
-            input["subnet_ids"] = subnet_ids
+            input_["subnet_ids"] = subnet_ids
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4694,26 +4702,26 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_global_replication_group_message.ModifyGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["global_replication_group_id"] = global_replication_group_id
-        input["apply_immediately"] = apply_immediately
+        input_: aws_sdk_elasticache.types.modify_global_replication_group_message.ModifyGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["global_replication_group_id"] = global_replication_group_id
+        input_["apply_immediately"] = apply_immediately
         if cache_node_type is not None:
-            input["cache_node_type"] = cache_node_type
+            input_["cache_node_type"] = cache_node_type
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if cache_parameter_group_name is not None:
-            input["cache_parameter_group_name"] = cache_parameter_group_name
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
         if global_replication_group_description is not None:
-            input["global_replication_group_description"] = (
+            input_["global_replication_group_description"] = (
                 global_replication_group_description
             )
         if automatic_failover_enabled is not None:
-            input["automatic_failover_enabled"] = automatic_failover_enabled
+            input_["automatic_failover_enabled"] = automatic_failover_enabled
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4853,71 +4861,71 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_replication_group_message.ModifyReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
+        input_: aws_sdk_elasticache.types.modify_replication_group_message.ModifyReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
         if replication_group_description is not None:
-            input["replication_group_description"] = replication_group_description
+            input_["replication_group_description"] = replication_group_description
         if primary_cluster_id is not None:
-            input["primary_cluster_id"] = primary_cluster_id
+            input_["primary_cluster_id"] = primary_cluster_id
         if snapshotting_cluster_id is not None:
-            input["snapshotting_cluster_id"] = snapshotting_cluster_id
+            input_["snapshotting_cluster_id"] = snapshotting_cluster_id
         if automatic_failover_enabled is not None:
-            input["automatic_failover_enabled"] = automatic_failover_enabled
+            input_["automatic_failover_enabled"] = automatic_failover_enabled
         if multi_az_enabled is not None:
-            input["multi_az_enabled"] = multi_az_enabled
+            input_["multi_az_enabled"] = multi_az_enabled
         if node_group_id is not None:
-            input["node_group_id"] = node_group_id
+            input_["node_group_id"] = node_group_id
         if cache_security_group_names is not None:
-            input["cache_security_group_names"] = cache_security_group_names
+            input_["cache_security_group_names"] = cache_security_group_names
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if preferred_maintenance_window is not None:
-            input["preferred_maintenance_window"] = preferred_maintenance_window
+            input_["preferred_maintenance_window"] = preferred_maintenance_window
         if notification_topic_arn is not None:
-            input["notification_topic_arn"] = notification_topic_arn
+            input_["notification_topic_arn"] = notification_topic_arn
         if cache_parameter_group_name is not None:
-            input["cache_parameter_group_name"] = cache_parameter_group_name
+            input_["cache_parameter_group_name"] = cache_parameter_group_name
         if notification_topic_status is not None:
-            input["notification_topic_status"] = notification_topic_status
+            input_["notification_topic_status"] = notification_topic_status
         if apply_immediately is not None:
-            input["apply_immediately"] = apply_immediately
+            input_["apply_immediately"] = apply_immediately
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if engine_version is not None:
-            input["engine_version"] = engine_version
+            input_["engine_version"] = engine_version
         if auto_minor_version_upgrade is not None:
-            input["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            input_["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         if snapshot_retention_limit is not None:
-            input["snapshot_retention_limit"] = snapshot_retention_limit
+            input_["snapshot_retention_limit"] = snapshot_retention_limit
         if snapshot_window is not None:
-            input["snapshot_window"] = snapshot_window
+            input_["snapshot_window"] = snapshot_window
         if cache_node_type is not None:
-            input["cache_node_type"] = cache_node_type
+            input_["cache_node_type"] = cache_node_type
         if auth_token is not None:
-            input["auth_token"] = auth_token
+            input_["auth_token"] = auth_token
         if auth_token_update_strategy is not None:
-            input["auth_token_update_strategy"] = auth_token_update_strategy
+            input_["auth_token_update_strategy"] = auth_token_update_strategy
         if user_group_ids_to_add is not None:
-            input["user_group_ids_to_add"] = user_group_ids_to_add
+            input_["user_group_ids_to_add"] = user_group_ids_to_add
         if user_group_ids_to_remove is not None:
-            input["user_group_ids_to_remove"] = user_group_ids_to_remove
+            input_["user_group_ids_to_remove"] = user_group_ids_to_remove
         if remove_user_groups is not None:
-            input["remove_user_groups"] = remove_user_groups
+            input_["remove_user_groups"] = remove_user_groups
         if log_delivery_configurations is not None:
-            input["log_delivery_configurations"] = log_delivery_configurations
+            input_["log_delivery_configurations"] = log_delivery_configurations
         if ip_discovery is not None:
-            input["ip_discovery"] = ip_discovery
+            input_["ip_discovery"] = ip_discovery
         if transit_encryption_enabled is not None:
-            input["transit_encryption_enabled"] = transit_encryption_enabled
+            input_["transit_encryption_enabled"] = transit_encryption_enabled
         if transit_encryption_mode is not None:
-            input["transit_encryption_mode"] = transit_encryption_mode
+            input_["transit_encryption_mode"] = transit_encryption_mode
         if cluster_mode is not None:
-            input["cluster_mode"] = cluster_mode
+            input_["cluster_mode"] = cluster_mode
         if durability is not None:
-            input["durability"] = durability
+            input_["durability"] = durability
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4966,19 +4974,19 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_replication_group_shard_configuration_message.ModifyReplicationGroupShardConfigurationMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
-        input["node_group_count"] = node_group_count
-        input["apply_immediately"] = apply_immediately
+        input_: aws_sdk_elasticache.types.modify_replication_group_shard_configuration_message.ModifyReplicationGroupShardConfigurationMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
+        input_["node_group_count"] = node_group_count
+        input_["apply_immediately"] = apply_immediately
         if resharding_configuration is not None:
-            input["resharding_configuration"] = resharding_configuration
+            input_["resharding_configuration"] = resharding_configuration
         if node_groups_to_remove is not None:
-            input["node_groups_to_remove"] = node_groups_to_remove
+            input_["node_groups_to_remove"] = node_groups_to_remove
         if node_groups_to_retain is not None:
-            input["node_groups_to_retain"] = node_groups_to_retain
+            input_["node_groups_to_retain"] = node_groups_to_retain
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5039,29 +5047,29 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_serverless_cache_request.ModifyServerlessCacheRequest = {}  # type: ignore[typeddict-item]
-        input["serverless_cache_name"] = serverless_cache_name
+        input_: aws_sdk_elasticache.types.modify_serverless_cache_request.ModifyServerlessCacheRequest = {}  # type: ignore[typeddict-item]
+        input_["serverless_cache_name"] = serverless_cache_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if cache_usage_limits is not None:
-            input["cache_usage_limits"] = cache_usage_limits
+            input_["cache_usage_limits"] = cache_usage_limits
         if remove_user_group is not None:
-            input["remove_user_group"] = remove_user_group
+            input_["remove_user_group"] = remove_user_group
         if user_group_id is not None:
-            input["user_group_id"] = user_group_id
+            input_["user_group_id"] = user_group_id
         if security_group_ids is not None:
-            input["security_group_ids"] = security_group_ids
+            input_["security_group_ids"] = security_group_ids
         if snapshot_retention_limit is not None:
-            input["snapshot_retention_limit"] = snapshot_retention_limit
+            input_["snapshot_retention_limit"] = snapshot_retention_limit
         if daily_snapshot_time is not None:
-            input["daily_snapshot_time"] = daily_snapshot_time
+            input_["daily_snapshot_time"] = daily_snapshot_time
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
         if major_engine_version is not None:
-            input["major_engine_version"] = major_engine_version
+            input_["major_engine_version"] = major_engine_version
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5114,23 +5122,23 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_user_message.ModifyUserMessage = {}  # type: ignore[typeddict-item]
-        input["user_id"] = user_id
+        input_: aws_sdk_elasticache.types.modify_user_message.ModifyUserMessage = {}  # type: ignore[typeddict-item]
+        input_["user_id"] = user_id
         if access_string is not None:
-            input["access_string"] = access_string
+            input_["access_string"] = access_string
         if append_access_string is not None:
-            input["append_access_string"] = append_access_string
+            input_["append_access_string"] = append_access_string
         if passwords is not None:
-            input["passwords"] = passwords
+            input_["passwords"] = passwords
         if no_password_required is not None:
-            input["no_password_required"] = no_password_required
+            input_["no_password_required"] = no_password_required
         if authentication_mode is not None:
-            input["authentication_mode"] = authentication_mode
+            input_["authentication_mode"] = authentication_mode
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5171,17 +5179,17 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.modify_user_group_message.ModifyUserGroupMessage = {}  # type: ignore[typeddict-item]
-        input["user_group_id"] = user_group_id
+        input_: aws_sdk_elasticache.types.modify_user_group_message.ModifyUserGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["user_group_id"] = user_group_id
         if user_ids_to_add is not None:
-            input["user_ids_to_add"] = user_ids_to_add
+            input_["user_ids_to_add"] = user_ids_to_add
         if user_ids_to_remove is not None:
-            input["user_ids_to_remove"] = user_ids_to_remove
+            input_["user_ids_to_remove"] = user_ids_to_remove
         if engine is not None:
-            input["engine"] = engine
+            input_["engine"] = engine
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5230,17 +5238,17 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.purchase_reserved_cache_nodes_offering_message.PurchaseReservedCacheNodesOfferingMessage = {}  # type: ignore[typeddict-item]
-        input["reserved_cache_nodes_offering_id"] = reserved_cache_nodes_offering_id
+        input_: aws_sdk_elasticache.types.purchase_reserved_cache_nodes_offering_message.PurchaseReservedCacheNodesOfferingMessage = {}  # type: ignore[typeddict-item]
+        input_["reserved_cache_nodes_offering_id"] = reserved_cache_nodes_offering_id
         if reserved_cache_node_id is not None:
-            input["reserved_cache_node_id"] = reserved_cache_node_id
+            input_["reserved_cache_node_id"] = reserved_cache_node_id
         if cache_node_count is not None:
-            input["cache_node_count"] = cache_node_count
+            input_["cache_node_count"] = cache_node_count
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5275,12 +5283,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.rebalance_slots_in_global_replication_group_message.RebalanceSlotsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
-        input["global_replication_group_id"] = global_replication_group_id
-        input["apply_immediately"] = apply_immediately
+        input_: aws_sdk_elasticache.types.rebalance_slots_in_global_replication_group_message.RebalanceSlotsInGlobalReplicationGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["global_replication_group_id"] = global_replication_group_id
+        input_["apply_immediately"] = apply_immediately
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5323,12 +5331,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.reboot_cache_cluster_message.RebootCacheClusterMessage = {}  # type: ignore[typeddict-item]
-        input["cache_cluster_id"] = cache_cluster_id
-        input["cache_node_ids_to_reboot"] = cache_node_ids_to_reboot
+        input_: aws_sdk_elasticache.types.reboot_cache_cluster_message.RebootCacheClusterMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_cluster_id"] = cache_cluster_id
+        input_["cache_node_ids_to_reboot"] = cache_node_ids_to_reboot
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5369,12 +5377,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
-        input["resource_name"] = resource_name
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_elasticache.types.remove_tags_from_resource_message.RemoveTagsFromResourceMessage = {}  # type: ignore[typeddict-item]
+        input_["resource_name"] = resource_name
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5421,15 +5429,15 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.reset_cache_parameter_group_message.ResetCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
-        input["cache_parameter_group_name"] = cache_parameter_group_name
+        input_: aws_sdk_elasticache.types.reset_cache_parameter_group_message.ResetCacheParameterGroupMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_parameter_group_name"] = cache_parameter_group_name
         if reset_all_parameters is not None:
-            input["reset_all_parameters"] = reset_all_parameters
+            input_["reset_all_parameters"] = reset_all_parameters
         if parameter_name_values is not None:
-            input["parameter_name_values"] = parameter_name_values
+            input_["parameter_name_values"] = parameter_name_values
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5472,13 +5480,13 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.revoke_cache_security_group_ingress_message.RevokeCacheSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
-        input["cache_security_group_name"] = cache_security_group_name
-        input["ec2_security_group_name"] = ec2_security_group_name
-        input["ec2_security_group_owner_id"] = ec2_security_group_owner_id
+        input_: aws_sdk_elasticache.types.revoke_cache_security_group_ingress_message.RevokeCacheSecurityGroupIngressMessage = {}  # type: ignore[typeddict-item]
+        input_["cache_security_group_name"] = cache_security_group_name
+        input_["ec2_security_group_name"] = ec2_security_group_name
+        input_["ec2_security_group_owner_id"] = ec2_security_group_owner_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5513,12 +5521,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.start_migration_message.StartMigrationMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
-        input["customer_node_endpoint_list"] = customer_node_endpoint_list
+        input_: aws_sdk_elasticache.types.start_migration_message.StartMigrationMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
+        input_["customer_node_endpoint_list"] = customer_node_endpoint_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5553,12 +5561,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.test_failover_message.TestFailoverMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
-        input["node_group_id"] = node_group_id
+        input_: aws_sdk_elasticache.types.test_failover_message.TestFailoverMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
+        input_["node_group_id"] = node_group_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5593,12 +5601,12 @@ class ElastiCacheClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_elasticache.types.test_migration_message.TestMigrationMessage = {}  # type: ignore[typeddict-item]
-        input["replication_group_id"] = replication_group_id
-        input["customer_node_endpoint_list"] = customer_node_endpoint_list
+        input_: aws_sdk_elasticache.types.test_migration_message.TestMigrationMessage = {}  # type: ignore[typeddict-item]
+        input_["replication_group_id"] = replication_group_id
+        input_["customer_node_endpoint_list"] = customer_node_endpoint_list
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

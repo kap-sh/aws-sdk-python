@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_config_service._auth._signers
+import aws_sdk_config_service._auth._sigv4
 from aws_sdk_config_service._auth._identity import Credentials
 from aws_sdk_config_service._auth._providers import (
     CredentialsProvider,
@@ -466,12 +468,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.associate_resource_types_request.AssociateResourceTypesRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_recorder_arn"] = configuration_recorder_arn
-        input["resource_types"] = resource_types
+        input_: aws_sdk_config_service.types.associate_resource_types_request.AssociateResourceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_recorder_arn"] = configuration_recorder_arn
+        input_["resource_types"] = resource_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -506,12 +508,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.batch_get_aggregate_resource_config_request.BatchGetAggregateResourceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
-        input["resource_identifiers"] = resource_identifiers
+        input_: aws_sdk_config_service.types.batch_get_aggregate_resource_config_request.BatchGetAggregateResourceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
+        input_["resource_identifiers"] = resource_identifiers
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,11 +546,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.batch_get_resource_config_request.BatchGetResourceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_keys"] = resource_keys
+        input_: aws_sdk_config_service.types.batch_get_resource_config_request.BatchGetResourceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_keys"] = resource_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -581,12 +583,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_aggregation_authorization_request.DeleteAggregationAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["authorized_account_id"] = authorized_account_id
-        input["authorized_aws_region"] = authorized_aws_region
+        input_: aws_sdk_config_service.types.delete_aggregation_authorization_request.DeleteAggregationAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["authorized_account_id"] = authorized_account_id
+        input_["authorized_aws_region"] = authorized_aws_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -617,11 +619,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_config_rule_request.DeleteConfigRuleRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
+        input_: aws_sdk_config_service.types.delete_config_rule_request.DeleteConfigRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -652,11 +654,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_configuration_aggregator_request.DeleteConfigurationAggregatorRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.delete_configuration_aggregator_request.DeleteConfigurationAggregatorRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -687,11 +689,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_configuration_recorder_request.DeleteConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_recorder_name"] = configuration_recorder_name
+        input_: aws_sdk_config_service.types.delete_configuration_recorder_request.DeleteConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_recorder_name"] = configuration_recorder_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -722,11 +724,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_conformance_pack_request.DeleteConformancePackRequest = {}  # type: ignore[typeddict-item]
-        input["conformance_pack_name"] = conformance_pack_name
+        input_: aws_sdk_config_service.types.delete_conformance_pack_request.DeleteConformancePackRequest = {}  # type: ignore[typeddict-item]
+        input_["conformance_pack_name"] = conformance_pack_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -757,11 +759,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_delivery_channel_request.DeleteDeliveryChannelRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_channel_name"] = delivery_channel_name
+        input_: aws_sdk_config_service.types.delete_delivery_channel_request.DeleteDeliveryChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_channel_name"] = delivery_channel_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,11 +796,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_evaluation_results_request.DeleteEvaluationResultsRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
+        input_: aws_sdk_config_service.types.delete_evaluation_results_request.DeleteEvaluationResultsRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -829,11 +831,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_organization_config_rule_request.DeleteOrganizationConfigRuleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_config_rule_name"] = organization_config_rule_name
+        input_: aws_sdk_config_service.types.delete_organization_config_rule_request.DeleteOrganizationConfigRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_config_rule_name"] = organization_config_rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -864,11 +866,13 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_organization_conformance_pack_request.DeleteOrganizationConformancePackRequest = {}  # type: ignore[typeddict-item]
-        input["organization_conformance_pack_name"] = organization_conformance_pack_name
+        input_: aws_sdk_config_service.types.delete_organization_conformance_pack_request.DeleteOrganizationConformancePackRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_conformance_pack_name"] = (
+            organization_conformance_pack_name
+        )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -901,12 +905,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_pending_aggregation_request_request.DeletePendingAggregationRequestRequest = {}  # type: ignore[typeddict-item]
-        input["requester_account_id"] = requester_account_id
-        input["requester_aws_region"] = requester_aws_region
+        input_: aws_sdk_config_service.types.delete_pending_aggregation_request_request.DeletePendingAggregationRequestRequest = {}  # type: ignore[typeddict-item]
+        input_["requester_account_id"] = requester_account_id
+        input_["requester_aws_region"] = requester_aws_region
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -941,13 +945,13 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_remediation_configuration_request.DeleteRemediationConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
+        input_: aws_sdk_config_service.types.delete_remediation_configuration_request.DeleteRemediationConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -982,12 +986,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_remediation_exceptions_request.DeleteRemediationExceptionsRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
-        input["resource_keys"] = resource_keys
+        input_: aws_sdk_config_service.types.delete_remediation_exceptions_request.DeleteRemediationExceptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
+        input_["resource_keys"] = resource_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1020,12 +1024,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_resource_config_request.DeleteResourceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_id"] = resource_id
+        input_: aws_sdk_config_service.types.delete_resource_config_request.DeleteResourceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_id"] = resource_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1056,11 +1060,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_retention_configuration_request.DeleteRetentionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["retention_configuration_name"] = retention_configuration_name
+        input_: aws_sdk_config_service.types.delete_retention_configuration_request.DeleteRetentionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["retention_configuration_name"] = retention_configuration_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1093,11 +1097,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_service_linked_configuration_recorder_request.DeleteServiceLinkedConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
-        input["service_principal"] = service_principal
+        input_: aws_sdk_config_service.types.delete_service_linked_configuration_recorder_request.DeleteServiceLinkedConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
+        input_["service_principal"] = service_principal
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1130,11 +1134,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.delete_stored_query_request.DeleteStoredQueryRequest = {}  # type: ignore[typeddict-item]
-        input["query_name"] = query_name
+        input_: aws_sdk_config_service.types.delete_stored_query_request.DeleteStoredQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["query_name"] = query_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1167,11 +1171,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.deliver_config_snapshot_request.DeliverConfigSnapshotRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_channel_name"] = delivery_channel_name
+        input_: aws_sdk_config_service.types.deliver_config_snapshot_request.DeliverConfigSnapshotRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_channel_name"] = delivery_channel_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1216,17 +1220,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_aggregate_compliance_by_config_rules_request.DescribeAggregateComplianceByConfigRulesRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.describe_aggregate_compliance_by_config_rules_request.DescribeAggregateComplianceByConfigRulesRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1269,17 +1273,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_aggregate_compliance_by_conformance_packs_request.DescribeAggregateComplianceByConformancePacksRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.describe_aggregate_compliance_by_conformance_packs_request.DescribeAggregateComplianceByConformancePacksRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1345,14 +1349,14 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_aggregation_authorizations_request.DescribeAggregationAuthorizationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_aggregation_authorizations_request.DescribeAggregationAuthorizationsRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1414,16 +1418,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_compliance_by_config_rule_request.DescribeComplianceByConfigRuleRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_compliance_by_config_rule_request.DescribeComplianceByConfigRuleRequest = {}  # type: ignore[typeddict-item]
         if config_rule_names is not None:
-            input["config_rule_names"] = config_rule_names
+            input_["config_rule_names"] = config_rule_names
         if compliance_types is not None:
-            input["compliance_types"] = compliance_types
+            input_["compliance_types"] = compliance_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1499,20 +1503,20 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_compliance_by_resource_request.DescribeComplianceByResourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_compliance_by_resource_request.DescribeComplianceByResourceRequest = {}  # type: ignore[typeddict-item]
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if compliance_types is not None:
-            input["compliance_types"] = compliance_types
+            input_["compliance_types"] = compliance_types
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1586,16 +1590,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_config_rule_evaluation_status_request.DescribeConfigRuleEvaluationStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_config_rule_evaluation_status_request.DescribeConfigRuleEvaluationStatusRequest = {}  # type: ignore[typeddict-item]
         if config_rule_names is not None:
-            input["config_rule_names"] = config_rule_names
+            input_["config_rule_names"] = config_rule_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1661,16 +1665,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_config_rules_request.DescribeConfigRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_config_rules_request.DescribeConfigRulesRequest = {}  # type: ignore[typeddict-item]
         if config_rule_names is not None:
-            input["config_rule_names"] = config_rule_names
+            input_["config_rule_names"] = config_rule_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1736,16 +1740,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_configuration_aggregators_request.DescribeConfigurationAggregatorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_configuration_aggregators_request.DescribeConfigurationAggregatorsRequest = {}  # type: ignore[typeddict-item]
         if configuration_aggregator_names is not None:
-            input["configuration_aggregator_names"] = configuration_aggregator_names
+            input_["configuration_aggregator_names"] = configuration_aggregator_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1811,17 +1815,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_configuration_aggregator_sources_status_request.DescribeConfigurationAggregatorSourcesStatusRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.describe_configuration_aggregator_sources_status_request.DescribeConfigurationAggregatorSourcesStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
         if update_status is not None:
-            input["update_status"] = update_status
+            input_["update_status"] = update_status
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1891,16 +1895,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_configuration_recorders_request.DescribeConfigurationRecordersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_configuration_recorders_request.DescribeConfigurationRecordersRequest = {}  # type: ignore[typeddict-item]
         if configuration_recorder_names is not None:
-            input["configuration_recorder_names"] = configuration_recorder_names
+            input_["configuration_recorder_names"] = configuration_recorder_names
         if service_principal is not None:
-            input["service_principal"] = service_principal
+            input_["service_principal"] = service_principal
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1943,16 +1947,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_configuration_recorder_status_request.DescribeConfigurationRecorderStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_configuration_recorder_status_request.DescribeConfigurationRecorderStatusRequest = {}  # type: ignore[typeddict-item]
         if configuration_recorder_names is not None:
-            input["configuration_recorder_names"] = configuration_recorder_names
+            input_["configuration_recorder_names"] = configuration_recorder_names
         if service_principal is not None:
-            input["service_principal"] = service_principal
+            input_["service_principal"] = service_principal
         if arn is not None:
-            input["arn"] = arn
+            input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1997,17 +2001,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_conformance_pack_compliance_request.DescribeConformancePackComplianceRequest = {}  # type: ignore[typeddict-item]
-        input["conformance_pack_name"] = conformance_pack_name
+        input_: aws_sdk_config_service.types.describe_conformance_pack_compliance_request.DescribeConformancePackComplianceRequest = {}  # type: ignore[typeddict-item]
+        input_["conformance_pack_name"] = conformance_pack_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2081,16 +2085,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_conformance_packs_request.DescribeConformancePacksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_conformance_packs_request.DescribeConformancePacksRequest = {}  # type: ignore[typeddict-item]
         if conformance_pack_names is not None:
-            input["conformance_pack_names"] = conformance_pack_names
+            input_["conformance_pack_names"] = conformance_pack_names
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2162,16 +2166,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_conformance_pack_status_request.DescribeConformancePackStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_conformance_pack_status_request.DescribeConformancePackStatusRequest = {}  # type: ignore[typeddict-item]
         if conformance_pack_names is not None:
-            input["conformance_pack_names"] = conformance_pack_names
+            input_["conformance_pack_names"] = conformance_pack_names
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2235,12 +2239,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_delivery_channels_request.DescribeDeliveryChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_delivery_channels_request.DescribeDeliveryChannelsRequest = {}  # type: ignore[typeddict-item]
         if delivery_channel_names is not None:
-            input["delivery_channel_names"] = delivery_channel_names
+            input_["delivery_channel_names"] = delivery_channel_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2275,12 +2279,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_delivery_channel_status_request.DescribeDeliveryChannelStatusRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_delivery_channel_status_request.DescribeDeliveryChannelStatusRequest = {}  # type: ignore[typeddict-item]
         if delivery_channel_names is not None:
-            input["delivery_channel_names"] = delivery_channel_names
+            input_["delivery_channel_names"] = delivery_channel_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2321,16 +2325,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_organization_config_rules_request.DescribeOrganizationConfigRulesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_organization_config_rules_request.DescribeOrganizationConfigRulesRequest = {}  # type: ignore[typeddict-item]
         if organization_config_rule_names is not None:
-            input["organization_config_rule_names"] = organization_config_rule_names
+            input_["organization_config_rule_names"] = organization_config_rule_names
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2398,16 +2402,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_organization_config_rule_statuses_request.DescribeOrganizationConfigRuleStatusesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_organization_config_rule_statuses_request.DescribeOrganizationConfigRuleStatusesRequest = {}  # type: ignore[typeddict-item]
         if organization_config_rule_names is not None:
-            input["organization_config_rule_names"] = organization_config_rule_names
+            input_["organization_config_rule_names"] = organization_config_rule_names
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2475,18 +2479,18 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_organization_conformance_packs_request.DescribeOrganizationConformancePacksRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_organization_conformance_packs_request.DescribeOrganizationConformancePacksRequest = {}  # type: ignore[typeddict-item]
         if organization_conformance_pack_names is not None:
-            input["organization_conformance_pack_names"] = (
+            input_["organization_conformance_pack_names"] = (
                 organization_conformance_pack_names
             )
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2554,18 +2558,18 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_organization_conformance_pack_statuses_request.DescribeOrganizationConformancePackStatusesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_organization_conformance_pack_statuses_request.DescribeOrganizationConformancePackStatusesRequest = {}  # type: ignore[typeddict-item]
         if organization_conformance_pack_names is not None:
-            input["organization_conformance_pack_names"] = (
+            input_["organization_conformance_pack_names"] = (
                 organization_conformance_pack_names
             )
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2631,14 +2635,14 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_pending_aggregation_requests_request.DescribePendingAggregationRequestsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_pending_aggregation_requests_request.DescribePendingAggregationRequestsRequest = {}  # type: ignore[typeddict-item]
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2694,11 +2698,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_remediation_configurations_request.DescribeRemediationConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_names"] = config_rule_names
+        input_: aws_sdk_config_service.types.describe_remediation_configurations_request.DescribeRemediationConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_names"] = config_rule_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2739,17 +2743,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_remediation_exceptions_request.DescribeRemediationExceptionsRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
+        input_: aws_sdk_config_service.types.describe_remediation_exceptions_request.DescribeRemediationExceptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
         if resource_keys is not None:
-            input["resource_keys"] = resource_keys
+            input_["resource_keys"] = resource_keys
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2790,17 +2794,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_remediation_execution_status_request.DescribeRemediationExecutionStatusRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
+        input_: aws_sdk_config_service.types.describe_remediation_execution_status_request.DescribeRemediationExecutionStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
         if resource_keys is not None:
-            input["resource_keys"] = resource_keys
+            input_["resource_keys"] = resource_keys
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2866,14 +2870,14 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.describe_retention_configurations_request.DescribeRetentionConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.describe_retention_configurations_request.DescribeRetentionConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if retention_configuration_names is not None:
-            input["retention_configuration_names"] = retention_configuration_names
+            input_["retention_configuration_names"] = retention_configuration_names
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2933,12 +2937,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.disassociate_resource_types_request.DisassociateResourceTypesRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_recorder_arn"] = configuration_recorder_arn
-        input["resource_types"] = resource_types
+        input_: aws_sdk_config_service.types.disassociate_resource_types_request.DisassociateResourceTypesRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_recorder_arn"] = configuration_recorder_arn
+        input_["resource_types"] = resource_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2987,20 +2991,20 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_aggregate_compliance_details_by_config_rule_request.GetAggregateComplianceDetailsByConfigRuleRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
-        input["config_rule_name"] = config_rule_name
-        input["account_id"] = account_id
-        input["aws_region"] = aws_region
+        input_: aws_sdk_config_service.types.get_aggregate_compliance_details_by_config_rule_request.GetAggregateComplianceDetailsByConfigRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
+        input_["config_rule_name"] = config_rule_name
+        input_["account_id"] = account_id
+        input_["aws_region"] = aws_region
         if compliance_type is not None:
-            input["compliance_type"] = compliance_type
+            input_["compliance_type"] = compliance_type
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3084,19 +3088,19 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_aggregate_config_rule_compliance_summary_request.GetAggregateConfigRuleComplianceSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.get_aggregate_config_rule_compliance_summary_request.GetAggregateConfigRuleComplianceSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if group_by_key is not None:
-            input["group_by_key"] = group_by_key
+            input_["group_by_key"] = group_by_key
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3143,19 +3147,19 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_aggregate_conformance_pack_compliance_summary_request.GetAggregateConformancePackComplianceSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.get_aggregate_conformance_pack_compliance_summary_request.GetAggregateConformancePackComplianceSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if group_by_key is not None:
-            input["group_by_key"] = group_by_key
+            input_["group_by_key"] = group_by_key
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3204,19 +3208,19 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_aggregate_discovered_resource_counts_request.GetAggregateDiscoveredResourceCountsRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.get_aggregate_discovered_resource_counts_request.GetAggregateDiscoveredResourceCountsRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if group_by_key is not None:
-            input["group_by_key"] = group_by_key
+            input_["group_by_key"] = group_by_key
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3251,12 +3255,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_aggregate_resource_config_request.GetAggregateResourceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
-        input["resource_identifier"] = resource_identifier
+        input_: aws_sdk_config_service.types.get_aggregate_resource_config_request.GetAggregateResourceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
+        input_["resource_identifier"] = resource_identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3299,17 +3303,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_compliance_details_by_config_rule_request.GetComplianceDetailsByConfigRuleRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
+        input_: aws_sdk_config_service.types.get_compliance_details_by_config_rule_request.GetComplianceDetailsByConfigRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
         if compliance_types is not None:
-            input["compliance_types"] = compliance_types
+            input_["compliance_types"] = compliance_types
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3387,20 +3391,20 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_compliance_details_by_resource_request.GetComplianceDetailsByResourceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.get_compliance_details_by_resource_request.GetComplianceDetailsByResourceRequest = {}  # type: ignore[typeddict-item]
         if resource_type is not None:
-            input["resource_type"] = resource_type
+            input_["resource_type"] = resource_type
         if resource_id is not None:
-            input["resource_id"] = resource_id
+            input_["resource_id"] = resource_id
         if compliance_types is not None:
-            input["compliance_types"] = compliance_types
+            input_["compliance_types"] = compliance_types
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if resource_evaluation_id is not None:
-            input["resource_evaluation_id"] = resource_evaluation_id
+            input_["resource_evaluation_id"] = resource_evaluation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3498,12 +3502,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_compliance_summary_by_resource_type_request.GetComplianceSummaryByResourceTypeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.get_compliance_summary_by_resource_type_request.GetComplianceSummaryByResourceTypeRequest = {}  # type: ignore[typeddict-item]
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3548,17 +3552,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_conformance_pack_compliance_details_request.GetConformancePackComplianceDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["conformance_pack_name"] = conformance_pack_name
+        input_: aws_sdk_config_service.types.get_conformance_pack_compliance_details_request.GetConformancePackComplianceDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["conformance_pack_name"] = conformance_pack_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3599,15 +3603,15 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_conformance_pack_compliance_summary_request.GetConformancePackComplianceSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["conformance_pack_names"] = conformance_pack_names
+        input_: aws_sdk_config_service.types.get_conformance_pack_compliance_summary_request.GetConformancePackComplianceSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["conformance_pack_names"] = conformance_pack_names
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3671,12 +3675,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_custom_rule_policy_request.GetCustomRulePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.get_custom_rule_policy_request.GetCustomRulePolicyRequest = {}  # type: ignore[typeddict-item]
         if config_rule_name is not None:
-            input["config_rule_name"] = config_rule_name
+            input_["config_rule_name"] = config_rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3717,16 +3721,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_discovered_resource_counts_request.GetDiscoveredResourceCountsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.get_discovered_resource_counts_request.GetDiscoveredResourceCountsRequest = {}  # type: ignore[typeddict-item]
         if resource_types is not None:
-            input["resource_types"] = resource_types
+            input_["resource_types"] = resource_types
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3769,17 +3773,17 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_organization_config_rule_detailed_status_request.GetOrganizationConfigRuleDetailedStatusRequest = {}  # type: ignore[typeddict-item]
-        input["organization_config_rule_name"] = organization_config_rule_name
+        input_: aws_sdk_config_service.types.get_organization_config_rule_detailed_status_request.GetOrganizationConfigRuleDetailedStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_config_rule_name"] = organization_config_rule_name
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3853,17 +3857,19 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_organization_conformance_pack_detailed_status_request.GetOrganizationConformancePackDetailedStatusRequest = {}  # type: ignore[typeddict-item]
-        input["organization_conformance_pack_name"] = organization_conformance_pack_name
+        input_: aws_sdk_config_service.types.get_organization_conformance_pack_detailed_status_request.GetOrganizationConformancePackDetailedStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_conformance_pack_name"] = (
+            organization_conformance_pack_name
+        )
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3927,11 +3933,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_organization_custom_rule_policy_request.GetOrganizationCustomRulePolicyRequest = {}  # type: ignore[typeddict-item]
-        input["organization_config_rule_name"] = organization_config_rule_name
+        input_: aws_sdk_config_service.types.get_organization_custom_rule_policy_request.GetOrganizationCustomRulePolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_config_rule_name"] = organization_config_rule_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3984,22 +3990,22 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_resource_config_history_request.GetResourceConfigHistoryRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["resource_id"] = resource_id
+        input_: aws_sdk_config_service.types.get_resource_config_history_request.GetResourceConfigHistoryRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["resource_id"] = resource_id
         if later_time is not None:
-            input["later_time"] = later_time
+            input_["later_time"] = later_time
         if earlier_time is not None:
-            input["earlier_time"] = earlier_time
+            input_["earlier_time"] = earlier_time
         if chronological_order is not None:
-            input["chronological_order"] = chronological_order
+            input_["chronological_order"] = chronological_order
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4071,11 +4077,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_resource_evaluation_summary_request.GetResourceEvaluationSummaryRequest = {}  # type: ignore[typeddict-item]
-        input["resource_evaluation_id"] = resource_evaluation_id
+        input_: aws_sdk_config_service.types.get_resource_evaluation_summary_request.GetResourceEvaluationSummaryRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_evaluation_id"] = resource_evaluation_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4110,11 +4116,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.get_stored_query_request.GetStoredQueryRequest = {}  # type: ignore[typeddict-item]
-        input["query_name"] = query_name
+        input_: aws_sdk_config_service.types.get_stored_query_request.GetStoredQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["query_name"] = query_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4159,18 +4165,18 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.list_aggregate_discovered_resources_request.ListAggregateDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
-        input["resource_type"] = resource_type
+        input_: aws_sdk_config_service.types.list_aggregate_discovered_resources_request.ListAggregateDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
+        input_["resource_type"] = resource_type
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4244,16 +4250,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.list_configuration_recorders_request.ListConfigurationRecordersRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.list_configuration_recorders_request.ListConfigurationRecordersRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4331,20 +4337,20 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.list_conformance_pack_compliance_scores_request.ListConformancePackComplianceScoresRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.list_conformance_pack_compliance_scores_request.ListConformancePackComplianceScoresRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4395,21 +4401,21 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.list_discovered_resources_request.ListDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
+        input_: aws_sdk_config_service.types.list_discovered_resources_request.ListDiscoveredResourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
         if resource_ids is not None:
-            input["resource_ids"] = resource_ids
+            input_["resource_ids"] = resource_ids
         if resource_name is not None:
-            input["resource_name"] = resource_name
+            input_["resource_name"] = resource_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if include_deleted_resources is not None:
-            input["include_deleted_resources"] = include_deleted_resources
+            input_["include_deleted_resources"] = include_deleted_resources
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4489,16 +4495,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.list_resource_evaluations_request.ListResourceEvaluationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.list_resource_evaluations_request.ListResourceEvaluationsRequest = {}  # type: ignore[typeddict-item]
         if filters is not None:
-            input["filters"] = filters
+            input_["filters"] = filters
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4562,14 +4568,14 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.list_stored_queries_request.ListStoredQueriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.list_stored_queries_request.ListStoredQueriesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4608,15 +4614,15 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_config_service.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4678,14 +4684,14 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_aggregation_authorization_request.PutAggregationAuthorizationRequest = {}  # type: ignore[typeddict-item]
-        input["authorized_account_id"] = authorized_account_id
-        input["authorized_aws_region"] = authorized_aws_region
+        input_: aws_sdk_config_service.types.put_aggregation_authorization_request.PutAggregationAuthorizationRequest = {}  # type: ignore[typeddict-item]
+        input_["authorized_account_id"] = authorized_account_id
+        input_["authorized_aws_region"] = authorized_aws_region
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4718,13 +4724,13 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_config_rule_request.PutConfigRuleRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule"] = config_rule
+        input_: aws_sdk_config_service.types.put_config_rule_request.PutConfigRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule"] = config_rule
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4771,19 +4777,19 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_configuration_aggregator_request.PutConfigurationAggregatorRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.put_configuration_aggregator_request.PutConfigurationAggregatorRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
         if account_aggregation_sources is not None:
-            input["account_aggregation_sources"] = account_aggregation_sources
+            input_["account_aggregation_sources"] = account_aggregation_sources
         if organization_aggregation_source is not None:
-            input["organization_aggregation_source"] = organization_aggregation_source
+            input_["organization_aggregation_source"] = organization_aggregation_source
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if aggregator_filters is not None:
-            input["aggregator_filters"] = aggregator_filters
+            input_["aggregator_filters"] = aggregator_filters
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4816,13 +4822,13 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_configuration_recorder_request.PutConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_recorder"] = configuration_recorder
+        input_: aws_sdk_config_service.types.put_configuration_recorder_request.PutConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_recorder"] = configuration_recorder
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4881,27 +4887,27 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_conformance_pack_request.PutConformancePackRequest = {}  # type: ignore[typeddict-item]
-        input["conformance_pack_name"] = conformance_pack_name
+        input_: aws_sdk_config_service.types.put_conformance_pack_request.PutConformancePackRequest = {}  # type: ignore[typeddict-item]
+        input_["conformance_pack_name"] = conformance_pack_name
         if template_s3_uri is not None:
-            input["template_s3_uri"] = template_s3_uri
+            input_["template_s3_uri"] = template_s3_uri
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if delivery_s3_bucket is not None:
-            input["delivery_s3_bucket"] = delivery_s3_bucket
+            input_["delivery_s3_bucket"] = delivery_s3_bucket
         if delivery_s3_key_prefix is not None:
-            input["delivery_s3_key_prefix"] = delivery_s3_key_prefix
+            input_["delivery_s3_key_prefix"] = delivery_s3_key_prefix
         if conformance_pack_input_parameters is not None:
-            input["conformance_pack_input_parameters"] = (
+            input_["conformance_pack_input_parameters"] = (
                 conformance_pack_input_parameters
             )
         if template_ssm_document_details is not None:
-            input["template_ssm_document_details"] = template_ssm_document_details
+            input_["template_ssm_document_details"] = template_ssm_document_details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4932,11 +4938,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_delivery_channel_request.PutDeliveryChannelRequest = {}  # type: ignore[typeddict-item]
-        input["delivery_channel"] = delivery_channel
+        input_: aws_sdk_config_service.types.put_delivery_channel_request.PutDeliveryChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["delivery_channel"] = delivery_channel
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -4975,15 +4981,15 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_evaluations_request.PutEvaluationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.put_evaluations_request.PutEvaluationsRequest = {}  # type: ignore[typeddict-item]
         if evaluations is not None:
-            input["evaluations"] = evaluations
-        input["result_token"] = result_token
+            input_["evaluations"] = evaluations
+        input_["result_token"] = result_token
         if test_mode is not None:
-            input["test_mode"] = test_mode
+            input_["test_mode"] = test_mode
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5018,12 +5024,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_external_evaluation_request.PutExternalEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
-        input["external_evaluation"] = external_evaluation
+        input_: aws_sdk_config_service.types.put_external_evaluation_request.PutExternalEvaluationRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
+        input_["external_evaluation"] = external_evaluation
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5072,25 +5078,25 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_organization_config_rule_request.PutOrganizationConfigRuleRequest = {}  # type: ignore[typeddict-item]
-        input["organization_config_rule_name"] = organization_config_rule_name
+        input_: aws_sdk_config_service.types.put_organization_config_rule_request.PutOrganizationConfigRuleRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_config_rule_name"] = organization_config_rule_name
         if organization_managed_rule_metadata is not None:
-            input["organization_managed_rule_metadata"] = (
+            input_["organization_managed_rule_metadata"] = (
                 organization_managed_rule_metadata
             )
         if organization_custom_rule_metadata is not None:
-            input["organization_custom_rule_metadata"] = (
+            input_["organization_custom_rule_metadata"] = (
                 organization_custom_rule_metadata
             )
         if excluded_accounts is not None:
-            input["excluded_accounts"] = excluded_accounts
+            input_["excluded_accounts"] = excluded_accounts
         if organization_custom_policy_rule_metadata is not None:
-            input["organization_custom_policy_rule_metadata"] = (
+            input_["organization_custom_policy_rule_metadata"] = (
                 organization_custom_policy_rule_metadata
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5147,25 +5153,27 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_organization_conformance_pack_request.PutOrganizationConformancePackRequest = {}  # type: ignore[typeddict-item]
-        input["organization_conformance_pack_name"] = organization_conformance_pack_name
+        input_: aws_sdk_config_service.types.put_organization_conformance_pack_request.PutOrganizationConformancePackRequest = {}  # type: ignore[typeddict-item]
+        input_["organization_conformance_pack_name"] = (
+            organization_conformance_pack_name
+        )
         if template_s3_uri is not None:
-            input["template_s3_uri"] = template_s3_uri
+            input_["template_s3_uri"] = template_s3_uri
         if template_body is not None:
-            input["template_body"] = template_body
+            input_["template_body"] = template_body
         if delivery_s3_bucket is not None:
-            input["delivery_s3_bucket"] = delivery_s3_bucket
+            input_["delivery_s3_bucket"] = delivery_s3_bucket
         if delivery_s3_key_prefix is not None:
-            input["delivery_s3_key_prefix"] = delivery_s3_key_prefix
+            input_["delivery_s3_key_prefix"] = delivery_s3_key_prefix
         if conformance_pack_input_parameters is not None:
-            input["conformance_pack_input_parameters"] = (
+            input_["conformance_pack_input_parameters"] = (
                 conformance_pack_input_parameters
             )
         if excluded_accounts is not None:
-            input["excluded_accounts"] = excluded_accounts
+            input_["excluded_accounts"] = excluded_accounts
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5198,11 +5206,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_remediation_configurations_request.PutRemediationConfigurationsRequest = {}  # type: ignore[typeddict-item]
-        input["remediation_configurations"] = remediation_configurations
+        input_: aws_sdk_config_service.types.put_remediation_configurations_request.PutRemediationConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_["remediation_configurations"] = remediation_configurations
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5243,16 +5251,16 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_remediation_exceptions_request.PutRemediationExceptionsRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
-        input["resource_keys"] = resource_keys
+        input_: aws_sdk_config_service.types.put_remediation_exceptions_request.PutRemediationExceptionsRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
+        input_["resource_keys"] = resource_keys
         if message is not None:
-            input["message"] = message
+            input_["message"] = message
         if expiration_time is not None:
-            input["expiration_time"] = expiration_time
+            input_["expiration_time"] = expiration_time
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5295,18 +5303,18 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_resource_config_request.PutResourceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["resource_type"] = resource_type
-        input["schema_version_id"] = schema_version_id
-        input["resource_id"] = resource_id
+        input_: aws_sdk_config_service.types.put_resource_config_request.PutResourceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_type"] = resource_type
+        input_["schema_version_id"] = schema_version_id
+        input_["resource_id"] = resource_id
         if resource_name is not None:
-            input["resource_name"] = resource_name
-        input["configuration"] = configuration
+            input_["resource_name"] = resource_name
+        input_["configuration"] = configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5339,11 +5347,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_retention_configuration_request.PutRetentionConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["retention_period_in_days"] = retention_period_in_days
+        input_: aws_sdk_config_service.types.put_retention_configuration_request.PutRetentionConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["retention_period_in_days"] = retention_period_in_days
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5378,13 +5386,13 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_service_linked_configuration_recorder_request.PutServiceLinkedConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
-        input["service_principal"] = service_principal
+        input_: aws_sdk_config_service.types.put_service_linked_configuration_recorder_request.PutServiceLinkedConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
+        input_["service_principal"] = service_principal
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5421,13 +5429,13 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.put_stored_query_request.PutStoredQueryRequest = {}  # type: ignore[typeddict-item]
-        input["stored_query"] = stored_query
+        input_: aws_sdk_config_service.types.put_stored_query_request.PutStoredQueryRequest = {}  # type: ignore[typeddict-item]
+        input_["stored_query"] = stored_query
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5470,18 +5478,18 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.select_aggregate_resource_config_request.SelectAggregateResourceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["expression"] = expression
-        input["configuration_aggregator_name"] = configuration_aggregator_name
+        input_: aws_sdk_config_service.types.select_aggregate_resource_config_request.SelectAggregateResourceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["expression"] = expression
+        input_["configuration_aggregator_name"] = configuration_aggregator_name
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5549,15 +5557,15 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.select_resource_config_request.SelectResourceConfigRequest = {}  # type: ignore[typeddict-item]
-        input["expression"] = expression
+        input_: aws_sdk_config_service.types.select_resource_config_request.SelectResourceConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["expression"] = expression
         if limit is not None:
-            input["limit"] = limit
+            input_["limit"] = limit
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5617,12 +5625,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.start_config_rules_evaluation_request.StartConfigRulesEvaluationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_config_service.types.start_config_rules_evaluation_request.StartConfigRulesEvaluationRequest = {}  # type: ignore[typeddict-item]
         if config_rule_names is not None:
-            input["config_rule_names"] = config_rule_names
+            input_["config_rule_names"] = config_rule_names
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5653,11 +5661,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.start_configuration_recorder_request.StartConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_recorder_name"] = configuration_recorder_name
+        input_: aws_sdk_config_service.types.start_configuration_recorder_request.StartConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_recorder_name"] = configuration_recorder_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5692,12 +5700,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.start_remediation_execution_request.StartRemediationExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["config_rule_name"] = config_rule_name
-        input["resource_keys"] = resource_keys
+        input_: aws_sdk_config_service.types.start_remediation_execution_request.StartRemediationExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["config_rule_name"] = config_rule_name
+        input_["resource_keys"] = resource_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5744,18 +5752,18 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.start_resource_evaluation_request.StartResourceEvaluationRequest = {}  # type: ignore[typeddict-item]
-        input["resource_details"] = resource_details
+        input_: aws_sdk_config_service.types.start_resource_evaluation_request.StartResourceEvaluationRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_details"] = resource_details
         if evaluation_context is not None:
-            input["evaluation_context"] = evaluation_context
-        input["evaluation_mode"] = evaluation_mode
+            input_["evaluation_context"] = evaluation_context
+        input_["evaluation_mode"] = evaluation_mode
         if evaluation_timeout is not None:
-            input["evaluation_timeout"] = evaluation_timeout
+            input_["evaluation_timeout"] = evaluation_timeout
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5786,11 +5794,11 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.stop_configuration_recorder_request.StopConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
-        input["configuration_recorder_name"] = configuration_recorder_name
+        input_: aws_sdk_config_service.types.stop_configuration_recorder_request.StopConfigurationRecorderRequest = {}  # type: ignore[typeddict-item]
+        input_["configuration_recorder_name"] = configuration_recorder_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5823,12 +5831,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_config_service.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -5861,12 +5869,12 @@ class ConfigServiceClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_config_service.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_config_service.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

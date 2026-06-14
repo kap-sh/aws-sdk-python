@@ -91,21 +91,21 @@ class StateTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_state_template_request.CreateStateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_state_template_request.CreateStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["signal_catalog_arn"] = signal_catalog_arn
-        input["state_template_properties"] = state_template_properties
+            input_["description"] = description
+        input_["signal_catalog_arn"] = signal_catalog_arn
+        input_["state_template_properties"] = state_template_properties
         if data_extra_dimensions is not None:
-            input["data_extra_dimensions"] = data_extra_dimensions
+            input_["data_extra_dimensions"] = data_extra_dimensions
         if metadata_extra_dimensions is not None:
-            input["metadata_extra_dimensions"] = metadata_extra_dimensions
+            input_["metadata_extra_dimensions"] = metadata_extra_dimensions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -138,11 +138,11 @@ class StateTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_state_template_request.GetStateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iotfleetwise.types.get_state_template_request.GetStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -195,23 +195,25 @@ class StateTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_state_template_request.UpdateStateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iotfleetwise.types.update_state_template_request.UpdateStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if state_template_properties_to_add is not None:
-            input["state_template_properties_to_add"] = state_template_properties_to_add
+            input_["state_template_properties_to_add"] = (
+                state_template_properties_to_add
+            )
         if state_template_properties_to_remove is not None:
-            input["state_template_properties_to_remove"] = (
+            input_["state_template_properties_to_remove"] = (
                 state_template_properties_to_remove
             )
         if data_extra_dimensions is not None:
-            input["data_extra_dimensions"] = data_extra_dimensions
+            input_["data_extra_dimensions"] = data_extra_dimensions
         if metadata_extra_dimensions is not None:
-            input["metadata_extra_dimensions"] = metadata_extra_dimensions
+            input_["metadata_extra_dimensions"] = metadata_extra_dimensions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,11 +246,11 @@ class StateTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_state_template_request.DeleteStateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iotfleetwise.types.delete_state_template_request.DeleteStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -289,16 +291,16 @@ class StateTemplateResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_state_templates_request.ListStateTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_state_templates_request.ListStateTemplatesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -355,21 +357,21 @@ class AsyncStateTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.create_state_template_request.CreateStateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_iotfleetwise.types.create_state_template_request.CreateStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["signal_catalog_arn"] = signal_catalog_arn
-        input["state_template_properties"] = state_template_properties
+            input_["description"] = description
+        input_["signal_catalog_arn"] = signal_catalog_arn
+        input_["state_template_properties"] = state_template_properties
         if data_extra_dimensions is not None:
-            input["data_extra_dimensions"] = data_extra_dimensions
+            input_["data_extra_dimensions"] = data_extra_dimensions
         if metadata_extra_dimensions is not None:
-            input["metadata_extra_dimensions"] = metadata_extra_dimensions
+            input_["metadata_extra_dimensions"] = metadata_extra_dimensions
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,11 +405,11 @@ class AsyncStateTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.get_state_template_request.GetStateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iotfleetwise.types.get_state_template_request.GetStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -461,23 +463,25 @@ class AsyncStateTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.update_state_template_request.UpdateStateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iotfleetwise.types.update_state_template_request.UpdateStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if state_template_properties_to_add is not None:
-            input["state_template_properties_to_add"] = state_template_properties_to_add
+            input_["state_template_properties_to_add"] = (
+                state_template_properties_to_add
+            )
         if state_template_properties_to_remove is not None:
-            input["state_template_properties_to_remove"] = (
+            input_["state_template_properties_to_remove"] = (
                 state_template_properties_to_remove
             )
         if data_extra_dimensions is not None:
-            input["data_extra_dimensions"] = data_extra_dimensions
+            input_["data_extra_dimensions"] = data_extra_dimensions
         if metadata_extra_dimensions is not None:
-            input["metadata_extra_dimensions"] = metadata_extra_dimensions
+            input_["metadata_extra_dimensions"] = metadata_extra_dimensions
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -511,11 +515,11 @@ class AsyncStateTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.delete_state_template_request.DeleteStateTemplateRequest = {}  # type: ignore[typeddict-item]
-        input["identifier"] = identifier
+        input_: aws_sdk_iotfleetwise.types.delete_state_template_request.DeleteStateTemplateRequest = {}  # type: ignore[typeddict-item]
+        input_["identifier"] = identifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -557,16 +561,16 @@ class AsyncStateTemplateResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_iotfleetwise.types.list_state_templates_request.ListStateTemplatesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_iotfleetwise.types.list_state_templates_request.ListStateTemplatesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if list_response_scope is not None:
-            input["list_response_scope"] = list_response_scope
+            input_["list_response_scope"] = list_response_scope
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -203,11 +203,11 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_s3.types.get_object_request.GetObjectRequest,
+    input_: aws_sdk_s3.types.get_object_request.GetObjectRequest,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
-            Bucket=input.get("bucket"),
+            Bucket=input_.get("bucket"),
             Region=options.region,
             UseFIPS=options.use_fips,
             UseDualStack=options.use_dual_stack,
@@ -216,7 +216,7 @@ def build_request(
             Accelerate=options.accelerate,
             UseGlobalEndpoint=options.use_global_endpoint,
             UseObjectLambdaEndpoint=options.use_object_lambda_endpoint,
-            Key=input.get("key"),
+            Key=input_.get("key"),
             Prefix=options.prefix,
             CopySource=options.copy_source,
             DisableAccessPoints=options.disable_access_points,
@@ -227,56 +227,56 @@ def build_request(
         )
     )  # noqa: F841
     url = endpoint.url.rstrip("/") + "/{Bucket}/{Key+}?x-id=GetObject"
-    url = apply_label(url, "{Bucket}", str(input["bucket"]))
-    url = url.replace("{Key+}", quote(str(input["key"]), safe="/"))
+    url = apply_label(url, "{Bucket}", str(input_["bucket"]))
+    url = url.replace("{Key+}", quote(str(input_["key"]), safe="/"))
     params: dict[str, str] = {}
-    if "response_cache_control" in input:
-        params["response-cache-control"] = str(input["response_cache_control"])
-    if "response_content_disposition" in input:
+    if "response_cache_control" in input_:
+        params["response-cache-control"] = str(input_["response_cache_control"])
+    if "response_content_disposition" in input_:
         params["response-content-disposition"] = str(
-            input["response_content_disposition"]
+            input_["response_content_disposition"]
         )
-    if "response_content_encoding" in input:
-        params["response-content-encoding"] = str(input["response_content_encoding"])
-    if "response_content_language" in input:
-        params["response-content-language"] = str(input["response_content_language"])
-    if "response_content_type" in input:
-        params["response-content-type"] = str(input["response_content_type"])
-    if "response_expires" in input:
-        params["response-expires"] = str(input["response_expires"])
-    if "version_id" in input:
-        params["versionId"] = str(input["version_id"])
-    if "part_number" in input:
-        params["partNumber"] = str(input["part_number"])
+    if "response_content_encoding" in input_:
+        params["response-content-encoding"] = str(input_["response_content_encoding"])
+    if "response_content_language" in input_:
+        params["response-content-language"] = str(input_["response_content_language"])
+    if "response_content_type" in input_:
+        params["response-content-type"] = str(input_["response_content_type"])
+    if "response_expires" in input_:
+        params["response-expires"] = str(input_["response_expires"])
+    if "version_id" in input_:
+        params["versionId"] = str(input_["version_id"])
+    if "part_number" in input_:
+        params["partNumber"] = str(input_["part_number"])
     headers: dict[str, str] = {k: ", ".join(v) for k, v in endpoint.headers.items()}
-    if "if_match" in input:
-        headers["If-Match"] = str(input["if_match"])
-    if "if_modified_since" in input:
-        headers["If-Modified-Since"] = str(input["if_modified_since"])
-    if "if_none_match" in input:
-        headers["If-None-Match"] = str(input["if_none_match"])
-    if "if_unmodified_since" in input:
-        headers["If-Unmodified-Since"] = str(input["if_unmodified_since"])
-    if "range" in input:
-        headers["Range"] = str(input["range"])
-    if "sse_customer_algorithm" in input:
+    if "if_match" in input_:
+        headers["If-Match"] = str(input_["if_match"])
+    if "if_modified_since" in input_:
+        headers["If-Modified-Since"] = str(input_["if_modified_since"])
+    if "if_none_match" in input_:
+        headers["If-None-Match"] = str(input_["if_none_match"])
+    if "if_unmodified_since" in input_:
+        headers["If-Unmodified-Since"] = str(input_["if_unmodified_since"])
+    if "range" in input_:
+        headers["Range"] = str(input_["range"])
+    if "sse_customer_algorithm" in input_:
         headers["x-amz-server-side-encryption-customer-algorithm"] = str(
-            input["sse_customer_algorithm"]
+            input_["sse_customer_algorithm"]
         )
-    if "sse_customer_key" in input:
+    if "sse_customer_key" in input_:
         headers["x-amz-server-side-encryption-customer-key"] = str(
-            input["sse_customer_key"]
+            input_["sse_customer_key"]
         )
-    if "sse_customer_key_md5" in input:
+    if "sse_customer_key_md5" in input_:
         headers["x-amz-server-side-encryption-customer-key-MD5"] = str(
-            input["sse_customer_key_md5"]
+            input_["sse_customer_key_md5"]
         )
-    if "request_payer" in input:
-        headers["x-amz-request-payer"] = str(input["request_payer"])
-    if "expected_bucket_owner" in input:
-        headers["x-amz-expected-bucket-owner"] = str(input["expected_bucket_owner"])
-    if "checksum_mode" in input:
-        headers["x-amz-checksum-mode"] = str(input["checksum_mode"])
+    if "request_payer" in input_:
+        headers["x-amz-request-payer"] = str(input_["request_payer"])
+    if "expected_bucket_owner" in input_:
+        headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
+    if "checksum_mode" in input_:
+        headers["x-amz-checksum-mode"] = str(input_["checksum_mode"])
     body: bytes | None = b""
     signer = get_signer(options, auth_schemes=endpoint.properties.get("authSchemes"))
     normalized_url = zapros.URL(url)
@@ -288,9 +288,9 @@ def build_request(
 
 def get_object(
     options: OperationOptions,
-    input: aws_sdk_s3.types.get_object_request.GetObjectRequest,
+    input_: aws_sdk_s3.types.get_object_request.GetObjectRequest,
 ) -> tuple[aws_sdk_s3.types.get_object_output.GetObjectOutput, zapros.Response]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -304,9 +304,9 @@ def get_object(
 
 async def async_get_object(
     options: AsyncOperationOptions,
-    input: aws_sdk_s3.types.get_object_request.GetObjectRequest,
+    input_: aws_sdk_s3.types.get_object_request.GetObjectRequest,
 ) -> tuple[aws_sdk_s3.types.get_object_output.GetObjectOutput, zapros.Response]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

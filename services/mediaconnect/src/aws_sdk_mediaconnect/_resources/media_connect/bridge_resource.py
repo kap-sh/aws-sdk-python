@@ -112,21 +112,21 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.create_bridge_request.CreateBridgeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.create_bridge_request.CreateBridgeRequest = {}  # type: ignore[typeddict-item]
         if egress_gateway_bridge is not None:
-            input["egress_gateway_bridge"] = egress_gateway_bridge
+            input_["egress_gateway_bridge"] = egress_gateway_bridge
         if ingress_gateway_bridge is not None:
-            input["ingress_gateway_bridge"] = ingress_gateway_bridge
-        input["name"] = name
+            input_["ingress_gateway_bridge"] = ingress_gateway_bridge
+        input_["name"] = name
         if outputs is not None:
-            input["outputs"] = outputs
-        input["placement_arn"] = placement_arn
+            input_["outputs"] = outputs
+        input_["placement_arn"] = placement_arn
         if source_failover_config is not None:
-            input["source_failover_config"] = source_failover_config
-        input["sources"] = sources
+            input_["source_failover_config"] = source_failover_config
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,11 +159,11 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_bridge_request.DescribeBridgeRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.describe_bridge_request.DescribeBridgeRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,17 +208,17 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_bridge_request.UpdateBridgeRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.update_bridge_request.UpdateBridgeRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
         if egress_gateway_bridge is not None:
-            input["egress_gateway_bridge"] = egress_gateway_bridge
+            input_["egress_gateway_bridge"] = egress_gateway_bridge
         if ingress_gateway_bridge is not None:
-            input["ingress_gateway_bridge"] = ingress_gateway_bridge
+            input_["ingress_gateway_bridge"] = ingress_gateway_bridge
         if source_failover_config is not None:
-            input["source_failover_config"] = source_failover_config
+            input_["source_failover_config"] = source_failover_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -251,11 +251,11 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.delete_bridge_request.DeleteBridgeRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.delete_bridge_request.DeleteBridgeRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -294,16 +294,16 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_bridges_request.ListBridgesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_bridges_request.ListBridgesRequest = {}  # type: ignore[typeddict-item]
         if filter_arn is not None:
-            input["filter_arn"] = filter_arn
+            input_["filter_arn"] = filter_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -338,12 +338,12 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_bridge_outputs_request.AddBridgeOutputsRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["outputs"] = outputs
+        input_: aws_sdk_mediaconnect.types.add_bridge_outputs_request.AddBridgeOutputsRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["outputs"] = outputs
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -378,12 +378,12 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_bridge_sources_request.AddBridgeSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["sources"] = sources
+        input_: aws_sdk_mediaconnect.types.add_bridge_sources_request.AddBridgeSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["sources"] = sources
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -418,12 +418,12 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_bridge_output_request.RemoveBridgeOutputRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["output_name"] = output_name
+        input_: aws_sdk_mediaconnect.types.remove_bridge_output_request.RemoveBridgeOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["output_name"] = output_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -458,12 +458,12 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_bridge_source_request.RemoveBridgeSourceRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["source_name"] = source_name
+        input_: aws_sdk_mediaconnect.types.remove_bridge_source_request.RemoveBridgeSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["source_name"] = source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -502,14 +502,14 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_bridge_output_request.UpdateBridgeOutputRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.update_bridge_output_request.UpdateBridgeOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
         if network_output is not None:
-            input["network_output"] = network_output
-        input["output_name"] = output_name
+            input_["network_output"] = network_output
+        input_["output_name"] = output_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -552,16 +552,16 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_bridge_source_request.UpdateBridgeSourceRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.update_bridge_source_request.UpdateBridgeSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
         if flow_source is not None:
-            input["flow_source"] = flow_source
+            input_["flow_source"] = flow_source
         if network_source is not None:
-            input["network_source"] = network_source
-        input["source_name"] = source_name
+            input_["network_source"] = network_source
+        input_["source_name"] = source_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -596,12 +596,12 @@ class BridgeResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_bridge_state_request.UpdateBridgeStateRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["desired_state"] = desired_state
+        input_: aws_sdk_mediaconnect.types.update_bridge_state_request.UpdateBridgeStateRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["desired_state"] = desired_state
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -660,21 +660,21 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.create_bridge_request.CreateBridgeRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.create_bridge_request.CreateBridgeRequest = {}  # type: ignore[typeddict-item]
         if egress_gateway_bridge is not None:
-            input["egress_gateway_bridge"] = egress_gateway_bridge
+            input_["egress_gateway_bridge"] = egress_gateway_bridge
         if ingress_gateway_bridge is not None:
-            input["ingress_gateway_bridge"] = ingress_gateway_bridge
-        input["name"] = name
+            input_["ingress_gateway_bridge"] = ingress_gateway_bridge
+        input_["name"] = name
         if outputs is not None:
-            input["outputs"] = outputs
-        input["placement_arn"] = placement_arn
+            input_["outputs"] = outputs
+        input_["placement_arn"] = placement_arn
         if source_failover_config is not None:
-            input["source_failover_config"] = source_failover_config
-        input["sources"] = sources
+            input_["source_failover_config"] = source_failover_config
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -708,11 +708,11 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.describe_bridge_request.DescribeBridgeRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.describe_bridge_request.DescribeBridgeRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -758,17 +758,17 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_bridge_request.UpdateBridgeRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.update_bridge_request.UpdateBridgeRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
         if egress_gateway_bridge is not None:
-            input["egress_gateway_bridge"] = egress_gateway_bridge
+            input_["egress_gateway_bridge"] = egress_gateway_bridge
         if ingress_gateway_bridge is not None:
-            input["ingress_gateway_bridge"] = ingress_gateway_bridge
+            input_["ingress_gateway_bridge"] = ingress_gateway_bridge
         if source_failover_config is not None:
-            input["source_failover_config"] = source_failover_config
+            input_["source_failover_config"] = source_failover_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -802,11 +802,11 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.delete_bridge_request.DeleteBridgeRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.delete_bridge_request.DeleteBridgeRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -846,16 +846,16 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.list_bridges_request.ListBridgesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediaconnect.types.list_bridges_request.ListBridgesRequest = {}  # type: ignore[typeddict-item]
         if filter_arn is not None:
-            input["filter_arn"] = filter_arn
+            input_["filter_arn"] = filter_arn
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -891,12 +891,12 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_bridge_outputs_request.AddBridgeOutputsRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["outputs"] = outputs
+        input_: aws_sdk_mediaconnect.types.add_bridge_outputs_request.AddBridgeOutputsRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["outputs"] = outputs
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -932,12 +932,12 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.add_bridge_sources_request.AddBridgeSourcesRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["sources"] = sources
+        input_: aws_sdk_mediaconnect.types.add_bridge_sources_request.AddBridgeSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["sources"] = sources
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -973,12 +973,12 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_bridge_output_request.RemoveBridgeOutputRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["output_name"] = output_name
+        input_: aws_sdk_mediaconnect.types.remove_bridge_output_request.RemoveBridgeOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["output_name"] = output_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1014,12 +1014,12 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.remove_bridge_source_request.RemoveBridgeSourceRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["source_name"] = source_name
+        input_: aws_sdk_mediaconnect.types.remove_bridge_source_request.RemoveBridgeSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["source_name"] = source_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1059,14 +1059,14 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_bridge_output_request.UpdateBridgeOutputRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.update_bridge_output_request.UpdateBridgeOutputRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
         if network_output is not None:
-            input["network_output"] = network_output
-        input["output_name"] = output_name
+            input_["network_output"] = network_output
+        input_["output_name"] = output_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1110,16 +1110,16 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_bridge_source_request.UpdateBridgeSourceRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
+        input_: aws_sdk_mediaconnect.types.update_bridge_source_request.UpdateBridgeSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
         if flow_source is not None:
-            input["flow_source"] = flow_source
+            input_["flow_source"] = flow_source
         if network_source is not None:
-            input["network_source"] = network_source
-        input["source_name"] = source_name
+            input_["network_source"] = network_source
+        input_["source_name"] = source_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1155,12 +1155,12 @@ class AsyncBridgeResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediaconnect.types.update_bridge_state_request.UpdateBridgeStateRequest = {}  # type: ignore[typeddict-item]
-        input["bridge_arn"] = bridge_arn
-        input["desired_state"] = desired_state
+        input_: aws_sdk_mediaconnect.types.update_bridge_state_request.UpdateBridgeStateRequest = {}  # type: ignore[typeddict-item]
+        input_["bridge_arn"] = bridge_arn
+        input_["desired_state"] = desired_state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

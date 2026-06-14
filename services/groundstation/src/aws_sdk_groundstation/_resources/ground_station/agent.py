@@ -69,14 +69,14 @@ class Agent:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.register_agent_request.RegisterAgentRequest = {}  # type: ignore[typeddict-item]
-        input["discovery_data"] = discovery_data
-        input["agent_details"] = agent_details
+        input_: aws_sdk_groundstation.types.register_agent_request.RegisterAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["discovery_data"] = discovery_data
+        input_["agent_details"] = agent_details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -109,11 +109,11 @@ class Agent:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_agent_configuration_request.GetAgentConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_groundstation.types.get_agent_configuration_request.GetAgentConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -152,14 +152,14 @@ class Agent:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_agent_status_request.UpdateAgentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["task_id"] = task_id
-        input["aggregate_status"] = aggregate_status
-        input["component_statuses"] = component_statuses
+        input_: aws_sdk_groundstation.types.update_agent_status_request.UpdateAgentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["task_id"] = task_id
+        input_["aggregate_status"] = aggregate_status
+        input_["component_statuses"] = component_statuses
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -202,14 +202,14 @@ class AsyncAgent:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.register_agent_request.RegisterAgentRequest = {}  # type: ignore[typeddict-item]
-        input["discovery_data"] = discovery_data
-        input["agent_details"] = agent_details
+        input_: aws_sdk_groundstation.types.register_agent_request.RegisterAgentRequest = {}  # type: ignore[typeddict-item]
+        input_["discovery_data"] = discovery_data
+        input_["agent_details"] = agent_details
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -243,11 +243,11 @@ class AsyncAgent:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.get_agent_configuration_request.GetAgentConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
+        input_: aws_sdk_groundstation.types.get_agent_configuration_request.GetAgentConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -287,14 +287,14 @@ class AsyncAgent:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_groundstation.types.update_agent_status_request.UpdateAgentStatusRequest = {}  # type: ignore[typeddict-item]
-        input["agent_id"] = agent_id
-        input["task_id"] = task_id
-        input["aggregate_status"] = aggregate_status
-        input["component_statuses"] = component_statuses
+        input_: aws_sdk_groundstation.types.update_agent_status_request.UpdateAgentStatusRequest = {}  # type: ignore[typeddict-item]
+        input_["agent_id"] = agent_id
+        input_["task_id"] = task_id
+        input_["aggregate_status"] = aggregate_status
+        input_["component_statuses"] = component_statuses
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

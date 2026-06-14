@@ -62,13 +62,13 @@ class TaskInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.get_task_instance_request.GetTaskInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["task_instance_id"] = task_instance_id
-        input["run_id"] = run_id
+        input_: aws_sdk_mwaa_serverless.types.get_task_instance_request.GetTaskInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["task_instance_id"] = task_instance_id
+        input_["run_id"] = run_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -107,16 +107,16 @@ class TaskInstanceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.list_task_instances_request.ListTaskInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["run_id"] = run_id
+        input_: aws_sdk_mwaa_serverless.types.list_task_instances_request.ListTaskInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["run_id"] = run_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -159,13 +159,13 @@ class AsyncTaskInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.get_task_instance_request.GetTaskInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["task_instance_id"] = task_instance_id
-        input["run_id"] = run_id
+        input_: aws_sdk_mwaa_serverless.types.get_task_instance_request.GetTaskInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["task_instance_id"] = task_instance_id
+        input_["run_id"] = run_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -205,16 +205,16 @@ class AsyncTaskInstanceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mwaa_serverless.types.list_task_instances_request.ListTaskInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["workflow_arn"] = workflow_arn
-        input["run_id"] = run_id
+        input_: aws_sdk_mwaa_serverless.types.list_task_instances_request.ListTaskInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["workflow_arn"] = workflow_arn
+        input_["run_id"] = run_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

@@ -78,15 +78,15 @@ class LiveSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_live_source_request.CreateLiveSourceRequest = {}  # type: ignore[typeddict-item]
-        input["http_package_configurations"] = http_package_configurations
-        input["live_source_name"] = live_source_name
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.create_live_source_request.CreateLiveSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["http_package_configurations"] = http_package_configurations
+        input_["live_source_name"] = live_source_name
+        input_["source_location_name"] = source_location_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -121,12 +121,12 @@ class LiveSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.describe_live_source_request.DescribeLiveSourceRequest = {}  # type: ignore[typeddict-item]
-        input["live_source_name"] = live_source_name
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.describe_live_source_request.DescribeLiveSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["live_source_name"] = live_source_name
+        input_["source_location_name"] = source_location_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -165,13 +165,13 @@ class LiveSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.update_live_source_request.UpdateLiveSourceRequest = {}  # type: ignore[typeddict-item]
-        input["http_package_configurations"] = http_package_configurations
-        input["live_source_name"] = live_source_name
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.update_live_source_request.UpdateLiveSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["http_package_configurations"] = http_package_configurations
+        input_["live_source_name"] = live_source_name
+        input_["source_location_name"] = source_location_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -208,12 +208,12 @@ class LiveSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_live_source_request.DeleteLiveSourceRequest = {}  # type: ignore[typeddict-item]
-        input["live_source_name"] = live_source_name
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.delete_live_source_request.DeleteLiveSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["live_source_name"] = live_source_name
+        input_["source_location_name"] = source_location_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -252,15 +252,15 @@ class LiveSourceResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_live_sources_request.ListLiveSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_live_sources_request.ListLiveSourcesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["source_location_name"] = source_location_name
+            input_["next_token"] = next_token
+        input_["source_location_name"] = source_location_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -309,15 +309,15 @@ class AsyncLiveSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.create_live_source_request.CreateLiveSourceRequest = {}  # type: ignore[typeddict-item]
-        input["http_package_configurations"] = http_package_configurations
-        input["live_source_name"] = live_source_name
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.create_live_source_request.CreateLiveSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["http_package_configurations"] = http_package_configurations
+        input_["live_source_name"] = live_source_name
+        input_["source_location_name"] = source_location_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -353,12 +353,12 @@ class AsyncLiveSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.describe_live_source_request.DescribeLiveSourceRequest = {}  # type: ignore[typeddict-item]
-        input["live_source_name"] = live_source_name
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.describe_live_source_request.DescribeLiveSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["live_source_name"] = live_source_name
+        input_["source_location_name"] = source_location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -398,13 +398,13 @@ class AsyncLiveSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.update_live_source_request.UpdateLiveSourceRequest = {}  # type: ignore[typeddict-item]
-        input["http_package_configurations"] = http_package_configurations
-        input["live_source_name"] = live_source_name
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.update_live_source_request.UpdateLiveSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["http_package_configurations"] = http_package_configurations
+        input_["live_source_name"] = live_source_name
+        input_["source_location_name"] = source_location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -442,12 +442,12 @@ class AsyncLiveSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.delete_live_source_request.DeleteLiveSourceRequest = {}  # type: ignore[typeddict-item]
-        input["live_source_name"] = live_source_name
-        input["source_location_name"] = source_location_name
+        input_: aws_sdk_mediatailor.types.delete_live_source_request.DeleteLiveSourceRequest = {}  # type: ignore[typeddict-item]
+        input_["live_source_name"] = live_source_name
+        input_["source_location_name"] = source_location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,15 +487,15 @@ class AsyncLiveSourceResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_mediatailor.types.list_live_sources_request.ListLiveSourcesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_mediatailor.types.list_live_sources_request.ListLiveSourcesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
-        input["source_location_name"] = source_location_name
+            input_["next_token"] = next_token
+        input_["source_location_name"] = source_location_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

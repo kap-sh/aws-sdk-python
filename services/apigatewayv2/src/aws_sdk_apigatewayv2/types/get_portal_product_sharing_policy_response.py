@@ -1,11 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetPortalProductSharingPolicyResponse``."""
 
 from typing import TYPE_CHECKING, TypedDict
+
 from typing_extensions import NotRequired
 
 if TYPE_CHECKING:
-    import aws_sdk_apigatewayv2.types.__string_min10_max30_pattern_az09
     import aws_sdk_apigatewayv2.types.__string_min1_max307200
+    import aws_sdk_apigatewayv2.types.__string_min10_max30_pattern_az09
 
 
 class GetPortalProductSharingPolicyResponse(TypedDict):

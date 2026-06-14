@@ -13,6 +13,14 @@ from aws_sdk_artifact._auth._providers import (
     StaticAwsCredentialsProvider,
 )
 from aws_sdk_artifact._auth._zapros_handler import AuthMiddleware
+from aws_sdk_artifact._resources.artifact.account_settings_resource import (
+    AccountSettingsResource,
+)
+from aws_sdk_artifact._resources.artifact.customer_agreement_resource import (
+    CustomerAgreementResource,
+)
+from aws_sdk_artifact._resources.artifact.report_resource import ReportResource
+from aws_sdk_artifact._resources.artifact.term_resource import TermResource
 from aws_sdk_artifact._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -90,6 +98,11 @@ class ArtifactClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.account_settings_resource = AccountSettingsResource(self)
+        self.customer_agreement_resource = CustomerAgreementResource(self)
+        self.report_resource = ReportResource(self)
+        self.term_resource = TermResource(self)
 
     def operation_options(
         self, config_overrides: Optional[ArtifactClientConfig] = None

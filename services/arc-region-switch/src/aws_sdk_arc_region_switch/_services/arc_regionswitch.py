@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import BaseHandler, Client
 
+import aws_sdk_arc_region_switch._auth._signers
+import aws_sdk_arc_region_switch._auth._sigv4
 from aws_sdk_arc_region_switch._auth._identity import Credentials
 from aws_sdk_arc_region_switch._auth._providers import (
     CredentialsProvider,
@@ -14,6 +16,9 @@ from aws_sdk_arc_region_switch._auth._providers import (
 )
 from aws_sdk_arc_region_switch._auth._zapros_handler import AuthMiddleware
 from aws_sdk_arc_region_switch._pagination import resolve_path as _resolve_path
+from aws_sdk_arc_region_switch._resources.arc_region_switch.region_switch_plan import (
+    RegionSwitchPlan,
+)
 from aws_sdk_arc_region_switch._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -142,6 +147,8 @@ class ARCRegionswitchClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.region_switch_plan = RegionSwitchPlan(self)
 
     def operation_options(
         self, config_overrides: Optional[ARCRegionswitchClientConfig] = None

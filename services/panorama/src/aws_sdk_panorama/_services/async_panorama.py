@@ -289,26 +289,26 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.create_application_instance_request.CreateApplicationInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.create_application_instance_request.CreateApplicationInstanceRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if description is not None:
-            input["description"] = description
-        input["manifest_payload"] = manifest_payload
+            input_["description"] = description
+        input_["manifest_payload"] = manifest_payload
         if manifest_overrides_payload is not None:
-            input["manifest_overrides_payload"] = manifest_overrides_payload
+            input_["manifest_overrides_payload"] = manifest_overrides_payload
         if application_instance_id_to_replace is not None:
-            input["application_instance_id_to_replace"] = (
+            input_["application_instance_id_to_replace"] = (
                 application_instance_id_to_replace
             )
         if runtime_role_arn is not None:
-            input["runtime_role_arn"] = runtime_role_arn
-        input["default_runtime_context_device"] = default_runtime_context_device
+            input_["runtime_role_arn"] = runtime_role_arn
+        input_["default_runtime_context_device"] = default_runtime_context_device
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,14 +348,14 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.create_job_for_devices_request.CreateJobForDevicesRequest = {}  # type: ignore[typeddict-item]
-        input["device_ids"] = device_ids
+        input_: aws_sdk_panorama.types.create_job_for_devices_request.CreateJobForDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_["device_ids"] = device_ids
         if device_job_config is not None:
-            input["device_job_config"] = device_job_config
-        input["job_type"] = job_type
+            input_["device_job_config"] = device_job_config
+        input_["job_type"] = job_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -403,19 +403,19 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.create_node_from_template_job_request.CreateNodeFromTemplateJobRequest = {}  # type: ignore[typeddict-item]
-        input["template_type"] = template_type
-        input["output_package_name"] = output_package_name
-        input["output_package_version"] = output_package_version
-        input["node_name"] = node_name
+        input_: aws_sdk_panorama.types.create_node_from_template_job_request.CreateNodeFromTemplateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["template_type"] = template_type
+        input_["output_package_name"] = output_package_name
+        input_["output_package_version"] = output_package_version
+        input_["node_name"] = node_name
         if node_description is not None:
-            input["node_description"] = node_description
-        input["template_parameters"] = template_parameters
+            input_["node_description"] = node_description
+        input_["template_parameters"] = template_parameters
         if job_tags is not None:
-            input["job_tags"] = job_tags
+            input_["job_tags"] = job_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -451,13 +451,13 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.create_package_request.CreatePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_name"] = package_name
+        input_: aws_sdk_panorama.types.create_package_request.CreatePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_name"] = package_name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -499,16 +499,16 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.create_package_import_job_request.CreatePackageImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_type"] = job_type
-        input["input_config"] = input_config
-        input["output_config"] = output_config
-        input["client_token"] = client_token
+        input_: aws_sdk_panorama.types.create_package_import_job_request.CreatePackageImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_type"] = job_type
+        input_["input_config"] = input_config
+        input_["output_config"] = output_config
+        input_["client_token"] = client_token
         if job_tags is not None:
-            input["job_tags"] = job_tags
+            input_["job_tags"] = job_tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,11 +542,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.delete_device_request.DeleteDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["device_id"] = device_id
+        input_: aws_sdk_panorama.types.delete_device_request.DeleteDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["device_id"] = device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -582,13 +582,13 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
+        input_: aws_sdk_panorama.types.delete_package_request.DeletePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
         if force_delete is not None:
-            input["force_delete"] = force_delete
+            input_["force_delete"] = force_delete
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -634,17 +634,17 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.deregister_package_version_request.DeregisterPackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.deregister_package_version_request.DeregisterPackageVersionRequest = {}  # type: ignore[typeddict-item]
         if owner_account is not None:
-            input["owner_account"] = owner_account
-        input["package_id"] = package_id
-        input["package_version"] = package_version
-        input["patch_version"] = patch_version
+            input_["owner_account"] = owner_account
+        input_["package_id"] = package_id
+        input_["package_version"] = package_version
+        input_["patch_version"] = patch_version
         if updated_latest_patch_version is not None:
-            input["updated_latest_patch_version"] = updated_latest_patch_version
+            input_["updated_latest_patch_version"] = updated_latest_patch_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -678,11 +678,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_application_instance_request.DescribeApplicationInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["application_instance_id"] = application_instance_id
+        input_: aws_sdk_panorama.types.describe_application_instance_request.DescribeApplicationInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["application_instance_id"] = application_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -716,11 +716,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_application_instance_details_request.DescribeApplicationInstanceDetailsRequest = {}  # type: ignore[typeddict-item]
-        input["application_instance_id"] = application_instance_id
+        input_: aws_sdk_panorama.types.describe_application_instance_details_request.DescribeApplicationInstanceDetailsRequest = {}  # type: ignore[typeddict-item]
+        input_["application_instance_id"] = application_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -754,11 +754,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_device_request.DescribeDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["device_id"] = device_id
+        input_: aws_sdk_panorama.types.describe_device_request.DescribeDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["device_id"] = device_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -794,11 +794,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_device_job_request.DescribeDeviceJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_panorama.types.describe_device_job_request.DescribeDeviceJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -836,13 +836,13 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_node_request.DescribeNodeRequest = {}  # type: ignore[typeddict-item]
-        input["node_id"] = node_id
+        input_: aws_sdk_panorama.types.describe_node_request.DescribeNodeRequest = {}  # type: ignore[typeddict-item]
+        input_["node_id"] = node_id
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -876,11 +876,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_node_from_template_job_request.DescribeNodeFromTemplateJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_panorama.types.describe_node_from_template_job_request.DescribeNodeFromTemplateJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -914,11 +914,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_package_request.DescribePackageRequest = {}  # type: ignore[typeddict-item]
-        input["package_id"] = package_id
+        input_: aws_sdk_panorama.types.describe_package_request.DescribePackageRequest = {}  # type: ignore[typeddict-item]
+        input_["package_id"] = package_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -952,11 +952,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_package_import_job_request.DescribePackageImportJobRequest = {}  # type: ignore[typeddict-item]
-        input["job_id"] = job_id
+        input_: aws_sdk_panorama.types.describe_package_import_job_request.DescribePackageImportJobRequest = {}  # type: ignore[typeddict-item]
+        input_["job_id"] = job_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1000,16 +1000,16 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.describe_package_version_request.DescribePackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.describe_package_version_request.DescribePackageVersionRequest = {}  # type: ignore[typeddict-item]
         if owner_account is not None:
-            input["owner_account"] = owner_account
-        input["package_id"] = package_id
-        input["package_version"] = package_version
+            input_["owner_account"] = owner_account
+        input_["package_id"] = package_id
+        input_["package_version"] = package_version
         if patch_version is not None:
-            input["patch_version"] = patch_version
+            input_["patch_version"] = patch_version
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1047,15 +1047,15 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_application_instance_dependencies_request.ListApplicationInstanceDependenciesRequest = {}  # type: ignore[typeddict-item]
-        input["application_instance_id"] = application_instance_id
+        input_: aws_sdk_panorama.types.list_application_instance_dependencies_request.ListApplicationInstanceDependenciesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_instance_id"] = application_instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1093,15 +1093,15 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_application_instance_node_instances_request.ListApplicationInstanceNodeInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["application_instance_id"] = application_instance_id
+        input_: aws_sdk_panorama.types.list_application_instance_node_instances_request.ListApplicationInstanceNodeInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_instance_id"] = application_instance_id
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1143,18 +1143,18 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_application_instances_request.ListApplicationInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.list_application_instances_request.ListApplicationInstancesRequest = {}  # type: ignore[typeddict-item]
         if device_id is not None:
-            input["device_id"] = device_id
+            input_["device_id"] = device_id
         if status_filter is not None:
-            input["status_filter"] = status_filter
+            input_["status_filter"] = status_filter
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1202,22 +1202,22 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.list_devices_request.ListDevicesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if sort_by is not None:
-            input["sort_by"] = sort_by
+            input_["sort_by"] = sort_by
         if sort_order is not None:
-            input["sort_order"] = sort_order
+            input_["sort_order"] = sort_order
         if name_filter is not None:
-            input["name_filter"] = name_filter
+            input_["name_filter"] = name_filter
         if device_aggregated_status_filter is not None:
-            input["device_aggregated_status_filter"] = device_aggregated_status_filter
+            input_["device_aggregated_status_filter"] = device_aggregated_status_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1255,16 +1255,16 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_devices_jobs_request.ListDevicesJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.list_devices_jobs_request.ListDevicesJobsRequest = {}  # type: ignore[typeddict-item]
         if device_id is not None:
-            input["device_id"] = device_id
+            input_["device_id"] = device_id
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1300,14 +1300,14 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_node_from_template_jobs_request.ListNodeFromTemplateJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.list_node_from_template_jobs_request.ListNodeFromTemplateJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1361,24 +1361,24 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.list_nodes_request.ListNodesRequest = {}  # type: ignore[typeddict-item]
         if category is not None:
-            input["category"] = category
+            input_["category"] = category
         if owner_account is not None:
-            input["owner_account"] = owner_account
+            input_["owner_account"] = owner_account
         if package_name is not None:
-            input["package_name"] = package_name
+            input_["package_name"] = package_name
         if package_version is not None:
-            input["package_version"] = package_version
+            input_["package_version"] = package_version
         if patch_version is not None:
-            input["patch_version"] = patch_version
+            input_["patch_version"] = patch_version
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1414,14 +1414,14 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_package_import_jobs_request.ListPackageImportJobsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.list_package_import_jobs_request.ListPackageImportJobsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1457,14 +1457,14 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_packages_request.ListPackagesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.list_packages_request.ListPackagesRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1498,11 +1498,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_panorama.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1544,17 +1544,17 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.provision_device_request.ProvisionDeviceRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_panorama.types.provision_device_request.ProvisionDeviceRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if networking_configuration is not None:
-            input["networking_configuration"] = networking_configuration
+            input_["networking_configuration"] = networking_configuration
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1600,17 +1600,17 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.register_package_version_request.RegisterPackageVersionRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_panorama.types.register_package_version_request.RegisterPackageVersionRequest = {}  # type: ignore[typeddict-item]
         if owner_account is not None:
-            input["owner_account"] = owner_account
-        input["package_id"] = package_id
-        input["package_version"] = package_version
-        input["patch_version"] = patch_version
+            input_["owner_account"] = owner_account
+        input_["package_id"] = package_id
+        input_["package_version"] = package_version
+        input_["patch_version"] = patch_version
         if mark_latest is not None:
-            input["mark_latest"] = mark_latest
+            input_["mark_latest"] = mark_latest
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1644,11 +1644,11 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.remove_application_instance_request.RemoveApplicationInstanceRequest = {}  # type: ignore[typeddict-item]
-        input["application_instance_id"] = application_instance_id
+        input_: aws_sdk_panorama.types.remove_application_instance_request.RemoveApplicationInstanceRequest = {}  # type: ignore[typeddict-item]
+        input_["application_instance_id"] = application_instance_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1684,12 +1684,12 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.signal_application_instance_node_instances_request.SignalApplicationInstanceNodeInstancesRequest = {}  # type: ignore[typeddict-item]
-        input["application_instance_id"] = application_instance_id
-        input["node_signals"] = node_signals
+        input_: aws_sdk_panorama.types.signal_application_instance_node_instances_request.SignalApplicationInstanceNodeInstancesRequest = {}  # type: ignore[typeddict-item]
+        input_["application_instance_id"] = application_instance_id
+        input_["node_signals"] = node_signals
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1725,12 +1725,12 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_panorama.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1766,12 +1766,12 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_panorama.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1807,13 +1807,13 @@ class AsyncPanoramaClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_panorama.types.update_device_metadata_request.UpdateDeviceMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["device_id"] = device_id
+        input_: aws_sdk_panorama.types.update_device_metadata_request.UpdateDeviceMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["device_id"] = device_id
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

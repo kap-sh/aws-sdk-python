@@ -280,11 +280,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.batch_get_channel_request.BatchGetChannelRequest = {}  # type: ignore[typeddict-item]
-        input["arns"] = arns
+        input_: aws_sdk_ivs.types.batch_get_channel_request.BatchGetChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["arns"] = arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -317,11 +317,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.batch_get_stream_key_request.BatchGetStreamKeyRequest = {}  # type: ignore[typeddict-item]
-        input["arns"] = arns
+        input_: aws_sdk_ivs.types.batch_get_stream_key_request.BatchGetStreamKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["arns"] = arns
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -354,11 +354,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.batch_start_viewer_session_revocation_request.BatchStartViewerSessionRevocationRequest = {}  # type: ignore[typeddict-item]
-        input["viewer_sessions"] = viewer_sessions
+        input_: aws_sdk_ivs.types.batch_start_viewer_session_revocation_request.BatchStartViewerSessionRevocationRequest = {}  # type: ignore[typeddict-item]
+        input_["viewer_sessions"] = viewer_sessions
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,17 +397,17 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.create_ad_configuration_request.CreateAdConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.create_ad_configuration_request.CreateAdConfigurationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["media_tailor_playback_configurations"] = (
+            input_["name"] = name
+        input_["media_tailor_playback_configurations"] = (
             media_tailor_playback_configurations
         )
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -474,34 +474,34 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.create_channel_request.CreateChannelRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if latency_mode is not None:
-            input["latency_mode"] = latency_mode
+            input_["latency_mode"] = latency_mode
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if authorized is not None:
-            input["authorized"] = authorized
+            input_["authorized"] = authorized
         if recording_configuration_arn is not None:
-            input["recording_configuration_arn"] = recording_configuration_arn
+            input_["recording_configuration_arn"] = recording_configuration_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if insecure_ingest is not None:
-            input["insecure_ingest"] = insecure_ingest
+            input_["insecure_ingest"] = insecure_ingest
         if preset is not None:
-            input["preset"] = preset
+            input_["preset"] = preset
         if playback_restriction_policy_arn is not None:
-            input["playback_restriction_policy_arn"] = playback_restriction_policy_arn
+            input_["playback_restriction_policy_arn"] = playback_restriction_policy_arn
         if multitrack_input_configuration is not None:
-            input["multitrack_input_configuration"] = multitrack_input_configuration
+            input_["multitrack_input_configuration"] = multitrack_input_configuration
         if container_format is not None:
-            input["container_format"] = container_format
+            input_["container_format"] = container_format
         if ad_configuration_arn is not None:
-            input["ad_configuration_arn"] = ad_configuration_arn
+            input_["ad_configuration_arn"] = ad_configuration_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -550,20 +550,22 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.create_playback_restriction_policy_request.CreatePlaybackRestrictionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.create_playback_restriction_policy_request.CreatePlaybackRestrictionPolicyRequest = {}  # type: ignore[typeddict-item]
         if allowed_countries is not None:
-            input["allowed_countries"] = allowed_countries
+            input_["allowed_countries"] = allowed_countries
         if allowed_origins is not None:
-            input["allowed_origins"] = allowed_origins
+            input_["allowed_origins"] = allowed_origins
         if enable_strict_origin_enforcement is not None:
-            input["enable_strict_origin_enforcement"] = enable_strict_origin_enforcement
+            input_["enable_strict_origin_enforcement"] = (
+                enable_strict_origin_enforcement
+            )
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -614,23 +616,23 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.create_recording_configuration_request.CreateRecordingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.create_recording_configuration_request.CreateRecordingConfigurationRequest = {}  # type: ignore[typeddict-item]
         if name is not None:
-            input["name"] = name
-        input["destination_configuration"] = destination_configuration
+            input_["name"] = name
+        input_["destination_configuration"] = destination_configuration
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if thumbnail_configuration is not None:
-            input["thumbnail_configuration"] = thumbnail_configuration
+            input_["thumbnail_configuration"] = thumbnail_configuration
         if recording_reconnect_window_seconds is not None:
-            input["recording_reconnect_window_seconds"] = (
+            input_["recording_reconnect_window_seconds"] = (
                 recording_reconnect_window_seconds
             )
         if rendition_configuration is not None:
-            input["rendition_configuration"] = rendition_configuration
+            input_["rendition_configuration"] = rendition_configuration
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -665,13 +667,13 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.create_stream_key_request.CreateStreamKeyRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_ivs.types.create_stream_key_request.CreateStreamKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -702,11 +704,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.delete_ad_configuration_request.DeleteAdConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.delete_ad_configuration_request.DeleteAdConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -737,11 +739,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.delete_channel_request.DeleteChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -774,11 +776,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.delete_playback_key_pair_request.DeletePlaybackKeyPairRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.delete_playback_key_pair_request.DeletePlaybackKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -809,11 +811,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.delete_playback_restriction_policy_request.DeletePlaybackRestrictionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.delete_playback_restriction_policy_request.DeletePlaybackRestrictionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -844,11 +846,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.delete_recording_configuration_request.DeleteRecordingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.delete_recording_configuration_request.DeleteRecordingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -879,11 +881,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.delete_stream_key_request.DeleteStreamKeyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.delete_stream_key_request.DeleteStreamKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -916,11 +918,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.get_ad_configuration_request.GetAdConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.get_ad_configuration_request.GetAdConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -953,11 +955,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.get_channel_request.GetChannelRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.get_channel_request.GetChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -990,11 +992,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.get_playback_key_pair_request.GetPlaybackKeyPairRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.get_playback_key_pair_request.GetPlaybackKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1027,11 +1029,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.get_playback_restriction_policy_request.GetPlaybackRestrictionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.get_playback_restriction_policy_request.GetPlaybackRestrictionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1064,11 +1066,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.get_recording_configuration_request.GetRecordingConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.get_recording_configuration_request.GetRecordingConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1101,11 +1103,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.get_stream_request.GetStreamRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_ivs.types.get_stream_request.GetStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1138,11 +1140,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.get_stream_key_request.GetStreamKeyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.get_stream_key_request.GetStreamKeyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1177,13 +1179,13 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.get_stream_session_request.GetStreamSessionRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_ivs.types.get_stream_session_request.GetStreamSessionRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if stream_id is not None:
-            input["stream_id"] = stream_id
+            input_["stream_id"] = stream_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1222,15 +1224,15 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.import_playback_key_pair_request.ImportPlaybackKeyPairRequest = {}  # type: ignore[typeddict-item]
-        input["public_key_material"] = public_key_material
+        input_: aws_sdk_ivs.types.import_playback_key_pair_request.ImportPlaybackKeyPairRequest = {}  # type: ignore[typeddict-item]
+        input_["public_key_material"] = public_key_material
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1265,12 +1267,12 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.insert_ad_break_request.InsertAdBreakRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["duration_seconds"] = duration_seconds
+        input_: aws_sdk_ivs.types.insert_ad_break_request.InsertAdBreakRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["duration_seconds"] = duration_seconds
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1311,14 +1313,14 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_ad_configurations_request.ListAdConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.list_ad_configurations_request.ListAdConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1396,26 +1398,26 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.list_channels_request.ListChannelsRequest = {}  # type: ignore[typeddict-item]
         if filter_by_name is not None:
-            input["filter_by_name"] = filter_by_name
+            input_["filter_by_name"] = filter_by_name
         if filter_by_recording_configuration_arn is not None:
-            input["filter_by_recording_configuration_arn"] = (
+            input_["filter_by_recording_configuration_arn"] = (
                 filter_by_recording_configuration_arn
             )
         if filter_by_playback_restriction_policy_arn is not None:
-            input["filter_by_playback_restriction_policy_arn"] = (
+            input_["filter_by_playback_restriction_policy_arn"] = (
                 filter_by_playback_restriction_policy_arn
             )
         if filter_by_ad_configuration_arn is not None:
-            input["filter_by_ad_configuration_arn"] = filter_by_ad_configuration_arn
+            input_["filter_by_ad_configuration_arn"] = filter_by_ad_configuration_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1454,14 +1456,14 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_playback_key_pairs_request.ListPlaybackKeyPairsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.list_playback_key_pairs_request.ListPlaybackKeyPairsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1500,14 +1502,14 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_playback_restriction_policies_request.ListPlaybackRestrictionPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.list_playback_restriction_policies_request.ListPlaybackRestrictionPoliciesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1546,14 +1548,14 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_recording_configurations_request.ListRecordingConfigurationsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.list_recording_configurations_request.ListRecordingConfigurationsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1594,15 +1596,15 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_stream_keys_request.ListStreamKeysRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_ivs.types.list_stream_keys_request.ListStreamKeysRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1643,16 +1645,16 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_streams_request.ListStreamsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_ivs.types.list_streams_request.ListStreamsRequest = {}  # type: ignore[typeddict-item]
         if filter_by is not None:
-            input["filter_by"] = filter_by
+            input_["filter_by"] = filter_by
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1693,15 +1695,15 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_stream_sessions_request.ListStreamSessionsRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_ivs.types.list_stream_sessions_request.ListStreamSessionsRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1736,11 +1738,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_ivs.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1773,12 +1775,12 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.put_metadata_request.PutMetadataRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["metadata"] = metadata
+        input_: aws_sdk_ivs.types.put_metadata_request.PutMetadataRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["metadata"] = metadata
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1817,16 +1819,16 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.start_viewer_session_revocation_request.StartViewerSessionRevocationRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
-        input["viewer_id"] = viewer_id
+        input_: aws_sdk_ivs.types.start_viewer_session_revocation_request.StartViewerSessionRevocationRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
+        input_["viewer_id"] = viewer_id
         if viewer_session_versions_less_than_or_equal_to is not None:
-            input["viewer_session_versions_less_than_or_equal_to"] = (
+            input_["viewer_session_versions_less_than_or_equal_to"] = (
                 viewer_session_versions_less_than_or_equal_to
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1859,11 +1861,11 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.stop_stream_request.StopStreamRequest = {}  # type: ignore[typeddict-item]
-        input["channel_arn"] = channel_arn
+        input_: aws_sdk_ivs.types.stop_stream_request.StopStreamRequest = {}  # type: ignore[typeddict-item]
+        input_["channel_arn"] = channel_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1898,12 +1900,12 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_ivs.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1938,12 +1940,12 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_ivs.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1984,17 +1986,17 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.update_ad_configuration_request.UpdateAdConfigurationRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.update_ad_configuration_request.UpdateAdConfigurationRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if media_tailor_playback_configurations is not None:
-            input["media_tailor_playback_configurations"] = (
+            input_["media_tailor_playback_configurations"] = (
                 media_tailor_playback_configurations
             )
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2061,33 +2063,33 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.update_channel_request.UpdateChannelRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
         if latency_mode is not None:
-            input["latency_mode"] = latency_mode
+            input_["latency_mode"] = latency_mode
         if type is not None:
-            input["type"] = type
+            input_["type"] = type
         if authorized is not None:
-            input["authorized"] = authorized
+            input_["authorized"] = authorized
         if recording_configuration_arn is not None:
-            input["recording_configuration_arn"] = recording_configuration_arn
+            input_["recording_configuration_arn"] = recording_configuration_arn
         if insecure_ingest is not None:
-            input["insecure_ingest"] = insecure_ingest
+            input_["insecure_ingest"] = insecure_ingest
         if preset is not None:
-            input["preset"] = preset
+            input_["preset"] = preset
         if playback_restriction_policy_arn is not None:
-            input["playback_restriction_policy_arn"] = playback_restriction_policy_arn
+            input_["playback_restriction_policy_arn"] = playback_restriction_policy_arn
         if multitrack_input_configuration is not None:
-            input["multitrack_input_configuration"] = multitrack_input_configuration
+            input_["multitrack_input_configuration"] = multitrack_input_configuration
         if container_format is not None:
-            input["container_format"] = container_format
+            input_["container_format"] = container_format
         if ad_configuration_arn is not None:
-            input["ad_configuration_arn"] = ad_configuration_arn
+            input_["ad_configuration_arn"] = ad_configuration_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2136,19 +2138,21 @@ class ivsClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_ivs.types.update_playback_restriction_policy_request.UpdatePlaybackRestrictionPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["arn"] = arn
+        input_: aws_sdk_ivs.types.update_playback_restriction_policy_request.UpdatePlaybackRestrictionPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["arn"] = arn
         if allowed_countries is not None:
-            input["allowed_countries"] = allowed_countries
+            input_["allowed_countries"] = allowed_countries
         if allowed_origins is not None:
-            input["allowed_origins"] = allowed_origins
+            input_["allowed_origins"] = allowed_origins
         if enable_strict_origin_enforcement is not None:
-            input["enable_strict_origin_enforcement"] = enable_strict_origin_enforcement
+            input_["enable_strict_origin_enforcement"] = (
+                enable_strict_origin_enforcement
+            )
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

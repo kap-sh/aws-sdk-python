@@ -99,21 +99,21 @@ class DataLakeDatasetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_data_lake_dataset_request.CreateDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.create_data_lake_dataset_request.CreateDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
+        input_["name"] = name
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if partition_spec is not None:
-            input["partition_spec"] = partition_spec
+            input_["partition_spec"] = partition_spec
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -158,13 +158,13 @@ class DataLakeDatasetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_data_lake_dataset_request.GetDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.get_data_lake_dataset_request.GetDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -213,15 +213,15 @@ class DataLakeDatasetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.update_data_lake_dataset_request.UpdateDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.update_data_lake_dataset_request.UpdateDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -266,13 +266,13 @@ class DataLakeDatasetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.delete_data_lake_dataset_request.DeleteDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.delete_data_lake_dataset_request.DeleteDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -323,16 +323,16 @@ class DataLakeDatasetResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_data_lake_datasets_request.ListDataLakeDatasetsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
+        input_: aws_sdk_supplychain.types.list_data_lake_datasets_request.ListDataLakeDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -397,21 +397,21 @@ class AsyncDataLakeDatasetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.create_data_lake_dataset_request.CreateDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.create_data_lake_dataset_request.CreateDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
+        input_["name"] = name
         if schema is not None:
-            input["schema"] = schema
+            input_["schema"] = schema
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if partition_spec is not None:
-            input["partition_spec"] = partition_spec
+            input_["partition_spec"] = partition_spec
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -457,13 +457,13 @@ class AsyncDataLakeDatasetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_data_lake_dataset_request.GetDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.get_data_lake_dataset_request.GetDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -513,15 +513,15 @@ class AsyncDataLakeDatasetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.update_data_lake_dataset_request.UpdateDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.update_data_lake_dataset_request.UpdateDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
+        input_["name"] = name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,13 +567,13 @@ class AsyncDataLakeDatasetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.delete_data_lake_dataset_request.DeleteDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
-        input["name"] = name
+        input_: aws_sdk_supplychain.types.delete_data_lake_dataset_request.DeleteDataLakeDatasetRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -625,16 +625,16 @@ class AsyncDataLakeDatasetResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_data_lake_datasets_request.ListDataLakeDatasetsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["namespace"] = namespace
+        input_: aws_sdk_supplychain.types.list_data_lake_datasets_request.ListDataLakeDatasetsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["namespace"] = namespace
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

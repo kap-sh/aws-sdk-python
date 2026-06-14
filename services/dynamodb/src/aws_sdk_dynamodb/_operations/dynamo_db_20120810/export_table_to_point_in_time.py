@@ -97,7 +97,7 @@ def get_signer(
 
 def build_request(
     options: OperationOptions | AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput,
+    input_: aws_sdk_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput,
 ) -> zapros.Request:
     endpoint = resolve(
         EndpointParams(
@@ -107,7 +107,7 @@ def build_request(
             Endpoint=options.endpoint,
             AccountId=options.account_id,
             AccountIdEndpointMode=options.account_id_endpoint_mode,
-            ResourceArn=input.get("table_arn"),
+            ResourceArn=input_.get("table_arn"),
             ResourceArnList=options.resource_arn_list,
         )
     )  # noqa: F841
@@ -119,7 +119,7 @@ def build_request(
 
     body: bytes | None = json.dumps(
         aws_sdk_dynamodb.types.export_table_to_point_in_time_input.serialize_aws_json_1_0(
-            input
+            input_
         )
     ).encode()
     headers["content-type"] = "application/x-amz-json-1.0"
@@ -133,12 +133,12 @@ def build_request(
 
 def export_table_to_point_in_time(
     options: OperationOptions,
-    input: aws_sdk_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput,
+    input_: aws_sdk_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.export_table_to_point_in_time_output.ExportTableToPointInTimeOutput,
     zapros.Response,
 ]:
-    response = options.client.handler.handle(build_request(options, input))
+    response = options.client.handler.handle(build_request(options, input_))
     try:
         if response.status >= 400:
             response.read()
@@ -152,12 +152,12 @@ def export_table_to_point_in_time(
 
 async def async_export_table_to_point_in_time(
     options: AsyncOperationOptions,
-    input: aws_sdk_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput,
+    input_: aws_sdk_dynamodb.types.export_table_to_point_in_time_input.ExportTableToPointInTimeInput,
 ) -> tuple[
     aws_sdk_dynamodb.types.export_table_to_point_in_time_output.ExportTableToPointInTimeOutput,
     zapros.Response,
 ]:
-    response = await options.client.handler.ahandle(build_request(options, input))
+    response = await options.client.handler.ahandle(build_request(options, input_))
     try:
         if response.status >= 400:
             await response.aread()

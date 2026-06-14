@@ -96,27 +96,27 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
         if url is not None:
-            input["url"] = url
+            input_["url"] = url
         if as2_config is not None:
-            input["as2_config"] = as2_config
-        input["access_role"] = access_role
+            input_["as2_config"] = as2_config
+        input_["access_role"] = access_role
         if logging_role is not None:
-            input["logging_role"] = logging_role
+            input_["logging_role"] = logging_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if sftp_config is not None:
-            input["sftp_config"] = sftp_config
+            input_["sftp_config"] = sftp_config
         if security_policy_name is not None:
-            input["security_policy_name"] = security_policy_name
+            input_["security_policy_name"] = security_policy_name
         if egress_config is not None:
-            input["egress_config"] = egress_config
+            input_["egress_config"] = egress_config
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -149,11 +149,11 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_connector_request.DescribeConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_transfer.types.describe_connector_request.DescribeConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -212,27 +212,27 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_connector_request.UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_transfer.types.update_connector_request.UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
         if url is not None:
-            input["url"] = url
+            input_["url"] = url
         if as2_config is not None:
-            input["as2_config"] = as2_config
+            input_["as2_config"] = as2_config
         if access_role is not None:
-            input["access_role"] = access_role
+            input_["access_role"] = access_role
         if logging_role is not None:
-            input["logging_role"] = logging_role
+            input_["logging_role"] = logging_role
         if sftp_config is not None:
-            input["sftp_config"] = sftp_config
+            input_["sftp_config"] = sftp_config
         if security_policy_name is not None:
-            input["security_policy_name"] = security_policy_name
+            input_["security_policy_name"] = security_policy_name
         if egress_config is not None:
-            input["egress_config"] = egress_config
+            input_["egress_config"] = egress_config
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -263,11 +263,11 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_transfer.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -302,14 +302,14 @@ class ConnectorResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -374,27 +374,27 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.create_connector_request.CreateConnectorRequest = {}  # type: ignore[typeddict-item]
         if url is not None:
-            input["url"] = url
+            input_["url"] = url
         if as2_config is not None:
-            input["as2_config"] = as2_config
-        input["access_role"] = access_role
+            input_["as2_config"] = as2_config
+        input_["access_role"] = access_role
         if logging_role is not None:
-            input["logging_role"] = logging_role
+            input_["logging_role"] = logging_role
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if sftp_config is not None:
-            input["sftp_config"] = sftp_config
+            input_["sftp_config"] = sftp_config
         if security_policy_name is not None:
-            input["security_policy_name"] = security_policy_name
+            input_["security_policy_name"] = security_policy_name
         if egress_config is not None:
-            input["egress_config"] = egress_config
+            input_["egress_config"] = egress_config
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -428,11 +428,11 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.describe_connector_request.DescribeConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_transfer.types.describe_connector_request.DescribeConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -492,27 +492,27 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.update_connector_request.UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_transfer.types.update_connector_request.UpdateConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
         if url is not None:
-            input["url"] = url
+            input_["url"] = url
         if as2_config is not None:
-            input["as2_config"] = as2_config
+            input_["as2_config"] = as2_config
         if access_role is not None:
-            input["access_role"] = access_role
+            input_["access_role"] = access_role
         if logging_role is not None:
-            input["logging_role"] = logging_role
+            input_["logging_role"] = logging_role
         if sftp_config is not None:
-            input["sftp_config"] = sftp_config
+            input_["sftp_config"] = sftp_config
         if security_policy_name is not None:
-            input["security_policy_name"] = security_policy_name
+            input_["security_policy_name"] = security_policy_name
         if egress_config is not None:
-            input["egress_config"] = egress_config
+            input_["egress_config"] = egress_config
         if ip_address_type is not None:
-            input["ip_address_type"] = ip_address_type
+            input_["ip_address_type"] = ip_address_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -544,11 +544,11 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
-        input["connector_id"] = connector_id
+        input_: aws_sdk_transfer.types.delete_connector_request.DeleteConnectorRequest = {}  # type: ignore[typeddict-item]
+        input_["connector_id"] = connector_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -584,14 +584,14 @@ class AsyncConnectorResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_transfer.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_transfer.types.list_connectors_request.ListConnectorsRequest = {}  # type: ignore[typeddict-item]
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

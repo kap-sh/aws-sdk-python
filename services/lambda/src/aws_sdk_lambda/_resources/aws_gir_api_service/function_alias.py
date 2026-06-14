@@ -80,17 +80,17 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["name"] = name
-        input["function_version"] = function_version
+        input_: aws_sdk_lambda.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["name"] = name
+        input_["function_version"] = function_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_config is not None:
-            input["routing_config"] = routing_config
+            input_["routing_config"] = routing_config
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -131,12 +131,12 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_alias_request.GetAliasRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["name"] = name
+        input_: aws_sdk_lambda.types.get_alias_request.GetAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -189,20 +189,20 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["name"] = name
+        input_: aws_sdk_lambda.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["name"] = name
         if function_version is not None:
-            input["function_version"] = function_version
+            input_["function_version"] = function_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_config is not None:
-            input["routing_config"] = routing_config
+            input_["routing_config"] = routing_config
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -241,12 +241,12 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["name"] = name
+        input_: aws_sdk_lambda.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["name"] = name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -293,17 +293,17 @@ class FunctionAlias:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if function_version is not None:
-            input["function_version"] = function_version
+            input_["function_version"] = function_version
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -358,17 +358,17 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["name"] = name
-        input["function_version"] = function_version
+        input_: aws_sdk_lambda.types.create_alias_request.CreateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["name"] = name
+        input_["function_version"] = function_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_config is not None:
-            input["routing_config"] = routing_config
+            input_["routing_config"] = routing_config
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -410,12 +410,12 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_alias_request.GetAliasRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["name"] = name
+        input_: aws_sdk_lambda.types.get_alias_request.GetAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -469,20 +469,20 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["name"] = name
+        input_: aws_sdk_lambda.types.update_alias_request.UpdateAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["name"] = name
         if function_version is not None:
-            input["function_version"] = function_version
+            input_["function_version"] = function_version
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if routing_config is not None:
-            input["routing_config"] = routing_config
+            input_["routing_config"] = routing_config
         if revision_id is not None:
-            input["revision_id"] = revision_id
+            input_["revision_id"] = revision_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -522,12 +522,12 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
-        input["name"] = name
+        input_: aws_sdk_lambda.types.delete_alias_request.DeleteAliasRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -575,17 +575,17 @@ class AsyncFunctionAlias:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
-        input["function_name"] = function_name
+        input_: aws_sdk_lambda.types.list_aliases_request.ListAliasesRequest = {}  # type: ignore[typeddict-item]
+        input_["function_name"] = function_name
         if function_version is not None:
-            input["function_version"] = function_version
+            input_["function_version"] = function_version
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

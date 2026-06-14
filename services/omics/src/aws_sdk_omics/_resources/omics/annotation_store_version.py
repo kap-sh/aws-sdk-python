@@ -78,18 +78,18 @@ class AnnotationStoreVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_annotation_store_version_request.CreateAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["version_name"] = version_name
+        input_: aws_sdk_omics.types.create_annotation_store_version_request.CreateAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["version_name"] = version_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if version_options is not None:
-            input["version_options"] = version_options
+            input_["version_options"] = version_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -124,12 +124,12 @@ class AnnotationStoreVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_annotation_store_version_request.GetAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["version_name"] = version_name
+        input_: aws_sdk_omics.types.get_annotation_store_version_request.GetAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["version_name"] = version_name
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -166,14 +166,14 @@ class AnnotationStoreVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_annotation_store_version_request.UpdateAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["version_name"] = version_name
+        input_: aws_sdk_omics.types.update_annotation_store_version_request.UpdateAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["version_name"] = version_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -214,17 +214,17 @@ class AnnotationStoreVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_annotation_store_versions_request.ListAnnotationStoreVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.list_annotation_store_versions_request.ListAnnotationStoreVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -261,14 +261,14 @@ class AnnotationStoreVersion:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_annotation_store_versions_request.DeleteAnnotationStoreVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["versions"] = versions
+        input_: aws_sdk_omics.types.delete_annotation_store_versions_request.DeleteAnnotationStoreVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["versions"] = versions
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -317,18 +317,18 @@ class AsyncAnnotationStoreVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.create_annotation_store_version_request.CreateAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["version_name"] = version_name
+        input_: aws_sdk_omics.types.create_annotation_store_version_request.CreateAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["version_name"] = version_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if version_options is not None:
-            input["version_options"] = version_options
+            input_["version_options"] = version_options
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -364,12 +364,12 @@ class AsyncAnnotationStoreVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.get_annotation_store_version_request.GetAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["version_name"] = version_name
+        input_: aws_sdk_omics.types.get_annotation_store_version_request.GetAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["version_name"] = version_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -407,14 +407,14 @@ class AsyncAnnotationStoreVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.update_annotation_store_version_request.UpdateAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["version_name"] = version_name
+        input_: aws_sdk_omics.types.update_annotation_store_version_request.UpdateAnnotationStoreVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["version_name"] = version_name
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -456,17 +456,17 @@ class AsyncAnnotationStoreVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.list_annotation_store_versions_request.ListAnnotationStoreVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_omics.types.list_annotation_store_versions_request.ListAnnotationStoreVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if filter is not None:
-            input["filter"] = filter
+            input_["filter"] = filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -504,14 +504,14 @@ class AsyncAnnotationStoreVersion:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_omics.types.delete_annotation_store_versions_request.DeleteAnnotationStoreVersionsRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["versions"] = versions
+        input_: aws_sdk_omics.types.delete_annotation_store_versions_request.DeleteAnnotationStoreVersionsRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["versions"] = versions
         if force is not None:
-            input["force"] = force
+            input_["force"] = force
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

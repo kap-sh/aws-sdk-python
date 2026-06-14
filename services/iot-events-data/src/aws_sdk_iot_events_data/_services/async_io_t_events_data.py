@@ -194,11 +194,11 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.batch_acknowledge_alarm_request.BatchAcknowledgeAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["acknowledge_action_requests"] = acknowledge_action_requests
+        input_: aws_sdk_iot_events_data.types.batch_acknowledge_alarm_request.BatchAcknowledgeAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["acknowledge_action_requests"] = acknowledge_action_requests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -232,11 +232,11 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.batch_delete_detector_request.BatchDeleteDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detectors"] = detectors
+        input_: aws_sdk_iot_events_data.types.batch_delete_detector_request.BatchDeleteDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detectors"] = detectors
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -270,11 +270,11 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.batch_disable_alarm_request.BatchDisableAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["disable_action_requests"] = disable_action_requests
+        input_: aws_sdk_iot_events_data.types.batch_disable_alarm_request.BatchDisableAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["disable_action_requests"] = disable_action_requests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -308,11 +308,11 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.batch_enable_alarm_request.BatchEnableAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["enable_action_requests"] = enable_action_requests
+        input_: aws_sdk_iot_events_data.types.batch_enable_alarm_request.BatchEnableAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["enable_action_requests"] = enable_action_requests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -346,11 +346,11 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.batch_put_message_request.BatchPutMessageRequest = {}  # type: ignore[typeddict-item]
-        input["messages"] = messages
+        input_: aws_sdk_iot_events_data.types.batch_put_message_request.BatchPutMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["messages"] = messages
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -384,11 +384,11 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.batch_reset_alarm_request.BatchResetAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["reset_action_requests"] = reset_action_requests
+        input_: aws_sdk_iot_events_data.types.batch_reset_alarm_request.BatchResetAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["reset_action_requests"] = reset_action_requests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -422,11 +422,11 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.batch_snooze_alarm_request.BatchSnoozeAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["snooze_action_requests"] = snooze_action_requests
+        input_: aws_sdk_iot_events_data.types.batch_snooze_alarm_request.BatchSnoozeAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["snooze_action_requests"] = snooze_action_requests
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -460,11 +460,11 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.batch_update_detector_request.BatchUpdateDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detectors"] = detectors
+        input_: aws_sdk_iot_events_data.types.batch_update_detector_request.BatchUpdateDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detectors"] = detectors
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -500,13 +500,13 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.describe_alarm_request.DescribeAlarmRequest = {}  # type: ignore[typeddict-item]
-        input["alarm_model_name"] = alarm_model_name
+        input_: aws_sdk_iot_events_data.types.describe_alarm_request.DescribeAlarmRequest = {}  # type: ignore[typeddict-item]
+        input_["alarm_model_name"] = alarm_model_name
         if key_value is not None:
-            input["key_value"] = key_value
+            input_["key_value"] = key_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -542,13 +542,13 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.describe_detector_request.DescribeDetectorRequest = {}  # type: ignore[typeddict-item]
-        input["detector_model_name"] = detector_model_name
+        input_: aws_sdk_iot_events_data.types.describe_detector_request.DescribeDetectorRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_model_name"] = detector_model_name
         if key_value is not None:
-            input["key_value"] = key_value
+            input_["key_value"] = key_value
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -590,15 +590,15 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.list_alarms_request.ListAlarmsRequest = {}  # type: ignore[typeddict-item]
-        input["alarm_model_name"] = alarm_model_name
+        input_: aws_sdk_iot_events_data.types.list_alarms_request.ListAlarmsRequest = {}  # type: ignore[typeddict-item]
+        input_["alarm_model_name"] = alarm_model_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -644,17 +644,17 @@ class AsyncIoTEventsDataClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_iot_events_data.types.list_detectors_request.ListDetectorsRequest = {}  # type: ignore[typeddict-item]
-        input["detector_model_name"] = detector_model_name
+        input_: aws_sdk_iot_events_data.types.list_detectors_request.ListDetectorsRequest = {}  # type: ignore[typeddict-item]
+        input_["detector_model_name"] = detector_model_name
         if state_name is not None:
-            input["state_name"] = state_name
+            input_["state_name"] = state_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

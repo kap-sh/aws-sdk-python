@@ -77,17 +77,17 @@ class CodeSigningConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_code_signing_config_request.CreateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.create_code_signing_config_request.CreateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["allowed_publishers"] = allowed_publishers
+            input_["description"] = description
+        input_["allowed_publishers"] = allowed_publishers
         if code_signing_policies is not None:
-            input["code_signing_policies"] = code_signing_policies
+            input_["code_signing_policies"] = code_signing_policies
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -122,14 +122,14 @@ class CodeSigningConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_code_signing_configs_request.ListCodeSigningConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_code_signing_configs_request.ListCodeSigningConfigsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -162,11 +162,11 @@ class CodeSigningConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_code_signing_config_request.DeleteCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
+        input_: aws_sdk_lambda.types.delete_code_signing_config_request.DeleteCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -199,11 +199,11 @@ class CodeSigningConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_code_signing_config_request.GetCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
+        input_: aws_sdk_lambda.types.get_code_signing_config_request.GetCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -240,15 +240,15 @@ class CodeSigningConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_functions_by_code_signing_config_request.ListFunctionsByCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
+        input_: aws_sdk_lambda.types.list_functions_by_code_signing_config_request.ListFunctionsByCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -291,17 +291,17 @@ class CodeSigningConfigResource:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_code_signing_config_request.UpdateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
+        input_: aws_sdk_lambda.types.update_code_signing_config_request.UpdateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if allowed_publishers is not None:
-            input["allowed_publishers"] = allowed_publishers
+            input_["allowed_publishers"] = allowed_publishers
         if code_signing_policies is not None:
-            input["code_signing_policies"] = code_signing_policies
+            input_["code_signing_policies"] = code_signing_policies
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -348,17 +348,17 @@ class AsyncCodeSigningConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.create_code_signing_config_request.CreateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.create_code_signing_config_request.CreateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
         if description is not None:
-            input["description"] = description
-        input["allowed_publishers"] = allowed_publishers
+            input_["description"] = description
+        input_["allowed_publishers"] = allowed_publishers
         if code_signing_policies is not None:
-            input["code_signing_policies"] = code_signing_policies
+            input_["code_signing_policies"] = code_signing_policies
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -394,14 +394,14 @@ class AsyncCodeSigningConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_code_signing_configs_request.ListCodeSigningConfigsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_lambda.types.list_code_signing_configs_request.ListCodeSigningConfigsRequest = {}  # type: ignore[typeddict-item]
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -435,11 +435,11 @@ class AsyncCodeSigningConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.delete_code_signing_config_request.DeleteCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
+        input_: aws_sdk_lambda.types.delete_code_signing_config_request.DeleteCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -473,11 +473,11 @@ class AsyncCodeSigningConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.get_code_signing_config_request.GetCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
+        input_: aws_sdk_lambda.types.get_code_signing_config_request.GetCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -515,15 +515,15 @@ class AsyncCodeSigningConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.list_functions_by_code_signing_config_request.ListFunctionsByCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
+        input_: aws_sdk_lambda.types.list_functions_by_code_signing_config_request.ListFunctionsByCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
         if marker is not None:
-            input["marker"] = marker
+            input_["marker"] = marker
         if max_items is not None:
-            input["max_items"] = max_items
+            input_["max_items"] = max_items
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -567,17 +567,17 @@ class AsyncCodeSigningConfigResource:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self._service.operation_options(config_overrides)
-        input: aws_sdk_lambda.types.update_code_signing_config_request.UpdateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
-        input["code_signing_config_arn"] = code_signing_config_arn
+        input_: aws_sdk_lambda.types.update_code_signing_config_request.UpdateCodeSigningConfigRequest = {}  # type: ignore[typeddict-item]
+        input_["code_signing_config_arn"] = code_signing_config_arn
         if description is not None:
-            input["description"] = description
+            input_["description"] = description
         if allowed_publishers is not None:
-            input["allowed_publishers"] = allowed_publishers
+            input_["allowed_publishers"] = allowed_publishers
         if code_signing_policies is not None:
-            input["code_signing_policies"] = code_signing_policies
+            input_["code_signing_policies"] = code_signing_policies
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

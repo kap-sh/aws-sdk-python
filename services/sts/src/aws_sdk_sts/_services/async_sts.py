@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
 from typing_extensions import Self
 from zapros import AsyncBaseHandler, AsyncClient
 
+import aws_sdk_sts._auth._signers
+import aws_sdk_sts._auth._sigv4
 from aws_sdk_sts._auth._identity import Credentials
 from aws_sdk_sts._auth._providers import (
     CredentialsProvider,
@@ -253,32 +255,32 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.assume_role_request.AssumeRoleRequest = {}  # type: ignore[typeddict-item]
-        input["role_arn"] = role_arn
-        input["role_session_name"] = role_session_name
+        input_: aws_sdk_sts.types.assume_role_request.AssumeRoleRequest = {}  # type: ignore[typeddict-item]
+        input_["role_arn"] = role_arn
+        input_["role_session_name"] = role_session_name
         if policy_arns is not None:
-            input["policy_arns"] = policy_arns
+            input_["policy_arns"] = policy_arns
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
         if transitive_tag_keys is not None:
-            input["transitive_tag_keys"] = transitive_tag_keys
+            input_["transitive_tag_keys"] = transitive_tag_keys
         if external_id is not None:
-            input["external_id"] = external_id
+            input_["external_id"] = external_id
         if serial_number is not None:
-            input["serial_number"] = serial_number
+            input_["serial_number"] = serial_number
         if token_code is not None:
-            input["token_code"] = token_code
+            input_["token_code"] = token_code
         if source_identity is not None:
-            input["source_identity"] = source_identity
+            input_["source_identity"] = source_identity
         if provided_contexts is not None:
-            input["provided_contexts"] = provided_contexts
+            input_["provided_contexts"] = provided_contexts
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -333,19 +335,19 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.assume_role_with_saml_request.AssumeRoleWithSAMLRequest = {}  # type: ignore[typeddict-item]
-        input["role_arn"] = role_arn
-        input["principal_arn"] = principal_arn
-        input["saml_assertion"] = saml_assertion
+        input_: aws_sdk_sts.types.assume_role_with_saml_request.AssumeRoleWithSAMLRequest = {}  # type: ignore[typeddict-item]
+        input_["role_arn"] = role_arn
+        input_["principal_arn"] = principal_arn
+        input_["saml_assertion"] = saml_assertion
         if policy_arns is not None:
-            input["policy_arns"] = policy_arns
+            input_["policy_arns"] = policy_arns
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -402,21 +404,21 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.assume_role_with_web_identity_request.AssumeRoleWithWebIdentityRequest = {}  # type: ignore[typeddict-item]
-        input["role_arn"] = role_arn
-        input["role_session_name"] = role_session_name
-        input["web_identity_token"] = web_identity_token
+        input_: aws_sdk_sts.types.assume_role_with_web_identity_request.AssumeRoleWithWebIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_["role_arn"] = role_arn
+        input_["role_session_name"] = role_session_name
+        input_["web_identity_token"] = web_identity_token
         if provider_id is not None:
-            input["provider_id"] = provider_id
+            input_["provider_id"] = provider_id
         if policy_arns is not None:
-            input["policy_arns"] = policy_arns
+            input_["policy_arns"] = policy_arns
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -462,14 +464,14 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.assume_root_request.AssumeRootRequest = {}  # type: ignore[typeddict-item]
-        input["target_principal"] = target_principal
-        input["task_policy_arn"] = task_policy_arn
+        input_: aws_sdk_sts.types.assume_root_request.AssumeRootRequest = {}  # type: ignore[typeddict-item]
+        input_["target_principal"] = target_principal
+        input_["task_policy_arn"] = task_policy_arn
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -508,11 +510,11 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.decode_authorization_message_request.DecodeAuthorizationMessageRequest = {}  # type: ignore[typeddict-item]
-        input["encoded_message"] = encoded_message
+        input_: aws_sdk_sts.types.decode_authorization_message_request.DecodeAuthorizationMessageRequest = {}  # type: ignore[typeddict-item]
+        input_["encoded_message"] = encoded_message
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -546,11 +548,11 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.get_access_key_info_request.GetAccessKeyInfoRequest = {}  # type: ignore[typeddict-item]
-        input["access_key_id"] = access_key_id
+        input_: aws_sdk_sts.types.get_access_key_info_request.GetAccessKeyInfoRequest = {}  # type: ignore[typeddict-item]
+        input_["access_key_id"] = access_key_id
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -592,10 +594,10 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.get_caller_identity_request.GetCallerIdentityRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sts.types.get_caller_identity_request.GetCallerIdentityRequest = {}  # type: ignore[typeddict-item]
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -629,11 +631,11 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.get_delegated_access_token_request.GetDelegatedAccessTokenRequest = {}  # type: ignore[typeddict-item]
-        input["trade_in_token"] = trade_in_token
+        input_: aws_sdk_sts.types.get_delegated_access_token_request.GetDelegatedAccessTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["trade_in_token"] = trade_in_token
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -686,19 +688,19 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.get_federation_token_request.GetFederationTokenRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_sts.types.get_federation_token_request.GetFederationTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
         if policy is not None:
-            input["policy"] = policy
+            input_["policy"] = policy
         if policy_arns is not None:
-            input["policy_arns"] = policy_arns
+            input_["policy_arns"] = policy_arns
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -745,16 +747,16 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.get_session_token_request.GetSessionTokenRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_sts.types.get_session_token_request.GetSessionTokenRequest = {}  # type: ignore[typeddict-item]
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
+            input_["duration_seconds"] = duration_seconds
         if serial_number is not None:
-            input["serial_number"] = serial_number
+            input_["serial_number"] = serial_number
         if token_code is not None:
-            input["token_code"] = token_code
+            input_["token_code"] = token_code
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -798,16 +800,16 @@ class AsyncSTSClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_sts.types.get_web_identity_token_request.GetWebIdentityTokenRequest = {}  # type: ignore[typeddict-item]
-        input["audience"] = audience
+        input_: aws_sdk_sts.types.get_web_identity_token_request.GetWebIdentityTokenRequest = {}  # type: ignore[typeddict-item]
+        input_["audience"] = audience
         if duration_seconds is not None:
-            input["duration_seconds"] = duration_seconds
-        input["signing_algorithm"] = signing_algorithm
+            input_["duration_seconds"] = duration_seconds
+        input_["signing_algorithm"] = signing_algorithm
         if tags is not None:
-            input["tags"] = tags
+            input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

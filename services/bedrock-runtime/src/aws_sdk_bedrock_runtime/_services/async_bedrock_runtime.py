@@ -15,6 +15,18 @@ from aws_sdk_bedrock_runtime._auth._providers import (
     StaticBearerTokenProvider,
 )
 from aws_sdk_bedrock_runtime._auth._zapros_handler import AuthMiddleware
+from aws_sdk_bedrock_runtime._resources.amazon_bedrock_frontend_service.async_invoke_resource import (
+    AsyncAsyncInvokeResource,
+)
+from aws_sdk_bedrock_runtime._resources.amazon_bedrock_frontend_service.guardrail_resource import (
+    AsyncGuardrailResource,
+)
+from aws_sdk_bedrock_runtime._resources.amazon_bedrock_frontend_service.inference_resource import (
+    AsyncInferenceResource,
+)
+from aws_sdk_bedrock_runtime._resources.amazon_bedrock_frontend_service.tokenizer_resource import (
+    AsyncTokenizerResource,
+)
 from aws_sdk_bedrock_runtime._services._pipeline import (
     AsyncInterceptor,
     AsyncOperationOptions,
@@ -106,6 +118,11 @@ class AsyncBedrockRuntimeClient:
                 "bearer_provider": bearer_provider,
             }
         )
+        # resources
+        self.async_invoke_resource = AsyncAsyncInvokeResource(self)
+        self.guardrail_resource = AsyncGuardrailResource(self)
+        self.inference_resource = AsyncInferenceResource(self)
+        self.tokenizer_resource = AsyncTokenizerResource(self)
 
     def operation_options(
         self, config_overrides: Optional[AsyncBedrockRuntimeClientConfig] = None

@@ -1,33 +1,16 @@
 from __future__ import annotations
-
-from ._auth._identity import Credentials as Credentials
-from ._auth._identity import Identity as Identity
-from ._auth._providers import (
-    CachedProvider as CachedProvider,
-)
-from ._auth._providers import (
-    ChainedProvider as ChainedProvider,
-)
-from ._auth._providers import (
-    CredentialsProvider as CredentialsProvider,
-)
-from ._auth._providers import (
-    EnvCredentialsProvider as EnvCredentialsProvider,
-)
+from ._auth._identity import Identity as Identity, Credentials as Credentials
 from ._auth._providers import (
     IdentityNotFound as IdentityNotFound,
-)
-from ._auth._providers import (
     IdentityProvider as IdentityProvider,
-)
-from ._auth._providers import (
+    ChainedProvider as ChainedProvider,
+    CachedProvider as CachedProvider,
+    CredentialsProvider as CredentialsProvider,
+    StaticAwsCredentialsProvider as StaticAwsCredentialsProvider,
+    EnvCredentialsProvider as EnvCredentialsProvider,
     ProfileCredentialsProvider as ProfileCredentialsProvider,
 )
-from ._auth._providers import (
-    StaticAwsCredentialsProvider as StaticAwsCredentialsProvider,
-)
-from ._auth._signers import Signer as Signer
-from ._auth._signers import SigV4Signer as SigV4Signer
+from ._auth._signers import Signer as Signer, SigV4Signer as SigV4Signer
 from ._services.app_config_data import AppConfigDataClient as AppConfigDataClient
 from ._services.async_app_config_data import (
     AsyncAppConfigDataClient as AsyncAppConfigDataClient,

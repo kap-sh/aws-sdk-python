@@ -17,6 +17,21 @@ from aws_sdk_supplychain._auth._providers import (
 )
 from aws_sdk_supplychain._auth._zapros_handler import AuthMiddleware
 from aws_sdk_supplychain._pagination import resolve_path as _resolve_path
+from aws_sdk_supplychain._resources.galaxy_public_api_gateway.bill_of_materials_import_job_resource import (
+    BillOfMaterialsImportJobResource,
+)
+from aws_sdk_supplychain._resources.galaxy_public_api_gateway.data_integration_flow_resource import (
+    DataIntegrationFlowResource,
+)
+from aws_sdk_supplychain._resources.galaxy_public_api_gateway.data_lake_dataset_resource import (
+    DataLakeDatasetResource,
+)
+from aws_sdk_supplychain._resources.galaxy_public_api_gateway.data_lake_namespace_resource import (
+    DataLakeNamespaceResource,
+)
+from aws_sdk_supplychain._resources.galaxy_public_api_gateway.instance_resource import (
+    InstanceResource,
+)
 from aws_sdk_supplychain._services._pipeline import (
     Interceptor,
     OperationOptions,
@@ -131,6 +146,14 @@ class SupplyChainClient:
                 "credentials_provider": credentials_provider,
             }
         )
+        # resources
+        self.bill_of_materials_import_job_resource = BillOfMaterialsImportJobResource(
+            self
+        )
+        self.data_integration_flow_resource = DataIntegrationFlowResource(self)
+        self.data_lake_dataset_resource = DataLakeDatasetResource(self)
+        self.data_lake_namespace_resource = DataLakeNamespaceResource(self)
+        self.instance_resource = InstanceResource(self)
 
     def operation_options(
         self, config_overrides: Optional[SupplyChainClientConfig] = None
@@ -194,12 +217,12 @@ class SupplyChainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_data_integration_event_request.GetDataIntegrationEventRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["event_id"] = event_id
+        input_: aws_sdk_supplychain.types.get_data_integration_event_request.GetDataIntegrationEventRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["event_id"] = event_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -244,13 +267,13 @@ class SupplyChainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.get_data_integration_flow_execution_request.GetDataIntegrationFlowExecutionRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["flow_name"] = flow_name
-        input["execution_id"] = execution_id
+        input_: aws_sdk_supplychain.types.get_data_integration_flow_execution_request.GetDataIntegrationFlowExecutionRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["flow_name"] = flow_name
+        input_["execution_id"] = execution_id
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -300,17 +323,17 @@ class SupplyChainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_data_integration_events_request.ListDataIntegrationEventsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
+        input_: aws_sdk_supplychain.types.list_data_integration_events_request.ListDataIntegrationEventsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
         if event_type is not None:
-            input["event_type"] = event_type
+            input_["event_type"] = event_type
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -389,16 +412,16 @@ class SupplyChainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_data_integration_flow_executions_request.ListDataIntegrationFlowExecutionsRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["flow_name"] = flow_name
+        input_: aws_sdk_supplychain.types.list_data_integration_flow_executions_request.ListDataIntegrationFlowExecutionsRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["flow_name"] = flow_name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -465,11 +488,11 @@ class SupplyChainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_supplychain.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -568,20 +591,20 @@ class SupplyChainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.send_data_integration_event_request.SendDataIntegrationEventRequest = {}  # type: ignore[typeddict-item]
-        input["instance_id"] = instance_id
-        input["event_type"] = event_type
-        input["data"] = data
-        input["event_group_id"] = event_group_id
+        input_: aws_sdk_supplychain.types.send_data_integration_event_request.SendDataIntegrationEventRequest = {}  # type: ignore[typeddict-item]
+        input_["instance_id"] = instance_id
+        input_["event_type"] = event_type
+        input_["data"] = data
+        input_["event_group_id"] = event_group_id
         if event_timestamp is not None:
-            input["event_timestamp"] = event_timestamp
+            input_["event_timestamp"] = event_timestamp
         if client_token is not None:
-            input["client_token"] = client_token
+            input_["client_token"] = client_token
         if dataset_target is not None:
-            input["dataset_target"] = dataset_target
+            input_["dataset_target"] = dataset_target
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -621,12 +644,12 @@ class SupplyChainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_supplychain.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -666,12 +689,12 @@ class SupplyChainClient:
             return OperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_supplychain.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_supplychain.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = execute_pipeline(
-            OperationRequest(input=input, options=options_),
+            OperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )

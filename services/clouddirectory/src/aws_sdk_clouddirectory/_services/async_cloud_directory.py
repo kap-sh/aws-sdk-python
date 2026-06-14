@@ -338,15 +338,15 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.add_facet_to_object_request.AddFacetToObjectRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["schema_facet"] = schema_facet
+        input_: aws_sdk_clouddirectory.types.add_facet_to_object_request.AddFacetToObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["schema_facet"] = schema_facet
         if object_attribute_list is not None:
-            input["object_attribute_list"] = object_attribute_list
-        input["object_reference"] = object_reference
+            input_["object_attribute_list"] = object_attribute_list
+        input_["object_reference"] = object_reference
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -387,12 +387,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.apply_schema_request.ApplySchemaRequest = {}  # type: ignore[typeddict-item]
-        input["published_schema_arn"] = published_schema_arn
-        input["directory_arn"] = directory_arn
+        input_: aws_sdk_clouddirectory.types.apply_schema_request.ApplySchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["published_schema_arn"] = published_schema_arn
+        input_["directory_arn"] = directory_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -437,14 +437,14 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.attach_object_request.AttachObjectRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["parent_reference"] = parent_reference
-        input["child_reference"] = child_reference
-        input["link_name"] = link_name
+        input_: aws_sdk_clouddirectory.types.attach_object_request.AttachObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["parent_reference"] = parent_reference
+        input_["child_reference"] = child_reference
+        input_["link_name"] = link_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -487,13 +487,13 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.attach_policy_request.AttachPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["policy_reference"] = policy_reference
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.attach_policy_request.AttachPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["policy_reference"] = policy_reference
+        input_["object_reference"] = object_reference
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -536,13 +536,13 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.attach_to_index_request.AttachToIndexRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["index_reference"] = index_reference
-        input["target_reference"] = target_reference
+        input_: aws_sdk_clouddirectory.types.attach_to_index_request.AttachToIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["index_reference"] = index_reference
+        input_["target_reference"] = target_reference
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -589,15 +589,15 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.attach_typed_link_request.AttachTypedLinkRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["source_object_reference"] = source_object_reference
-        input["target_object_reference"] = target_object_reference
-        input["typed_link_facet"] = typed_link_facet
-        input["attributes"] = attributes
+        input_: aws_sdk_clouddirectory.types.attach_typed_link_request.AttachTypedLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["source_object_reference"] = source_object_reference
+        input_["target_object_reference"] = target_object_reference
+        input_["typed_link_facet"] = typed_link_facet
+        input_["attributes"] = attributes
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -642,14 +642,14 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.batch_read_request.BatchReadRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["operations"] = operations
+        input_: aws_sdk_clouddirectory.types.batch_read_request.BatchReadRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["operations"] = operations
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -690,12 +690,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.batch_write_request.BatchWriteRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["operations"] = operations
+        input_: aws_sdk_clouddirectory.types.batch_write_request.BatchWriteRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["operations"] = operations
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -738,12 +738,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.create_directory_request.CreateDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
-        input["schema_arn"] = schema_arn
+        input_: aws_sdk_clouddirectory.types.create_directory_request.CreateDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
+        input_["schema_arn"] = schema_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -796,18 +796,18 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.create_facet_request.CreateFacetRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.create_facet_request.CreateFacetRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
         if attributes is not None:
-            input["attributes"] = attributes
+            input_["attributes"] = attributes
         if object_type is not None:
-            input["object_type"] = object_type
+            input_["object_type"] = object_type
         if facet_style is not None:
-            input["facet_style"] = facet_style
+            input_["facet_style"] = facet_style
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -856,17 +856,17 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["ordered_indexed_attribute_list"] = ordered_indexed_attribute_list
-        input["is_unique"] = is_unique
+        input_: aws_sdk_clouddirectory.types.create_index_request.CreateIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["ordered_indexed_attribute_list"] = ordered_indexed_attribute_list
+        input_["is_unique"] = is_unique
         if parent_reference is not None:
-            input["parent_reference"] = parent_reference
+            input_["parent_reference"] = parent_reference
         if link_name is not None:
-            input["link_name"] = link_name
+            input_["link_name"] = link_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -917,18 +917,18 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.create_object_request.CreateObjectRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["schema_facets"] = schema_facets
+        input_: aws_sdk_clouddirectory.types.create_object_request.CreateObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["schema_facets"] = schema_facets
         if object_attribute_list is not None:
-            input["object_attribute_list"] = object_attribute_list
+            input_["object_attribute_list"] = object_attribute_list
         if parent_reference is not None:
-            input["parent_reference"] = parent_reference
+            input_["parent_reference"] = parent_reference
         if link_name is not None:
-            input["link_name"] = link_name
+            input_["link_name"] = link_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -967,11 +967,11 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.create_schema_request.CreateSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.create_schema_request.CreateSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1012,12 +1012,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.create_typed_link_facet_request.CreateTypedLinkFacetRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["facet"] = facet
+        input_: aws_sdk_clouddirectory.types.create_typed_link_facet_request.CreateTypedLinkFacetRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["facet"] = facet
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1058,11 +1058,11 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.delete_directory_request.DeleteDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
+        input_: aws_sdk_clouddirectory.types.delete_directory_request.DeleteDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1103,12 +1103,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.delete_facet_request.DeleteFacetRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.delete_facet_request.DeleteFacetRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1149,12 +1149,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.delete_object_request.DeleteObjectRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.delete_object_request.DeleteObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1193,11 +1193,11 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.delete_schema_request.DeleteSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
+        input_: aws_sdk_clouddirectory.types.delete_schema_request.DeleteSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1238,12 +1238,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.delete_typed_link_facet_request.DeleteTypedLinkFacetRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.delete_typed_link_facet_request.DeleteTypedLinkFacetRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1286,13 +1286,13 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.detach_from_index_request.DetachFromIndexRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["index_reference"] = index_reference
-        input["target_reference"] = target_reference
+        input_: aws_sdk_clouddirectory.types.detach_from_index_request.DetachFromIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["index_reference"] = index_reference
+        input_["target_reference"] = target_reference
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1335,13 +1335,13 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.detach_object_request.DetachObjectRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["parent_reference"] = parent_reference
-        input["link_name"] = link_name
+        input_: aws_sdk_clouddirectory.types.detach_object_request.DetachObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["parent_reference"] = parent_reference
+        input_["link_name"] = link_name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1384,13 +1384,13 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.detach_policy_request.DetachPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["policy_reference"] = policy_reference
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.detach_policy_request.DetachPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["policy_reference"] = policy_reference
+        input_["object_reference"] = object_reference
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1429,12 +1429,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.detach_typed_link_request.DetachTypedLinkRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["typed_link_specifier"] = typed_link_specifier
+        input_: aws_sdk_clouddirectory.types.detach_typed_link_request.DetachTypedLinkRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["typed_link_specifier"] = typed_link_specifier
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1473,11 +1473,11 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.disable_directory_request.DisableDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
+        input_: aws_sdk_clouddirectory.types.disable_directory_request.DisableDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1518,11 +1518,11 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.enable_directory_request.EnableDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
+        input_: aws_sdk_clouddirectory.types.enable_directory_request.EnableDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1556,11 +1556,11 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.get_applied_schema_version_request.GetAppliedSchemaVersionRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
+        input_: aws_sdk_clouddirectory.types.get_applied_schema_version_request.GetAppliedSchemaVersionRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1599,11 +1599,11 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.get_directory_request.GetDirectoryRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
+        input_: aws_sdk_clouddirectory.types.get_directory_request.GetDirectoryRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1644,12 +1644,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.get_facet_request.GetFacetRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.get_facet_request.GetFacetRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1691,15 +1691,15 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.get_link_attributes_request.GetLinkAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["typed_link_specifier"] = typed_link_specifier
-        input["attribute_names"] = attribute_names
+        input_: aws_sdk_clouddirectory.types.get_link_attributes_request.GetLinkAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["typed_link_specifier"] = typed_link_specifier
+        input_["attribute_names"] = attribute_names
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1743,16 +1743,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.get_object_attributes_request.GetObjectAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.get_object_attributes_request.GetObjectAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
-        input["schema_facet"] = schema_facet
-        input["attribute_names"] = attribute_names
+            input_["consistency_level"] = consistency_level
+        input_["schema_facet"] = schema_facet
+        input_["attribute_names"] = attribute_names
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1797,14 +1797,14 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.get_object_information_request.GetObjectInformationRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.get_object_information_request.GetObjectInformationRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1843,11 +1843,11 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.get_schema_as_json_request.GetSchemaAsJsonRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
+        input_: aws_sdk_clouddirectory.types.get_schema_as_json_request.GetSchemaAsJsonRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1888,12 +1888,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.get_typed_link_facet_information_request.GetTypedLinkFacetInformationRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.get_typed_link_facet_information_request.GetTypedLinkFacetInformationRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -1942,17 +1942,17 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_applied_schema_arns_request.ListAppliedSchemaArnsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
+        input_: aws_sdk_clouddirectory.types.list_applied_schema_arns_request.ListAppliedSchemaArnsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
         if schema_arn is not None:
-            input["schema_arn"] = schema_arn
+            input_["schema_arn"] = schema_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2005,18 +2005,18 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_attached_indices_request.ListAttachedIndicesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["target_reference"] = target_reference
+        input_: aws_sdk_clouddirectory.types.list_attached_indices_request.ListAttachedIndicesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["target_reference"] = target_reference
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2061,14 +2061,14 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_development_schema_arns_request.ListDevelopmentSchemaArnsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_clouddirectory.types.list_development_schema_arns_request.ListDevelopmentSchemaArnsRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2119,16 +2119,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_directories_request.ListDirectoriesRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_clouddirectory.types.list_directories_request.ListDirectoriesRequest = {}  # type: ignore[typeddict-item]
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if state is not None:
-            input["state"] = state
+            input_["state"] = state
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2177,16 +2177,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_facet_attributes_request.ListFacetAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.list_facet_attributes_request.ListFacetAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2235,15 +2235,15 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_facet_names_request.ListFacetNamesRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
+        input_: aws_sdk_clouddirectory.types.list_facet_names_request.ListFacetNamesRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2304,22 +2304,22 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_incoming_typed_links_request.ListIncomingTypedLinksRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.list_incoming_typed_links_request.ListIncomingTypedLinksRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if filter_attribute_ranges is not None:
-            input["filter_attribute_ranges"] = filter_attribute_ranges
+            input_["filter_attribute_ranges"] = filter_attribute_ranges
         if filter_typed_link is not None:
-            input["filter_typed_link"] = filter_typed_link
+            input_["filter_typed_link"] = filter_typed_link
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2376,20 +2376,20 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_index_request.ListIndexRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
+        input_: aws_sdk_clouddirectory.types.list_index_request.ListIndexRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
         if ranges_on_indexed_values is not None:
-            input["ranges_on_indexed_values"] = ranges_on_indexed_values
-        input["index_reference"] = index_reference
+            input_["ranges_on_indexed_values"] = ranges_on_indexed_values
+        input_["index_reference"] = index_reference
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2431,16 +2431,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_managed_schema_arns_request.ListManagedSchemaArnsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_clouddirectory.types.list_managed_schema_arns_request.ListManagedSchemaArnsRequest = {}  # type: ignore[typeddict-item]
         if schema_arn is not None:
-            input["schema_arn"] = schema_arn
+            input_["schema_arn"] = schema_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2497,20 +2497,20 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_object_attributes_request.ListObjectAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.list_object_attributes_request.ListObjectAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
         if facet_filter is not None:
-            input["facet_filter"] = facet_filter
+            input_["facet_filter"] = facet_filter
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2563,18 +2563,18 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_object_children_request.ListObjectChildrenRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.list_object_children_request.ListObjectChildrenRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2618,16 +2618,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_object_parent_paths_request.ListObjectParentPathsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.list_object_parent_paths_request.ListObjectParentPathsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2679,20 +2679,22 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_object_parents_request.ListObjectParentsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.list_object_parents_request.ListObjectParentsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
         if include_all_links_to_each_parent is not None:
-            input["include_all_links_to_each_parent"] = include_all_links_to_each_parent
+            input_["include_all_links_to_each_parent"] = (
+                include_all_links_to_each_parent
+            )
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2740,18 +2742,18 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_object_policies_request.ListObjectPoliciesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.list_object_policies_request.ListObjectPoliciesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2807,22 +2809,22 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_outgoing_typed_links_request.ListOutgoingTypedLinksRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.list_outgoing_typed_links_request.ListOutgoingTypedLinksRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if filter_attribute_ranges is not None:
-            input["filter_attribute_ranges"] = filter_attribute_ranges
+            input_["filter_attribute_ranges"] = filter_attribute_ranges
         if filter_typed_link is not None:
-            input["filter_typed_link"] = filter_typed_link
+            input_["filter_typed_link"] = filter_typed_link
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2870,18 +2872,18 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_policy_attachments_request.ListPolicyAttachmentsRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["policy_reference"] = policy_reference
+        input_: aws_sdk_clouddirectory.types.list_policy_attachments_request.ListPolicyAttachmentsRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["policy_reference"] = policy_reference
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
         if consistency_level is not None:
-            input["consistency_level"] = consistency_level
+            input_["consistency_level"] = consistency_level
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2923,16 +2925,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_published_schema_arns_request.ListPublishedSchemaArnsRequest = {}  # type: ignore[typeddict-item]
+        input_: aws_sdk_clouddirectory.types.list_published_schema_arns_request.ListPublishedSchemaArnsRequest = {}  # type: ignore[typeddict-item]
         if schema_arn is not None:
-            input["schema_arn"] = schema_arn
+            input_["schema_arn"] = schema_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -2974,15 +2976,15 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
+        input_: aws_sdk_clouddirectory.types.list_tags_for_resource_request.ListTagsForResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3026,16 +3028,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_typed_link_facet_attributes_request.ListTypedLinkFacetAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.list_typed_link_facet_attributes_request.ListTypedLinkFacetAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3077,15 +3079,15 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.list_typed_link_facet_names_request.ListTypedLinkFacetNamesRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
+        input_: aws_sdk_clouddirectory.types.list_typed_link_facet_names_request.ListTypedLinkFacetNamesRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3129,16 +3131,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.lookup_policy_request.LookupPolicyRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.lookup_policy_request.LookupPolicyRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
         if next_token is not None:
-            input["next_token"] = next_token
+            input_["next_token"] = next_token
         if max_results is not None:
-            input["max_results"] = max_results
+            input_["max_results"] = max_results
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3178,16 +3180,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.publish_schema_request.PublishSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["development_schema_arn"] = development_schema_arn
-        input["version"] = version
+        input_: aws_sdk_clouddirectory.types.publish_schema_request.PublishSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["development_schema_arn"] = development_schema_arn
+        input_["version"] = version
         if minor_version is not None:
-            input["minor_version"] = minor_version
+            input_["minor_version"] = minor_version
         if name is not None:
-            input["name"] = name
+            input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3223,12 +3225,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.put_schema_from_json_request.PutSchemaFromJsonRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["document"] = document
+        input_: aws_sdk_clouddirectory.types.put_schema_from_json_request.PutSchemaFromJsonRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["document"] = document
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3266,13 +3268,13 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.remove_facet_from_object_request.RemoveFacetFromObjectRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["schema_facet"] = schema_facet
-        input["object_reference"] = object_reference
+        input_: aws_sdk_clouddirectory.types.remove_facet_from_object_request.RemoveFacetFromObjectRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["schema_facet"] = schema_facet
+        input_["object_reference"] = object_reference
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3308,12 +3310,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tags"] = tags
+        input_: aws_sdk_clouddirectory.types.tag_resource_request.TagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tags"] = tags
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3349,12 +3351,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
-        input["resource_arn"] = resource_arn
-        input["tag_keys"] = tag_keys
+        input_: aws_sdk_clouddirectory.types.untag_resource_request.UntagResourceRequest = {}  # type: ignore[typeddict-item]
+        input_["resource_arn"] = resource_arn
+        input_["tag_keys"] = tag_keys
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3398,16 +3400,16 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.update_facet_request.UpdateFacetRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.update_facet_request.UpdateFacetRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
         if attribute_updates is not None:
-            input["attribute_updates"] = attribute_updates
+            input_["attribute_updates"] = attribute_updates
         if object_type is not None:
-            input["object_type"] = object_type
+            input_["object_type"] = object_type
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3445,13 +3447,13 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.update_link_attributes_request.UpdateLinkAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["typed_link_specifier"] = typed_link_specifier
-        input["attribute_updates"] = attribute_updates
+        input_: aws_sdk_clouddirectory.types.update_link_attributes_request.UpdateLinkAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["typed_link_specifier"] = typed_link_specifier
+        input_["attribute_updates"] = attribute_updates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3489,13 +3491,13 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.update_object_attributes_request.UpdateObjectAttributesRequest = {}  # type: ignore[typeddict-item]
-        input["directory_arn"] = directory_arn
-        input["object_reference"] = object_reference
-        input["attribute_updates"] = attribute_updates
+        input_: aws_sdk_clouddirectory.types.update_object_attributes_request.UpdateObjectAttributesRequest = {}  # type: ignore[typeddict-item]
+        input_["directory_arn"] = directory_arn
+        input_["object_reference"] = object_reference
+        input_["attribute_updates"] = attribute_updates
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3531,12 +3533,12 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.update_schema_request.UpdateSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
+        input_: aws_sdk_clouddirectory.types.update_schema_request.UpdateSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3576,14 +3578,14 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.update_typed_link_facet_request.UpdateTypedLinkFacetRequest = {}  # type: ignore[typeddict-item]
-        input["schema_arn"] = schema_arn
-        input["name"] = name
-        input["attribute_updates"] = attribute_updates
-        input["identity_attribute_order"] = identity_attribute_order
+        input_: aws_sdk_clouddirectory.types.update_typed_link_facet_request.UpdateTypedLinkFacetRequest = {}  # type: ignore[typeddict-item]
+        input_["schema_arn"] = schema_arn
+        input_["name"] = name
+        input_["attribute_updates"] = attribute_updates
+        input_["identity_attribute_order"] = identity_attribute_order
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3621,14 +3623,14 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.upgrade_applied_schema_request.UpgradeAppliedSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["published_schema_arn"] = published_schema_arn
-        input["directory_arn"] = directory_arn
+        input_: aws_sdk_clouddirectory.types.upgrade_applied_schema_request.UpgradeAppliedSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["published_schema_arn"] = published_schema_arn
+        input_["directory_arn"] = directory_arn
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
@@ -3668,15 +3670,15 @@ class AsyncCloudDirectoryClient:
             return AsyncOperationResponse(output=output, response=http_response)
 
         interceptors_, options_ = self.operation_options(config_overrides)
-        input: aws_sdk_clouddirectory.types.upgrade_published_schema_request.UpgradePublishedSchemaRequest = {}  # type: ignore[typeddict-item]
-        input["development_schema_arn"] = development_schema_arn
-        input["published_schema_arn"] = published_schema_arn
-        input["minor_version"] = minor_version
+        input_: aws_sdk_clouddirectory.types.upgrade_published_schema_request.UpgradePublishedSchemaRequest = {}  # type: ignore[typeddict-item]
+        input_["development_schema_arn"] = development_schema_arn
+        input_["published_schema_arn"] = published_schema_arn
+        input_["minor_version"] = minor_version
         if dry_run is not None:
-            input["dry_run"] = dry_run
+            input_["dry_run"] = dry_run
 
         response = await aexecute_pipeline(
-            AsyncOperationRequest(input=input, options=options_),
+            AsyncOperationRequest(input=input_, options=options_),
             handler=_handler,
             interceptors=list(interceptors_),
         )
